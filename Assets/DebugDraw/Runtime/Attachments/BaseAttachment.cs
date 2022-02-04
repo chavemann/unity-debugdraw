@@ -19,10 +19,10 @@ namespace Attachments
 
 		public void Destroy()
 		{
-			if (index != -1)
-			{
-				DebugDraw.Remove(this);
-			}
+			// if (index != -1)
+			// {
+			// 	DebugDraw.Remove(this);
+			// }
 
 			Release();
 		}

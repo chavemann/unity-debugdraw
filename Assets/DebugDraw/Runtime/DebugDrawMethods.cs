@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 using Items;
 using UnityEngine;
 
-public partial class DebugDraw
+public static partial class DebugDraw
 {
 
 	/*

@@ -10,6 +10,7 @@ namespace Items
 	public abstract class BaseItem
 	{
 
+		// TODO: REMOVE
 		public static int NextIdx;
 		public readonly int idx = NextIdx++;
 		

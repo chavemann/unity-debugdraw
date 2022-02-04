@@ -23,15 +23,14 @@ namespace Items
 		{
 			T item = poolIndex > 0 ? Pool[--poolIndex] : new T();
 			item.expires = duration >= 0 ? Time.time + duration : Mathf.Infinity;
-			Debug.Log($"ItemPool.Get {duration} {Mathf.Infinity} {item.expires}");
 			item.hasStateColor = DebugDraw.hasColor;
 			item.hasStateTransform = DebugDraw.hasTransform;
-
+			
 			if (DebugDraw.hasColor)
 			{
 				item.stateColor = DebugDraw._color;
 			}
-
+			
 			if (DebugDraw.hasTransform)
 			{
 				item.stateTransform = DebugDraw._transform;

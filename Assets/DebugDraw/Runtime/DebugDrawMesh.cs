@@ -40,11 +40,11 @@ public partial class DebugDrawMesh
 	/* -- Private -- */
 
 	private bool hasMesh;
-	private Mesh mesh;
+	internal Mesh mesh;
 	private MeshRenderer meshRenderer;
 	private readonly MeshTopology type;
 	private bool hasMaterial;
-	private Material material;
+	internal Material material;
 	
 	private readonly List<BaseItem> items = new List<BaseItem>();
 	private int itemsSize = 1;
@@ -53,9 +53,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Tracks the current vertex index during <see cref="Build"/>.
 	/// </summary>
-	private int vertexIndex;
-
-	private int vertexCount;
+	internal int vertexIndex;
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Init -- */
@@ -75,104 +73,177 @@ public partial class DebugDrawMesh
 	}
 
 	/// <summary>
-	/// Creates the <see cref="Mesh"/> used by this instance if it does not exist. Also optionally attaches
-	/// a mesh renderer to the specified GameObject or its child.
+	/// Creates the <see cref="Mesh"/> used by this instance if it does not exist.
 	/// </summary>
-	/// <param name="createMesh"></param>
-	/// <param name="attachTo">If not null, create a <see cref="MeshRenderer"/> on this <see cref="GameObject"/></param>
-	/// <param name="childName">If set, will instead add the mesh renderer to a child with this name.
-	/// If the child does not exist it will be created.</param>
-	public GameObject Init(bool createMesh, GameObject attachTo = null, string childName = "")
+	public void CreateMesh()
 	{
-		if (createMesh)
+		if (!hasMesh || !mesh)
 		{
-			if (hasMesh && mesh != null)
-			{
-				mesh.Clear();
-				DebugDraw.DestroyObj(mesh);
-				hasMesh = false;
-				mesh = null;
-			}
-
-			if (hasMaterial && material != null)
-			{
-				DebugDraw.DestroyObj(material);
-				hasMaterial = false;
-				material = null;
-			}
-			
+			Log.Print("     DebugDrawMesh.CreateMesh");
 			mesh = new Mesh { hideFlags = HideFlags.HideAndDontSave };
 			mesh.MarkDynamic();
 			hasMesh = true;
 		}
-
-		if (attachTo != null)
-		{
-			if (childName != "")
-			{
-				Transform t = attachTo.transform.Find(childName);
-
-				if (!t)
-				{
-					GameObject parent = attachTo;
-					attachTo = new GameObject(childName) { hideFlags = HideFlags.DontSave };
-					attachTo.transform.SetParent(parent.transform, false);
-				}
-				else
-				{
-					attachTo = t.gameObject;
-				}
-			}
-
-			meshRenderer = attachTo.GetComponent<MeshRenderer>();
-			if (!meshRenderer)
-			{
-				meshRenderer = attachTo.AddComponent<MeshRenderer>();
-			}
-
-			MeshFilter filter = attachTo.GetComponent<MeshFilter>();
-			if (!filter)
-			{
-				filter = attachTo.AddComponent<MeshFilter>();
-			}
-			
-			if (createMesh)
-			{
-				filter.sharedMesh = mesh;
-
-				if (!hasMaterial)
-				{
-					CreateMaterial();
-					meshRenderer.sharedMaterial = material;
-				}
-			}
-		}
-		
-		return attachTo;
 	}
 
-	public void Destroy()
+	// /// <summary>
+	// /// Attaches a mesh renderer and filter to the specified GameObject or its child. Only works if
+	// /// <see cref="CreateMesh"/> was called previously.
+	// /// </summary>
+	// /// <param name="attachTo"></param>
+	// /// <param name="childName"></param>
+	// public void AttachTo(GameObject attachTo = null, string childName = "")
+	// {
+	// 	if (attachTo == null || !hasMesh)
+	// 		return;
+	// 	
+	// 	if (childName != "")
+	// 	{
+	// 		Transform t = attachTo.transform.Find(childName);
+	//
+	// 		if (!t)
+	// 		{
+	// 			GameObject parent = attachTo;
+	// 			attachTo = new GameObject(childName) { hideFlags = HideFlags.DontSave };
+	// 			attachTo.transform.SetParent(parent.transform, false);
+	// 		}
+	// 		else
+	// 		{
+	// 			attachTo = t.gameObject;
+	// 		}
+	// 	}
+	// 	
+	// 	meshRenderer = attachTo.GetComponent<MeshRenderer>();
+	// 	if (!meshRenderer)
+	// 	{
+	// 		meshRenderer = attachTo.AddComponent<MeshRenderer>();
+	// 	}
+	//
+	// 	MeshFilter filter = attachTo.GetComponent<MeshFilter>();
+	// 	if (!filter)
+	// 	{
+	// 		filter = attachTo.AddComponent<MeshFilter>();
+	// 	}
+	// 	
+	// 	CreateMaterial();
+	// 	
+	// 	filter.sharedMesh = mesh;
+	// 	meshRenderer.sharedMaterial = material;
+	// }
+
+	// /// <summary>
+	// /// Creates the <see cref="Mesh"/> used by this instance if it does not exist. Also optionally attaches
+	// /// a mesh renderer to the specified GameObject or its child.
+	// /// </summary>
+	// /// <param name="createMesh"></param>
+	// /// <param name="attachTo">If not null, create a <see cref="MeshRenderer"/> on this <see cref="GameObject"/></param>
+	// /// <param name="childName">If set, will instead add the mesh renderer to a child with this name.
+	// /// If the child does not exist it will be created.</param>
+	// public GameObject Init(bool createMesh, GameObject attachTo = null, string childName = "")
+	// {
+	// 	if (createMesh)
+	// 	{
+	// 		if (hasMesh && mesh != null)
+	// 		{
+	// 			mesh.Clear();
+	// 			DebugDraw.DestroyObj(mesh);
+	// 			hasMesh = false;
+	// 			mesh = null;
+	// 		}
+	//
+	// 		if (hasMaterial && material != null)
+	// 		{
+	// 			DebugDraw.DestroyObj(material);
+	// 			hasMaterial = false;
+	// 			material = null;
+	// 		}
+	// 		
+	// 		mesh = new Mesh { hideFlags = HideFlags.HideAndDontSave };
+	// 		mesh.MarkDynamic();
+	// 		hasMesh = true;
+	// 	}
+	//
+	// 	if (attachTo != null)
+	// 	{
+	// 		if (childName != "")
+	// 		{
+	// 			Transform t = attachTo.transform.Find(childName);
+	//
+	// 			if (!t)
+	// 			{
+	// 				GameObject parent = attachTo;
+	// 				attachTo = new GameObject(childName) { hideFlags = HideFlags.DontSave };
+	// 				attachTo.transform.SetParent(parent.transform, false);
+	// 			}
+	// 			else
+	// 			{
+	// 				attachTo = t.gameObject;
+	// 			}
+	// 		}
+	//
+	// 		meshRenderer = attachTo.GetComponent<MeshRenderer>();
+	// 		if (!meshRenderer)
+	// 		{
+	// 			meshRenderer = attachTo.AddComponent<MeshRenderer>();
+	// 		}
+	//
+	// 		MeshFilter filter = attachTo.GetComponent<MeshFilter>();
+	// 		if (!filter)
+	// 		{
+	// 			filter = attachTo.AddComponent<MeshFilter>();
+	// 		}
+	// 		
+	// 		if (createMesh)
+	// 		{
+	// 			filter.sharedMesh = mesh;
+	//
+	// 			if (!hasMaterial)
+	// 			{
+	// 				CreateMaterial();
+	// 				meshRenderer.sharedMaterial = material;
+	// 			}
+	// 		}
+	// 	}
+	// 	
+	// 	return attachTo;
+	// }
+
+	// public void Destroy()
+	// {
+	// 	Clear();
+	// 	
+	// 	if (hasMesh)
+	// 	{
+	// 		DebugDraw.DestroyObj(mesh);
+	// 		hasMesh = false;
+	// 		mesh = null;
+	// 	}
+	// }
+	
+	// internal void CreateAndAttach(GameObject attachTo = null, string childName = "")
+	// {
+	// 	CreateMesh();
+	// 	CreateMaterial();
+	// 	AttachTo(attachTo, childName);
+	// }
+	
+	internal void CreateAll()
 	{
-		Clear();
-		
-		if (hasMesh)
-		{
-			DebugDraw.DestroyObj(mesh);
-			hasMesh = false;
-			mesh = null;
-		}
+		CreateMesh();
+		CreateMaterial();
 	}
 
-	private void CreateMaterial()
+	internal void CreateMaterial()
 	{
-		if (!hasMaterial && material)
-			return;
-		
-		hasMaterial = true;
-		material = new Material(Shader.Find("Hidden/Internal-Colored")) { hideFlags = HideFlags.HideAndDontSave };
-		SetInvertColours(false);
-		SetCulling(CullMode.Front);
-		SetDepthTesting();
+		if (!hasMaterial || !material)
+		{
+			Log.Print("     DebugDrawMesh.CreateMaterial");
+			hasMaterial = true;
+			material = new Material(Shader.Find("Hidden/Internal-Colored")) { hideFlags = HideFlags.HideAndDontSave };
+			SetInvertColours(false);
+			SetCulling(CullMode.Front);
+			SetDepthTesting();
+		}
 	}
 
 	/* ------------------------------------------------------------------------------------- */
@@ -310,6 +381,29 @@ public partial class DebugDrawMesh
 	}
 
 	/// <summary>
+	/// Clears the this DebugDrawMesh's <see cref="Mesh"/> if it has been created.
+	/// </summary>
+	public void ClearMesh()
+	{
+		if (!hasMesh)
+			return;
+		
+		vertices.Clear();
+		colours.Clear();
+		indices.Clear();
+		mesh.Clear();
+	}
+
+	/// <summary>
+	/// Clears all the items as well as this DebugDrawMesh's <see cref="Mesh"/>
+	/// </summary>
+	public void ClearAll()
+	{
+		Clear();
+		ClearMesh();
+	}
+
+	/// <summary>
 	/// Updates all items, clearing ones that have expired.
 	/// </summary>
 	public void Update()
@@ -342,16 +436,15 @@ public partial class DebugDrawMesh
 	/// </summary>
 	public void Build()
 	{
-		if (type == MeshTopology.Lines) Log.Print("   DebugDrawMesh.Build itemCount:", itemCount);
 		if (itemCount == 0)
 		{
-			if (vertexCount > 0)
+			if (vertexIndex > 0)
 			{
 				vertices.Clear();
 				colours.Clear();
 				indices.Clear();
 				mesh.Clear(false);
-				vertexCount = 0;
+				vertexIndex = 0;
 			}
 			
 			return;
@@ -368,7 +461,7 @@ public partial class DebugDrawMesh
 			items[i].Build(this);
 		}
 
-		vertexCount = vertices.Count;
+		if (type == MeshTopology.Lines) Log.Print("   DebugDrawMesh.Build itemCount:", itemCount, "vertices:", vertexIndex);
 
 		if (hasMesh)
 		{
@@ -377,7 +470,7 @@ public partial class DebugDrawMesh
 	}
 
 	/// <summary>
-	/// Push the new vertex data to the mesh. If the <c>createMesh</c> parameter of <see cref="Init"/> was true, this will automatically
+	/// Push the new vertex data to the mesh. If <see cref="CreateMesh"/> was called, this will automatically
 	/// be called during <see cref="Build"/>
 	/// </summary>
 	/// <param name="mesh">The mesh to update</param>
@@ -385,7 +478,7 @@ public partial class DebugDrawMesh
 	{
 		mesh.Clear(false);
 		
-		if (vertexCount > 0)
+		if (vertexIndex > 0)
 		{
 			mesh.SetVertices(vertices);
 			mesh.SetColors(colours);

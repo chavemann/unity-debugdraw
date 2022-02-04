@@ -24,8 +24,7 @@ namespace Attachments
 			item.start.Set(startObj, ref startLocalOffset, ref startWorldOffset);
 			item.end.Set(endObj, ref endLocalOffset, ref endWorldOffset);
 			item.line = Items.Line.Get(ref vector3Ref, ref vector3Ref, ref color1, ref color2, -1);
-			Log.Print(">>>>>", DebugDraw.lineMeshInstance);
-			DebugDraw.lineMeshInstance.Add(item.line);
+			// DebugDraw.lineMeshInstance.Add(item.line);
 
 			return item;
 		}
@@ -57,10 +56,8 @@ namespace Attachments
 
 		internal override bool Update()
 		{
-			Log.Print("LineAttachment.Update start:", start.isSet, start.attachment, "end:", end.isSet, end.attachment);
 			if (!start && !end)
 			{
-				Log.Print("XXXXXXXXXXXXXXXXXXXXXXXXX");
 				return false;
 			}
 

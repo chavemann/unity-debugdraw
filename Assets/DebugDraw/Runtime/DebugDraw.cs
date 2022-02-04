@@ -2,6 +2,7 @@
 #define DEBUG_DRAW
 #endif
 
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Attachments;
@@ -19,22 +20,21 @@ using Object = UnityEngine.Object;
 /// TODO: Mention static  vs instance methods
 /// TODO: Mention defines DEBUG_DRAW_OFF, DEBUG_DRAW_EDITOR
 /// </summary>
-[DefaultExecutionOrder(10000)]
-[ExecuteAlways]
-[AddComponentMenu("")]
-[SelectionBase]
-public partial class DebugDraw : MonoBehaviour
+public static partial class DebugDraw
 {
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Private -- */
-	
-	private static readonly List<BaseAttachment> Attachments = new List<BaseAttachment>();
+
+	private static readonly int DefaultLayer = LayerMask.NameToLayer("Default");
+
+	// private static readonly List<BaseAttachment> Attachments = new List<BaseAttachment>();
 	internal static DebugDrawMesh pointMeshInstance;
 	internal static DebugDrawMesh lineMeshInstance;
 	internal static DebugDrawMesh triangleMeshInstance;
-	private static DebugDraw instance;
-	
+	private static DebugDrawTimer timerInstance;
+	private static GameObject timerInstanceObj;
+
 	private static bool _useFixedUpdate;
 	#if DEBUG_DRAW_EDITOR
 	private static bool _enableInEditMode = true;
@@ -42,13 +42,15 @@ public partial class DebugDraw : MonoBehaviour
 	private static bool _enableInEditMode = false;
 	#endif
 
+	private static bool doFixedUpdate;
+
 	internal static Color _color = Color.white;
 	internal static Matrix4x4 _transform = Matrix4x4.identity;
 	internal static bool hasColor;
 	internal static bool hasTransform;
 	private static readonly List<DebugDrawState> States = new List<DebugDrawState>();
 	private static int stateIndex;
-	
+
 	/// <summary>
 	/// Should DebugDraw update itself during FixedUpdate instead of Update.
 	/// Should be set to true if you are running your game logic and using DebugDraw from FixedUpdate.
@@ -62,14 +64,10 @@ public partial class DebugDraw : MonoBehaviour
 				return;
 			
 			_useFixedUpdate = value;
-
-			if (instance)
-			{
-				instance.InitUpdateMethods();
-			}
+			UpdateFixedUpdateFlag();
 		}
 	}
-
+	
 	/// <summary>
 	/// Set to true to also allow using DebugDraw in edit mode. Make sure to enable before using any of
 	/// the debug draw visual methods in the editor.
@@ -81,21 +79,20 @@ public partial class DebugDraw : MonoBehaviour
 		{
 			if (_enableInEditMode == value)
 				return;
-
+	
 			_enableInEditMode = value;
 			
 			if (!Application.isPlaying)
 			{
 				if (_enableInEditMode)
 				{
-					Init();
+					Initialize();
 				}
-				else if (instance != null)
+				else if (timerInstance != null)
 				{
-					DestroyImmediate(instance.gameObject);
-					instance.doNotInit = true;
-					instance = null;
-					instance = null;
+					DestroyObj(timerInstanceObj);
+					timerInstance = null;
+					timerInstanceObj = null;
 				}
 			}
 		}
@@ -113,11 +110,11 @@ public partial class DebugDraw : MonoBehaviour
 			hasColor = value != Color.white;
 		}
 	}
-
+	
 	/// <summary>
 	/// All item will be transformed by this.
 	/// </summary>
-	public new static Matrix4x4 transform
+	public static Matrix4x4 transform
 	{
 		get => _transform;
 		set
@@ -129,246 +126,167 @@ public partial class DebugDraw : MonoBehaviour
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Initialisation -- */
-	
+
 	#if DEBUG_DRAW
-	private static readonly EditorApplication.CallbackFunction OnInitializeDeferredDelegate = OnInitializeDeferred;
 	
-	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-	private static void RuntimeInitialize()
-	{
-		Log.Print("-- DebugDraw.RuntimeInitialize --------------------------- --");
-		ResetAll();
-		Init();
-	}
+	private static readonly Camera.CameraCallback OnCameraPreCullDelegate = OnCameraPreCull;
 
 	#if UNITY_EDITOR
 	[InitializeOnLoadMethod]
 	private static void InitializeOnLoad()
 	{
-		Log.Print("-- DebugDraw.InitializeOnLoad -----------------------------");
-		EditorSceneManager.sceneOpened += OnEditorSceneOpened;
 		EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+		EditorSceneManager.activeSceneChangedInEditMode += OnactiveSceneChangedInEditMode;
 		
 		if (!EditorApplication.isPlayingOrWillChangePlaymode)
 		{
-			// When the editor is launched, InitializeOnLoad seems to be called before the scene is loaded
-			// so delay it until update before initialising.
-			EditorApplication.update += OnInitializeDeferredDelegate;
+			Initialize();
 		}
-		
-		ResetAll();
-		Init();
 	}
 
-	private static void OnInitializeDeferred()
+	private static void OnactiveSceneChangedInEditMode(Scene current, Scene next)
 	{
-		EditorApplication.update -= OnInitializeDeferredDelegate;
-		Init();
-	}
+		Log.Print("OnactiveSceneChangedInEditMode", timerInstance != null);
+		if (timerInstance)
+		{
+			DestroyObj(timerInstanceObj);
+			timerInstance = null;
+			timerInstanceObj = null;
+		}
 
-	private static void OnEditorSceneOpened(Scene scene, OpenSceneMode mode)
-	{
-		Init();
+		Initialize();
 	}
 
 	private static void OnPlayModeStateChanged(PlayModeStateChange state)
 	{
-		if (state == PlayModeStateChange.ExitingEditMode || state == PlayModeStateChange.ExitingPlayMode)
+		if (state == PlayModeStateChange.ExitingPlayMode)
 		{
-			if (instance)
-			{
-				instance.OnDisable();
-			}
-		}
-
-		if (state == PlayModeStateChange.EnteredEditMode || state == PlayModeStateChange.EnteredPlayMode)
-		{
-			Init();
+			Log.Print("-- OnPlayModeStateChanged ------------------");
+			Clear();
 		}
 	}
-	
-	#if DEBUG_DRAW_DEV
 	#endif
 	
-	#endif
-
-	private static void Init()
+	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+	private static void RuntimeInitialize()
 	{
-		if (!_enableInEditMode && !Application.isPlaying)
-			return;
+		Log.Print("-- DebugDraw.RuntimeInitialize -----------------------------   ");
+
+		Clear();
+		Initialize();
+	}
+	
+	private static void Initialize()
+	{
+		Log.Print("== Initialising ============================");
 		
-		if (instance != null && !instance.gameObject.scene.IsValid())
+		if (_enableInEditMode || Application.isPlaying)
 		{
-			DestroyObj(instance);
-			instance = null;
+			timerInstanceObj = new GameObject { hideFlags = HideFlags.DontSave };
+			timerInstanceObj.transform.SetSiblingIndex(int.MaxValue);
+			SceneVisibilityManager.instance.DisablePicking(timerInstanceObj, true);
+			timerInstanceObj.name = $"__DebugDraw[{Mathf.Abs(timerInstanceObj.GetInstanceID())}]__";
+			timerInstance = timerInstanceObj.AddComponent<DebugDrawTimer>();
+		}
+		else
+		{
+			timerInstanceObj = null;
+			timerInstance = null;
 		}
 
-		if (instance == null)
+		if (Application.isPlaying)
 		{
-			Log.Print(">> Creating DebugDraw");
-			GameObject obj = new GameObject { hideFlags = HideFlags.DontSave };
-			SceneVisibilityManager.instance.DisablePicking(obj, true);
-			obj.name = $"__DebugDraw[{Mathf.Abs(obj.GetInstanceID())}]__";
-			instance = obj.AddComponent<DebugDraw>(); 
-			instance.OnEnable();
-	
-			if (Application.isPlaying)
-			{
-				DontDestroyOnLoad(obj);
-			}
+			Object.DontDestroyOnLoad(timerInstanceObj);
 		}
 		
 		if (pointMeshInstance == null)
 		{
-			Log.Print(">> Creating Meshes");
+			Log.Print("  >> Creating Meshes");
 			pointMeshInstance = new DebugDrawMesh(MeshTopology.Points);
 			lineMeshInstance = new DebugDrawMesh(MeshTopology.Lines);
 			triangleMeshInstance = new DebugDrawMesh(MeshTopology.Triangles);
 		}
-	}
-
-	private static void ResetAll()
-	{
-		Log.Print("DebugDraw.ResetAll", instance !=  null ? instance.gameObject.GetInstanceID() : 0);
-		foreach (BaseAttachment attachment in Attachments)
+		
+		if (_enableInEditMode || Application.isPlaying)
 		{
-			attachment.index = -1;
-			attachment.Release();
+			Log.Print("  >> Init Meshes");
+			pointMeshInstance.CreateAll();
+			lineMeshInstance.CreateAll();
+			triangleMeshInstance.CreateAll();
 		}
 		
-		Attachments.Clear();
-
-		if (pointMeshInstance != null)
-		{
-			pointMeshInstance.Destroy();
-			lineMeshInstance.Destroy();
-			triangleMeshInstance.Destroy();
-		}
-	}
-
-	/* ------------------------------------------------------------------------------------- */
-	/* -- MonoBehaviour Init -- */
-
-	private static readonly Camera.CameraCallback OnCameraPreCullDelegate = OnCameraPreCull;
-	private bool isEnabled;
-	private bool updateInFixedUpdate;
-	internal bool doNotInit;
-
-	private void Awake()
-	{
-		OnEnable();
-	}
-
-	private void OnEnable()
-	{
-		if (isEnabled)
-			return;
+		UpdateFixedUpdateFlag();
 		
-		if (doNotInit || !_enableInEditMode && !Application.isPlaying || instance != null && this != instance)
-		{
-			DestroyImmediate(gameObject);
-			return;
-		}
-		
-		isEnabled = true;
-		Log.Print("????????? DebugDraw.OnEnable", gameObject.GetInstanceID());
-
-		if (instance == null || !instance.gameObject.scene.IsValid())
-		{
-			instance = this;
-			Init();
-		}
-		
-		if (instance == this)
-		{
-			Log.Print(">> Init meshes");
-			pointMeshInstance.Init(true, gameObject);
-			GameObject lineObj = lineMeshInstance.Init(true, gameObject, "Lines");
-			GameObject triObj = triangleMeshInstance.Init(true, gameObject, "Triangles");
-
-			Camera.onPreCull += OnCameraPreCullDelegate;
-		}
-		
-		InitUpdateMethods();
-	}
-
-	private void OnDisable()
-	{
-		if (!isEnabled || instance != null && instance != this)
-			return;
-		
-		Log.Print("DebugDraw.OnDisable", gameObject.GetInstanceID());
 		Camera.onPreCull -= OnCameraPreCullDelegate;
-
-		isEnabled = false;
-		ResetAll();
+		Camera.onPreCull += OnCameraPreCullDelegate;
 	}
-	
-	private void InitUpdateMethods()
+
+	[DefaultExecutionOrder(-10000)]
+	[ExecuteAlways]
+	[AddComponentMenu("")]
+	[SelectionBase]
+	public class DebugDrawTimer : MonoBehaviour
 	{
-		if (instance != this)
-			return;
+
+		#if UNITY_EDITOR
+		private EditorApplication.CallbackFunction OnDeferredDestroyDelegate;
+		#endif
 		
-		updateInFixedUpdate = Application.isPlaying && _useFixedUpdate;
-	}
-
-	private void FixedUpdate()
-	{
-		if (!updateInFixedUpdate)
-			return;
-
-		UpdateAttachments();
-		pointMeshInstance.Update();
-		lineMeshInstance.Update();
-		triangleMeshInstance.Update();
-	}
-
-	private void LateUpdate()
-	{
-		if (updateInFixedUpdate)
-			return;
-
-		UpdateAttachments();
-		pointMeshInstance.Update();
-		lineMeshInstance.Update();
-		triangleMeshInstance.Update();
-	}
-
-	private static void UpdateAttachments()
-	{
-		float time = Time.time;
+		private bool updateInFixedUpdate;
 		
-		int attachmentCount = Attachments.Count;
-		Log.Print("UpdateAttachments", attachmentCount);
-		
-		for(int i = attachmentCount - 1; i >= 0; i--)
+		private void OnEnable()
 		{
-			BaseAttachment attachment = Attachments[i];
-				
-			if(attachment.expires < time || !attachment.Update())
+			if (timerInstanceObj != null && gameObject != timerInstanceObj || !_enableInEditMode && !Application.isPlaying)
 			{
-				Log.Print("  Expiring attachment", attachment.expires, time);
-				attachment.index = -1;
-				attachment.Release();
-				
-				attachment = Attachments[--attachmentCount];
-				attachment.index = i;
-				Attachments[i] = attachment;
+				// Having the DebugDraw game object selected when recompiling can throw errors in the console.
+				// Defer Destroy using the EditorApplication.update callback avoids those errors.
+				if (!Application.isPlaying)
+				{
+					#if UNITY_EDITOR
+					OnDeferredDestroyDelegate = OnDeferredDestroy;
+					EditorApplication.update += OnDeferredDestroyDelegate;
+					#endif
+				}
+				else
+				{
+					DestroyObj(gameObject);
+				}
 			}
 		}
-		
-		if (attachmentCount < Attachments.Count)
+
+		private void OnDeferredDestroy()
 		{
-			Attachments.RemoveRange(attachmentCount, Attachments.Count - attachmentCount);
+			DestroyObj(gameObject);
+			EditorApplication.update -= OnDeferredDestroyDelegate;
+		}
+
+		private void FixedUpdate()
+		{
+			if (!doFixedUpdate)
+				return;
+			
+			pointMeshInstance.Update();
+			lineMeshInstance.Update();
+			triangleMeshInstance.Update();
+		}
+
+		private void Update()
+		{
+			if (doFixedUpdate)
+				return;
+			
+			pointMeshInstance.Update();
+			lineMeshInstance.Update();
+			triangleMeshInstance.Update();
 		}
 	}
-
+	
 	private static void OnCameraPreCull(Camera cam)
 	{
 		if (Application.isPlaying)
 		{
 			Camera mainCam = Camera.main;
-
+	
 			if (mainCam == null)
 			{
 				#if UNITY_EDITOR
@@ -389,17 +307,44 @@ public partial class DebugDraw : MonoBehaviour
 			return;
 		}
 		#endif
-
-		Log.Print("DebugDraw.OnCameraPreCull");
+	
 		pointMeshInstance.Build();
 		lineMeshInstance.Build();
 		triangleMeshInstance.Build();
+		
+		DrawMesh(pointMeshInstance);
+		DrawMesh(lineMeshInstance);
+		DrawMesh(triangleMeshInstance);
 	}
+
+	private static void DrawMesh(DebugDrawMesh mesh)
+	{
+		if (mesh.vertexIndex > 0)
+		{
+			Graphics.DrawMesh(
+				mesh.mesh, Vector3.zero, Quaternion.identity, mesh.material,
+				DefaultLayer);
+		}
+	}
+	
+	#if DEBUG_DRAW_DEV
+	#endif
+
 	#endif
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Methods -- */
-	
+
+	public static void Clear()
+	{
+		if (pointMeshInstance != null)
+		{
+			pointMeshInstance.ClearAll();
+			lineMeshInstance.ClearAll();
+			triangleMeshInstance.ClearAll();
+		}
+	}
+
 	/// <summary>
 	/// Sets the blend mode to invert destination colors for all debug visuals
 	/// </summary>
@@ -413,7 +358,7 @@ public partial class DebugDraw : MonoBehaviour
 		lineMeshInstance.SetInvertColours(invert);
 		triangleMeshInstance.SetInvertColours(invert);
 	}
-
+	
 	/// <summary>
 	/// Set the culling mode for all debug visuals
 	/// </summary>
@@ -448,7 +393,7 @@ public partial class DebugDraw : MonoBehaviour
 		lineMeshInstance.SetDepthTesting(write, test);
 		triangleMeshInstance.SetDepthTesting(write, test);
 	}
-
+	
 	/// <summary>
 	/// Stores the current state (color and transform) on the stack.
 	/// </summary>
@@ -464,13 +409,13 @@ public partial class DebugDraw : MonoBehaviour
 		{
 			state = States[stateIndex++];
 		}
-
+	
 		state.color = _color;
 		state.transform = _transform;
 		state.hasColor = hasColor;
 		state.hasTransform = hasTransform;
 	}
-
+	
 	/// <summary>
 	/// Restores the current state from the stack.
 	/// </summary>
@@ -485,57 +430,62 @@ public partial class DebugDraw : MonoBehaviour
 		hasColor = state.hasColor;
 		hasTransform = state.hasTransform;
 	}
-
-	public static T Add<T>(T attachment) where T : BaseAttachment
-	{
-		Log.Print("DebugDraw.Add", attachment.index);
-		if (attachment.index != -1)
-			return attachment;
-
-		attachment.index = Attachments.Count;
-		Attachments.Add(attachment);
-		return attachment;
-	}
-
-	public static T Remove<T>(T attachment) where T : BaseAttachment
-	{
-		Log.Print("DebugDraw.Remove", attachment.index);
-		if (attachment.index == -1)
-			return attachment;
-
-		BaseAttachment swapped = Attachments[Attachments.Count - 1];
-		swapped.index = attachment.index;
-		Attachments[attachment.index] = swapped;
-		attachment.index = -1;
-		Attachments.RemoveAt(Attachments.Count - 1);
-		return attachment;
-	}
+	
+	// public static T Add<T>(T attachment) where T : BaseAttachment
+	// {
+	// 	Log.Print("DebugDraw.Add", attachment.index);
+	// 	if (attachment.index != -1)
+	// 		return attachment;
+	//
+	// 	attachment.index = Attachments.Count;
+	// 	Attachments.Add(attachment);
+	// 	return attachment;
+	// }
+	//
+	// public static T Remove<T>(T attachment) where T : BaseAttachment
+	// {
+	// 	Log.Print("DebugDraw.Remove", attachment.index);
+	// 	if (attachment.index == -1)
+	// 		return attachment;
+	//
+	// 	BaseAttachment swapped = Attachments[Attachments.Count - 1];
+	// 	swapped.index = attachment.index;
+	// 	Attachments[attachment.index] = swapped;
+	// 	attachment.index = -1;
+	// 	Attachments.RemoveAt(Attachments.Count - 1);
+	// 	return attachment;
+	// }
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static void DestroyObj(Object obj)
 	{
 		if (Application.isPlaying)
 		{
-			Destroy(obj);
+			Object.Destroy(obj);
 		}
 		else
 		{
-			DestroyImmediate(obj);
+			Object.DestroyImmediate(obj);
 		}
 	}
 
+	private static void UpdateFixedUpdateFlag()
+	{
+		doFixedUpdate = _useFixedUpdate && Application.isPlaying;
+	}
+
 	/* ------------------------------------------------------------------------------------- */
-	
+
 	private class DebugDrawState
 	{
-
+	
 		// ReSharper disable MemberHidesStaticFromOuterClass
 		public Color color;
 		public Matrix4x4 transform;
 		public bool hasColor;
 		public bool hasTransform;
 		// ReSharper restore MemberHidesStaticFromOuterClass
-
+	
 	}
 
 }
