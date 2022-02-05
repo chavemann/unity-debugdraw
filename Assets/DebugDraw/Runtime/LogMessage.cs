@@ -23,6 +23,7 @@ internal class LogMessage
 	private bool active;
 	private LogMessage prev;
 	private LogMessage next;
+	private float height;
 	internal int id;
 	internal string text;
 	internal float expires;
@@ -182,25 +183,51 @@ internal class LogMessage
 
 	internal static void Draw()
 	{
-		LogMessage message = messages;
-
-		Rect rect = new Rect(
-			ScreenPadding, ScreenPadding,
-			Screen.width - ScreenPadding * 2, Screen.height - ScreenPadding * 2);
-
-		while (message!= null)
+		Color guiColor = GUI.color;
+		
+		for (int i = 0; i < 2; i++)
 		{
-			MessageGUIContent.text = message.text;
-			float height = Log.MessageStyle.CalcHeight(MessageGUIContent, rect.width);
-			GUI.Label(rect, MessageGUIContent, Log.MessageStyle);
-
-			rect.y += height;
-			rect.height -= height;
-
-			if (rect.height <= 0)
-				break;
+			Rect rect = new Rect(
+				ScreenPadding, ScreenPadding,
+				Screen.width - ScreenPadding * 2, Screen.height - ScreenPadding * 2);
+			LogMessage message = messages;
 			
-			message = message.next;
+			if (Log.messageShadow)
+			{
+				if (i == 0)
+				{
+					GUI.color = Color.black;
+					rect.x += 1;
+					rect.y += 1;
+				}
+				else
+				{
+					GUI.color = guiColor;
+				}
+			}
+
+			while (message!= null)
+			{
+				MessageGUIContent.text = message.text;
+
+				if (i == 0)
+				{
+					message.height = Log.MessageStyle.CalcHeight(MessageGUIContent, rect.width);
+				}
+			
+				GUI.Label(rect, MessageGUIContent, Log.MessageStyle);
+
+				rect.y += message.height;
+				rect.height -= message.height;
+
+				if (rect.height <= 0)
+					break;
+			
+				message = message.next;
+			}
+			
+			if (!Log.messageShadow)
+				break;
 		}
 	}
 

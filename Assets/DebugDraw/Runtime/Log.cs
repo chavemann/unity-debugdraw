@@ -34,6 +34,10 @@ public static partial class Log
 	public static int maxArrayItems = 100;
 
 	/// <summary>
+	/// 
+	/// </summary>
+	public static bool messageShadow = true;
+	/// <summary>
 	/// TODO:
 	/// </summary>
 	public static int maxMessages = 100;
