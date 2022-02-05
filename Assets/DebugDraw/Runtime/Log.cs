@@ -14,7 +14,7 @@ using Object = UnityEngine.Object;
 /// Provides some extended logging overloads, e.g. <see cref="Print(object[])"/>.
 /// Also supports all the same Debug.Log** methods so it can be a drop-in replacement.
 /// </summary>
-public static class Log
+public static partial class Log
 {
 	
 	private static readonly StringBuilder ArgsBuffer = new StringBuilder();
@@ -805,55 +805,5 @@ public static class Log
 	{
 		LogMessage.Clear();
 	}
-	
-	/* <ShowGenMethods> */
-	
-	public static void Show(string message, int id = -1, float duration = 1)
-	{
-		#if DEBUG_DRAW
-		if (DebugDraw.hasInstance)
-		{
-			LogMessage.Add(message, id, duration);
-		}
-		#endif
-	}
-	
-	public static void ShowFormat(string format, params object[] args)
-	{
-		#if DEBUG_DRAW
-		if (DebugDraw.hasInstance)
-		{
-			LogMessage.Add(string.Format(format, args), -1, 1);
-		}
-		#endif
-	}
-	
-	public static void ShowFormatId(int id, float duration, string format, params object[] args)
-	{
-		#if DEBUG_DRAW
-		#endif
-	}
-	
-	public static void ShowAll(params object[] args)
-	{
-		#if DEBUG_DRAW
-		if (DebugDraw.hasInstance)
-		{
-			LogMessage.Add((string) GetArgString(args), -1, 1);
-		}
-		#endif
-	}
-	
-	public static void ShowAllId(int id, float duration, params object[] args)
-	{
-		#if DEBUG_DRAW
-		if (DebugDraw.hasInstance)
-		{
-			LogMessage.Add((string) GetArgString(args), id, duration);
-		}
-		#endif
-	}
-	
-	/* </ShowGenMethods> */
 
 }

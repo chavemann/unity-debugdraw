@@ -66,11 +66,11 @@ internal class LogMessage
 		MessageIds.Clear();
 	}
 
-	internal static void Add(string text, int id, float duration)
+	internal static void Add(int id, float duration, string text)
 	{
 		LogMessage message;
 
-		if (id >= 0)
+		if (id != 0)
 		{
 			if (!MessageIds.TryGetValue(id, out message))
 			{
