@@ -2,6 +2,7 @@
 #define DEBUG_DRAW
 #endif
 
+using System;
 using UnityEngine;
 
 public static partial class DebugDraw
@@ -9,7 +10,7 @@ public static partial class DebugDraw
 
 	#if DEBUG_DRAW
 
-	private const HideFlags TimerHideFlags = HideFlags.DontSave;
+	private const HideFlags TimerHideFlags = HideFlags.DontSave | HideFlags.NotEditable;
 	// private const HideFlags TimerHideFlags = HideFlags.HideAndDontSave;
 
 	/// <summary>
@@ -50,7 +51,7 @@ public static partial class DebugDraw
 			
 			if (!timerInstance)
 			{
-				timerInstance = this;
+				UpdateInstance(this);
 				Clear();
 			}
 			else if (timerInstance == this)
@@ -64,7 +65,7 @@ public static partial class DebugDraw
 			if (timerInstance == this || timerInstance == null)
 			{
 				pendingDestroy = true;
-				timerInstance = null;
+				UpdateInstance(null);
 			}
 		}
 
@@ -92,6 +93,22 @@ public static partial class DebugDraw
 			triangleMeshInstance.Update();
 			requiresBuild = true;
 			requiresDraw = true;
+
+			if (LogMessage.hasMessages)
+			{
+				LogMessage.Update();
+			}
+		}
+
+		private void OnGUI()
+		{
+			if (Event.current.type != EventType.Repaint)
+				return;
+			
+			if (LogMessage.hasMessages)
+			{
+				LogMessage.Draw();
+			}
 		}
 
 	}

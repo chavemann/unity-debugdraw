@@ -16,6 +16,7 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
+// TODO: Test with DEBUG_DRAW_OFF
 /// <summary>
 /// TODO: Write
 /// TODO: Mention static  vs instance methods
@@ -35,8 +36,6 @@ public static partial class DebugDraw
 	internal static DebugDrawMesh pointMeshInstance;
 	internal static DebugDrawMesh lineMeshInstance;
 	internal static DebugDrawMesh triangleMeshInstance;
-	private static DebugDrawTimer timerInstance;
-	private static GameObject timerInstanceObj;
 
 	private static bool _useFixedUpdate;
 	#if DEBUG_DRAW_EDITOR
@@ -45,13 +44,7 @@ public static partial class DebugDraw
 	private static bool _enableInEditMode = false;
 	#endif
 
-	private static bool doFixedUpdate;
-	private static bool requiresBuild = true;
-	private static bool requiresDraw = true;
-
-	internal static float frameTime;
-	internal static bool beforeInitialise; 
-	internal static Camera cam;
+	internal static bool hasInstance;
 	
 	internal static Color _color = Color.white;
 	internal static Matrix4x4 _transform = Matrix4x4.identity;
@@ -76,7 +69,8 @@ public static partial class DebugDraw
 			UpdateFixedUpdateFlag();
 		}
 	}
-	
+
+	// TODO: Test enableInEditMode again
 	/// <summary>
 	/// Set to true to also allow using DebugDraw in edit mode. Make sure to enable before using any of
 	/// the debug draw visual methods in the editor.
@@ -99,9 +93,8 @@ public static partial class DebugDraw
 				}
 				else if (timerInstance != null)
 				{
-					DestroyObj(timerInstanceObj);
-					timerInstance = null;
-					timerInstanceObj = null;
+					DestroyObj(timerInstance.gameObject);
+					UpdateInstance(null);
 				}
 			}
 		}
@@ -139,8 +132,18 @@ public static partial class DebugDraw
 	#if DEBUG_DRAW
 	
 	private static readonly Camera.CameraCallback OnCameraPreCullDelegate = OnCameraPreCull;
+	
+	private static DebugDrawTimer timerInstance;
+	private static float frameTime;
+	private static bool beforeInitialise; 
+	private static Camera cam;
+
+	private static bool doFixedUpdate;
+	private static bool requiresBuild = true;
+	private static bool requiresDraw = true;
 
 	#if UNITY_EDITOR
+	
 	[InitializeOnLoadMethod]
 	private static void InitializeOnLoad()
 	{
@@ -200,9 +203,10 @@ public static partial class DebugDraw
 
 		if (createTimer && !timerInstance)
 		{
-			timerInstanceObj = new GameObject();
+			GameObject timerInstanceObj = new GameObject();
 			timerInstanceObj.name = $"__DebugDraw[{Mathf.Abs(timerInstanceObj.GetInstanceID())}]__";
 			timerInstance = timerInstanceObj.AddComponent<DebugDrawTimer>();
+			UpdateInstance(timerInstance);
 		}
 		
 		if (pointMeshInstance == null)
@@ -231,6 +235,12 @@ public static partial class DebugDraw
 		
 		Camera.onPreCull -= OnCameraPreCullDelegate;
 		Camera.onPreCull += OnCameraPreCullDelegate;
+	}
+
+	private static void UpdateInstance(DebugDrawTimer instance)
+	{
+		timerInstance = instance;
+		hasInstance = instance;
 	}
 
 	private static void OnCameraPreCull(Camera _)
@@ -273,9 +283,6 @@ public static partial class DebugDraw
 		}
 	}
 	
-	#if DEBUG_DRAW_DEV
-	#endif
-
 	#endif
 
 	/* ------------------------------------------------------------------------------------- */
@@ -298,6 +305,8 @@ public static partial class DebugDraw
 		}
 
 		visualCount = 0;
+		
+		Log.Clear();
 	}
 
 	/// <summary>

@@ -61,6 +61,9 @@ namespace DebugDrawSamples.Showcase.Scripts
 				}
 			}
 			
+			Log.Show("Hello this is the time: " + DebugDraw.GetTime());
+			Log.Show($"Special message <b>XX</b> <i>{DebugDraw.GetTime()}</i>", 0);
+			
 			DebugDraw.transform = transform.localToWorldMatrix;
 			DebugDraw.Line(Vector3.zero, Vector3.forward, Color.cyan);//, 0.1f);
 			DebugDraw.transform = Matrix4x4.identity;

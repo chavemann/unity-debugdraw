@@ -1,3 +1,7 @@
+#if !DEBUG_DRAW_OFF
+#define DEBUG_DRAW
+#endif
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +17,7 @@ using Object = UnityEngine.Object;
 public static class Log
 {
 	
-	private static readonly StringBuilder LogBuffer = new StringBuilder();
+	private static readonly StringBuilder ArgsBuffer = new StringBuilder();
 	private static readonly StringBuilder GetStringBuffer = new StringBuilder();
 
 	/// <summary>
@@ -29,6 +33,22 @@ public static class Log
 	/// </summary>
 	public static int maxArrayItems = 100;
 
+	/// <summary>
+	/// TODO:
+	/// </summary>
+	public static int maxMessages = 100;
+
+	/// <summary>
+	/// TODO:
+	/// </summary>
+	public static readonly GUIStyle MessageStyle = new GUIStyle();
+
+	static Log()
+	{
+		MessageStyle.normal.textColor = Color.white;
+		MessageStyle.normal.background = Texture2D.blackTexture;
+	}
+	
 	/* ------------------------------------------------------------------------------------- */
 	#region >> Basic Unity log methods <<
 	/* ------------------------------------------------------------------------------------- */
@@ -59,7 +79,7 @@ public static class Log
 	/// </summary>
 	/// <param name="format">A composite format string.</param>
 	/// <param name="args">Format arguments.</param>
-	public static void LogFormat(string format, params object[] args)
+	public static void PrintFormat(string format, params object[] args)
 	{
 		Debug.unityLogger.LogFormat(LogType.Log, defaultLogContext, format, args);
 	}
@@ -70,7 +90,7 @@ public static class Log
 	/// <param name="format">A composite format string.</param>
 	/// <param name="args">Format arguments.</param>
 	/// <param name="context">Object to which the message applies.</param>
-	public static void LogFormat(Object context, string format, params object[] args)
+	public static void PrintFormat(Object context, string format, params object[] args)
 	{
 		Debug.unityLogger.LogFormat(LogType.Log, context, format, args);
 	}
@@ -83,7 +103,7 @@ public static class Log
 	/// <param name="context">Object to which the message applies.</param>
 	/// <param name="logType">Type of message e.g. warn or error etc.</param>
 	/// <param name="logOptions">Option flags to treat the log message special.</param>
-	public static void LogFormat(LogType logType, LogOption logOptions, Object context, string format, params object[] args)
+	public static void PrintFormat(LogType logType, LogOption logOptions, Object context, string format, params object[] args)
 	{
 		Debug.LogFormat(logType, logOptions, context, format, args);
 	}
@@ -92,7 +112,7 @@ public static class Log
 	///   <para>A variant of Debug.unityLogger.Log that logs an error message to the console.</para>
 	/// </summary>
 	/// <param name="exception">Runtime Exception.</param>
-	public static void LogException(Exception exception)
+	public static void PrintException(Exception exception)
 	{
 		Debug.unityLogger.LogException(exception, defaultLogContext);
 	}
@@ -102,7 +122,7 @@ public static class Log
 	/// </summary>
 	/// <param name="context">Object to which the message applies.</param>
 	/// <param name="exception">Runtime Exception.</param>
-	public static void LogException(Exception exception, Object context)
+	public static void PrintException(Exception exception, Object context)
 	{
 		Debug.unityLogger.LogException(exception, context);
 	}
@@ -208,6 +228,8 @@ public static class Log
 				return "Null";
 			case string str:
 				return GetString(str);
+			case object[] objs:
+				return GetString(objs);
 			case IEnumerable enumerable:
 				return GetString(enumerable);
 			case IFormattable formattable:
@@ -274,6 +296,29 @@ public static class Log
 	public static object GetString(float message) => message.ToString(null, CultureInfo.InvariantCulture);
 	public static object GetString(double message) => message.ToString(null, CultureInfo.InvariantCulture);
 	public static object GetString(decimal message) => message.ToString(null, CultureInfo.InvariantCulture);
+
+	public static object GetArgString(object[] args)
+	{
+		StringBuilder buffer = ArgsBuffer;
+		buffer.Clear();
+
+		bool first = true;
+		foreach(object arg in args)
+		{
+			if (first)
+			{
+				first = false;
+			}
+			else
+			{
+				buffer.Append(" ");
+			}
+			
+			buffer.Append(GetString(arg));
+		}
+
+		return buffer.ToString();
+	}
 	
 	/// <summary>
 	///   <para>Logs an Object to the Unity Console.</para>
@@ -506,25 +551,7 @@ public static class Log
 	/// <param name="args">Items for display.</param>
 	public static void Print(params object[] args)
 	{
-		StringBuilder buffer = LogBuffer;
-		buffer.Clear();
-
-		bool first = true;
-		foreach(object arg in args)
-		{
-			if (first)
-			{
-				first = false;
-			}
-			else
-			{
-				buffer.Append(" ");
-			}
-			
-			buffer.Append(GetString(arg));
-		}
-
-		Debug.unityLogger.Log(defaultLogType, (object) buffer.ToString(), defaultLogContext);
+		Debug.unityLogger.Log(defaultLogType, GetArgString(args), defaultLogContext);
 	}
 
 	/* ------------------------------------------------------------------------------------- */
@@ -546,6 +573,16 @@ public static class Log
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">bool for display.</param>
 	public static void Print(string message, bool val)
+	{
+		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
+	}
+	
+	/// <summary>
+	///   <para>Logs a message and string to the Unity Console.</para>
+	/// </summary>
+	/// <param name="message">Message for display.</param>
+	/// <param name="val">bool for display.</param>
+	public static void Print(string message, string val)
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
@@ -763,5 +800,60 @@ public static class Log
 	/* ------------------------------------------------------------------------------------- */
 	#endregion
 	/* ------------------------------------------------------------------------------------- */
+
+	public static void Clear()
+	{
+		LogMessage.Clear();
+	}
+	
+	/* <ShowGenMethods> */
+	
+	public static void Show(string message, int id = -1, float duration = 1)
+	{
+		#if DEBUG_DRAW
+		if (DebugDraw.hasInstance)
+		{
+			LogMessage.Add(message, id, duration);
+		}
+		#endif
+	}
+	
+	public static void ShowFormat(string format, params object[] args)
+	{
+		#if DEBUG_DRAW
+		if (DebugDraw.hasInstance)
+		{
+			LogMessage.Add(string.Format(format, args), -1, 1);
+		}
+		#endif
+	}
+	
+	public static void ShowFormatId(int id, float duration, string format, params object[] args)
+	{
+		#if DEBUG_DRAW
+		#endif
+	}
+	
+	public static void ShowAll(params object[] args)
+	{
+		#if DEBUG_DRAW
+		if (DebugDraw.hasInstance)
+		{
+			LogMessage.Add((string) GetArgString(args), -1, 1);
+		}
+		#endif
+	}
+	
+	public static void ShowAllId(int id, float duration, params object[] args)
+	{
+		#if DEBUG_DRAW
+		if (DebugDraw.hasInstance)
+		{
+			LogMessage.Add((string) GetArgString(args), id, duration);
+		}
+		#endif
+	}
+	
+	/* </ShowGenMethods> */
 
 }
