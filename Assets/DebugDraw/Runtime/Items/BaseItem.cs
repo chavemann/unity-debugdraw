@@ -10,10 +10,6 @@ namespace Items
 	public abstract class BaseItem
 	{
 
-		// TODO: REMOVE
-		public static int NextIdx;
-		public readonly int idx = NextIdx++;
-		
 		/// <summary>
 		/// This item's color.
 		/// </summary>
@@ -64,14 +60,14 @@ namespace Items
 		/// <param name="duration">The duration starting from the current time.</param>
 		public T SetDuration<T>(float duration) where T : BaseItem
 		{
-			expires = Time.time + duration;
+			expires = DebugDraw.GetTime(duration);
 			return (T) this;
 		}
 
 		/// <inheritdoc cref="SetDuration{T}(float)"/>
 		public BaseItem SetDuration(float duration)
 		{
-			expires = Time.time + duration;
+			expires = DebugDraw.GetTime(duration);
 			return this;
 		}
 

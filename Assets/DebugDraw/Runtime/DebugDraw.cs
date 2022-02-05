@@ -5,12 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Attachments;
+using Visuals;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
@@ -28,7 +29,9 @@ public static partial class DebugDraw
 
 	private static readonly int DefaultLayer = LayerMask.NameToLayer("Default");
 
-	// private static readonly List<BaseAttachment> Attachments = new List<BaseAttachment>();
+	private static readonly List<BaseVisual> Visuals = new List<BaseVisual>();
+	private static int visualCount;
+	private static int visualListSize = 1;
 	internal static DebugDrawMesh pointMeshInstance;
 	internal static DebugDrawMesh lineMeshInstance;
 	internal static DebugDrawMesh triangleMeshInstance;
@@ -43,7 +46,13 @@ public static partial class DebugDraw
 	#endif
 
 	private static bool doFixedUpdate;
+	private static bool requiresBuild = true;
+	private static bool requiresDraw = true;
 
+	internal static float frameTime;
+	internal static bool beforeInitialise; 
+	internal static Camera cam;
+	
 	internal static Color _color = Color.white;
 	internal static Matrix4x4 _transform = Matrix4x4.identity;
 	internal static bool hasColor;
@@ -135,81 +144,84 @@ public static partial class DebugDraw
 	[InitializeOnLoadMethod]
 	private static void InitializeOnLoad()
 	{
+		// Log.Print("---- InitializeOnLoad ---------------------------------- ");
+		
 		EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
 		EditorSceneManager.activeSceneChangedInEditMode += OnactiveSceneChangedInEditMode;
+		EditorSceneManager.sceneOpening += OnEditorSceneOpening;
 		
-		if (!EditorApplication.isPlayingOrWillChangePlaymode)
+		Clear();
+		Initialize(true);
+	}
+
+	private static void OnEditorSceneOpening(string path, OpenSceneMode mode)
+	{
+		if (mode == OpenSceneMode.Single)
 		{
-			Initialize();
+			frameTime = 0;
+			beforeInitialise = true;
+			Clear();
 		}
 	}
 
 	private static void OnactiveSceneChangedInEditMode(Scene current, Scene next)
 	{
-		Log.Print("OnactiveSceneChangedInEditMode", timerInstance != null);
-		if (timerInstance)
-		{
-			DestroyObj(timerInstanceObj);
-			timerInstance = null;
-			timerInstanceObj = null;
-		}
-
+		// Log.Print("---- OnactiveSceneChangedInEditMode ----------------------------------", frameTime);
+		
 		Initialize();
 	}
 
 	private static void OnPlayModeStateChanged(PlayModeStateChange state)
 	{
-		if (state == PlayModeStateChange.ExitingPlayMode)
+		if (state == PlayModeStateChange.ExitingPlayMode || state == PlayModeStateChange.ExitingEditMode)
 		{
-			Log.Print("-- OnPlayModeStateChanged ------------------");
+			// Log.Print("---- OnPlayModeStateChanged ----------------------------------");
+			
 			Clear();
+			frameTime = 0;
+			beforeInitialise = true;
 		}
 	}
 	#endif
 	
-	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
 	private static void RuntimeInitialize()
 	{
-		Log.Print("-- DebugDraw.RuntimeInitialize -----------------------------   ");
+		// Log.Print("---- RuntimeInitialize ----------------------------------");
 
-		Clear();
-		Initialize();
+		Initialize(true);
 	}
 	
-	private static void Initialize()
+	private static void Initialize(bool createTimer = false)
 	{
-		Log.Print("== Initialising ============================");
+		// Log.Print("---- [Initialising] ---------------------------------- ");
 		
-		if (_enableInEditMode || Application.isPlaying)
+		beforeInitialise = false;
+
+		if (createTimer && !timerInstance)
 		{
-			timerInstanceObj = new GameObject { hideFlags = HideFlags.DontSave };
-			timerInstanceObj.transform.SetSiblingIndex(int.MaxValue);
-			SceneVisibilityManager.instance.DisablePicking(timerInstanceObj, true);
+			timerInstanceObj = new GameObject();
 			timerInstanceObj.name = $"__DebugDraw[{Mathf.Abs(timerInstanceObj.GetInstanceID())}]__";
 			timerInstance = timerInstanceObj.AddComponent<DebugDrawTimer>();
-		}
-		else
-		{
-			timerInstanceObj = null;
-			timerInstance = null;
-		}
-
-		if (Application.isPlaying)
-		{
-			Object.DontDestroyOnLoad(timerInstanceObj);
 		}
 		
 		if (pointMeshInstance == null)
 		{
-			Log.Print("  >> Creating Meshes");
 			pointMeshInstance = new DebugDrawMesh(MeshTopology.Points);
 			lineMeshInstance = new DebugDrawMesh(MeshTopology.Lines);
 			triangleMeshInstance = new DebugDrawMesh(MeshTopology.Triangles);
 		}
+
+		if (Visuals.Count == 0)
+		{
+			for (int i = 0; i < visualListSize; i++)
+			{
+				Visuals.Add(null);
+			}
+		}
 		
 		if (_enableInEditMode || Application.isPlaying)
 		{
-			Log.Print("  >> Init Meshes");
 			pointMeshInstance.CreateAll();
 			lineMeshInstance.CreateAll();
 			triangleMeshInstance.CreateAll();
@@ -221,102 +233,36 @@ public static partial class DebugDraw
 		Camera.onPreCull += OnCameraPreCullDelegate;
 	}
 
-	[DefaultExecutionOrder(-10000)]
-	[ExecuteAlways]
-	[AddComponentMenu("")]
-	[SelectionBase]
-	public class DebugDrawTimer : MonoBehaviour
+	private static void OnCameraPreCull(Camera _)
 	{
-
-		#if UNITY_EDITOR
-		private EditorApplication.CallbackFunction OnDeferredDestroyDelegate;
-		#endif
-		
-		private bool updateInFixedUpdate;
-		
-		private void OnEnable()
-		{
-			if (timerInstanceObj != null && gameObject != timerInstanceObj || !_enableInEditMode && !Application.isPlaying)
-			{
-				// Having the DebugDraw game object selected when recompiling can throw errors in the console.
-				// Defer Destroy using the EditorApplication.update callback avoids those errors.
-				if (!Application.isPlaying)
-				{
-					#if UNITY_EDITOR
-					OnDeferredDestroyDelegate = OnDeferredDestroy;
-					EditorApplication.update += OnDeferredDestroyDelegate;
-					#endif
-				}
-				else
-				{
-					DestroyObj(gameObject);
-				}
-			}
-		}
-
-		private void OnDeferredDestroy()
-		{
-			DestroyObj(gameObject);
-			EditorApplication.update -= OnDeferredDestroyDelegate;
-		}
-
-		private void FixedUpdate()
-		{
-			if (!doFixedUpdate)
-				return;
-			
-			pointMeshInstance.Update();
-			lineMeshInstance.Update();
-			triangleMeshInstance.Update();
-		}
-
-		private void Update()
-		{
-			if (doFixedUpdate)
-				return;
-			
-			pointMeshInstance.Update();
-			lineMeshInstance.Update();
-			triangleMeshInstance.Update();
-		}
-	}
-	
-	private static void OnCameraPreCull(Camera cam)
-	{
-		if (Application.isPlaying)
-		{
-			Camera mainCam = Camera.main;
-	
-			if (mainCam == null)
-			{
-				#if UNITY_EDITOR
-				mainCam = SceneView.lastActiveSceneView.camera;
-				#else
-				return;
-				#endif
-			}
-			
-			if (cam != mainCam)
-			{
-				return;
-			}
-		}
-		#if UNITY_EDITOR
-		else if (cam != SceneView.lastActiveSceneView.camera)
-		{
+		if (!requiresDraw)
 			return;
-		}
-		#endif
+		
+		cam = Camera.main;
 	
-		pointMeshInstance.Build();
-		lineMeshInstance.Build();
-		triangleMeshInstance.Build();
+		if (!cam)
+		{
+			#if UNITY_EDITOR
+			cam = SceneView.lastActiveSceneView.camera;
+			#else
+			return;
+			#endif
+		}
+
+		if (requiresBuild)
+		{
+			pointMeshInstance.Build();
+			lineMeshInstance.Build();
+			triangleMeshInstance.Build();
+			requiresBuild = false;
+		}
 		
 		DrawMesh(pointMeshInstance);
 		DrawMesh(lineMeshInstance);
 		DrawMesh(triangleMeshInstance);
+		requiresDraw = false;
 	}
-
+	
 	private static void DrawMesh(DebugDrawMesh mesh)
 	{
 		if (mesh.vertexIndex > 0)
@@ -337,12 +283,21 @@ public static partial class DebugDraw
 
 	public static void Clear()
 	{
+		for (int i = visualCount - 1; i >= 0; i--)
+		{
+			BaseVisual visual = Visuals[i];
+			visual.index = -1;
+			visual.Release();
+		}
+		
 		if (pointMeshInstance != null)
 		{
 			pointMeshInstance.ClearAll();
 			lineMeshInstance.ClearAll();
 			triangleMeshInstance.ClearAll();
 		}
+
+		visualCount = 0;
 	}
 
 	/// <summary>
@@ -431,30 +386,49 @@ public static partial class DebugDraw
 		hasTransform = state.hasTransform;
 	}
 	
-	// public static T Add<T>(T attachment) where T : BaseAttachment
-	// {
-	// 	Log.Print("DebugDraw.Add", attachment.index);
-	// 	if (attachment.index != -1)
-	// 		return attachment;
-	//
-	// 	attachment.index = Attachments.Count;
-	// 	Attachments.Add(attachment);
-	// 	return attachment;
-	// }
-	//
-	// public static T Remove<T>(T attachment) where T : BaseAttachment
-	// {
-	// 	Log.Print("DebugDraw.Remove", attachment.index);
-	// 	if (attachment.index == -1)
-	// 		return attachment;
-	//
-	// 	BaseAttachment swapped = Attachments[Attachments.Count - 1];
-	// 	swapped.index = attachment.index;
-	// 	Attachments[attachment.index] = swapped;
-	// 	attachment.index = -1;
-	// 	Attachments.RemoveAt(Attachments.Count - 1);
-	// 	return attachment;
-	// }
+	private static void UpdateFixedUpdateFlag()
+	{
+		doFixedUpdate = _useFixedUpdate && Application.isPlaying;
+	}
+
+	internal static T AddVisual<T>(T visual) where T : BaseVisual
+	{
+		if (visual.index != -1)
+			return visual;
+	
+		if (visualCount == visualListSize)
+		{
+			visualListSize *= 2;
+	
+			for (int i = visualCount; i < visualListSize; i++)
+			{
+				Visuals.Add(null);
+			}
+		}
+
+		Visuals[visual.index = visualCount++] = visual;
+		return visual;
+	}
+
+	private static void UpdateVisuals()
+	{
+		float time = GetTime();
+		
+		for (int i = visualCount - 1; i >= 0; i--)
+		{
+			BaseVisual visual = Visuals[i];
+			
+			if (visual.expires < time || !visual.Update())
+			{
+				BaseVisual swap = Visuals[--visualCount];
+				swap.index = i;
+				Visuals[i] = visual;
+				
+				visual.index = -1;
+				visual.Release();
+			}
+		}
+	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static void DestroyObj(Object obj)
@@ -469,9 +443,18 @@ public static partial class DebugDraw
 		}
 	}
 
-	private static void UpdateFixedUpdateFlag()
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static float GetTime()
 	{
-		doFixedUpdate = _useFixedUpdate && Application.isPlaying;
+		return frameTime;
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static float GetTime(float duration)
+	{
+		return duration < 0
+			? float.PositiveInfinity
+			: frameTime + duration;
 	}
 
 	/* ------------------------------------------------------------------------------------- */

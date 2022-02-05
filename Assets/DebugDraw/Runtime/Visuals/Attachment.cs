@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Attachments
+namespace Visuals
 {
 
 	/// <summary>

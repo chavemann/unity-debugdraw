@@ -55,26 +55,6 @@ public static class Log
 	}
 	
 	/// <summary>
-	///   <para>Logs a message to the Unity Console.</para>
-	/// </summary>
-	/// <param name="message">String for display.</param>
-	/// <param name="context">Object to which the message applies.</param>
-	public static void Print(string message, Object context)
-	{
-		Debug.unityLogger.Log(LogType.Log, (object) message, context);
-	}
-
-	/// <summary>
-	///   <para>Logs a message to the Unity Console.</para>
-	/// </summary>
-	/// <param name="message">String or object to be converted to string representation for display.</param>
-	/// <param name="context">Object to which the message applies.</param>
-	public static void Print(object message, Object context)
-	{
-		Debug.unityLogger.Log(LogType.Log, GetString(message), context);
-	}
-	
-	/// <summary>
 	///   <para>Logs a formatted message to the Unity Console.</para>
 	/// </summary>
 	/// <param name="format">A composite format string.</param>
@@ -149,26 +129,6 @@ public static class Log
 	}
 	
 	/// <summary>
-	///   <para>A variant of Debug.Log that logs a warning message to the console.</para>
-	/// </summary>
-	/// <param name="message">String for display.</param>
-	/// <param name="context">Object to which the message applies.</param>
-	public static void Warn(string message, Object context)
-	{
-		Debug.unityLogger.Log(LogType.Warning, (object) message, context);
-	}
-
-	/// <summary>
-	///   <para>A variant of Debug.Log that logs a warning message to the console.</para>
-	/// </summary>
-	/// <param name="message">String or object to be converted to string representation for display.</param>
-	/// <param name="context">Object to which the message applies.</param>
-	public static void Warn(object message, Object context)
-	{
-		Debug.unityLogger.Log(LogType.Warning, GetString(message), context);
-	}
-	
-	/// <summary>
 	///   <para>Logs a formatted warning message to the Unity Console.</para>
 	/// </summary>
 	/// <param name="format">A composite format string.</param>
@@ -212,26 +172,6 @@ public static class Log
 	}
 	
 	/// <summary>
-	///   <para>A variant of Debug.Log that logs an error message to the console.</para>
-	/// </summary>
-	/// <param name="message">String for display.</param>
-	/// <param name="context">Object to which the message applies.</param>
-	public static void Error(string message, Object context)
-	{
-		Debug.unityLogger.Log(LogType.Error, (object) message, context);
-	}
-
-	/// <summary>
-	///   <para>A variant of Debug.Log that logs an error message to the console.</para>
-	/// </summary>
-	/// <param name="message">String or object to be converted to string representation for display.</param>
-	/// <param name="context">Object to which the message applies.</param>
-	public static void Error(object message, Object context)
-	{
-		Debug.unityLogger.Log(LogType.Error, GetString(message), context);
-	}
-	
-	/// <summary>
 	///   <para>>Logs a formatted error message to the Unity console.</para>
 	/// </summary>
 	/// <param name="format">A composite format string.</param>
@@ -272,6 +212,8 @@ public static class Log
 				return GetString(enumerable);
 			case IFormattable formattable:
 				return formattable.ToString(null, CultureInfo.InvariantCulture);
+			case Object obj:
+				return obj.ToString();
 			default:
 				return message.ToString();
 		}
@@ -315,6 +257,8 @@ public static class Log
 		return buffer.Append("]").ToString();
 	}
 	
+	public static object GetString(Object message) => message.ToString();
+	public static object GetString(Transform message) => message.ToString();
 	public static object GetString(IFormattable message) => message.ToString(null, CultureInfo.InvariantCulture);
 	public static object GetString(string message) => message;
 	public static object GetString(bool message) => message.ToString(CultureInfo.InvariantCulture);
@@ -332,12 +276,21 @@ public static class Log
 	public static object GetString(decimal message) => message.ToString(null, CultureInfo.InvariantCulture);
 	
 	/// <summary>
-	///   <para>Logs a bool to the Unity Console.</para>
+	///   <para>Logs an Object to the Unity Console.</para>
 	/// </summary>
-	/// <param name="val">bool for display.</param>
+	/// <param name="val">Object for display.</param>
 	public static void Print(Object val)
 	{
-		Debug.unityLogger.Log(defaultLogType, GetString((object) val), defaultLogContext);
+		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
+	}
+	
+	/// <summary>
+	///   <para>Logs a Transform to the Unity Console.</para>
+	/// </summary>
+	/// <param name="val">Transform for display.</param>
+	public static void Print(Transform val)
+	{
+		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
 	
 	/// <summary>
@@ -576,6 +529,16 @@ public static class Log
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- String, Value variants -- */
+	
+	/// <summary>
+	///   <para>Logs a message and bool to the Unity Console.</para>
+	/// </summary>
+	/// <param name="message">Message for display.</param>
+	/// <param name="val">bool for display.</param>
+	public static void Print(string message, Object val)
+	{
+		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
+	}
 	
 	/// <summary>
 	///   <para>Logs a message and bool to the Unity Console.</para>

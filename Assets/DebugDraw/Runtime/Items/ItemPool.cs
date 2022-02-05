@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Items
 {
@@ -22,7 +21,7 @@ namespace Items
 		public static T Get(float duration)
 		{
 			T item = poolIndex > 0 ? Pool[--poolIndex] : new T();
-			item.expires = duration >= 0 ? Time.time + duration : Mathf.Infinity;
+			item.expires = DebugDraw.GetTime(duration);
 			item.hasStateColor = DebugDraw.hasColor;
 			item.hasStateTransform = DebugDraw.hasTransform;
 			

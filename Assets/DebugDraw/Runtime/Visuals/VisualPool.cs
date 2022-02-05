@@ -1,35 +1,30 @@
 using System.Collections.Generic;
-using Attachments;
+using Visuals;
 using UnityEngine;
 
 namespace Items
 {
 
-	public static class AttachmentPool<T> where T : BaseAttachment, new()
+	public static class VisualPool<T> where T : BaseVisual, new()
 	{
 		
-		private static int poolSize = 32;
-		private static int poolIndex = poolSize;
+		private static int poolSize = 1;
+		private static int poolIndex = 0;
 		private static readonly List<T> Pool = new List<T>(poolSize);
 		
-		static AttachmentPool()
+		static VisualPool()
 		{
 			for (int i = 0; i < poolSize; i++)
 			{
-				Pool.Add(new T());
+				Pool.Add(null);
 			}
 		}
 
 		public static T Get(float duration)
 		{
-			if (poolIndex == 0)
-			{
-				return new T();
-			}
-		
-			T item = Pool[--poolIndex];
-			item.expires = duration >= 0 ? Time.time + duration : Mathf.Infinity;
-			item.released = false;
+			T item = poolIndex > 0 ? Pool[--poolIndex] : new T();
+			item.expires = DebugDraw.GetTime(duration);
+			DebugDraw.AddVisual(item);
 			
 			return item;
 		}
@@ -45,8 +40,7 @@ namespace Items
 					Pool.Add(null);
 				}
 			}
-		
-			item.released = true;
+
 			Pool[poolIndex++] = item;
 		}
 
