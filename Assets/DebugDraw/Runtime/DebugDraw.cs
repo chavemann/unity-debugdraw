@@ -360,6 +360,7 @@ public static partial class DebugDraw
 			pointMeshInstance.ClearAll();
 			lineMeshInstance.ClearAll();
 			triangleMeshInstance.ClearAll();
+			textMeshInstance.Clear();
 		}
 
 		visualCount = 0;
