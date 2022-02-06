@@ -22,6 +22,8 @@ internal class LogMessage
 	private static int messagePoolIndex;
 	internal static bool hasMessages;
 
+	private static float totalMessageHeight;
+
 	private bool active;
 	private LogMessage prev;
 	private LogMessage next;
@@ -144,6 +146,9 @@ internal class LogMessage
 		float time = DebugDraw.GetTime();
 		LogMessage message = messages;
 		int i = 1;
+		
+		Rect rect = GetScreenRect();
+		totalMessageHeight = 0;
 
 		while (message!= null)
 		{
@@ -188,6 +193,8 @@ internal class LogMessage
 			}
 			else
 			{
+				message.height = Log.MessageStyle.CalcHeight(MessageGUIContent, rect.width);
+				totalMessageHeight += message.height;
 				message = message.next;
 			}
 		}
@@ -201,9 +208,8 @@ internal class LogMessage
 		
 		for (int i = 0; i < 2; i++)
 		{
-			Rect rect = new Rect(
-				ScreenPadding, ScreenPadding,
-				Screen.width - ScreenPadding * 2, Screen.height - ScreenPadding * 2);
+			Rect rect = GetScreenRect();
+			rect.y = Screen.height - ScreenPadding;
 			LogMessage message = messages;
 			
 			if (Log.messageShadowColor.HasValue)
@@ -225,25 +231,26 @@ internal class LogMessage
 				MessageGUIContent.text = Log.messageShadowColor.HasValue && i == 0
 					? message.shadowText : message.text;
 
-				if (i == 0)
-				{
-					message.height = Log.MessageStyle.CalcHeight(MessageGUIContent, rect.width);
-				}
-			
-				GUI.Label(rect, MessageGUIContent, Log.MessageStyle);
-
-				rect.y += message.height;
+				rect.y -= message.height;
 				rect.height -= message.height;
 
 				if (rect.height <= 0)
 					break;
-			
+				
+				GUI.Label(rect, MessageGUIContent, Log.MessageStyle);
 				message = message.next;
 			}
 			
 			if (!Log.messageShadowColor.HasValue)
 				break;
 		}
+	}
+
+	private static Rect GetScreenRect()
+	{
+		return new Rect(
+			ScreenPadding, ScreenPadding,
+			Screen.width - ScreenPadding * 2, Screen.height - ScreenPadding * 2);
 	}
 
 }
