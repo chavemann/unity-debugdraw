@@ -140,6 +140,11 @@ public static partial class DebugDraw
 			hasTransform = value != Matrix4x4.identity;
 		}
 	}
+	
+	/// <summary>
+	/// Set to null for no shadow
+	/// </summary>
+	public static Color? textShadowColor = new Color(0, 0, 0, 0.5f);
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Initialisation -- */

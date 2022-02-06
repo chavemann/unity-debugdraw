@@ -35,28 +35,38 @@ public class DebugDrawTextMesh : DebugDrawMesh
 			p.y = screenSize.y - p.y;
 			p.z = 0;
 			Matrix4x4 m = Matrix4x4.Translate(new Vector3(p.x, p.y, 0));
+
+			float scale = item.scale;
 			
 			if (item.scale != 1 || item.autoSize)
 			{
-				float s = item.scale;
-
 				if (item.autoSize)
 				{
 					if (DebugDraw.cam.WorldToScreenPoint(item.position).z <= 0.25f)
 						continue;
 					
-					s *= 10.0f / new Vector3(
+					scale *= 10.0f / new Vector3(
 						item.position.x - DebugDraw.camPosition.x,
 						item.position.y - DebugDraw.camPosition.y,
 						item.position.z - DebugDraw.camPosition.z).magnitude;
 				}
 				
-				m *= Matrix4x4.Scale(new Vector3(s, s, s));
+				m *= Matrix4x4.Scale(new Vector3(scale, scale, scale));
 			}
 			
 			TextGUIContent.text = item.text;
 			DebugDraw.TextStyle.alignment = item.align;
 			GUI.matrix = m;
+
+			if (DebugDraw.textShadowColor.HasValue)
+			{
+				rect.x = rect.y = 1 / scale;
+				GUI.color = DebugDraw.textShadowColor.GetValueOrDefault();
+				GUI.Label(rect, TextGUIContent, DebugDraw.TextStyle);
+				rect.x = 0;
+				rect.y = 0;
+			}
+			
 			GUI.color = item.GetColor(ref item.color);
 			GUI.Label(rect, TextGUIContent, DebugDraw.TextStyle);
 		}
