@@ -561,7 +561,25 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetArgString(args), defaultLogContext);
 	}
-
+	
+	/// <summary>
+	///   <para>Logs a list of Objects to the Unity Console.</para>
+	/// </summary>
+	/// <param name="args">Items for display.</param>
+	public static void Print(Object[] args)
+	{
+		Debug.unityLogger.Log(defaultLogType, GetString(args), defaultLogContext);
+	}
+	
+	/// <summary>
+	///   <para>Logs a list of GameObject to the Unity Console.</para>
+	/// </summary>
+	/// <param name="args">Items for display.</param>
+	public static void Print(GameObject[] args)
+	{
+		Debug.unityLogger.Log(defaultLogType, GetString(args), defaultLogContext);
+	}
+	
 	/* ------------------------------------------------------------------------------------- */
 	/* -- String, Value variants -- */
 	

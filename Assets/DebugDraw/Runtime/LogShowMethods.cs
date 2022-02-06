@@ -507,6 +507,40 @@ public static partial class Log
 	}
 	
 	/// <summary>
+	///   <para>Prints a list of Objects on the screen.</para>
+	/// </summary>
+	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
+	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
+	/// <param name="args">Items for display.</param>
+	public static void Show(int id, float duration, Object[] args)
+	{
+		#if DEBUG_DRAW
+		if (DebugDraw.hasInstance)
+		{
+			LogMessage.Add(id, duration, (string) GetString(args));
+		}
+		#endif
+
+	}
+	
+	/// <summary>
+	///   <para>Prints a list of GameObject on the screen.</para>
+	/// </summary>
+	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
+	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
+	/// <param name="args">Items for display.</param>
+	public static void Show(int id, float duration, GameObject[] args)
+	{
+		#if DEBUG_DRAW
+		if (DebugDraw.hasInstance)
+		{
+			LogMessage.Add(id, duration, (string) GetString(args));
+		}
+		#endif
+
+	}
+	
+	/// <summary>
 	///   <para>Prints a message and bool on the screen.</para>
 	/// </summary>
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
