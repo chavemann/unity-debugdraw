@@ -1,4 +1,4 @@
-using Items;
+using DebugDrawItems;
 using UnityEngine;
 
 public class DebugDrawTextMesh : DebugDrawMesh

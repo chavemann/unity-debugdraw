@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Globalization;
-using Visuals;
-using UnityEditor;
+using DebugDrawAttachments;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -41,9 +37,9 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			if (lineStart || lineEnd)
 			{
-				LineVisual.Line(
-					lineStart, lineEnd, startOffset, endOffset,
-					default, default, Color.red, Color.green);
+				LineAttachment a = DebugDraw.Line(default, default, Color.red, Color.green, -1)
+					.AttachTo(lineStart, lineEnd)
+					.start.SetLocalOffset(default);
 			}
 
 			delayedInit = Time.time;

@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace Items
+namespace DebugDrawItems
 {
 
 	/// <summary>
@@ -78,7 +78,10 @@ namespace Items
 		/// </summary>
 		public void Remove()
 		{
-			mesh?.Remove(this);
+			if (index != -1)
+			{
+				mesh?.Remove(this);
+			}
 		}
 
 		/// <summary>

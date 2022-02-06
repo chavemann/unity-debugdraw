@@ -1,18 +1,17 @@
 using System.Collections.Generic;
-using Visuals;
-using UnityEngine;
+using DebugDrawItems;
 
-namespace Items
+namespace DebugDrawAttachments
 {
 
-	public static class VisualPool<T> where T : BaseVisual, new()
+	public static class AttachmentPool<T> where T : BaseAttachment, new()
 	{
 		
 		private static int poolSize = 1;
 		private static int poolIndex = 0;
 		private static readonly List<T> Pool = new List<T>(poolSize);
 		
-		static VisualPool()
+		static AttachmentPool()
 		{
 			for (int i = 0; i < poolSize; i++)
 			{
@@ -20,11 +19,13 @@ namespace Items
 			}
 		}
 
-		public static T Get(float duration)
+		public static T Get(BaseItem debugItem)
 		{
+			debugItem.hasStateTransform = false;
+			
 			T item = poolIndex > 0 ? Pool[--poolIndex] : new T();
-			item.expires = DebugDraw.GetTime(duration);
-			DebugDraw.AddVisual(item);
+			item.destroyed = false;
+			DebugDraw.AddAttachment(item);
 			
 			return item;
 		}
@@ -41,6 +42,7 @@ namespace Items
 				}
 			}
 
+			item.index = -1;
 			Pool[poolIndex++] = item;
 		}
 

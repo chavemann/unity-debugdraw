@@ -2,17 +2,14 @@
 #define DEBUG_DRAW
 #endif
 
-using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Items;
-using Visuals;
+using DebugDrawAttachments;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
@@ -37,9 +34,9 @@ public static partial class DebugDraw
 
 	private static readonly int DefaultLayer = LayerMask.NameToLayer("Default");
 
-	private static readonly List<BaseVisual> Visuals = new List<BaseVisual>();
-	private static int visualCount;
-	private static int visualListSize = 1;
+	private static readonly List<BaseAttachment> Attachments = new List<BaseAttachment>();
+	private static int attachmentCount;
+	private static int attachmentListSize;
 	internal static DebugDrawMesh pointMeshInstance;
 	internal static DebugDrawMesh lineMeshInstance;
 	internal static DebugDrawMesh triangleMeshInstance;
@@ -264,14 +261,6 @@ public static partial class DebugDraw
 			textMeshInstance = new DebugDrawTextMesh();
 		}
 
-		if (Visuals.Count == 0)
-		{
-			for (int i = 0; i < visualListSize; i++)
-			{
-				Visuals.Add(null);
-			}
-		}
-		
 		if (_enableInEditMode || Application.isPlaying)
 		{
 			pointMeshInstance.CreateAll();
@@ -359,11 +348,10 @@ public static partial class DebugDraw
 
 	public static void Clear()
 	{
-		for (int i = visualCount - 1; i >= 0; i--)
+		for (int i = attachmentCount - 1; i >= 0; i--)
 		{
-			BaseVisual visual = Visuals[i];
-			visual.index = -1;
-			visual.Release();
+			BaseAttachment attachment = Attachments[i];
+			attachment.Release();
 		}
 		
 		if (pointMeshInstance != null)
@@ -374,7 +362,7 @@ public static partial class DebugDraw
 			textMeshInstance.Clear();
 		}
 
-		visualCount = 0;
+		attachmentCount = 0;
 		
 		Log.Clear();
 	}
@@ -465,50 +453,6 @@ public static partial class DebugDraw
 		hasTransform = state.hasTransform;
 	}
 	
-	private static void UpdateFixedUpdateFlag()
-	{
-		doFixedUpdate = _useFixedUpdate && Application.isPlaying;
-	}
-
-	internal static T AddVisual<T>(T visual) where T : BaseVisual
-	{
-		if (visual.index != -1)
-			return visual;
-	
-		if (visualCount == visualListSize)
-		{
-			visualListSize *= 2;
-	
-			for (int i = visualCount; i < visualListSize; i++)
-			{
-				Visuals.Add(null);
-			}
-		}
-
-		Visuals[visual.index = visualCount++] = visual;
-		return visual;
-	}
-
-	private static void UpdateVisuals()
-	{
-		float time = GetTime();
-		
-		for (int i = visualCount - 1; i >= 0; i--)
-		{
-			BaseVisual visual = Visuals[i];
-			
-			if (visual.expires < time || !visual.Update())
-			{
-				BaseVisual swap = Visuals[--visualCount];
-				swap.index = i;
-				Visuals[i] = visual;
-				
-				visual.index = -1;
-				visual.Release();
-			}
-		}
-	}
-
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static void DestroyObj(Object obj)
 	{
@@ -534,6 +478,47 @@ public static partial class DebugDraw
 		return duration < 0
 			? float.PositiveInfinity
 			: frameTime + duration;
+	}
+	
+	private static void UpdateFixedUpdateFlag()
+	{
+		doFixedUpdate = _useFixedUpdate && Application.isPlaying;
+	}
+
+	internal static T AddAttachment<T>(T attachment) where T : BaseAttachment
+	{
+		if (attachment.index != -1)
+			return attachment;
+	
+		if (attachmentCount == attachmentListSize)
+		{
+			attachmentListSize = Mathf.Max(attachmentListSize * 2, 2);
+	
+			for (int i = attachmentCount; i < attachmentListSize; i++)
+			{
+				Attachments.Add(null);
+			}
+		}
+
+		Attachments[attachment.index = attachmentCount++] = attachment;
+		return attachment;
+	}
+
+	private static void UpdateAttachments()
+	{
+		for (int i = attachmentCount - 1; i >= 0; i--) 
+		{
+			BaseAttachment attachment = Attachments[i];
+			
+			if (attachment.destroyed || !attachment.Update())
+			{
+				BaseAttachment swap = Attachments[--attachmentCount];
+				swap.index = i;
+				Attachments[i] = attachment;
+				
+				attachment.Release();
+			}
+		}
 	}
 
 	/* ------------------------------------------------------------------------------------- */

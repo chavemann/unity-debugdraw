@@ -1,5 +1,5 @@
 using System.Runtime.CompilerServices;
-using Items;
+using DebugDrawItems;
 using UnityEngine;
 
 public static partial class DebugDraw
@@ -22,7 +22,7 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Line Line(Vector3 p1, Vector3 p2, Color color1, Color color2, float duration = 0)
 	{
-		return lineMeshInstance.Add(Items.Line.Get(ref p1, ref p2, ref color1, ref color2, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color1, ref color2, duration));
 	}
 	
 	/// <summary>
@@ -36,7 +36,7 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Line Line(Vector3 p1, Vector3 p2, Color color, float duration = 0)
 	{
-		return lineMeshInstance.Add(Items.Line.Get(ref p1, ref p2, ref color, ref color, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color, ref color, duration));
 	}
 	
 	/// <summary>
@@ -52,7 +52,7 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Text Text(Vector3 position, string text, Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float duration = 0)
 	{
-		return textMeshInstance.Add(Items.Text.Get(ref position, text, ref color, align, scale, duration));
+		return textMeshInstance.Add(DebugDrawItems.Text.Get(ref position, text, ref color, align, scale, duration));
 	}
 	
 	/* </StaticGenMethods> */
@@ -79,7 +79,7 @@ public partial class DebugDrawMesh
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Line Line(Vector3 p1, Vector3 p2, Color color1, Color color2, float duration = 0)
 	{
-		return Add(Items.Line.Get(ref p1, ref p2, ref color1, ref color2, duration));
+		return Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color1, ref color2, duration));
 	}
 	
 	/// <summary>
@@ -93,7 +93,7 @@ public partial class DebugDrawMesh
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Line Line(Vector3 p1, Vector3 p2, Color color, float duration = 0)
 	{
-		return Add(Items.Line.Get(ref p1, ref p2, ref color, ref color, duration));
+		return Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color, ref color, duration));
 	}
 	
 	/// <summary>
@@ -109,7 +109,7 @@ public partial class DebugDrawMesh
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Text Text(Vector3 position, string text, Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float duration = 0)
 	{
-		return Add(Items.Text.Get(ref position, text, ref color, align, scale, duration));
+		return Add(DebugDrawItems.Text.Get(ref position, text, ref color, align, scale, duration));
 	}
 	
 	/* </InstanceGenMethods> */

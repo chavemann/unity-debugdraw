@@ -140,11 +140,11 @@ public static partial class DebugDraw
 				camUp = camTransform.up;
 			}
 
-			UpdateVisuals();
 			pointMeshInstance.Update();
 			lineMeshInstance.Update();
 			triangleMeshInstance.Update();
 			textMeshInstance.Update();
+			UpdateAttachments();
 			requiresBuild = true;
 			requiresDraw = true;
 

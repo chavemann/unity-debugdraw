@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Items
+namespace DebugDrawItems
 {
 
 	public static class ItemPool<T> where T : BaseItem, new()
