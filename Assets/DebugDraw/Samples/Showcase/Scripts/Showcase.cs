@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using Visuals;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 namespace DebugDrawSamples.Showcase.Scripts
 {
@@ -21,6 +23,8 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 		private new Transform transform;
 		private float delayedInit = -1;
+		
+		private int frame;
 
 		private void OnEnable()
 		{
@@ -48,25 +52,32 @@ namespace DebugDrawSamples.Showcase.Scripts
 		private void Update()
 		{
 			// Log.Print("  Showcase.Update");
-			if (Application.isPlaying)
-			{
-				if (delayedInit >= 0)
-				{
-					float diff = Time.time - delayedInit;
+			// if (Application.isPlaying)
+			// {
+			// 	if (delayedInit >= 0)
+			// 	{
+			// 		float diff = Time.time - delayedInit;
+			//
+			// 		if (diff > 2)
+			// 		{
+			// 			SceneManager.LoadScene("Test");
+			// 		}
+			// 	}
+			// }
 
-					if (diff > 2)
-					{
-						SceneManager.LoadScene("Test");
-					}
-				}
+			if (frame == 0 || frame % 5 == 0)
+			{
+				Log.nextMessageColor = Random.ColorHSV(0f, 1f, 0.5f, 1f, 1f, 1f);
+				Log.Show(0, 1.0f, $" This is the time: <i>{DebugDraw.GetTime().ToString(CultureInfo.InvariantCulture)}</i>");
 			}
 			
-			Log.Show(0, 1.0f, "Hello this is the time: " + DebugDraw.GetTime());
-			Log.Show(1, 1.0f, $"<color=cyan>Special</color> message <b>XX</b> <i>{DebugDraw.GetTime()}</i>", 0);
+			Log.Show(1, 1.0f, $"<color=#66ffff>Persistent</color> message <b>XX</b> <i>{DebugDraw.GetTime().ToString(CultureInfo.InvariantCulture)}</i>");
 			
 			DebugDraw.transform = transform.localToWorldMatrix;
 			DebugDraw.Line(Vector3.zero, Vector3.forward, Color.cyan);
 			DebugDraw.transform = Matrix4x4.identity;
+
+			frame++;
 		}
 
 	}

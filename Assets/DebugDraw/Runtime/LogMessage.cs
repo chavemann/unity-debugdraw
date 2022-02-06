@@ -4,6 +4,7 @@
 
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 #if DEBUG_DRAW
@@ -11,6 +12,9 @@ internal class LogMessage
 {
 
 	private const float ScreenPadding = 10;
+
+	private static readonly GUIContent MessageGUIContent = new GUIContent();
+	private static readonly Regex ColorTagRichTextRegex = new Regex(@"<color\s*=\s*.+?\s*>|<\/color>", RegexOptions.Compiled | RegexOptions.Singleline);
 	
 	private static LogMessage messages;
 	private static readonly Dictionary<int, LogMessage> MessageIds = new Dictionary<int, LogMessage>();
@@ -18,15 +22,14 @@ internal class LogMessage
 	private static int messagePoolIndex;
 	internal static bool hasMessages;
 
-	private static readonly GUIContent MessageGUIContent = new GUIContent();
-
 	private bool active;
 	private LogMessage prev;
 	private LogMessage next;
 	private float height;
-	internal int id;
-	internal string text;
-	internal float expires;
+	private int id;
+	private string text;
+	private string shadowText;
+	private float expires;
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private LogMessage InsertBefore(LogMessage message)
@@ -84,9 +87,20 @@ internal class LogMessage
 			message = messagePoolIndex > 0 ? MessagePool[--messagePoolIndex] : new LogMessage();
 		}
 		
-		message.expires = DebugDraw.GetTime(duration);
-		message.text = text;
 		message.id = id;
+		message.expires = DebugDraw.GetTime(duration);
+		message.shadowText = Log.messageShadowColor.HasValue
+			? ColorTagRichTextRegex.Replace(text, "") : text;
+
+		if (Log.nextMessageColor.HasValue)
+		{
+			message.text = $"<color=#{ColorUtility.ToHtmlStringRGBA(Log.nextMessageColor.GetValueOrDefault())}>{text}</color>";
+			Log.nextMessageColor = null;
+		}
+		else
+		{
+			message.text = text;
+		}
 
 		if (message.active)
 		{
@@ -192,11 +206,11 @@ internal class LogMessage
 				Screen.width - ScreenPadding * 2, Screen.height - ScreenPadding * 2);
 			LogMessage message = messages;
 			
-			if (Log.messageShadow)
+			if (Log.messageShadowColor.HasValue)
 			{
 				if (i == 0)
 				{
-					GUI.color = Color.black;
+					GUI.color = Log.messageShadowColor.GetValueOrDefault();
 					rect.x += 1;
 					rect.y += 1;
 				}
@@ -208,7 +222,8 @@ internal class LogMessage
 
 			while (message!= null)
 			{
-				MessageGUIContent.text = message.text;
+				MessageGUIContent.text = Log.messageShadowColor.HasValue && i == 0
+					? message.shadowText : message.text;
 
 				if (i == 0)
 				{
@@ -226,7 +241,7 @@ internal class LogMessage
 				message = message.next;
 			}
 			
-			if (!Log.messageShadow)
+			if (!Log.messageShadowColor.HasValue)
 				break;
 		}
 	}

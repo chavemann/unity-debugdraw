@@ -34,13 +34,17 @@ public static partial class Log
 	public static int maxArrayItems = 100;
 
 	/// <summary>
-	/// 
-	/// </summary>
-	public static bool messageShadow = true;
-	/// <summary>
 	/// TODO:
 	/// </summary>
 	public static int maxMessages = 100;
+	/// <summary>
+	/// TODO:
+	/// </summary>
+	public static Color? messageShadowColor = new Color(0, 0, 0, 0.5f);
+	/// <summary>
+	/// TODO:
+	/// </summary>
+	public static Color? nextMessageColor;
 
 	/// <summary>
 	/// TODO:
@@ -50,7 +54,7 @@ public static partial class Log
 	static Log()
 	{
 		MessageStyle.normal.textColor = Color.white;
-		MessageStyle.normal.background = Texture2D.blackTexture;
+		MessageStyle.fontSize = 14;
 	}
 	
 	/* ------------------------------------------------------------------------------------- */
