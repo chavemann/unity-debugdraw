@@ -37,6 +37,13 @@ internal class LogMessage
 	private LogMessage InsertBefore(LogMessage message)
 	{
 		message.next = this;
+
+		if (prev != null)
+		{
+			prev.next = message;
+		}
+		
+		message.prev = prev;
 		prev = message;
 		return message;
 	}
@@ -61,7 +68,6 @@ internal class LogMessage
 
 		while (message!= null)
 		{
-			message.prev = message.next = null;
 			Release(message);
 			message = message.prev;
 		}
@@ -138,6 +144,7 @@ internal class LogMessage
 		}
 
 		message.active = false;
+		message.prev = message.next = null;
 		MessagePool[messagePoolIndex++] = message;
 	}
 
@@ -161,9 +168,8 @@ internal class LogMessage
 					message.prev.next = null;
 				}
 				
-				while (message!= null)
+				while (message != null)
 				{
-					message.prev = message.next = null;
 					Release(message);
 					message = message.prev;
 				}

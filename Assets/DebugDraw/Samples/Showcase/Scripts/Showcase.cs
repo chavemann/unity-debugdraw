@@ -65,7 +65,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 				}
 			}
 
-			if (frame == 0 || frame % 5 == 0)
+			if (frame == 0 || frame % (Application.isPlaying ? 8 : 4) == 0)
 			{
 				Log.nextMessageColor = Random.ColorHSV(0f, 1f, 0.5f, 1f, 1f, 1f);
 				Log.Show(0, 1.0f, $" This is the time: <i>{DebugDraw.GetTime().ToString(CultureInfo.InvariantCulture)}</i>");
