@@ -49,12 +49,6 @@ namespace Items
 		/* -- Methods -- */
 
 		/// <summary>
-		/// Calculates and adds this item's vertices to the given mesh.
-		/// </summary>
-		/// <param name="mesh">The mesh to build into</param>
-		public abstract void Build(DebugDrawMesh mesh);
-
-		/// <summary>
 		/// Updates the duration of this item.
 		/// </summary>
 		/// <param name="duration">The duration starting from the current time.</param>
@@ -72,26 +66,32 @@ namespace Items
 		}
 
 		/// <summary>
+		/// Multiplies the given color with this item state's color if it has one
+		/// </summary>
+		/// <param name="color"></param>
+		/// <returns></returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public Color GetColor(ref Color color) => hasStateColor ? color * stateColor : color;
+
+		/// <summary>
 		/// Removes this item.
 		/// </summary>
 		public void Remove()
 		{
 			mesh?.Remove(this);
 		}
+
+		/// <summary>
+		/// Calculates and adds this item's vertices to the given mesh.
+		/// </summary>
+		/// <param name="mesh">The mesh to build into</param>
+		internal abstract void Build(DebugDrawMesh mesh);
 		
 		/// <summary>
 		/// Releases this item when it gets removed from a mesh, returning it to a pool and
 		/// resetting any values if necessary.
 		/// </summary>
 		internal abstract void Release();
-
-		/// <summary>
-		/// Multiplies the given color with this item state's color if it has one
-		/// </summary>
-		/// <param name="color"></param>
-		/// <returns></returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		protected Color Color(ref Color color) => hasStateColor ? color * stateColor : color;
 
 	}
 

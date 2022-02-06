@@ -3,14 +3,14 @@ from pathlib import Path
 
 BASE_PATH = Path('../Assets/DebugDraw/Runtime')
 ITEMS_PATH = BASE_PATH / 'Items'
-OUTPUT_FILE = BASE_PATH / 'DebugDrawVisuals.cs'
+OUTPUT_FILE = BASE_PATH / 'DebugDrawMethods.cs'
 
 MESH_TYPE_REGEX = re.compile(r'/\*\s+mesh:\s+(.+?)\s+\*/')
 GET_METHODS_REGEX = re.compile(
     r'((?:///(?:[^\n\r]+)\s+)+)(\[.+?\])?\s*public\s+static\s+(.+?)\s+Get\((.+?)\)\s*{\s*(.+?)\s*}',
     re.DOTALL)
 GET_WRAPPER_REGEX = re.compile(r'^\s*return\s+Get\((.+)\);')
-PARAM_REGEX = re.compile(r'\s*(ref\s+)?(.+?\s+)([^,\s]+)(\s*=\s*.+?)?,?')
+PARAM_REGEX = re.compile(r'\s*(ref\s+)?(.+?\s+)([^,\s]+)(\s*=\s*[^,]+)?,?')
 INDENT_REGEX = re.compile(r'\t\t')
 
 
@@ -42,8 +42,8 @@ def run():
         mesh_type = m.group(1)
 
         for m in GET_METHODS_REGEX.finditer(text):
-            print('---------------------------------------------')
             docs, attribs, return_type, params, body = m.groups()
+            print(f'-- {return_type}({params}) -------------------------------------------')
             
             call_params = []
             refless_params = []

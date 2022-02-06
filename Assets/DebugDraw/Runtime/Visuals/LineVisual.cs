@@ -5,6 +5,9 @@ using UnityEngine;
 namespace Visuals
 {
 
+	// TODO: Scrap this system and instead use Item.attach(*) methods.
+	//       This way the Item.Get init code doesn't have to be duplicated
+	
 	/// <summary>
 	/// TODO:
 	/// </summary>

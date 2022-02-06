@@ -52,18 +52,18 @@ namespace DebugDrawSamples.Showcase.Scripts
 		private void Update()
 		{
 			// Log.Print("  Showcase.Update");
-			// if (Application.isPlaying)
-			// {
-			// 	if (delayedInit >= 0)
-			// 	{
-			// 		float diff = Time.time - delayedInit;
-			//
-			// 		if (diff > 2)
-			// 		{
-			// 			SceneManager.LoadScene("Test");
-			// 		}
-			// 	}
-			// }
+			if (Application.isPlaying)
+			{
+				if (delayedInit >= 0)
+				{
+					float diff = Time.time - delayedInit;
+			
+					if (diff > 2)
+					{
+						SceneManager.LoadScene("Test");
+					}
+				}
+			}
 
 			if (frame == 0 || frame % 5 == 0)
 			{
@@ -76,6 +76,11 @@ namespace DebugDrawSamples.Showcase.Scripts
 			DebugDraw.transform = transform.localToWorldMatrix;
 			DebugDraw.Line(Vector3.zero, Vector3.forward, Color.cyan);
 			DebugDraw.transform = Matrix4x4.identity;
+
+			DebugDraw.Text(
+				transform.position + Vector3.up * 0.1f, "Hello",
+				Color.white, TextAnchor.LowerCenter, 2f)
+				.SetAutoSize();
 
 			frame++;
 		}

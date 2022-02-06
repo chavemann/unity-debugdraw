@@ -47,7 +47,7 @@ public partial class DebugDrawMesh
 	private bool hasMaterial;
 	internal Material material;
 	
-	private readonly List<BaseItem> items = new List<BaseItem>();
+	protected readonly List<BaseItem> items = new List<BaseItem>();
 	private int itemsSize = 1;
 	internal int itemCount;
 

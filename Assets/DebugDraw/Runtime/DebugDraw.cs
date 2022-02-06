@@ -42,6 +42,7 @@ public static partial class DebugDraw
 	internal static DebugDrawMesh pointMeshInstance;
 	internal static DebugDrawMesh lineMeshInstance;
 	internal static DebugDrawMesh triangleMeshInstance;
+	internal static DebugDrawTextMesh textMeshInstance;
 
 	private static bool _useFixedUpdate;
 	#if DEBUG_DRAW_EDITOR
@@ -58,6 +59,14 @@ public static partial class DebugDraw
 	internal static bool hasTransform;
 	private static readonly List<DebugDrawState> States = new List<DebugDrawState>();
 	private static int stateIndex;
+
+	/* ------------------------------------------------------------------------------------- */
+	/* -- Public -- */
+	
+	/// <summary>
+	/// Modify the default properties of all Text.
+	/// </summary>
+	public static readonly GUIStyle TextStyle = new GUIStyle();
 
 	/// <summary>
 	/// Should DebugDraw update itself during FixedUpdate instead of Update.
@@ -135,6 +144,12 @@ public static partial class DebugDraw
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Initialisation -- */
 
+	static DebugDraw()
+	{
+		TextStyle.normal.textColor = Color.white;
+		TextStyle.fontSize = 14;
+	}
+
 	#if DEBUG_DRAW
 	
 	private static readonly Camera.CameraCallback OnCameraPreCullDelegate = OnCameraPreCull;
@@ -142,7 +157,11 @@ public static partial class DebugDraw
 	private static DebugDrawTimer timerInstance;
 	private static float frameTime;
 	private static bool beforeInitialise; 
-	private static Camera cam;
+	internal static Camera cam;
+	internal static Transform camTransform;
+	internal static Vector3 camPosition;
+	internal static Vector3 camForward;
+	internal static Vector3 camUp;
 
 	private static bool doFixedUpdate;
 	private static bool requiresBuild = true;
@@ -226,6 +245,7 @@ public static partial class DebugDraw
 			pointMeshInstance = new DebugDrawMesh(MeshTopology.Points);
 			lineMeshInstance = new DebugDrawMesh(MeshTopology.Lines);
 			triangleMeshInstance = new DebugDrawMesh(MeshTopology.Triangles);
+			textMeshInstance = new DebugDrawTextMesh();
 		}
 
 		if (Visuals.Count == 0)
@@ -255,6 +275,15 @@ public static partial class DebugDraw
 		hasInstance = instance;
 	}
 
+	internal static void UpdateCamera(Camera newCam)
+	{
+		cam = newCam;
+		camTransform = newCam.transform;
+		camPosition = camTransform.position;
+		camForward = camTransform.forward;
+		camUp = camTransform.up;
+	}
+
 	private static void OnCameraPreCull(Camera _)
 	{
 		if (!requiresDraw)
@@ -262,7 +291,7 @@ public static partial class DebugDraw
 		
 		cam = Camera.main;
 	
-		if (!cam)
+		if (cam == null)
 		{
 			#if UNITY_EDITOR
 			cam = SceneView.lastActiveSceneView.camera;
@@ -270,6 +299,9 @@ public static partial class DebugDraw
 			return;
 			#endif
 		}
+
+		camTransform = cam.transform;
+		camPosition = camTransform.position;
 
 		if (requiresBuild)
 		{

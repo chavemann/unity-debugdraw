@@ -2,7 +2,9 @@
 #define DEBUG_DRAW
 #endif
 
-using System;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -78,6 +80,16 @@ public static partial class DebugDraw
 		private void OnActiveSceneChanged(Scene prev, Scene current)
 		{
 			UpdateTimerInstanceScene();
+			
+			Camera cam = Camera.main;
+			#if UNITY_EDITOR
+			if (cam == null)
+			{
+				cam = SceneView.lastActiveSceneView.camera;
+			}
+			#endif
+
+			UpdateCamera(cam);
 		}
 
 		private void OnDisable()
@@ -113,13 +125,26 @@ public static partial class DebugDraw
 			DoUpdate();
 		}
 
-		private void DoUpdate()
+		private static void DoUpdate()
 		{
 			// Log.Print("DebugDrawTimer.DoUpdate", gameObject.GetInstanceID());
+
+			if (cam == null)
+			{
+				UpdateCamera(Camera.main);
+			}
+			else
+			{
+				camPosition = camTransform.position;
+				camForward = camTransform.forward;
+				camUp = camTransform.up;
+			}
+
 			UpdateVisuals();
 			pointMeshInstance.Update();
 			lineMeshInstance.Update();
 			triangleMeshInstance.Update();
+			textMeshInstance.Update();
 			requiresBuild = true;
 			requiresDraw = true;
 
@@ -133,6 +158,8 @@ public static partial class DebugDraw
 		{
 			if (Event.current.type != EventType.Repaint)
 				return;
+			
+			textMeshInstance.Build();
 			
 			if (LogMessage.hasMessages)
 			{
