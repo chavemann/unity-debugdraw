@@ -31,7 +31,7 @@ namespace Items
 		/// <summary>
 		/// If true, the text will scale based on the distance to the camera.
 		/// </summary>
-		public bool autoSize;
+		public bool useWorldSize;
 		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
@@ -79,9 +79,9 @@ namespace Items
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
 
-		public Text SetAutoSize(bool autoSize = true)
+		public Text SetUseWorldSize(bool useWorldSize = true)
 		{
-			this.autoSize = autoSize;
+			this.useWorldSize = useWorldSize;
 
 			return this;
 		}

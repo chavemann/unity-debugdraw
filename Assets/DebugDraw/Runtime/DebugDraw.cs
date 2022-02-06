@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Items;
 using Visuals;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -145,6 +146,16 @@ public static partial class DebugDraw
 	/// Set to null for no shadow
 	/// </summary>
 	public static Color? textShadowColor = new Color(0, 0, 0, 0.5f);
+	/// <summary>
+	/// Text smaller than this size on screen won't be rendered.
+	/// Only applicable if <see cref="Items.Text.SetUseWorldSize"/> is set.
+	/// </summary>
+	public static float minTextSize = 5;
+	/// <summary>
+	/// At what distance from the camera will text on screen approximately be it's original size.
+	/// Only applicable if <see cref="Items.Text.SetUseWorldSize"/> is set.
+	/// </summary>
+	public static float textBaseWorldDistance = 10;
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Initialisation -- */

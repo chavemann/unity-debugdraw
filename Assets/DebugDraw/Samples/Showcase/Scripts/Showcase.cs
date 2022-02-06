@@ -79,8 +79,8 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			DebugDraw.Text(
 				transform.position + Vector3.up * 0.1f, "Hello",
-				Color.white, TextAnchor.LowerCenter, 2f)
-				.SetAutoSize();
+				Color.white, TextAnchor.LowerCenter, 1f)
+				.SetUseWorldSize();
 
 			frame++;
 		}
