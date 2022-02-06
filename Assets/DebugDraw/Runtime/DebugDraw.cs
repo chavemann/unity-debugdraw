@@ -28,6 +28,12 @@ public static partial class DebugDraw
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Private -- */
 
+	/// <summary>
+	/// Just for testing, set this to true so that the instance is visible in the hierarchy
+	/// after a scene change.
+	/// </summary>
+	private const bool UpdateInstanceScene = true;
+
 	private static readonly int DefaultLayer = LayerMask.NameToLayer("Default");
 
 	private static readonly List<BaseVisual> Visuals = new List<BaseVisual>();
@@ -172,6 +178,8 @@ public static partial class DebugDraw
 		// Log.Print("---- OnactiveSceneChangedInEditMode ----------------------------------", frameTime);
 		
 		Initialize();
+		
+		UpdateTimerInstanceScene();
 	}
 
 	private static void OnPlayModeStateChanged(PlayModeStateChange state)
@@ -183,6 +191,10 @@ public static partial class DebugDraw
 			Clear();
 			frameTime = 0;
 			beforeInitialise = true;
+		}
+		else if (state == PlayModeStateChange.EnteredPlayMode || state == PlayModeStateChange.EnteredEditMode)
+		{
+			UpdateTimerInstanceScene();
 		}
 	}
 	#endif
@@ -280,6 +292,15 @@ public static partial class DebugDraw
 			Graphics.DrawMesh(
 				mesh.mesh, Vector3.zero, Quaternion.identity, mesh.material,
 				DefaultLayer);
+		}
+	}
+
+	private static void UpdateTimerInstanceScene()
+	{
+		if (UpdateInstanceScene && hasInstance && timerInstance && timerInstance.gameObject)
+		{
+			SceneManager.MoveGameObjectToScene(timerInstance.gameObject, SceneManager.GetActiveScene());
+			timerInstance.gameObject.transform.SetAsLastSibling();
 		}
 	}
 	

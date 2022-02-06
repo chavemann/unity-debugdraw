@@ -4,12 +4,18 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public static partial class DebugDraw
 {
 
 	#if DEBUG_DRAW
 
+	/// <summary>
+	/// For some reason <c>HideAndDontSave</c> seemed to break some of the functionality so every new instance will be
+	/// visible in the inspector until a scene change happens.
+	/// </summary>
 	private const HideFlags TimerHideFlags = HideFlags.DontSave | HideFlags.NotEditable;
 	// private const HideFlags TimerHideFlags = HideFlags.HideAndDontSave;
 
@@ -22,9 +28,7 @@ public static partial class DebugDraw
 	private class DebugDrawTimer : MonoBehaviour
 	{
 
-		#if UNITY_EDITOR
-		#endif
-		
+		private UnityAction<Scene, Scene> onActiveSceneChangedDelegate;
 		private bool updateInFixedUpdate;
 
 		private bool pendingDestroy;
@@ -58,14 +62,38 @@ public static partial class DebugDraw
 			{
 				Clear();
 			}
+			
+			if (UpdateInstanceScene && timerInstance == this)
+			{
+				if (onActiveSceneChangedDelegate == null)
+				{
+					onActiveSceneChangedDelegate = OnActiveSceneChanged;
+				}
+
+				SceneManager.activeSceneChanged -= onActiveSceneChangedDelegate;
+				SceneManager.activeSceneChanged += onActiveSceneChangedDelegate;
+			}
+		}
+
+		private void OnActiveSceneChanged(Scene prev, Scene current)
+		{
+			UpdateTimerInstanceScene();
 		}
 
 		private void OnDisable()
 		{
 			if (timerInstance == this || timerInstance == null)
 			{
+				// Hide this instance because even though it appears to be destroyed properly (Update etc. are not called)
+				// it still shows in the inspector until a new scene is loaded.
+				gameObject.hideFlags = HideFlags.HideAndDontSave;
 				pendingDestroy = true;
 				UpdateInstance(null);
+			}
+
+			if (onActiveSceneChangedDelegate != null)
+			{
+				SceneManager.activeSceneChanged -= onActiveSceneChangedDelegate;
 			}
 		}
 
@@ -87,6 +115,7 @@ public static partial class DebugDraw
 
 		private void DoUpdate()
 		{
+			// Log.Print("DebugDrawTimer.DoUpdate", gameObject.GetInstanceID());
 			UpdateVisuals();
 			pointMeshInstance.Update();
 			lineMeshInstance.Update();
