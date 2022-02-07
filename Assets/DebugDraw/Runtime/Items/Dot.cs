@@ -140,13 +140,12 @@ namespace DebugDrawItems
 				mesh.AddVertex(ref m, -size, +size);
 				mesh.AddColorX4(ref clr);
 				// Tri 1
-				mesh.AddIndex();
-				mesh.AddIndex();
-				mesh.AddIndex();
+				mesh.AddIndexX3();
 				// Tri 2
-				mesh.AddIndex();
-				mesh.AddIndex(mesh.vertexIndex - 4);
-				mesh.AddIndex(mesh.vertexIndex - 2);
+				mesh.AddIndices(
+					mesh.vertexIndex++,
+					mesh.vertexIndex - 4,
+					mesh.vertexIndex - 2);
 			}
 			else
 			{
@@ -163,9 +162,10 @@ namespace DebugDrawItems
 						Mathf.Sin(angle) * size);
 					mesh.AddColor(ref clr);
 					
-					mesh.AddIndex(firstVertexIndex);
-					mesh.AddIndex(firstVertexIndex + j + 1);
-					mesh.AddIndex();
+					mesh.AddIndices(
+						firstVertexIndex,
+						firstVertexIndex + j + 1,
+						mesh.vertexIndex++);
 				}
 			}
 		}

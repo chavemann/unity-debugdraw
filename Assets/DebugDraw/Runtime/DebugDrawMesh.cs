@@ -377,6 +377,70 @@ public partial class DebugDrawMesh
 	{
 		indices.Add(index);
 	}
+	
+	
+	/// <summary>
+	/// Adds two indices, incrementing <see cref="vertexIndex"/>
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddIndexX2()
+	{
+		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex++);
+	}
+	
+	/// <summary>
+	/// Adds three indices, incrementing <see cref="vertexIndex"/>
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddIndexX3()
+	{
+		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex++);
+	}
+	
+	/// <summary>
+	/// Adds four indices, incrementing <see cref="vertexIndex"/>
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddIndexX4()
+	{
+		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex++);
+	}
+	
+	/// <summary>
+	/// Add two indices.
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddIndices(int index1, int index2)
+	{
+		indices.Add(index1);
+		indices.Add(index2);
+	}
+	
+	/// <summary>
+	/// Add three indices.
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddIndices(int index1, int index2, int index3)
+	{
+		indices.Add(index1);
+		indices.Add(index2);
+		indices.Add(index3);
+	}
+	
+	/// <summary>
+	/// Add four indices.
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddIndices(int index1, int index2, int index3, int index4)
+	{
+		indices.Add(index1);
+		indices.Add(index2);
+		indices.Add(index3);
+		indices.Add(index4);
+	}
 
 	/// <summary>
 	/// Adds a previous index (<c>vertexIndex - fromEnd</c>)

@@ -25,7 +25,6 @@ namespace DebugDrawItems
 		/// The end point color.
 		/// </summary>
 		public Color color2;
-		// TODO: Arrow support
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
@@ -47,7 +46,7 @@ namespace DebugDrawItems
 			item.p1 = p1;
 			item.p2 = p2;
 			item.color = color1;
-			item.color2 = color2; 
+			item.color2 = color2;
 
 			return item;
 		}
@@ -102,7 +101,7 @@ namespace DebugDrawItems
 		/* -- Util -- */
 		
 		/// <summary>
-		/// Clamps the line from p1 to p1 to the specified lengths.
+		/// Clamps the line from p1 to p2 to the specified lengths.
 		/// </summary>
 		/// <param name="p1">The line start point</param>
 		/// <param name="p2">The line end point</param>
@@ -110,22 +109,19 @@ namespace DebugDrawItems
 		/// <param name="maxLength">The min length. Set to a negative value for no upper limit</param>
 		public static void Clamp(ref Vector3 p1, ref Vector3 p2, float minLength, float maxLength)
 		{
-			if(minLength == float.PositiveInfinity && maxLength == float.PositiveInfinity)
-				return;
-
 			Vector3 delta = new Vector3(
 				p2.x - p1.x,
 				p2.y - p1.y,
 				p2.z - p1.z);
 			float length = delta.sqrMagnitude;
 
-			if(minLength != float.PositiveInfinity && length < minLength * minLength)
+			if(minLength > 0 && length < minLength * minLength)
 			{
-				length = 1 / length * minLength;
+				length = 1 / Mathf.Sqrt(length) * minLength;
 			}
-			else if(maxLength != float.PositiveInfinity && length > maxLength * maxLength)
+			else if(float.IsPositiveInfinity(maxLength) && length > maxLength * maxLength)
 			{
-				length = 1 / length * maxLength;
+				length = 1 / Mathf.Sqrt(length) * maxLength;
 			}
 			else
 			{
