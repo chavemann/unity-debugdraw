@@ -171,6 +171,7 @@ public static partial class DebugDraw
 	private static float frameTime;
 	private static bool beforeInitialise;
 	private static CameraInitState hasCamera = CameraInitState.Pending;
+	private static bool camUpdated;
 	public static Camera cam { get; internal set; }
 	public static Transform camTransform { get; internal set; }
 	public static Vector3 camPosition = Vector3.zero;
@@ -294,48 +295,14 @@ public static partial class DebugDraw
 		camUp = Vector3.up;
 	}
 
-	internal static void InitCamera()
-	{
-		cam = Camera.main;
-		
-		#if UNITY_EDITOR
-		if (!Application.isPlaying && !cam)
-		{
-			if (!SceneView.lastActiveSceneView)
-			{
-				cam = null;
-				camTransform = null;
-				hasCamera = CameraInitState.Pending;
-				return;
-			}
-		
-			cam = SceneView.lastActiveSceneView.camera;
-		}
-		#endif
-		
-		hasCamera = cam != null ? CameraInitState.NotNull : CameraInitState.Null;
-		
-		if (hasCamera == CameraInitState.NotNull)
-		{
-			// ReSharper disable once PossibleNullReferenceException 
-			camTransform = cam.transform;
-		}
-		else
-		{
-			camTransform = null;
-			camPosition = Vector3.zero;
-			camForward = Vector3.forward;
-			camRight = Vector3.right;
-			camUp = Vector3.up;
-		}
-	}
-
 	internal static void UpdateCamera()
 	{
 		if (hasCamera == CameraInitState.Pending || hasCamera == CameraInitState.NotNull && !cam)
 		{
 			InitCamera();
 		}
+
+		camUpdated = true;
 		
 		if (hasCamera == CameraInitState.Null)
 			return;
@@ -393,7 +360,55 @@ public static partial class DebugDraw
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Methods -- */
+	
+	/// <summary>
+	/// DebugDraw caches a reference to Camera.main - call this to update that reference.
+	/// Though this happens automatically when when changing scenes etc.
+	/// </summary>
+	public static void InitCamera()
+	{
+		cam = Camera.main;
+		
+		#if UNITY_EDITOR
+		if (!Application.isPlaying && !cam)
+		{
+			if (!SceneView.lastActiveSceneView)
+			{
+				cam = null;
+				camTransform = null;
+				hasCamera = CameraInitState.Pending;
+				return;
+			}
+		
+			cam = SceneView.lastActiveSceneView.camera;
+		}
+		#endif
+		
+		hasCamera = cam != null ? CameraInitState.NotNull : CameraInitState.Null;
+		
+		if (hasCamera == CameraInitState.NotNull)
+		{
+			// ReSharper disable once PossibleNullReferenceException 
+			camTransform = cam.transform;
 
+			if (camUpdated)
+			{
+				UpdateCamera();
+			}
+		}
+		else
+		{
+			camTransform = null;
+			camPosition = Vector3.zero;
+			camForward = Vector3.forward;
+			camRight = Vector3.right;
+			camUp = Vector3.up;
+		}
+	}
+
+	/// <summary>
+	/// Clears all debug draw items.
+	/// </summary>
 	public static void Clear()
 	{
 		for (int i = attachmentCount - 1; i >= 0; i--)

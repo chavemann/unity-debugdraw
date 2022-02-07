@@ -120,6 +120,8 @@ public static partial class DebugDraw
 		private static void DoUpdate()
 		{
 			// Log.Print("DebugDrawTimer.DoUpdate", gameObject.GetInstanceID());
+			
+			camUpdated = false;
 
 			pointMeshInstance.Update();
 			lineMeshInstance.Update();
