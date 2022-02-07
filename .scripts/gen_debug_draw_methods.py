@@ -43,7 +43,8 @@ def run():
 
         for m in GET_METHODS_REGEX.finditer(text):
             docs, attribs, return_type, params, body = m.groups()
-            print(f'-- {return_type}({params}) -------------------------------------------')
+            clean_params = params.replace('\n', '').replace('\t', '')
+            print(f'-- {return_type}({clean_params})')
             
             call_params = []
             refless_params = []
