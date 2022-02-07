@@ -238,12 +238,12 @@ public static partial class Log
 				return GetString(str);
 			case object[] objs:
 				return GetString(objs);
+			case Object obj:
+				return obj.ToString();
 			case IEnumerable enumerable:
 				return GetString(enumerable);
 			case IFormattable formattable:
 				return formattable.ToString(null, CultureInfo.InvariantCulture);
-			case Object obj:
-				return obj.ToString();
 			default:
 				return message.ToString();
 		}
