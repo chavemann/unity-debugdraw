@@ -43,7 +43,10 @@ namespace DebugDrawSamples.Showcase.Scripts
 				return;
 			}
 
-			icon = DebugDraw.Dot(tr.position, iconSize, iconColor, 0, -1) ;
+			if (!icon)
+			{
+				icon = DebugDraw.Dot(tr.position, iconSize, iconColor, 0, -1);
+			}
 		}
 
 		private void UpdateIcon()
@@ -69,7 +72,10 @@ namespace DebugDrawSamples.Showcase.Scripts
 				return;
 			}
 			
-			axes = DebugDraw.Axes(tr.position, tr.rotation, default, false, -1);
+			if (!axes)
+			{
+				axes = DebugDraw.Axes(tr.position, tr.rotation, default, false, -1);
+			}
 		}
 
 		private void UpdateAxes()
