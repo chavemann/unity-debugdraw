@@ -18,7 +18,7 @@ namespace DebugDrawItems
 		/// </summary>
 		public float radius;
 		/// <summary>
-		/// Adjust the size of the dot so it approximately remains the same size on screen.
+		/// If true adjusts the size of the dot so it approximately remains the same size on screen.
 		/// </summary>
 		public bool autoSize;
 		/// <summary>
@@ -40,12 +40,12 @@ namespace DebugDrawItems
 		/// <summary>
 		/// Draws a 3D dot that automatically faces the camera.
 		/// </summary>
-		/// <param name="position">The position of the dot</param>
-		/// <param name="radius">The size of the dot</param>
-		/// <param name="color">The color of the dot</param>
-		/// <param name="segments">The resolution of the dot. 0 or 4 = square, >= 3 = circle</param>
+		/// <param name="position">The position of the dot.</param>
+		/// <param name="radius">The size of the dot.</param>
+		/// <param name="color">The color of the dot.</param>
+		/// <param name="segments">The resolution of the dot. 0 or 4 = square, >= 3 = circle.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-		/// <returns>The Line object.</returns>
+		/// <returns>The Dot object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Dot Get(ref Vector3 position, float radius, ref Color color, int segments = 0, float duration = 0)
 		{
@@ -63,13 +63,13 @@ namespace DebugDrawItems
 		/// <summary>
 		/// Draws a 3D dot.
 		/// </summary>
-		/// <param name="position">The position of the dot</param>
-		/// <param name="radius">The size of the dot</param>
-		/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true</param>
-		/// <param name="color">The color of the dot</param>
-		/// <param name="segments">The resolution of the dot. 0 = square</param>
+		/// <param name="position">The position of the dot.</param>
+		/// <param name="radius">The size of the dot.</param>
+		/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
+		/// <param name="color">The color of the dot.</param>
+		/// <param name="segments">The resolution of the dot. 0 = square.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-		/// <returns>The Line object.</returns>
+		/// <returns>The Dot object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Dot Get(ref Vector3 position, float radius, ref Color color, ref Vector3 facing, int segments = 0, float duration = 0)
 		{
@@ -88,6 +88,11 @@ namespace DebugDrawItems
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
 
+		/// <summary>
+		/// If true adjusts the size of the dot so it approximately remains the same size on screen.
+		/// </summary>
+		/// <param name="autoSize"></param>
+		/// <returns></returns>
 		public Dot SetAutoSize(bool autoSize = true)
 		{
 			this.autoSize = autoSize;

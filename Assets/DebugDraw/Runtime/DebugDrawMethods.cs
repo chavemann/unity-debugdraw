@@ -11,16 +11,31 @@ public static partial class DebugDraw
 	/* <StaticGenMethods> */
 	
 	/// <summary>
+	/// Draws lines along the x, y, and z axes.
+	/// </summary>
+	/// <param name="position">The axes origin.</param>
+	/// <param name="rotation">The orientation of the axes.</param>
+	/// <param name="size">The size of each axis. Set to zero to not draw an axis.</param>
+	/// <param name="doubleSided">If true the axis line extends in both directions, other only in the positive.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Axes object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Axes Axes(Vector3 position, Quaternion rotation, Vector3 size, bool doubleSided = false, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Axes.Get(ref position, ref rotation, ref size, doubleSided, duration));
+	}
+	
+	/// <summary>
 	/// Draws a 3D dot that automatically faces the camera.
 	/// </summary>
-	/// <param name="position">The position of the dot</param>
-	/// <param name="radius">The size of the dot</param>
-	/// <param name="color">The color of the dot</param>
-	/// <param name="segments">The resolution of the dot. 4 = square</param>
+	/// <param name="position">The position of the dot.</param>
+	/// <param name="radius">The size of the dot.</param>
+	/// <param name="color">The color of the dot.</param>
+	/// <param name="segments">The resolution of the dot. 0 or 4 = square, >= 3 = circle.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The Line object.</returns>
+	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Dot Dot(Vector3 position, float radius, Color color, int segments = 4, float duration = 0)
+	public static Dot Dot(Vector3 position, float radius, Color color, int segments = 0, float duration = 0)
 	{
 		return triangleMeshInstance.Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, segments, duration));
 	}
@@ -28,15 +43,15 @@ public static partial class DebugDraw
 	/// <summary>
 	/// Draws a 3D dot.
 	/// </summary>
-	/// <param name="position">The position of the dot</param>
-	/// <param name="radius">The size of the dot</param>
-	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true</param>
-	/// <param name="color">The color of the dot</param>
-	/// <param name="segments">The resolution of the dot. 4 = square</param>
+	/// <param name="position">The position of the dot.</param>
+	/// <param name="radius">The size of the dot.</param>
+	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
+	/// <param name="color">The color of the dot.</param>
+	/// <param name="segments">The resolution of the dot. 0 = square.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The Line object.</returns>
+	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Dot Dot(Vector3 position, float radius, Color color, Vector3 facing, int segments = 4, float duration = 0)
+	public static Dot Dot(Vector3 position, float radius, Color color, Vector3 facing, int segments = 0, float duration = 0)
 	{
 		return triangleMeshInstance.Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, ref facing, segments, duration));
 	}
@@ -44,10 +59,10 @@ public static partial class DebugDraw
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
-	/// <param name="p1">The start of the line</param>
-	/// <param name="p2">The end of the line</param>
-	/// <param name="color1">The line's colour at the start</param>
-	/// <param name="color2">The line's colour at the end</param>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="color1">The line's colour at the start.</param>
+	/// <param name="color2">The line's colour at the end.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -59,9 +74,9 @@ public static partial class DebugDraw
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
-	/// <param name="p1">The start of the line</param>
-	/// <param name="p2">The end of the line</param>
-	/// <param name="color">The line's colour</param>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="color">The line's colour.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -73,11 +88,11 @@ public static partial class DebugDraw
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
-	/// <param name="position">The world space position of the text</param>
-	/// <param name="text">The text to display</param>
-	/// <param name="color">The text color</param>
-	/// <param name="align">Where to anchor the text</param>
-	/// <param name="scale">The text scale. Set to 1 for default</param>
+	/// <param name="position">The world space position of the text.</param>
+	/// <param name="text">The text to display.</param>
+	/// <param name="color">The text color.</param>
+	/// <param name="align">Where to anchor the text.</param>
+	/// <param name="scale">The text scale. Set to 1 for default.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Text object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -89,16 +104,16 @@ public static partial class DebugDraw
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
-	/// <param name="position">The world space position of the text</param>
-	/// <param name="text">The text to display</param>
-	/// <param name="align">Where to anchor the text</param>
-	/// <param name="scale">The text scale. Set to 1 for default</param>
+	/// <param name="position">The world space position of the text.</param>
+	/// <param name="text">The text to display.</param>
+	/// <param name="align">Where to anchor the text.</param>
+	/// <param name="scale">The text scale. Set to 1 for default.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Text object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Text Text(Vector3 position, string text, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float duration = 0)
 	{
-		return textMeshInstance.Add(DebugDrawItems.Text.Get(ref position, text, align, scale, duration));
+		return textMeshInstance.Add(DebugDrawItems.Text.Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration));
 	}
 	
 	/* </StaticGenMethods> */
@@ -114,16 +129,31 @@ public partial class DebugDrawMesh
 	/* <InstanceGenMethods> */
 	
 	/// <summary>
+	/// Draws lines along the x, y, and z axes.
+	/// </summary>
+	/// <param name="position">The axes origin.</param>
+	/// <param name="rotation">The orientation of the axes.</param>
+	/// <param name="size">The size of each axis. Set to zero to not draw an axis.</param>
+	/// <param name="doubleSided">If true the axis line extends in both directions, other only in the positive.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Axes object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Axes Axes(Vector3 position, Quaternion rotation, Vector3 size, bool doubleSided = false, float duration = 0)
+	{
+		return Add(DebugDrawItems.Axes.Get(ref position, ref rotation, ref size, doubleSided, duration));
+	}
+	
+	/// <summary>
 	/// Draws a 3D dot that automatically faces the camera.
 	/// </summary>
-	/// <param name="position">The position of the dot</param>
-	/// <param name="radius">The size of the dot</param>
-	/// <param name="color">The color of the dot</param>
-	/// <param name="segments">The resolution of the dot. 4 = square</param>
+	/// <param name="position">The position of the dot.</param>
+	/// <param name="radius">The size of the dot.</param>
+	/// <param name="color">The color of the dot.</param>
+	/// <param name="segments">The resolution of the dot. 0 or 4 = square, >= 3 = circle.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The Line object.</returns>
+	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Dot Dot(Vector3 position, float radius, Color color, int segments = 4, float duration = 0)
+	public Dot Dot(Vector3 position, float radius, Color color, int segments = 0, float duration = 0)
 	{
 		return Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, segments, duration));
 	}
@@ -131,15 +161,15 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Draws a 3D dot.
 	/// </summary>
-	/// <param name="position">The position of the dot</param>
-	/// <param name="radius">The size of the dot</param>
-	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true</param>
-	/// <param name="color">The color of the dot</param>
-	/// <param name="segments">The resolution of the dot. 4 = square</param>
+	/// <param name="position">The position of the dot.</param>
+	/// <param name="radius">The size of the dot.</param>
+	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
+	/// <param name="color">The color of the dot.</param>
+	/// <param name="segments">The resolution of the dot. 0 = square.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The Line object.</returns>
+	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Dot Dot(Vector3 position, float radius, Color color, Vector3 facing, int segments = 4, float duration = 0)
+	public Dot Dot(Vector3 position, float radius, Color color, Vector3 facing, int segments = 0, float duration = 0)
 	{
 		return Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, ref facing, segments, duration));
 	}
@@ -147,10 +177,10 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
-	/// <param name="p1">The start of the line</param>
-	/// <param name="p2">The end of the line</param>
-	/// <param name="color1">The line's colour at the start</param>
-	/// <param name="color2">The line's colour at the end</param>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="color1">The line's colour at the start.</param>
+	/// <param name="color2">The line's colour at the end.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -162,9 +192,9 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
-	/// <param name="p1">The start of the line</param>
-	/// <param name="p2">The end of the line</param>
-	/// <param name="color">The line's colour</param>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="color">The line's colour.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -176,11 +206,11 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
-	/// <param name="position">The world space position of the text</param>
-	/// <param name="text">The text to display</param>
-	/// <param name="color">The text color</param>
-	/// <param name="align">Where to anchor the text</param>
-	/// <param name="scale">The text scale. Set to 1 for default</param>
+	/// <param name="position">The world space position of the text.</param>
+	/// <param name="text">The text to display.</param>
+	/// <param name="color">The text color.</param>
+	/// <param name="align">Where to anchor the text.</param>
+	/// <param name="scale">The text scale. Set to 1 for default.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Text object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -192,16 +222,16 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
-	/// <param name="position">The world space position of the text</param>
-	/// <param name="text">The text to display</param>
-	/// <param name="align">Where to anchor the text</param>
-	/// <param name="scale">The text scale. Set to 1 for default</param>
+	/// <param name="position">The world space position of the text.</param>
+	/// <param name="text">The text to display.</param>
+	/// <param name="align">Where to anchor the text.</param>
+	/// <param name="scale">The text scale. Set to 1 for default.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Text object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Text Text(Vector3 position, string text, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float duration = 0)
 	{
-		return Add(DebugDrawItems.Text.Get(ref position, text, align, scale, duration));
+		return Add(DebugDrawItems.Text.Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration));
 	}
 	
 	/* </InstanceGenMethods> */

@@ -30,9 +30,11 @@ public static partial class DebugDraw
 	/// Just for testing, set this to true so that the instance is visible in the hierarchy
 	/// after a scene change.
 	/// </summary>
-	private const bool UpdateInstanceScene = true;
+	private const bool UpdateInstanceScene = false;
 
-	private static readonly int DefaultLayer = LayerMask.NameToLayer("Default");
+	internal static readonly int DefaultLayer = LayerMask.NameToLayer("Default");
+	internal static Color colorIdentity = Color.white;
+	internal static Matrix4x4 matrixIdentity = Matrix4x4.identity;
 
 	private static readonly List<BaseAttachment> Attachments = new List<BaseAttachment>();
 	private static int attachmentCount;
@@ -122,7 +124,7 @@ public static partial class DebugDraw
 		set
 		{
 			_color = value;
-			hasColor = value != Color.white;
+			hasColor = value != colorIdentity;
 		}
 	}
 	
@@ -135,7 +137,7 @@ public static partial class DebugDraw
 		set
 		{
 			_transform = value;
-			hasTransform = value != Matrix4x4.identity;
+			hasTransform = value != matrixIdentity;
 		}
 	}
 	

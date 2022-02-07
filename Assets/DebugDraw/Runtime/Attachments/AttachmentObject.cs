@@ -7,12 +7,12 @@ namespace DebugDrawAttachments
 	public class AttachmentObject<T> where T : BaseAttachment
 	{
 
-		private readonly T attachment;
-		private bool hasTransform;
-		private Transform transform;
-		private Vector3 localOffset;
-		private Vector3 worldOffset;
-		private bool hasLocalOffset;
+		internal readonly T attachment;
+		internal bool hasTransform;
+		internal Transform transform;
+		internal Vector3 localOffset;
+		internal Vector3 worldOffset;
+		internal bool hasLocalOffset;
 
 		public AttachmentObject(T attachment)
 		{

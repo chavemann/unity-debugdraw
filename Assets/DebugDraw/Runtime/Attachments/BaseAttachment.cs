@@ -33,6 +33,11 @@ namespace DebugDrawAttachments
 		{
 			destroyed = true;
 		}
+
+		public static implicit operator bool(BaseAttachment baseAttachment)
+		{
+			return baseAttachment != null;
+		}
 		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Private -- */
