@@ -11,41 +11,104 @@ namespace DebugDrawSamples.Showcase.Scripts
 		public Color iconColor = Color.white;
 		public bool iconCircle = true;
 		public float iconSize = 0.2f;
+		public float axesSize;
 
 		protected Dot icon;
+		protected Axes axes;
 
 		protected override void OnEnable()
 		{
 			base.OnEnable();
 
-			if (icon)
+			ClearIcon();
+			CreateIcon();
+			UpdateIcon();
+			
+			ClearAxes();
+			CreateAxes();
+			UpdateAxes();
+		}
+
+		private void ClearIcon()
+		{
+			icon?.Remove();
+			icon = null;
+		}
+
+		private void CreateIcon()
+		{
+			if (iconSize <= 0 || !tr)
 			{
-				icon.Remove();
+				ClearIcon();
+				return;
+			}
+
+			icon = DebugDraw.Dot(tr.position, iconSize, iconColor, 0, -1) ;
+		}
+
+		private void UpdateIcon()
+		{
+			if (!icon) return;
+
+			icon.color = iconColor;
+			icon.radius = iconSize;
+			icon.segments = iconCircle ? 24 : 0;
+		}
+
+		private void ClearAxes()
+		{
+			axes?.Remove();
+			axes = null;
+		}
+
+		private void CreateAxes()
+		{
+			if (axesSize == 0 || !tr)
+			{
+				ClearAxes();
+				return;
 			}
 			
-			icon = DebugDraw.Dot(tr.position, iconSize, iconColor, iconCircle ? 24 : 0, -1)
-				.SetAutoSize();
+			axes = DebugDraw.Axes(tr.position, tr.rotation, default, false, -1);
+		}
+
+		private void UpdateAxes()
+		{
+			if (!axes)
+				return;
+			
+			float size = Mathf.Abs(axesSize);
+			axes.size = new Vector3(size, size, size);
+			axes.doubleSided = axesSize < 0;
 		}
 
 		private void OnDisable()
 		{
-			icon.Remove();
-			icon = null;
+			ClearIcon();
+			ClearAxes();
 		}
 
 		protected virtual void LateUpdate()
 		{
-			icon.position = tr.position;
+			if (icon)
+			{
+				icon.position = tr.position;
+			}
+
+			if (axes)
+			{
+				axes.position = tr.position;
+				axes.rotation = tr.rotation;
+			}
 		}
 
 		protected virtual void OnValidate()
 		{
-			if (icon)
-			{
-				icon.color = iconColor;
-				icon.radius = iconSize;
-				icon.segments = iconCircle ? 24 : 0;
-			}
+			CreateIcon();
+			UpdateIcon();
+
+			CreateAxes();
+			UpdateAxes();
 		}
 
 	}

@@ -19,8 +19,8 @@ namespace DebugDrawSamples.Showcase.Scripts
 		public Vector3 endOffset;
 
 		private float delayedInit = -1;
-		
 		private int frame;
+		private LineAttachment attachment;
 
 		protected override void OnEnable()
 		{
@@ -38,9 +38,10 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			if (lineStart || lineEnd)
 			{
-				LineAttachment a = DebugDraw.Line(default, default, Color.red, Color.green, -1)
+				attachment = DebugDraw.Line(default, default, Color.red, Color.green, -1)
 					.AttachTo(lineStart, lineEnd)
-					.start.SetLocalOffset(default);
+					.start.SetLocalOffset(startOffset)
+					.end.SetLocalOffset(endOffset);
 			}
 
 			delayedInit = Time.time;
@@ -80,6 +81,18 @@ namespace DebugDrawSamples.Showcase.Scripts
 				.SetUseWorldSize();
 
 			frame++;
+		}
+
+		protected override void OnValidate()
+		{
+			base.OnValidate();
+
+			if (attachment)
+			{
+				attachment
+					.start.SetLocalOffset(startOffset)
+					.end.SetLocalOffset(endOffset);
+			}
 		}
 
 	}

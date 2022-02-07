@@ -238,8 +238,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322272653}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.92, y: 1.8547714, z: 1}
+  m_LocalRotation: {x: 0.6193788, y: 0, z: 0, w: 0.7850923}
+  m_LocalPosition: {x: 2.92, y: 1.6853986, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -260,6 +260,7 @@ MonoBehaviour:
   iconColor: {r: 0, g: 1, b: 0, a: 1}
   iconCircle: 1
   iconSize: 0.2
+  axesSize: 0
 --- !u!114 &322272656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,9 +392,10 @@ MonoBehaviour:
   iconColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
   iconCircle: 0
   iconSize: 0.2
+  axesSize: 0
   lineStart: {fileID: 1979193047}
   lineEnd: {fileID: 322272653}
-  startOffset: {x: 0, y: 0, z: 0}
+  startOffset: {x: 1.25, y: 0, z: 0}
   endOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1218636477
 Transform:
@@ -403,7 +405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218636475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 0.71, z: -5.62}
+  m_LocalPosition: {x: 0.28, y: 2.25, z: -0.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -452,6 +454,7 @@ GameObject:
   - component: {fileID: 1979193048}
   - component: {fileID: 1979193049}
   - component: {fileID: 1979193050}
+  - component: {fileID: 1979193051}
   m_Layer: 0
   m_Name: LineAttachmentStart
   m_TagString: Untagged
@@ -466,13 +469,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979193047}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 0.07254261, z: -0.4}
+  m_LocalRotation: {x: 0.04415623, y: -0.79540855, z: -0.317584, w: -0.5143111}
+  m_LocalPosition: {x: -1.18, y: 0, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.785, y: 612.351, z: 541.38}
 --- !u!114 &1979193049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,6 +491,7 @@ MonoBehaviour:
   iconColor: {r: 1, g: 0, b: 0, a: 1}
   iconCircle: 1
   iconSize: 0.2
+  axesSize: -1
 --- !u!114 &1979193050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +505,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startY: 0
-  height: 2
+  height: 0
   speed: 4
   phase: 3.94
+--- !u!114 &1979193051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979193047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4756c3cb78a4b528ff8f02351ea70fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spin: {x: 100, y: 50, z: 50}
