@@ -37,7 +37,7 @@ namespace DebugDrawItems
 		/// <param name="p2">The end of the line</param>
 		/// <param name="color1">The line's colour at the start</param>
 		/// <param name="color2">The line's colour at the end</param>
-		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
+		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Line Get(ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2, float duration = 0)
@@ -85,17 +85,17 @@ namespace DebugDrawItems
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
 
-		internal override void Release()
-		{
-			ItemPool<Line>.Release(this);
-		}
-
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			Color clr1 = GetColor(ref color);
 			Color clr2 = GetColor(ref color2);
 			
 			mesh.AddLine(this, ref p1, ref p2, ref clr1, ref clr2);
+		}
+
+		internal override void Release()
+		{
+			ItemPool<Line>.Release(this);
 		}
 
 		/* ------------------------------------------------------------------------------------- */

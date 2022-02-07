@@ -145,12 +145,12 @@ public static partial class DebugDraw
 	public static Color? textShadowColor = new Color(0, 0, 0, 0.5f);
 	/// <summary>
 	/// Text smaller than this size on screen won't be rendered.
-	/// Only applicable if <see cref="Items.Text.SetUseWorldSize"/> is set.
+	/// Only applicable if <see cref="DebugDrawItems.Text.SetUseWorldSize"/> is set.
 	/// </summary>
 	public static float minTextSize = 5;
 	/// <summary>
 	/// At what distance from the camera will text on screen approximately be it's original size.
-	/// Only applicable if <see cref="Items.Text.SetUseWorldSize"/> is set.
+	/// Only applicable if <see cref="DebugDrawItems.Text.SetUseWorldSize"/> is set.
 	/// </summary>
 	public static float textBaseWorldDistance = 10;
 
@@ -169,12 +169,14 @@ public static partial class DebugDraw
 	
 	private static DebugDrawTimer timerInstance;
 	private static float frameTime;
-	private static bool beforeInitialise; 
-	internal static Camera cam;
-	internal static Transform camTransform;
-	internal static Vector3 camPosition;
-	internal static Vector3 camForward;
-	internal static Vector3 camUp;
+	private static bool beforeInitialise;
+	private static CameraInitState hasCamera = CameraInitState.Pending;
+	public static Camera cam { get; internal set; }
+	public static Transform camTransform { get; internal set; }
+	public static Vector3 camPosition = Vector3.zero;
+	public static Vector3 camForward = Vector3.forward;
+	public static Vector3 camRight = Vector3.right;
+	public static Vector3 camUp = Vector3.up;
 
 	private static bool doFixedUpdate;
 	private static bool requiresBuild = true;
@@ -210,8 +212,8 @@ public static partial class DebugDraw
 		// Log.Print("---- OnactiveSceneChangedInEditMode ----------------------------------", frameTime);
 		
 		Initialize();
-		
 		UpdateTimerInstanceScene();
+		ClearCamera();
 	}
 
 	private static void OnPlayModeStateChanged(PlayModeStateChange state)
@@ -272,6 +274,8 @@ public static partial class DebugDraw
 		
 		Camera.onPreCull -= OnCameraPreCullDelegate;
 		Camera.onPreCull += OnCameraPreCullDelegate;
+		
+		ClearCamera();
 	}
 
 	private static void UpdateInstance(DebugDrawTimer instance)
@@ -280,33 +284,74 @@ public static partial class DebugDraw
 		hasInstance = instance;
 	}
 
-	internal static void UpdateCamera(Camera newCam)
+	internal static void ClearCamera()
 	{
-		cam = newCam;
-		camTransform = newCam.transform;
+		hasCamera = CameraInitState.Pending;
+		cam = null;
+		camTransform = null;
+		camPosition = default;
+		camForward = Vector3.forward;
+		camUp = Vector3.up;
+	}
+
+	internal static void InitCamera()
+	{
+		cam = Camera.main;
+		
+		#if UNITY_EDITOR
+		if (!Application.isPlaying && !cam)
+		{
+			if (!SceneView.lastActiveSceneView)
+			{
+				cam = null;
+				camTransform = null;
+				hasCamera = CameraInitState.Pending;
+				return;
+			}
+		
+			cam = SceneView.lastActiveSceneView.camera;
+		}
+		#endif
+		
+		hasCamera = cam != null ? CameraInitState.NotNull : CameraInitState.Null;
+		
+		if (hasCamera == CameraInitState.NotNull)
+		{
+			// ReSharper disable once PossibleNullReferenceException 
+			camTransform = cam.transform;
+		}
+		else
+		{
+			camTransform = null;
+			camPosition = Vector3.zero;
+			camForward = Vector3.forward;
+			camRight = Vector3.right;
+			camUp = Vector3.up;
+		}
+	}
+
+	internal static void UpdateCamera()
+	{
+		if (hasCamera == CameraInitState.Pending || hasCamera == CameraInitState.NotNull && !cam)
+		{
+			InitCamera();
+		}
+		
+		if (hasCamera == CameraInitState.Null)
+			return;
+
 		camPosition = camTransform.position;
 		camForward = camTransform.forward;
+		camRight = camTransform.right;
 		camUp = camTransform.up;
 	}
 
 	private static void OnCameraPreCull(Camera _)
 	{
-		if (!requiresDraw)
-			return;
-		
-		cam = Camera.main;
-	
-		if (cam == null)
+		if (!Application.isPlaying)
 		{
-			#if UNITY_EDITOR
-			cam = SceneView.lastActiveSceneView.camera;
-			#else
-			return;
-			#endif
+			UpdateCamera();
 		}
-
-		camTransform = cam.transform;
-		camPosition = camTransform.position;
 
 		if (requiresBuild)
 		{
@@ -316,10 +361,13 @@ public static partial class DebugDraw
 			requiresBuild = false;
 		}
 		
-		DrawMesh(pointMeshInstance);
-		DrawMesh(lineMeshInstance);
-		DrawMesh(triangleMeshInstance);
-		requiresDraw = false;
+		if (requiresDraw)
+		{
+			DrawMesh(pointMeshInstance);
+			DrawMesh(lineMeshInstance);
+			DrawMesh(triangleMeshInstance);
+			requiresDraw = false;
+		}
 	}
 	
 	private static void DrawMesh(DebugDrawMesh mesh)

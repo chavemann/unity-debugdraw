@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/DebugDraw/Samples/Scenes/Showcase.unity
+    path: Assets/DebugDraw/Samples/Showcase/Scenes/Showcase.unity
     guid: b464ad98e394ac24d93bd18a745edf46
   - enabled: 1
-    path: Assets/DebugDraw/Samples/Scenes/Test.unity
+    path: Assets/DebugDraw/Samples/Showcase/Scenes/Test.unity
     guid: 842473c81b31a254383651ae8160b52d
   m_configObjects: {}

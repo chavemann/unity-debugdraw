@@ -92,7 +92,7 @@ public partial class DebugDrawMesh
 			hasMaterial = true;
 			material = new Material(Shader.Find("Hidden/Internal-Colored")) { hideFlags = HideFlags.HideAndDontSave };
 			SetInvertColours(false);
-			SetCulling(CullMode.Front);
+			SetCulling(CullMode.Off);
 			SetDepthTesting();
 		}
 	}
@@ -177,7 +177,7 @@ public partial class DebugDrawMesh
 	
 	/// <summary>
 	/// Add an item to this mesh. Items are only "rendered" when <see cref="Build"/> is called.
-	/// Normally this method won't be used directly - instead use the specific debug methods (e.g. <see cref="Items.Line"/>)
+	/// Normally this method won't be used directly - instead use the specific debug methods (e.g. <see cref="DebugDrawItems.Line"/>)
 	/// or the similar static methods in <see cref="DebugDraw"/>
 	/// </summary>
 	/// <param name="item"></param>

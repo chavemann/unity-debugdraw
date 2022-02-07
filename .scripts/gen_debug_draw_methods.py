@@ -60,7 +60,7 @@ def run():
             static_body = GET_WRAPPER_REGEX.sub(
                 fr'return {mesh_type}MeshInstance.Add(DebugDrawItems.{return_type}.Get(\g<1>));', body)
             instance_body = GET_WRAPPER_REGEX.sub(
-                fr'return Add(Items.{return_type}.Get(\g<1>));', body)
+                fr'return Add(DebugDrawItems.{return_type}.Get(\g<1>));', body)
             
             method_groups = [
                 (' static', static_methods, static_body),

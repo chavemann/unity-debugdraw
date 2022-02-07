@@ -10,6 +10,8 @@ namespace DebugDrawItems
 	public abstract class BaseItem
 	{
 
+		protected const float BaseAutoSizeDistanceFactor = 1 / 10f;
+
 		/// <summary>
 		/// This item's color.
 		/// </summary>
@@ -27,7 +29,8 @@ namespace DebugDrawItems
 		/// When this item expires. Calculated when created based on a duration.
 		/// </summary>
 		internal float expires;
-		
+
+		// TODO: Add "context" transform that can be used instead of a static matrix
 		/// <summary>
 		/// Stores the global <see cref="DebugDraw"/> transform state when this item was created.
 		/// </summary>
@@ -95,6 +98,11 @@ namespace DebugDrawItems
 		/// resetting any values if necessary.
 		/// </summary>
 		internal abstract void Release();
+
+		public static implicit operator bool(BaseItem baseItem)
+		{
+			return baseItem != null;
+		}
 
 	}
 

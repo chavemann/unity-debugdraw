@@ -80,16 +80,8 @@ public static partial class DebugDraw
 		private void OnActiveSceneChanged(Scene prev, Scene current)
 		{
 			UpdateTimerInstanceScene();
-			
-			Camera cam = Camera.main;
-			#if UNITY_EDITOR
-			if (cam == null)
-			{
-				cam = SceneView.lastActiveSceneView.camera;
-			}
-			#endif
 
-			UpdateCamera(cam);
+			ClearCamera();
 		}
 
 		private void OnDisable()
@@ -128,17 +120,6 @@ public static partial class DebugDraw
 		private static void DoUpdate()
 		{
 			// Log.Print("DebugDrawTimer.DoUpdate", gameObject.GetInstanceID());
-
-			if (cam == null)
-			{
-				UpdateCamera(Camera.main);
-			}
-			else
-			{
-				camPosition = camTransform.position;
-				camForward = camTransform.forward;
-				camUp = camTransform.up;
-			}
 
 			pointMeshInstance.Update();
 			lineMeshInstance.Update();
@@ -188,7 +169,7 @@ public static partial class DebugDraw
 			if (!doFixedUpdate)
 				return;
 
-			frameTime = beforeInitialise ? 0 : Time.time;
+			DoUpdate();
 		}
 
 		private void Update()
@@ -196,6 +177,12 @@ public static partial class DebugDraw
 			if (doFixedUpdate)
 				return;
 
+			DoUpdate();
+		}
+
+		private void DoUpdate()
+		{
+			UpdateCamera();
 			frameTime = beforeInitialise ? 0 : Time.time;
 		}
 

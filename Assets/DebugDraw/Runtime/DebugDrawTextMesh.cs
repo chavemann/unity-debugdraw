@@ -21,7 +21,6 @@ public class DebugDrawTextMesh : DebugDrawMesh
 		Matrix4x4 guiMatrix = GUI.matrix;
 		Vector2 screenSize = new Vector2(Screen.width, Screen.height);
 		Rect rect = new Rect(0, 0, 0, 0);
-		float lineHeight = DebugDraw.TextStyle.lineHeight;
 
 		for(int i = itemCount - 1; i >= 0; i--)
 		{
