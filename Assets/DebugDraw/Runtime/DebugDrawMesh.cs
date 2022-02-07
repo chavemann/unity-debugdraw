@@ -397,6 +397,7 @@ public partial class DebugDrawMesh
 	{
 		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex++);
 	}
 	
 	/// <summary>
@@ -405,6 +406,8 @@ public partial class DebugDrawMesh
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddIndexX4()
 	{
+		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex++);
 	}
