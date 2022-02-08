@@ -162,7 +162,16 @@ namespace DebugDrawItems
 
 				if (hasStateTransform)
 				{
-					stateM = stateTransform * baseTransform;
+					if (faceCamera)
+					{
+						Matrix4x4 mm = Matrix4x4.Rotate(Quaternion.Inverse(stateTransform.rotation));
+						stateM = stateTransform * (baseTransform * mm);
+					}
+					else
+					{
+						stateM = stateTransform * baseTransform;
+					}
+					
 					m = ref stateM;
 				}
 				

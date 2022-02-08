@@ -120,9 +120,17 @@ namespace DebugDrawItems
 				MathUtils.FindBestAxisVectors(ref forward, out up, out right);
 			}
 
-			Matrix4x4 m = hasStateTransform
-				? stateTransform * new Matrix4x4(right, up, forward, new Vector4(position.x, position.y, position.z, 1))
-				: new Matrix4x4(right, up, forward, new Vector4(position.x, position.y, position.z, 1));
+			Matrix4x4 m = new Matrix4x4(right, up, forward, new Vector4(position.x, position.y, position.z, 1));
+
+			if (hasStateTransform)
+			{
+				if (faceCamera)
+				{
+					m *=  Matrix4x4.Rotate(Quaternion.Inverse(stateTransform.rotation));
+				}
+				
+				m = stateTransform * m;
+			}
 
 			float size = radius;
 
