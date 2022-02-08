@@ -199,10 +199,7 @@ namespace DebugDrawItems
 
 					if (faceCamera)
 					{
-						n = Vector3.Cross(dir, new Vector3(
-							DebugDraw.camPosition.x - p2.x,
-							DebugDraw.camPosition.y - p2.y,
-							DebugDraw.camPosition.z - p2.z));
+						n = Vector3.Cross(DebugDraw.camForward, dir);
 						n.Normalize();
 					}
 					else
