@@ -157,10 +157,12 @@ namespace DebugDrawItems
 				mesh.AddColor(ref clr);
 				int firstVertexIndex = mesh.vertexIndex;
 				mesh.vertexIndex++;
+				
+				float angle = -Mathf.PI * 0.25f;
+				float angleDelta = (Mathf.PI * 2) / segments;
 
 				for (int i = 0, j = segments - 1; i < segments; j = i++)
 				{
-					float angle = -Mathf.PI * 0.25f + Mathf.PI * 2 * (i / (float) segments);
 					mesh.AddVertex(ref m,
 						Mathf.Cos(angle) * size,
 						Mathf.Sin(angle) * size);
@@ -170,6 +172,8 @@ namespace DebugDrawItems
 						firstVertexIndex,
 						firstVertexIndex + j + 1,
 						mesh.vertexIndex++);
+
+					angle += angleDelta;
 				}
 			}
 		}
