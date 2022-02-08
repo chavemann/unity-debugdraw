@@ -877,7 +877,7 @@ public partial class DebugDrawMesh
 		bool hasTransform = item.hasStateTransform;
 		ref Matrix4x4 transform = ref item.stateTransform;
 		bool hasColor = item.hasStateColor;
-		ref Color color = ref item.color;
+		ref Color color = ref item.stateColor;
 
 		List<Vector3> vertices = this.vertices;
 		List<Color> colours = this.colours;
