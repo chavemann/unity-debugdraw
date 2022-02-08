@@ -35,6 +35,9 @@ public static partial class DebugDraw
 	public static readonly int DefaultLayer = LayerMask.NameToLayer("Default");
 	public static Color colorIdentity = Color.white;
 	public static Matrix4x4 matrixIdentity = Matrix4x4.identity;
+	public static Quaternion rotationIdentity = Quaternion.identity;
+	public static Vector3 positionIdentity = Vector3.zero;
+	public static Vector3 scaleIdentity = Vector3.one;
 	public static Vector3 up = Vector3.up;
 	public static Vector3 right = Vector3.right;
 	public static Vector3 forward = Vector3.forward;

@@ -106,54 +106,70 @@ namespace DebugDrawItems
 
 		internal override void Build(DebugDrawMesh mesh)
 		{
-			Vector3 forward, right, up;
+			Vector3 position = this.position;
+			Vector3 right, up;
 			
 			if (faceCamera)
 			{
-				forward = DebugDraw.camForward;
 				right = DebugDraw.camRight;
 				up = DebugDraw.camUp;
 			}
 			else
 			{
-				forward = facing;
-				DebugDraw.FindAxisVectors(ref forward, ref DebugDraw.forward, out up, out right);
+				DebugDraw.FindAxisVectors(ref facing, ref DebugDraw.forward, out up, out right);
 			}
-
-			Matrix4x4 m = new Matrix4x4(right, up, forward, new Vector4(position.x, position.y, position.z, 1));
 
 			if (hasStateTransform)
 			{
-				if (faceCamera)
+				if (faceCamera || autoSize)
 				{
-					m *= Matrix4x4.Rotate(Quaternion.Inverse(stateTransform.rotation));
+					Matrix4x4 m = Matrix4x4.TRS(
+						DebugDraw.positionIdentity,
+						faceCamera ? DebugDraw.rotationIdentity : stateTransform.rotation,
+						autoSize ? DebugDraw.scaleIdentity : stateTransform.lossyScale);
+					
+					right = m.MultiplyVector(right);
+					up = m.MultiplyVector(up);
+				}
+				else
+				{
+					right = stateTransform.MultiplyVector(right);
+					up = stateTransform.MultiplyVector(up);
 				}
 				
-				m = stateTransform * m;
+				position = stateTransform.MultiplyPoint3x4(position);
 			}
 
 			float size = radius;
 
 			if (autoSize)
 			{
-				Vector3 worldPos = hasStateTransform
-					? m.MultiplyPoint3x4(position)
-					: position;
-				
-				size *= new Vector3(
-					worldPos.x - DebugDraw.camPosition.x,
-					worldPos.y - DebugDraw.camPosition.y,
-					worldPos.z - DebugDraw.camPosition.z).magnitude * BaseAutoSizeDistanceFactor;
+				size *= Mathf.Max(Vector3.Dot(new Vector3(
+					position.x - DebugDraw.camPosition.x,
+					position.y - DebugDraw.camPosition.y,
+					position.z - DebugDraw.camPosition.z), DebugDraw.camForward), 0) * BaseAutoSizeDistanceFactor;
 			}
 			
 			Color clr = GetColor(ref color);
 			
 			if (segments < 3)
 			{
-				mesh.AddVertex(ref m, -size, -size);
-				mesh.AddVertex(ref m, +size, -size);
-				mesh.AddVertex(ref m, +size, +size);
-				mesh.AddVertex(ref m, -size, +size);
+				mesh.AddVertex(
+					position.x + right.x * -size + up.x * -size,
+					position.y + right.y * -size + up.y * -size,
+					position.z + right.z * -size + up.z * -size);
+				mesh.AddVertex(
+					position.x + right.x * +size + up.x * -size,
+					position.y + right.y * +size + up.y * -size,
+					position.z + right.z * +size + up.z * -size);
+				mesh.AddVertex(
+					position.x + right.x * +size + up.x * +size,
+					position.y + right.y * +size + up.y * +size,
+					position.z + right.z * +size + up.z * +size);
+				mesh.AddVertex(
+					position.x + right.x * -size + up.x * +size,
+					position.y + right.y * -size + up.y * +size,
+					position.z + right.z * -size + up.z * +size);
 				mesh.AddColorX4(ref clr);
 				// Tri 1
 				mesh.AddIndexX3();
@@ -165,7 +181,7 @@ namespace DebugDrawItems
 			}
 			else
 			{
-				mesh.AddVertex(ref m, 0, 0, 0);
+				mesh.AddVertex(ref position);
 				mesh.AddColor(ref clr);
 				int firstVertexIndex = mesh.vertexIndex;
 				mesh.vertexIndex++;
@@ -175,9 +191,13 @@ namespace DebugDrawItems
 
 				for (int i = 0, j = segments - 1; i < segments; j = i++)
 				{
-					mesh.AddVertex(ref m,
+					Vector2 p = new Vector2(
 						Mathf.Cos(angle) * size,
 						Mathf.Sin(angle) * size);
+					mesh.AddVertex(
+						position.x + right.x * p.x + up.x * p.y,
+						position.y + right.y * p.x + up.y * p.y,
+						position.z + right.z * p.x + up.z * p.y);
 					mesh.AddColor(ref clr);
 					
 					mesh.AddIndices(

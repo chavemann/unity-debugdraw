@@ -129,70 +129,71 @@ namespace DebugDrawItems
 			List<Color> meshColors = mesh.colours;
 			List<int> meshIndices = mesh.indices;
 			
-			Vector3 forward, right, up;
-			ref Vector3 camForward = ref DebugDraw.camForward;
+			Vector3 right, up;
 			
 			if (faceCamera)
 			{
-				forward = DebugDraw.camForward;
 				right = DebugDraw.camRight;
 				up = DebugDraw.camUp;
 			}
 			else
 			{
-				forward = facing;
-				DebugDraw.FindAxisVectors(ref forward, ref DebugDraw.forward, out up, out right);
+				DebugDraw.FindAxisVectors(ref facing, ref DebugDraw.forward, out up, out right);
 			}
 			
-			Matrix4x4 baseTransform = new Matrix4x4(right, up, forward, new Vector4(0, 0, 0, 1));
-			// ReSharper disable once TooWideLocalVariableScope
-			Matrix4x4 stateM;
-
+			if (faceCamera || autoSize)
+			{
+				Matrix4x4 m = Matrix4x4.TRS(
+					DebugDraw.positionIdentity,
+					faceCamera ? DebugDraw.rotationIdentity : stateTransform.rotation,
+					autoSize ? DebugDraw.scaleIdentity : stateTransform.lossyScale);
+					
+				right = m.MultiplyVector(right);
+				up = m.MultiplyVector(up);
+			}
+			else
+			{
+				right = stateTransform.MultiplyVector(right);
+				up = stateTransform.MultiplyVector(up);
+			}
+			
 			for (int i = positions.Count - 1; i >= 0; i--)
 			{
 				Vector3 position = positions[i];
 				float size = sizes[i];
 				Color clr = hasStateColor ? colors[i] * stateColor : colors[i];
 				
-				baseTransform[0, 3] = position.x;
-				baseTransform[1, 3] = position.y;
-				baseTransform[2, 3] = position.z;
-
-				ref Matrix4x4 m = ref baseTransform;
-
 				if (hasStateTransform)
 				{
-					if (faceCamera)
-					{
-						Matrix4x4 mm = Matrix4x4.Rotate(Quaternion.Inverse(stateTransform.rotation));
-						stateM = stateTransform * (baseTransform * mm);
-					}
-					else
-					{
-						stateM = stateTransform * baseTransform;
-					}
-					
-					m = ref stateM;
+					position = stateTransform.MultiplyPoint3x4(position);
 				}
 				
 				if (autoSize)
 				{
-					Vector3 worldPos = hasStateTransform
-						? m.MultiplyPoint3x4(position)
-						: position;
-					
-					size *= new Vector3(
-						worldPos.x - camPosition.x,
-						worldPos.y - camPosition.y,
-						worldPos.z - camPosition.z).magnitude * BaseAutoSizeDistanceFactor;
+					size *= Mathf.Max(Vector3.Dot(new Vector3(
+						position.x - DebugDraw.camPosition.x,
+						position.y - DebugDraw.camPosition.y,
+						position.z - DebugDraw.camPosition.z), DebugDraw.camForward), 0) * BaseAutoSizeDistanceFactor;
 				}
 				
 				if (segments < 3)
 				{
-					meshVertices.Add(m.MultiplyPoint3x4(new Vector3(-size, -size)));
-					meshVertices.Add(m.MultiplyPoint3x4(new Vector3(+size, -size)));
-					meshVertices.Add(m.MultiplyPoint3x4(new Vector3(+size, +size)));
-					meshVertices.Add(m.MultiplyPoint3x4(new Vector3(-size, +size)));
+					meshVertices.Add(new Vector3(
+						position.x + right.x * -size + up.x * -size,
+						position.y + right.y * -size + up.y * -size,
+						position.z + right.z * -size + up.z * -size));
+					meshVertices.Add(new Vector3(
+						position.x + right.x * +size + up.x * -size,
+						position.y + right.y * +size + up.y * -size,
+						position.z + right.z * +size + up.z * -size));
+					meshVertices.Add(new Vector3(
+						position.x + right.x * +size + up.x * +size,
+						position.y + right.y * +size + up.y * +size,
+						position.z + right.z * +size + up.z * +size));
+					meshVertices.Add(new Vector3(
+						position.x + right.x * -size + up.x * +size,
+						position.y + right.y * -size + up.y * +size,
+						position.z + right.z * -size + up.z * +size));
 					meshColors.Add(clr);
 					meshColors.Add(clr);
 					meshColors.Add(clr);
@@ -208,7 +209,7 @@ namespace DebugDrawItems
 				}
 				else
 				{
-					meshVertices.Add(m.MultiplyPoint3x4(new Vector3(0, 0)));
+					meshVertices.Add(position);
 					meshColors.Add(clr);
 					int firstVertexIndex = vertexIndex;
 					vertexIndex++;
@@ -218,9 +219,13 @@ namespace DebugDrawItems
 
 					for (int j = 0, k = segments - 1; j < segments; k = j++)
 					{
-						meshVertices.Add(m.MultiplyPoint3x4(new Vector3(
+						Vector2 p = new Vector2(
 							Mathf.Cos(angle) * size,
-							Mathf.Sin(angle) * size)));
+							Mathf.Sin(angle) * size);
+						meshVertices.Add(new Vector3(
+							position.x + right.x * p.x + up.x * p.y,
+							position.y + right.y * p.x + up.y * p.y,
+							position.z + right.z * p.x + up.z * p.y));
 						meshColors.Add(clr);
 					
 						meshIndices.Add(firstVertexIndex);
