@@ -181,8 +181,8 @@ public static partial class DebugDraw
 	/// <param name="centre">The centre of the ellipse.</param>
 	/// <param name="size">The size/radius of the ellipse.</param>
 	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
-	/// <param name="startAngle">The start angle of the arc.</param>
-	/// <param name="endAngle">The end angle of the arc.</param>
+	/// <param name="startAngle">The start angle in degrees of the arc.</param>
+	/// <param name="endAngle">The end angle in degrees of the arc.</param>
 	/// <param name="color">The colour of the ellipse.</param>
 	/// <param name="segments">The resolution of the ellipse.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
@@ -199,8 +199,8 @@ public static partial class DebugDraw
 	/// <param name="centre">The centre of the ellipse.</param>
 	/// <param name="size">The size/radius of the ellipse.</param>
 	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
-	/// <param name="startAngle">The start angle of the arc.</param>
-	/// <param name="endAngle">The end angle of the arc.</param>
+	/// <param name="startAngle">The start angle in degrees of the arc.</param>
+	/// <param name="endAngle">The end angle in degrees of the arc.</param>
 	/// <param name="color">The colour of the ellipse.</param>
 	/// <param name="segments">The resolution of the ellipse.</param>
 	/// <param name="drawArcSegments">Options for connecting the centre of the ellipse and the arc end points.</param>
@@ -240,6 +240,70 @@ public static partial class DebugDraw
 	public static Line Line(Vector3 p1, Vector3 p2, Color color, float duration = 0)
 	{
 		return lineMeshInstance.Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a 3D line that orients itself towards the camera.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="size">The line thickness.</param>
+	/// <param name="color1">The line's colour at the start.</param>
+	/// <param name="color2">The line's colour at the end.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color1, Color color2, float duration = 0)
+	{
+		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color1, ref color2, duration));
+	}
+	
+	/// <summary>
+	/// Draws a 3D line that orients itself towards the camera.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="size">The line thickness.</param>
+	/// <param name="color">The line's colour.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
+	/// <returns>The Line3D object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color, float duration = 0)
+	{
+		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a 3D line that orients itself towards the camera.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="size">The line thickness.</param>
+	/// <param name="facing">The forward direction of the line.</param>
+	/// <param name="color1">The line's colour at the start.</param>
+	/// <param name="color2">The line's colour at the end.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color1, Color color2, float duration = 0)
+	{
+		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color1, ref color2, duration));
+	}
+	
+	/// <summary>
+	/// Draws a 3D line that orients itself towards the camera.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="size">The line thickness.</param>
+	/// <param name="facing">The forward direction of the line.</param>
+	/// <param name="color">The line's colour.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
+	/// <returns>The Line3D object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color, float duration = 0)
+	{
+		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color, ref color, duration));
 	}
 	
 	/// <summary>
@@ -482,8 +546,8 @@ public partial class DebugDrawMesh
 	/// <param name="centre">The centre of the ellipse.</param>
 	/// <param name="size">The size/radius of the ellipse.</param>
 	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
-	/// <param name="startAngle">The start angle of the arc.</param>
-	/// <param name="endAngle">The end angle of the arc.</param>
+	/// <param name="startAngle">The start angle in degrees of the arc.</param>
+	/// <param name="endAngle">The end angle in degrees of the arc.</param>
 	/// <param name="color">The colour of the ellipse.</param>
 	/// <param name="segments">The resolution of the ellipse.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
@@ -500,8 +564,8 @@ public partial class DebugDrawMesh
 	/// <param name="centre">The centre of the ellipse.</param>
 	/// <param name="size">The size/radius of the ellipse.</param>
 	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
-	/// <param name="startAngle">The start angle of the arc.</param>
-	/// <param name="endAngle">The end angle of the arc.</param>
+	/// <param name="startAngle">The start angle in degrees of the arc.</param>
+	/// <param name="endAngle">The end angle in degrees of the arc.</param>
 	/// <param name="color">The colour of the ellipse.</param>
 	/// <param name="segments">The resolution of the ellipse.</param>
 	/// <param name="drawArcSegments">Options for connecting the centre of the ellipse and the arc end points.</param>
@@ -541,6 +605,70 @@ public partial class DebugDrawMesh
 	public Line Line(Vector3 p1, Vector3 p2, Color color, float duration = 0)
 	{
 		return Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a 3D line that orients itself towards the camera.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="size">The line thickness.</param>
+	/// <param name="color1">The line's colour at the start.</param>
+	/// <param name="color2">The line's colour at the end.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color1, Color color2, float duration = 0)
+	{
+		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color1, ref color2, duration));
+	}
+	
+	/// <summary>
+	/// Draws a 3D line that orients itself towards the camera.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="size">The line thickness.</param>
+	/// <param name="color">The line's colour.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
+	/// <returns>The Line3D object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a 3D line that orients itself towards the camera.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="size">The line thickness.</param>
+	/// <param name="facing">The forward direction of the line.</param>
+	/// <param name="color1">The line's colour at the start.</param>
+	/// <param name="color2">The line's colour at the end.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color1, Color color2, float duration = 0)
+	{
+		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color1, ref color2, duration));
+	}
+	
+	/// <summary>
+	/// Draws a 3D line that orients itself towards the camera.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="size">The line thickness.</param>
+	/// <param name="facing">The forward direction of the line.</param>
+	/// <param name="color">The line's colour.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
+	/// <returns>The Line3D object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color, ref color, duration));
 	}
 	
 	/// <summary>
