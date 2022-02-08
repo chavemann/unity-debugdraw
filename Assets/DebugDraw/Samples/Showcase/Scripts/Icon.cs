@@ -8,9 +8,11 @@ namespace DebugDrawSamples.Showcase.Scripts
 	public class Icon : BaseComponent
 	{
 
+		[Header("Icon")]
 		public Color iconColor = Color.white;
 		public bool iconCircle = true;
 		public float iconSize = 0.2f;
+		public bool iconAutoSize;
 		public float axesSize;
 
 		protected Dot icon;
@@ -45,7 +47,8 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			if (!icon)
 			{
-				icon = DebugDraw.Dot(tr.position, iconSize, iconColor, 0, -1);
+				icon = DebugDraw.Dot(tr.position, iconSize, iconColor, 0, -1)
+					.SetAutoSize(iconAutoSize);
 			}
 		}
 
@@ -56,6 +59,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 			icon.color = iconColor;
 			icon.radius = iconSize;
 			icon.segments = iconCircle ? 24 : 0;
+			icon.autoSize = iconAutoSize;
 		}
 
 		private void ClearAxes()

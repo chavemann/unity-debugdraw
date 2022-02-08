@@ -15,11 +15,15 @@ namespace DebugDrawSamples.Showcase.Scripts
 	public class Showcase : Icon
 	{
 
+		[Header("Line Attachment")]
 		public GameObject lineStart;
 		public GameObject lineEnd;
 		public Vector3 startOffset;
 		public Vector3 endOffset;
+		public Vector2 headOffset;
+		public bool arrowAutoSize;
 
+		[Header("Arc")]
 		public float arcRotation = 0;
 		public float arcStart = 0;
 		public float arcEnd = 360;
@@ -28,9 +32,16 @@ namespace DebugDrawSamples.Showcase.Scripts
 		public DrawArcSegments arcSegments = DrawArcSegments.OpenOnly;
 		public int arcRes = 32;
 
+		[Header("Line3D")]
+		public float line3DSize = 0.1f;
+		public bool line3DFaceCam;
+		public bool line3DAutoSize;
+		public float line3DLength = 1;
+		
 		private float delayedInit = -1;
 		private int frame;
 		private LineAttachment attachment;
+		private Arrow arrow;
 		
 		private readonly List<Vector3> positions = new List<Vector3>();
 		private readonly List<Color> colors = new List<Color>();
@@ -52,19 +63,29 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			if (lineStart || lineEnd)
 			{
-				attachment = DebugDraw.Line(default, default, Color.red, Color.green, -1)
+				attachment = DebugDraw.Arrow(default, default, Color.red, Color.green, 0.5f, true, arrowAutoSize, -1)
 					.AttachTo(lineStart, lineEnd)
 					.start.SetLocalOffset(startOffset)
 					.end.SetLocalOffset(endOffset);
+				arrow = ((Arrow) attachment.line)
+					.startHead.SetOffset(headOffset.x)
+					.endHead.SetOffset(headOffset.y);
 			}
 			
 			Random.InitState(5);
 			for (int i = 0; i < 20; i++)
 			{
-				positions.Add(Random.insideUnitSphere);
+				positions.Add(Vector3.Scale(Random.insideUnitSphere, new Vector3(1, 1, 1)));
 				colors.Add(Random.ColorHSV(0f, 1f, 0.5f, 1f, 1f, 1f));
-				sizes.Add(Random.Range(0.05f, 0.25f));
+				sizes.Add(Random.Range(0.1f, 0.45f));
 			}
+			
+			DebugDraw.Text(
+					default, "Hello",
+					Color.white, TextAnchor.LowerCenter, 1f, -1)
+				.SetUseWorldSize()
+				.AttachTo(this)
+					.obj.SetLocalOffset(Vector3.up * 0.1f);
 
 			delayedInit = Time.time;
 		}
@@ -95,7 +116,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 			
 			DebugDraw.transform = tr.localToWorldMatrix;
 			// DebugDraw.Line(Vector3.zero, Vector3.forward, Color.cyan);
-			// DebugDraw.Dots(positions, sizes, colors, 24).SetAutoSize();
+			DebugDraw.Dots(positions, sizes, colors, 24).SetAutoSize();
 			DebugDraw.WireEllipse(Vector3.zero, arcSize, Vector3.forward, Color.cyan, arcRes)
 				.SetArc(arcStart, arcEnd, arcSegments)
 				.SetAxes(arcAxes)
@@ -115,10 +136,14 @@ namespace DebugDrawSamples.Showcase.Scripts
 				.SetAxes(arcAxes)
 				.SetRotation(arcRotation);
 
-			DebugDraw.Text(
-				tr.position + Vector3.up * 0.1f, "Hello",
-				Color.white, TextAnchor.LowerCenter, 1f)
-				.SetUseWorldSize();
+			DebugDraw.Line3D(tr.position - tr.right*line3DLength, tr.position + tr.right*line3DLength, line3DSize, tr.forward, Color.red, Color.green)
+				.SetAutoSize(line3DAutoSize)
+				.SetFaceCamera(line3DFaceCam);
+
+			// DebugDraw.Text(
+			// 	tr.position + Vector3.up * 0.1f, "Hello",
+			// 	Color.white, TextAnchor.LowerCenter, 1f)
+			// 	.SetUseWorldSize();
 
 			frame++;
 		}
@@ -132,6 +157,14 @@ namespace DebugDrawSamples.Showcase.Scripts
 				attachment
 					.start.SetLocalOffset(startOffset)
 					.end.SetLocalOffset(endOffset);
+			}
+
+			if (arrow)
+			{
+				arrow
+					.startHead.SetOffset(headOffset.x)
+					.endHead.SetOffset(headOffset.y);
+				arrow.autoSize = arrowAutoSize;
 			}
 		}
 
