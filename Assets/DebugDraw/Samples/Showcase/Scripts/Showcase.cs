@@ -77,15 +77,15 @@ namespace DebugDrawSamples.Showcase.Scripts
 			{
 				positions.Add(Vector3.Scale(Random.insideUnitSphere, new Vector3(1, 1, 1)));
 				colors.Add(Random.ColorHSV(0f, 1f, 0.5f, 1f, 1f, 1f));
-				sizes.Add(Random.Range(0.1f, 0.45f));
+				sizes.Add(Random.Range(0.25f, 0.75f));
 			}
 			
-			DebugDraw.Text(
-					default, "Hello",
-					Color.white, TextAnchor.LowerCenter, 1f, -1)
-				.SetUseWorldSize()
-				.AttachTo(this)
-					.obj.SetLocalOffset(Vector3.up * 0.1f);
+			// DebugDraw.Text(
+			// 		default, "Hello",
+			// 		Color.white, TextAnchor.LowerCenter, 1f, -1)
+			// 	.SetUseWorldSize()
+			// 	.AttachTo(this)
+			// 		.obj.SetLocalOffset(Vector3.up * 0.1f);
 
 			delayedInit = Time.time;
 		}
@@ -115,30 +115,34 @@ namespace DebugDrawSamples.Showcase.Scripts
 			Log.Show(1, 1.0f, $"<color=#66ffff>Persistent</color> message <b>XX</b> <i>{DebugDraw.GetTime().ToString(CultureInfo.InvariantCulture)}</i>");
 			
 			DebugDraw.transform = tr.localToWorldMatrix;
+			
 			// DebugDraw.Line(Vector3.zero, Vector3.forward, Color.cyan);
-			DebugDraw.Dots(positions, sizes, colors, 24).SetAutoSize();
+			DebugDraw.Dots(positions, sizes, colors, 24)
+				.SetAutoSize();
 			DebugDraw.WireEllipse(Vector3.zero, arcSize, Vector3.forward, Color.cyan, arcRes)
 				.SetArc(arcStart, arcEnd, arcSegments)
 				.SetAxes(arcAxes)
-				.SetRotation(arcRotation);
-			DebugDraw.Ellipse(Vector3.zero + Vector3.up * 3, arcSize, Vector3.forward, Color.cyan, arcRes)
-				.SetArc(arcStart, arcEnd, arcSegments)
-				.SetAxes(arcAxes)
-				.SetRotation(arcRotation);
+				.SetRotation(arcRotation)
+				.SetAutoResolution();
+			// DebugDraw.Ellipse(Vector3.zero + Vector3.up * 3, arcSize, Vector3.forward, Color.cyan, arcRes)
+			// 	.SetArc(arcStart, arcEnd, arcSegments)
+			// 	.SetAxes(arcAxes)
+			// 	.SetRotation(arcRotation);
+			
 			DebugDraw.transform = Matrix4x4.identity;
 			
-			DebugDraw.WireEllipse(Vector3.zero, arcSize, tr.forward, Color.yellow, arcRes)
-				.SetArc(arcStart, arcEnd, arcSegments)
-				.SetAxes(arcAxes)
-				.SetRotation(arcRotation);
-			DebugDraw.Ellipse(Vector3.zero + Vector3.up * 3, arcSize, tr.forward, Color.yellow, arcRes)
-				.SetArc(arcStart, arcEnd, arcSegments)
-				.SetAxes(arcAxes)
-				.SetRotation(arcRotation);
+			// DebugDraw.WireEllipse(Vector3.zero, arcSize, tr.forward, Color.yellow, arcRes)
+			// 	.SetArc(arcStart, arcEnd, arcSegments)
+			// 	.SetAxes(arcAxes)
+			// 	.SetRotation(arcRotation);
+			// DebugDraw.Ellipse(Vector3.zero + Vector3.up * 3, arcSize, tr.forward, Color.yellow, arcRes)
+			// 	.SetArc(arcStart, arcEnd, arcSegments)
+			// 	.SetAxes(arcAxes)
+			// 	.SetRotation(arcRotation);
 
-			DebugDraw.Line3D(tr.position - tr.right*line3DLength, tr.position + tr.right*line3DLength, line3DSize, tr.forward, Color.red, Color.green)
-				.SetAutoSize(line3DAutoSize)
-				.SetFaceCamera(line3DFaceCam);
+			// DebugDraw.Line3D(tr.position - tr.right*line3DLength, tr.position + tr.right*line3DLength, line3DSize, tr.forward, Color.red, Color.green)
+			// 	.SetAutoSize(line3DAutoSize)
+			// 	.SetFaceCamera(line3DFaceCam);
 
 			// DebugDraw.Text(
 			// 	tr.position + Vector3.up * 0.1f, "Hello",

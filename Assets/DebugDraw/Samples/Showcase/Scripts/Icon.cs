@@ -47,19 +47,20 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			if (!icon)
 			{
-				icon = DebugDraw.Dot(tr.position, iconSize, iconColor, 0, -1)
-					.SetAutoSize(iconAutoSize);
+				icon = DebugDraw.Dot(tr.position, iconSize, iconColor, 0, -1);
 			}
 		}
 
 		private void UpdateIcon()
 		{
-			if (!icon) return;
+			if (!icon)
+				return;
 
 			icon.color = iconColor;
-			icon.radius = iconSize;
+			icon.radius = Mathf.Max(iconSize, 0);
 			icon.segments = iconCircle ? 24 : 0;
 			icon.autoSize = iconAutoSize;
+			icon.autoResolution = !iconAutoSize;
 		}
 
 		private void ClearAxes()
