@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using DebugDrawItems;
 using UnityEngine;
@@ -141,10 +142,23 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Batch draw multiple lines from a positions and colors array.
+	/// Both arrays must be non-null, of the same size, and multiples of two - two entries for each line.
+	/// </summary>
+	/// <param name="positions">The positions of the start and end points of each line.</param>
+	/// <param name="colors">The colors of the start and end points of each line.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Lines Lines(List<Vector3> positions, List<Color> colors, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Lines.Get(positions, colors, duration));
+	}
+	
+	/// <summary>
 	/// Draws a point that has no size.
 	/// </summary>
 	/// <param name="position">The position of the point.</param>
-	/// <param name="p2">The end of the line.</param>
 	/// <param name="color">The point's.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
@@ -328,10 +342,23 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
+	/// Batch draw multiple lines from a positions and colors array.
+	/// Both arrays must be non-null, of the same size, and multiples of two - two entries for each line.
+	/// </summary>
+	/// <param name="positions">The positions of the start and end points of each line.</param>
+	/// <param name="colors">The colors of the start and end points of each line.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Lines Lines(List<Vector3> positions, List<Color> colors, float duration = 0)
+	{
+		return Add(DebugDrawItems.Lines.Get(positions, colors, duration));
+	}
+	
+	/// <summary>
 	/// Draws a point that has no size.
 	/// </summary>
 	/// <param name="position">The position of the point.</param>
-	/// <param name="p2">The end of the line.</param>
 	/// <param name="color">The point's.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>

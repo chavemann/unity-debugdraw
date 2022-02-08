@@ -23,7 +23,6 @@ namespace DebugDrawItems
 		/// Draws a point that has no size.
 		/// </summary>
 		/// <param name="position">The position of the point.</param>
-		/// <param name="p2">The end of the line.</param>
 		/// <param name="color">The point's.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>

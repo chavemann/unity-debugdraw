@@ -858,6 +858,45 @@ public partial class DebugDrawMesh
 		indices.Add(vertexIndex++);
 	}
 	
+	/// <summary>
+	/// Adds and transforms a list of vertices and colors forming a series of lines.
+	/// </summary>
+	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="positions">The positions of the start and end points of each line.</param>
+	/// <param name="colors">The colors of the start and end points of each line.</param>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddLines(BaseItem item, List<Vector3> positions, List<Color> colors)
+	{
+		if (positions == null || colors == null)
+			return;
+		if (positions.Count != colors.Count)
+			return;
+		if (positions.Count != colors.Count)
+			return;
+
+		bool hasTransform = item.hasStateTransform;
+		ref Matrix4x4 transform = ref item.stateTransform;
+		bool hasColor = item.hasStateColor;
+		ref Color color = ref item.color;
+
+		List<Vector3> vertices = this.vertices;
+		List<Color> colours = this.colours;
+		List<int> indices = this.indices;
+		int vertexIndex = this.vertexIndex;
+		
+		for (int i = positions.Count - 2; i >= 0; i -= 2)
+		{
+			vertices.Add(hasTransform ? transform.MultiplyPoint3x4(positions[i]) : positions[i]);
+			vertices.Add(hasTransform ? transform.MultiplyPoint3x4(positions[i + 1]) : positions[i + 1]);
+			colours.Add(hasColor ? colors[i] * color : colors[i]);
+			colours.Add(hasColor ? colors[i + 1] * color : colors[i + 1]);
+			indices.Add(vertexIndex++);
+			indices.Add(vertexIndex++);
+		}
+
+		this.vertexIndex = vertexIndex;
+	}
+	
 	/* ------------------------------------------------------------------------------------- */
 	#endregion
 	/* ------------------------------------------------------------------------------------- */
