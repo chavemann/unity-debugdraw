@@ -36,7 +36,7 @@ def run():
         text = INDENT_REGEX.sub('\t', item_path.read_text('utf-8'))
         m = MESH_TYPE_REGEX.search(text)
         if not m:
-            print(f'Missing "mesh: TYPE" definition for {item_path.stem}')
+            print(f'!! Missing "mesh: TYPE" definition for {item_path.stem}')
             continue
         
         mesh_type = m.group(1)

@@ -5,6 +5,9 @@ using UnityEngine.Animations;
 namespace DebugDrawItems
 {
 
+	/// <summary>
+	/// Draws a set of axes.
+	/// </summary>
 	public class Axes : BaseItem
 	{
 		/* mesh: line */

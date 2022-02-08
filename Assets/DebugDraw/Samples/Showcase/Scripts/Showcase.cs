@@ -80,6 +80,16 @@ namespace DebugDrawSamples.Showcase.Scripts
 				Color.white, TextAnchor.LowerCenter, 1f)
 				.SetUseWorldSize();
 
+			Random.State state = Random.state;
+			Random.InitState(5);
+			DebugDraw.transform = tr.localToWorldMatrix;
+			for (int i = 0; i < 20; i++)
+			{
+				DebugDraw.Point(Random.insideUnitSphere, Random.ColorHSV(0f, 1f, 0.5f, 1f, 1f, 1f));
+			}
+			DebugDraw.transform = Matrix4x4.identity;
+			Random.state = state;
+
 			frame++;
 		}
 

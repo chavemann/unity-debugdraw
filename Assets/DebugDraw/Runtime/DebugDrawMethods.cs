@@ -141,6 +141,20 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Draws a point that has no size.
+	/// </summary>
+	/// <param name="position">The position of the point.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="color">The point's.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Point Point(Vector3 position, Color color, float duration = 0)
+	{
+		return pointMeshInstance.Add(DebugDrawItems.Point.Get(ref position, ref color, duration));
+	}
+	
+	/// <summary>
 	/// Draws a line.
 	/// </summary>
 	/// <param name="position">The world space position of the text.</param>
@@ -311,6 +325,20 @@ public partial class DebugDrawMesh
 	public Line Line(Vector3 p1, Vector3 p2, Color color, float duration = 0)
 	{
 		return Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a point that has no size.
+	/// </summary>
+	/// <param name="position">The position of the point.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="color">The point's.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Point Point(Vector3 position, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Point.Get(ref position, ref color, duration));
 	}
 	
 	/// <summary>

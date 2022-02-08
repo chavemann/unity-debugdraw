@@ -239,7 +239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322272653}
   m_LocalRotation: {x: 0.6193788, y: 0, z: 0, w: 0.7850923}
-  m_LocalPosition: {x: 2.92, y: 1.6853986, z: 1}
+  m_LocalPosition: {x: -2.12, y: 1.5039744, z: -1.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconColor: {r: 0, g: 1, b: 0, a: 1}
   iconCircle: 1
-  iconSize: 0.2
+  iconSize: 0.1
   axesSize: 0
 --- !u!114 &322272656
 MonoBehaviour:
@@ -354,7 +354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414222481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.26, y: 1, z: -7}
+  m_LocalPosition: {x: 0, y: 1, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1784312281}
@@ -391,11 +391,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
   iconCircle: 0
-  iconSize: 0.2
+  iconSize: 0.1
   axesSize: 0
   lineStart: {fileID: 1979193047}
   lineEnd: {fileID: 322272653}
-  startOffset: {x: 1.25, y: 0, z: 0}
+  startOffset: {x: 0, y: 0, z: 0}
   endOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1218636477
 Transform:
@@ -405,7 +405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218636475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28, y: 2.25, z: -0.61}
+  m_LocalPosition: {x: 0.28, y: 2.25, z: 0.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -469,8 +469,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979193047}
-  m_LocalRotation: {x: 0.04415623, y: -0.79540855, z: -0.317584, w: -0.5143111}
-  m_LocalPosition: {x: -1.18, y: 0, z: -0.4}
+  m_LocalRotation: {x: -0.3216949, y: 0.19743785, z: 0.86373144, w: -0.33391422}
+  m_LocalPosition: {x: 1.68, y: 1.3900948, z: -2.3100004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconColor: {r: 1, g: 0, b: 0, a: 1}
   iconCircle: 1
-  iconSize: 0.2
+  iconSize: 0.1
   axesSize: -1
 --- !u!114 &1979193050
 MonoBehaviour:
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startY: 0
-  height: 0
+  height: 2
   speed: 4
   phase: 3.94
 --- !u!114 &1979193051
