@@ -22,6 +22,10 @@ public class DebugDrawTextMesh : DebugDrawMesh
 		Vector2 screenSize = new Vector2(Screen.width, Screen.height);
 		Rect rect = new Rect(0, 0, 0, 0);
 
+		ref Vector3 camForward = ref DebugDraw.camForward;
+		ref Vector3 camPosition = ref DebugDraw.camPosition;
+		float lineHeight = DebugDraw.TextStyle.lineHeight;
+
 		for(int i = itemCount - 1; i >= 0; i--)
 		{
 			Text item = (Text) items[i];
@@ -37,17 +41,17 @@ public class DebugDrawTextMesh : DebugDrawMesh
 			Matrix4x4 m = Matrix4x4.Translate(new Vector3(p.x, p.y, 0));
 
 			float scale = item.scale;
-			
+
 			if (scale != 1 || item.useWorldSize)
 			{
 				if (item.useWorldSize)
 				{
-					scale *= DebugDraw.textBaseWorldDistance / new Vector3(
-						item.position.x - DebugDraw.camPosition.x,
-						item.position.y - DebugDraw.camPosition.y,
-						item.position.z - DebugDraw.camPosition.z).magnitude;
-
-					if (scale * DebugDraw.TextStyle.lineHeight < DebugDraw.minTextSize)
+					scale *= DebugDraw.textBaseWorldDistance / Vector3.Dot(new Vector3(
+						item.position.x - camPosition.x,
+						item.position.y - camPosition.y,
+						item.position.z - camPosition.z), camForward);
+					
+					if (scale * lineHeight < DebugDraw.minTextSize)
 						continue;
 				}
 				
