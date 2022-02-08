@@ -26,7 +26,7 @@ namespace DebugDrawItems
 		/// </summary>
 		public bool autoSize;
 		/// <summary>
-		/// The forward direction of the dot. Automatically update if faceCamera is true.
+		/// The forward direction of the dot. Automatically updated if faceCamera is true.
 		/// </summary>
 		public Vector3 facing;
 		/// <summary>
@@ -117,7 +117,7 @@ namespace DebugDrawItems
 			else
 			{
 				forward = facing;
-				DebugDraw.FindBestAxisVectors(ref forward, out up, out right);
+				DebugDraw.FindAxisVectors(ref forward, ref DebugDraw.forward, out up, out right);
 			}
 
 			Matrix4x4 m = new Matrix4x4(right, up, forward, new Vector4(position.x, position.y, position.z, 1));
@@ -126,7 +126,7 @@ namespace DebugDrawItems
 			{
 				if (faceCamera)
 				{
-					m *=  Matrix4x4.Rotate(Quaternion.Inverse(stateTransform.rotation));
+					m *= Matrix4x4.Rotate(Quaternion.Inverse(stateTransform.rotation));
 				}
 				
 				m = stateTransform * m;

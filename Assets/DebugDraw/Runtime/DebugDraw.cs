@@ -37,7 +37,7 @@ public static partial class DebugDraw
 	public static Matrix4x4 matrixIdentity = Matrix4x4.identity;
 	public static Vector3 up = Vector3.up;
 	public static Vector3 right = Vector3.right;
-	public static Vector3 down = Vector3.down;
+	public static Vector3 forward = Vector3.forward;
 
 	private static readonly List<BaseAttachment> Attachments = new List<BaseAttachment>();
 	private static int attachmentCount;

@@ -32,7 +32,7 @@ namespace DebugDrawItems
 		/// </summary>
 		public bool autoSize;
 		/// <summary>
-		/// The forward direction of all dots. Automatically update if faceCamera is true.
+		/// The forward direction of all dots. Automatically updated if faceCamera is true.
 		/// </summary>
 		public Vector3 facing;
 		/// <summary>
@@ -141,7 +141,7 @@ namespace DebugDrawItems
 			else
 			{
 				forward = facing;
-				DebugDraw.FindBestAxisVectors(ref forward, out up, out right);
+				DebugDraw.FindAxisVectors(ref forward, ref DebugDraw.forward, out up, out right);
 			}
 			
 			Matrix4x4 baseTransform = new Matrix4x4(right, up, forward, new Vector4(0, 0, 0, 1));

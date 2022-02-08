@@ -10,7 +10,7 @@ namespace DebugDrawItems
 	public abstract class BaseItem
 	{
 
-		protected const float BaseAutoSizeDistanceFactor = 1 / 10f;
+		protected const float BaseAutoSizeDistanceFactor = 1 / 25f;
 
 		/// <summary>
 		/// This item's color.
