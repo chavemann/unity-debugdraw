@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using DebugDrawAttachments;
+using DebugDrawItems;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -18,9 +20,21 @@ namespace DebugDrawSamples.Showcase.Scripts
 		public Vector3 startOffset;
 		public Vector3 endOffset;
 
+		public float arcRotation = 0;
+		public float arcStart = 0;
+		public float arcEnd = 360;
+		public Vector2 arcSize = new Vector2(2, 1);
+		public DrawEllipseAxes arcAxes = DrawEllipseAxes.InsideArc;
+		public DrawArcSegments arcSegments = DrawArcSegments.OpenOnly;
+		public int arcRes = 32;
+
 		private float delayedInit = -1;
 		private int frame;
 		private LineAttachment attachment;
+		
+		private readonly List<Vector3> positions = new List<Vector3>();
+		private readonly List<Color> colors = new List<Color>();
+		private readonly List<float> sizes = new List<float>();
 
 		protected override void OnEnable()
 		{
@@ -42,6 +56,14 @@ namespace DebugDrawSamples.Showcase.Scripts
 					.AttachTo(lineStart, lineEnd)
 					.start.SetLocalOffset(startOffset)
 					.end.SetLocalOffset(endOffset);
+			}
+			
+			Random.InitState(5);
+			for (int i = 0; i < 20; i++)
+			{
+				positions.Add(Random.insideUnitSphere);
+				colors.Add(Random.ColorHSV(0f, 1f, 0.5f, 1f, 1f, 1f));
+				sizes.Add(Random.Range(0.05f, 0.25f));
 			}
 
 			delayedInit = Time.time;
@@ -72,23 +94,31 @@ namespace DebugDrawSamples.Showcase.Scripts
 			Log.Show(1, 1.0f, $"<color=#66ffff>Persistent</color> message <b>XX</b> <i>{DebugDraw.GetTime().ToString(CultureInfo.InvariantCulture)}</i>");
 			
 			DebugDraw.transform = tr.localToWorldMatrix;
-			DebugDraw.Line(Vector3.zero, Vector3.forward, Color.cyan);
+			// DebugDraw.Line(Vector3.zero, Vector3.forward, Color.cyan);
+			// DebugDraw.Dots(positions, sizes, colors, 24).SetAutoSize();
+			DebugDraw.WireEllipse(Vector3.zero, arcSize, Vector3.forward, Color.cyan, arcRes)
+				.SetArc(arcStart, arcEnd, arcSegments)
+				.SetAxes(arcAxes)
+				.SetRotation(arcRotation);
+			DebugDraw.Ellipse(Vector3.zero + Vector3.up * 3, arcSize, Vector3.forward, Color.cyan, arcRes)
+				.SetArc(arcStart, arcEnd, arcSegments)
+				.SetAxes(arcAxes)
+				.SetRotation(arcRotation);
 			DebugDraw.transform = Matrix4x4.identity;
+			
+			DebugDraw.WireEllipse(Vector3.zero, arcSize, tr.forward, Color.yellow, arcRes)
+				.SetArc(arcStart, arcEnd, arcSegments)
+				.SetAxes(arcAxes)
+				.SetRotation(arcRotation);
+			DebugDraw.Ellipse(Vector3.zero + Vector3.up * 3, arcSize, tr.forward, Color.yellow, arcRes)
+				.SetArc(arcStart, arcEnd, arcSegments)
+				.SetAxes(arcAxes)
+				.SetRotation(arcRotation);
 
 			DebugDraw.Text(
 				tr.position + Vector3.up * 0.1f, "Hello",
 				Color.white, TextAnchor.LowerCenter, 1f)
 				.SetUseWorldSize();
-
-			Random.State state = Random.state;
-			Random.InitState(5);
-			DebugDraw.transform = tr.localToWorldMatrix;
-			for (int i = 0; i < 20; i++)
-			{
-				DebugDraw.Point(Random.insideUnitSphere, Random.ColorHSV(0f, 1f, 0.5f, 1f, 1f, 1f));
-			}
-			DebugDraw.transform = Matrix4x4.identity;
-			Random.state = state;
 
 			frame++;
 		}

@@ -32,9 +32,12 @@ public static partial class DebugDraw
 	/// </summary>
 	private const bool UpdateInstanceScene = false;
 
-	internal static readonly int DefaultLayer = LayerMask.NameToLayer("Default");
-	internal static Color colorIdentity = Color.white;
-	internal static Matrix4x4 matrixIdentity = Matrix4x4.identity;
+	public static readonly int DefaultLayer = LayerMask.NameToLayer("Default");
+	public static Color colorIdentity = Color.white;
+	public static Matrix4x4 matrixIdentity = Matrix4x4.identity;
+	public static Vector3 up = Vector3.up;
+	public static Vector3 right = Vector3.right;
+	public static Vector3 down = Vector3.down;
 
 	private static readonly List<BaseAttachment> Attachments = new List<BaseAttachment>();
 	private static int attachmentCount;
@@ -595,6 +598,7 @@ public static partial class DebugDraw
 	/// <param name="up">The calculated up vector.</param>
 	/// <param name="right">The calculated right vector.</param>
 	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void FindBestAxisVectors(ref Vector3 normal, out Vector3 up, out Vector3 right)
 	{
 		Vector3 n = new Vector3(
@@ -603,14 +607,9 @@ public static partial class DebugDraw
 			Mathf.Abs(normal.z));
 
 		// Find best basis vectors.
-		if(n.z > n.x && n.z > n.y)
-		{
-			up = new Vector3(1, 0, 0);
-		}
-		else
-		{
-			up = new Vector3(0, 0, 1);
-		}
+		up = n.z > n.x && n.z > n.y 
+			? new Vector3(1, 0, 0)
+			: new Vector3(0, 0, 1);
 
 		float dot = Vector3.Dot(up, normal);
 			
@@ -618,8 +617,37 @@ public static partial class DebugDraw
 			up.x - normal.x * dot,
 			up.y - normal.y * dot,
 			up.z - normal.z * dot).normalized;
-			
+
 		right = Vector3.Cross(up, normal);
+	}
+	
+	/// <summary>
+	/// Find good arbitrary axis vectors to represent U and V axes of a plane, using this vector as the normal of the plane.
+	/// <param name="normal">The plane's normal vector.</param>
+	/// <param name="up">The calculated up vector.</param>
+	/// <param name="right">The calculated right vector.</param>
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static void FindAxisVectors(ref Vector3 normal, ref Vector3 upAxis, out Vector3 up, out Vector3 right)
+	{
+		right = Vector3.Cross(normal, upAxis);
+		right.Normalize();
+		up = Vector3.Cross(normal, right);
+		up.Normalize();
+	}
+
+	/// <summary>
+	/// Returns a vector perpendicular to axis.
+	/// </summary>
+	/// <param name="axis"></param>
+	/// <param name="up"></param>
+	/// <returns></returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Vector3 FindPerpendicular(ref Vector3 axis, ref Vector3 up)
+	{
+		Vector3 n = Vector3.Cross(axis, up);
+		n.Normalize();
+		return n;
 	}
 	
 	/* ------------------------------------------------------------------------------------- */
