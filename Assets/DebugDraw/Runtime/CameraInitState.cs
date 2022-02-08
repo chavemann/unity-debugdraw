@@ -1,7 +1,7 @@
 public static partial class DebugDraw
 {
 
-	public enum CameraInitState
+	private enum CameraInitState
 	{
 
 		Pending,
