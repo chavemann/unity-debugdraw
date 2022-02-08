@@ -87,7 +87,7 @@ public static partial class DebugDraw
 	/// <param name="position">The position of the dot.</param>
 	/// <param name="radius">The size of the dot.</param>
 	/// <param name="color">The color of the dot.</param>
-	/// <param name="segments">The resolution of the dot. 0 or 4 = square, >= 3 = circle.</param>
+	/// <param name="segments">The shape/resolution of the dot. 0 or 4 = square, >= 3 = circle.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -101,15 +101,46 @@ public static partial class DebugDraw
 	/// </summary>
 	/// <param name="position">The position of the dot.</param>
 	/// <param name="radius">The size of the dot.</param>
-	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
 	/// <param name="color">The color of the dot.</param>
-	/// <param name="segments">The resolution of the dot. 0 = square.</param>
+	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
+	/// <param name="segments">The shape/resolution of the dot. 0 = square.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Dot Dot(Vector3 position, float radius, Color color, Vector3 facing, int segments = 0, float duration = 0)
 	{
 		return triangleMeshInstance.Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, ref facing, segments, duration));
+	}
+	
+	/// <summary>
+	/// Batch draws 3D dots that automatically faces the camera.
+	/// </summary>
+	/// <param name="positions">The positions of each dot.</param>
+	/// <param name="sizes">The sizes each dot.</param>
+	/// <param name="colors">The colors each dot.</param>
+	/// <param name="segments">The shape/resolution of the dots. 0 or 4 = square, >= 3 = circle.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Dot object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, int segments = 0, float duration = 0)
+	{
+		return triangleMeshInstance.Add(DebugDrawItems.Dots.Get(positions, sizes, colors, segments, duration));
+	}
+	
+	/// <summary>
+	/// Batch draws 3D dots.
+	/// </summary>
+	/// <param name="positions">The positions of each dot.</param>
+	/// <param name="sizes">The sizes each dot.</param>
+	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
+	/// <param name="colors">The colors each dot.</param>
+	/// <param name="segments">The shape/resolution of the dots. 0 = square.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Dots object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3 facing, int segments = 0, float duration = 0)
+	{
+		return triangleMeshInstance.Add(DebugDrawItems.Dots.Get(positions, sizes, colors, ref facing, segments, duration));
 	}
 	
 	/// <summary>
@@ -287,7 +318,7 @@ public partial class DebugDrawMesh
 	/// <param name="position">The position of the dot.</param>
 	/// <param name="radius">The size of the dot.</param>
 	/// <param name="color">The color of the dot.</param>
-	/// <param name="segments">The resolution of the dot. 0 or 4 = square, >= 3 = circle.</param>
+	/// <param name="segments">The shape/resolution of the dot. 0 or 4 = square, >= 3 = circle.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -301,15 +332,46 @@ public partial class DebugDrawMesh
 	/// </summary>
 	/// <param name="position">The position of the dot.</param>
 	/// <param name="radius">The size of the dot.</param>
-	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
 	/// <param name="color">The color of the dot.</param>
-	/// <param name="segments">The resolution of the dot. 0 = square.</param>
+	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
+	/// <param name="segments">The shape/resolution of the dot. 0 = square.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Dot Dot(Vector3 position, float radius, Color color, Vector3 facing, int segments = 0, float duration = 0)
 	{
 		return Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, ref facing, segments, duration));
+	}
+	
+	/// <summary>
+	/// Batch draws 3D dots that automatically faces the camera.
+	/// </summary>
+	/// <param name="positions">The positions of each dot.</param>
+	/// <param name="sizes">The sizes each dot.</param>
+	/// <param name="colors">The colors each dot.</param>
+	/// <param name="segments">The shape/resolution of the dots. 0 or 4 = square, >= 3 = circle.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Dot object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, int segments = 0, float duration = 0)
+	{
+		return Add(DebugDrawItems.Dots.Get(positions, sizes, colors, segments, duration));
+	}
+	
+	/// <summary>
+	/// Batch draws 3D dots.
+	/// </summary>
+	/// <param name="positions">The positions of each dot.</param>
+	/// <param name="sizes">The sizes each dot.</param>
+	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
+	/// <param name="colors">The colors each dot.</param>
+	/// <param name="segments">The shape/resolution of the dots. 0 = square.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Dots object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3 facing, int segments = 0, float duration = 0)
+	{
+		return Add(DebugDrawItems.Dots.Get(positions, sizes, colors, ref facing, segments, duration));
 	}
 	
 	/// <summary>

@@ -24,15 +24,15 @@ public partial class DebugDrawMesh
 	/* -- Public -- */
 	
 	/// <summary>
-	/// The mesh vertices populated during <see cref="Build"/> - do not modify directly. 
+	/// The mesh vertices populated during <see cref="Build"/>. Generally don't access directly.
 	/// </summary>
 	public readonly List<Vector3> vertices = new List<Vector3>();
 	/// <summary>
-	/// The mesh vertex colours populated during <see cref="Build"/> - do not modify directly. 
+	/// The mesh vertex colours populated during <see cref="Build"/>. Generally don't access directly.
 	/// </summary>
 	public readonly List<Color> colours = new List<Color>();
 	/// <summary>
-	/// The mesh indices populated during <see cref="Build"/> - do not modify directly. 
+	/// The mesh indices populated during <see cref="Build"/>. Generally don't access directly.
 	/// </summary>
 	public readonly List<int> indices = new List<int>();
 
@@ -51,9 +51,9 @@ public partial class DebugDrawMesh
 	internal int itemCount;
 
 	/// <summary>
-	/// Tracks the current vertex index during <see cref="Build"/>.
+	/// Tracks the current vertex index during <see cref="Build"/>. Generally don't access directly.
 	/// </summary>
-	internal int vertexIndex;
+	public int vertexIndex;
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Init -- */
