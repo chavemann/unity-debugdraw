@@ -6,11 +6,14 @@ ITEMS_PATH = BASE_PATH / 'Items'
 OUTPUT_FILE = BASE_PATH / 'DebugDrawMethods.cs'
 
 MESH_TYPE_REGEX = re.compile(r'/\*\s+mesh:\s+(.+?)\s+\*/')
+LOCAL_MESH_TYPE_REGEX = re.compile(f'^\s*{MESH_TYPE_REGEX.pattern}', MESH_TYPE_REGEX.flags)
 GET_METHODS_REGEX = re.compile(
-    r'((?:///(?:[^\n\r]+)\s+)+)(\[.+?\])?\s*public\s+static\s+(.+?)\s+Get\((.+?)\)\s*{\s*(.+?)\s*}',
+    r'((?:///(?:[^\n\r]+)\s+)+)(\[.+?\])?\s*public\s+static\s+(.+?)\s+Get([^(].+?)?'
+    r'\((.+?)\)\s*{\s*(.+?)\s*}',
     re.DOTALL)
 GET_WRAPPER_REGEX = re.compile(r'^\s*return\s+Get\((.+)\);')
 PARAM_REGEX = re.compile(r'\s*(ref\s+)?(.+?\s+)([^,\s]+)(\s*=\s*[^,]+)?,?')
+DEFAULT_REGEX = re.compile(r'\s*=\s*[^,)]+')
 INDENT_REGEX = re.compile(r'\t\t')
 
 
@@ -39,12 +42,23 @@ def run():
             print(f'!! Missing "mesh: TYPE" definition for {item_path.stem}')
             continue
         
-        mesh_type = m.group(1)
+        default_mesh_type = m.group(1)
 
         for m in GET_METHODS_REGEX.finditer(text):
-            docs, attribs, return_type, params, body = m.groups()
-            clean_params = params.replace('\n', '').replace('\t', '')
-            print(f'-- {return_type}({clean_params})')
+            docs, attribs, return_type, get_type, params, body = m.groups()
+            clean_params = params.replace('\n', ' ').replace('\t', '')
+            clean_params = DEFAULT_REGEX.sub('', clean_params)
+            print(f'-- {return_type} {get_type} ({clean_params})')
+
+            mesh_type = default_mesh_type
+            func_name = return_type
+            get_type = get_type or ''
+            
+            if get_type:
+                if get_type == 'Wire':
+                    func_name = get_type + func_name
+                else:
+                    func_name = get_type
             
             call_params = []
             refless_params = []
@@ -52,6 +66,10 @@ def run():
                 ref, v_type, name, val = [(p or '').strip() for p in param_m.groups()]
                 call_params.append(' '.join(filter(None, [ref, name])))
                 refless_params.append(' '.join(filter(None, [v_type, name, val])))
+
+            type_m = LOCAL_MESH_TYPE_REGEX.match(body)
+            if type_m:
+                mesh_type = type_m.group(1)
             
             if not GET_WRAPPER_REGEX.match(body):
                 body = f'return Get({", ".join(call_params)});'
@@ -59,9 +77,10 @@ def run():
             params = ', '.join(refless_params)
 
             static_body = GET_WRAPPER_REGEX.sub(
-                fr'return {mesh_type}MeshInstance.Add(DebugDrawItems.{return_type}.Get(\g<1>));', body)
+                fr'return {mesh_type}MeshInstance.Add('
+                fr'DebugDrawItems.{return_type}.Get{get_type}(\g<1>));', body)
             instance_body = GET_WRAPPER_REGEX.sub(
-                fr'return Add(DebugDrawItems.{return_type}.Get(\g<1>));', body)
+                fr'return Add(DebugDrawItems.{return_type}.Get{get_type}(\g<1>));', body)
             
             method_groups = [
                 (' static', static_methods, static_body),
@@ -75,7 +94,7 @@ def run():
             for static, method_list, body in method_groups:
                 method_out = [
                     meta,
-                    f'public{static} {return_type} {return_type}({params})\n\t{{\n\t\t{body}\n\t}}',
+                    f'public{static} {return_type} {func_name}({params})\n\t{{\n\t\t{body}\n\t}}',
                 ]
                 method_list.append(''.join(method_out))
             pass
