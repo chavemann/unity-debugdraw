@@ -240,6 +240,12 @@ public static partial class Log
 				return GetString(objs);
 			case Object obj:
 				return obj.ToString();
+			case Vector2 v:
+				return GetString(ref v);
+			case Vector3 v:
+				return GetString(ref v);
+			case Vector4 v:
+				return GetString(ref v);
 			case IEnumerable enumerable:
 				return GetString(enumerable);
 			case IFormattable formattable:
@@ -304,6 +310,19 @@ public static partial class Log
 	public static object GetString(float message) => message.ToString(null, CultureInfo.InvariantCulture);
 	public static object GetString(double message) => message.ToString(null, CultureInfo.InvariantCulture);
 	public static object GetString(decimal message) => message.ToString(null, CultureInfo.InvariantCulture);
+	public static object GetString(ref Vector2 v)
+	{
+		return $"<{v.x.ToString(CultureInfo.InvariantCulture)}, {v.y.ToString(CultureInfo.InvariantCulture)}>";
+	}
+	public static object GetString(ref Vector3 v)
+	{
+		return $"<{v.x.ToString(CultureInfo.InvariantCulture)}, {v.y.ToString(CultureInfo.InvariantCulture)}, {v.z.ToString(CultureInfo.InvariantCulture)}>";
+	}
+	public static object GetString(ref Vector4 v)
+	{
+		return
+			$"<{v.x.ToString(CultureInfo.InvariantCulture)}, {v.y.ToString(CultureInfo.InvariantCulture)}, {v.z.ToString(CultureInfo.InvariantCulture)}, {v.w.ToString(CultureInfo.InvariantCulture)}>";
+	}
 
 	public static object GetArgString(object[] args)
 	{
@@ -469,7 +488,7 @@ public static partial class Log
 	/// <param name="val">Vector2 for display.</param>
 	public static void Print(Vector2 val)
 	{
-		Debug.unityLogger.Log(defaultLogType, (object) val.ToString(), defaultLogContext);
+		Debug.unityLogger.Log(defaultLogType, GetString(ref val), defaultLogContext);
 	}
 	
 	/// <summary>
@@ -478,7 +497,7 @@ public static partial class Log
 	/// <param name="val">Vector3 for display.</param>
 	public static void Print(Vector3 val)
 	{
-		Debug.unityLogger.Log(defaultLogType, (object) val.ToString(), defaultLogContext);
+		Debug.unityLogger.Log(defaultLogType, GetString(ref val), defaultLogContext);
 	}
 	
 	/// <summary>
@@ -487,7 +506,7 @@ public static partial class Log
 	/// <param name="val">Vector4 for display.</param>
 	public static void Print(Vector4 val)
 	{
-		Debug.unityLogger.Log(defaultLogType, (object) val.ToString(), defaultLogContext);
+		Debug.unityLogger.Log(defaultLogType, GetString(ref val), defaultLogContext);
 	}
 	
 	/// <summary>
@@ -740,7 +759,7 @@ public static partial class Log
 	/// <param name="val">Vector2 for display.</param>
 	public static void Print(string message, Vector2 val)
 	{
-		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {val.ToString()}", defaultLogContext);
+		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(ref val)}", defaultLogContext);
 	}
 	
 	/// <summary>
@@ -750,7 +769,7 @@ public static partial class Log
 	/// <param name="val">Vector3 for display.</param>
 	public static void Print(string message, Vector3 val)
 	{
-		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {val.ToString()}", defaultLogContext);
+		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(ref val)}", defaultLogContext);
 	}
 	
 	/// <summary>
@@ -760,7 +779,7 @@ public static partial class Log
 	/// <param name="val">Vector4 for display.</param>
 	public static void Print(string message, Vector4 val)
 	{
-		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {val.ToString()}", defaultLogContext);
+		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(ref val)}", defaultLogContext);
 	}
 	
 	/// <summary>
