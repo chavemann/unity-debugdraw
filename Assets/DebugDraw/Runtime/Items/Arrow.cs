@@ -22,6 +22,10 @@ namespace DebugDrawItems
 		/// </summary>
 		public bool faceCamera;
 		/// <summary>
+		/// If true adjusts the size of the arrow heads so it approximately remains the same size on screen.
+		/// </summary>
+		public bool autoSize;
+		/// <summary>
 		/// The line will always remain at least this long.
 		/// </summary>
 		public float minLength;
@@ -32,7 +36,7 @@ namespace DebugDrawItems
 		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Draws an arrow.
 		/// </summary>
@@ -45,6 +49,7 @@ namespace DebugDrawItems
 		/// <param name="startShape">The shape of the head at the start of the line.</param>
 		/// <param name="endShape">The shape of the head at the end of the line.</param>
 		/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
+		/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -52,7 +57,7 @@ namespace DebugDrawItems
 			ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2,
 			float startSize, float endSize,
 			ArrowShape startShape = ArrowShape.Arrow, ArrowShape endShape = ArrowShape.Arrow,
-			bool faceCamera = false, float duration = 0)
+			bool faceCamera = false, bool autoSize = false, float duration = 0)
 		{
 			Arrow item = ItemPool<Arrow>.Get(duration);
 			
@@ -65,6 +70,7 @@ namespace DebugDrawItems
 			item.endHead.shape = endShape;
 			item.endHead.SetSize(endSize);
 			item.faceCamera = faceCamera;
+			item.autoSize = autoSize;
 			item.minLength = 0;
 			item.maxLength = float.PositiveInfinity;
 
@@ -81,14 +87,17 @@ namespace DebugDrawItems
 		/// <param name="startSize">The size of the arrow head at the start of the line.</param>
 		/// <param name="endSize">The size of the arrow head at the end of the line.</param>
 		/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
+		/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Arrow Get(ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2, float startSize, float endSize, bool faceCamera = false, float duration = 0)
+		public static Arrow Get(
+			ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2,
+			float startSize, float endSize, bool faceCamera = false, bool autoSize = false, float duration = 0)
 		{
 			return Get(
 				ref p1, ref p2, ref color1, ref color2, startSize, endSize,
-				ArrowShape.Arrow, ArrowShape.Arrow, faceCamera, duration);
+				ArrowShape.Arrow, ArrowShape.Arrow, faceCamera, autoSize, duration);
 		}
 		
 		/// <summary>
@@ -100,14 +109,15 @@ namespace DebugDrawItems
 		/// <param name="color2">The line's colour at the end.</param>
 		/// <param name="size">The size of the arrow head.</param>
 		/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
+		/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Arrow Get(ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2, float size, bool faceCamera = false, float duration = 0)
+		public static Arrow Get(ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2, float size, bool faceCamera = false,bool autoSize = false, float duration = 0)
 		{
 			return Get(
 				ref p1, ref p2, ref color1, ref color2, size, size,
-				ArrowShape.Arrow, ArrowShape.Arrow, faceCamera, duration);
+				ArrowShape.Arrow, ArrowShape.Arrow, faceCamera, autoSize, duration);
 		}
 
 		public Arrow()
@@ -211,15 +221,21 @@ namespace DebugDrawItems
 					{
 						float headLength = head.shape == ArrowShape.Arrow ? head.length : 0;
 						
+						float size = autoSize
+							? Mathf.Max(Vector3.Dot(new Vector3(
+								p1.x - DebugDraw.camPosition.x,
+								p1.y - DebugDraw.camPosition.y,
+								p1.z - DebugDraw.camPosition.z), DebugDraw.camForward), 0) * BaseAutoSizeDistanceFactor
+							: 1;
 						mesh.AddColorX2(ref clr);
 						mesh.AddVertex(this,
-							p2.x + dir.x * flip * headLength + n.x * head.width,
-							p2.y + dir.y * flip * headLength + n.y * head.width,
-							p2.z + dir.z * flip * headLength + n.z * head.width);
+							p2.x + dir.x * flip * headLength * size + n.x * head.width * size,
+							p2.y + dir.y * flip * headLength * size + n.y * head.width * size,
+							p2.z + dir.z * flip * headLength * size + n.z * head.width * size);
 						mesh.AddVertex(this,
-							p2.x + dir.x * flip * headLength - n.x * head.width,
-							p2.y + dir.y * flip * headLength - n.y * head.width,
-							p2.z + dir.z * flip * headLength - n.z * head.width);
+							p2.x + dir.x * flip * headLength * size - n.x * head.width * size,
+							p2.y + dir.y * flip * headLength * size - n.y * head.width * size,
+							p2.z + dir.z * flip * headLength * size - n.z * head.width * size);
 						
 						if (head.shape == ArrowShape.Arrow)
 						{
