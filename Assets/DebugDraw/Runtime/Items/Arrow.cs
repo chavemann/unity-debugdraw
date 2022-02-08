@@ -149,6 +149,20 @@ namespace DebugDrawItems
 			dir.y /= length;
 			dir.z /= length;
 
+			if (startHead.offset != 0)
+			{
+				p1.x += dir.x * startHead.offset;
+				p1.y += dir.y * startHead.offset;
+				p1.z += dir.z * startHead.offset;
+			}
+
+			if (endHead.offset != 0)
+			{
+				p2.x -= dir.x * endHead.offset;
+				p2.y -= dir.y * endHead.offset;
+				p2.z -= dir.z * endHead.offset;
+			}
+
 			if (minLength > 0 || !float.IsPositiveInfinity(maxLength))
 			{
 				if(minLength > 0 && length < minLength)
@@ -253,6 +267,10 @@ namespace DebugDrawItems
 		/// The length (along the arrow direction) of the arrow head.
 		/// </summary>
 		public float length;
+		/// <summary>
+		/// Pushes the head away from the target point by this distance.
+		/// </summary>
+		public float offset;
 
 		private readonly Arrow arrow;
 
@@ -291,6 +309,18 @@ namespace DebugDrawItems
 			this.width = width;
 			this.length = length;
 			
+			return arrow;
+		}
+
+		/// <summary>
+		/// Sets the target offset distance.
+		/// </summary>
+		/// <param name="offset"></param>
+		/// <returns></returns>
+		public Arrow SetOffset(float offset)
+		{
+			this.offset = offset;
+
 			return arrow;
 		}
 
