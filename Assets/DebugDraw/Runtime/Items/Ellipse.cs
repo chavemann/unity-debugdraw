@@ -51,6 +51,11 @@ namespace DebugDrawItems
 		/// based on this setting.
 		/// </summary>
 		public bool filled;
+		/// <summary>
+		/// If true the ellipse resolution (segments) will be adjusted based on the distance to the camera
+		/// so that it will always appear smooth.
+		/// </summary>
+		public bool autoResolution;
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
@@ -263,6 +268,19 @@ namespace DebugDrawItems
 			return this;
 		}
 
+		/// <summary>
+		/// If true the ellipse resolution (segments) will be adjusted based on the distance to the camera
+		/// so that it will always appear smooth.
+		/// </summary>
+		/// <param name="autoResolution">.</param>
+		/// <returns></returns>
+		public Ellipse SetAutoResolution(bool autoResolution = true)
+		{
+			this.autoResolution = autoResolution;
+
+			return this;
+		}
+
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			Vector3 position = this.position;
@@ -282,6 +300,14 @@ namespace DebugDrawItems
 			angle2 = angle1 + angle2;
 			angle2 = (rotation + angle2) * Mathf.Deg2Rad;
 			angle1 = (rotation + angle1) * Mathf.Deg2Rad;
+
+			int segments = autoResolution
+				? autoResolution
+					? DebugDraw.AutoResolution(
+						Mathf.Max(DebugDraw.DistanceFromCamera(ref position), 0),
+						Mathf.Max(size.x, size.y), 4, 64, 128)
+					: this.segments
+				: this.segments;
 
 			Color clr = GetColor(ref color);
 			

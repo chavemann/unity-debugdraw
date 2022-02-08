@@ -43,6 +43,11 @@ namespace DebugDrawItems
 		/// The shape/resolution of all dots. 0 or 4 = square, >= 3 = circle.
 		/// </summary>
 		public int segments;
+		/// <summary>
+		/// If true the dot resolution (segments) will be adjusted based on the distance to the camera
+		/// so that it will always appear smooth.
+		/// </summary>
+		public bool autoResolution;
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
@@ -110,6 +115,19 @@ namespace DebugDrawItems
 			return this;
 		}
 
+		/// <summary>
+		/// If true the dots resolution (segments) will be adjusted based on the distance to the camera
+		/// so that it will always appear smooth.
+		/// </summary>
+		/// <param name="autoResolution">.</param>
+		/// <returns></returns>
+		public Dots SetAutoResolution(bool autoResolution = true)
+		{
+			this.autoResolution = autoResolution;
+
+			return this;
+		}
+
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			ref Vector3 camPosition = ref DebugDraw.camPosition;
@@ -119,6 +137,7 @@ namespace DebugDrawItems
 			bool hasStateColor = this.hasStateColor;
 			ref Color stateColor = ref this.stateColor;
 			bool autoSize = this.autoSize;
+			bool autoResolution = this.autoResolution;
 			
 			List<Vector3> positions = this.positions;
 			List<float> sizes = this.sizes;
@@ -168,13 +187,18 @@ namespace DebugDrawItems
 					position = stateTransform.MultiplyPoint3x4(position);
 				}
 				
+				float dist = autoSize || autoResolution
+					? Mathf.Max(DebugDraw.DistanceFromCamera(ref position), 0)
+					: 0;
+				
 				if (autoSize)
 				{
-					size *= Mathf.Max(Vector3.Dot(new Vector3(
-						position.x - DebugDraw.camPosition.x,
-						position.y - DebugDraw.camPosition.y,
-						position.z - DebugDraw.camPosition.z), DebugDraw.camForward), 0) * BaseAutoSizeDistanceFactor;
+					size *= dist * BaseAutoSizeDistanceFactor;
 				}
+
+				int segments = autoResolution
+					? DebugDraw.AutoResolution(dist, size, 4, 64, 128)
+					: this.segments;
 				
 				if (segments < 3)
 				{

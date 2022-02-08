@@ -33,6 +33,11 @@ namespace DebugDrawItems
 		/// The shape/resolution of the dot. 0 or 4 = square, >= 3 = circle.
 		/// </summary>
 		public int segments;
+		/// <summary>
+		/// If true the dot resolution (segments) will be adjusted based on the distance to the camera
+		/// so that it will always appear smooth.
+		/// </summary>
+		public bool autoResolution;
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getter -- */
@@ -100,6 +105,19 @@ namespace DebugDrawItems
 			return this;
 		}
 
+		/// <summary>
+		/// If true the dot resolution (segments) will be adjusted based on the distance to the camera
+		/// so that it will always appear smooth.
+		/// </summary>
+		/// <param name="autoResolution">.</param>
+		/// <returns></returns>
+		public Dot SetAutoResolution(bool autoResolution = true)
+		{
+			this.autoResolution = autoResolution;
+
+			return this;
+		}
+
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			Vector3 position = this.position;
@@ -137,14 +155,19 @@ namespace DebugDrawItems
 			}
 
 			float size = radius;
+			
+			float dist = autoSize || autoResolution
+				? Mathf.Max(DebugDraw.DistanceFromCamera(ref position), 0)
+				: 0;
 
 			if (autoSize)
 			{
-				size *= Mathf.Max(Vector3.Dot(new Vector3(
-					position.x - DebugDraw.camPosition.x,
-					position.y - DebugDraw.camPosition.y,
-					position.z - DebugDraw.camPosition.z), DebugDraw.camForward), 0) * BaseAutoSizeDistanceFactor;
+				size *= dist * BaseAutoSizeDistanceFactor;
 			}
+
+			int segments = autoResolution
+				? DebugDraw.AutoResolution(dist, radius, 4, 64, 128)
+				: this.segments;
 			
 			Color clr = GetColor(ref color);
 			

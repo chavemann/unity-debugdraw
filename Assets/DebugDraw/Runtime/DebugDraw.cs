@@ -14,6 +14,7 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
+// TODO: Debug camera toggle
 // TODO: Test with DEBUG_DRAW_OFF
 /// <summary>
 /// TODO: Write
@@ -186,6 +187,8 @@ public static partial class DebugDraw
 	public static Vector3 camForward = Vector3.forward;
 	public static Vector3 camRight = Vector3.right;
 	public static Vector3 camUp = Vector3.up;
+	public static float camFOV;
+	public static bool camOrthographic;
 
 	private static bool doFixedUpdate;
 	private static bool requiresBuild = true;
@@ -301,6 +304,8 @@ public static partial class DebugDraw
 		camPosition = default;
 		camForward = Vector3.forward;
 		camUp = Vector3.up;
+		camFOV = 60;
+		camOrthographic = false;
 	}
 
 	internal static void UpdateCamera()
@@ -319,6 +324,8 @@ public static partial class DebugDraw
 		camForward = camTransform.forward;
 		camRight = camTransform.right;
 		camUp = camTransform.up;
+		camFOV = cam.fieldOfView;
+		camOrthographic = cam.orthographic;
 	}
 
 	private static void OnCameraPreCull(Camera _)
@@ -357,11 +364,14 @@ public static partial class DebugDraw
 
 	private static void UpdateTimerInstanceScene()
 	{
+		#pragma warning disable 162
+		// ReSharper disable once ConditionIsAlwaysTrueOrFalse
 		if (UpdateInstanceScene && hasInstance && timerInstance && timerInstance.gameObject)
 		{
 			SceneManager.MoveGameObjectToScene(timerInstance.gameObject, SceneManager.GetActiveScene());
 			timerInstance.gameObject.transform.SetAsLastSibling();
 		}
+		#pragma warning restore 162
 	}
 	
 	#endif
@@ -651,6 +661,62 @@ public static partial class DebugDraw
 		Vector3 n = Vector3.Cross(axis, up);
 		n.Normalize();
 		return n;
+	}
+
+	/// <summary>
+	/// Returns the distance from the given point to the camera plane.
+	/// </summary>
+	/// <param name="position"></param>
+	/// <returns></returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static float DistanceFromCamera(ref Vector3 position)
+	{
+		return Vector3.Dot(new Vector3(
+			position.x - camPosition.x,
+			position.y - camPosition.y,
+			position.z - camPosition.z), camForward);
+	}
+
+	/// <summary>
+	/// Returns the camera frustum height at the given distance.
+	/// </summary>
+	/// <param name="distance">The distance from the camera.</param>
+	/// <returns></returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static float CalculateFrustumHeight(float distance)
+	{
+		return 2.0f * distance * Mathf.Tan(DebugDraw.camFOV * 0.5f * Mathf.Deg2Rad);
+	}
+
+	/// <summary>
+	/// Calculates a number/resolution based on a size and a distance from the camera.
+	/// </summary>
+	/// <param name="distance">The distance from the camera.</param>
+	/// <param name="radius">The size</param>
+	/// <param name="min">The min resolution when size is almost zero relative to the view height.</param>
+	/// <param name="max">The resolution when size fills the screen height.</param>
+	/// <param name="limit">The max possible resolution as size becomes larger than the view height.</param>
+	/// <returns></returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static int AutoResolution(float distance, float radius, int min, int max, int limit)
+	{
+		float frustumHeight = CalculateFrustumHeight(distance);
+		float t = (radius * 2) / (frustumHeight);
+		
+		// Shift the lower bound up a bit
+		const float s = 0.006f;
+		t = Mathf.Max((t - s) / (1 - s), 0);
+
+		// As the size gets smaller the resolution gets too low so at lower values
+		// adjust t so it climbs faster the lower it is.
+		const float ss = 0.5f;
+		if (t < ss)
+		{
+			t /= ss;
+			t = (1 - Mathf.Pow(1 - t, 10f)) * ss;
+		}
+
+		return Mathf.Clamp(Mathf.FloorToInt(Mathf.LerpUnclamped(min, max, t)), min, limit);
 	}
 	
 	/* ------------------------------------------------------------------------------------- */
