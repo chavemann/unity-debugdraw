@@ -61,7 +61,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Creates a mesh with the specified topology
 	/// </summary>
-	/// <param name="type">The kind of mesh topology</param>
+	/// <param name="type">The kind of mesh topology.</param>
 	public DebugDrawMesh(MeshTopology type)
 	{
 		this.type = type;
@@ -109,7 +109,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Sets this mesh's material (if it has one) blend mode to invert destination colors.
 	/// </summary>
-	/// <param name="invert">True to invert colours</param>
+	/// <param name="invert">True to invert colours.</param>
 	public DebugDrawMesh SetInvertColours(bool invert = true)
 	{
 		if (!hasMaterial)
@@ -132,7 +132,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Sets this mesh's material (if it has one) culling mode.
 	/// </summary>
-	/// <param name="mode">The cull mode</param>
+	/// <param name="mode">The cull mode.</param>
 	public DebugDrawMesh SetCulling(CullMode mode)
 	{
 		if (!hasMaterial)
@@ -146,7 +146,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Sets this mesh's material (if it has one) depth testing.
 	/// </summary>
-	/// <param name="enabled">Is depth testing enabled</param>
+	/// <param name="enabled">Is depth testing enabled.</param>
 	public DebugDrawMesh SetDepthTesting(bool enabled = true)
 	{
 		if (!hasMaterial)
@@ -160,8 +160,8 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Sets this mesh's material (if it has one) depth testing.
 	/// </summary>
-	/// <param name="write">Enable depth writes</param>
-	/// <param name="test">Enable depth tests</param>
+	/// <param name="write">Enable depth writes.</param>
+	/// <param name="test">Enable depth tests.</param>
 	public DebugDrawMesh SetDepthTesting(bool write, bool test)
 	{
 		if (!hasMaterial)
@@ -180,7 +180,7 @@ public partial class DebugDrawMesh
 	/// Normally this method won't be used directly - instead use the specific debug methods (e.g. <see cref="DebugDrawItems.Line"/>)
 	/// or the similar static methods in <see cref="DebugDraw"/>
 	/// </summary>
-	/// <param name="item"></param>
+	/// <param name="item">.</param>
 	/// <typeparam name="T"></typeparam>
 	/// <returns></returns>
 	public T Add<T>(T item) where T : BaseItem
@@ -206,7 +206,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Immediately removes the item from this mesh.
 	/// </summary>
-	/// <param name="item">The item to remove</param>
+	/// <param name="item">The item to remove.</param>
 	public void Remove(BaseItem item)
 	{
 		if (item.mesh != this)
@@ -338,7 +338,7 @@ public partial class DebugDrawMesh
 	/// Push the new vertex data to the mesh. If <see cref="CreateMesh"/> was called, this will automatically
 	/// be called during <see cref="Build"/>
 	/// </summary>
-	/// <param name="mesh">The mesh to update</param>
+	/// <param name="mesh">The mesh to update.</param>
 	public void UpdateMesh(Mesh mesh)
 	{
 		mesh.Clear(false);
@@ -371,7 +371,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds an index.
 	/// </summary>
-	/// <param name="index">The index to add</param>
+	/// <param name="index">The index to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddIndex(int index)
 	{
@@ -448,7 +448,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds a previous index (<c>vertexIndex - fromEnd</c>)
 	/// </summary>
-	/// <param name="fromEnd"></param>
+	/// <param name="fromEnd">.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddPreviousVertexIndex(int fromEnd = 1)
 	{
@@ -461,7 +461,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds a color
 	/// </summary>
-	/// <param name="color">The color to add</param>
+	/// <param name="color">The color to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddColor(ref Color color)
 	{
@@ -471,7 +471,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds the same color twice
 	/// </summary>
-	/// <param name="color">The color to add</param>
+	/// <param name="color">The color to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddColorX2(ref Color color)
 	{
@@ -482,7 +482,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds the same color three times
 	/// </summary>
-	/// <param name="color">The color to add</param>
+	/// <param name="color">The color to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddColorX3(ref Color color)
 	{
@@ -494,7 +494,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds the same for times twice
 	/// </summary>
-	/// <param name="color">The color to add</param>
+	/// <param name="color">The color to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddColorX4(ref Color color)
 	{
@@ -510,8 +510,8 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds a color
 	/// </summary>
-	/// <param name="item">The item with which the color will be multiplied</param>
-	/// <param name="color">The color to add</param>
+	/// <param name="item">The item with which the color will be multiplied.</param>
+	/// <param name="color">The color to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddColor(BaseItem item, ref Color color)
 	{
@@ -521,8 +521,8 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds the same color twice
 	/// </summary>
-	/// <param name="item">The item with which the color will be multiplied</param>
-	/// <param name="color">The color to add</param>
+	/// <param name="item">The item with which the color will be multiplied.</param>
+	/// <param name="color">The color to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddColorX2(BaseItem item, ref Color color)
 	{
@@ -542,8 +542,8 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds the same color three times
 	/// </summary>
-	/// <param name="item">The item with which the color will be multiplied</param>
-	/// <param name="color">The color to add</param>
+	/// <param name="item">The item with which the color will be multiplied.</param>
+	/// <param name="color">The color to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddColorX3(BaseItem item, ref Color color)
 	{
@@ -565,8 +565,8 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds the same for times twice
 	/// </summary>
-	/// <param name="item">The item with which the color will be multiplied</param>
-	/// <param name="color">The color to add</param>
+	/// <param name="item">The item with which the color will be multiplied.</param>
+	/// <param name="color">The color to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddColorX4(BaseItem item, ref Color color)
 	{
@@ -593,7 +593,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds a vertex
 	/// </summary>
-	/// <param name="vertex">The vertex to add</param>
+	/// <param name="vertex">The vertex to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddVertex(ref Vector3 vertex)
 	{
@@ -603,9 +603,9 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds a vertex
 	/// </summary>
-	/// <param name="x">The x value of the vertex to add</param>
-	/// <param name="y">The y value of the vertex to add</param>
-	/// <param name="z">The z value of the vertex to add</param>
+	/// <param name="x">The x value of the vertex to add.</param>
+	/// <param name="y">The y value of the vertex to add.</param>
+	/// <param name="z">The z value of the vertex to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddVertex(float x, float y, float z)
 	{
@@ -615,8 +615,8 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds a vertex with z set to 0
 	/// </summary>
-	/// <param name="x">The x value of the vertex to add</param>
-	/// <param name="y">The y value of the vertex to add</param>
+	/// <param name="x">The x value of the vertex to add.</param>
+	/// <param name="y">The y value of the vertex to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddVertex(float x, float y)
 	{
@@ -626,8 +626,8 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds two vertices and indices forming a line
 	/// </summary>
-	/// <param name="v1">The line start point</param>
-	/// <param name="v2">The line end point</param>
+	/// <param name="v1">The line start point.</param>
+	/// <param name="v2">The line end point.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddLine(ref Vector3 v1, ref Vector3 v2)
 	{
@@ -640,9 +640,9 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds two vertices, colors and indices forming a line
 	/// </summary>
-	/// <param name="v1">The line start point</param>
-	/// <param name="v2">The line end point</param>
-	/// <param name="clr">The line color</param>
+	/// <param name="v1">The line start point.</param>
+	/// <param name="v2">The line end point.</param>
+	/// <param name="clr">The line color.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddLine(ref Vector3 v1, ref Vector3 v2, ref Color clr)
 	{
@@ -657,10 +657,10 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds two vertices, colors, and indices forming a line
 	/// </summary>
-	/// <param name="v1">The line start point</param>
-	/// <param name="v2">The line end point</param>
-	/// <param name="clr1">The line color at the start point</param>
-	/// <param name="clr2">The line color at the end point</param>
+	/// <param name="v1">The line start point.</param>
+	/// <param name="v2">The line end point.</param>
+	/// <param name="clr1">The line color at the start point.</param>
+	/// <param name="clr2">The line color at the end point.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddLine(ref Vector3 v1, ref Vector3 v2, ref Color clr1, ref Color clr2)
 	{
@@ -678,8 +678,8 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Transforms and adds a vertex.
 	/// </summary>
-	/// <param name="m">The matrix to transform the vertex by</param>
-	/// <param name="vertex">The vertex to add</param>
+	/// <param name="m">The matrix to transform the vertex by.</param>
+	/// <param name="vertex">The vertex to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddVertex(ref Matrix4x4 m, ref Vector3 vertex)
 	{
@@ -689,10 +689,10 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Transforms and adds a vertex.
 	/// </summary>
-	/// <param name="m">The matrix to transform the vertex by</param>
-	/// <param name="x">The x value of the vertex to add</param>
-	/// <param name="y">The y value of the vertex to add</param>
-	/// <param name="z">The z value of the vertex to add</param>
+	/// <param name="m">The matrix to transform the vertex by.</param>
+	/// <param name="x">The x value of the vertex to add.</param>
+	/// <param name="y">The y value of the vertex to add.</param>
+	/// <param name="z">The z value of the vertex to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddVertex(ref Matrix4x4 m, float x, float y, float z)
 	{
@@ -702,9 +702,9 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Transforms and adds a vertex with z set to 0.
 	/// </summary>
-	/// <param name="m">The matrix to transform the vertex by</param>
-	/// <param name="x">The x value of the vertex to add</param>
-	/// <param name="y">The y value of the vertex to add</param>
+	/// <param name="m">The matrix to transform the vertex by.</param>
+	/// <param name="x">The x value of the vertex to add.</param>
+	/// <param name="y">The y value of the vertex to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddVertex(ref Matrix4x4 m, float x, float y)
 	{
@@ -714,9 +714,9 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds two vertices and indices forming a line
 	/// </summary>
-	/// <param name="m">The matrix to transform the vertices by</param>
-	/// <param name="v1">The line start point</param>
-	/// <param name="v2">The line end point</param>
+	/// <param name="m">The matrix to transform the vertices by.</param>
+	/// <param name="v1">The line start point.</param>
+	/// <param name="v2">The line end point.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddLine(ref Matrix4x4 m, ref Vector3 v1, ref Vector3 v2)
 	{
@@ -729,10 +729,10 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds and transforms two vertices, color and indices forming a line
 	/// </summary>
-	/// <param name="m">The matrix to transform the vertices by</param>
-	/// <param name="v1">The line start point</param>
-	/// <param name="v2">The line end point</param>
-	/// <param name="clr">The line color</param>
+	/// <param name="m">The matrix to transform the vertices by.</param>
+	/// <param name="v1">The line start point.</param>
+	/// <param name="v2">The line end point.</param>
+	/// <param name="clr">The line color.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddLine(ref Matrix4x4 m, ref Vector3 v1, ref Vector3 v2, Color clr)
 	{
@@ -747,11 +747,11 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds and transforms two vertices, colors, and indices forming a line
 	/// </summary>
-	/// <param name="m">The matrix to transform the vertices by</param>
-	/// <param name="v1">The line start point</param>
-	/// <param name="v2">The line end point</param>
-	/// <param name="clr1">The line color at the start point</param>
-	/// <param name="clr2">The line color at the end point</param>
+	/// <param name="m">The matrix to transform the vertices by.</param>
+	/// <param name="v1">The line start point.</param>
+	/// <param name="v2">The line end point.</param>
+	/// <param name="clr1">The line color at the start point.</param>
+	/// <param name="clr2">The line color at the end point.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddLine(ref Matrix4x4 m, ref Vector3 v1, ref Vector3 v2, ref Color clr1, ref Color clr2)
 	{
@@ -769,8 +769,8 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Transforms and adds a vertex.
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex</param>
-	/// <param name="vertex">The vertex to add</param>
+	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="vertex">The vertex to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddVertex(BaseItem item, ref Vector3 vertex)
 	{
@@ -780,10 +780,10 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Transforms and adds a vertex.
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex</param>
-	/// <param name="x">The x value of the vertex to add</param>
-	/// <param name="y">The y value of the vertex to add</param>
-	/// <param name="z">The z value of the vertex to add</param>
+	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="x">The x value of the vertex to add.</param>
+	/// <param name="y">The y value of the vertex to add.</param>
+	/// <param name="z">The z value of the vertex to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddVertex(BaseItem item, float x, float y, float z)
 	{
@@ -795,9 +795,9 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Transforms and adds a vertex with z set to 0.
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex</param>
-	/// <param name="x">The x value of the vertex to add</param>
-	/// <param name="y">The y value of the vertex to add</param>
+	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="x">The x value of the vertex to add.</param>
+	/// <param name="y">The y value of the vertex to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddVertex(BaseItem item, float x, float y)
 	{
@@ -809,9 +809,9 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds two vertices and indices forming a line
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex</param>
-	/// <param name="v1">The line start point</param>
-	/// <param name="v2">The line end point</param>
+	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="v1">The line start point.</param>
+	/// <param name="v2">The line end point.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddLine(BaseItem item, ref Vector3 v1, ref Vector3 v2)
 	{
@@ -824,10 +824,10 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds and transforms two vertices, color and indices forming a line
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex</param>
-	/// <param name="v1">The line start point</param>
-	/// <param name="v2">The line end point</param>
-	/// <param name="clr">The line color</param>
+	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="v1">The line start point.</param>
+	/// <param name="v2">The line end point.</param>
+	/// <param name="clr">The line color.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddLine(BaseItem item, ref Vector3 v1, ref Vector3 v2, Color clr)
 	{
@@ -842,11 +842,11 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds and transforms two vertices, colors, and indices forming a line
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex</param>
-	/// <param name="v1">The line start point</param>
-	/// <param name="v2">The line end point</param>
-	/// <param name="clr1">The line color at the start point</param>
-	/// <param name="clr2">The line color at the end point</param>
+	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="v1">The line start point.</param>
+	/// <param name="v2">The line end point.</param>
+	/// <param name="clr1">The line color at the start point.</param>
+	/// <param name="clr2">The line color at the end point.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddLine(BaseItem item, ref Vector3 v1, ref Vector3 v2, ref Color clr1, ref Color clr2)
 	{

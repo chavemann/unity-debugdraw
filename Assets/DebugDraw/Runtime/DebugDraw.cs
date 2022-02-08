@@ -435,7 +435,7 @@ public static partial class DebugDraw
 	/// <summary>
 	/// Sets the blend mode to invert destination colors for all debug visuals
 	/// </summary>
-	/// <param name="invert">True to invert colours</param>
+	/// <param name="invert">True to invert colours.</param>
 	public static void SetInvertColours(bool invert = true)
 	{
 		if (pointMeshInstance == null)
@@ -449,7 +449,7 @@ public static partial class DebugDraw
 	/// <summary>
 	/// Set the culling mode for all debug visuals
 	/// </summary>
-	/// <param name="mode">The cull mode</param>
+	/// <param name="mode">The cull mode.</param>
 	public static void SetCulling(CullMode mode)
 	{
 		if (pointMeshInstance == null)
@@ -463,7 +463,7 @@ public static partial class DebugDraw
 	/// <summary>
 	/// Set the depth testing for all debug visuals
 	/// </summary>
-	/// <param name="enabled">Is depth testing enabled</param>
+	/// <param name="enabled">Is depth testing enabled.</param>
 	public static void SetDepthTesting(bool enabled = true)
 	{
 		SetDepthTesting(enabled, enabled);
@@ -472,8 +472,8 @@ public static partial class DebugDraw
 	/// <summary>
 	/// Sets the depth testing for all debug visual
 	/// </summary>
-	/// <param name="write">Enable depth writes</param>
-	/// <param name="test">Enable depth tests</param>
+	/// <param name="write">Enable depth writes.</param>
+	/// <param name="test">Enable depth tests.</param>
 	public static void  SetDepthTesting(bool write, bool test)
 	{
 		pointMeshInstance.SetDepthTesting(write, test);

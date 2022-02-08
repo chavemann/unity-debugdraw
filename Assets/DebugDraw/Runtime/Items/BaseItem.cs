@@ -71,7 +71,7 @@ namespace DebugDrawItems
 		/// <summary>
 		/// Multiplies the given color with this item state's color if it has one
 		/// </summary>
-		/// <param name="color"></param>
+		/// <param name="color">.</param>
 		/// <returns></returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public Color GetColor(ref Color color) => hasStateColor ? color * stateColor : color;
@@ -90,7 +90,7 @@ namespace DebugDrawItems
 		/// <summary>
 		/// Calculates and adds this item's vertices to the given mesh.
 		/// </summary>
-		/// <param name="mesh">The mesh to build into</param>
+		/// <param name="mesh">The mesh to build into.</param>
 		internal abstract void Build(DebugDrawMesh mesh);
 		
 		/// <summary>

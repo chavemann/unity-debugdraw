@@ -97,9 +97,9 @@ namespace DebugDrawItems
 		/// <summary>
 		/// Sets a custom colors for each axis.
 		/// </summary>
-		/// <param name="xColor">The custom x axis color</param>
-		/// <param name="yColor">The custom y axis color</param>
-		/// <param name="zColor">The custom z axis color</param>
+		/// <param name="xColor">The custom x axis color.</param>
+		/// <param name="yColor">The custom y axis color.</param>
+		/// <param name="zColor">The custom z axis color.</param>
 		/// <returns></returns>
 		public Axes SetColours(Color xColor, Color yColor, Color zColor)
 		{

@@ -103,10 +103,10 @@ namespace DebugDrawItems
 		/// <summary>
 		/// Clamps the line from p1 to p2 to the specified lengths.
 		/// </summary>
-		/// <param name="p1">The line start point</param>
-		/// <param name="p2">The line end point</param>
-		/// <param name="minLength">The min length. Set to a negative value for no lower limit</param>
-		/// <param name="maxLength">The min length. Set to a negative value for no upper limit</param>
+		/// <param name="p1">The line start point.</param>
+		/// <param name="p2">The line end point.</param>
+		/// <param name="minLength">The min length. Set to a negative value for no lower limit.</param>
+		/// <param name="maxLength">The min length. Set to a negative value for no upper limit.</param>
 		public static void Clamp(ref Vector3 p1, ref Vector3 p2, float minLength, float maxLength)
 		{
 			Vector3 delta = new Vector3(

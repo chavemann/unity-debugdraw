@@ -95,7 +95,7 @@ namespace DebugDrawItems
 		/// <summary>
 		/// If true adjusts the size of the dot so it approximately remains the same size on screen.
 		/// </summary>
-		/// <param name="autoSize"></param>
+		/// <param name="autoSize">.</param>
 		/// <returns></returns>
 		public Dot SetAutoSize(bool autoSize = true)
 		{
