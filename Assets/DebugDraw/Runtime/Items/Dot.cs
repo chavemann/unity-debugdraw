@@ -128,10 +128,14 @@ namespace DebugDrawItems
 
 			if (autoSize)
 			{
+				Vector3 worldPos = hasStateTransform
+					? m.MultiplyPoint3x4(position)
+					: position;
+				
 				size *= new Vector3(
-					position.x - DebugDraw.camPosition.x,
-					position.y - DebugDraw.camPosition.y,
-					position.z - DebugDraw.camPosition.z).magnitude * BaseAutoSizeDistanceFactor;
+					worldPos.x - DebugDraw.camPosition.x,
+					worldPos.y - DebugDraw.camPosition.y,
+					worldPos.z - DebugDraw.camPosition.z).magnitude * BaseAutoSizeDistanceFactor;
 			}
 			
 			Color clr = GetColor(ref color);
