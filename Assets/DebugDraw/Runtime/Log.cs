@@ -312,16 +312,16 @@ public static partial class Log
 	public static object GetString(decimal message) => message.ToString(null, CultureInfo.InvariantCulture);
 	public static object GetString(ref Vector2 v)
 	{
-		return $"<{v.x.ToString(CultureInfo.InvariantCulture)}, {v.y.ToString(CultureInfo.InvariantCulture)}>";
+		return $"<{v.x.ToString("F3", CultureInfo.InvariantCulture)}, {v.y.ToString("F3", CultureInfo.InvariantCulture)}>";
 	}
 	public static object GetString(ref Vector3 v)
 	{
-		return $"<{v.x.ToString(CultureInfo.InvariantCulture)}, {v.y.ToString(CultureInfo.InvariantCulture)}, {v.z.ToString(CultureInfo.InvariantCulture)}>";
+		return $"<{v.x.ToString("F3", CultureInfo.InvariantCulture)}, {v.y.ToString("F3", CultureInfo.InvariantCulture)}, {v.z.ToString("F3", CultureInfo.InvariantCulture)}>";
 	}
 	public static object GetString(ref Vector4 v)
 	{
 		return
-			$"<{v.x.ToString(CultureInfo.InvariantCulture)}, {v.y.ToString(CultureInfo.InvariantCulture)}, {v.z.ToString(CultureInfo.InvariantCulture)}, {v.w.ToString(CultureInfo.InvariantCulture)}>";
+			$"<{v.x.ToString("F3", CultureInfo.InvariantCulture)}, {v.y.ToString("F3", CultureInfo.InvariantCulture)}, {v.z.ToString("F3", CultureInfo.InvariantCulture)}, {v.w.ToString("F3", CultureInfo.InvariantCulture)}>";
 	}
 
 	public static object GetArgString(object[] args)
