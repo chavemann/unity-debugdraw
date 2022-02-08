@@ -7,15 +7,10 @@ namespace DebugDrawItems
 	/// <summary>
 	/// A point that has no size.
 	/// </summary>
-	public class Point : BaseItem
+	public class Point : BasePointItem
 	{
 		/* mesh: point */
 
-		/// <summary>
-		/// The position of the point.
-		/// </summary>
-		public Vector3 position;
-		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
 		

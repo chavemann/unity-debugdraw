@@ -9,7 +9,7 @@ namespace DebugDrawItems
 	/// <summary>
 	/// A basic line
 	/// </summary>
-	public class Line : BaseItem
+	public class Line : BaseItem, IPointItem
 	{
 		/* mesh: line */
 		
@@ -95,6 +95,29 @@ namespace DebugDrawItems
 		internal override void Release()
 		{
 			ItemPool<Line>.Release(this);
+		}
+
+		public void SetPosition(Vector3 position)
+		{
+			Vector3 delta = new Vector3(
+				position.x - (p1.x + p2.x) * 0.5f,
+				position.y - (p1.y + p2.y) * 0.5f,
+				position.z - (p1.z + p2.z) * 0.5f);
+
+			p1.x += delta.x;
+			p1.y += delta.y;
+			p1.z += delta.z;
+			p2.x += delta.x;
+			p2.y += delta.y;
+			p2.z += delta.z;
+		}
+
+		public Vector3 GetPosition()
+		{
+			return new Vector3(
+				(p1.x + p2.x) * 0.5f,
+				(p1.y + p2.y) * 0.5f,
+				(p1.z + p2.z) * 0.5f);
 		}
 
 		/* ------------------------------------------------------------------------------------- */

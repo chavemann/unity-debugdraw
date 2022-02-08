@@ -1,4 +1,6 @@
 using System.Runtime.CompilerServices;
+using DebugDrawAttachments;
+using DebugDrawUtils;
 using UnityEngine;
 
 namespace DebugDrawItems
@@ -46,6 +48,28 @@ namespace DebugDrawItems
 		/// True if is stateColor not default.
 		/// </summary>
 		internal bool hasStateColor;
+
+		/* ------------------------------------------------------------------------------------- */
+		/* -- Getters -- */
+		
+		/// <summary>
+		/// Attach this item to a GameObjects. This item and it's attachment will automatically expire
+		/// if the attached object is destroyed.
+		/// This is only applicable to certain items and will return null otherwise.
+		/// </summary>
+		/// <param name="obj">The object the start of the lines is attached to.</param>
+		/// <returns></returns>
+		public PointAttachment AttachTo(GameObjectOrTransform obj)
+		{
+			if (!(this is IPointItem pointItem))
+				return null;
+			
+			PointAttachment attachment = AttachmentPool<PointAttachment>.Get(this);
+			attachment.item = this;
+			attachment.pointItem = pointItem;
+			attachment.obj.Set(obj);
+			return attachment;
+		}
 		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */

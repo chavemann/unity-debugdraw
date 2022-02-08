@@ -21,6 +21,11 @@ namespace DebugDrawUtils
 			return new GameObjectOrTransform(gameObject ? gameObject.transform : null);
 		}
 
+		public static implicit operator GameObjectOrTransform(MonoBehaviour behaviour)
+		{
+			return new GameObjectOrTransform(behaviour ? behaviour.transform : null);
+		}
+
 		public static implicit operator GameObjectOrTransform(Transform transform)
 		{
 			return new GameObjectOrTransform(transform);

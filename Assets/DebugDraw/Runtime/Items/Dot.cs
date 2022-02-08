@@ -9,14 +9,10 @@ namespace DebugDrawItems
 	/// A 3D "point". Can be made to always face the camera and adjust its size so it's always independent on the
 	/// distance from the camera.
 	/// </summary>
-	public class Dot : BaseItem
+	public class Dot : BasePointItem
 	{
 		/* mesh: triangle */
 
-		/// <summary>
-		/// The position of the dot.
-		/// </summary>
-		public Vector3 position;
 		/// <summary>
 		/// The size of the dot.
 		/// </summary>

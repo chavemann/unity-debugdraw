@@ -7,14 +7,10 @@ namespace DebugDrawItems
 	/// <summary>
 	/// Renders various types of ellipse - open, closed, arcs, filled, or wire.
 	/// </summary>
-	public class Ellipse : BaseItem
+	public class Ellipse : BasePointItem
 	{
 		/* mesh: line */
 		
-		/// <summary>
-		/// The centre of the ellipse.
-		/// </summary>
-		public Vector3 centre;
 		/// <summary>
 		/// The size/radius of the ellipse.
 		/// </summary>
@@ -62,7 +58,7 @@ namespace DebugDrawItems
 		/// <summary>
 		/// Draws a filled ellipse.
 		/// </summary>
-		/// <param name="centre">The centre of the ellipse.</param>
+		/// <param name="position">The centre of the ellipse.</param>
 		/// <param name="size">The size/radius of the ellipse.</param>
 		/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
 		/// <param name="color">The colour of the ellipse.</param>
@@ -70,12 +66,12 @@ namespace DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Ellipse Get(ref Vector3 centre, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, float duration = 0)
+		public static Ellipse Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, float duration = 0)
 		{
 			/* mesh: triangle */
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
 			
-			item.centre = centre;
+			item.position = position;
 			item.size = size;
 			item.facing = facing;
 			item.color = color;
@@ -94,7 +90,7 @@ namespace DebugDrawItems
 		/// <summary>
 		/// Draws a wire ellipse.
 		/// </summary>
-		/// <param name="centre">The centre of the ellipse.</param>
+		/// <param name="position">The centre of the ellipse.</param>
 		/// <param name="size">The size/radius of the ellipse.</param>
 		/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
 		/// <param name="color">The colour of the ellipse.</param>
@@ -102,12 +98,12 @@ namespace DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Ellipse GetWire(ref Vector3 centre, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, float duration = 0)
+		public static Ellipse GetWire(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, float duration = 0)
 		{
 			/* mesh: line*/
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
 			
-			item.centre = centre;
+			item.position = position;
 			item.size = size;
 			item.facing = facing;
 			item.color = color;
@@ -126,7 +122,7 @@ namespace DebugDrawItems
 		/// <summary>
 		/// Draws a filled arc.
 		/// </summary>
-		/// <param name="centre">The centre of the ellipse.</param>
+		/// <param name="position">The centre of the ellipse.</param>
 		/// <param name="size">The size/radius of the ellipse.</param>
 		/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
 		/// <param name="startAngle">The start angle in degrees of the arc.</param>
@@ -137,14 +133,14 @@ namespace DebugDrawItems
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Ellipse GetArc(
-			ref Vector3 centre, ref Vector2 size, ref Vector3 facing,
+			ref Vector3 position, ref Vector2 size, ref Vector3 facing,
 			float startAngle, float endAngle, ref Color color, int segments = 32,
 			float duration = 0)
 		{
 			/* mesh: triangle */
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
 			
-			item.centre = centre;
+			item.position = position;
 			item.size = size;
 			item.facing = facing;
 			item.color = color;
@@ -163,7 +159,7 @@ namespace DebugDrawItems
 		/// <summary>
 		/// Draws a wire arc.
 		/// </summary>
-		/// <param name="centre">The centre of the ellipse.</param>
+		/// <param name="position">The centre of the ellipse.</param>
 		/// <param name="size">The size/radius of the ellipse.</param>
 		/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
 		/// <param name="startAngle">The start angle in degrees of the arc.</param>
@@ -176,7 +172,7 @@ namespace DebugDrawItems
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Ellipse GetWireArc(
-			ref Vector3 centre, ref Vector2 size, ref Vector3 facing,
+			ref Vector3 position, ref Vector2 size, ref Vector3 facing,
 			float startAngle, float endAngle, ref Color color, int segments = 32,
 			DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never,
 			float duration = 0)
@@ -184,7 +180,7 @@ namespace DebugDrawItems
 			/* mesh: line */
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
 			
-			item.centre = centre;
+			item.position = position;
 			item.size = size;
 			item.facing = facing;
 			item.color = color;
@@ -269,12 +265,12 @@ namespace DebugDrawItems
 
 		internal override void Build(DebugDrawMesh mesh)
 		{
-			Vector3 centre = this.centre;
+			Vector3 position = this.position;
 			DebugDraw.FindAxisVectors(ref facing, ref DebugDraw.up, out Vector3 up, out Vector3 right);
 
 			if (hasStateTransform)
 			{
-				centre = stateTransform.MultiplyPoint3x4(centre);
+				position = stateTransform.MultiplyPoint3x4(position);
 				right = stateTransform.MultiplyVector(right);
 				up = stateTransform.MultiplyVector(up);
 			}
@@ -293,7 +289,7 @@ namespace DebugDrawItems
 
 			if (filled)
 			{
-				mesh.AddVertex(ref centre);
+				mesh.AddVertex(ref position);
 				mesh.AddColor(ref clr);
 				centreVertexIndex = mesh.vertexIndex++;
 			}
@@ -309,9 +305,9 @@ namespace DebugDrawItems
 					Mathf.Cos(angle) * size.x,
 					Mathf.Sin(angle) * size.y);
 				mesh.AddVertex(
-					centre.x + right.x * p.x + up.x * p.y,
-					centre.y + right.y * p.x + up.y * p.y,
-					centre.z + right.z * p.x + up.z * p.y);
+					position.x + right.x * p.x + up.x * p.y,
+					position.y + right.y * p.x + up.y * p.y,
+					position.z + right.z * p.x + up.z * p.y);
 				mesh.AddColor(ref clr);
 				mesh.vertexIndex++;
 				
@@ -327,9 +323,9 @@ namespace DebugDrawItems
 					p.x = Mathf.Cos(angle) * size.x;
 					p.y = Mathf.Sin(angle) * size.y;
 					mesh.AddVertex(
-						centre.x + right.x * p.x + up.x * p.y,
-						centre.y + right.y * p.x + up.y * p.y,
-						centre.z + right.z * p.x + up.z * p.y);
+						position.x + right.x * p.x + up.x * p.y,
+						position.y + right.y * p.x + up.y * p.y,
+						position.z + right.z * p.x + up.z * p.y);
 					mesh.AddColor(ref clr);
 					
 					if (filled)
@@ -357,7 +353,7 @@ namespace DebugDrawItems
 			if (drawArcSegments == DrawArcSegments.Always || isOpen && drawArcSegments == DrawArcSegments.OpenOnly)
 			{
 				centreVertexIndex = mesh.vertexIndex;
-				mesh.AddVertex(ref centre);
+				mesh.AddVertex(ref position);
 				mesh.AddColor(ref clr);
 				mesh.vertexIndex++;
 				
@@ -376,9 +372,9 @@ namespace DebugDrawItems
 						Mathf.Cos(angle1) * size.x,
 						Mathf.Sin(angle1) * size.y);
 					mesh.AddVertex(
-						centre.x + right.x * p.x + up.x * p.y,
-						centre.y + right.y * p.x + up.y * p.y,
-						centre.z + right.z * p.x + up.z * p.y);
+						position.x + right.x * p.x + up.x * p.y,
+						position.y + right.y * p.x + up.y * p.y,
+						position.z + right.z * p.x + up.z * p.y);
 					mesh.AddColor(ref clr);
 					mesh.AddIndices(
 						centreVertexIndex,
@@ -399,7 +395,7 @@ namespace DebugDrawItems
 					if (centreVertexIndex == -1)
 					{
 						centreVertexIndex = mesh.vertexIndex;
-						mesh.AddVertex(ref centre);
+						mesh.AddVertex(ref position);
 						mesh.AddColor(ref clr);
 						mesh.vertexIndex++;
 					}
@@ -408,9 +404,9 @@ namespace DebugDrawItems
 						Mathf.Cos(angle) * size.x,
 						Mathf.Sin(angle) * size.y);
 					mesh.AddVertex(
-						centre.x + right.x * p.x + up.x * p.y,
-						centre.y + right.y * p.x + up.y * p.y,
-						centre.z + right.z * p.x + up.z * p.y);
+						position.x + right.x * p.x + up.x * p.y,
+						position.y + right.y * p.x + up.y * p.y,
+						position.z + right.z * p.x + up.z * p.y);
 					mesh.AddColor(ref clr);
 					mesh.AddIndices(
 						centreVertexIndex,

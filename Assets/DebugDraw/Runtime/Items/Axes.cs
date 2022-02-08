@@ -8,7 +8,7 @@ namespace DebugDrawItems
 	/// <summary>
 	/// Draws a set of axes.
 	/// </summary>
-	public class Axes : BaseItem
+	public class Axes : BasePointItem
 	{
 		/* mesh: line */
 		
@@ -16,10 +16,6 @@ namespace DebugDrawItems
 		private static readonly Color YAxisColor = Color.green;
 		private static readonly Color ZAxisColor = Color.blue;
 
-		/// <summary>
-		/// The axes origin.
-		/// </summary>
-		public Vector3 position;
 		/// <summary>
 		/// The orientation of the axes.
 		/// </summary>

@@ -8,14 +8,10 @@ namespace DebugDrawItems
 	/// Displays some text at the specified position. Note that this uses GUI.Label so
 	/// it isn't true 3D text.
 	/// </summary>
-	public class Text : BaseItem
+	public class Text : BasePointItem
 	{
 		/* mesh: text */
 
-		/// <summary>
-		/// The world space position of the text.
-		/// </summary>
-		public Vector3 position;
 		/// <summary>
 		/// The text to display.
 		/// </summary>
@@ -85,14 +81,14 @@ namespace DebugDrawItems
 			return this;
 		}
 
-		internal override void Build(DebugDrawMesh mesh)
-		{
-			throw new System.NotImplementedException();
-		}
-
 		internal override void Release()
 		{
 			ItemPool<Text>.Release(this);
+		}
+
+		internal override void Build(DebugDrawMesh mesh)
+		{
+			throw new System.NotImplementedException();
 		}
 
 	}
