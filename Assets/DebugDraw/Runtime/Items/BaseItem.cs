@@ -30,7 +30,6 @@ namespace DebugDrawItems
 		/// </summary>
 		internal float expires;
 
-		// TODO: Add "context" transform that can be used instead of a static matrix
 		/// <summary>
 		/// Stores the global <see cref="DebugDraw"/> transform state when this item was created.
 		/// </summary>
@@ -66,6 +65,50 @@ namespace DebugDrawItems
 		{
 			expires = DebugDraw.GetTime(duration);
 			return this;
+		}
+
+		/// <summary>
+		/// Sets this item's transform. Normally this will be set by using <see cref="DebugDraw.transform"/>.
+		/// </summary>
+		/// <param name="transform"></param>
+		public void SetGlobalTransform(Matrix4x4 transform)
+		{
+			hasStateTransform = transform != DebugDraw.matrixIdentity;
+
+			if (hasStateTransform)
+			{
+				stateTransform = transform;
+			}
+		}
+
+		/// <summary>
+		/// Clears this item's transform. Normally this will be set by using <see cref="DebugDraw.transform"/>.
+		/// </summary>
+		public void ClearGlobalTransform()
+		{
+			hasStateTransform = false;
+		}
+
+		/// <summary>
+		/// Sets this item's color. Normally this will be set by using <see cref="DebugDraw.color"/>.
+		/// </summary>
+		/// <param name="color"></param>
+		public void SetGlobalColor(Color color)
+		{
+			hasStateColor = color != DebugDraw.colorIdentity;
+
+			if (hasStateColor)
+			{
+				stateColor = color;
+			}
+		}
+
+		/// <summary>
+		/// Clears this item's color. Normally this will be set by using <see cref="DebugDraw.color"/>.
+		/// </summary>
+		public void ClearGlobalColor()
+		{
+			hasStateColor = false;
 		}
 
 		/// <summary>
