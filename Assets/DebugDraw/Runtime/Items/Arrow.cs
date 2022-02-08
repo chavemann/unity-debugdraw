@@ -193,7 +193,7 @@ namespace DebugDrawItems
 					}
 					else
 					{
-						MathUtils.FindBestAxisVectors(ref dir, out Vector3 _, out n);
+						DebugDraw.FindBestAxisVectors(ref dir, out Vector3 _, out n);
 					}
 
 					if (head.shape == ArrowShape.Arrow || head.shape == ArrowShape.Line)

@@ -517,19 +517,6 @@ public static partial class DebugDraw
 		hasColor = state.hasColor;
 		hasTransform = state.hasTransform;
 	}
-	
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	internal static void DestroyObj(Object obj)
-	{
-		if (Application.isPlaying)
-		{
-			Object.Destroy(obj);
-		}
-		else
-		{
-			Object.DestroyImmediate(obj);
-		}
-	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float GetTime()
@@ -545,9 +532,17 @@ public static partial class DebugDraw
 			: frameTime + duration;
 	}
 	
-	private static void UpdateFixedUpdateFlag()
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	internal static void DestroyObj(Object obj)
 	{
-		doFixedUpdate = _useFixedUpdate && Application.isPlaying;
+		if (Application.isPlaying)
+		{
+			Object.Destroy(obj);
+		}
+		else
+		{
+			Object.DestroyImmediate(obj);
+		}
 	}
 
 	internal static T AddAttachment<T>(T attachment) where T : BaseAttachment
@@ -568,6 +563,11 @@ public static partial class DebugDraw
 		Attachments[attachment.index = attachmentCount++] = attachment;
 		return attachment;
 	}
+	
+	private static void UpdateFixedUpdateFlag()
+	{
+		doFixedUpdate = _useFixedUpdate && Application.isPlaying;
+	}
 
 	private static void UpdateAttachments()
 	{
@@ -586,6 +586,42 @@ public static partial class DebugDraw
 		}
 	}
 
+	/* ------------------------------------------------------------------------------------- */
+	/* -- Utils -- */
+	
+	/// <summary>
+	/// Find good arbitrary axis vectors to represent U and V axes of a plane, using this vector as the normal of the plane.
+	/// <param name="normal">The plane's normal vector.</param>
+	/// <param name="up">The calculated up vector.</param>
+	/// <param name="right">The calculated right vector.</param>
+	/// </summary>
+	public static void FindBestAxisVectors(ref Vector3 normal, out Vector3 up, out Vector3 right)
+	{
+		Vector3 n = new Vector3(
+			Mathf.Abs(normal.x),
+			Mathf.Abs(normal.y),
+			Mathf.Abs(normal.z));
+
+		// Find best basis vectors.
+		if(n.z > n.x && n.z > n.y)
+		{
+			up = new Vector3(1, 0, 0);
+		}
+		else
+		{
+			up = new Vector3(0, 0, 1);
+		}
+
+		float dot = Vector3.Dot(up, normal);
+			
+		up = new Vector3(
+			up.x - normal.x * dot,
+			up.y - normal.y * dot,
+			up.z - normal.z * dot).normalized;
+			
+		right = Vector3.Cross(up, normal);
+	}
+	
 	/* ------------------------------------------------------------------------------------- */
 
 	private class DebugDrawState

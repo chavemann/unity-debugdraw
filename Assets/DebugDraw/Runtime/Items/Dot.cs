@@ -117,7 +117,7 @@ namespace DebugDrawItems
 			else
 			{
 				forward = facing;
-				MathUtils.FindBestAxisVectors(ref forward, out up, out right);
+				DebugDraw.FindBestAxisVectors(ref forward, out up, out right);
 			}
 
 			Matrix4x4 m = new Matrix4x4(right, up, forward, new Vector4(position.x, position.y, position.z, 1));
