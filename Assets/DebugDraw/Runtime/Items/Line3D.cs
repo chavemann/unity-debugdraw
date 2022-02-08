@@ -158,6 +158,9 @@ namespace DebugDrawItems
 			float size2 = size;
 			Color clr1 = GetColor(ref color);
 			Color clr2 = GetColor(ref color2);
+
+			Vector3 p1 = this.p1;
+			Vector3 p2 = this.p2;
 			
 			Vector3 dir = new Vector3(
 				p2.x - p1.x,
@@ -170,14 +173,46 @@ namespace DebugDrawItems
 			
 			if(autoSize)
 			{
-				size1 *= Mathf.Max(Vector3.Dot(new Vector3(
+				float dist1 = Vector3.Dot(new Vector3(
 					p1.x - DebugDraw.camPosition.x,
 					p1.y - DebugDraw.camPosition.y,
-					p1.z - DebugDraw.camPosition.z), DebugDraw.camForward), 0) * BaseAutoSizeDistanceFactor;
-				size2 *= Mathf.Max(Vector3.Dot(new Vector3(
+					p1.z - DebugDraw.camPosition.z), DebugDraw.camForward);
+				float dist2 = Vector3.Dot(new Vector3(
 					p2.x - DebugDraw.camPosition.x,
 					p2.y - DebugDraw.camPosition.y,
-					p2.z - DebugDraw.camPosition.z), DebugDraw.camForward), 0) * BaseAutoSizeDistanceFactor;
+					p2.z - DebugDraw.camPosition.z), DebugDraw.camForward);
+				
+				if (dist1 <= 0 && dist2 <= 0)
+					return;
+
+				if (dist1 <= 0 || dist2 <= 0)
+				{
+					if (dist1 <= 0)
+					{
+						float t = -dist1 / (dist2 - dist1);
+						p1.x += dir.x * length * t;
+						p1.y += dir.y * length * t;
+						p1.z += dir.z * length * t;
+						clr1 = Color.Lerp(clr1, clr2, t);
+						size1 = 0;
+						size2 *= Mathf.Max(dist2, 0) * BaseAutoSizeDistanceFactor;
+					}
+					else
+					{
+						float t = 1 - dist2 / (dist2 - dist1);
+						p2.x = p1.x + dir.x * length * t;
+						p2.y = p1.y + dir.y * length * t;
+						p2.z = p1.z + dir.z * length * t;
+						clr2 = Color.Lerp(clr1, clr2, t);
+						size1 *= Mathf.Max(dist1, 0) * BaseAutoSizeDistanceFactor;
+						size2 = 0;
+					}
+				}
+				else
+				{
+					size1 *= Mathf.Max(dist1, 0) * BaseAutoSizeDistanceFactor;
+					size2 *= Mathf.Max(dist2, 0) * BaseAutoSizeDistanceFactor;
+				}
 			}
 
 			Vector3 n;
