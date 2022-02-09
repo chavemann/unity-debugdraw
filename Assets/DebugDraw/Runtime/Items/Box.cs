@@ -88,19 +88,19 @@ namespace DebugDrawItems
 
 		internal override void Build(DebugDrawMesh mesh)
 		{
-			Matrix4x4 m = Matrix4x4.TRS(position, orientation, DebugDraw.scaleIdentity);
+			Matrix4x4 m = Matrix4x4.TRS(position, orientation, size);
 			
 			// Top vertices
-			Vector3 v1 = m.MultiplyPoint3x4(new Vector3(-size.x, -size.y, -size.z));
-			Vector3 v2 = m.MultiplyPoint3x4(new Vector3(+size.x, -size.y, -size.z));
-			Vector3 v3 = m.MultiplyPoint3x4(new Vector3(+size.x, -size.y, +size.z));
-			Vector3 v4 = m.MultiplyPoint3x4(new Vector3(-size.x, -size.y, +size.z));
+			Vector3 v1 = m.MultiplyPoint3x4(new Vector3(-1, -1, -1));
+			Vector3 v2 = m.MultiplyPoint3x4(new Vector3(+1, -1, -1));
+			Vector3 v3 = m.MultiplyPoint3x4(new Vector3(+1, -1, +1));
+			Vector3 v4 = m.MultiplyPoint3x4(new Vector3(-1, -1, +1));
 			mesh.AddVertices(this, ref v1, ref v2, ref v3, ref v4);
 			// Bottom vertices
-			v1 = m.MultiplyPoint3x4(new Vector3(-size.x, +size.y, -size.z));
-			v2 = m.MultiplyPoint3x4(new Vector3(+size.x, +size.y, -size.z));
-			v3 = m.MultiplyPoint3x4(new Vector3(+size.x, +size.y, +size.z));
-			v4 = m.MultiplyPoint3x4(new Vector3(-size.x, +size.y, +size.z));
+			v1 = m.MultiplyPoint3x4(new Vector3(-1, +1, -1));
+			v2 = m.MultiplyPoint3x4(new Vector3(+1, +1, -1));
+			v3 = m.MultiplyPoint3x4(new Vector3(+1, +1, +1));
+			v4 = m.MultiplyPoint3x4(new Vector3(-1, +1, +1));
 			mesh.AddVertices(this, ref v1, ref v2, ref v3, ref v4);
 			
 			Color clr = GetColor(ref color);
