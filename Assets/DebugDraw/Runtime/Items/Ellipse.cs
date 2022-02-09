@@ -46,16 +46,16 @@ namespace DebugDrawItems
 		/// </summary>
 		public int segments;
 		/// <summary>
+		/// If true the ellipse resolution (segments) will be adjusted based on the distance to the camera
+		/// so that it will always appear smooth.
+		/// </summary>
+		public bool autoResolution;
+		/// <summary>
 		/// True for a filled ellipse made up from triangles, otherwise a wire ellipse.
 		/// It's important that this Ellipse item is added to mesh with the right topology, either lines or triangles,
 		/// based on this setting.
 		/// </summary>
 		public bool filled;
-		/// <summary>
-		/// If true the ellipse resolution (segments) will be adjusted based on the distance to the camera
-		/// so that it will always appear smooth.
-		/// </summary>
-		public bool autoResolution;
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
@@ -81,7 +81,6 @@ namespace DebugDrawItems
 			item.facing = facing;
 			item.color = color;
 			item.segments = segments;
-			item.filled = true;
 			item.rotation = 0;
 			item.startAngle = 0;
 			item.endAngle = 360;
@@ -113,7 +112,6 @@ namespace DebugDrawItems
 			item.facing = facing;
 			item.color = color;
 			item.segments = segments;
-			item.filled = true;
 			item.rotation = 0;
 			item.startAngle = 0;
 			item.endAngle = 360;
