@@ -58,9 +58,8 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			icon.color = iconColor;
 			icon.radius = Mathf.Max(iconSize, 0);
-			icon.segments = iconCircle ? 24 : 0;
+			icon.segments = iconCircle ? (!iconAutoSize ? 24 : 0) : 1;
 			icon.autoSize = iconAutoSize;
-			icon.autoResolution = !iconAutoSize;
 		}
 
 		private void ClearAxes()

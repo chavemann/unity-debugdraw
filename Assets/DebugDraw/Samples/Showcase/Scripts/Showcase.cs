@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
 using DebugDrawAttachments;
 using DebugDrawItems;
 using UnityEngine;
@@ -31,14 +32,16 @@ namespace DebugDrawSamples.Showcase.Scripts
 		public DrawEllipseAxes arcAxes = DrawEllipseAxes.InsideArc;
 		public DrawArcSegments arcSegments = DrawArcSegments.OpenOnly;
 		public int arcRes = 32;
+		public Color arcColor = Color.cyan;
 
 		[Header("Line3D")]
 		public float line3DSize = 0.1f;
 		public bool line3DFaceCam;
 		public bool line3DAutoSize;
 		public float line3DLength = 1;
+		public Vector3 boxSize = Vector3.one;
 		
-		private float delayedInit = -1;
+		private float delayedInit = 0;
 		private int frame;
 		private LineAttachment attachment;
 		private Arrow arrow;
@@ -46,6 +49,11 @@ namespace DebugDrawSamples.Showcase.Scripts
 		private readonly List<Vector3> positions = new List<Vector3>();
 		private readonly List<Color> colors = new List<Color>();
 		private readonly List<float> sizes = new List<float>();
+
+		static Showcase()
+		{
+			Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+		}
 
 		protected override void OnEnable()
 		{
@@ -60,7 +68,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 			// Log.Print("    Args:", 0, "test", 4.5f);
 			// Log.Print("    Arrays:", new int[] {0, 1, 2}, new List<int> {3, 4, 5});
 			// init = false;
-
+			
 			if (lineStart || lineEnd)
 			{
 				attachment = DebugDraw.Arrow(default, default, Color.red, Color.green, 0.5f, true, arrowAutoSize, -1)
@@ -71,7 +79,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 					.startHead.SetOffset(headOffset.x)
 					.endHead.SetOffset(headOffset.y);
 			}
-			
+
 			Random.InitState(5);
 			for (int i = 0; i < 20; i++)
 			{
@@ -95,15 +103,19 @@ namespace DebugDrawSamples.Showcase.Scripts
 			// Log.Print("  Showcase.Update");
 			// if (Application.isPlaying)
 			// {
-			// 	if (delayedInit >= 0)
-			// 	{
-			// 		float diff = Time.time - delayedInit;
-			//
-			// 		if (diff > 2)
-			// 		{
-			// 			SceneManager.LoadScene("Test");
-			// 		}
-			// 	}
+				// if (delayedInit >= 0)
+				// {
+				// 	float diff = Time.time - delayedInit;
+				//
+				// 	if (diff > 1)
+				// 	{
+				// 		
+				// 		
+				// 		// SceneManager.LoadScene("Test");
+				// 		
+				// 		delayedInit = Time.time;
+				// 	}
+				// }
 			// }
 
 			if (frame == 0 || frame % (Application.isPlaying ? 12 : 4) == 0)
@@ -117,28 +129,48 @@ namespace DebugDrawSamples.Showcase.Scripts
 			DebugDraw.transform = tr.localToWorldMatrix;
 			
 			// DebugDraw.Line(Vector3.zero, Vector3.forward, Color.cyan);
-			DebugDraw.Dots(positions, sizes, colors, 24)
-				.SetAutoSize();
-			DebugDraw.WireEllipse(Vector3.zero, arcSize, Vector3.forward, Color.cyan, arcRes)
-				.SetArc(arcStart, arcEnd, arcSegments)
-				.SetAxes(arcAxes)
-				.SetRotation(arcRotation)
-				.SetAutoResolution();
+			
+			// DebugDraw.Dots(positions, sizes, colors, 24)
+			// 	.SetAutoSize();
+			
+			// DebugDraw.WireEllipse(Vector3.zero, arcSize, Vector3.forward, Color.cyan, arcRes)
+			// 	.SetArc(arcStart, arcEnd, arcSegments)
+			// 	.SetAxes(arcAxes)
+			// 	.SetRotation(arcRotation)
+			// 	.SetAutoResolution();
 			// DebugDraw.Ellipse(Vector3.zero + Vector3.up * 3, arcSize, Vector3.forward, Color.cyan, arcRes)
 			// 	.SetArc(arcStart, arcEnd, arcSegments)
 			// 	.SetAxes(arcAxes)
 			// 	.SetRotation(arcRotation);
 			
+			// DebugDraw.WireQuad(
+			// 	Vector3.up + Vector3.left,
+			// 	Vector3.up + Vector3.right,
+			// 	Vector3.up + Vector3.right * 0.75f + Vector3.up,
+			// 	Vector3.up + Vector3.left * 0.75f + Vector3.up,
+			// 	Color.red, Color.green, Color.blue, Color.yellow);
+			// DebugDraw.Quad(
+			// 	Vector3.forward + Vector3.left,
+			// 	Vector3.forward + Vector3.right,
+			// 	Vector3.forward + Vector3.right * 0.75f + Vector3.up,
+			// 	Vector3.forward + Vector3.left * 0.75f + Vector3.up,
+			// 	Color.red, Color.green, Color.blue, Color.yellow);
+			
 			DebugDraw.transform = Matrix4x4.identity;
 			
-			// DebugDraw.WireEllipse(Vector3.zero, arcSize, tr.forward, Color.yellow, arcRes)
-			// 	.SetArc(arcStart, arcEnd, arcSegments)
-			// 	.SetAxes(arcAxes)
-			// 	.SetRotation(arcRotation);
-			// DebugDraw.Ellipse(Vector3.zero + Vector3.up * 3, arcSize, tr.forward, Color.yellow, arcRes)
-			// 	.SetArc(arcStart, arcEnd, arcSegments)
-			// 	.SetAxes(arcAxes)
-			// 	.SetRotation(arcRotation);
+			DebugDraw.Sphere(tr.position, boxSize, tr.rotation, Color.red, arcRes);
+			DebugDraw.Ball(tr.position + Vector3.up * 3, boxSize, tr.rotation, Color.green, arcRes);
+
+			// DebugDraw.Box(tr.position, boxSize, tr.rotation, Color.red);
+			
+			DebugDraw.WireEllipse(tr.position + tr.forward * 4, arcSize, tr.forward, Color.yellow, arcRes)
+				.SetArc(arcStart, arcEnd, arcSegments)
+				.SetAxes(arcAxes)
+				.SetRotation(arcRotation);
+			DebugDraw.Ellipse(tr.position + tr.forward * 4 + Vector3.up * 3, arcSize, tr.forward, Color.yellow, arcRes)
+				.SetArc(arcStart, arcEnd, arcSegments)
+				.SetAxes(arcAxes)
+				.SetRotation(arcRotation);
 
 			// DebugDraw.Line3D(tr.position - tr.right*line3DLength, tr.position + tr.right*line3DLength, line3DSize, tr.forward, Color.red, Color.green)
 			// 	.SetAutoSize(line3DAutoSize)
