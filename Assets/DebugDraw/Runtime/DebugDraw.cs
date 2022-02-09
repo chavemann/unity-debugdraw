@@ -190,6 +190,7 @@ public static partial class DebugDraw
 	public static float camFOV;
 	public static bool camOrthographic;
 	public static float camOrthoSize;
+	public static float camFOVAngle;
 
 	private static bool doFixedUpdate;
 	private static bool requiresBuild = true;
@@ -307,6 +308,7 @@ public static partial class DebugDraw
 		camUp = Vector3.up;
 		camFOV = 60;
 		camOrthographic = false;
+		camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
 	}
 
 	internal static void UpdateCamera()
@@ -328,6 +330,7 @@ public static partial class DebugDraw
 		camFOV = cam.fieldOfView;
 		camOrthographic = cam.orthographic;
 		camOrthoSize = cam.orthographicSize * 2;
+		camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
 	}
 
 	private static void OnCameraPreCull(Camera _)
@@ -695,7 +698,7 @@ public static partial class DebugDraw
 	public static float CalculateFrustumHeight(float distance)
 	{
 		return !camOrthographic
-			? 2.0f * distance * Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad)
+			? 2.0f * distance * camFOVAngle
 			: camOrthoSize;
 	}
 
