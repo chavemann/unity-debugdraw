@@ -453,7 +453,7 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
-	/// Draws a sphere made up of four three along each axis with the given orientation.
+	/// Draws a sphere.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
 	/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -466,6 +466,37 @@ public static partial class DebugDraw
 	public static Sphere Sphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
 	{
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a sphere.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Sphere Ball(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetBall(ref position, ref radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a sphere made up of four three along each axis with the given orientation.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="orientation">The orientation of the sphere.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Sphere Ball(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetBall(ref position, ref radius, ref orientation, ref color, segments, duration));
 	}
 	
 	/// <summary>
@@ -1047,7 +1078,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a sphere made up of four three along each axis with the given orientation.
+	/// Draws a sphere.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
 	/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -1060,6 +1091,37 @@ public partial class DebugDrawMesh
 	public Sphere Sphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
 	{
 		return Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a sphere.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Sphere Ball(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Sphere.GetBall(ref position, ref radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a sphere made up of four three along each axis with the given orientation.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="orientation">The orientation of the sphere.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Sphere Ball(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Sphere.GetBall(ref position, ref radius, ref orientation, ref color, segments, duration));
 	}
 	
 	/// <summary>
