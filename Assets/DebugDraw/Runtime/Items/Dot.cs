@@ -31,13 +31,9 @@ namespace DebugDrawItems
 		public bool faceCamera;
 		/// <summary>
 		/// The shape/resolution of the dot. 0 or 4 = square, >= 3 = circle.
+		/// If set to zero will be adjusted based on the distance to the camera.
 		/// </summary>
 		public int segments;
-		/// <summary>
-		/// If true the dot resolution (segments) will be adjusted based on the distance to the camera
-		/// so that it will always appear smooth.
-		/// </summary>
-		public bool autoResolution;
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getter -- */
@@ -48,7 +44,8 @@ namespace DebugDrawItems
 		/// <param name="position">The position of the dot.</param>
 		/// <param name="radius">The size of the dot.</param>
 		/// <param name="color">The color of the dot.</param>
-		/// <param name="segments">The shape/resolution of the dot. 0 or 4 = square, >= 3 = circle.</param>
+		/// <param name="segments">The shape/resolution of the dot. 0 or 4 = square, >= 3 = circle.
+		/// If set to zero will be adjusted based on the distance to the camera.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Dot object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -72,7 +69,8 @@ namespace DebugDrawItems
 		/// <param name="radius">The size of the dot.</param>
 		/// <param name="color">The color of the dot.</param>
 		/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
-		/// <param name="segments">The shape/resolution of the dot. 0 = square.</param>
+		/// <param name="segments">The shape/resolution of the dot. 0 = square.
+		/// If set to zero will be adjusted based on the distance to the camera.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Dot object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -106,14 +104,13 @@ namespace DebugDrawItems
 		}
 
 		/// <summary>
-		/// If true the dot resolution (segments) will be adjusted based on the distance to the camera
-		/// so that it will always appear smooth.
+		/// Sets <see cref="segments"/> to zero so that it will be calculated dynamically based
+		/// on the distance to the camera.
 		/// </summary>
-		/// <param name="autoResolution">.</param>
 		/// <returns></returns>
-		public Dot SetAutoResolution(bool autoResolution = true)
+		public Dot SetAutoResolution()
 		{
-			this.autoResolution = autoResolution;
+			segments = 0;
 
 			return this;
 		}
@@ -156,7 +153,7 @@ namespace DebugDrawItems
 
 			float size = radius;
 			
-			float dist = autoSize || autoResolution
+			float dist = autoSize || this.segments <= 0
 				? Mathf.Max(DebugDraw.DistanceFromCamera(ref position), 0)
 				: 0;
 
@@ -165,7 +162,7 @@ namespace DebugDrawItems
 				size *= dist * BaseAutoSizeDistanceFactor;
 			}
 
-			int segments = autoResolution
+			int segments = this.segments <= 0
 				? DebugDraw.AutoResolution(dist, radius, 4, 64, 128)
 				: this.segments;
 			

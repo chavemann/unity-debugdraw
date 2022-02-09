@@ -41,13 +41,9 @@ namespace DebugDrawItems
 		public bool faceCamera;
 		/// <summary>
 		/// The shape/resolution of all dots. 0 or 4 = square, >= 3 = circle.
+		/// If set to zero will be adjusted based on the distance to the camera.
 		/// </summary>
 		public int segments;
-		/// <summary>
-		/// If true the dot resolution (segments) will be adjusted based on the distance to the camera
-		/// so that it will always appear smooth.
-		/// </summary>
-		public bool autoResolution;
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
@@ -116,14 +112,13 @@ namespace DebugDrawItems
 		}
 
 		/// <summary>
-		/// If true the dots resolution (segments) will be adjusted based on the distance to the camera
-		/// so that it will always appear smooth.
+		/// Sets <see cref="segments"/> to zero so that it will be calculated dynamically based
+		/// on the distance to the camera.
 		/// </summary>
-		/// <param name="autoResolution">.</param>
 		/// <returns></returns>
-		public Dots SetAutoResolution(bool autoResolution = true)
+		public Dots SetAutoResolution()
 		{
-			this.autoResolution = autoResolution;
+			segments = 0;
 
 			return this;
 		}
@@ -137,7 +132,7 @@ namespace DebugDrawItems
 			bool hasStateColor = this.hasStateColor;
 			ref Color stateColor = ref this.stateColor;
 			bool autoSize = this.autoSize && !DebugDraw.camOrthographic;
-			bool autoResolution = this.autoResolution;
+			bool autoResolution = segments <= 0;
 			
 			List<Vector3> positions = this.positions;
 			List<float> sizes = this.sizes;

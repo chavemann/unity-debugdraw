@@ -42,14 +42,9 @@ namespace DebugDrawItems
 		/// </summary>
 		public DrawEllipseAxes drawAxes;
 		/// <summary>
-		/// The resolution of the ellipse.
+		/// The resolution of the ellipse. If set to zero will be adjusted based on the distance to the camera.
 		/// </summary>
 		public int segments;
-		/// <summary>
-		/// If true the ellipse resolution (segments) will be adjusted based on the distance to the camera
-		/// so that it will always appear smooth.
-		/// </summary>
-		public bool autoResolution;
 		/// <summary>
 		/// True for a filled ellipse made up from triangles, otherwise a wire ellipse.
 		/// It's important that this Ellipse item is added to a mesh with the right topology, either lines or triangles,
@@ -265,14 +260,13 @@ namespace DebugDrawItems
 		}
 
 		/// <summary>
-		/// If true the ellipse resolution (segments) will be adjusted based on the distance to the camera
-		/// so that it will always appear smooth.
+		/// Sets <see cref="segments"/> to zero so that it will be calculated dynamically based
+		/// on the distance to the camera.
 		/// </summary>
-		/// <param name="autoResolution">.</param>
 		/// <returns></returns>
-		public Ellipse SetAutoResolution(bool autoResolution = true)
+		public Ellipse SetAutoResolution()
 		{
-			this.autoResolution = autoResolution;
+			segments = 0;
 
 			return this;
 		}
@@ -289,6 +283,20 @@ namespace DebugDrawItems
 				up = stateTransform.MultiplyVector(up);
 			}
 
+			Color clr = GetColor(ref color);
+			
+			BuildArc(
+				mesh, ref position, ref right, ref up, ref size, rotation,
+				startAngle, endAngle, segments, drawArcSegments, drawAxes, ref clr, filled);
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void BuildArc(
+			DebugDrawMesh mesh, ref Vector3 worldPos, ref Vector3 right, ref Vector3 up, ref Vector2 size, float rotation,
+			float startAngle, float endAngle, int segments,
+			DrawArcSegments drawArcSegments, DrawEllipseAxes drawAxes,
+			ref Color color, bool filled)
+		{
 			float angle1 = Mathf.Min(startAngle, endAngle);
 			float angle2 = Mathf.Clamp(Mathf.Max(startAngle, endAngle) - angle1, 0, 360);
 			bool isOpen = angle2 < 360;
@@ -296,41 +304,37 @@ namespace DebugDrawItems
 			angle2 = angle1 + angle2;
 			angle2 = (rotation + angle2) * Mathf.Deg2Rad;
 			angle1 = (rotation + angle1) * Mathf.Deg2Rad;
-
-			int segments = autoResolution
-				? autoResolution
-					? DebugDraw.AutoResolution(
-						Mathf.Max(DebugDraw.DistanceFromCamera(ref position), 0),
-						Mathf.Max(size.x, size.y), 4, 64, 128)
-					: this.segments
-				: this.segments;
-
-			Color clr = GetColor(ref color);
+			
+			int finalSegments = segments <= 0
+				? DebugDraw.AutoResolution(
+					Mathf.Max(DebugDraw.DistanceFromCamera(ref worldPos), 0),
+					Mathf.Max(size.x, size.y), 4, 64, 128)
+				: segments;
 			
 			int centreVertexIndex = -1;
 
 			if (filled)
 			{
-				mesh.AddVertex(ref position);
-				mesh.AddColor(ref clr);
+				mesh.AddVertex(ref worldPos);
+				mesh.AddColor(ref color);
 				centreVertexIndex = mesh.vertexIndex++;
 			}
 			
 			int arcStartVertexIndex = mesh.vertexIndex;
-
+			
 			if (angle1 < angle2)
 			{
-				float deltaAngle = (Mathf.PI * 2) / Mathf.Max(segments, 3);
+				float deltaAngle = (Mathf.PI * 2) / Mathf.Max(finalSegments, 3);
 				float angle = angle1;
 
 				Vector2 p = new Vector2(
 					Mathf.Cos(angle) * size.x,
 					Mathf.Sin(angle) * size.y);
 				mesh.AddVertex(
-					position.x + right.x * p.x + up.x * p.y,
-					position.y + right.y * p.x + up.y * p.y,
-					position.z + right.z * p.x + up.z * p.y);
-				mesh.AddColor(ref clr);
+					worldPos.x + right.x * p.x + up.x * p.y,
+					worldPos.y + right.y * p.x + up.y * p.y,
+					worldPos.z + right.z * p.x + up.z * p.y);
+				mesh.AddColor(ref color);
 				mesh.vertexIndex++;
 				
 				while (angle < angle2)
@@ -345,10 +349,10 @@ namespace DebugDrawItems
 					p.x = Mathf.Cos(angle) * size.x;
 					p.y = Mathf.Sin(angle) * size.y;
 					mesh.AddVertex(
-						position.x + right.x * p.x + up.x * p.y,
-						position.y + right.y * p.x + up.y * p.y,
-						position.z + right.z * p.x + up.z * p.y);
-					mesh.AddColor(ref clr);
+						worldPos.x + right.x * p.x + up.x * p.y,
+						worldPos.y + right.y * p.x + up.y * p.y,
+						worldPos.z + right.z * p.x + up.z * p.y);
+					mesh.AddColor(ref color);
 					
 					if (filled)
 					{
@@ -375,8 +379,8 @@ namespace DebugDrawItems
 			if (drawArcSegments == DrawArcSegments.Always || isOpen && drawArcSegments == DrawArcSegments.OpenOnly)
 			{
 				centreVertexIndex = mesh.vertexIndex;
-				mesh.AddVertex(ref position);
-				mesh.AddColor(ref clr);
+				mesh.AddVertex(ref worldPos);
+				mesh.AddColor(ref color);
 				mesh.vertexIndex++;
 				
 				if (loopVertexCount > 0)
@@ -394,10 +398,10 @@ namespace DebugDrawItems
 						Mathf.Cos(angle1) * size.x,
 						Mathf.Sin(angle1) * size.y);
 					mesh.AddVertex(
-						position.x + right.x * p.x + up.x * p.y,
-						position.y + right.y * p.x + up.y * p.y,
-						position.z + right.z * p.x + up.z * p.y);
-					mesh.AddColor(ref clr);
+						worldPos.x + right.x * p.x + up.x * p.y,
+						worldPos.y + right.y * p.x + up.y * p.y,
+						worldPos.z + right.z * p.x + up.z * p.y);
+					mesh.AddColor(ref color);
 					mesh.AddIndices(
 						centreVertexIndex,
 						mesh.vertexIndex++);
@@ -417,8 +421,8 @@ namespace DebugDrawItems
 					if (centreVertexIndex == -1)
 					{
 						centreVertexIndex = mesh.vertexIndex;
-						mesh.AddVertex(ref position);
-						mesh.AddColor(ref clr);
+						mesh.AddVertex(ref worldPos);
+						mesh.AddColor(ref color);
 						mesh.vertexIndex++;
 					}
              		
@@ -426,10 +430,10 @@ namespace DebugDrawItems
 						Mathf.Cos(angle) * size.x,
 						Mathf.Sin(angle) * size.y);
 					mesh.AddVertex(
-						position.x + right.x * p.x + up.x * p.y,
-						position.y + right.y * p.x + up.y * p.y,
-						position.z + right.z * p.x + up.z * p.y);
-					mesh.AddColor(ref clr);
+						worldPos.x + right.x * p.x + up.x * p.y,
+						worldPos.y + right.y * p.x + up.y * p.y,
+						worldPos.z + right.z * p.x + up.z * p.y);
+					mesh.AddColor(ref color);
 					mesh.AddIndices(
 						centreVertexIndex,
 						mesh.vertexIndex++);

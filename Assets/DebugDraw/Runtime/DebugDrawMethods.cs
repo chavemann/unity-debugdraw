@@ -119,7 +119,8 @@ public static partial class DebugDraw
 	/// <param name="position">The position of the dot.</param>
 	/// <param name="radius">The size of the dot.</param>
 	/// <param name="color">The color of the dot.</param>
-	/// <param name="segments">The shape/resolution of the dot. 0 or 4 = square, >= 3 = circle.</param>
+	/// <param name="segments">The shape/resolution of the dot. 0 or 4 = square, >= 3 = circle.
+	/// If set to zero will be adjusted based on the distance to the camera.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -135,7 +136,8 @@ public static partial class DebugDraw
 	/// <param name="radius">The size of the dot.</param>
 	/// <param name="color">The color of the dot.</param>
 	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
-	/// <param name="segments">The shape/resolution of the dot. 0 = square.</param>
+	/// <param name="segments">The shape/resolution of the dot. 0 = square.
+	/// If set to zero will be adjusted based on the distance to the camera.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -436,6 +438,37 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Draws a sphere made up of four three along each axis.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Sphere Sphere(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a sphere made up of four three along each axis with the given orientation.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="orientation">The orientation of the sphere.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Sphere Sphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration));
+	}
+	
+	/// <summary>
 	/// Draws a filled square.
 	/// </summary>
 	/// <param name="position">The centre of the square.</param>
@@ -680,7 +713,8 @@ public partial class DebugDrawMesh
 	/// <param name="position">The position of the dot.</param>
 	/// <param name="radius">The size of the dot.</param>
 	/// <param name="color">The color of the dot.</param>
-	/// <param name="segments">The shape/resolution of the dot. 0 or 4 = square, >= 3 = circle.</param>
+	/// <param name="segments">The shape/resolution of the dot. 0 or 4 = square, >= 3 = circle.
+	/// If set to zero will be adjusted based on the distance to the camera.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -696,7 +730,8 @@ public partial class DebugDrawMesh
 	/// <param name="radius">The size of the dot.</param>
 	/// <param name="color">The color of the dot.</param>
 	/// <param name="facing">The forward direction of the dot. Automatically update if faceCamera is true.</param>
-	/// <param name="segments">The shape/resolution of the dot. 0 = square.</param>
+	/// <param name="segments">The shape/resolution of the dot. 0 = square.
+	/// If set to zero will be adjusted based on the distance to the camera.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -994,6 +1029,37 @@ public partial class DebugDrawMesh
 	public Quad WireQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
 	{
 		return Add(DebugDrawItems.Quad.GetWire(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
+	}
+	
+	/// <summary>
+	/// Draws a sphere made up of four three along each axis.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Sphere Sphere(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a sphere made up of four three along each axis with the given orientation.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="orientation">The orientation of the sphere.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Sphere Sphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration));
 	}
 	
 	/// <summary>
