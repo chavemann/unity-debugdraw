@@ -1,13 +1,19 @@
 using System.Runtime.CompilerServices;
+using DebugDrawAttachments;
+using DebugDrawUtils;
 using UnityEngine;
 
 namespace DebugDrawItems
 {
 
-	public class Box : BasePointItem
+	public class Box : BaseItem
 	{
 		/* mesh: line */
 
+		/// <summary>
+		/// This item's position.
+		/// </summary>
+		public Vector3 position;
 		/// <summary>
 		/// The half size of the box.
 		/// </summary>
@@ -61,6 +67,20 @@ namespace DebugDrawItems
 			item.orientation = orientation;
 
 			return item;
+		}
+		
+		/// <summary>
+		/// Attach this box to a GameObjects. This item and it's attachment will automatically expire
+		/// if the attached objects is destroyed.
+		/// </summary>
+		/// <param name="obj">The object the box is attached to.</param>
+		/// <param name="updateSize">How to update the box size based on the game object's bounds.</param>
+		/// <returns></returns>
+		public BoxAttachment AttachTo(GameObjectOrTransform obj, BoxAttachmentSizeUpdate updateSize = BoxAttachmentSizeUpdate.Any)
+		{
+			BoxAttachment attachment = AttachmentPool<BoxAttachment>.Get(this);
+			
+			return attachment.Init(this, obj, updateSize);
 		}
 
 		/* ------------------------------------------------------------------------------------- */
