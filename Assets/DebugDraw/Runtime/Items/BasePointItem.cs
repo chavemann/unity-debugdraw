@@ -16,12 +16,12 @@ namespace DebugDrawItems
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
 
-		public void SetPosition(Vector3 position)
+		public virtual void SetPosition(Vector3 position)
 		{
 			this.position = position;
 		}
 
-		public Vector3 GetPosition()
+		public virtual Vector3 GetPosition()
 		{
 			return position;
 		}

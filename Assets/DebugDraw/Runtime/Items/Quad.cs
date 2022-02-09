@@ -166,6 +166,35 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
+		
+		public override void SetPosition(Vector3 position)
+		{
+			Vector3 delta = new Vector3(
+				position.x - (this.position.x + p2.x + p3.x + p4.x) * 0.25f,
+				position.y - (this.position.y + p2.y + p3.y + p4.y) * 0.25f,
+				position.z - (this.position.z + p2.z + p3.z + p4.z) * 0.25f);
+
+			this.position.x += delta.x;
+			this.position.y += delta.y;
+			this.position.z += delta.z;
+			p2.x += delta.x;
+			p2.y += delta.y;
+			p2.z += delta.z;
+			p3.x += delta.x;
+			p3.y += delta.y;
+			p3.z += delta.z;
+			p4.x += delta.x;
+			p4.y += delta.y;
+			p4.z += delta.z;
+		}
+
+		public override Vector3 GetPosition()
+		{
+			return new Vector3(
+				(position.x + p2.x + p3.x + p4.x) * 0.5f,
+				(position.y + p2.y + p3.y + p4.y) * 0.5f,
+				(position.z + p2.z + p3.z + p4.z) * 0.5f);
+		}
 
 		internal override void Build(DebugDrawMesh mesh)
 		{
