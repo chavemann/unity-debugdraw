@@ -694,7 +694,7 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float CalculateFrustumHeight(float distance)
 	{
-		return camOrthographic
+		return !camOrthographic
 			? 2.0f * distance * Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad)
 			: camOrthoSize;
 	}
