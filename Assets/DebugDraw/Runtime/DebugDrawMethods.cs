@@ -397,6 +397,36 @@ public static partial class DebugDraw
 		return textMeshInstance.Add(DebugDrawItems.Text.Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration));
 	}
 	
+	/// <summary>
+	/// Draws a filled triangle.
+	/// </summary>
+	/// <param name="p1">The first point of the triangle.</param>
+	/// <param name="p2">The second point of the triangle.</param>
+	/// <param name="p3">The third point of the triangle.</param>
+	/// <param name="color">The colour of the triangle.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, float duration = 0)
+	{
+		return triangleMeshInstance.Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire triangle.
+	/// </summary>
+	/// <param name="p1">The first point of the triangle.</param>
+	/// <param name="p2">The second point of the triangle.</param>
+	/// <param name="p3">The third point of the triangle.</param>
+	/// <param name="color">The colour of the triangle.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Triangle WireTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Triangle.GetWire(ref p1, ref p2, ref p3, ref color, duration));
+	}
+	
 	/* </StaticGenMethods> */
 
 }
@@ -793,6 +823,36 @@ public partial class DebugDrawMesh
 	public Text Text(Vector3 position, string text, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float duration = 0)
 	{
 		return Add(DebugDrawItems.Text.Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration));
+	}
+	
+	/// <summary>
+	/// Draws a filled triangle.
+	/// </summary>
+	/// <param name="p1">The first point of the triangle.</param>
+	/// <param name="p2">The second point of the triangle.</param>
+	/// <param name="p3">The third point of the triangle.</param>
+	/// <param name="color">The colour of the triangle.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire triangle.
+	/// </summary>
+	/// <param name="p1">The first point of the triangle.</param>
+	/// <param name="p2">The second point of the triangle.</param>
+	/// <param name="p3">The third point of the triangle.</param>
+	/// <param name="color">The colour of the triangle.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Triangle WireTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Triangle.GetWire(ref p1, ref p2, ref p3, ref color, duration));
 	}
 	
 	/* </InstanceGenMethods> */

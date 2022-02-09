@@ -444,6 +444,20 @@ public partial class DebugDrawMesh
 		indices.Add(index3);
 		indices.Add(index4);
 	}
+	
+	/// <summary>
+	/// Add six indices.
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddIndices(int index1, int index2, int index3, int index4, int index5, int index6)
+	{
+		indices.Add(index1);
+		indices.Add(index2);
+		indices.Add(index3);
+		indices.Add(index4);
+		indices.Add(index5);
+		indices.Add(index6);
+	}
 
 	/// <summary>
 	/// Adds a previous index (<c>vertexIndex - fromEnd</c>)
@@ -775,6 +789,30 @@ public partial class DebugDrawMesh
 	public void AddVertex(BaseItem item, ref Vector3 vertex)
 	{
 		vertices.Add(item.hasStateTransform ? item.stateTransform.MultiplyPoint3x4(vertex) : vertex);
+	}
+	
+	/// <summary>
+	/// Transforms and adds three vertices.
+	/// </summary>
+	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="v1"></param>
+	/// <param name="v2"></param>
+	/// <param name="v3"></param>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddVertices(BaseItem item, ref Vector3 v1, ref Vector3 v2, ref Vector3 v3)
+	{
+		if (item.hasStateTransform)
+		{
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v1));			
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v2));			
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v3));			
+		}
+		else
+		{
+			vertices.Add(v1);			
+			vertices.Add(v2);			
+			vertices.Add(v3);
+		}
 	}
 	
 	/// <summary>
