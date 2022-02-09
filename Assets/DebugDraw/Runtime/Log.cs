@@ -293,7 +293,7 @@ public static partial class Log
 		return buffer.Append("]").ToString();
 	}
 	
-	public static object GetString(Object message) => message.ToString();
+	public static object GetString(Object message) => message ? message.ToString() : "null";
 	public static object GetString(Transform message) => message.ToString();
 	public static object GetString(IFormattable message) => message.ToString(null, CultureInfo.InvariantCulture);
 	public static object GetString(string message) => message;
