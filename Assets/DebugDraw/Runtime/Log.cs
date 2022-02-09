@@ -34,20 +34,22 @@ public static partial class Log
 	public static int maxArrayItems = 100;
 
 	/// <summary>
-	/// TODO:
+	/// The max number of on screen messages in the queue - once the queue fills up old messages will be removed.
 	/// </summary>
 	public static int maxMessages = 100;
 	/// <summary>
-	/// TODO:
+	/// Adds a subtle drop shadow to on screen messages to make them easier to read.
+	/// Set to null to disable.
 	/// </summary>
 	public static Color? messageShadowColor = new Color(0, 0, 0, 0.5f);
 	/// <summary>
-	/// TODO:
+	/// Sets the color of only the next on screen message. Will be reset during the next call to Show**.
+	/// Set to null to reset.
 	/// </summary>
 	public static Color? nextMessageColor;
 
 	/// <summary>
-	/// TODO:
+	/// Use to adjust the default style of on screen messages.
 	/// </summary>
 	public static readonly GUIStyle MessageStyle = new GUIStyle();
 

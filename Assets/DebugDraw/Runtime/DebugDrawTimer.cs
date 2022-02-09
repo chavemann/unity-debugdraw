@@ -22,7 +22,8 @@ public static partial class DebugDraw
 	// private const HideFlags TimerHideFlags = HideFlags.HideAndDontSave;
 
 	/// <summary>
-	/// TODO: 
+	/// A component automatically added to the scene with HideFlags.DontSave set that
+	/// handles updating all debug items at the end of every frame.
 	/// </summary>
 	[DefaultExecutionOrder(10000)]
 	[ExecuteAlways]
@@ -65,6 +66,7 @@ public static partial class DebugDraw
 				Clear();
 			}
 			
+			// ReSharper disable once ConditionIsAlwaysTrueOrFalse
 			if (UpdateInstanceScene && timerInstance == this)
 			{
 				if (onActiveSceneChangedDelegate == null)
@@ -153,7 +155,8 @@ public static partial class DebugDraw
 	}
 
 	/// <summary>
-	/// TODO:
+	/// Complementary to DebugDrawTimer, this has the execution order set to execute before anything
+	/// to initialise certain DebugDraw values needed every frame.
 	/// </summary>
 	[DefaultExecutionOrder(-10000)]
 	[ExecuteAlways]
