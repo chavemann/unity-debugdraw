@@ -136,7 +136,7 @@ namespace DebugDrawItems
 			ref Matrix4x4 stateTransform = ref this.stateTransform;
 			bool hasStateColor = this.hasStateColor;
 			ref Color stateColor = ref this.stateColor;
-			bool autoSize = this.autoSize;
+			bool autoSize = this.autoSize && !DebugDraw.camOrthographic;
 			bool autoResolution = this.autoResolution;
 			
 			List<Vector3> positions = this.positions;

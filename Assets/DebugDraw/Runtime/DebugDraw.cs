@@ -189,6 +189,7 @@ public static partial class DebugDraw
 	public static Vector3 camUp = Vector3.up;
 	public static float camFOV;
 	public static bool camOrthographic;
+	public static float camOrthoSize;
 
 	private static bool doFixedUpdate;
 	private static bool requiresBuild = true;
@@ -326,6 +327,7 @@ public static partial class DebugDraw
 		camUp = camTransform.up;
 		camFOV = cam.fieldOfView;
 		camOrthographic = cam.orthographic;
+		camOrthoSize = cam.orthographicSize * 2;
 	}
 
 	private static void OnCameraPreCull(Camera _)
@@ -692,7 +694,9 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float CalculateFrustumHeight(float distance)
 	{
-		return 2.0f * distance * Mathf.Tan(DebugDraw.camFOV * 0.5f * Mathf.Deg2Rad);
+		return camOrthographic
+			? 2.0f * distance * Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad)
+			: camOrthoSize;
 	}
 
 	/// <summary>

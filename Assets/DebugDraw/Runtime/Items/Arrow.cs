@@ -221,7 +221,7 @@ namespace DebugDrawItems
 					{
 						float headLength = head.shape == ArrowShape.Arrow ? head.length : 0;
 						
-						float size = autoSize
+						float size = autoSize && !DebugDraw.camOrthographic
 							? Mathf.Max(Vector3.Dot(new Vector3(
 								p1.x - DebugDraw.camPosition.x,
 								p1.y - DebugDraw.camPosition.y,

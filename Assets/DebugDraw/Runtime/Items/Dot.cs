@@ -160,7 +160,7 @@ namespace DebugDrawItems
 				? Mathf.Max(DebugDraw.DistanceFromCamera(ref position), 0)
 				: 0;
 
-			if (autoSize)
+			if (autoSize && !DebugDraw.camOrthographic)
 			{
 				size *= dist * BaseAutoSizeDistanceFactor;
 			}

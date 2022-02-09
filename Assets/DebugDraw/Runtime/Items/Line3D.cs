@@ -171,7 +171,7 @@ namespace DebugDrawItems
 			dir.y /= length;
 			dir.z /= length;
 			
-			if(autoSize)
+			if(autoSize && !DebugDraw.camOrthographic)
 			{
 				float dist1 = Vector3.Dot(new Vector3(
 					p1.x - DebugDraw.camPosition.x,
