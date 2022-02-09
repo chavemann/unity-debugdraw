@@ -594,7 +594,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Adds the same for times twice
+	/// Adds the same color times twice.
 	/// </summary>
 	/// <param name="item">The item with which the color will be multiplied.</param>
 	/// <param name="color">The color to add.</param>
@@ -615,6 +615,78 @@ public partial class DebugDrawMesh
 			colours.Add(color);
 			colours.Add(color);
 			colours.Add(color);
+		}
+	}
+	
+	/// <summary>
+	/// Adds two colors.
+	/// </summary>
+	/// <param name="item">The item with which the color will be multiplied.</param>
+	/// <param name="color1"></param>
+	/// <param name="color2"></param>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddColors(BaseItem item, ref Color color1, ref Color color2)
+	{
+		if (item.hasStateColor)
+		{
+			colours.Add(item.stateColor * color1);
+			colours.Add(item.stateColor * color2);
+		}
+		else
+		{
+			colours.Add(color1);
+			colours.Add(color2);
+		}
+	}
+	
+	/// <summary>
+	/// Adds three colors.
+	/// </summary>
+	/// <param name="item">The item with which the color will be multiplied.</param>
+	/// <param name="color1"></param>
+	/// <param name="color2"></param>
+	/// <param name="color3"></param>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddColors(BaseItem item, ref Color color1, ref Color color2, ref Color color3)
+	{
+		if (item.hasStateColor)
+		{
+			colours.Add(item.stateColor * color1);
+			colours.Add(item.stateColor * color2);
+			colours.Add(item.stateColor * color3);
+		}
+		else
+		{
+			colours.Add(color1);
+			colours.Add(color2);
+			colours.Add(color3);
+		}
+	}
+	
+	/// <summary>
+	/// Adds four colors.
+	/// </summary>
+	/// <param name="item">The item with which the color will be multiplied.</param>
+	/// <param name="color1"></param>
+	/// <param name="color2"></param>
+	/// <param name="color3"></param>
+	/// <param name="color4"></param>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddColors(BaseItem item, ref Color color1, ref Color color2, ref Color color3, ref Color color4)
+	{
+		if (item.hasStateColor)
+		{
+			colours.Add(item.stateColor * color1);
+			colours.Add(item.stateColor * color2);
+			colours.Add(item.stateColor * color3);
+			colours.Add(item.stateColor * color4);
+		}
+		else
+		{
+			colours.Add(color1);
+			colours.Add(color2);
+			colours.Add(color3);
+			colours.Add(color4);
 		}
 	}
 
@@ -829,6 +901,33 @@ public partial class DebugDrawMesh
 			vertices.Add(v1);			
 			vertices.Add(v2);			
 			vertices.Add(v3);
+		}
+	}
+	
+	/// <summary>
+	/// Transforms and adds four vertices.
+	/// </summary>
+	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="v1"></param>
+	/// <param name="v2"></param>
+	/// <param name="v3"></param>
+	/// <param name="v4"></param>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddVertices(BaseItem item, ref Vector3 v1, ref Vector3 v2, ref Vector3 v3, ref Vector3 v4)
+	{
+		if (item.hasStateTransform)
+		{
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v1));			
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v2));			
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v3));
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v4));
+		}
+		else
+		{
+			vertices.Add(v1);			
+			vertices.Add(v2);			
+			vertices.Add(v3);
+			vertices.Add(v4);
 		}
 	}
 	
