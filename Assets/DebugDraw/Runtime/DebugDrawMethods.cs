@@ -85,6 +85,35 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Draws an axis aligned box.
+	/// </summary>
+	/// <param name="position">The centre of the box.</param>
+	/// <param name="size">The half size of the box.</param>
+	/// <param name="color">The color of the box.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Box object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Box Box(Vector3 position, Vector3 size, Color color, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Box.Get(ref position, ref size, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws an axis aligned box.
+	/// </summary>
+	/// <param name="position">The centre of the box.</param>
+	/// <param name="size">The half size of the box.</param>
+	/// <param name="orientation">The orientation of the box.</param>
+	/// <param name="color">The color of the box.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Box object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Box Box(Vector3 position, Vector3 size, Quaternion orientation, Color color, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Box.Get(ref position, ref size, ref orientation, ref color, duration));
+	}
+	
+	/// <summary>
 	/// Draws a 3D dot that automatically faces the camera.
 	/// </summary>
 	/// <param name="position">The position of the dot.</param>
@@ -614,6 +643,35 @@ public partial class DebugDrawMesh
 	public Axes Axes(Vector3 position, Quaternion rotation, Vector3 size, bool doubleSided = false, float duration = 0)
 	{
 		return Add(DebugDrawItems.Axes.Get(ref position, ref rotation, ref size, doubleSided, duration));
+	}
+	
+	/// <summary>
+	/// Draws an axis aligned box.
+	/// </summary>
+	/// <param name="position">The centre of the box.</param>
+	/// <param name="size">The half size of the box.</param>
+	/// <param name="color">The color of the box.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Box object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Box Box(Vector3 position, Vector3 size, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Box.Get(ref position, ref size, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws an axis aligned box.
+	/// </summary>
+	/// <param name="position">The centre of the box.</param>
+	/// <param name="size">The half size of the box.</param>
+	/// <param name="orientation">The orientation of the box.</param>
+	/// <param name="color">The color of the box.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Box object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Box Box(Vector3 position, Vector3 size, Quaternion orientation, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Box.Get(ref position, ref size, ref orientation, ref color, duration));
 	}
 	
 	/// <summary>

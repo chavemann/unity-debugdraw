@@ -211,20 +211,7 @@ namespace DebugDrawItems
 			}
 			else
 			{
-				mesh.AddIndices(
-					// Line 1
-					mesh.vertexIndex++,
-					mesh.vertexIndex,
-					// Line 2
-					mesh.vertexIndex++,
-					mesh.vertexIndex);
-				mesh.AddIndices(
-					// Line 3
-					mesh.vertexIndex++,
-					mesh.vertexIndex,
-					// Line 4
-					mesh.vertexIndex++,
-					mesh.vertexIndex - 4);
+				mesh.AddQuadLineIndices();
 			}
 		}
 

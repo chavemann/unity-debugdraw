@@ -178,16 +178,7 @@ namespace DebugDrawItems
 			}
 			else
 			{
-				mesh.AddIndices(
-					// Line 1
-					mesh.vertexIndex++,
-					mesh.vertexIndex,
-					// Line 2
-					mesh.vertexIndex++,
-					mesh.vertexIndex,
-					// Line 3
-					mesh.vertexIndex++,
-					mesh.vertexIndex - 3);
+				mesh.AddTriangleLineIndices();
 			}
 		}
 

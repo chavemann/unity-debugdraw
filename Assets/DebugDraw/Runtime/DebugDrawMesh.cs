@@ -475,6 +475,22 @@ public partial class DebugDrawMesh
 		indices.Add(index5);
 		indices.Add(index6);
 	}
+	
+	/// <summary>
+	/// Add eight indices.
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddIndices(int index1, int index2, int index3, int index4, int index5, int index6, int index7, int index8)
+	{
+		indices.Add(index1);
+		indices.Add(index2);
+		indices.Add(index3);
+		indices.Add(index4);
+		indices.Add(index5);
+		indices.Add(index6);
+		indices.Add(index7);
+		indices.Add(index8);
+	}
 
 	/// <summary>
 	/// Adds a previous index (<c>vertexIndex - fromEnd</c>)
@@ -484,6 +500,43 @@ public partial class DebugDrawMesh
 	public void AddPreviousVertexIndex(int fromEnd = 1)
 	{
 		indices.Add(vertexIndex - fromEnd);
+	}
+	
+	/// <summary>
+	/// Adds the indices forming a closed loop of three lines - 0,1 1,2 2,0.
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddTriangleLineIndices()
+	{
+		// Line 1
+		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex);
+		// Line 2
+		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex);
+		// Line 3
+		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex - 3);
+	}
+	
+	/// <summary>
+	/// Adds the indices forming a closed loop of four lines - 0,1 1,2 2,3 3,0.
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public void AddQuadLineIndices()
+	{
+		// Line 1
+		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex);
+		// Line 2
+		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex);
+		// Line 3
+		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex);
+		// Line 4
+		indices.Add(vertexIndex++);
+		indices.Add(vertexIndex - 4);
 	}
 
 	/* ------------------------------------------------------------------------------------- */
