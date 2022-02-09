@@ -33,7 +33,7 @@ def run():
     for item_path in ITEMS_PATH.glob('*.cs'):
         if not item_path.is_file():
             continue
-        if item_path.stem in ('BaseItem', 'ItemPool'):
+        if item_path.stem in ('BaseItem', 'BasePointItem', 'IPointItem', 'ItemPool'):
             continue
         
         text = INDENT_REGEX.sub('\t', item_path.read_text('utf-8'))
