@@ -9,7 +9,7 @@ namespace DebugDrawItems
 	/// </summary>
 	public class Ellipse : BasePointItem
 	{
-		/* mesh: line */
+		/* mesh: triangle */
 		
 		/// <summary>
 		/// The size/radius of the ellipse.
@@ -52,7 +52,7 @@ namespace DebugDrawItems
 		public bool autoResolution;
 		/// <summary>
 		/// True for a filled ellipse made up from triangles, otherwise a wire ellipse.
-		/// It's important that this Ellipse item is added to mesh with the right topology, either lines or triangles,
+		/// It's important that this Ellipse item is added to a mesh with the right topology, either lines or triangles,
 		/// based on this setting.
 		/// </summary>
 		public bool filled;
@@ -73,7 +73,6 @@ namespace DebugDrawItems
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Ellipse Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, float duration = 0)
 		{
-			/* mesh: triangle */
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
 			
 			item.position = position;
@@ -104,7 +103,6 @@ namespace DebugDrawItems
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Ellipse GetWire(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, float duration = 0)
 		{
-			/* mesh: line*/
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
 			
 			item.position = position;
