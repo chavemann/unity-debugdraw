@@ -337,6 +337,76 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Draws a filled quad.
+	/// </summary>
+	/// <param name="p1">The first point of the quad.</param>
+	/// <param name="p2">The second point of the quad.</param>
+	/// <param name="p3">The third point of the quad.</param>
+	/// <param name="p4">The fourth point of the quad.</param>
+	/// <param name="color">The colour of the quad.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0)
+	{
+		return triangleMeshInstance.Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a filled quad.
+	/// </summary>
+	/// <param name="p1">The first point of the quad.</param>
+	/// <param name="p2">The second point of the quad.</param>
+	/// <param name="p3">The third point of the quad.</param>
+	/// <param name="p4">The fourth point of the quad.</param>
+	/// <param name="color1">The color of the quad's first point..</param>
+	/// <param name="color2">The color of the quad's second point.</param>
+	/// <param name="color3">The color of the quad's third point.</param>
+	/// <param name="color4">The color of the quad's fourth point.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
+	{
+		return triangleMeshInstance.Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire quad.
+	/// </summary>
+	/// <param name="p1">The first point of the quad.</param>
+	/// <param name="p2">The second point of the quad.</param>
+	/// <param name="p3">The third point of the quad.</param>
+	/// <param name="p4">The third point of the quad.</param>
+	/// <param name="color">The colour of the quad.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Quad WireQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Quad.GetWire(ref p1, ref p2, ref p3, ref p4, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire quad.
+	/// </summary>
+	/// <param name="p1">The first point of the quad.</param>
+	/// <param name="p2">The second point of the quad.</param>
+	/// <param name="p3">The third point of the quad.</param>
+	/// <param name="p4">The fourth point of the quad.</param>
+	/// <param name="color1">The color of the quad's first point..</param>
+	/// <param name="color2">The color of the quad's second point.</param>
+	/// <param name="color3">The color of the quad's third point.</param>
+	/// <param name="color4">The color of the quad's fourth point.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Quad WireQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Quad.GetWire(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
+	}
+	
+	/// <summary>
 	/// Draws a filled square.
 	/// </summary>
 	/// <param name="position">The centre of the square.</param>
@@ -796,6 +866,76 @@ public partial class DebugDrawMesh
 	public Point Point(Vector3 position, Color color, float duration = 0)
 	{
 		return Add(DebugDrawItems.Point.Get(ref position, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a filled quad.
+	/// </summary>
+	/// <param name="p1">The first point of the quad.</param>
+	/// <param name="p2">The second point of the quad.</param>
+	/// <param name="p3">The third point of the quad.</param>
+	/// <param name="p4">The fourth point of the quad.</param>
+	/// <param name="color">The colour of the quad.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a filled quad.
+	/// </summary>
+	/// <param name="p1">The first point of the quad.</param>
+	/// <param name="p2">The second point of the quad.</param>
+	/// <param name="p3">The third point of the quad.</param>
+	/// <param name="p4">The fourth point of the quad.</param>
+	/// <param name="color1">The color of the quad's first point..</param>
+	/// <param name="color2">The color of the quad's second point.</param>
+	/// <param name="color3">The color of the quad's third point.</param>
+	/// <param name="color4">The color of the quad's fourth point.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
+	{
+		return Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire quad.
+	/// </summary>
+	/// <param name="p1">The first point of the quad.</param>
+	/// <param name="p2">The second point of the quad.</param>
+	/// <param name="p3">The third point of the quad.</param>
+	/// <param name="p4">The third point of the quad.</param>
+	/// <param name="color">The colour of the quad.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Quad WireQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Quad.GetWire(ref p1, ref p2, ref p3, ref p4, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire quad.
+	/// </summary>
+	/// <param name="p1">The first point of the quad.</param>
+	/// <param name="p2">The second point of the quad.</param>
+	/// <param name="p3">The third point of the quad.</param>
+	/// <param name="p4">The fourth point of the quad.</param>
+	/// <param name="color1">The color of the quad's first point..</param>
+	/// <param name="color2">The color of the quad's second point.</param>
+	/// <param name="color3">The color of the quad's third point.</param>
+	/// <param name="color4">The color of the quad's fourth point.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Quad WireQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
+	{
+		return Add(DebugDrawItems.Quad.GetWire(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
 	}
 	
 	/// <summary>
