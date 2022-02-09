@@ -44,6 +44,7 @@ public partial class DebugDrawMesh
 	private MeshRenderer meshRenderer;
 	private readonly MeshTopology type;
 	private bool hasMaterial;
+	internal Shader shader;
 	internal Material material;
 	
 	protected readonly List<BaseItem> items = new List<BaseItem>();
@@ -90,10 +91,12 @@ public partial class DebugDrawMesh
 		if (!hasMaterial || !material)
 		{
 			hasMaterial = true;
-			material = new Material(Shader.Find("Hidden/Internal-Colored")) { hideFlags = HideFlags.HideAndDontSave };
+			shader = Shader.Find("DebugDraw/Unlit");
+			material = new Material(shader) { hideFlags = HideFlags.HideAndDontSave };
 			SetInvertColours(false);
 			SetCulling(CullMode.Off);
 			SetDepthTesting();
+			SetDitherAlpha(false);
 		}
 	}
 
@@ -171,6 +174,20 @@ public partial class DebugDrawMesh
 		material.SetInt(ZTest, (int) (test
 			? CompareFunction.LessEqual
 			: CompareFunction.Always));
+
+		return this;
+	}
+
+	public DebugDrawMesh SetDitherAlpha(bool dither = true)
+	{
+		if (dither)
+		{
+			material.EnableKeyword("DITHER_ALPHA");
+		}
+		else
+		{
+			material.DisableKeyword("DITHER_ALPHA");
+		}
 
 		return this;
 	}

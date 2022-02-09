@@ -497,6 +497,13 @@ public static partial class DebugDraw
 		triangleMeshInstance.SetDepthTesting(write, test);
 	}
 	
+	public static void SetDitherAlpha(bool dither = true)
+	{
+		pointMeshInstance.SetDitherAlpha(dither);
+		lineMeshInstance.SetDitherAlpha(dither);
+		triangleMeshInstance.SetDitherAlpha(dither);
+	}
+	
 	/// <summary>
 	/// Stores the current state (color and transform) on the stack.
 	/// </summary>
