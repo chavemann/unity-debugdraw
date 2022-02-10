@@ -23,6 +23,10 @@ namespace DebugDrawItems
 		/// </summary>
 		public Vector2 radius2;
 		/// <summary>
+		/// Draw axis at each end of the cylinder.
+		/// </summary>
+		public bool drawEndAxes;
+		/// <summary>
 		/// The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.
 		/// </summary>
 		public int segments;
@@ -47,12 +51,13 @@ namespace DebugDrawItems
 		/// <param name="radius">The radius of the cylinder.</param>
 		/// <param name="color">The color of the cylinder.</param>
 		/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+		/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, float duration = 0)
+		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 		{
-			return Get(ref p1, ref p2, radius, radius, ref color, segments, duration);
+			return Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration);
 		}
 		
 		/// <summary>
@@ -64,10 +69,11 @@ namespace DebugDrawItems
 		/// <param name="radius2">The radius at the end point of the cylinder.</param>
 		/// <param name="color">The color of the cylinder.</param>
 		/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+		/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, float duration = 0)
+		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 		{
 			Cylinder item = ItemPool<Cylinder>.Get(duration);
 			
@@ -79,6 +85,7 @@ namespace DebugDrawItems
 			item.radius2.y = radius2;
 			item.color = color;
 			item.segments = segments;
+			item.drawEndAxes = drawEndAxes;
 			item.forward = null;
 			item.wireframe = false;
 
@@ -93,12 +100,13 @@ namespace DebugDrawItems
 		/// <param name="radius">The radius of the cylinder.</param>
 		/// <param name="color">The color of the cylinder.</param>
 		/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+		/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius, ref Color color, int segments = 32, float duration = 0)
+		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 		{
-			return Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, duration);
+			return Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration);
 		}
 		
 		/// <summary>
@@ -110,10 +118,11 @@ namespace DebugDrawItems
 		/// <param name="radius2">The radius at the end point of the cylinder.</param>
 		/// <param name="color">The color of the cylinder.</param>
 		/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+		/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius1, ref Vector2 radius2, ref Color color, int segments = 32, float duration = 0)
+		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius1, ref Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 		{
 			Cylinder item = ItemPool<Cylinder>.Get(duration);
 			
@@ -123,6 +132,7 @@ namespace DebugDrawItems
 			item.radius2 = radius2;
 			item.color = color;
 			item.segments = segments;
+			item.drawEndAxes = drawEndAxes;
 			item.forward = null;
 			item.wireframe = false;
 
@@ -139,12 +149,13 @@ namespace DebugDrawItems
 		/// <param name="radius">The radius of the cylinder.</param>
 		/// <param name="color">The color of the cylinder.</param>
 		/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+		/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, float duration = 0)
+		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 		{
-			Cylinder item = Get(ref p1, ref p2, radius, radius, ref color, segments, duration);
+			Cylinder item = Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;
 
 			return item;
@@ -159,12 +170,13 @@ namespace DebugDrawItems
 		/// <param name="radius2">The radius at the end point of the cylinder.</param>
 		/// <param name="color">The color of the cylinder.</param>
 		/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+		/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, float duration = 0)
+		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 		{
-			Cylinder item = Get(ref p1, ref p2, radius1, radius2, ref color, segments, duration);
+			Cylinder item = Get(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;
 
 			return item;
@@ -178,12 +190,13 @@ namespace DebugDrawItems
 		/// <param name="radius">The radius of the cylinder.</param>
 		/// <param name="color">The color of the cylinder.</param>
 		/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+		/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius, ref Color color, int segments = 32, float duration = 0)
+		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 		{
-			Cylinder item = Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, duration);
+			Cylinder item = Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;
 
 			return item;
@@ -198,12 +211,13 @@ namespace DebugDrawItems
 		/// <param name="radius2">The radius at the end point of the cylinder.</param>
 		/// <param name="color">The color of the cylinder.</param>
 		/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+		/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius1, Vector2 radius2, ref Color color, int segments = 32, float duration = 0)
+		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius1, Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 		{
-			Cylinder item = Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, duration);
+			Cylinder item = Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;
 
 			return item;
@@ -385,7 +399,9 @@ namespace DebugDrawItems
 			{
 				Ellipse.BuildArc(
 					mesh, ref p1, ref right, ref forward, ref radius1, 0,
-					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
+					0, 360, segments, DrawArcSegments.Never,
+					drawEndAxes ? DrawEllipseAxes.Always : DrawEllipseAxes.Never,
+					ref clr, true);
 			}
 			else
 			{
@@ -401,7 +417,9 @@ namespace DebugDrawItems
 			{
 				Ellipse.BuildArc(
 					mesh, ref p2, ref right, ref forward, ref radius2, 0,
-					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
+					0, 360, segments, DrawArcSegments.Never,
+					drawEndAxes ? DrawEllipseAxes.Always : DrawEllipseAxes.Never,
+					ref clr, true);
 			}
 			else
 			{
@@ -411,6 +429,12 @@ namespace DebugDrawItems
 			}
 			
 			int p2EndIndex = mesh.vertexIndex - 1;
+			
+			if (drawEndAxes)
+			{
+				p1EndIndex -= 5;
+				p2EndIndex -= 5;
+			}
 
 			if (wireframe)
 			{

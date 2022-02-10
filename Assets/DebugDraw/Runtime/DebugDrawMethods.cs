@@ -153,12 +153,13 @@ public static partial class DebugDraw
 	/// <param name="radius">The radius of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -170,12 +171,13 @@ public static partial class DebugDraw
 	/// <param name="radius2">The radius at the end point of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, float duration = 0)
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -186,12 +188,13 @@ public static partial class DebugDraw
 	/// <param name="radius">The radius of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, float duration = 0)
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -203,12 +206,13 @@ public static partial class DebugDraw
 	/// <param name="radius2">The radius at the end point of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, float duration = 0)
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -219,12 +223,13 @@ public static partial class DebugDraw
 	/// <param name="radius">The radius of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -236,12 +241,13 @@ public static partial class DebugDraw
 	/// <param name="radius2">The radius at the end point of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, float duration = 0)
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -252,12 +258,13 @@ public static partial class DebugDraw
 	/// <param name="radius">The radius of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, float duration = 0)
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -269,12 +276,13 @@ public static partial class DebugDraw
 	/// <param name="radius2">The radius at the end point of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, float duration = 0)
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -942,12 +950,13 @@ public partial class DebugDrawMesh
 	/// <param name="radius">The radius of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, duration));
+		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -959,12 +968,13 @@ public partial class DebugDrawMesh
 	/// <param name="radius2">The radius at the end point of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, float duration = 0)
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -975,12 +985,13 @@ public partial class DebugDrawMesh
 	/// <param name="radius">The radius of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, float duration = 0)
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, duration));
+		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -992,12 +1003,13 @@ public partial class DebugDrawMesh
 	/// <param name="radius2">The radius at the end point of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, float duration = 0)
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, duration));
+		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -1008,12 +1020,13 @@ public partial class DebugDrawMesh
 	/// <param name="radius">The radius of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -1025,12 +1038,13 @@ public partial class DebugDrawMesh
 	/// <param name="radius2">The radius at the end point of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, float duration = 0)
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -1041,12 +1055,13 @@ public partial class DebugDrawMesh
 	/// <param name="radius">The radius of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, float duration = 0)
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
@@ -1058,12 +1073,13 @@ public partial class DebugDrawMesh
 	/// <param name="radius2">The radius at the end point of the cylinder.</param>
 	/// <param name="color">The color of the cylinder.</param>
 	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="drawEndAxes">Draw axis at each end of the cylinder.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, float duration = 0)
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
-		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
 	
 	/// <summary>
