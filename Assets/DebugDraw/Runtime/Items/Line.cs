@@ -51,6 +51,15 @@ namespace DebugDrawItems
 		{
 			return Get(ref p1, ref p2, ref color, ref color, duration);
 		}
+		
+		public PointAttachment AttachTo(GameObjectOrTransform obj)
+		{
+			PointAttachment attachment = AttachmentPool<PointAttachment>.Get(this);
+			attachment.item = this;
+			attachment.pointItem = this;
+			attachment.obj.Set(obj);
+			return attachment;
+		}
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */

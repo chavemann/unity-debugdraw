@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using DebugDrawAttachments;
+using DebugDrawUtils;
 using UnityEngine;
 
 namespace DebugDrawItems
@@ -107,6 +108,16 @@ namespace DebugDrawItems
 			item.wireframe = true;
 
 			return item;
+		}
+		
+		public LineAttachment AttachTo(GameObjectOrTransform startObj, GameObjectOrTransform endObj)
+		{
+			LineAttachment attachment = AttachmentPool<LineAttachment>.Get(this);
+			attachment.item = this;
+			attachment.lineItem = this;
+			attachment.start.Set(startObj);
+			attachment.end.Set(endObj);
+			return attachment;
 		}
 
 		/* ------------------------------------------------------------------------------------- */

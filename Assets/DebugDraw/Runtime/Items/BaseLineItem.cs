@@ -24,13 +24,6 @@ namespace DebugDrawItems
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
 		
-		/// <summary>
-		/// Attach this item to one or more GameObjects. This item and it's attachment will automatically expire
-		/// if any of the attached objects are destroyed.
-		/// </summary>
-		/// <param name="startObj">The object the start of the lines is attached to.</param>
-		/// <param name="endObj">The object the end of the lines is attached to.</param>
-		/// <returns></returns>
 		public LineAttachment AttachTo(GameObjectOrTransform startObj, GameObjectOrTransform endObj)
 		{
 			LineAttachment attachment = AttachmentPool<LineAttachment>.Get(this);
