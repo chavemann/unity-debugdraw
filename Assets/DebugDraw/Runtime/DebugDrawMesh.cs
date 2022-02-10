@@ -229,12 +229,10 @@ public partial class DebugDrawMesh
 		if (item.mesh != this)
 			return;
 		
-		BaseItem swapped = items[--itemCount];
-		swapped.index = item.index;
-		items[item.index] = swapped;
+		BaseItem swap = items[--itemCount];
+		swap.index = item.index;
+		items[item.index] = swap;
 
-		item.index = -1;
-		item.mesh = null;
 		item.Release();
 	}
 
@@ -245,10 +243,7 @@ public partial class DebugDrawMesh
 	{
 		for (int i = itemCount - 1; i >= 0; i--)
 		{
-			BaseItem item = items[i];
-			item.index = -1;
-			item.mesh = null;
-			item.Release();
+			items[i].Release();
 		}
 
 		itemCount = 0;
@@ -303,13 +298,11 @@ public partial class DebugDrawMesh
 			
 			if(item.expires < time)
 			{
-				item.index = -1;
-				item.mesh = null;
-				item.Release();
+				BaseItem swap = items[--itemCount];
+				swap.index = i;
+				items[i] = swap;
 				
-				item = items[--itemCount];
-				item.index = i;
-				items[i] = item;
+				item.Release();
 			}
 		}
 	}

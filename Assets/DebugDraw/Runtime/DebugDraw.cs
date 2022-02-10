@@ -202,6 +202,7 @@ public static partial class DebugDraw
 	private static void InitializeOnLoad()
 	{
 		// Log.Print("---- InitializeOnLoad ---------------------------------- ");
+		// Log.Print("---- ---------------- ---------------------------------- ");
 		
 		EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
 		EditorSceneManager.activeSceneChangedInEditMode += OnactiveSceneChangedInEditMode;
@@ -607,7 +608,7 @@ public static partial class DebugDraw
 			{
 				BaseAttachment swap = Attachments[--attachmentCount];
 				swap.index = i;
-				Attachments[i] = attachment;
+				Attachments[i] = swap;
 				
 				attachment.Release();
 			}

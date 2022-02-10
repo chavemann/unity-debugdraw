@@ -50,6 +50,8 @@ namespace DebugDrawItems
 				}
 			}
 		
+			item.index = -1;
+			item.mesh = null;
 			Pool[poolIndex++] = item;
 		}
 
