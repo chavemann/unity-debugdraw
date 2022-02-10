@@ -282,13 +282,13 @@ namespace DebugDrawItems
 			// End
 			Vector2 size = new Vector2(radius, radius);
 			Ellipse.BuildArc(
-				mesh, ref p2, ref right, ref forward, ref size, 0,
+				mesh, ref p2, ref right, ref forward, ref size, 0, 0,
 				0, 360, segments, DrawArcSegments.Never,
 				drawCap && !round ? DrawEllipseAxes.Always : DrawEllipseAxes.Never,
 				ref clr, true);
 			
 			int endIndex = drawCap && !round
-				? mesh.vertexIndex - 6
+				? mesh.vertexIndex - 8
 				: mesh.vertexIndex - 1;
 			
 			// Ribs
@@ -337,7 +337,7 @@ namespace DebugDrawItems
 						c * right.z + s * forward.z);
 
 					Ellipse.BuildArc(
-						mesh, ref p1, ref up, ref r, ref size, 0,
+						mesh, ref p1, ref up, ref r, ref size, 0, 0,
 						-angle, angle, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				}
 				

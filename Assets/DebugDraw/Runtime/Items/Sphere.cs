@@ -155,7 +155,7 @@ namespace DebugDrawItems
 					size = new Vector2(radius.x * c, radius.z * c);
 					Vector3 p = position + up * (radius.y * s);
 					Ellipse.BuildArc(
-						mesh, ref p, ref right, ref forward, ref size, 0,
+						mesh, ref p, ref right, ref forward, ref size, 0, 0,
 						0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				}
 				
@@ -174,7 +174,7 @@ namespace DebugDrawItems
 						c * right.z + s * forward.z * aspect);
 
 					Ellipse.BuildArc(
-						mesh, ref position, ref r, ref up, ref size, 0,
+						mesh, ref position, ref r, ref up, ref size, 0, 0,
 						0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				}
 			}
@@ -187,17 +187,17 @@ namespace DebugDrawItems
 				// XY
 				Vector2 size = new Vector2(radius.x, radius.y);
 				Ellipse.BuildArc(
-					mesh, ref position, ref right, ref up, ref size, 0,
+					mesh, ref position, ref right, ref up, ref size, 0, 0,
 					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				// XZ
 				size = new Vector2(radius.x, radius.z);
 				Ellipse.BuildArc(
-					mesh, ref position, ref right, ref forward, ref size, 0,
+					mesh, ref position, ref right, ref forward, ref size, 0, 0,
 					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				// ZY
 				size = new Vector2(radius.z, radius.y);
 				Ellipse.BuildArc(
-					mesh, ref position, ref forward, ref up, ref size, 0,
+					mesh, ref position, ref forward, ref up, ref size, 0, 0,
 					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 			}
 		}

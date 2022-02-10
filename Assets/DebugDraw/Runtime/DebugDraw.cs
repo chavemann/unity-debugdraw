@@ -163,6 +163,10 @@ public static partial class DebugDraw
 	/// </summary>
 	public static float textBaseWorldDistance = 10;
 
+	public static DebugDrawMesh pointMesh => pointMeshInstance;
+	public static DebugDrawMesh lineMesh => lineMeshInstance;
+	public static DebugDrawMesh triangleMesh => triangleMeshInstance;
+
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Initialisation -- */
 

@@ -397,7 +397,7 @@ namespace DebugDrawItems
 			if (radius1.x != 0 || radius1.y != 0)
 			{
 				Ellipse.BuildArc(
-					mesh, ref p1, ref right, ref forward, ref radius1, 0,
+					mesh, ref p1, ref right, ref forward, ref radius1, 0, 0,
 					0, 360, segments, DrawArcSegments.Never,
 					drawEndAxes ? DrawEllipseAxes.Always : DrawEllipseAxes.Never,
 					ref clr, true);
@@ -415,7 +415,7 @@ namespace DebugDrawItems
 			if (radius2.x != 0 || radius2.y != 0)
 			{
 				Ellipse.BuildArc(
-					mesh, ref p2, ref right, ref forward, ref radius2, 0,
+					mesh, ref p2, ref right, ref forward, ref radius2, 0, 0,
 					0, 360, segments, DrawArcSegments.Never,
 					drawEndAxes ? DrawEllipseAxes.Always : DrawEllipseAxes.Never,
 					ref clr, true);
@@ -431,8 +431,8 @@ namespace DebugDrawItems
 			
 			if (drawEndAxes)
 			{
-				p1EndIndex -= 5;
-				p2EndIndex -= 5;
+				p1EndIndex -= 8;
+				p2EndIndex -= 8;
 			}
 
 			if (wireframe)

@@ -16,6 +16,10 @@ namespace DebugDrawItems
 		/// </summary>
 		public Vector2 size;
 		/// <summary>
+		/// If non-zero, defines the radius of the inner ring turning this ellipse into a 2D donut.
+		/// </summary>
+		public float innerRadius;
+		/// <summary>
 		/// The normal or direction the front of the ellipse is facing.
 		/// </summary>
 		public Vector3 facing;
@@ -56,7 +60,6 @@ namespace DebugDrawItems
 		/// based on this setting.
 		/// </summary>
 		public bool wireframe;
-		// TODO: Inner radius
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
@@ -298,6 +301,13 @@ namespace DebugDrawItems
 			return this;
 		}
 
+		public Ellipse SetInnerRadius(float innerRadius)
+		{
+			this.innerRadius = innerRadius;
+
+			return this;
+		}
+
 		/// <summary>
 		/// Sets the angles for this arc.
 		/// </summary>
@@ -399,13 +409,13 @@ namespace DebugDrawItems
 			Color clr = GetColor(ref color);
 			
 			BuildArc(
-				mesh, ref position, ref right, ref up, ref size, rotation,
+				mesh, ref position, ref right, ref up, ref size, innerRadius, rotation,
 				startAngle, endAngle, segments, drawArcSegments, drawAxes, ref clr, wireframe);
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void BuildArc(
-			DebugDrawMesh mesh, ref Vector3 worldPos, ref Vector3 right, ref Vector3 up, ref Vector2 size, float rotation,
+			DebugDrawMesh mesh, ref Vector3 worldPos, ref Vector3 right, ref Vector3 up, ref Vector2 size, float innerRadius, float rotation,
 			float startAngle, float endAngle, int segments,
 			DrawArcSegments drawArcSegments, DrawEllipseAxes drawAxes,
 			ref Color color, bool wireframe)
@@ -423,10 +433,13 @@ namespace DebugDrawItems
 					Mathf.Max(DebugDraw.DistanceFromCamera(ref worldPos), 0),
 					Mathf.Max(size.x, size.y))
 				: segments;
+
+			float innerRadiusT = Mathf.Clamp01(Mathf.Abs(innerRadius) / Mathf.Max(size.x, size.y));
+			bool hasInner = innerRadiusT > 0;
 			
 			int centreVertexIndex = -1;
 
-			if (!wireframe)
+			if (!wireframe && !hasInner)
 			{
 				mesh.AddVertex(ref worldPos);
 				mesh.AddColor(ref color);
@@ -440,15 +453,29 @@ namespace DebugDrawItems
 				float deltaAngle = (Mathf.PI * 2) / Mathf.Max(finalSegments, 3);
 				float angle = angle1;
 
+				float c = Mathf.Cos(angle);
+				float s = Mathf.Sin(angle);
 				Vector2 p = new Vector2(
-					Mathf.Cos(angle) * size.x,
-					Mathf.Sin(angle) * size.y);
+					c * size.x,
+					s * size.y);
 				mesh.AddVertex(
 					worldPos.x + right.x * p.x + up.x * p.y,
 					worldPos.y + right.y * p.x + up.y * p.y,
 					worldPos.z + right.z * p.x + up.z * p.y);
 				mesh.AddColor(ref color);
 				mesh.vertexIndex++;
+
+				if (hasInner)
+				{
+					p.x = c * size.x * innerRadiusT;
+					p.y = s * size.y * innerRadiusT;
+					mesh.AddVertex(
+						worldPos.x + right.x * p.x + up.x * p.y,
+						worldPos.y + right.y * p.x + up.y * p.y,
+						worldPos.z + right.z * p.x + up.z * p.y);
+					mesh.AddColor(ref color);
+					mesh.vertexIndex++;
+				}
 				
 				while (angle < angle2)
 				{
@@ -459,26 +486,60 @@ namespace DebugDrawItems
 						angle = angle2;
 					}
 
-					p.x = Mathf.Cos(angle) * size.x;
-					p.y = Mathf.Sin(angle) * size.y;
+					c = Mathf.Cos(angle);
+					s = Mathf.Sin(angle);
+					p.x = c * size.x;
+					p.y = s * size.y;
 					mesh.AddVertex(
 						worldPos.x + right.x * p.x + up.x * p.y,
 						worldPos.y + right.y * p.x + up.y * p.y,
 						worldPos.z + right.z * p.x + up.z * p.y);
 					mesh.AddColor(ref color);
-					
-					if (!wireframe)
+
+					if (hasInner)
 					{
-						mesh.AddIndices(
-							centreVertexIndex,
-							mesh.vertexIndex - 1,
-							mesh.vertexIndex++);
+						p.x = c * size.x * innerRadiusT;
+						p.y = s * size.y * innerRadiusT;
+						mesh.AddVertex(
+							worldPos.x + right.x * p.x + up.x * p.y,
+							worldPos.y + right.y * p.x + up.y * p.y,
+							worldPos.z + right.z * p.x + up.z * p.y);
+						mesh.AddColor(ref color);
+						
+						if (!wireframe)
+						{
+							mesh.AddIndices(
+								mesh.vertexIndex++,
+								mesh.vertexIndex - 2,
+								mesh.vertexIndex - 3,
+								mesh.vertexIndex++,
+								mesh.vertexIndex - 3,
+								mesh.vertexIndex - 2);
+						}
+						else
+						{
+							mesh.AddIndices(
+								mesh.vertexIndex - 2,
+								mesh.vertexIndex++,
+								mesh.vertexIndex++,
+								mesh.vertexIndex - 3);
+						}
 					}
 					else
 					{
-						mesh.AddIndices(
-							mesh.vertexIndex - 1,
-							mesh.vertexIndex++);
+						if (!wireframe)
+						{
+							mesh.AddIndices(
+								centreVertexIndex,
+								mesh.vertexIndex - 1,
+								mesh.vertexIndex++);
+						}
+						else
+						{
+							mesh.AddIndices(
+								mesh.vertexIndex - 1,
+								mesh.vertexIndex++);
+						}
 					}
 				}
 			}
@@ -491,18 +552,29 @@ namespace DebugDrawItems
 			// Arc segments
 			if (drawArcSegments == DrawArcSegments.Always || isOpen && drawArcSegments == DrawArcSegments.OpenOnly)
 			{
-				centreVertexIndex = mesh.vertexIndex;
-				mesh.AddVertex(ref worldPos);
-				mesh.AddColor(ref color);
-				mesh.vertexIndex++;
-				
 				if (loopVertexCount > 0)
 				{
-					mesh.AddIndices(
-						centreVertexIndex,
-						arcStartVertexIndex,
-						centreVertexIndex,
-						mesh.vertexIndex - 2);
+					if (!hasInner)
+					{
+						centreVertexIndex = mesh.vertexIndex;
+						mesh.AddVertex(ref worldPos);
+						mesh.AddColor(ref color);
+						mesh.vertexIndex++;
+						
+						mesh.AddIndices(
+							centreVertexIndex,
+							arcStartVertexIndex,
+							centreVertexIndex,
+							mesh.vertexIndex - 2);
+					}
+					else
+					{
+						mesh.AddIndices(
+							arcStartVertexIndex,
+							arcStartVertexIndex + 1,
+							mesh.vertexIndex - 2,
+							mesh.vertexIndex - 1);
+					}
 				}
 				// The start and end angles are the same so no vertices were added.
 				else
@@ -514,15 +586,31 @@ namespace DebugDrawItems
 						worldPos.x + right.x * p.x + up.x * p.y,
 						worldPos.y + right.y * p.x + up.y * p.y,
 						worldPos.z + right.z * p.x + up.z * p.y);
-					mesh.AddColor(ref color);
+					mesh.vertexIndex++;
+					
+					if (!hasInner)
+					{
+						mesh.AddVertex(ref worldPos);
+					}
+					else
+					{
+						p.x = Mathf.Cos(angle1) * size.x * innerRadiusT;
+						p.y = Mathf.Sin(angle1) * size.y * innerRadiusT;
+						mesh.AddVertex(
+							worldPos.x + right.x * p.x + up.x * p.y,
+							worldPos.y + right.y * p.x + up.y * p.y,
+							worldPos.z + right.z * p.x + up.z * p.y);
+					}
+						
+					mesh.AddColorX2(ref color);
 					mesh.AddIndices(
-						centreVertexIndex,
+						mesh.vertexIndex - 1,
 						mesh.vertexIndex++);
 				}
 			}
 			
 			// Axes
-			if (loopVertexCount > 0 && drawAxes != DrawEllipseAxes.Never)
+			if ((loopVertexCount > 0 || drawAxes == DrawEllipseAxes.Always) && drawAxes != DrawEllipseAxes.Never)
 			{
 				for (int i = 0; i < 4; i++)
 				{
@@ -530,25 +618,34 @@ namespace DebugDrawItems
              		
 					if (!CheckAngle(angle, angle1, angle2, drawAxes))
 						continue;
-             		
-					if (centreVertexIndex == -1)
+
+					Vector2 p;
+
+					if (!hasInner)
 					{
-						centreVertexIndex = mesh.vertexIndex;
 						mesh.AddVertex(ref worldPos);
-						mesh.AddColor(ref color);
 						mesh.vertexIndex++;
 					}
-             		
-					Vector2 p = new Vector2(
-						Mathf.Cos(angle) * size.x,
-						Mathf.Sin(angle) * size.y);
+					else
+					{
+						p.x = Mathf.Cos(angle) * size.x * innerRadiusT;
+						p.y = Mathf.Sin(angle) * size.y * innerRadiusT;
+						mesh.AddVertex(
+							worldPos.x + right.x * p.x + up.x * p.y,
+							worldPos.y + right.y * p.x + up.y * p.y,
+							worldPos.z + right.z * p.x + up.z * p.y);
+						mesh.vertexIndex++;
+					}
+
+					p.x = Mathf.Cos(angle) * size.x;
+					p.y = Mathf.Sin(angle) * size.y;
 					mesh.AddVertex(
 						worldPos.x + right.x * p.x + up.x * p.y,
 						worldPos.y + right.y * p.x + up.y * p.y,
 						worldPos.z + right.z * p.x + up.z * p.y);
-					mesh.AddColor(ref color);
+					mesh.AddColorX2(ref color);
 					mesh.AddIndices(
-						centreVertexIndex,
+						mesh.vertexIndex - 1,
 						mesh.vertexIndex++);
 				}
 			}

@@ -149,10 +149,10 @@ namespace DebugDrawItems
 			Color clr = GetColor(ref color);
 			
 			Ellipse.BuildArc(
-				mesh, ref p1, ref right, ref forward, ref size, 0,
+				mesh, ref p1, ref right, ref forward, ref size, 0, 0,
 				0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 			Ellipse.BuildArc(
-				mesh, ref p2, ref right, ref forward, ref size, 0,
+				mesh, ref p2, ref right, ref forward, ref size, 0, 0,
 				0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 
 			int rings = wireframe ? (segments - 1) / 2 + 2 : 3;
@@ -170,7 +170,7 @@ namespace DebugDrawItems
 				int startIndex = mesh.vertexIndex;
 				
 				Ellipse.BuildArc(
-					mesh, ref p1, ref r, ref up, ref size, 0,
+					mesh, ref p1, ref r, ref up, ref size, 0, 0,
 					0, 180, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 
 				mesh.AddIndices(
@@ -178,7 +178,7 @@ namespace DebugDrawItems
 					mesh.vertexIndex);
 				
 				Ellipse.BuildArc(
-					mesh, ref p2, ref r, ref up, ref size, 0,
+					mesh, ref p2, ref r, ref up, ref size, 0, 0,
 					180, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				
 				mesh.AddIndices(
