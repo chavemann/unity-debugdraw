@@ -6,7 +6,7 @@ namespace DebugDrawItems
 
 	public class Quad : BasePointItem
 	{
-		/* mesh: triangle */
+		/* mesh: line */
 
 		/// <summary>
 		/// The second point of the quad.
@@ -43,12 +43,12 @@ namespace DebugDrawItems
 		/* -- Getters -- */
 		
 		/// <summary>
-		/// Draws a filled quad.
+		/// Draws a wire quad.
 		/// </summary>
 		/// <param name="p1">The first point of the quad.</param>
 		/// <param name="p2">The second point of the quad.</param>
 		/// <param name="p3">The third point of the quad.</param>
-		/// <param name="p4">The fourth point of the quad.</param>
+		/// <param name="p4">The third point of the quad.</param>
 		/// <param name="color">The colour of the quad.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
@@ -65,13 +65,13 @@ namespace DebugDrawItems
 			item.color2 = color;
 			item.color3 = color;
 			item.color4 = color;
-			item.filled = true;
+			item.filled = false;
 
 			return item;
 		}
 		
 		/// <summary>
-		/// Draws a filled quad.
+		/// Draws a wire quad.
 		/// </summary>
 		/// <param name="p1">The first point of the quad.</param>
 		/// <param name="p2">The second point of the quad.</param>
@@ -98,23 +98,23 @@ namespace DebugDrawItems
 			item.color2 = color2;
 			item.color3 = color3;
 			item.color4 = color4;
-			item.filled = true;
+			item.filled = false;
 
 			return item;
 		}
 		
 		/// <summary>
-		/// Draws a wire quad.
+		/// Draws a filled quad.
 		/// </summary>
 		/// <param name="p1">The first point of the quad.</param>
 		/// <param name="p2">The second point of the quad.</param>
 		/// <param name="p3">The third point of the quad.</param>
-		/// <param name="p4">The third point of the quad.</param>
+		/// <param name="p4">The fourth point of the quad.</param>
 		/// <param name="color">The colour of the quad.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Quad GetWire(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4, ref Color color, float duration = 0)
+		public static Quad GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4, ref Color color, float duration = 0)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
 			
@@ -126,13 +126,13 @@ namespace DebugDrawItems
 			item.color2 = color;
 			item.color3 = color;
 			item.color4 = color;
-			item.filled = false;
+			item.filled = true;
 
 			return item;
 		}
 		
 		/// <summary>
-		/// Draws a wire quad.
+		/// Draws a filled quad.
 		/// </summary>
 		/// <param name="p1">The first point of the quad.</param>
 		/// <param name="p2">The second point of the quad.</param>
@@ -145,7 +145,7 @@ namespace DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Quad GetWire(
+		public static Quad GetFill(
 			ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4,
 			ref Color color1, ref Color color2, ref Color color3, ref Color color4, float duration = 0)
 		{
@@ -159,7 +159,7 @@ namespace DebugDrawItems
 			item.color2 = color2;
 			item.color3 = color3;
 			item.color4 = color4;
-			item.filled = false;
+			item.filled = true;
 
 			return item;
 		}

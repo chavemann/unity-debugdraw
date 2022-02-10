@@ -33,7 +33,7 @@ def run():
     for item_path in ITEMS_PATH.glob('*.cs'):
         if not item_path.is_file():
             continue
-        if item_path.stem in ('BaseItem', 'BasePointItem', 'IPointItem', 'ItemPool'):
+        if item_path.stem in ('BaseItem', 'BasePointItem', 'BaseLineItem', 'IPointItem', 'ItemPool'):
             continue
         
         text = INDENT_REGEX.sub('\t', item_path.read_text('utf-8'))
@@ -55,7 +55,7 @@ def run():
             get_type = get_type or ''
             
             if get_type:
-                if get_type == 'Wire':
+                if get_type in ('Fill', 'Wire'):
                     func_name = get_type + func_name
                 else:
                     func_name = get_type
@@ -70,8 +70,8 @@ def run():
             type_m = LOCAL_MESH_TYPE_REGEX.match(body)
             if type_m:
                 mesh_type = type_m.group(1)
-            elif get_type == 'Wire':
-                mesh_type = 'line'
+            elif get_type.startswith('Fill') or get_type.startswith('Wire'):
+                mesh_type = 'triangle'
             
             if not GET_WRAPPER_REGEX.match(body):
                 body = f'return Get({", ".join(call_params)});'

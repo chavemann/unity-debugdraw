@@ -13,10 +13,6 @@ namespace DebugDrawItems
 		/// </summary>
 		public float radius;
 		/// <summary>
-		/// The rotation of the capsule around its axis.
-		/// </summary>
-		public float rotation;
-		/// <summary>
 		/// The resolution of the capsule. If set to zero will be adjusted based on the distance to the camera.
 		/// </summary>
 		public int segments;
@@ -26,10 +22,10 @@ namespace DebugDrawItems
 		/// </summary>
 		public Vector3? forward;
 		/// <summary>
-		/// If true draw a capsule made up of multiple rings, otherwise draw an approximation made
+		/// If true draw a full wireframe capsule, otherwise draw an approximation made
 		/// of circles along each axis.
 		/// </summary>
-		public bool full;
+		public bool wireframe;
 		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
@@ -37,11 +33,11 @@ namespace DebugDrawItems
 		/// <summary>
 		/// Draws a capsule shell.
 		/// </summary>
-		/// <param name="p1">The center of the sphere at the start of the capsule.</param>
-		/// <param name="p2">The center of the sphere at the end of the capsule.</param>
+		/// <param name="p1">The center of the capsule at the start of the capsule.</param>
+		/// <param name="p2">The center of the capsule at the end of the capsule.</param>
 		/// <param name="radius">The radius of the capsule.</param>
 		/// <param name="color">The color of the capsule.</param>
-		/// <param name="segments">The resolution of the sphere. If set to zero will be adjusted based on the distance to the camera.</param>
+		/// <param name="segments">The resolution of the capsule. If set to zero will be adjusted based on the distance to the camera.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Capsule object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -55,19 +51,19 @@ namespace DebugDrawItems
 			item.color = color;
 			item.segments = segments;
 			item.forward = null;
-			item.full = false;
+			item.wireframe = false;
 
 			return item;
 		}
 		
 		/// <summary>
-		/// Draws a wire capsule.
+		/// Draws a full wireframe capsule.
 		/// </summary>
-		/// <param name="p1">The center of the sphere at the start of the capsule.</param>
-		/// <param name="p2">The center of the sphere at the end of the capsule.</param>
+		/// <param name="p1">The center of the capsule at the start of the capsule.</param>
+		/// <param name="p2">The center of the capsule at the end of the capsule.</param>
 		/// <param name="radius">The radius of the capsule.</param>
 		/// <param name="color">The color of the capsule.</param>
-		/// <param name="segments">The resolution of the sphere. If set to zero will be adjusted based on the distance to the camera.</param>
+		/// <param name="segments">The resolution of the capsule. If set to zero will be adjusted based on the distance to the camera.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Capsule object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -81,7 +77,7 @@ namespace DebugDrawItems
 			item.color = color;
 			item.segments = segments;
 			item.forward = null;
-			item.full = true;
+			item.wireframe = true;
 
 			return item;
 		}
@@ -151,12 +147,12 @@ namespace DebugDrawItems
 			
 			Ellipse.BuildArc(
 				mesh, ref p1, ref right, ref forward, ref size, 0,
-				0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, false);
+				0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 			Ellipse.BuildArc(
 				mesh, ref p2, ref right, ref forward, ref size, 0,
-				0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, false);
+				0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 
-			int rings = full ? (segments - 1) / 2 + 2 : 3;
+			int rings = wireframe ? (segments - 1) / 2 + 2 : 3;
 
 			for (int i = rings - 1; i > 0; i--)
 			{
@@ -172,7 +168,7 @@ namespace DebugDrawItems
 				
 				Ellipse.BuildArc(
 					mesh, ref p1, ref r, ref up, ref size, 0,
-					0, 180, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, false);
+					0, 180, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 
 				mesh.AddIndices(
 					mesh.vertexIndex - 1,
@@ -180,7 +176,7 @@ namespace DebugDrawItems
 				
 				Ellipse.BuildArc(
 					mesh, ref p2, ref r, ref up, ref size, 0,
-					180, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, false);
+					180, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				
 				mesh.AddIndices(
 					mesh.vertexIndex - 1,

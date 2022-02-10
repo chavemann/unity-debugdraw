@@ -22,15 +22,15 @@ namespace DebugDrawItems
 		public int segments;
 		/// <summary>
 		/// If true draw a sphere made up of multiple rings, otherwise draw an approximation made
-		/// of three circles along each axis.
+		/// of a circle along each axis.
 		/// </summary>
-		public bool full;
+		public bool wireframe;
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
 		
 		/// <summary>
-		/// Draws a sphere made up of four three along each axis.
+		/// Draws a sphere comprised of a circle for each axis.
 		/// </summary>
 		/// <param name="position">The centre of the sphere.</param>
 		/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -48,13 +48,13 @@ namespace DebugDrawItems
 			item.color = color;
 			item.segments = segments;
 			item.orientation = DebugDraw.rotationIdentity;
-			item.full = true;
+			item.wireframe = false;
 
 			return item;
 		}
 		
 		/// <summary>
-		/// Draws a sphere.
+		/// Draws a sphere comprised of a circle for each axis.
 		/// </summary>
 		/// <param name="position">The centre of the sphere.</param>
 		/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -73,13 +73,13 @@ namespace DebugDrawItems
 			item.color = color;
 			item.segments = segments;
 			item.orientation = orientation;
-			item.full = true;
+			item.wireframe = false;
 
 			return item;
 		}
 		
 		/// <summary>
-		/// Draws a sphere.
+		/// Draws a full wireframe sphere.
 		/// </summary>
 		/// <param name="position">The centre of the sphere.</param>
 		/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -88,16 +88,16 @@ namespace DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Sphere object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Sphere GetBall(ref Vector3 position, ref Vector3 radius, ref Color color, int segments = 32, float duration = 0)
+		public static Sphere GetWire(ref Vector3 position, ref Vector3 radius, ref Color color, int segments = 32, float duration = 0)
 		{
 			Sphere item = Get(ref position, ref radius, ref color, segments, duration);
-			item.full = false;
+			item.wireframe = true;
 
 			return item;
 		}
 		
 		/// <summary>
-		/// Draws a sphere made up of four three along each axis with the given orientation.
+		/// Draws a full wireframe sphere.
 		/// </summary>
 		/// <param name="position">The centre of the sphere.</param>
 		/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -107,10 +107,10 @@ namespace DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Sphere object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Sphere GetBall(ref Vector3 position, ref Vector3 radius, ref Quaternion orientation, ref Color color, int segments = 32, float duration = 0)
+		public static Sphere GetWire(ref Vector3 position, ref Vector3 radius, ref Quaternion orientation, ref Color color, int segments = 32, float duration = 0)
 		{
 			Sphere item = Get(ref position, ref radius, ref orientation, ref color, segments, duration);
-			item.full = false;
+			item.wireframe = true;
 
 			return item;
 		}
@@ -135,7 +135,7 @@ namespace DebugDrawItems
 			
 			Color clr = GetColor(ref color);
 
-			if (full)
+			if (wireframe)
 			{
 				int segments = Mathf.Max(this.segments <= 0
 					? Ellipse.DefaultAutoResolution(
@@ -156,7 +156,7 @@ namespace DebugDrawItems
 					Vector3 p = position + up * (radius.y * s);
 					Ellipse.BuildArc(
 						mesh, ref p, ref right, ref forward, ref size, 0,
-						0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, false);
+						0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				}
 				
 				// Y rings
@@ -175,7 +175,7 @@ namespace DebugDrawItems
 
 					Ellipse.BuildArc(
 						mesh, ref position, ref r, ref up, ref size, 0,
-						0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, false);
+						0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				}
 			}
 			else
@@ -188,17 +188,17 @@ namespace DebugDrawItems
 				Vector2 size = new Vector2(radius.x, radius.y);
 				Ellipse.BuildArc(
 					mesh, ref position, ref right, ref up, ref size, 0,
-					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, false);
+					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				// XZ
 				size = new Vector2(radius.x, radius.z);
 				Ellipse.BuildArc(
 					mesh, ref position, ref right, ref forward, ref size, 0,
-					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, false);
+					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				// ZY
 				size = new Vector2(radius.z, radius.y);
 				Ellipse.BuildArc(
 					mesh, ref position, ref forward, ref up, ref size, 0,
-					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, false);
+					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 			}
 		}
 

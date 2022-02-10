@@ -32,6 +32,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 		public DrawEllipseAxes arcAxes = DrawEllipseAxes.InsideArc;
 		public DrawArcSegments arcSegments = DrawArcSegments.OpenOnly;
 		public int arcRes = 32;
+		public bool shell = false;
 		public Color arcColor = Color.cyan;
 
 		[Header("Line3D")]
@@ -79,6 +80,25 @@ namespace DebugDrawSamples.Showcase.Scripts
 					.startHead.SetOffset(headOffset.x)
 					.endHead.SetOffset(headOffset.y);
 			}
+			
+			// Capsule c;
+			// if (shell)
+			// {
+			// 	c = DebugDraw.Capsule(
+			// 		tr.position + tr.up,
+			// 		tr.position - tr.up,
+			// 		arcSize.x, Color.cyan, arcRes, -1);
+			// }
+			// else
+			// {
+			// 	c = DebugDraw.WireCapsule(
+			// 		tr.position + tr.up,
+			// 		tr.position - tr.up,
+			// 		arcSize.x, Color.cyan, arcRes, -1);
+			// }
+			//
+			// c.AttachTo(lineStart, lineEnd)
+			// 	.SetDistances(arcSize.x, arcSize.x);
 
 			Random.InitState(5);
 			for (int i = 0; i < 20; i++)
@@ -88,12 +108,12 @@ namespace DebugDrawSamples.Showcase.Scripts
 				sizes.Add(Random.Range(0.25f, 0.75f));
 			}
 			
-			// DebugDraw.Text(
-			// 		default, "Hello",
-			// 		Color.white, TextAnchor.LowerCenter, 1f, -1)
-			// 	.SetUseWorldSize()
-			// 	.AttachTo(this)
-			// 		.obj.SetLocalOffset(Vector3.up * 0.1f);
+			DebugDraw.Text(
+					default, "Hello",
+					Color.white, TextAnchor.LowerCenter, 1f, -1)
+				.SetUseWorldSize()
+				.AttachTo(this)
+					.obj.SetLocalOffset(Vector3.up * 0.1f);
 
 			delayedInit = Time.time;
 		}
@@ -133,41 +153,44 @@ namespace DebugDrawSamples.Showcase.Scripts
 			// DebugDraw.Dots(positions, sizes, colors, 24)
 			// 	.SetAutoSize();
 			
-			// DebugDraw.WireEllipse(Vector3.zero, arcSize, Vector3.forward, Color.cyan, arcRes)
+			// DebugDraw.Ellipse(Vector3.zero, arcSize, Vector3.forward, Color.cyan, arcRes)
 			// 	.SetArc(arcStart, arcEnd, arcSegments)
 			// 	.SetAxes(arcAxes)
 			// 	.SetRotation(arcRotation)
 			// 	.SetAutoResolution();
-			// DebugDraw.Ellipse(Vector3.zero + Vector3.up * 3, arcSize, Vector3.forward, Color.cyan, arcRes)
+			// DebugDraw.FillEllipse(Vector3.zero + Vector3.up * 3, arcSize, Vector3.forward, Color.cyan, arcRes)
 			// 	.SetArc(arcStart, arcEnd, arcSegments)
 			// 	.SetAxes(arcAxes)
 			// 	.SetRotation(arcRotation);
 			
-			// DebugDraw.WireQuad(
-			// 	Vector3.up + Vector3.left,
-			// 	Vector3.up + Vector3.right,
-			// 	Vector3.up + Vector3.right * 0.75f + Vector3.up,
-			// 	Vector3.up + Vector3.left * 0.75f + Vector3.up,
-			// 	Color.red, Color.green, Color.blue, Color.yellow);
-			// DebugDraw.Quad(
-			// 	Vector3.forward + Vector3.left,
-			// 	Vector3.forward + Vector3.right,
-			// 	Vector3.forward + Vector3.right * 0.75f + Vector3.up,
-			// 	Vector3.forward + Vector3.left * 0.75f + Vector3.up,
-			// 	Color.red, Color.green, Color.blue, Color.yellow);
+			DebugDraw.Quad(
+				Vector3.up + Vector3.left,
+				Vector3.up + Vector3.right,
+				Vector3.up + Vector3.right * 0.75f + Vector3.up,
+				Vector3.up + Vector3.left * 0.75f + Vector3.up,
+				Color.red, Color.green, Color.blue, Color.yellow);
+			DebugDraw.FillQuad(
+				Vector3.forward + Vector3.left,
+				Vector3.forward + Vector3.right,
+				Vector3.forward + Vector3.right * 0.75f + Vector3.up,
+				Vector3.forward + Vector3.left * 0.75f + Vector3.up,
+				Color.red, Color.green, Color.blue, Color.yellow);
+			
+			// DebugDraw.Sphere(Vector3.zero, boxSize, tr.rotation, Color.red, arcRes);
+			// DebugDraw.Ball(Vector3.zero + Vector3.up * 3, boxSize, Quaternion.identity, Color.green, arcRes);
 			
 			DebugDraw.transform = Matrix4x4.identity;
 			
-			DebugDraw.Sphere(tr.position, boxSize, tr.rotation, Color.red, arcRes);
-			DebugDraw.Ball(tr.position + Vector3.up * 3, boxSize, tr.rotation, Color.green, arcRes);
+			DebugDraw.WireSphere(tr.position + Vector3.down, boxSize, tr.rotation, Color.red, arcRes);
+			DebugDraw.Sphere(tr.position + Vector3.down + Vector3.forward * 3, boxSize, tr.rotation, Color.green, arcRes);
 
 			// DebugDraw.Box(tr.position, boxSize, tr.rotation, Color.red);
 			
-			DebugDraw.WireEllipse(tr.position + tr.forward * 4, arcSize, tr.forward, Color.yellow, arcRes)
+			DebugDraw.Ellipse(tr.position + tr.forward * 4, arcSize, tr.forward, Color.yellow, arcRes)
 				.SetArc(arcStart, arcEnd, arcSegments)
 				.SetAxes(arcAxes)
 				.SetRotation(arcRotation);
-			DebugDraw.Ellipse(tr.position + tr.forward * 4 + Vector3.up * 3, arcSize, tr.forward, Color.yellow, arcRes)
+			DebugDraw.FillEllipse(tr.position + tr.forward * 4 + Vector3.up * 3, arcSize, tr.forward, Color.yellow, arcRes)
 				.SetArc(arcStart, arcEnd, arcSegments)
 				.SetAxes(arcAxes)
 				.SetRotation(arcRotation);
@@ -180,6 +203,25 @@ namespace DebugDrawSamples.Showcase.Scripts
 			// 	tr.position + Vector3.up * 0.1f, "Hello",
 			// 	Color.white, TextAnchor.LowerCenter, 1f)
 			// 	.SetUseWorldSize();
+
+			Capsule c;
+			if (shell)
+			{
+				c = DebugDraw.Capsule(
+					tr.position + tr.up,
+					tr.position - tr.up,
+					arcSize.x, Color.cyan, arcRes);
+			}
+			else
+			{
+				c = DebugDraw.WireCapsule(
+					tr.position + tr.up,
+					tr.position - tr.up,
+					arcSize.x, Color.cyan, arcRes);
+			}
+			
+			if (arcRotation != 0)
+				c.SetForward(tr.forward);
 
 			frame++;
 		}

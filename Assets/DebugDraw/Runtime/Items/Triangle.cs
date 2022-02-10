@@ -6,7 +6,7 @@ namespace DebugDrawItems
 
 	public class Triangle : BasePointItem
 	{
-		/* mesh: triangle */
+		/* mesh: line */
 
 		/// <summary>
 		/// The second point of the triangle.
@@ -35,58 +35,6 @@ namespace DebugDrawItems
 		/* -- Getters -- */
 		
 		/// <summary>
-		/// Draws a filled triangle.
-		/// </summary>
-		/// <param name="p1">The first point of the triangle.</param>
-		/// <param name="p2">The second point of the triangle.</param>
-		/// <param name="p3">The third point of the triangle.</param>
-		/// <param name="color">The colour of the triangle.</param>
-		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-		/// <returns>The ellipse object.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, float duration = 0)
-		{
-			Triangle item = ItemPool<Triangle>.Get(duration);
-			
-			item.position = p1;
-			item.p2 = p2;
-			item.p3 = p3;
-			item.color = color;
-			item.color2 = color;
-			item.color3 = color;
-			item.filled = true;
-
-			return item;
-		}
-		
-		/// <summary>
-		/// Draws a filled triangle.
-		/// </summary>
-		/// <param name="p1">The first point of the triangle.</param>
-		/// <param name="p2">The second point of the triangle.</param>
-		/// <param name="p3">The third point of the triangle.</param>
-		/// <param name="color1">The color of the triangle's first point..</param>
-		/// <param name="color2">The color of the triangle's second point.</param>
-		/// <param name="color3">The color of the triangle's third point.</param>
-		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-		/// <returns>The ellipse object.</returns>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, float duration = 0)
-		{
-			Triangle item = ItemPool<Triangle>.Get(duration);
-			
-			item.position = p1;
-			item.p2 = p2;
-			item.p3 = p3;
-			item.color = color1;
-			item.color2 = color2;
-			item.color3 = color3;
-			item.filled = true;
-
-			return item;
-		}
-		
-		/// <summary>
 		/// Draws a wire triangle.
 		/// </summary>
 		/// <param name="p1">The first point of the triangle.</param>
@@ -96,7 +44,7 @@ namespace DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Triangle GetWire(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, float duration = 0)
+		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, float duration = 0)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
 			
@@ -123,7 +71,59 @@ namespace DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Triangle GetWire(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, float duration = 0)
+		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, float duration = 0)
+		{
+			Triangle item = ItemPool<Triangle>.Get(duration);
+			
+			item.position = p1;
+			item.p2 = p2;
+			item.p3 = p3;
+			item.color = color1;
+			item.color2 = color2;
+			item.color3 = color3;
+			item.filled = true;
+
+			return item;
+		}
+		
+		/// <summary>
+		/// Draws a filled triangle.
+		/// </summary>
+		/// <param name="p1">The first point of the triangle.</param>
+		/// <param name="p2">The second point of the triangle.</param>
+		/// <param name="p3">The third point of the triangle.</param>
+		/// <param name="color">The colour of the triangle.</param>
+		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+		/// <returns>The ellipse object.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Triangle GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, float duration = 0)
+		{
+			Triangle item = ItemPool<Triangle>.Get(duration);
+			
+			item.position = p1;
+			item.p2 = p2;
+			item.p3 = p3;
+			item.color = color;
+			item.color2 = color;
+			item.color3 = color;
+			item.filled = true;
+
+			return item;
+		}
+		
+		/// <summary>
+		/// Draws a filled triangle.
+		/// </summary>
+		/// <param name="p1">The first point of the triangle.</param>
+		/// <param name="p2">The second point of the triangle.</param>
+		/// <param name="p3">The third point of the triangle.</param>
+		/// <param name="color1">The color of the triangle's first point..</param>
+		/// <param name="color2">The color of the triangle's second point.</param>
+		/// <param name="color3">The color of the triangle's third point.</param>
+		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+		/// <returns>The ellipse object.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Triangle GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, float duration = 0)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
 			
