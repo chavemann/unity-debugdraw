@@ -657,7 +657,7 @@ public static partial class DebugDraw
 	{
 		right = Vector3.Cross(normal, upAxis);
 		right.Normalize();
-		up = Vector3.Cross(normal, right);
+		up = Vector3.Cross(right, normal);
 		up.Normalize();
 	}
 
