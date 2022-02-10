@@ -1,12 +1,12 @@
 using UnityEngine;
 
-namespace DebugDrawItems
+namespace DebugDrawAttachments
 {
 
 	/// <summary>
 	/// An item with a position.
 	/// </summary>
-	public interface IPointItem
+	public interface IAttachablePoint
 	{
 
 		/// <summary>

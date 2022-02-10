@@ -18,9 +18,13 @@ namespace DebugDrawAttachments
 		/// </summary>
 		public readonly AttachmentObject<LineAttachment> end;
 		/// <summary>
-		/// The Debug Line item associated with this attachment.
+		/// The item associated with this attachment.
 		/// </summary>
-		public Line line { get; internal set; }
+		public BaseItem item { get; internal set; }
+		/// <summary>
+		/// The line item associated with this attachment.
+		/// </summary>
+		public IAttachableLine lineItem { get; internal set; }
 
 		public LineAttachment()
 		{
@@ -33,23 +37,25 @@ namespace DebugDrawAttachments
 
 		internal override bool Update()
 		{
-			if (line.index == -1)
+			if (item.index == -1)
 				return false;
 			if (!start || !end)
 				return false;
 
-			line.p1 = start.CalculatePosition();
-			line.p2 = end.CalculatePosition();
+			lineItem.SetPositions(
+				start.CalculatePosition(),
+				end.CalculatePosition());
 
 			return true;
 		}
 
 		internal override void Release()
 		{
-			if (line != null)
+			if (item != null)
 			{
-				line.Remove();
-				line = null;
+				item.Remove();
+				item = null;
+				lineItem = null;
 			}
 			
 			AttachmentPool<LineAttachment>.Release(this);

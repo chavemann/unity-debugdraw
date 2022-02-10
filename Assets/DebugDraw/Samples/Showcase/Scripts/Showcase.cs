@@ -75,7 +75,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 					.AttachTo(lineStart, lineEnd)
 					.start.SetLocalOffset(startOffset)
 					.end.SetLocalOffset(endOffset);
-				arrow = ((Arrow) attachment.line)
+				arrow = ((Arrow) attachment.lineItem)
 					.startHead.SetOffset(headOffset.x)
 					.endHead.SetOffset(headOffset.y);
 			}

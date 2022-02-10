@@ -9,23 +9,10 @@ namespace DebugDrawItems
 	/// <summary>
 	/// A basic line
 	/// </summary>
-	public class Line : BaseItem, IPointItem
+	public class Line : BaseLineItem, IAttachablePoint
 	{
 		/* mesh: line */
 		
-		/// <summary>
-		/// Start point.
-		/// </summary>
-		public Vector3 p1;
-		/// <summary>
-		/// End point.
-		/// </summary>
-		public Vector3 p2;
-		/// <summary>
-		/// The end point color.
-		/// </summary>
-		public Color color2;
-
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
 
@@ -63,22 +50,6 @@ namespace DebugDrawItems
 		public static Line Get(ref Vector3 p1, ref Vector3 p2, ref Color color, float duration = 0)
 		{
 			return Get(ref p1, ref p2, ref color, ref color, duration);
-		}
-
-		/// <summary>
-		/// Attach this item to one or more GameObjects. This item and it's attachment will automatically expire
-		/// if any of the attached objects are destroyed.
-		/// </summary>
-		/// <param name="startObj">The object the start of the lines is attached to.</param>
-		/// <param name="endObj">The object the end of the lines is attached to.</param>
-		/// <returns></returns>
-		public LineAttachment AttachTo(GameObjectOrTransform startObj, GameObjectOrTransform endObj)
-		{
-			LineAttachment attachment = AttachmentPool<LineAttachment>.Get(this);
-			attachment.line = this;
-			attachment.start.Set(startObj);
-			attachment.end.Set(endObj);
-			return attachment;
 		}
 
 		/* ------------------------------------------------------------------------------------- */

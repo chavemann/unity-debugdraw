@@ -14,13 +14,13 @@ namespace DebugDrawAttachments
 		/// </summary>
 		public readonly AttachmentObject<PointAttachment> obj;
 		/// <summary>
-		/// The Debug Line item associated with this attachment.
+		/// The Debug item associated with this attachment.
 		/// </summary>
 		public BaseItem item { get; internal set; }
 		/// <summary>
-		/// The Debug Line item associated with this attachment.
+		/// The point item associated with this attachment.
 		/// </summary>
-		public IPointItem pointItem { get; internal set; }
+		public IAttachablePoint pointItem { get; internal set; }
 
 		public PointAttachment()
 		{
