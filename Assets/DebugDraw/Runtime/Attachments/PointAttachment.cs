@@ -22,6 +22,9 @@ namespace DebugDrawAttachments
 		/// </summary>
 		public IAttachablePoint pointItem { get; internal set; }
 
+		/* ------------------------------------------------------------------------------------- */
+		/* -- Init -- */
+
 		public PointAttachment()
 		{
 			obj = new AttachmentObject<PointAttachment>(this);

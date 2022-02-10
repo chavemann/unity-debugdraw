@@ -1,4 +1,5 @@
 using DebugDrawItems;
+using UnityEngine;
 
 namespace DebugDrawAttachments
 {
@@ -18,6 +19,14 @@ namespace DebugDrawAttachments
 		/// </summary>
 		public readonly AttachmentObject<LineAttachment> end;
 		/// <summary>
+		/// Moves the attachment point along the line away from the start point.
+		/// </summary>
+		public float startDistance;
+		/// <summary>
+		/// Moves the attachment point along the line away from the end point.
+		/// </summary>
+		public float endDistance;
+		/// <summary>
 		/// The item associated with this attachment.
 		/// </summary>
 		public BaseItem item { get; internal set; }
@@ -26,10 +35,21 @@ namespace DebugDrawAttachments
 		/// </summary>
 		public IAttachableLine lineItem { get; internal set; }
 
+		/* ------------------------------------------------------------------------------------- */
+		/* -- Init -- */
+
 		public LineAttachment()
 		{
 			start = new AttachmentObject<LineAttachment>(this);
 			end = new AttachmentObject<LineAttachment>(this);
+		}
+
+		public LineAttachment SetDistances(float start = 0, float end = 0)
+		{
+			startDistance = start;
+			endDistance = end;
+
+			return this;
 		}
 
 		/* ------------------------------------------------------------------------------------- */
@@ -42,9 +62,38 @@ namespace DebugDrawAttachments
 			if (!start || !end)
 				return false;
 
-			lineItem.SetPositions(
-				start.CalculatePosition(),
-				end.CalculatePosition());
+			if (startDistance != 0 || endDistance != 0)
+			{
+				Vector3 p1 = start.CalculatePosition();
+				Vector3 p2 = end.CalculatePosition();
+				Vector3 n = new Vector3(
+					p2.x - p1.x,
+					p2.y - p1.y,
+					p2.z - p1.z);
+				n.Normalize();
+
+				if (startDistance != 0)
+				{
+					p1.x += n.x * startDistance;
+					p1.y += n.y * startDistance;
+					p1.z += n.z * startDistance;
+				}
+
+				if (endDistance != 0)
+				{
+					p2.x -= n.x * endDistance;
+					p2.y -= n.y * endDistance;
+					p2.z -= n.z * endDistance;
+				}
+				
+				lineItem.SetPositions(p1, p2);
+			}
+			else
+			{
+				lineItem.SetPositions(
+					start.CalculatePosition(),
+					end.CalculatePosition());
+			}
 
 			return true;
 		}
