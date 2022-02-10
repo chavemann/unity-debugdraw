@@ -4,6 +4,9 @@ using UnityEngine;
 namespace DebugDrawItems
 {
 
+	/// <summary>
+	/// Draws a wireframe capsule.
+	/// </summary>
 	public class Capsule : BaseLineItem
 	{
 		/* mesh: line */

@@ -114,6 +114,170 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Draws a capsule shell.
+	/// </summary>
+	/// <param name="p1">The center of the capsule at the start of the capsule.</param>
+	/// <param name="p2">The center of the capsule at the end of the capsule.</param>
+	/// <param name="radius">The radius of the capsule.</param>
+	/// <param name="color">The color of the capsule.</param>
+	/// <param name="segments">The resolution of the capsule. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Capsule object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Capsule Capsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Capsule.Get(ref p1, ref p2, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe capsule.
+	/// </summary>
+	/// <param name="p1">The center of the capsule at the start of the capsule.</param>
+	/// <param name="p2">The center of the capsule at the end of the capsule.</param>
+	/// <param name="radius">The radius of the capsule.</param>
+	/// <param name="color">The color of the capsule.</param>
+	/// <param name="segments">The resolution of the capsule. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Capsule object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Capsule WireCapsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Capsule.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a cylinder shell.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius">The radius of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a cylinder shell with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius1">The radius at the start point of the cylinder.</param>
+	/// <param name="radius2">The radius at the end point of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a cylinder shell with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius">The radius of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a cylinder shell with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius1">The radius at the start point of the cylinder.</param>
+	/// <param name="radius2">The radius at the end point of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe cylinder.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius">The radius of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe cylinder with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius1">The radius at the start point of the cylinder.</param>
+	/// <param name="radius2">The radius at the end point of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe cylinder with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius">The radius of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe cylinder with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius1">The radius at the start point of the cylinder.</param>
+	/// <param name="radius2">The radius at the end point of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+	}
+	
+	/// <summary>
 	/// Draws a 3D dot that automatically faces the camera.
 	/// </summary>
 	/// <param name="position">The position of the dot.</param>
@@ -178,7 +342,7 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
-	/// Draws a filled ellipse.
+	/// Draws a wire ellipse.
 	/// </summary>
 	/// <param name="position">The centre of the ellipse.</param>
 	/// <param name="size">The size/radius of the ellipse.</param>
@@ -190,11 +354,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Ellipse Ellipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, float duration = 0)
 	{
-		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, duration));
 	}
 	
 	/// <summary>
-	/// Draws a wire ellipse.
+	/// Draws a filled ellipse.
 	/// </summary>
 	/// <param name="position">The centre of the ellipse.</param>
 	/// <param name="size">The size/radius of the ellipse.</param>
@@ -204,27 +368,9 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse WireEllipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, float duration = 0)
+	public static Ellipse FillEllipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Ellipse.GetWire(ref position, ref size, ref facing, ref color, segments, duration));
-	}
-	
-	/// <summary>
-	/// Draws a filled arc.
-	/// </summary>
-	/// <param name="position">The centre of the ellipse.</param>
-	/// <param name="size">The size/radius of the ellipse.</param>
-	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
-	/// <param name="startAngle">The start angle in degrees of the arc.</param>
-	/// <param name="endAngle">The end angle in degrees of the arc.</param>
-	/// <param name="color">The colour of the ellipse.</param>
-	/// <param name="segments">The resolution of the ellipse.</param>
-	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The ellipse object.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse Arc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, float duration = 0)
-	{
-		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration));
+		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFill(ref position, ref size, ref facing, ref color, segments, duration));
 	}
 	
 	/// <summary>
@@ -242,9 +388,27 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse WireArc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
+	public static Ellipse Arc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Ellipse.GetWireArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Ellipse.GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
+	}
+	
+	/// <summary>
+	/// Draws a filled arc.
+	/// </summary>
+	/// <param name="position">The centre of the ellipse.</param>
+	/// <param name="size">The size/radius of the ellipse.</param>
+	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
+	/// <param name="startAngle">The start angle in degrees of the arc.</param>
+	/// <param name="endAngle">The end angle in degrees of the arc.</param>
+	/// <param name="color">The colour of the ellipse.</param>
+	/// <param name="segments">The resolution of the ellipse.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Ellipse FillArc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, float duration = 0)
+	{
+		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFillArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration));
 	}
 	
 	/// <summary>
@@ -368,23 +532,23 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
-	/// Draws a filled quad.
+	/// Draws a wire quad.
 	/// </summary>
 	/// <param name="p1">The first point of the quad.</param>
 	/// <param name="p2">The second point of the quad.</param>
 	/// <param name="p3">The third point of the quad.</param>
-	/// <param name="p4">The fourth point of the quad.</param>
+	/// <param name="p4">The third point of the quad.</param>
 	/// <param name="color">The colour of the quad.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0)
 	{
-		return triangleMeshInstance.Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color, duration));
 	}
 	
 	/// <summary>
-	/// Draws a filled quad.
+	/// Draws a wire quad.
 	/// </summary>
 	/// <param name="p1">The first point of the quad.</param>
 	/// <param name="p2">The second point of the quad.</param>
@@ -399,27 +563,27 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
 	{
-		return triangleMeshInstance.Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
 	}
 	
 	/// <summary>
-	/// Draws a wire quad.
+	/// Draws a filled quad.
 	/// </summary>
 	/// <param name="p1">The first point of the quad.</param>
 	/// <param name="p2">The second point of the quad.</param>
 	/// <param name="p3">The third point of the quad.</param>
-	/// <param name="p4">The third point of the quad.</param>
+	/// <param name="p4">The fourth point of the quad.</param>
 	/// <param name="color">The colour of the quad.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Quad WireQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0)
+	public static Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Quad.GetWire(ref p1, ref p2, ref p3, ref p4, ref color, duration));
+		return triangleMeshInstance.Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color, duration));
 	}
 	
 	/// <summary>
-	/// Draws a wire quad.
+	/// Draws a filled quad.
 	/// </summary>
 	/// <param name="p1">The first point of the quad.</param>
 	/// <param name="p2">The second point of the quad.</param>
@@ -432,13 +596,13 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Quad WireQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
+	public static Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Quad.GetWire(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
+		return triangleMeshInstance.Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
 	}
 	
 	/// <summary>
-	/// Draws a sphere made up of four three along each axis.
+	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
 	/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -453,7 +617,7 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
-	/// Draws a sphere.
+	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
 	/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -469,7 +633,7 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
-	/// Draws a sphere.
+	/// Draws a full wireframe sphere.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
 	/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -478,13 +642,13 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Sphere Ball(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
+	public static Sphere WireSphere(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetBall(ref position, ref radius, ref color, segments, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref color, segments, duration));
 	}
 	
 	/// <summary>
-	/// Draws a sphere made up of four three along each axis with the given orientation.
+	/// Draws a full wireframe sphere.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
 	/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -494,9 +658,9 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Sphere Ball(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
+	public static Sphere WireSphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetBall(ref position, ref radius, ref orientation, ref color, segments, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref orientation, ref color, segments, duration));
 	}
 	
 	/// <summary>
@@ -526,7 +690,7 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Square WireSquare(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Square.GetWire(ref position, ref size, ref facing, ref color, duration));
+		return triangleMeshInstance.Add(DebugDrawItems.Square.GetWire(ref position, ref size, ref facing, ref color, duration));
 	}
 	
 	/// <summary>
@@ -561,7 +725,7 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
-	/// Draws a filled triangle.
+	/// Draws a wire triangle.
 	/// </summary>
 	/// <param name="p1">The first point of the triangle.</param>
 	/// <param name="p2">The second point of the triangle.</param>
@@ -572,11 +736,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, float duration = 0)
 	{
-		return triangleMeshInstance.Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color, duration));
 	}
 	
 	/// <summary>
-	/// Draws a filled triangle.
+	/// Draws a wire triangle.
 	/// </summary>
 	/// <param name="p1">The first point of the triangle.</param>
 	/// <param name="p2">The second point of the triangle.</param>
@@ -589,11 +753,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, float duration = 0)
 	{
-		return triangleMeshInstance.Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
 	}
 	
 	/// <summary>
-	/// Draws a wire triangle.
+	/// Draws a filled triangle.
 	/// </summary>
 	/// <param name="p1">The first point of the triangle.</param>
 	/// <param name="p2">The second point of the triangle.</param>
@@ -602,13 +766,13 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Triangle WireTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, float duration = 0)
+	public static Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Triangle.GetWire(ref p1, ref p2, ref p3, ref color, duration));
+		return triangleMeshInstance.Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color, duration));
 	}
 	
 	/// <summary>
-	/// Draws a wire triangle.
+	/// Draws a filled triangle.
 	/// </summary>
 	/// <param name="p1">The first point of the triangle.</param>
 	/// <param name="p2">The second point of the triangle.</param>
@@ -619,9 +783,9 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Triangle WireTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, float duration = 0)
+	public static Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Triangle.GetWire(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
+		return triangleMeshInstance.Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
 	}
 	
 	/* </StaticGenMethods> */
@@ -739,6 +903,170 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
+	/// Draws a capsule shell.
+	/// </summary>
+	/// <param name="p1">The center of the capsule at the start of the capsule.</param>
+	/// <param name="p2">The center of the capsule at the end of the capsule.</param>
+	/// <param name="radius">The radius of the capsule.</param>
+	/// <param name="color">The color of the capsule.</param>
+	/// <param name="segments">The resolution of the capsule. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Capsule object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Capsule Capsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Capsule.Get(ref p1, ref p2, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe capsule.
+	/// </summary>
+	/// <param name="p1">The center of the capsule at the start of the capsule.</param>
+	/// <param name="p2">The center of the capsule at the end of the capsule.</param>
+	/// <param name="radius">The radius of the capsule.</param>
+	/// <param name="color">The color of the capsule.</param>
+	/// <param name="segments">The resolution of the capsule. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Capsule object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Capsule WireCapsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Capsule.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a cylinder shell.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius">The radius of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a cylinder shell with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius1">The radius at the start point of the cylinder.</param>
+	/// <param name="radius2">The radius at the end point of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a cylinder shell with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius">The radius of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a cylinder shell with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius1">The radius at the start point of the cylinder.</param>
+	/// <param name="radius2">The radius at the end point of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe cylinder.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius">The radius of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe cylinder with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius1">The radius at the start point of the cylinder.</param>
+	/// <param name="radius2">The radius at the end point of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe cylinder with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius">The radius of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe cylinder with a different start and end radius.
+	/// </summary>
+	/// <param name="p1">The start point of the cylinder.</param>
+	/// <param name="p2">The end point of the cylinder.</param>
+	/// <param name="radius1">The radius at the start point of the cylinder.</param>
+	/// <param name="radius2">The radius at the end point of the cylinder.</param>
+	/// <param name="color">The color of the cylinder.</param>
+	/// <param name="segments">The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, duration));
+	}
+	
+	/// <summary>
 	/// Draws a 3D dot that automatically faces the camera.
 	/// </summary>
 	/// <param name="position">The position of the dot.</param>
@@ -803,7 +1131,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a filled ellipse.
+	/// Draws a wire ellipse.
 	/// </summary>
 	/// <param name="position">The centre of the ellipse.</param>
 	/// <param name="size">The size/radius of the ellipse.</param>
@@ -819,7 +1147,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a wire ellipse.
+	/// Draws a filled ellipse.
 	/// </summary>
 	/// <param name="position">The centre of the ellipse.</param>
 	/// <param name="size">The size/radius of the ellipse.</param>
@@ -829,27 +1157,9 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse WireEllipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, float duration = 0)
+	public Ellipse FillEllipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, float duration = 0)
 	{
-		return Add(DebugDrawItems.Ellipse.GetWire(ref position, ref size, ref facing, ref color, segments, duration));
-	}
-	
-	/// <summary>
-	/// Draws a filled arc.
-	/// </summary>
-	/// <param name="position">The centre of the ellipse.</param>
-	/// <param name="size">The size/radius of the ellipse.</param>
-	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
-	/// <param name="startAngle">The start angle in degrees of the arc.</param>
-	/// <param name="endAngle">The end angle in degrees of the arc.</param>
-	/// <param name="color">The colour of the ellipse.</param>
-	/// <param name="segments">The resolution of the ellipse.</param>
-	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The ellipse object.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse Arc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, float duration = 0)
-	{
-		return Add(DebugDrawItems.Ellipse.GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration));
+		return Add(DebugDrawItems.Ellipse.GetFill(ref position, ref size, ref facing, ref color, segments, duration));
 	}
 	
 	/// <summary>
@@ -867,9 +1177,27 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse WireArc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
+	public Ellipse Arc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
 	{
-		return Add(DebugDrawItems.Ellipse.GetWireArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
+		return Add(DebugDrawItems.Ellipse.GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
+	}
+	
+	/// <summary>
+	/// Draws a filled arc.
+	/// </summary>
+	/// <param name="position">The centre of the ellipse.</param>
+	/// <param name="size">The size/radius of the ellipse.</param>
+	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
+	/// <param name="startAngle">The start angle in degrees of the arc.</param>
+	/// <param name="endAngle">The end angle in degrees of the arc.</param>
+	/// <param name="color">The colour of the ellipse.</param>
+	/// <param name="segments">The resolution of the ellipse.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Ellipse FillArc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Ellipse.GetFillArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration));
 	}
 	
 	/// <summary>
@@ -993,12 +1321,12 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a filled quad.
+	/// Draws a wire quad.
 	/// </summary>
 	/// <param name="p1">The first point of the quad.</param>
 	/// <param name="p2">The second point of the quad.</param>
 	/// <param name="p3">The third point of the quad.</param>
-	/// <param name="p4">The fourth point of the quad.</param>
+	/// <param name="p4">The third point of the quad.</param>
 	/// <param name="color">The colour of the quad.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
@@ -1009,7 +1337,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a filled quad.
+	/// Draws a wire quad.
 	/// </summary>
 	/// <param name="p1">The first point of the quad.</param>
 	/// <param name="p2">The second point of the quad.</param>
@@ -1028,23 +1356,23 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a wire quad.
+	/// Draws a filled quad.
 	/// </summary>
 	/// <param name="p1">The first point of the quad.</param>
 	/// <param name="p2">The second point of the quad.</param>
 	/// <param name="p3">The third point of the quad.</param>
-	/// <param name="p4">The third point of the quad.</param>
+	/// <param name="p4">The fourth point of the quad.</param>
 	/// <param name="color">The colour of the quad.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Quad WireQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0)
+	public Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0)
 	{
-		return Add(DebugDrawItems.Quad.GetWire(ref p1, ref p2, ref p3, ref p4, ref color, duration));
+		return Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color, duration));
 	}
 	
 	/// <summary>
-	/// Draws a wire quad.
+	/// Draws a filled quad.
 	/// </summary>
 	/// <param name="p1">The first point of the quad.</param>
 	/// <param name="p2">The second point of the quad.</param>
@@ -1057,13 +1385,13 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Quad WireQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
+	public Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
 	{
-		return Add(DebugDrawItems.Quad.GetWire(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
+		return Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
 	}
 	
 	/// <summary>
-	/// Draws a sphere made up of four three along each axis.
+	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
 	/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -1078,7 +1406,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a sphere.
+	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
 	/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -1094,7 +1422,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a sphere.
+	/// Draws a full wireframe sphere.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
 	/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -1103,13 +1431,13 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Sphere Ball(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
+	public Sphere WireSphere(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
 	{
-		return Add(DebugDrawItems.Sphere.GetBall(ref position, ref radius, ref color, segments, duration));
+		return Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref color, segments, duration));
 	}
 	
 	/// <summary>
-	/// Draws a sphere made up of four three along each axis with the given orientation.
+	/// Draws a full wireframe sphere.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
 	/// <param name="radius">The radius of the sphere in each axis.</param>
@@ -1119,9 +1447,9 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Sphere Ball(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
+	public Sphere WireSphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
 	{
-		return Add(DebugDrawItems.Sphere.GetBall(ref position, ref radius, ref orientation, ref color, segments, duration));
+		return Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref orientation, ref color, segments, duration));
 	}
 	
 	/// <summary>
@@ -1186,7 +1514,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a filled triangle.
+	/// Draws a wire triangle.
 	/// </summary>
 	/// <param name="p1">The first point of the triangle.</param>
 	/// <param name="p2">The second point of the triangle.</param>
@@ -1201,7 +1529,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a filled triangle.
+	/// Draws a wire triangle.
 	/// </summary>
 	/// <param name="p1">The first point of the triangle.</param>
 	/// <param name="p2">The second point of the triangle.</param>
@@ -1218,7 +1546,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a wire triangle.
+	/// Draws a filled triangle.
 	/// </summary>
 	/// <param name="p1">The first point of the triangle.</param>
 	/// <param name="p2">The second point of the triangle.</param>
@@ -1227,13 +1555,13 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Triangle WireTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, float duration = 0)
+	public Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, float duration = 0)
 	{
-		return Add(DebugDrawItems.Triangle.GetWire(ref p1, ref p2, ref p3, ref color, duration));
+		return Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color, duration));
 	}
 	
 	/// <summary>
-	/// Draws a wire triangle.
+	/// Draws a filled triangle.
 	/// </summary>
 	/// <param name="p1">The first point of the triangle.</param>
 	/// <param name="p2">The second point of the triangle.</param>
@@ -1244,9 +1572,9 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Triangle WireTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, float duration = 0)
+	public Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, float duration = 0)
 	{
-		return Add(DebugDrawItems.Triangle.GetWire(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
+		return Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
 	}
 	
 	/* </InstanceGenMethods> */
