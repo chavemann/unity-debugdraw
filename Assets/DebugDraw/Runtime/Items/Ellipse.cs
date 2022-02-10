@@ -46,12 +46,16 @@ namespace DebugDrawItems
 		/// </summary>
 		public int segments;
 		/// <summary>
+		/// The forward vector used to orient the ellipse.
+		/// If null, an arbitrary axis will be chosen.
+		/// </summary>
+		public Vector3? forward;
+		/// <summary>
 		/// True for a filled ellipse made up from triangles, otherwise a wire ellipse.
 		/// It's important that this Ellipse item is added to a mesh with the right topology, either lines or triangles,
 		/// based on this setting.
 		/// </summary>
 		public bool wireframe;
-		// TODO: Add forward vector to Ellipse
 		// TODO: Inner radius
 
 		/* ------------------------------------------------------------------------------------- */
@@ -82,6 +86,7 @@ namespace DebugDrawItems
 			item.endAngle = 360;
 			item.drawAxes = DrawEllipseAxes.Never;
 			item.drawArcSegments = DrawArcSegments.Never;
+			item.forward = null;
 			item.wireframe = true;
 
 			return item;
@@ -112,6 +117,7 @@ namespace DebugDrawItems
 			item.endAngle = 360;
 			item.drawAxes = DrawEllipseAxes.Never;
 			item.drawArcSegments = DrawArcSegments.Never;
+			item.forward = null;
 			item.wireframe = false;
 
 			return item;
@@ -151,6 +157,7 @@ namespace DebugDrawItems
 			item.drawArcSegments = drawArcSegments;
 			item.drawAxes = drawAxes;
 			item.wireframe = true;
+			item.forward = null;
 
 			return item;
 		}
@@ -186,12 +193,25 @@ namespace DebugDrawItems
 			item.drawAxes = DrawEllipseAxes.Never;
 			item.drawArcSegments = DrawArcSegments.Never;
 			item.wireframe = false;
+			item.forward = null;
 
 			return item;
 		}
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
+
+		/// <summary>
+		/// Sets the forward vector used to orient the ellipse.
+		/// </summary>
+		/// <param name="forward"></param>
+		/// <returns></returns>
+		public Ellipse SetForward(Vector3? forward)
+		{
+			this.forward = forward;
+
+			return this;
+		}
 
 		/// <summary>
 		/// Sets the angles for this arc.
@@ -272,7 +292,17 @@ namespace DebugDrawItems
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			Vector3 position = this.position;
-			DebugDraw.FindAxisVectors(ref facing, ref DebugDraw.up, out Vector3 up, out Vector3 right);
+			Vector3 up, right;
+			
+			if (forward.HasValue)
+			{
+				Vector3 f = forward.GetValueOrDefault();
+				DebugDraw.FindAxisVectors(ref facing, ref f, out up, out right);
+			}
+			else
+			{
+				DebugDraw.FindAxisVectors(ref facing, ref DebugDraw.up, out up, out right);
+			}
 
 			if (hasStateTransform)
 			{
