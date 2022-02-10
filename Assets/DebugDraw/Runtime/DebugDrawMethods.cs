@@ -395,16 +395,88 @@ public static partial class DebugDraw
 	/// Draws a wire ellipse.
 	/// </summary>
 	/// <param name="position">The centre of the ellipse.</param>
-	/// <param name="size">The size/radius of the ellipse.</param>
+	/// <param name="radius">The radius of the ellipse.</param>
+	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
+	/// <param name="color">The colour of the ellipse.</param>
+	/// <param name="segments">The resolution of the ellipse.</param>
+	/// <param name="drawAxes">Options for drawing an X and Y axis inside the ellipse.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Ellipse Ellipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Ellipse.Get(ref position, radius, ref facing, ref color, segments, drawAxes, duration));
+	}
+	
+	/// <summary>
+	/// Draws a filled ellipse.
+	/// </summary>
+	/// <param name="position">The centre of the ellipse.</param>
+	/// <param name="radius">The radius of the ellipse.</param>
 	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
 	/// <param name="color">The colour of the ellipse.</param>
 	/// <param name="segments">The resolution of the ellipse.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse Ellipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, float duration = 0)
+	public static Ellipse FillEllipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, float duration = 0)
 	{
-		return lineMeshInstance.Add(DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, duration));
+		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFill(ref position, radius, ref facing, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire arc.
+	/// </summary>
+	/// <param name="position">The centre of the ellipse.</param>
+	/// <param name="radius">The radius of the ellipse.</param>
+	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
+	/// <param name="startAngle">The start angle in degrees of the arc.</param>
+	/// <param name="endAngle">The end angle in degrees of the arc.</param>
+	/// <param name="color">The colour of the ellipse.</param>
+	/// <param name="segments">The resolution of the ellipse.</param>
+	/// <param name="drawArcSegments">Options for connecting the centre of the ellipse and the arc end points.</param>
+	/// <param name="drawAxes">Options for drawing an X and Y axis inside the ellipse.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Ellipse Arc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Ellipse.GetArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
+	}
+	
+	/// <summary>
+	/// Draws a filled arc.
+	/// </summary>
+	/// <param name="position">The centre of the ellipse.</param>
+	/// <param name="radius">The radius of the ellipse.</param>
+	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
+	/// <param name="startAngle">The start angle in degrees of the arc.</param>
+	/// <param name="endAngle">The end angle in degrees of the arc.</param>
+	/// <param name="color">The colour of the ellipse.</param>
+	/// <param name="segments">The resolution of the ellipse.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Ellipse FillArc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, float duration = 0)
+	{
+		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFillArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire ellipse.
+	/// </summary>
+	/// <param name="position">The centre of the ellipse.</param>
+	/// <param name="size">The size/radius of the ellipse.</param>
+	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
+	/// <param name="color">The colour of the ellipse.</param>
+	/// <param name="segments">The resolution of the ellipse.</param>
+	/// <param name="drawAxes">Options for drawing an X and Y axis inside the ellipse.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Ellipse Ellipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, drawAxes, duration));
 	}
 	
 	/// <summary>
@@ -1234,16 +1306,88 @@ public partial class DebugDrawMesh
 	/// Draws a wire ellipse.
 	/// </summary>
 	/// <param name="position">The centre of the ellipse.</param>
-	/// <param name="size">The size/radius of the ellipse.</param>
+	/// <param name="radius">The radius of the ellipse.</param>
+	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
+	/// <param name="color">The colour of the ellipse.</param>
+	/// <param name="segments">The resolution of the ellipse.</param>
+	/// <param name="drawAxes">Options for drawing an X and Y axis inside the ellipse.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Ellipse Ellipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
+	{
+		return Add(DebugDrawItems.Ellipse.Get(ref position, radius, ref facing, ref color, segments, drawAxes, duration));
+	}
+	
+	/// <summary>
+	/// Draws a filled ellipse.
+	/// </summary>
+	/// <param name="position">The centre of the ellipse.</param>
+	/// <param name="radius">The radius of the ellipse.</param>
 	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
 	/// <param name="color">The colour of the ellipse.</param>
 	/// <param name="segments">The resolution of the ellipse.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse Ellipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, float duration = 0)
+	public Ellipse FillEllipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, float duration = 0)
 	{
-		return Add(DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, duration));
+		return Add(DebugDrawItems.Ellipse.GetFill(ref position, radius, ref facing, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire arc.
+	/// </summary>
+	/// <param name="position">The centre of the ellipse.</param>
+	/// <param name="radius">The radius of the ellipse.</param>
+	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
+	/// <param name="startAngle">The start angle in degrees of the arc.</param>
+	/// <param name="endAngle">The end angle in degrees of the arc.</param>
+	/// <param name="color">The colour of the ellipse.</param>
+	/// <param name="segments">The resolution of the ellipse.</param>
+	/// <param name="drawArcSegments">Options for connecting the centre of the ellipse and the arc end points.</param>
+	/// <param name="drawAxes">Options for drawing an X and Y axis inside the ellipse.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Ellipse Arc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
+	{
+		return Add(DebugDrawItems.Ellipse.GetArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
+	}
+	
+	/// <summary>
+	/// Draws a filled arc.
+	/// </summary>
+	/// <param name="position">The centre of the ellipse.</param>
+	/// <param name="radius">The radius of the ellipse.</param>
+	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
+	/// <param name="startAngle">The start angle in degrees of the arc.</param>
+	/// <param name="endAngle">The end angle in degrees of the arc.</param>
+	/// <param name="color">The colour of the ellipse.</param>
+	/// <param name="segments">The resolution of the ellipse.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Ellipse FillArc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Ellipse.GetFillArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire ellipse.
+	/// </summary>
+	/// <param name="position">The centre of the ellipse.</param>
+	/// <param name="size">The size/radius of the ellipse.</param>
+	/// <param name="facing">The normal or direction the front of the ellipse is facing.</param>
+	/// <param name="color">The colour of the ellipse.</param>
+	/// <param name="segments">The resolution of the ellipse.</param>
+	/// <param name="drawAxes">Options for drawing an X and Y axis inside the ellipse.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Ellipse Ellipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
+	{
+		return Add(DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, drawAxes, duration));
 	}
 	
 	/// <summary>
