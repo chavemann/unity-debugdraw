@@ -371,7 +371,6 @@ namespace DebugDrawItems
 				p2 = stateTransform.MultiplyPoint3x4(p2);
 				forward = stateTransform.MultiplyVector(forward);
 				right = stateTransform.MultiplyVector(right);
-				up = stateTransform.MultiplyVector(up);
 			}
 			
 			int segments;

@@ -146,6 +146,48 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Draws a cone shell.
+	/// </summary>
+	/// <param name="origin">The origin point of the cone.</param>
+	/// <param name="direction">The direction the cone.</param>
+	/// <param name="length">The length of the cone.</param>
+	/// <param name="angle">The angle of the cone.</param>
+	/// <param name="color">The color of the cone.</param>
+	/// <param name="segments">The resolution of the cone. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="round">If true, the length is treated as the radius of the cone.
+	/// If false the length is the distance from the origin to the centre of the cones cap.</param>
+	/// <param name="drawCap">Should a cap be drawn on the cone.
+	/// When <see cref="round"/> is true the cap will be made up of two arcs, otherwise two perpendicular lines.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Cone Cone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Cone.Get(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe cone.
+	/// </summary>
+	/// <param name="origin">The origin point of the cone.</param>
+	/// <param name="direction">The direction the cone.</param>
+	/// <param name="length">The length of the cone.</param>
+	/// <param name="angle">The angle of the cone.</param>
+	/// <param name="color">The color of the cone.</param>
+	/// <param name="segments">The resolution of the cone. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="round">If true, the length is treated as the radius of the cone.
+	/// If false the length is the distance from the origin to the centre of the cones cap.</param>
+	/// <param name="drawCap">Should a cap be drawn on the cone.
+	/// When <see cref="round"/> is true the cap will be made up of two arcs, otherwise two perpendicular lines.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Cone WireCone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.Cone.GetWire(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
+	}
+	
+	/// <summary>
 	/// Draws a cylinder shell.
 	/// </summary>
 	/// <param name="p1">The start point of the cylinder.</param>
@@ -940,6 +982,48 @@ public partial class DebugDrawMesh
 	public Capsule WireCapsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
 	{
 		return Add(DebugDrawItems.Capsule.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a cone shell.
+	/// </summary>
+	/// <param name="origin">The origin point of the cone.</param>
+	/// <param name="direction">The direction the cone.</param>
+	/// <param name="length">The length of the cone.</param>
+	/// <param name="angle">The angle of the cone.</param>
+	/// <param name="color">The color of the cone.</param>
+	/// <param name="segments">The resolution of the cone. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="round">If true, the length is treated as the radius of the cone.
+	/// If false the length is the distance from the origin to the centre of the cones cap.</param>
+	/// <param name="drawCap">Should a cap be drawn on the cone.
+	/// When <see cref="round"/> is true the cap will be made up of two arcs, otherwise two perpendicular lines.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Cone Cone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, float duration = 0)
+	{
+		return Add(DebugDrawItems.Cone.Get(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe cone.
+	/// </summary>
+	/// <param name="origin">The origin point of the cone.</param>
+	/// <param name="direction">The direction the cone.</param>
+	/// <param name="length">The length of the cone.</param>
+	/// <param name="angle">The angle of the cone.</param>
+	/// <param name="color">The color of the cone.</param>
+	/// <param name="segments">The resolution of the cone. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="round">If true, the length is treated as the radius of the cone.
+	/// If false the length is the distance from the origin to the centre of the cones cap.</param>
+	/// <param name="drawCap">Should a cap be drawn on the cone.
+	/// When <see cref="round"/> is true the cap will be made up of two arcs, otherwise two perpendicular lines.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Cylinder object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Cone WireCone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, float duration = 0)
+	{
+		return Add(DebugDrawItems.Cone.GetWire(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
 	}
 	
 	/// <summary>

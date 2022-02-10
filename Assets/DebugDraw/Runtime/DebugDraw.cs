@@ -656,8 +656,22 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void FindAxisVectors(ref Vector3 normal, ref Vector3 upAxis, out Vector3 up, out Vector3 right)
 	{
-		right = Vector3.Cross(normal, upAxis);
-		right.Normalize();
+		if (!Mathf.Approximately(Mathf.Abs(Vector3.Dot(normal, upAxis)), 1))
+		{
+			right = Vector3.Cross(normal, upAxis);
+			right.Normalize();
+		}
+		else
+		{
+			up = Mathf.Abs(normal.z) > Mathf.Abs(normal.x) && Mathf.Abs(normal.z) > Mathf.Abs(normal.y) 
+				? new Vector3(1, 0, 0)
+				: new Vector3(0, 0, 1);
+		
+			right = Vector3.Cross(normal, up);
+			right.Normalize();
+		}
+		
+		
 		up = Vector3.Cross(right, normal);
 		up.Normalize();
 	}

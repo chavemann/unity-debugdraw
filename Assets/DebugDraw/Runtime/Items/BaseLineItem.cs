@@ -60,9 +60,15 @@ namespace DebugDrawItems
 			p2 = position;
 		}
 
-		public Vector3 GetStartPosition() => p1;
+		public Vector3 GetStartPosition()
+		{
+			return p1;
+		}
 
-		public Vector3 GetEndPosition() => p2;
+		public Vector3 GetEndPosition()
+		{
+			return p2;
+		}
 
 	}
 
