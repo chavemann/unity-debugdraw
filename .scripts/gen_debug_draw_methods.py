@@ -59,6 +59,9 @@ def run():
                     func_name = get_type + func_name
                 else:
                     func_name = get_type
+
+            if func_name.endswith('Item'):
+                func_name = func_name.replace('Item', '')
             
             call_params = []
             refless_params = []
@@ -70,7 +73,7 @@ def run():
             type_m = LOCAL_MESH_TYPE_REGEX.match(body)
             if type_m:
                 mesh_type = type_m.group(1)
-            elif get_type.startswith('Fill') or get_type.startswith('Wire'):
+            elif get_type.startswith('Fill'):
                 mesh_type = 'triangle'
             
             if not GET_WRAPPER_REGEX.match(body):

@@ -641,6 +641,48 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Draws a wireframe mesh.
+	/// </summary>
+	/// <param name="vertices">The list of vertices.</param>
+	/// <param name="colors">The list of colors.</param>
+	/// <param name="indices">The list of triangle indices.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static MeshItem Mesh(List<Vector3> vertices, List<Color> colors, List<int> indices, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.MeshItem.Get(vertices, colors, indices, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wireframe mesh with a single color.
+	/// </summary>
+	/// <param name="vertices">The list of vertices.</param>
+	/// <param name="indices">The list of triangle indices.</param>
+	/// <param name="color">The color of the mesh.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static MeshItem Mesh(List<Vector3> vertices, List<int> indices, Color color, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.MeshItem.Get(vertices, indices, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wireframe mesh. This will allocate new lists and fetch the mesh data so it's advisable to
+	/// not call this every frame and instead create it once keep a reference to it.
+	/// </summary>
+	/// <param name="mesh">The mesh.</param>
+	/// <param name="color">The color of the mesh. If null the mesh must have color data associated with it</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static MeshItem Mesh(Mesh mesh, Color? color, float duration = 0)
+	{
+		return lineMeshInstance.Add(DebugDrawItems.MeshItem.Get(mesh, color, duration));
+	}
+	
+	/// <summary>
 	/// Draws a point that has no size.
 	/// </summary>
 	/// <param name="position">The position of the point.</param>
@@ -1549,6 +1591,48 @@ public partial class DebugDrawMesh
 	public Lines Lines(List<Vector3> positions, List<Color> colors, float duration = 0)
 	{
 		return Add(DebugDrawItems.Lines.Get(positions, colors, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wireframe mesh.
+	/// </summary>
+	/// <param name="vertices">The list of vertices.</param>
+	/// <param name="colors">The list of colors.</param>
+	/// <param name="indices">The list of triangle indices.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public MeshItem Mesh(List<Vector3> vertices, List<Color> colors, List<int> indices, float duration = 0)
+	{
+		return Add(DebugDrawItems.MeshItem.Get(vertices, colors, indices, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wireframe mesh with a single color.
+	/// </summary>
+	/// <param name="vertices">The list of vertices.</param>
+	/// <param name="indices">The list of triangle indices.</param>
+	/// <param name="color">The color of the mesh.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public MeshItem Mesh(List<Vector3> vertices, List<int> indices, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.MeshItem.Get(vertices, indices, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wireframe mesh. This will allocate new lists and fetch the mesh data so it's advisable to
+	/// not call this every frame and instead create it once keep a reference to it.
+	/// </summary>
+	/// <param name="mesh">The mesh.</param>
+	/// <param name="color">The color of the mesh. If null the mesh must have color data associated with it</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public MeshItem Mesh(Mesh mesh, Color? color, float duration = 0)
+	{
+		return Add(DebugDrawItems.MeshItem.Get(mesh, color, duration));
 	}
 	
 	/// <summary>
