@@ -192,7 +192,7 @@ namespace DebugDrawItems
 				}
 
 				int segments = autoResolution
-					? DebugDraw.AutoResolution(dist, size, 4, 64, 128)
+					? Ellipse.DefaultAutoResolution(dist, size)
 					: this.segments;
 				
 				if (segments < 3)

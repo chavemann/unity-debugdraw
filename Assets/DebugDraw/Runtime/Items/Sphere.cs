@@ -22,7 +22,7 @@ namespace DebugDrawItems
 		public int segments;
 		/// <summary>
 		/// If true draw a sphere made up of multiple rings, otherwise draw an approximation made
-		/// of of three circles along each axis
+		/// of three circles along each axis.
 		/// </summary>
 		public bool full;
 
@@ -138,9 +138,9 @@ namespace DebugDrawItems
 			if (full)
 			{
 				int segments = Mathf.Max(this.segments <= 0
-					? DebugDraw.AutoResolution(
+					? Ellipse.DefaultAutoResolution(
 						Mathf.Max(DebugDraw.DistanceFromCamera(ref position), 0),
-						Mathf.Max(Mathf.Max(radius.x, radius.y), radius.z), 4, 64, 128)
+						Mathf.Max(Mathf.Max(radius.x, radius.y), radius.z))
 					: this.segments, 4);
 				int rings = (segments - 1) / 2 + 2;
 

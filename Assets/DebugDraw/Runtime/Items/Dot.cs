@@ -163,7 +163,7 @@ namespace DebugDrawItems
 			}
 
 			int segments = this.segments <= 0
-				? DebugDraw.AutoResolution(dist, radius, 4, 64, 128)
+				? Ellipse.DefaultAutoResolution(dist, size)
 				: this.segments;
 			
 			Color clr = GetColor(ref color);

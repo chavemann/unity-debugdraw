@@ -51,6 +51,7 @@ namespace DebugDrawItems
 		/// based on this setting.
 		/// </summary>
 		public bool filled;
+		// TODO: Add forward vector to Ellipse
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
@@ -306,9 +307,9 @@ namespace DebugDrawItems
 			angle1 = (rotation + angle1) * Mathf.Deg2Rad;
 			
 			int finalSegments = segments <= 0
-				? DebugDraw.AutoResolution(
+				? DefaultAutoResolution(
 					Mathf.Max(DebugDraw.DistanceFromCamera(ref worldPos), 0),
-					Mathf.Max(size.x, size.y), 4, 64, 128)
+					Mathf.Max(size.x, size.y))
 				: segments;
 			
 			int centreVertexIndex = -1;
@@ -448,6 +449,12 @@ namespace DebugDrawItems
 			angle = Mathf.Repeat(angle - min, Mathf.PI * 2);
 
 			return drawAxes == DrawEllipseAxes.Always || angle >= -epsilon && angle <= max - min + epsilon;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		internal static int DefaultAutoResolution(float distance, float radius)
+		{
+			return DebugDraw.AutoResolution(distance, radius, 4, 64, 128);
 		}
 
 		internal override void Release()
