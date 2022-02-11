@@ -1,17 +1,14 @@
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
 using DebugDrawAttachments;
 using DebugDrawItems;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace DebugDrawSamples.Showcase.Scripts
 {
 
-	[ExecuteAlways]
 	[AddComponentMenu("DebugDraw/Samples/Showcase")]
 	public class Showcase : Icon
 	{
@@ -145,7 +142,6 @@ namespace DebugDrawSamples.Showcase.Scripts
 			if (!DebugDraw.isActive)
 				return;
 
-			// Log.Print("  Showcase.Update");
 			// if (Application.isPlaying)
 			// {
 				// if (delayedInit >= 0)

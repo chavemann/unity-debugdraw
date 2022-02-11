@@ -4,7 +4,6 @@ using Random = UnityEngine.Random;
 namespace DebugDrawSamples.Showcase.Scripts
 {
 
-	[ExecuteAlways]
 	public class Bobber : BaseComponent
 	{
 

@@ -4,7 +4,6 @@ using UnityEngine;
 namespace DebugDrawSamples.Showcase.Scripts
 {
 
-	[ExecuteAlways]
 	public class Icon : BaseComponent
 	{
 
@@ -58,7 +57,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			icon.color = iconColor;
 			icon.radius = Mathf.Max(iconSize, 0);
-			icon.segments = iconCircle ? (!iconAutoSize ? 24 : 0) : 1;
+			icon.segments = iconCircle ? (iconAutoSize ? 24 : 0) : 1;
 			icon.autoSize = iconAutoSize;
 		}
 

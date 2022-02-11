@@ -4,7 +4,6 @@ using UnityEngine;
 namespace DebugDrawSamples.Showcase.Scripts
 {
 
-	[ExecuteAlways]
 	public class Spinner : BaseComponent
 	{
 
