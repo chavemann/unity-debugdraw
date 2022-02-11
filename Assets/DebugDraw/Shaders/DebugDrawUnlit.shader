@@ -43,7 +43,9 @@
             {
                 float4 vertex : SV_POSITION;
                 fixed4 color : COLOR;
+                #if defined(DITHER_ALPHA)
                 float4 screenPos : TEXCOORD1;
+	            #endif
             };
 
             float4 _Color;
@@ -53,7 +55,9 @@
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.color = v.color * _Color;
+                #if defined(DITHER_ALPHA)
                 o.screenPos = ComputeScreenPos(o.vertex);
+	            #endif
                 return o;
             }
 
