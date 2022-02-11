@@ -159,7 +159,9 @@ public static partial class DebugDraw
 	#if DEBUG_DRAW
 	
 	private static readonly Camera.CameraCallback OnCameraPreCullDelegate = OnCameraPreCull;
+	private static readonly Camera.CameraCallback OnCameraPostRenderDelegate = OnCameraPostRender;
 	private static readonly Action<ScriptableRenderContext, Camera> OnBeginCameraRenderingDelegate = OnBeginCameraRendering;
+	private static readonly Action<ScriptableRenderContext, Camera> OnEndCameraRenderingDelegate = OnEndCameraRendering;
 	
 	private static DebugDrawTimer timerInstance;
 	private static float frameTime;
@@ -261,10 +263,13 @@ public static partial class DebugDraw
 	{
 		// Log.Print("---- [Initialising] ----------------------------------", isPlaying);
 		
+		RenderPipelineManager.beginCameraRendering -= OnBeginCameraRenderingDelegate;
+		RenderPipelineManager.endCameraRendering -= OnEndCameraRenderingDelegate;
+		Camera.onPreCull -= OnCameraPreCullDelegate;
+		Camera.onPostRender -= OnCameraPostRenderDelegate;
+		
 		if (!_enableInEditMode && !isPlaying)
 		{
-			RenderPipelineManager.beginCameraRendering -= OnBeginCameraRenderingDelegate;
-			Camera.onPreCull -= OnCameraPreCullDelegate;
 			Destroy();
 			return;
 		}
@@ -296,10 +301,10 @@ public static partial class DebugDraw
 		
 		UpdateFixedUpdateFlag();
 		
-		Camera.onPreCull -= OnCameraPreCullDelegate;
-		Camera.onPreCull += OnCameraPreCullDelegate;
-		RenderPipelineManager.beginCameraRendering -= OnBeginCameraRenderingDelegate;
 		RenderPipelineManager.beginCameraRendering += OnBeginCameraRenderingDelegate;
+		RenderPipelineManager.endCameraRendering += OnEndCameraRenderingDelegate;
+		Camera.onPreCull += OnCameraPreCullDelegate;
+		Camera.onPostRender += OnCameraPostRenderDelegate;
 		
 		ClearCamera();
 	}
@@ -347,15 +352,25 @@ public static partial class DebugDraw
 
 	private static void OnCameraPreCull(Camera camera)
 	{
-		DoBeforeRender();
+		DoBeforeRender(camera);
+	}
+
+	private static void OnCameraPostRender(Camera camera)
+	{
+		requiresDraw = true;
 	}
 
 	private static void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
 	{
-		DoBeforeRender();
+		DoBeforeRender(camera);
 	}
 
-	private static void DoBeforeRender()
+	private static void OnEndCameraRendering(ScriptableRenderContext context, Camera camera)
+	{
+		requiresDraw = true;
+	}
+
+	private static void DoBeforeRender(Camera camera)
 	{
 		if (!Application.isPlaying)
 		{
