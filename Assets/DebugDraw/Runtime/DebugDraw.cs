@@ -158,10 +158,15 @@ public static partial class DebugDraw
 
 	#if DEBUG_DRAW
 	
+	#if UNITY_EDITOR
+	private static readonly EditorApplication.CallbackFunction OnEditorFlushFrameDelegate = OnEditorFlushFrame;
+	private static bool pendingEditorFrameFlush;
+	#endif
+	
 	private static readonly Camera.CameraCallback OnCameraPreCullDelegate = OnCameraPreCull;
-	private static readonly Camera.CameraCallback OnCameraPostRenderDelegate = OnCameraPostRender;
+	#if SRP_AVAILABLE
 	private static readonly Action<ScriptableRenderContext, Camera> OnBeginCameraRenderingDelegate = OnBeginCameraRendering;
-	private static readonly Action<ScriptableRenderContext, Camera> OnEndCameraRenderingDelegate = OnEndCameraRendering;
+	#endif
 	
 	private static DebugDrawTimer timerInstance;
 	private static float frameTime;
@@ -263,10 +268,10 @@ public static partial class DebugDraw
 	{
 		// Log.Print("---- [Initialising] ----------------------------------", isPlaying);
 		
-		RenderPipelineManager.beginCameraRendering -= OnBeginCameraRenderingDelegate;
-		RenderPipelineManager.endCameraRendering -= OnEndCameraRenderingDelegate;
 		Camera.onPreCull -= OnCameraPreCullDelegate;
-		Camera.onPostRender -= OnCameraPostRenderDelegate;
+		#if SRP_AVAILABLE
+		RenderPipelineManager.beginCameraRendering -= OnBeginCameraRenderingDelegate;
+		#endif
 		
 		if (!_enableInEditMode && !isPlaying)
 		{
@@ -301,10 +306,10 @@ public static partial class DebugDraw
 		
 		UpdateFixedUpdateFlag();
 		
-		RenderPipelineManager.beginCameraRendering += OnBeginCameraRenderingDelegate;
-		RenderPipelineManager.endCameraRendering += OnEndCameraRenderingDelegate;
 		Camera.onPreCull += OnCameraPreCullDelegate;
-		Camera.onPostRender += OnCameraPostRenderDelegate;
+		#if SRP_AVAILABLE
+		RenderPipelineManager.beginCameraRendering += OnBeginCameraRenderingDelegate;
+		#endif
 		
 		ClearCamera();
 	}
@@ -355,23 +360,23 @@ public static partial class DebugDraw
 		DoBeforeRender(camera);
 	}
 
-	private static void OnCameraPostRender(Camera camera)
-	{
-		requiresDraw = true;
-	}
-
+	#if SRP_AVAILABLE
 	private static void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
 	{
 		DoBeforeRender(camera);
 	}
-
-	private static void OnEndCameraRendering(ScriptableRenderContext context, Camera camera)
-	{
-		requiresDraw = true;
-	}
+	#endif
 
 	private static void DoBeforeRender(Camera camera)
 	{
+		#if UNITY_EDITOR
+		if (EditorApplication.isPaused && !pendingEditorFrameFlush)
+		{
+			EditorApplication.update += OnEditorFlushFrameDelegate;
+			pendingEditorFrameFlush = true;
+		}
+		#endif
+		
 		if (!Application.isPlaying)
 		{
 			UpdateCamera();
@@ -392,6 +397,13 @@ public static partial class DebugDraw
 			DrawMesh(triangleMeshInstance);
 			requiresDraw = false;
 		}
+	}
+
+	private static void OnEditorFlushFrame()
+	{
+		EditorApplication.update -= OnEditorFlushFrameDelegate;
+		pendingEditorFrameFlush = false;
+		requiresDraw = true;
 	}
 	
 	private static void DrawMesh(DebugDrawMesh mesh)

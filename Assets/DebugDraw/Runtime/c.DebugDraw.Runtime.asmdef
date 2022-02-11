@@ -8,6 +8,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.core",
+            "expression": "5.0",
+            "define": "SRP_AVAILABLE"
+        }
+    ],
     "noEngineReferences": false
 }
