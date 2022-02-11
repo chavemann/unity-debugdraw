@@ -2,6 +2,7 @@
 #define DEBUG_DRAW
 #endif
 
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using DebugDrawAttachments;
@@ -158,6 +159,7 @@ public static partial class DebugDraw
 	#if DEBUG_DRAW
 	
 	private static readonly Camera.CameraCallback OnCameraPreCullDelegate = OnCameraPreCull;
+	private static readonly Action<ScriptableRenderContext, Camera> OnBeginCameraRenderingDelegate = OnBeginCameraRendering;
 	
 	private static DebugDrawTimer timerInstance;
 	private static float frameTime;
@@ -261,6 +263,8 @@ public static partial class DebugDraw
 		
 		if (!_enableInEditMode && !isPlaying)
 		{
+			RenderPipelineManager.beginCameraRendering -= OnBeginCameraRenderingDelegate;
+			Camera.onPreCull -= OnCameraPreCullDelegate;
 			Destroy();
 			return;
 		}
@@ -283,7 +287,7 @@ public static partial class DebugDraw
 			textMeshInstance = new DebugDrawTextMesh();
 		}
 
-		if (_enableInEditMode || Application.isPlaying)
+		if (_enableInEditMode || isPlaying)
 		{
 			pointMeshInstance.CreateAll();
 			lineMeshInstance.CreateAll();
@@ -294,6 +298,8 @@ public static partial class DebugDraw
 		
 		Camera.onPreCull -= OnCameraPreCullDelegate;
 		Camera.onPreCull += OnCameraPreCullDelegate;
+		RenderPipelineManager.beginCameraRendering -= OnBeginCameraRenderingDelegate;
+		RenderPipelineManager.beginCameraRendering += OnBeginCameraRenderingDelegate;
 		
 		ClearCamera();
 	}
@@ -339,7 +345,17 @@ public static partial class DebugDraw
 		camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
 	}
 
-	private static void OnCameraPreCull(Camera _)
+	private static void OnCameraPreCull(Camera camera)
+	{
+		DoBeforeRender();
+	}
+
+	private static void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
+	{
+		DoBeforeRender();
+	}
+
+	private static void DoBeforeRender()
 	{
 		if (!Application.isPlaying)
 		{

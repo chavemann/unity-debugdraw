@@ -2,10 +2,6 @@
 #define DEBUG_DRAW
 #endif
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -59,6 +55,7 @@ public static partial class DebugDraw
 			}
 			
 			// ReSharper disable once ConditionIsAlwaysTrueOrFalse
+			#pragma warning disable 162
 			if (UpdateInstanceScene && timerInstance == this)
 			{
 				if (onActiveSceneChangedDelegate == null)
@@ -69,6 +66,7 @@ public static partial class DebugDraw
 				SceneManager.activeSceneChanged -= onActiveSceneChangedDelegate;
 				SceneManager.activeSceneChanged += onActiveSceneChangedDelegate;
 			}
+			#pragma warning restore 162
 		}
 
 		private void OnActiveSceneChanged(Scene prev, Scene current)
@@ -111,7 +109,7 @@ public static partial class DebugDraw
 			DoUpdate();
 		}
 
-		private static void DoUpdate()
+		private void DoUpdate()
 		{
 			// Log.Print("DebugDrawTimer.DoUpdate", gameObject.GetInstanceID());
 			
