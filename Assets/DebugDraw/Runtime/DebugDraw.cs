@@ -93,35 +93,14 @@ public static partial class DebugDraw
 	}
 
 	// TODO: Test enableInEditMode again
-	/// <summary>
-	/// Set to true to also allow using DebugDraw in edit mode. Make sure to enable before using any of
-	/// the debug draw visual methods in the editor.
-	/// </summary>
-	public static bool enableInEditMode
-	{
-		get => _enableInEditMode;
-		set
-		{
-			if (_enableInEditMode == value)
-				return;
-	
-			_enableInEditMode = value;
-			
-			if (!Application.isPlaying)
-			{
-				if (_enableInEditMode)
-				{
-					Initialize();
-				}
-				else if (timerInstance != null)
-				{
-					DestroyObj(timerInstance.gameObject);
-					UpdateInstance(null);
-				}
-			}
-		}
-	}
-	
+	#if UNITY_EDITOR
+	public static bool isActive => pointMeshInstance != null && (EditorApplication.isPlayingOrWillChangePlaymode || _enableInEditMode);
+	public static bool isPlaying => EditorApplication.isPlayingOrWillChangePlaymode;
+	#else
+	public static bool isActive =>pointMeshInstance != null && (Application.isPlaying || _enableInEditMode);
+	public static bool isPlaying => Application.isPlaying;
+	#endif
+
 	/// <summary>
 	/// All item colors will be multiplied by this.
 	/// </summary>
@@ -200,22 +179,23 @@ public static partial class DebugDraw
 	private static bool requiresBuild = true;
 	private static bool requiresDraw = true;
 
-	#if UNITY_EDITOR
-	
 	[InitializeOnLoadMethod]
 	private static void InitializeOnLoad()
 	{
 		// Log.Print("---- InitializeOnLoad ---------------------------------- ");
 		// Log.Print("---- ---------------- ---------------------------------- ");
 		
+		#if UNITY_EDITOR
 		EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
 		EditorSceneManager.activeSceneChangedInEditMode += OnactiveSceneChangedInEditMode;
 		EditorSceneManager.sceneOpening += OnEditorSceneOpening;
+		#endif
 		
 		Clear();
 		Initialize(true);
 	}
 
+	#if UNITY_EDITOR
 	private static void OnEditorSceneOpening(string path, OpenSceneMode mode)
 	{
 		if (mode == OpenSceneMode.Single)
@@ -237,9 +217,14 @@ public static partial class DebugDraw
 
 	private static void OnPlayModeStateChanged(PlayModeStateChange state)
 	{
+		// Log.Print($"-- DebugDraw.OnPlayModeStateChanged ({state}) ----------------------------------");
+		
 		if (state == PlayModeStateChange.ExitingPlayMode || state == PlayModeStateChange.ExitingEditMode)
 		{
-			// Log.Print("---- OnPlayModeStateChanged ----------------------------------");
+			if (state == PlayModeStateChange.ExitingEditMode)
+			{
+				Initialize();
+			}
 			
 			Clear();
 			frameTime = 0;
@@ -248,6 +233,16 @@ public static partial class DebugDraw
 		else if (state == PlayModeStateChange.EnteredPlayMode || state == PlayModeStateChange.EnteredEditMode)
 		{
 			UpdateTimerInstanceScene();
+		}
+
+		if (!_enableInEditMode && state == PlayModeStateChange.EnteredEditMode)
+		{
+			Clear();
+			
+			if (timerInstance)
+			{
+				UpdateInstance(null);
+			}
 		}
 	}
 	#endif
@@ -262,7 +257,13 @@ public static partial class DebugDraw
 	
 	private static void Initialize(bool createTimer = false)
 	{
-		// Log.Print("---- [Initialising] ---------------------------------- ");
+		// Log.Print("---- [Initialising] ----------------------------------", isPlaying);
+		
+		if (!_enableInEditMode && !isPlaying)
+		{
+			Destroy();
+			return;
+		}
 		
 		beforeInitialise = false;
 
@@ -345,7 +346,7 @@ public static partial class DebugDraw
 			UpdateCamera();
 		}
 
-		if (requiresBuild)
+		if (requiresBuild && pointMeshInstance != null)
 		{
 			pointMeshInstance.Build();
 			lineMeshInstance.Build();
@@ -382,6 +383,28 @@ public static partial class DebugDraw
 			timerInstance.gameObject.transform.SetAsLastSibling();
 		}
 		#pragma warning restore 162
+	}
+
+	private static void Destroy()
+	{
+		if (hasInstance)
+		{
+			if (timerInstance)
+			{
+				timerInstance.DestroyTimer();
+				timerInstance = null;
+			}
+			
+			hasInstance = false;
+		}
+
+		if (pointMeshInstance != null)
+		{
+			pointMeshInstance.ClearAll();
+			lineMeshInstance.ClearAll();
+			triangleMeshInstance.ClearAll();
+			textMeshInstance.ClearAll();
+		}
 	}
 	
 	#endif

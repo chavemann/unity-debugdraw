@@ -74,7 +74,7 @@ public partial class DebugDrawMesh
 	}
 
 	/// <summary>
-	/// Creates the <see cref="Mesh"/> used by this instance if it does not exist.
+	/// Creates the <see cref="UnityEngine.Mesh"/> used by this instance if it does not exist.
 	/// </summary>
 	public void CreateMesh()
 	{
@@ -250,7 +250,7 @@ public partial class DebugDrawMesh
 	}
 
 	/// <summary>
-	/// Clears the this DebugDrawMesh's <see cref="Mesh"/> if it has been created.
+	/// Clears the this DebugDrawMesh's <see cref="UnityEngine.Mesh"/> if it has been created.
 	/// </summary>
 	public void ClearMesh()
 	{
@@ -264,25 +264,12 @@ public partial class DebugDrawMesh
 	}
 
 	/// <summary>
-	/// Clears all the items as well as this DebugDrawMesh's <see cref="Mesh"/>
+	/// Clears all the items as well as this DebugDrawMesh's <see cref="UnityEngine.Mesh"/>
 	/// </summary>
 	public void ClearAll()
 	{
 		Clear();
 		ClearMesh();
-	}
-
-	internal void OffsetTime(float time)
-	{
-		for (int i = itemCount - 1; i >= 0; i--)
-		{
-			BaseItem item = items[i];
-
-			if (item.expires != float.PositiveInfinity)
-			{
-				item.expires += time;
-			}
-		}
 	}
 
 	/// <summary>

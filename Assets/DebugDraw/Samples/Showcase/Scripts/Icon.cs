@@ -39,7 +39,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 		private void CreateIcon()
 		{
-			if (iconSize <= 0 || !tr)
+			if (!DebugDraw.isActive || iconSize <= 0 || !tr)
 			{
 				ClearIcon();
 				return;
@@ -70,7 +70,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 		private void CreateAxes()
 		{
-			if (axesSize == 0 || !tr)
+			if (!DebugDraw.isActive || axesSize == 0 || !tr)
 			{
 				ClearAxes();
 				return;

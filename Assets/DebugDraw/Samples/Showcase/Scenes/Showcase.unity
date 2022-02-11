@@ -239,7 +239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322272653}
   m_LocalRotation: {x: 0.6193788, y: 0, z: 0, w: 0.7850923}
-  m_LocalPosition: {x: -2.12, y: 0.1567294, z: -1.92}
+  m_LocalPosition: {x: -2.12, y: 0.28735757, z: -1.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -402,18 +402,27 @@ MonoBehaviour:
   headOffset: {x: 0.1, y: 0.1}
   arrowAutoSize: 1
   arcRotation: 0
-  arcStart: 0
-  arcEnd: 360
-  arcSize: {x: 1.85, y: 0.88}
+  arcStart: -375.7
+  arcEnd: 316.37
+  arcSize1: {x: 1.58, y: 1.89}
+  arcSize2: {x: 1.29, y: 1}
+  arcInnerRadius: 1.63
   arcAxes: 2
-  arcSegments: 2
-  arcRes: 16
+  arcSegments: 0
+  arcRes: 27
   arcColor: {r: 0, g: 1, b: 1, a: 0.41960785}
+  coneLength: 1.7
+  coneAngle: 104.32
+  coneRes: 12
+  coneCaps: 1
+  shell: 1
+  coneType: 0
   line3DSize: 0.3
   line3DFaceCam: 1
   line3DAutoSize: 1
   line3DLength: 1.99
   boxSize: {x: 0.5, y: 0.5, z: 0.5}
+  mesh: {fileID: 0}
 --- !u!4 &1218636477
 Transform:
   m_ObjectHideFlags: 0
@@ -422,7 +431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218636475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.33, z: 3.5}
+  m_LocalPosition: {x: 2.28, y: 0, z: 3.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -486,8 +495,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979193047}
-  m_LocalRotation: {x: 0.20189366, y: -0.7136094, z: -0.31911963, w: -0.5900537}
-  m_LocalPosition: {x: 0.357, y: 1.0743603, z: -1.92}
+  m_LocalRotation: {x: 0.010513149, y: 0.6343155, z: -0.14714593, w: 0.7588686}
+  m_LocalPosition: {x: 0.357, y: 1.9885628, z: -1.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -5,6 +5,7 @@
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -39,13 +40,9 @@ public static partial class DebugDraw
 		
 		private void OnEnable()
 		{
-			if (pendingDestroy)
+			if (pendingDestroy || !Application.isPlaying && !_enableInEditMode)
 			{
-				GameObject go = gameObject;
-				DestroyObj(this);
-				DestroyObj(startTimer);
-				DestroyObj(go);
-				pendingDestroy = false;
+				DestroyTimer();
 				return;
 			}
 
@@ -59,11 +56,6 @@ public static partial class DebugDraw
 			if (!timerInstance)
 			{
 				UpdateInstance(this);
-				Clear();
-			}
-			else if (timerInstance == this)
-			{
-				Clear();
 			}
 			
 			// ReSharper disable once ConditionIsAlwaysTrueOrFalse
@@ -150,6 +142,36 @@ public static partial class DebugDraw
 			{
 				LogMessage.Draw();
 			}
+		}
+
+		internal void DestroyTimer()
+		{
+			if (gameObject)
+			{
+				// Not sure why but even with the null checks it would still throw an exception when exiting play mode.
+				try
+				{
+					if (this)
+						DestroyObj(this);
+				}
+				catch (MissingReferenceException) { }
+				try
+				{
+					if (startTimer)
+						DestroyObj(startTimer);
+				}
+				catch (MissingReferenceException) { }
+				try
+				{
+					if (gameObject)
+						DestroyObj(gameObject);
+				}
+				catch (MissingReferenceException) { }
+
+				startTimer = null;
+			}
+				
+			pendingDestroy = false;
 		}
 
 	}
