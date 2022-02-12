@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
@@ -63,6 +64,11 @@ namespace DebugDrawSamples.Showcase.Scripts
 		static Showcase()
 		{
 			Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+		}
+
+		private void Start()
+		{
+			Application.targetFrameRate = 60;
 		}
 
 		protected override void OnEnable()
@@ -139,6 +145,13 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 		private void Update()
 		{
+			// Log.Print("Update", DebugDraw.isActive);
+
+			if (!Application.isEditor && Input.GetKeyDown(KeyCode.Escape))
+			{
+				Application.Quit();
+			}
+			
 			if (!DebugDraw.isActive)
 				return;
 
