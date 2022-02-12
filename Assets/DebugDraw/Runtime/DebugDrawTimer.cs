@@ -111,7 +111,7 @@ public static partial class DebugDraw
 
 		private void DoUpdate()
 		{
-			// Log.Print("DebugDrawTimer.DoUpdate", gameObject.GetInstanceID());
+			// Log.Print("--- DebugDrawTimer.DoUpdate", gameObject.GetInstanceID());
 			
 			camUpdated = false;
 
@@ -207,6 +207,8 @@ public static partial class DebugDraw
 
 		private void DoUpdate()
 		{
+			// Log.Print("-------------------- DebugDrawFrameStartTimer.DoUpdate");
+			
 			UpdateCamera();
 			frameTime = beforeInitialise ? 0 : Time.time;
 		}

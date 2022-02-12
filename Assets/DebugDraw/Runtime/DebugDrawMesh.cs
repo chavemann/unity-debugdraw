@@ -88,16 +88,16 @@ public partial class DebugDrawMesh
 
 	internal void CreateMaterial()
 	{
-		if (!hasMaterial || !material)
-		{
-			hasMaterial = true;
-			shader = Shader.Find("DebugDraw/Unlit");
-			material = new Material(shader) { hideFlags = HideFlags.HideAndDontSave };
-			SetInvertColours(false);
-			SetCulling(CullMode.Off);
-			SetDepthTesting();
-			SetDitherAlpha(false);
-		}
+		if (hasMaterial && material)
+			return;
+
+		hasMaterial = true;
+		shader = Shader.Find("DebugDraw/Unlit");
+		material = new Material(shader) { hideFlags = HideFlags.HideAndDontSave };
+		SetInvertColours(false);
+		SetCulling(CullMode.Off);
+		SetDepthTesting();
+		SetDitherAlpha(false);
 	}
 
 	internal void CreateAll()

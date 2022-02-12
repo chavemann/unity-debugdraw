@@ -188,7 +188,11 @@ public static partial class DebugDraw
 	private static bool requiresBuild = true;
 	private static bool requiresDraw = true;
 
+	#if UNITY_EDITOR
 	[InitializeOnLoadMethod]
+	#else
+	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+	#endif
 	private static void InitializeOnLoad()
 	{
 		// Log.Print("---- InitializeOnLoad ---------------------------------- ");
@@ -399,12 +403,14 @@ public static partial class DebugDraw
 		}
 	}
 
+	#if UNITY_EDITOR
 	private static void OnEditorFlushFrame()
 	{
 		EditorApplication.update -= OnEditorFlushFrameDelegate;
 		pendingEditorFrameFlush = false;
 		requiresDraw = true;
 	}
+	#endif
 	
 	private static void DrawMesh(DebugDrawMesh mesh)
 	{
