@@ -22,23 +22,23 @@ public class DebugDrawTextMesh : DebugDrawMesh
 		Vector2 screenSize = new Vector2(Screen.width, Screen.height);
 		Rect rect = new Rect(0, 0, 0, 0);
 
-		ref Vector3 camForward = ref DebugDraw.camForward;
-		ref Vector3 camPosition = ref DebugDraw.camPosition;
 		float lineHeight = DebugDraw.TextStyle.lineHeight;
 
 		for(int i = itemCount - 1; i >= 0; i--)
 		{
 			Text item = (Text) items[i];
 
-			Vector3 p = DebugDraw.cam.WorldToScreenPoint(item.position);
+			Vector3 p = DebugDraw.cam.WorldToViewportPoint(item.position);
 			
 			// This text is behind the camera 
 			if (p.z < 0.25f)
 				continue;
+			// Or too far outside the screen.
+			if (p.x < -1f || p.x > 2f || p.y < -1f || p.y > 2f)
+				continue;
 			
-			p.y = screenSize.y - p.y;
-			p.z = 0;
-			Matrix4x4 m = Matrix4x4.Translate(new Vector3(p.x, p.y, 0));
+			p.y = 1 - p.y;
+			Matrix4x4 m = Matrix4x4.Translate(new Vector3(p.x * screenSize.x, p.y * screenSize.y, 0));
 
 			float scale = item.scale;
 
@@ -46,15 +46,15 @@ public class DebugDrawTextMesh : DebugDrawMesh
 			{
 				if (item.useWorldSize)
 				{
-					scale *= DebugDraw.textBaseWorldDistance / Vector3.Dot(new Vector3(
-						item.position.x - camPosition.x,
-						item.position.y - camPosition.y,
-						item.position.z - camPosition.z), camForward);
-					
+					scale *= DebugDraw.textBaseWorldDistance /
+							 // Prevent the text from getting too big or risk the font not being able to
+							 // fit into a single texture.
+							 Mathf.Max(p.z, 0.5f);
+
 					if (scale * lineHeight < DebugDraw.minTextSize)
 						continue;
 				}
-				
+
 				m *= Matrix4x4.Scale(new Vector3(scale, scale, scale));
 			}
 			
