@@ -16,7 +16,6 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
-// TODO: Debug camera toggle
 // TODO: Test with DEBUG_DRAW_OFF
 /// <summary>
 /// TODO: Write
@@ -484,7 +483,7 @@ public static partial class DebugDraw
 	/// When active, creates a new camera that can freely fly around with the WASD keys and mouse.</para>
 	/// <list type="bullet">
 	/// 	<item><b>W/A/S/D:</b> Move</item>
-	/// 	<item><b>Q/E:</b> rise/fall</item>
+	/// 	<item><b>Q/E/Space:</b> rise/fall</item>
 	/// 	<item><b>Mouse:</b> Look</item>
 	/// 	<item><b>Shift:</b> Move fast</item>
 	/// 	<item><b>Ctrl:</b> Move slow</item>

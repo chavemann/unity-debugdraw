@@ -162,6 +162,13 @@ namespace DebugDrawSamples.Showcase.Scripts
 				DebugDraw.UpdateDebugCamera();
 			}
 
+			if (DebugDraw.debugCamera && Input.GetKeyDown(KeyCode.T))
+			{
+				DebugDraw.debugCamera.TrackObject(!DebugDraw.debugCamera.isTrackingObj
+					? FindObjectOfType<PlayerMovement>()
+					: null, true);
+			}
+
 			// if (Application.isPlaying)
 			// {
 				// if (delayedInit >= 0)

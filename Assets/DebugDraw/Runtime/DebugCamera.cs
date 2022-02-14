@@ -3,7 +3,6 @@ using UnityEngine;
 namespace DebugDrawUtils
 {
 
-	// TODO: Add lock onto object option
 	/// <summary>
 	/// A simple free floating debug camera.
 	/// Don't create directly, instead use <see cref="DebugDraw.ToggleDebugCamera(bool)"/>
@@ -70,6 +69,23 @@ namespace DebugDrawUtils
 		protected Vector3 direction;
     	protected Vector2 rotation;
 		protected float baseFOV;
+
+		/// <summary>
+		/// True if an object is being tracked.
+		/// </summary>
+		public bool isTrackingObj { get; protected set; }
+		/// <summary>
+		/// True if the tracked object is also locked into the centre of the view.
+		/// </summary>
+		public bool isLookingAtObj;
+		/// <summary>
+		/// The object the debug camera is tracking.
+		/// </summary>
+		public Transform trackingObj { get; protected set; }
+		protected Vector3 trackingObjPosition;
+
+		/* ------------------------------------------------------------------------------------- */
+		/* -- Init -- */
     
     	protected virtual void Awake()
     	{
@@ -84,27 +100,27 @@ namespace DebugDrawUtils
     	{
     		DebugDraw.ToggleDebugCamera(false);
     	}
+		
+		/* ------------------------------------------------------------------------------------- */
+		/* -- Private -- */
     
-    	protected virtual void Update()
-    	{
-    		if (Input.GetKeyDown(KeyCode.Escape))
-    		{
-    			LockCursor(false);
-    		}
-    		else if (Cursor.lockState != CursorLockMode.Locked)
-    		{
-    			if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
-    			{
-    				LockCursor(true);
-    			}
-    		}
+		protected virtual void LateUpdate()
+		{
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				LockCursor(false);
+			}
+			else if (Cursor.lockState != CursorLockMode.Locked)
+			{
+				if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+				{
+					LockCursor(true);
+				}
+			}
 
 			DoMouseLook();
 			DoMovement();
-		}
-
-		protected virtual void LateUpdate()
-		{
+			
 			if (crossHairSize > 0)
 			{
 				Vector3 p = tr.position + camTr.forward * (cam.nearClipPlane + 0.0001f);
@@ -130,6 +146,37 @@ namespace DebugDrawUtils
 						p.x + u.x * s,
 						p.y + u.y * s,
 						p.z + u.z * s), crossHairColor);
+			}
+
+			if (isTrackingObj)
+			{
+				if (trackingObj)
+				{
+					Vector3 newPosition = trackingObj.position;
+					Vector3 position = tr.position;
+					
+					if (isLookingAtObj)
+					{
+						float dist = new Vector3(
+							position.x - trackingObjPosition.x,
+							position.y - trackingObjPosition.y,
+							position.z - trackingObjPosition.z).magnitude;
+						position = trackingObjPosition - camTr.forward * dist;
+					}
+
+					position += new Vector3(
+						newPosition.x - trackingObjPosition.x,
+						newPosition.y - trackingObjPosition.y,
+						newPosition.z - trackingObjPosition.z);
+					tr.position = position;
+					
+					trackingObjPosition = newPosition;
+				}
+				else
+				{
+					isTrackingObj = false;
+					trackingObj = null;
+				}
 			}
 		}
 
@@ -263,7 +310,39 @@ namespace DebugDrawUtils
 				LockCursor(true);
 			}
 		}
-    
+		
+		/* ------------------------------------------------------------------------------------- */
+		/* -- Methods -- */
+
+		/// <summary>
+		/// The debug camera will attempt to keep its relative position to this object every frame.
+		/// </summary>
+		/// <param name="obj">The object to track. Set to null to stop tracking.</param>
+		/// <param name="lookAt">If true the object will also stay centred in the view.</param>
+		public void TrackObject(Transform obj, bool lookAt = false)
+		{
+			trackingObj = obj;
+			isTrackingObj = obj != null;
+			isLookingAtObj = lookAt;
+
+			if (isTrackingObj)
+			{
+				trackingObjPosition = obj.position;
+			}
+		}
+
+		/// <inheritdoc cref="TrackObject(UnityEngine.Transform, bool)"/>
+		public void TrackObject(GameObject obj, bool lookAt = false)
+		{
+			TrackObject(obj ? obj.transform : null, lookAt);
+		}
+
+		/// <inheritdoc cref="TrackObject(UnityEngine.Transform, bool)"/>
+		public void TrackObject(MonoBehaviour obj, bool lookAt = false)
+		{
+			TrackObject(obj ? obj.transform : null, lookAt);
+		}
+
 		public static void LockCursor(bool locked)
 		{
 			if (locked)
