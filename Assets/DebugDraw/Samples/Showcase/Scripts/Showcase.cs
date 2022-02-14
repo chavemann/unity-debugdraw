@@ -154,6 +154,12 @@ namespace DebugDrawSamples.Showcase.Scripts
 			if (!DebugDraw.isActive)
 				return;
 
+			if (Input.GetKeyDown(KeyCode.BackQuote))
+			{
+				DebugDraw.ToggleDebugCamera();
+				DebugDraw.UpdateDebugCamera();
+			}
+
 			// if (Application.isPlaying)
 			// {
 				// if (delayedInit >= 0)
@@ -173,11 +179,11 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			if (frame == 0 || frame % (Application.isPlaying ? 12 : 4) == 0)
 			{
-				Log.nextMessageColor = Random.ColorHSV(0f, 1f, 0.5f, 1f, 1f, 1f);
-				Log.Show(0, 1.0f, $" This is the time: <i>{DebugDraw.GetTime().ToString(CultureInfo.InvariantCulture)}</i>");
+				// Log.nextMessageColor = Random.ColorHSV(0f, 1f, 0.5f, 1f, 1f, 1f);
+				// Log.Show(0, 1.0f, $" This is the time: <i>{DebugDraw.GetTime().ToString(CultureInfo.InvariantCulture)}</i>");
 			}
 			
-			Log.Show(1, 1.0f, $"<color=#66ffff>Persistent</color> message <b>XX</b> <i>{DebugDraw.GetTime().ToString(CultureInfo.InvariantCulture)}</i>");
+			// Log.Show(1, 1.0f, $"<color=#66ffff>Persistent</color> message <b>XX</b> <i>{DebugDraw.GetTime().ToString(CultureInfo.InvariantCulture)}</i>");
 
 			if (m)
 			{

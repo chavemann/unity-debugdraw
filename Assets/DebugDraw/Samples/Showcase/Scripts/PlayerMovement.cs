@@ -35,8 +35,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 		{
 			tr = transform;
 			camTransform = cam.transform;
-			Cursor.lockState = CursorLockMode.Locked;
-			Cursor.visible = false;
+			LockCursor(true);
 
 			controller = GetComponent<CharacterController>();
 			stepOffset = controller.stepOffset;
@@ -50,29 +49,27 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 		private void DoMouseLook()
 		{
-			if (Application.isEditor)
+			if (DebugDraw.usingDebugCamera)
+				return;
+			
+			if (Input.GetKeyDown(KeyCode.Escape))
 			{
-				if (Input.GetKeyDown(KeyCode.Escape))
+				#if UNITY_EDITOR
+				if (Application.isEditor && Cursor.lockState == CursorLockMode.None)
 				{
-					#if UNITY_EDITOR
-					if (Cursor.lockState == CursorLockMode.None)
-					{
-						UnityEditor.EditorApplication.isPlaying = false;
-					}
-					#endif
-					
-					Cursor.lockState = CursorLockMode.None;
-					Cursor.visible = true;
-					return;
+					UnityEditor.EditorApplication.isPlaying = false;
 				}
+				#endif
+				
+				LockCursor(false);
+				return;
 			}
 		
 			if (Cursor.lockState != CursorLockMode.Locked)
 			{
 				if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
 				{
-					Cursor.lockState = CursorLockMode.Locked;
-					Cursor.visible = false;
+					LockCursor(true);
 				}
 				else
 				{
@@ -88,6 +85,20 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			camTransform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 			tr.Rotate(Vector3.up * mouse.x);
+		}
+		
+		private void LockCursor(bool locked)
+		{
+			if (locked)
+			{
+				Cursor.lockState = CursorLockMode.Locked;
+				Cursor.visible = false;
+			}
+			else
+			{
+				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = true;
+			}
 		}
 
 		private void UpdateFeetPos()
@@ -157,10 +168,10 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			Vector3 forward = tr.forward;
 			Vector3 right = tr.right;
-			Vector3 input = new Vector3(
+			Vector3 input = !DebugDraw.usingDebugCamera ? new Vector3(
 				Input.GetAxisRaw("Horizontal"),
 				0,
-				Input.GetAxisRaw("Vertical"));
+				Input.GetAxisRaw("Vertical")) : Vector3.zero;
 			
 			if (input.magnitude  > 1)
 			{
@@ -204,7 +215,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 			
 			velocity.y += gravity * Time.deltaTime;
 
-			if (Input.GetButtonDown("Jump") && grounded)
+			if (Input.GetButtonDown("Jump") && grounded && !DebugDraw.usingDebugCamera)
 			{
 				velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
 				grounded = false;

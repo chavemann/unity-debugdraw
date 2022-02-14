@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using DebugDrawAttachments;
+using DebugDrawUtils;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -146,6 +147,10 @@ public static partial class DebugDraw
 	public static DebugDrawMesh pointMesh => pointMeshInstance;
 	public static DebugDrawMesh lineMesh => lineMeshInstance;
 	public static DebugDrawMesh triangleMesh => triangleMeshInstance;
+
+	internal static Camera lastCamera;
+	internal static DebugCamera debugCamera;
+	public static bool usingDebugCamera { get; private set; }
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Initialisation -- */
@@ -460,14 +465,115 @@ public static partial class DebugDraw
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Methods -- */
+
+	/// <summary>
+	/// <para>Turns the debug camera on or off.
+	/// When active, creates a new camera that can freely fly around with the WASD keys and mouse.</para>
+	/// <list type="bullet">
+	/// 	<item><b>W/A/S/D:</b> Move</item>
+	/// 	<item><b>Q/E:</b> rise/fall</item>
+	/// 	<item><b>Mouse:</b> Look</item>
+	/// 	<item><b>Shift:</b> Move fast</item>
+	/// 	<item><b>Ctrl:</b> Move slow</item>
+	/// 	<item><b>Alt </b>+ wheel: Adjust speed</item>
+	/// 	<item><b>wheel:</b> Adjust zoom</item>
+	/// 	<item><b>Home:</b> Reset speed and zoom</item>
+	/// </list>
+	/// </summary>
+	/// <param name="on">On or off.</param>
+	public static void ToggleDebugCamera(bool on)
+	{
+		if (!Application.isPlaying)
+			return;
+		
+		if (usingDebugCamera == on)
+			return;
+		
+		usingDebugCamera = on;
+
+		if (usingDebugCamera)
+		{
+			lastCamera = Camera.main;
+
+			if (lastCamera != null)
+			{
+				lastCamera.gameObject.SetActive(false);
+			}
+
+			if (!debugCamera)
+			{
+				GameObject obj = new GameObject("__DebugDrawCam__");
+				// GameObject obj = new GameObject("__DebugDrawCam__") { hideFlags = HideFlags.NotEditable };
+				debugCamera = obj.AddComponent<DebugCamera>();
+				// debugCamera.hideFlags = HideFlags.NotEditable;
+				
+				if (lastCamera != null)
+				{
+					UpdateDebugCamera(lastCamera);
+				}
+			}
+			
+			if (lastCamera != null)
+			{
+				lastCamera.gameObject.SetActive(false);
+			}
+			
+			debugCamera.gameObject.SetActive(true);
+		}
+		else
+		{
+			if (debugCamera)
+			{
+				debugCamera.gameObject.SetActive(false);
+			}
+
+			if (lastCamera)
+			{
+				lastCamera.gameObject.SetActive(true);
+			}
+		}
+
+		if (debugCamera)
+		{
+			debugCamera.Toggle(usingDebugCamera);
+		}
+		
+		InitCamera(usingDebugCamera ? debugCamera.cam : lastCamera);
+	}
+
+	/// <inheritdoc cref="ToggleDebugCamera(bool)"/>
+	public static void ToggleDebugCamera()
+	{
+		ToggleDebugCamera(!usingDebugCamera);
+	}
+
+	/// <summary>
+	/// Copies the transform and optionally properties of the given camera.
+	/// </summary>
+	/// <param name="from">If null uses the last active camera when the debug camera was activated.</param>
+	/// <param name="copyTransform">Sets the debug camera's position and rotation to match the given camera.</param>
+	/// <param name="copyProperties">Sets the debug camera's properties to match the given camera.</param>
+	public static void UpdateDebugCamera(Camera from = null, bool copyTransform = true, bool copyProperties = false)
+	{
+		if (!from)
+		{
+			from = lastCamera;
+		}
+		
+		if (!from || !debugCamera)
+			return;
+		
+		debugCamera.UpdateCamera(lastCamera, copyTransform, copyProperties);
+	}
 	
 	/// <summary>
 	/// DebugDraw caches a reference to Camera.main - call this to update that reference.
 	/// Though this happens automatically when when changing scenes etc.
 	/// </summary>
-	public static void InitCamera()
+	/// <param name="newCam">Leave as null to use Camera.main</param>
+	public static void InitCamera(Camera newCam = null)
 	{
-		cam = Camera.main;
+		cam = newCam ? newCam : Camera.main;
 		
 		#if UNITY_EDITOR
 		if (!Application.isPlaying && !cam)
