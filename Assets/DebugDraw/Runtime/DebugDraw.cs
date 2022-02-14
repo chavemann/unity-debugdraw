@@ -94,12 +94,11 @@ public static partial class DebugDraw
 		}
 	}
 
-	// TODO: Test enableInEditMode again
 	#if UNITY_EDITOR
 	public static bool isActive => pointMeshInstance != null && (EditorApplication.isPlayingOrWillChangePlaymode || _enableInEditMode);
 	public static bool isPlaying => EditorApplication.isPlayingOrWillChangePlaymode;
 	#else
-	public static bool isActive =>pointMeshInstance != null && (Application.isPlaying || _enableInEditMode);
+	public static bool isActive => pointMeshInstance != null && (Application.isPlaying || _enableInEditMode);
 	public static bool isPlaying => Application.isPlaying;
 	#endif
 
@@ -578,13 +577,6 @@ public static partial class DebugDraw
 		pointMeshInstance.SetDepthTesting(write, test);
 		lineMeshInstance.SetDepthTesting(write, test);
 		triangleMeshInstance.SetDepthTesting(write, test);
-	}
-	
-	public static void SetDitherAlpha(bool dither = true)
-	{
-		pointMeshInstance.SetDitherAlpha(dither);
-		lineMeshInstance.SetDitherAlpha(dither);
-		triangleMeshInstance.SetDitherAlpha(dither);
 	}
 	
 	/// <summary>

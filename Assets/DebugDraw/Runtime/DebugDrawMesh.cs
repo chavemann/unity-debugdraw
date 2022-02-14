@@ -92,12 +92,11 @@ public partial class DebugDrawMesh
 			return;
 
 		hasMaterial = true;
-		shader = Shader.Find("DebugDraw/Unlit");
+		shader = Shader.Find("Hidden/Internal-Colored");
 		material = new Material(shader) { hideFlags = HideFlags.HideAndDontSave };
 		SetInvertColours(false);
 		SetCulling(CullMode.Off);
 		SetDepthTesting();
-		SetDitherAlpha(false);
 	}
 
 	internal void CreateAll()
@@ -178,20 +177,6 @@ public partial class DebugDrawMesh
 		return this;
 	}
 
-	public DebugDrawMesh SetDitherAlpha(bool dither = true)
-	{
-		if (dither)
-		{
-			material.EnableKeyword("DITHER_ALPHA");
-		}
-		else
-		{
-			material.DisableKeyword("DITHER_ALPHA");
-		}
-
-		return this;
-	}
-	
 	/// <summary>
 	/// Add an item to this mesh. Items are only "rendered" when <see cref="Build"/> is called.
 	/// Normally this method won't be used directly - instead use the specific debug methods (e.g. <see cref="DebugDrawItems.Line"/>)
