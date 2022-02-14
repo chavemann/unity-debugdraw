@@ -21,6 +21,7 @@ using Object = UnityEngine.Object;
 /// TODO: Write
 /// TODO: Mention static  vs instance methods
 /// TODO: Mention defines DEBUG_DRAW_OFF, DEBUG_DRAW_EDITOR
+/// TODO: Overrides to draw raycasthits and rays
 /// </summary>
 public static partial class DebugDraw
 {
