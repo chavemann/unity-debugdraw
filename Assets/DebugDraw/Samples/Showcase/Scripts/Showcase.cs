@@ -13,6 +13,8 @@ namespace DebugDrawSamples.Showcase.Scripts
 	public class Showcase : Icon
 	{
 
+		public float crossHairSize = 0;
+
 		[Header("Line Attachment")]
 		public GameObject lineStart;
 		public GameObject lineEnd;
@@ -354,6 +356,11 @@ namespace DebugDrawSamples.Showcase.Scripts
 					.startHead.SetOffset(headOffset.x)
 					.endHead.SetOffset(headOffset.y);
 				arrow.autoSize = arrowAutoSize;
+			}
+
+			if (DebugDraw.debugCamera)
+			{
+				DebugDraw.debugCamera.crossHairSize = crossHairSize;
 			}
 		}
 

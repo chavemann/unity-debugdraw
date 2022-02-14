@@ -3,7 +3,6 @@ using UnityEngine;
 namespace DebugDrawUtils
 {
 
-	// TODO: Add crosshair option
 	// TODO: Add lock onto object option
 	/// <summary>
 	/// A simple free floating debug camera.
@@ -54,6 +53,16 @@ namespace DebugDrawUtils
 		/// </summary>
 		public float drag = 15f;
 
+		/// <summary>
+		/// If larger than zero, draws cross hairs in the centre of the screen, specified in hundredths of world coordinates.
+		/// The cross hair is faked by drawing two lines right in front of the camera's near clipping plane.
+		/// </summary>
+		public float crossHairSize;
+		/// <summary>
+		/// The color of the cross hairs.
+		/// </summary>
+		public Color crossHairColor = new Color(0.75f, 0.75f, 0.75f, 1);
+
 		protected Transform camTr;
 		protected Transform tr;
 
@@ -92,6 +101,36 @@ namespace DebugDrawUtils
 
 			DoMouseLook();
 			DoMovement();
+		}
+
+		protected virtual void LateUpdate()
+		{
+			if (crossHairSize > 0)
+			{
+				Vector3 p = tr.position + camTr.forward * (cam.nearClipPlane + 0.0001f);
+				Vector3 r = camTr.right;
+				Vector3 u = camTr.up;
+				float s = crossHairSize * 0.01f;
+
+				DebugDraw.Line(
+					new Vector3(
+						p.x - r.x * s,
+						p.y - r.y * s,
+						p.z - r.z * s),
+					new Vector3(
+						p.x + r.x * s,
+						p.y + r.y * s,
+						p.z + r.z * s), crossHairColor);
+				DebugDraw.Line(
+					new Vector3(
+						p.x - u.x * s,
+						p.y - u.y * s,
+						p.z - u.z * s),
+					new Vector3(
+						p.x + u.x * s,
+						p.y + u.y * s,
+						p.z + u.z * s), crossHairColor);
+			}
 		}
 
 		protected virtual void DoMouseLook()
