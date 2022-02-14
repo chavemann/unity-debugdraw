@@ -149,8 +149,21 @@ public static partial class DebugDraw
 	public static DebugDrawMesh triangleMesh => triangleMeshInstance;
 
 	internal static Camera lastCamera;
-	internal static DebugCamera debugCamera;
+	/// <summary>
+	/// The current debug camera. May be null.
+	/// </summary>
+	public static DebugCamera debugCamera { get; private set; }
+	/// <summary>
+	/// True if the debug camera is active.
+	/// </summary>
 	public static bool usingDebugCamera { get; private set; }
+	/// <summary>
+	/// The method responsible for creating the debug camera component.
+	/// Can be used to extend DebugCamera with custom functionality.
+	/// Leave null for the default.
+	/// If set this method should create a DebugCamera (or subclass of) on the given game object and return the result.
+	/// </summary>
+	public static Func<GameObject, DebugCamera> debugCameraFactory;
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Initialisation -- */
@@ -502,10 +515,31 @@ public static partial class DebugDraw
 
 			if (!debugCamera)
 			{
-				GameObject obj = new GameObject("__DebugDrawCam__");
-				// GameObject obj = new GameObject("__DebugDrawCam__") { hideFlags = HideFlags.NotEditable };
-				debugCamera = obj.AddComponent<DebugCamera>();
-				// debugCamera.hideFlags = HideFlags.NotEditable;
+				GameObject obj = new GameObject("__DebugDrawCam__") { hideFlags = HideFlags.NotEditable };
+
+				if (debugCameraFactory != null)
+				{
+					debugCamera = debugCameraFactory(obj);
+
+					if (!debugCamera)
+					{
+						Console.WriteLine("DebugCamera component returned from debugCameraFactory should not be null.");
+						DestroyObj(obj);
+						usingDebugCamera = false;
+						return;
+					}
+
+					if (debugCamera.gameObject != obj)
+					{
+						Console.WriteLine("DebugCamera was not added to the provided game object.");
+					}
+				}
+				else
+				{
+					debugCamera = obj.AddComponent<DebugCamera>();
+				}
+				
+				debugCamera.hideFlags = HideFlags.NotEditable;
 				
 				if (lastCamera != null)
 				{

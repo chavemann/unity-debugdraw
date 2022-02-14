@@ -3,7 +3,6 @@ using UnityEngine;
 namespace DebugDrawUtils
 {
 
-	// TODO: Add option to enable collisions with layermask and radius
 	// TODO: Add crosshair option
 	// TODO: Add lock onto object option
 	/// <summary>
@@ -16,7 +15,7 @@ namespace DebugDrawUtils
 		/// <summary>
 		/// The attached camera.
 		/// </summary>
-		public Camera cam { get; private set; }
+		public Camera cam { get; protected set; }
 		/// <summary>
 		/// The speed of the mouse while looking around.
 		/// </summary>
@@ -55,15 +54,15 @@ namespace DebugDrawUtils
 		/// </summary>
 		public float drag = 15f;
 
-		private Transform camTr;
-		private Transform tr;
+		protected Transform camTr;
+		protected Transform tr;
 
-		private float speed;
-		private Vector3 direction;
-    	private Vector2 rotation;
-		private float baseFOV;
+		protected float speed;
+		protected Vector3 direction;
+    	protected Vector2 rotation;
+		protected float baseFOV;
     
-    	private void Awake()
+    	protected virtual void Awake()
     	{
     		tr = transform;
 			GameObject camObj = new GameObject("");
@@ -72,12 +71,12 @@ namespace DebugDrawUtils
 			camTr = cam.transform;
 		}
     
-    	private void OnDestroy()
+    	protected virtual void OnDestroy()
     	{
     		DebugDraw.ToggleDebugCamera(false);
     	}
     
-    	private void Update()
+    	protected virtual void Update()
     	{
     		if (Input.GetKeyDown(KeyCode.Escape))
     		{
@@ -95,7 +94,7 @@ namespace DebugDrawUtils
 			DoMovement();
 		}
 
-		private void DoMouseLook()
+		protected virtual void DoMouseLook()
 		{
 			Vector2 mouse = Cursor.lockState == CursorLockMode.Locked
 				? new Vector2(
@@ -110,7 +109,7 @@ namespace DebugDrawUtils
 			tr.rotation = Quaternion.Euler(0, rotation.y, 0);
 		}
 
-		private void DoMovement()
+		protected virtual void DoMovement()
 		{
 			Vector3 forward = camTr.forward;
 			Vector3 right = camTr.right;
@@ -184,14 +183,14 @@ namespace DebugDrawUtils
 			tr.position += velocity * Time.deltaTime;
 		}
 
-		private float CalculateSpeedMultiplier()
+		protected virtual float CalculateSpeedMultiplier()
 		{
 			return currentSpeedPercent < 0
 				? Mathf.Lerp(1, minSpeedMultiplier, Mathf.Abs(currentSpeedPercent))
 				: Mathf.Lerp(1, maxSpeedMultiplier, currentSpeedPercent);
 		}
 
-		internal void UpdateCamera(Camera from, bool copyTransform, bool copyProperties)
+		internal virtual void UpdateCamera(Camera from, bool copyTransform, bool copyProperties)
 		{
 			if (!from)
 				return;
@@ -215,7 +214,7 @@ namespace DebugDrawUtils
 			}
 		}
     
-    	internal void Toggle(bool on)
+    	internal virtual void Toggle(bool on)
 		{
 			speed = 0;
 			baseFOV = cam ? cam.fieldOfView : 60;
