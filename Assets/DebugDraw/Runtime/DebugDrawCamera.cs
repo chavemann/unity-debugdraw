@@ -124,7 +124,7 @@ namespace DebugDrawUtils
 		/// 	<item><b>Shift:</b> Move fast</item>
 		/// 	<item><b>Ctrl:</b> Move slow</item>
 		/// 	<item><b>Alt </b>+ wheel: Adjust speed</item>
-		/// 	<item><b>wheel:</b> Adjust zoom</item>
+		/// 	<item><b>Wheel:</b> Adjust zoom</item>
 		/// 	<item><b>Home:</b> Reset speed and zoom</item>
 		/// </list>
 		/// </summary>
