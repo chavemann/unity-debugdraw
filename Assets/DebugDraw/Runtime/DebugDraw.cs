@@ -16,11 +16,23 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
+// TODO: Overrides to draw raycasthits and rays
 /// <summary>
-/// TODO: Write
-/// TODO: Mention static  vs instance methods
-/// TODO: Mention defines DEBUG_DRAW_OFF, DEBUG_DRAW_EDITOR
-/// TODO: Overrides to draw raycasthits and rays
+/// <para>
+/// A static class that provides various methods for drawing debug visuals.
+/// This class should be usable with no setup - simply include the package and call the methods.
+/// </para>
+/// <para>
+/// The following  compiler directives are available:
+/// </para>
+/// <list type="bullet">
+/// 	<item><b>DEBUG_DRAW_OFF:</b> Set this flag to disable the global static DebugDraw instance.
+/// 	When set, the static DebugDraw methods should not be used, but won't throw errors.
+/// 	</item>
+/// </list>
+/// <seealso cref="Log">The Log class for some convenient Debug.Log wrappers.</seealso>
+/// <seealso cref="DebugDrawCamera">For a toggleable free floating debug camera.</seealso>
+/// <seealso cref="DebugDrawMesh"/>
 /// </summary>
 public static partial class DebugDraw
 {

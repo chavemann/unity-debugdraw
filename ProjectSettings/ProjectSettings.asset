@@ -707,7 +707,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: DEBUG_DRAW_DEV;DEBUG_DRAW_OFF
+    1: DEBUG_DRAW_DEV
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
