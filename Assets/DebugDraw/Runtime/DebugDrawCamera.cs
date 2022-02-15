@@ -76,8 +76,7 @@ namespace DebugDrawUtils
 		public static float drag = 15f;
 
 		/// <summary>
-		/// If larger than zero, draws cross hairs in the centre of the screen, specified in hundredths of world coordinates.
-		/// The cross hair is faked by drawing two lines right in front of the camera's near clipping plane.
+		/// If larger than zero, draws cross hairs in the centre of the screen.
 		/// </summary>
 		public static float crossHairSize;
 		/// <summary>
@@ -259,6 +258,7 @@ namespace DebugDrawUtils
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Private -- */
 
+		protected static Mesh crossHairMesh;
 		protected virtual void OnRenderObject()
 		{
 			if (crossHairSize > 0)
@@ -277,33 +277,27 @@ namespace DebugDrawUtils
 					crossHairMaterial.SetInt(DebugDrawMesh.ZTest, (int) CompareFunction.Always);
 
 					hasCrossHairMaterial = true;
+
+					crossHairMesh = new Mesh();
+					crossHairMesh.SetVertices(new Vector3[]
+					{
+						Vector3.left, Vector3.right,
+						Vector3.up, Vector3.down, 
+					});
+					crossHairMesh.SetIndices(new int[] { 0, 1, 2, 3 }, MeshTopology.Lines, 0);
 				}
 				
-				Vector3 p = tr.position + camTr.forward * (cam.nearClipPlane + 0.0001f);
-				Vector3 r = camTr.right;
-				Vector3 u = camTr.up;
 				float s = crossHairSize * 0.01f;
-
+				
+				crossHairMaterial.SetColor(DebugDrawMesh.Color, crossHairColor);
 				crossHairMaterial.SetPass(0);
-				GL.Begin(GL.LINES);
-				GL.Color(crossHairColor);
-				GL.Vertex3(
-					p.x - r.x * s,
-					p.y - r.y * s,
-					p.z - r.z * s);
-				GL.Vertex3(
-					p.x + r.x * s,
-					p.y + r.y * s,
-					p.z + r.z * s);
-				GL.Vertex3(
-					p.x - u.x * s,
-					p.y - u.y * s,
-					p.z - u.z * s);
-				GL.Vertex3(
-					p.x + u.x * s,
-					p.y + u.y * s,
-					p.z + u.z * s);
-				GL.End();
+				
+				Graphics.DrawMeshNow(
+					crossHairMesh,
+					Matrix4x4.TRS(
+						tr.position + camTr.forward * (cam.nearClipPlane + 0.001f),
+						camTr.rotation,
+						new Vector3(s, s, s)));
 			}
 		}
 

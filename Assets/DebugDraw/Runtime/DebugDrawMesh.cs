@@ -14,6 +14,7 @@ public partial class DebugDrawMesh
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Shader Params -- */
 		
+	public static readonly int Color	= Shader.PropertyToID("_Color");
 	public static readonly int SrcBlend	= Shader.PropertyToID("_SrcBlend");
 	public static readonly int DstBlend	= Shader.PropertyToID("_DstBlend");
 	public static readonly int Cull		= Shader.PropertyToID("_Cull");
