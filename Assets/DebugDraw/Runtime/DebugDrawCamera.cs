@@ -1,3 +1,7 @@
+#if !DEBUG_DRAW_OFF
+#define DEBUG_DRAW
+#endif
+
 using System;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -298,7 +302,8 @@ namespace DebugDrawUtils
 					trackingObj = null;
 				}
 			}
-			
+
+			#if DEBUG_DRAW
 			if (crossHairSize > 0)
 			{
 				Vector3 p = tr.position + camTr.forward * (cam.nearClipPlane + 0.0001f);
@@ -325,6 +330,7 @@ namespace DebugDrawUtils
 						p.y + u.y * s,
 						p.z + u.z * s), crossHairColor);
 			}
+			#endif
 		}
 
 		protected virtual void DoMouseLook()

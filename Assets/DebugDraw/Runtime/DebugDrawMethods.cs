@@ -9,6 +9,50 @@ using UnityEngine;
 
 public static partial class DebugDraw
 {
+	
+	public static Color rayHitColor = Color.green;
+	public static Color rayMissColor = Color.red;
+	public static Color rayNormalColor = Color.cyan;
+	
+	/// <summary>
+	/// Draws a ray.
+	/// </summary>
+	/// <param name="origin">The ray's starting position.</param>
+	/// <param name="direction">The ray's direction.</param>
+	/// <param name="maxDistance">The ray's max distance.</param>
+	/// <param name="hitResult">The hit result.</param>
+	/// <param name="normalSize">If larger than zero draws the hit normal</param>
+	/// <param name="arrowSize">The size of the arrow head. Set to zero to just draw a line.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Arrow object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static void Ray(Vector3 origin, Vector3 direction, float maxDistance, RaycastHit hitResult, float normalSize = 0, float arrowSize = 0, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		bool hit = hitResult.collider;
+		Vector3 p2 = hit ? hitResult.point : new Vector3(
+			origin.x + direction.x * maxDistance,
+			origin.y + direction.y * maxDistance,
+			origin.z + direction.z * maxDistance);
+		Color clr = hit ? rayHitColor : rayMissColor;
+		
+		lineMeshInstance.Add(DebugDrawItems.Arrow.Get(
+			ref origin, ref p2, ref clr, ref clr, arrowSize, arrowSize,
+			ArrowShape.None, arrowSize > 0 ? ArrowShape.Arrow : ArrowShape.None,
+			true, false, duration));
+
+		if (hit && normalSize > 0)
+		{
+			Vector3 p1 = hitResult.point;
+			Vector3 normal = hitResult.normal;
+			p2 = new Vector3(
+				p1.x + normal.x * normalSize,
+				p1.y + normal.y * normalSize,
+				p1.z + normal.z * normalSize);
+			lineMeshInstance.Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref rayNormalColor, duration));
+		}
+		#endif
+	}
 
 	/*
 	 * These methods are generated automatically from the Item Get methods.
@@ -29,7 +73,7 @@ public static partial class DebugDraw
 	/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
 	/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The Line object.</returns>
+	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, ArrowShape startShape = ArrowShape.Arrow, ArrowShape endShape = ArrowShape.Arrow, bool faceCamera = false, bool autoSize = false, float duration = 0)
 	{
@@ -52,7 +96,7 @@ public static partial class DebugDraw
 	/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
 	/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The Line object.</returns>
+	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, float duration = 0)
 	{
@@ -74,7 +118,7 @@ public static partial class DebugDraw
 	/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
 	/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The Line object.</returns>
+	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float size, bool faceCamera = false, bool autoSize = false, float duration = 0)
 	{
@@ -1210,7 +1254,7 @@ public partial class DebugDrawMesh
 	/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
 	/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The Line object.</returns>
+	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, ArrowShape startShape = ArrowShape.Arrow, ArrowShape endShape = ArrowShape.Arrow, bool faceCamera = false, bool autoSize = false, float duration = 0)
 	{
@@ -1229,7 +1273,7 @@ public partial class DebugDrawMesh
 	/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
 	/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The Line object.</returns>
+	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, float duration = 0)
 	{
@@ -1247,7 +1291,7 @@ public partial class DebugDrawMesh
 	/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
 	/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The Line object.</returns>
+	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float size, bool faceCamera = false, bool autoSize = false, float duration = 0)
 	{
