@@ -81,9 +81,16 @@ def run():
 
             params = ', '.join(refless_params)
 
+            static_body = GET_WRAPPER_REGEX.sub(fr'DebugDrawItems.{return_type}.Get{get_type}(\g<1>)', body)
+
             static_body = GET_WRAPPER_REGEX.sub(
-                fr'return {mesh_type}MeshInstance.Add('
-                fr'DebugDrawItems.{return_type}.Get{get_type}(\g<1>));', body)
+                fr'#if DEBUG_DRAW\n\t\t'
+                fr'return {mesh_type}MeshInstance.Add({static_body});\n\t\t'
+                fr'#else\n\t\t'
+                fr'return {static_body};\n\t\t'
+                fr'#endif', body)
+
+
             instance_body = GET_WRAPPER_REGEX.sub(
                 fr'return Add(DebugDrawItems.{return_type}.Get{get_type}(\g<1>));', body)
             

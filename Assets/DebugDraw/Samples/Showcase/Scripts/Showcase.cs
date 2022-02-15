@@ -153,9 +153,6 @@ namespace DebugDrawSamples.Showcase.Scripts
 			{
 				Application.Quit();
 			}
-			
-			if (!DebugDraw.isActive)
-				return;
 
 			if (Input.GetKeyDown(KeyCode.BackQuote))
 			{
@@ -169,6 +166,9 @@ namespace DebugDrawSamples.Showcase.Scripts
 					? FindObjectOfType<PlayerMovement>()
 					: null, true);
 			}
+			
+			if (!DebugDraw.isActive)
+				return;
 
 			// if (Application.isPlaying)
 			// {

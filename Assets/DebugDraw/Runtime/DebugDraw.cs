@@ -16,7 +16,6 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
-// TODO: Test with DEBUG_DRAW_OFF
 /// <summary>
 /// TODO: Write
 /// TODO: Mention static  vs instance methods
@@ -146,6 +145,29 @@ public static partial class DebugDraw
 	public static DebugDrawMesh pointMesh => pointMeshInstance;
 	public static DebugDrawMesh lineMesh => lineMeshInstance;
 	public static DebugDrawMesh triangleMesh => triangleMeshInstance;
+	
+	#if DEBUG_DRAW
+	private static DebugDrawTimer timerInstance;
+
+	private static bool doFixedUpdate;
+	private static bool requiresBuild = true;
+	private static bool requiresDraw = true;
+	#endif
+	
+	private static float frameTime = 0;
+	private static bool beforeInitialise;
+	private static CameraInitState hasCamera = CameraInitState.Pending;
+	private static bool camUpdated;
+	public static Camera cam { get; internal set; }
+	public static Transform camTransform { get; internal set; }
+	public static Vector3 camPosition = Vector3.zero;
+	public static Vector3 camForward = Vector3.forward;
+	public static Vector3 camRight = Vector3.right;
+	public static Vector3 camUp = Vector3.up;
+	public static float camFOV;
+	public static bool camOrthographic;
+	public static float camOrthoSize;
+	public static float camFOVAngle;
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Initialisation -- */
@@ -168,26 +190,6 @@ public static partial class DebugDraw
 	private static readonly Action<ScriptableRenderContext, Camera> OnBeginCameraRenderingDelegate = OnBeginCameraRendering;
 	#endif
 	
-	private static DebugDrawTimer timerInstance;
-	private static float frameTime;
-	private static bool beforeInitialise;
-	private static CameraInitState hasCamera = CameraInitState.Pending;
-	private static bool camUpdated;
-	public static Camera cam { get; internal set; }
-	public static Transform camTransform { get; internal set; }
-	public static Vector3 camPosition = Vector3.zero;
-	public static Vector3 camForward = Vector3.forward;
-	public static Vector3 camRight = Vector3.right;
-	public static Vector3 camUp = Vector3.up;
-	public static float camFOV;
-	public static bool camOrthographic;
-	public static float camOrthoSize;
-	public static float camFOVAngle;
-
-	private static bool doFixedUpdate;
-	private static bool requiresBuild = true;
-	private static bool requiresDraw = true;
-
 	#if UNITY_EDITOR
 	[InitializeOnLoadMethod]
 	#else
@@ -324,41 +326,6 @@ public static partial class DebugDraw
 		hasInstance = instance;
 	}
 
-	internal static void ClearCamera()
-	{
-		hasCamera = CameraInitState.Pending;
-		cam = null;
-		camTransform = null;
-		camPosition = default;
-		camForward = Vector3.forward;
-		camUp = Vector3.up;
-		camFOV = 60;
-		camOrthographic = false;
-		camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
-	}
-
-	internal static void UpdateCamera()
-	{
-		if (hasCamera == CameraInitState.Pending || hasCamera == CameraInitState.NotNull && !cam)
-		{
-			InitCamera();
-		}
-
-		camUpdated = true;
-		
-		if (hasCamera == CameraInitState.Null)
-			return;
-
-		camPosition = camTransform.position;
-		camForward = camTransform.forward;
-		camRight = camTransform.right;
-		camUp = camTransform.up;
-		camFOV = cam.fieldOfView;
-		camOrthographic = cam.orthographic;
-		camOrthoSize = cam.orthographicSize * 2;
-		camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
-	}
-
 	private static void OnCameraPreCull(Camera camera)
 	{
 		DoBeforeRender(camera);
@@ -460,6 +427,41 @@ public static partial class DebugDraw
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Methods -- */
+	
+	internal static void ClearCamera()
+	{
+		hasCamera = CameraInitState.Pending;
+		cam = null;
+		camTransform = null;
+		camPosition = default;
+		camForward = Vector3.forward;
+		camUp = Vector3.up;
+		camFOV = 60;
+		camOrthographic = false;
+		camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
+	}
+
+	internal static void UpdateCamera()
+	{
+		if (hasCamera == CameraInitState.Pending || hasCamera == CameraInitState.NotNull && !cam)
+		{
+			InitCamera();
+		}
+
+		camUpdated = true;
+		
+		if (hasCamera == CameraInitState.Null)
+			return;
+
+		camPosition = camTransform.position;
+		camForward = camTransform.forward;
+		camRight = camTransform.right;
+		camUp = camTransform.up;
+		camFOV = cam.fieldOfView;
+		camOrthographic = cam.orthographic;
+		camOrthoSize = cam.orthographicSize * 2;
+		camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
+	}
 
 	/// <summary>
 	/// DebugDraw caches a reference to Camera.main - call this to update that reference.
@@ -665,7 +667,9 @@ public static partial class DebugDraw
 	
 	private static void UpdateFixedUpdateFlag()
 	{
+		#if DEBUG_DRAW
 		doFixedUpdate = _useFixedUpdate && Application.isPlaying;
+		#endif
 	}
 
 	private static void UpdateAttachments()

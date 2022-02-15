@@ -850,7 +850,9 @@ public static partial class Log
 
 	public static void Clear()
 	{
+		#if DEBUG_DRAW
 		LogMessage.Clear();
+		#endif
 	}
 
 }

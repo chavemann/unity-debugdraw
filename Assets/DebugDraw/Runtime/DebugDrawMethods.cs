@@ -1,3 +1,7 @@
+#if !DEBUG_DRAW_OFF
+#define DEBUG_DRAW
+#endif
+
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using DebugDrawItems;
@@ -29,7 +33,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, ArrowShape startShape = ArrowShape.Arrow, ArrowShape endShape = ArrowShape.Arrow, bool faceCamera = false, bool autoSize = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, startShape, endShape, faceCamera, autoSize, duration));
+		#else
+		return DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, startShape, endShape, faceCamera, autoSize, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -48,7 +56,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, faceCamera, autoSize, duration));
+		#else
+		return DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, faceCamera, autoSize, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -66,7 +78,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float size, bool faceCamera = false, bool autoSize = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, size, faceCamera, autoSize, duration));
+		#else
+		return DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, size, faceCamera, autoSize, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -81,7 +97,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Axes Axes(Vector3 position, Quaternion rotation, Vector3 size, bool doubleSided = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Axes.Get(ref position, ref rotation, ref size, doubleSided, duration));
+		#else
+		return DebugDrawItems.Axes.Get(ref position, ref rotation, ref size, doubleSided, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -95,7 +115,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Box Box(Vector3 position, Vector3 size, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Box.Get(ref position, ref size, ref color, duration));
+		#else
+		return DebugDrawItems.Box.Get(ref position, ref size, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -110,7 +134,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Box Box(Vector3 position, Vector3 size, Quaternion orientation, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Box.Get(ref position, ref size, ref orientation, ref color, duration));
+		#else
+		return DebugDrawItems.Box.Get(ref position, ref size, ref orientation, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -126,7 +154,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Capsule Capsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Capsule.Get(ref p1, ref p2, radius, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Capsule.Get(ref p1, ref p2, radius, ref color, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -142,7 +174,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Capsule WireCapsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Capsule.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Capsule.GetWire(ref p1, ref p2, radius, ref color, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -163,7 +199,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Cone Cone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cone.Get(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
+		#else
+		return DebugDrawItems.Cone.Get(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -184,7 +224,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Cone WireCone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cone.GetWire(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
+		#else
+		return DebugDrawItems.Cone.GetWire(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -201,7 +245,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration));
+		#else
+		return DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -219,7 +267,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
+		#else
+		return DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -236,7 +288,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration));
+		#else
+		return DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -254,7 +310,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, drawEndAxes, duration));
+		#else
+		return DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, drawEndAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -271,7 +331,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
+		#else
+		return DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -289,7 +353,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
+		#else
+		return DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -306,7 +374,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
+		#else
+		return DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -324,7 +396,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
+		#else
+		return DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -340,7 +416,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Dot Dot(Vector3 position, float radius, Color color, int segments = 0, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Dot.Get(ref position, radius, ref color, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -357,7 +437,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Dot Dot(Vector3 position, float radius, Color color, Vector3 facing, int segments = 0, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, ref facing, segments, duration));
+		#else
+		return DebugDrawItems.Dot.Get(ref position, radius, ref color, ref facing, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -372,7 +456,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, int segments = 0, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Dots.Get(positions, sizes, colors, segments, duration));
+		#else
+		return DebugDrawItems.Dots.Get(positions, sizes, colors, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -388,7 +476,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3 facing, int segments = 0, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Dots.Get(positions, sizes, colors, ref facing, segments, duration));
+		#else
+		return DebugDrawItems.Dots.Get(positions, sizes, colors, ref facing, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -405,7 +497,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Ellipse Ellipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Ellipse.Get(ref position, radius, ref facing, ref color, segments, drawAxes, duration));
+		#else
+		return DebugDrawItems.Ellipse.Get(ref position, radius, ref facing, ref color, segments, drawAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -421,7 +517,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Ellipse FillEllipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFill(ref position, radius, ref facing, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Ellipse.GetFill(ref position, radius, ref facing, ref color, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -441,7 +541,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Ellipse Arc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Ellipse.GetArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
+		#else
+		return DebugDrawItems.Ellipse.GetArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -459,7 +563,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Ellipse FillArc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFillArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Ellipse.GetFillArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -476,7 +584,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Ellipse Ellipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, drawAxes, duration));
+		#else
+		return DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, drawAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -492,7 +604,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Ellipse FillEllipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFill(ref position, ref size, ref facing, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Ellipse.GetFill(ref position, ref size, ref facing, ref color, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -512,7 +628,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Ellipse Arc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Ellipse.GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
+		#else
+		return DebugDrawItems.Ellipse.GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -530,7 +650,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Ellipse FillArc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFillArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Ellipse.GetFillArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -545,7 +669,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Line Line(Vector3 p1, Vector3 p2, Color color1, Color color2, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color1, ref color2, duration));
+		#else
+		return DebugDrawItems.Line.Get(ref p1, ref p2, ref color1, ref color2, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -559,7 +687,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Line Line(Vector3 p1, Vector3 p2, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color, ref color, duration));
+		#else
+		return DebugDrawItems.Line.Get(ref p1, ref p2, ref color, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -575,7 +707,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color1, Color color2, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color1, ref color2, duration));
+		#else
+		return DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color1, ref color2, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -590,7 +726,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color, ref color, duration));
+		#else
+		return DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -607,7 +747,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color1, Color color2, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color1, ref color2, duration));
+		#else
+		return DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color1, ref color2, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -623,7 +767,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color, ref color, duration));
+		#else
+		return DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -637,7 +785,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Lines Lines(List<Vector3> positions, List<Color> colors, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Lines.Get(positions, colors, duration));
+		#else
+		return DebugDrawItems.Lines.Get(positions, colors, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -651,7 +803,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static MeshItem Mesh(List<Vector3> vertices, List<Color> colors, List<int> indices, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.MeshItem.Get(vertices, colors, indices, duration));
+		#else
+		return DebugDrawItems.MeshItem.Get(vertices, colors, indices, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -665,7 +821,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static MeshItem Mesh(List<Vector3> vertices, List<int> indices, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.MeshItem.Get(vertices, indices, ref color, duration));
+		#else
+		return DebugDrawItems.MeshItem.Get(vertices, indices, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -679,7 +839,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static MeshItem Mesh(Mesh mesh, Color? color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.MeshItem.Get(mesh, color, duration));
+		#else
+		return DebugDrawItems.MeshItem.Get(mesh, color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -692,7 +856,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Point Point(Vector3 position, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return pointMeshInstance.Add(DebugDrawItems.Point.Get(ref position, ref color, duration));
+		#else
+		return DebugDrawItems.Point.Get(ref position, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -708,7 +876,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color, duration));
+		#else
+		return DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -727,7 +899,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
+		#else
+		return DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -743,7 +919,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color, duration));
+		#else
+		return DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -762,7 +942,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
+		#else
+		return DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -777,7 +961,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Sphere Sphere(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Sphere.Get(ref position, ref radius, ref color, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -793,7 +981,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Sphere Sphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -808,7 +1000,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Sphere WireSphere(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref color, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -824,7 +1020,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Sphere WireSphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref orientation, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref orientation, ref color, segments, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -839,7 +1039,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Square Square(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Square.Get(ref position, ref size, ref facing, ref color, duration));
+		#else
+		return DebugDrawItems.Square.Get(ref position, ref size, ref facing, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -854,7 +1058,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Square WireSquare(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Square.GetWire(ref position, ref size, ref facing, ref color, duration));
+		#else
+		return DebugDrawItems.Square.GetWire(ref position, ref size, ref facing, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -870,7 +1078,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Text Text(Vector3 position, string text, Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return textMeshInstance.Add(DebugDrawItems.Text.Get(ref position, text, ref color, align, scale, duration));
+		#else
+		return DebugDrawItems.Text.Get(ref position, text, ref color, align, scale, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -885,7 +1097,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Text Text(Vector3 position, string text, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return textMeshInstance.Add(DebugDrawItems.Text.Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration));
+		#else
+		return DebugDrawItems.Text.Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -900,7 +1116,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color, duration));
+		#else
+		return DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -917,7 +1137,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
+		#else
+		return DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -932,7 +1156,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color, duration));
+		#else
+		return DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color, duration);
+		#endif
 	}
 	
 	/// <summary>
@@ -949,7 +1177,11 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, float duration = 0)
 	{
+		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
+		#else
+		return DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration);
+		#endif
 	}
 	
 	/* </StaticGenMethods> */
