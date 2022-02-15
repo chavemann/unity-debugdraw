@@ -16,7 +16,6 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
-// TODO: Test cross hairs with fixedupdate
 /// <summary>
 /// <para>
 /// A static class that provides various methods for drawing debug visuals.

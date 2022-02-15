@@ -4,6 +4,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Object = UnityEngine.Object;
 
 namespace DebugDrawUtils
@@ -107,6 +108,9 @@ namespace DebugDrawUtils
 		protected static float speed;
 		protected static Vector3 direction;
     	protected static Vector2 rotation;
+
+		protected static bool hasCrossHairMaterial;
+		protected static Material crossHairMaterial;
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Init -- */
@@ -254,7 +258,55 @@ namespace DebugDrawUtils
     
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Private -- */
-    
+
+		protected virtual void OnRenderObject()
+		{
+			if (crossHairSize > 0)
+			{
+				if (!hasCrossHairMaterial)
+				{
+					crossHairMaterial = new Material(Shader.Find("Hidden/Internal-Colored"));
+					crossHairMaterial.hideFlags = HideFlags.HideAndDontSave;
+					// Turn on alpha blending
+					crossHairMaterial.SetInt(DebugDrawMesh.SrcBlend, (int) BlendMode.SrcAlpha);
+					crossHairMaterial.SetInt(DebugDrawMesh.DstBlend, (int) BlendMode.OneMinusSrcAlpha);
+					// Turn backface culling off
+					crossHairMaterial.SetInt(DebugDrawMesh.Cull, (int) CullMode.Off);
+					// Turn off depth writes
+					crossHairMaterial.SetInt(DebugDrawMesh.ZWrite, 0);
+					crossHairMaterial.SetInt(DebugDrawMesh.ZTest, (int) CompareFunction.Always);
+
+					hasCrossHairMaterial = true;
+				}
+				
+				Vector3 p = tr.position + camTr.forward * (cam.nearClipPlane + 0.0001f);
+				Vector3 r = camTr.right;
+				Vector3 u = camTr.up;
+				float s = crossHairSize * 0.01f;
+
+				crossHairMaterial.SetPass(0);
+				GL.Begin(GL.LINES);
+				GL.Color(crossHairColor);
+				GL.Vertex3(
+					p.x - r.x * s,
+					p.y - r.y * s,
+					p.z - r.z * s);
+				GL.Vertex3(
+					p.x + r.x * s,
+					p.y + r.y * s,
+					p.z + r.z * s);
+				GL.Vertex3(
+					p.x - u.x * s,
+					p.y - u.y * s,
+					p.z - u.z * s);
+				GL.Vertex3(
+					p.x + u.x * s,
+					p.y + u.y * s,
+					p.z + u.z * s);
+				GL.End();
+			}
+		}
+
 		protected virtual void LateUpdate()
 		{
 			if (Input.GetKeyDown(KeyCode.Escape))
@@ -302,35 +354,6 @@ namespace DebugDrawUtils
 					trackingObj = null;
 				}
 			}
-
-			#if DEBUG_DRAW
-			if (crossHairSize > 0)
-			{
-				Vector3 p = tr.position + camTr.forward * (cam.nearClipPlane + 0.0001f);
-				Vector3 r = camTr.right;
-				Vector3 u = camTr.up;
-				float s = crossHairSize * 0.01f;
-
-				DebugDraw.Line(
-					new Vector3(
-						p.x - r.x * s,
-						p.y - r.y * s,
-						p.z - r.z * s),
-					new Vector3(
-						p.x + r.x * s,
-						p.y + r.y * s,
-						p.z + r.z * s), crossHairColor);
-				DebugDraw.Line(
-					new Vector3(
-						p.x - u.x * s,
-						p.y - u.y * s,
-						p.z - u.z * s),
-					new Vector3(
-						p.x + u.x * s,
-						p.y + u.y * s,
-						p.z + u.z * s), crossHairColor);
-			}
-			#endif
 		}
 
 		protected virtual void DoMouseLook()
