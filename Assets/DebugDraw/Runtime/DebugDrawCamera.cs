@@ -462,19 +462,19 @@ namespace DebugDrawUtils
 		/// <summary>
 		/// The debug camera will attempt to keep its relative position to this object every frame.
 		/// </summary>
-		/// <param name="obj">The object to track. Set to null to stop tracking.</param>
+		/// <param name="obj">The object to track.</param>
 		/// <param name="lookAt">If true the object will also stay centred in the view.</param>
-		public static void TrackObject(Transform obj, bool lookAt = false)
+		public static void TrackObject(GameObjectOrTransform obj, bool lookAt = false)
 		{
 			bool prevTrackingObj = isTrackingObj;
 			
 			trackingObj = obj;
-			isTrackingObj = obj != null;
+			isTrackingObj = trackingObj != null;
 			isLookingAtObj = lookAt;
 
 			if (isTrackingObj)
 			{
-				trackingObjPosition = obj.position;
+				trackingObjPosition = trackingObj.position;
 
 				if (lookAt && !prevTrackingObj)
 				{
@@ -482,18 +482,6 @@ namespace DebugDrawUtils
 						Quaternion.LookRotation((trackingObjPosition - tr.position).normalized, Vector3.up));
 				}
 			}
-		}
-
-		/// <inheritdoc cref="TrackObject(UnityEngine.Transform, bool)"/>
-		public static void TrackObject(GameObject obj, bool lookAt = false)
-		{
-			TrackObject(obj ? obj.transform : null, lookAt);
-		}
-
-		/// <inheritdoc cref="TrackObject(UnityEngine.Transform, bool)"/>
-		public static void TrackObject(MonoBehaviour obj, bool lookAt = false)
-		{
-			TrackObject(obj ? obj.transform : null, lookAt);
 		}
 
 		public static void LockCursor(bool locked)
