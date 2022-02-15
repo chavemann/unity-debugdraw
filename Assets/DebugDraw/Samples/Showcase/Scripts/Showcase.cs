@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Threading;
 using DebugDrawAttachments;
 using DebugDrawItems;
+using DebugDrawUtils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -158,13 +159,13 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			if (Input.GetKeyDown(KeyCode.BackQuote))
 			{
-				DebugDraw.ToggleDebugCamera();
-				DebugDraw.UpdateDebugCamera();
+				DebugDrawCamera.Toggle();
+				DebugDrawCamera.UpdateCamera();
 			}
 
-			if (DebugDraw.debugCamera && Input.GetKeyDown(KeyCode.T))
+			if (DebugDrawCamera.active && Input.GetKeyDown(KeyCode.T))
 			{
-				DebugDraw.debugCamera.TrackObject(!DebugDraw.debugCamera.isTrackingObj
+				DebugDrawCamera.TrackObject(!DebugDrawCamera.isTrackingObj
 					? FindObjectOfType<PlayerMovement>()
 					: null, true);
 			}
@@ -365,10 +366,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 				arrow.autoSize = arrowAutoSize;
 			}
 
-			if (DebugDraw.debugCamera)
-			{
-				DebugDraw.debugCamera.crossHairSize = crossHairSize;
-			}
+			DebugDrawCamera.crossHairSize = crossHairSize;
 		}
 
 	}

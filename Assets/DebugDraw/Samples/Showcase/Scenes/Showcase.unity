@@ -929,7 +929,7 @@ MonoBehaviour:
   iconSize: 0.38
   iconAutoSize: 0
   axesSize: 0
-  crossHairSize: 0
+  crossHairSize: 1
   lineStart: {fileID: 1979193047}
   lineEnd: {fileID: 322272653}
   startOffset: {x: 0, y: 0, z: 0}

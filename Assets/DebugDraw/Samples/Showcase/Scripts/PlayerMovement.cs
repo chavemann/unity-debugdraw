@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DebugDrawUtils;
+using UnityEngine;
 
 namespace DebugDrawSamples.Showcase.Scripts
 {
@@ -49,7 +50,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 		private void DoMouseLook()
 		{
-			if (DebugDraw.usingDebugCamera)
+			if (DebugDrawCamera.active)
 				return;
 			
 			if (Input.GetKeyDown(KeyCode.Escape))
@@ -168,7 +169,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			Vector3 forward = tr.forward;
 			Vector3 right = tr.right;
-			Vector3 input = !DebugDraw.usingDebugCamera ? new Vector3(
+			Vector3 input = !DebugDrawCamera.active ? new Vector3(
 				Input.GetAxisRaw("Horizontal"),
 				0,
 				Input.GetAxisRaw("Vertical")) : Vector3.zero;
@@ -215,7 +216,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 			
 			velocity.y += gravity * Time.deltaTime;
 
-			if (Input.GetButtonDown("Jump") && grounded && !DebugDraw.usingDebugCamera)
+			if (Input.GetButtonDown("Jump") && grounded && !DebugDrawCamera.active)
 			{
 				velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
 				grounded = false;
