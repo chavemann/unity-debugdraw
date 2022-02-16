@@ -259,7 +259,7 @@ namespace DebugDrawItems
 					}
 					else
 					{
-						DebugDraw.FindAxisVectors(ref dir, ref DebugDraw.camForward, out Vector3 _, out n);
+						DebugDraw.FindAxisVectors(ref dir, ref DebugDraw.forward, out Vector3 _, out n);
 					}
 
 					if (head.shape == ArrowShape.Arrow || head.shape == ArrowShape.Line)
