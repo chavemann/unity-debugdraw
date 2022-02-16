@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace DebugDrawSamples.Showcase.Sections
@@ -27,6 +26,7 @@ namespace DebugDrawSamples.Showcase.Sections
 		{
 			if (tr)
 			{
+				Showcase.InitRandom(tr);
 				Init();
 			}
 		}

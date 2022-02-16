@@ -10,6 +10,8 @@ namespace DebugDrawSamples.Showcase
 	public class Showcase : MonoBehaviour
 	{
 
+		public float crossHairSize = 1;
+
 		static Showcase()
 		{
 			Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
@@ -20,6 +22,7 @@ namespace DebugDrawSamples.Showcase
 			Application.targetFrameRate = 60;
 
 			DebugDrawCamera.onInitCamera += cam => cam.cullingMask = int.MaxValue;
+			DebugDrawCamera.crossHairSize = crossHairSize;
 		}
 
 		private void Update()

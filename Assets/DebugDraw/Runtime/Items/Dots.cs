@@ -159,8 +159,8 @@ namespace DebugDrawItems
 			{
 				Matrix4x4 m = Matrix4x4.TRS(
 					DebugDraw.positionIdentity,
-					faceCamera ? DebugDraw.rotationIdentity : stateTransform.rotation,
-					autoSize ? DebugDraw.scaleIdentity : stateTransform.lossyScale);
+					faceCamera || !hasStateTransform ? DebugDraw.rotationIdentity : stateTransform.rotation,
+					autoSize || !hasStateTransform ? DebugDraw.scaleIdentity : stateTransform.lossyScale);
 					
 				right = m.MultiplyVector(right);
 				up = m.MultiplyVector(up);
