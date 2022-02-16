@@ -78,7 +78,7 @@ namespace DebugDrawSamples.Showcase
 			
 			if (!axes)
 			{
-				axes = DebugDraw.Axes(tr.position, tr.rotation, default, false, -1);
+				axes = DebugDraw.Axes(tr.position, tr.rotation, 0, false, -1);
 			}
 		}
 

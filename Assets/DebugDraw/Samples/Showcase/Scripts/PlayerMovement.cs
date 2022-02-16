@@ -5,6 +5,7 @@ namespace DebugDrawSamples.Showcase
 {
 
 	[RequireComponent(typeof(CharacterController))]
+	[SelectionBase]
 	public class PlayerMovement : MonoBehaviour
 	{
 
