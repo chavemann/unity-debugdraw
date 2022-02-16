@@ -72,6 +72,31 @@ namespace DebugDrawItems
 
 			return item;
 		}
+		
+		/// <summary>
+		/// Draws lines along the x, y, and z axes.
+		/// </summary>
+		/// <param name="position">The axes origin.</param>
+		/// <param name="rotation">The orientation of the axes.</param>
+		/// <param name="size">The size of each the axes.</param>
+		/// <param name="doubleSided">If true the axis line extends in both directions, other only in the positive.</param>
+		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+		/// <returns>The Axes object.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Axes Get(ref Vector3 position, ref Quaternion rotation, float size, bool doubleSided = false, float duration = 0)
+		{
+			Axes item = ItemPool<Axes>.Get(duration);
+			
+			item.position = position;
+			item.rotation = rotation;
+			item.doubleSided = doubleSided;
+			item.size = new Vector3(size, size, size);
+			item.color = XAxisColor;
+			item.yColor = YAxisColor;
+			item.zColor = ZAxisColor;
+
+			return item;
+		}
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */

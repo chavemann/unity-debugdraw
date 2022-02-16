@@ -192,6 +192,25 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Draws lines along the x, y, and z axes.
+	/// </summary>
+	/// <param name="position">The axes origin.</param>
+	/// <param name="rotation">The orientation of the axes.</param>
+	/// <param name="size">The size of each the axes.</param>
+	/// <param name="doubleSided">If true the axis line extends in both directions, other only in the positive.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Axes object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Axes Axes(Vector3 position, Quaternion rotation, float size, bool doubleSided = false, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return lineMeshInstance.Add(DebugDrawItems.Axes.Get(ref position, ref rotation, size, doubleSided, duration));
+		#else
+		return DebugDrawItems.Axes.Get(ref position, ref rotation, size, doubleSided, duration);
+		#endif
+	}
+	
+	/// <summary>
 	/// Draws an axis aligned box.
 	/// </summary>
 	/// <param name="position">The centre of the box.</param>
@@ -1445,6 +1464,21 @@ public partial class DebugDrawMesh
 	public Axes Axes(Vector3 position, Quaternion rotation, Vector3 size, bool doubleSided = false, float duration = 0)
 	{
 		return Add(DebugDrawItems.Axes.Get(ref position, ref rotation, ref size, doubleSided, duration));
+	}
+	
+	/// <summary>
+	/// Draws lines along the x, y, and z axes.
+	/// </summary>
+	/// <param name="position">The axes origin.</param>
+	/// <param name="rotation">The orientation of the axes.</param>
+	/// <param name="size">The size of each the axes.</param>
+	/// <param name="doubleSided">If true the axis line extends in both directions, other only in the positive.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Axes object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Axes Axes(Vector3 position, Quaternion rotation, float size, bool doubleSided = false, float duration = 0)
+	{
+		return Add(DebugDrawItems.Axes.Get(ref position, ref rotation, size, doubleSided, duration));
 	}
 	
 	/// <summary>
