@@ -6,7 +6,7 @@ namespace DebugDrawSamples.Showcase
 	public class BaseComponent : MonoBehaviour
 	{
 
-		protected Transform tr;
+		public Transform tr { get; protected set; }
 
 		protected virtual void OnEnable()
 		{

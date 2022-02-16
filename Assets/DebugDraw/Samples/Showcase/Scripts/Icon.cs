@@ -4,6 +4,7 @@ using UnityEngine;
 namespace DebugDrawSamples.Showcase
 {
 
+	[ExecuteAlways]
 	public class Icon : BaseComponent
 	{
 
@@ -14,8 +15,8 @@ namespace DebugDrawSamples.Showcase
 		public bool iconAutoSize;
 		public float axesSize;
 
-		protected Dot icon;
-		protected Axes axes;
+		public Dot icon { get; protected set; }
+		public Axes axes { get; protected set; }
 
 		protected override void OnEnable()
 		{
@@ -113,11 +114,7 @@ namespace DebugDrawSamples.Showcase
 
 		protected virtual void OnValidate()
 		{
-			CreateIcon();
-			UpdateIcon();
-
-			CreateAxes();
-			UpdateAxes();
+			OnEnable();
 		}
 
 	}

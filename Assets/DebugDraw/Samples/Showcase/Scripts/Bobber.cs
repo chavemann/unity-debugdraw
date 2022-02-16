@@ -30,9 +30,9 @@ namespace DebugDrawSamples.Showcase
 		private void Update()
 		{
 			tr.localPosition = new Vector3(
-				startPos.x + (Mathf.Cos((Time.time + phase.x) * speed.x) + 1) * 0.5f * range.x,
-				startPos.y + (Mathf.Cos((Time.time + phase.y) * speed.y) + 1) * 0.5f * range.y,
-				startPos.z + (Mathf.Cos((Time.time + phase.z) * speed.z) + 1) * 0.5f * range.z);
+				startPos.x + Mathf.Cos((Time.time + phase.x) * speed.x) * range.x,
+				startPos.y + Mathf.Cos((Time.time + phase.y) * speed.y) * range.y,
+				startPos.z + Mathf.Cos((Time.time + phase.z) * speed.z) * range.z);
 		}
 
 	}

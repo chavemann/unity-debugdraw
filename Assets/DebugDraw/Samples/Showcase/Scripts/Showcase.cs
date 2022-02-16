@@ -44,6 +44,25 @@ namespace DebugDrawSamples.Showcase
 			}
 		}
 
+		public static void InitRandom(Transform tr)
+		{
+			Vector3 p = tr.position;
+			Random.InitState(Mathf.FloorToInt(p.x * 101.2f + p.y * 312.2f + p.z + 32.65f));
+		}
+
+		public static Color NiceColor()
+		{
+			return Random.ColorHSV(0, 1, 0.5f, 0.85f, 0.8f, 1);
+		}
+
+		public static void NiceColors(Color[] colors)
+		{
+			for (int i = 0; i < colors.Length; i++)
+			{
+				colors[i] = NiceColor();
+			}
+		}
+
 	}
 
 }
