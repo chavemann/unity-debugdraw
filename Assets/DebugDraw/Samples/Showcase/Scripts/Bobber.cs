@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace DebugDrawSamples.Showcase.Scripts
+namespace DebugDrawSamples.Showcase
 {
 
 	public class Bobber : BaseComponent

@@ -7,7 +7,7 @@ using DebugDrawUtils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace DebugDrawSamples.Showcase.Scripts
+namespace DebugDrawSamples.Showcase
 {
 
 	[AddComponentMenu("DebugDraw/Samples/Showcase")]

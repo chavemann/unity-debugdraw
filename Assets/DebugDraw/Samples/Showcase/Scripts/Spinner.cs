@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase.Scripts
+namespace DebugDrawSamples.Showcase
 {
 
 	public class Spinner : BaseComponent

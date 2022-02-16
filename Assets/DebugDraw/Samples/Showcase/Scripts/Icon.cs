@@ -1,7 +1,7 @@
 using DebugDrawItems;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase.Scripts
+namespace DebugDrawSamples.Showcase
 {
 
 	public class Icon : BaseComponent

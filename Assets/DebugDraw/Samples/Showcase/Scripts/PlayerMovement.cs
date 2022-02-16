@@ -1,7 +1,7 @@
 ﻿using DebugDrawUtils;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase.Scripts
+namespace DebugDrawSamples.Showcase
 {
 
 	[RequireComponent(typeof(CharacterController))]
