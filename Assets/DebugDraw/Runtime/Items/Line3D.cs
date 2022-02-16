@@ -49,6 +49,7 @@ namespace DebugDrawItems
 			item.color = color1;
 			item.color2 = color2;
 			item.faceCamera = true;
+			item.autoSize = false;
 
 			return item;
 		}
@@ -91,6 +92,7 @@ namespace DebugDrawItems
 			item.color = color1;
 			item.color2 = color2;
 			item.faceCamera = false;
+			item.autoSize = false;
 
 			return item;
 		}
