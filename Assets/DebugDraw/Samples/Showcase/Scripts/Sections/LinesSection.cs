@@ -5,8 +5,7 @@ using Random = UnityEngine.Random;
 namespace DebugDrawSamples.Showcase.Sections
 {
 
-	[ExecuteAlways]
-	public class LinesSection : MonoBehaviour
+	public class LinesSection : BaseSection
 	{
 
 		public float spacing = 0.5f;
@@ -16,7 +15,6 @@ namespace DebugDrawSamples.Showcase.Sections
 		public float linesRadius = 0.5f;
 		public float linesPosition = 1;
 		
-		private Transform tr;
 		private readonly List<Vector3> linePositions = new List<Vector3>();
 		private readonly List<Color> lineColors = new List<Color>();
 		
@@ -25,13 +23,10 @@ namespace DebugDrawSamples.Showcase.Sections
 		private Color color1;
 		private Color color2;
 
-		private void OnEnable()
+		protected override void Init()
 		{
-			tr = transform;
-
 			CreateLines();
 
-			Showcase.InitRandom(tr);
 			color = Showcase.NiceColor();
 			colorFade = Showcase.NiceColor();
 			color1 = Showcase.NiceColor();
@@ -68,11 +63,6 @@ namespace DebugDrawSamples.Showcase.Sections
 				p + r + u, color1, color2);
 
 			DebugDraw.Lines(linePositions, lineColors);
-		}
-
-		private void OnValidate()
-		{
-			OnEnable();
 		}
 
 	}

@@ -6,7 +6,7 @@ namespace DebugDrawSamples.Showcase.Sections
 {
 
 	[ExecuteAlways]
-	public class ArrowsSection : MonoBehaviour
+	public class ArrowsSection : BaseSection
 	{
 		
 		public float spacing = 1;
@@ -19,15 +19,11 @@ namespace DebugDrawSamples.Showcase.Sections
 		public float rayDist = 1;
 		public float rayNormal = 0.1f;
 		
-		private Transform tr;
 		private readonly Color[] colors = new Color[4];
 		private float minDist, maxDist;
 
-		private void OnEnable()
+		protected override void Init()
 		{
-			tr = transform;
-
-			Showcase.InitRandom(tr);
 			Showcase.NiceColors(colors);
 
 			if (b && c)
@@ -84,11 +80,6 @@ namespace DebugDrawSamples.Showcase.Sections
 				Physics.Raycast(p, dir, out RaycastHit hit, rayDist);
 				DebugDraw.Ray(p, dir, rayDist, hit, rayNormal, size * 0.5f);
 			}
-		}
-
-		private void OnValidate()
-		{
-			OnEnable();
 		}
 
 	}
