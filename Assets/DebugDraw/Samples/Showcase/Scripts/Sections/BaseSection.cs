@@ -22,6 +22,15 @@ namespace DebugDrawSamples.Showcase.Sections
 			
 		}
 
+		protected bool HasChanged(Transform tr)
+		{
+			if (!tr || !tr.hasChanged)
+				return false;
+
+			tr.hasChanged = false;
+			return true;
+		}
+
 		private void OnValidate()
 		{
 			if (tr)

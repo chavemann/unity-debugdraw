@@ -39,7 +39,12 @@ namespace DebugDrawSamples.Showcase.Sections
 			{
 				pointCount = 1;
 			}
-			
+
+			CreateDots();
+		}
+
+		private void CreateDots()
+		{
 			dotPositions.Clear();
 			points.Clear();
 			pointColors.Clear();
@@ -78,6 +83,11 @@ namespace DebugDrawSamples.Showcase.Sections
 			
 			DebugDraw.Points(points, pointColors);
 			DebugDraw.Dots(dotPositions, sizes, pointColors);
+
+			if (HasChanged(dotsObj) || HasChanged(facingObj))
+			{
+				CreateDots();
+			}
 
 			if (dotsObj)
 			{
