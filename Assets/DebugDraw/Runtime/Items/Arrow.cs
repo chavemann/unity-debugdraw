@@ -67,8 +67,10 @@ namespace DebugDrawItems
 			item.color2 = color2;
 			item.startHead.shape = startShape;
 			item.startHead.SetSize(startSize);
+			item.startHead.offset = 0;
 			item.endHead.shape = endShape;
 			item.endHead.SetSize(endSize);
+			item.endHead.offset = 0;
 			item.faceCamera = faceCamera;
 			item.autoSize = autoSize;
 			item.minLength = 0;
