@@ -103,6 +103,13 @@ namespace DebugDrawUtils
 		public static Transform trackingObj { get; protected set; }
 		protected static Vector3 trackingObjPosition;
 
+		/// <summary>
+		/// Called when a new debug camera is created.
+		/// </summary>
+		public static Action<Camera> onInitCamera;
+		/// <summary>
+		/// Called whenever the debug camera is toggled.
+		/// </summary>
 		public static Action<bool> onToggle;
 
 		protected static Transform camTr;
@@ -188,6 +195,8 @@ namespace DebugDrawUtils
 					{
 						UpdateCamera(lastCamera, true, true);
 					}
+					
+					onInitCamera?.Invoke(cam);
 				}
 				
 				if (lastCamera != null)
@@ -216,6 +225,8 @@ namespace DebugDrawUtils
 			}
 			
 			DebugDraw.InitCamera(isActive ? cam : lastCamera);
+			
+			onToggle?.Invoke(isActive);
 		}
 
 		/// <inheritdoc cref="Toggle(bool)"/>
