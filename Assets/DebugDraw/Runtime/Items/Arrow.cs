@@ -97,7 +97,9 @@ namespace DebugDrawItems
 		{
 			return Get(
 				ref p1, ref p2, ref color1, ref color2, startSize, endSize,
-				ArrowShape.Arrow, ArrowShape.Arrow, faceCamera, autoSize, duration);
+				startSize > 0 ? ArrowShape.Arrow : ArrowShape.None,
+				endSize > 0 ? ArrowShape.Arrow : ArrowShape.None,
+				faceCamera, autoSize, duration);
 		}
 		
 		/// <summary>
@@ -117,7 +119,7 @@ namespace DebugDrawItems
 		{
 			return Get(
 				ref p1, ref p2, ref color1, ref color2, size, size,
-				ArrowShape.Arrow, ArrowShape.Arrow, faceCamera, autoSize, duration);
+				ArrowShape.None, ArrowShape.Arrow, faceCamera, autoSize, duration);
 		}
 		
 		/// <summary>
@@ -139,7 +141,9 @@ namespace DebugDrawItems
 		{
 			return Get(
 				ref p1, ref p2, ref color, ref color, startSize, endSize,
-				ArrowShape.Arrow, ArrowShape.Arrow, faceCamera, autoSize, duration);
+				startSize > 0 ? ArrowShape.Arrow : ArrowShape.None,
+				endSize > 0 ? ArrowShape.Arrow : ArrowShape.None,
+				faceCamera, autoSize, duration);
 		}
 		
 		/// <summary>
@@ -158,7 +162,7 @@ namespace DebugDrawItems
 		{
 			return Get(
 				ref p1, ref p2, ref color, ref color, size, size,
-				ArrowShape.Arrow, ArrowShape.Arrow, faceCamera, autoSize, duration);
+				ArrowShape.None, ArrowShape.Arrow, faceCamera, autoSize, duration);
 		}
 
 		public Arrow()
