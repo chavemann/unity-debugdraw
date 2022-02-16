@@ -5,7 +5,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.Rendering;
-using Object = UnityEngine.Object;
 
 namespace DebugDrawUtils
 {
@@ -16,6 +15,12 @@ namespace DebugDrawUtils
 	/// </summary>
     public class DebugDrawCamera : MonoBehaviour
     {
+
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+		private static void RuntimeInit()
+		{
+			hasCrossHairMaterial = false;
+		}
 		
 		/// <summary>
 		/// True if the debug camera is active.
@@ -98,6 +103,8 @@ namespace DebugDrawUtils
 		public static Transform trackingObj { get; protected set; }
 		protected static Vector3 trackingObjPosition;
 
+		public static Action<bool> onToggle;
+
 		protected static Transform camTr;
 		protected static Transform tr;
 		
@@ -110,6 +117,7 @@ namespace DebugDrawUtils
 
 		protected static bool hasCrossHairMaterial;
 		protected static Material crossHairMaterial;
+		protected static Mesh crossHairMesh;
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Init -- */
@@ -258,7 +266,6 @@ namespace DebugDrawUtils
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Private -- */
 
-		protected static Mesh crossHairMesh;
 		protected virtual void OnRenderObject()
 		{
 			if (crossHairSize > 0)
@@ -275,9 +282,7 @@ namespace DebugDrawUtils
 					// Turn off depth writes
 					crossHairMaterial.SetInt(DebugDrawMesh.ZWrite, 0);
 					crossHairMaterial.SetInt(DebugDrawMesh.ZTest, (int) CompareFunction.Always);
-
-					hasCrossHairMaterial = true;
-
+					
 					crossHairMesh = new Mesh();
 					crossHairMesh.SetVertices(new Vector3[]
 					{
@@ -285,6 +290,8 @@ namespace DebugDrawUtils
 						Vector3.up, Vector3.down, 
 					});
 					crossHairMesh.SetIndices(new int[] { 0, 1, 2, 3 }, MeshTopology.Lines, 0);
+
+					hasCrossHairMaterial = true;
 				}
 				
 				float s = crossHairSize * 0.01f;
