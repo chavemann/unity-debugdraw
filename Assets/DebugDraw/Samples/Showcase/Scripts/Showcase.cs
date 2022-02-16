@@ -71,6 +71,8 @@ namespace DebugDrawSamples.Showcase.Scripts
 		private void Start()
 		{
 			Application.targetFrameRate = 60;
+
+			DebugDrawCamera.onInitCamera += cam => cam.cullingMask = int.MaxValue;
 		}
 
 		protected override void OnEnable()
@@ -156,6 +158,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 
 			if (Input.GetKeyDown(KeyCode.BackQuote))
 			{
+				DebugDrawCamera.TrackObject(null);
 				DebugDrawCamera.Toggle();
 				DebugDrawCamera.UpdateCamera();
 			}
