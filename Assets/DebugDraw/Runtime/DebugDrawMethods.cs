@@ -130,6 +130,49 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Draws an arrow.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="color">The arrow's colour.</param>
+	/// <param name="startSize">The size of the arrow head at the start of the line.</param>
+	/// <param name="endSize">The size of the arrow head at the end of the line.</param>
+	/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
+	/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Arrow object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return lineMeshInstance.Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, startSize, endSize, faceCamera, autoSize, duration));
+		#else
+		return DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, startSize, endSize, faceCamera, autoSize, duration);
+		#endif
+	}
+	
+	/// <summary>
+	/// Draws an arrow.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="color">The arrow's colour.</param>
+	/// <param name="size">The size of the arrow head.</param>
+	/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
+	/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Arrow object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float size, bool faceCamera = false, bool autoSize = false, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return lineMeshInstance.Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, size, faceCamera, autoSize, duration));
+		#else
+		return DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, size, faceCamera, autoSize, duration);
+		#endif
+	}
+	
+	/// <summary>
 	/// Draws lines along the x, y, and z axes.
 	/// </summary>
 	/// <param name="position">The axes origin.</param>
@@ -1296,6 +1339,41 @@ public partial class DebugDrawMesh
 	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float size, bool faceCamera = false, bool autoSize = false, float duration = 0)
 	{
 		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, size, faceCamera, autoSize, duration));
+	}
+	
+	/// <summary>
+	/// Draws an arrow.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="color">The arrow's colour.</param>
+	/// <param name="startSize">The size of the arrow head at the start of the line.</param>
+	/// <param name="endSize">The size of the arrow head at the end of the line.</param>
+	/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
+	/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Arrow object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, float duration = 0)
+	{
+		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, startSize, endSize, faceCamera, autoSize, duration));
+	}
+	
+	/// <summary>
+	/// Draws an arrow.
+	/// </summary>
+	/// <param name="p1">The start of the line.</param>
+	/// <param name="p2">The end of the line.</param>
+	/// <param name="color">The arrow's colour.</param>
+	/// <param name="size">The size of the arrow head.</param>
+	/// <param name="faceCamera">If true the arrow heads will automatically orient themselves to be perpendicular to the camera.</param>
+	/// <param name="autoSize">If true adjusts the size of the arrow heads so it approximately remains the same size on screen.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Arrow object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float size, bool faceCamera = false, bool autoSize = false, float duration = 0)
+	{
+		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, size, faceCamera, autoSize, duration));
 	}
 	
 	/// <summary>
