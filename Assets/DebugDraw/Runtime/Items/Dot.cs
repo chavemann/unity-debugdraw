@@ -58,6 +58,7 @@ namespace DebugDrawItems
 			item.faceCamera = true;
 			item.color = color;
 			item.segments = segments;
+			item.autoSize = false;
 
 			return item;
 		}
@@ -84,6 +85,7 @@ namespace DebugDrawItems
 			item.faceCamera = false;
 			item.color = color;
 			item.segments = segments; 
+			item.autoSize = false;
 
 			return item;
 		}
