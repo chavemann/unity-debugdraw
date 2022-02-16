@@ -20,9 +20,7 @@ namespace DebugDrawSamples.Showcase
 		private void Update()
 		{
 			angles += spin * Time.deltaTime;
-			Quaternion rotation = tr.rotation;
-			rotation.eulerAngles = angles;
-			tr.rotation = rotation;
+			tr.rotation = Quaternion.Euler(angles);
 		}
 
 	}
