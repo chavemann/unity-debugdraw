@@ -385,14 +385,18 @@ namespace DebugDrawUtils
 
 		protected virtual void DoMovement()
 		{
+			bool allowLateralMovement = !isLookingAtObj || !isTrackingObj;
 			Vector3 forward = camTr.forward;
 			Vector3 right = camTr.right;
 			Vector3 input = Cursor.lockState == CursorLockMode.Locked
 				? new Vector3(
-					Input.GetAxisRaw("Horizontal"),
-					Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Space)
-						? 1
-						: Input.GetKey(KeyCode.E) ? -1 : 0,
+					allowLateralMovement
+						? Input.GetAxisRaw("Horizontal") : 0,
+					allowLateralMovement
+						? Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Space)
+							? 1
+							: Input.GetKey(KeyCode.E) ? -1 : 0
+						: 0,
 					Input.GetAxisRaw("Vertical"))
 				: Vector3.zero;
 			
