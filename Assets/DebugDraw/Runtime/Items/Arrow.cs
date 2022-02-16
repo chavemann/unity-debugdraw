@@ -209,6 +209,7 @@ namespace DebugDrawItems
 				p1.x += dir.x * startHead.offset;
 				p1.y += dir.y * startHead.offset;
 				p1.z += dir.z * startHead.offset;
+				length -= startHead.offset;
 			}
 
 			if (endHead.offset != 0)
@@ -216,6 +217,7 @@ namespace DebugDrawItems
 				p2.x -= dir.x * endHead.offset;
 				p2.y -= dir.y * endHead.offset;
 				p2.z -= dir.z * endHead.offset;
+				length -= endHead.offset;
 			}
 
 			if (minLength > 0 || !float.IsPositiveInfinity(maxLength))
