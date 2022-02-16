@@ -258,7 +258,8 @@ namespace DebugDrawItems
 
 					if (faceCamera)
 					{
-						DebugDraw.FindAxisVectors(ref dir, ref DebugDraw.camForward, out Vector3 _, out n);
+						n = Vector3.Cross(DebugDraw.camForward, dir);
+						n.Normalize();
 					}
 					else
 					{

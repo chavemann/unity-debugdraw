@@ -140,20 +140,6 @@ namespace DebugDrawItems
 		
 		internal override void Build(DebugDrawMesh mesh)
 		{
-			// Vector3 forward, right, up;
-			//
-			// if (faceCamera)
-			// {
-			// 	forward = DebugDraw.camForward;
-			// 	right = DebugDraw.camRight;
-			// 	up = DebugDraw.camUp;
-			// }
-			// else
-			// {
-			// 	forward = facing;
-			// 	DebugDraw.FindAxisVectors(ref forward, ref DebugDraw.up, out up, out right);
-			// }
-
 			float size1 = size;
 			float size2 = size;
 			Color clr1 = GetColor(ref color);
