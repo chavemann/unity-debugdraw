@@ -821,7 +821,7 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
-	/// Draws a 3D line that orients itself towards the camera.
+	/// Draws a 3D line facing the given direction.
 	/// </summary>
 	/// <param name="p1">The start of the line.</param>
 	/// <param name="p2">The end of the line.</param>
@@ -876,6 +876,44 @@ public static partial class DebugDraw
 		return lineMeshInstance.Add(DebugDrawItems.Lines.Get(positions, colors, duration));
 		#else
 		return DebugDrawItems.Lines.Get(positions, colors, duration);
+		#endif
+	}
+	
+	/// <summary>
+	/// Draws a batch of 3D lines that orients itself towards the camera.
+	/// </summary>
+	/// <param name="positions">The positions of the start and end points of each line.</param>
+	/// <param name="sizes">The line thickness, one item for each pair of positions and colors.</param>
+	/// <param name="colors">The colors of the start and end points of each line.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return triangleMeshInstance.Add(DebugDrawItems.Lines3D.Get(positions, sizes, colors, duration));
+		#else
+		return DebugDrawItems.Lines3D.Get(positions, sizes, colors, duration);
+		#endif
+	}
+	
+	/// <summary>
+	/// Draws a 3D line facing the given direction.
+	/// </summary>
+	/// <param name="positions">The positions of the start and end points of each line.</param>
+	/// <param name="sizes">The line thickness, one item for each pair of positions and colors.</param>
+	/// <param name="colors">The colors of the start and end points of each line.</param>
+	/// <param name="facing">The forward direction of the line. Automatically updated if faceCamera is true.
+	/// If null the lines will automatically rotate to face the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3? facing, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return triangleMeshInstance.Add(DebugDrawItems.Lines3D.Get(positions, sizes, colors, facing, duration));
+		#else
+		return DebugDrawItems.Lines3D.Get(positions, sizes, colors, facing, duration);
 		#endif
 	}
 	
@@ -1919,7 +1957,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Draws a 3D line that orients itself towards the camera.
+	/// Draws a 3D line facing the given direction.
 	/// </summary>
 	/// <param name="p1">The start of the line.</param>
 	/// <param name="p2">The end of the line.</param>
@@ -1963,6 +2001,36 @@ public partial class DebugDrawMesh
 	public Lines Lines(List<Vector3> positions, List<Color> colors, float duration = 0)
 	{
 		return Add(DebugDrawItems.Lines.Get(positions, colors, duration));
+	}
+	
+	/// <summary>
+	/// Draws a batch of 3D lines that orients itself towards the camera.
+	/// </summary>
+	/// <param name="positions">The positions of the start and end points of each line.</param>
+	/// <param name="sizes">The line thickness, one item for each pair of positions and colors.</param>
+	/// <param name="colors">The colors of the start and end points of each line.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, float duration = 0)
+	{
+		return Add(DebugDrawItems.Lines3D.Get(positions, sizes, colors, duration));
+	}
+	
+	/// <summary>
+	/// Draws a 3D line facing the given direction.
+	/// </summary>
+	/// <param name="positions">The positions of the start and end points of each line.</param>
+	/// <param name="sizes">The line thickness, one item for each pair of positions and colors.</param>
+	/// <param name="colors">The colors of the start and end points of each line.</param>
+	/// <param name="facing">The forward direction of the line. Automatically updated if faceCamera is true.
+	/// If null the lines will automatically rotate to face the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3? facing, float duration = 0)
+	{
+		return Add(DebugDrawItems.Lines3D.Get(positions, sizes, colors, facing, duration));
 	}
 	
 	/// <summary>

@@ -70,7 +70,7 @@ namespace DebugDrawItems
 		}
 		
 		/// <summary>
-		/// Draws a 3D line that orients itself towards the camera.
+		/// Draws a 3D line facing the given direction.
 		/// </summary>
 		/// <param name="p1">The start of the line.</param>
 		/// <param name="p2">The end of the line.</param>
@@ -147,9 +147,9 @@ namespace DebugDrawItems
 			Color clr1 = GetColor(ref color);
 			Color clr2 = GetColor(ref color2);
 
-			Vector3 camP = DebugDraw.camPosition;
-			Vector3 p1 = this.p1;
-			Vector3 p2 = this.p2;
+			ref Vector3 camP = ref DebugDraw.camPosition;
+			Vector3 p1 = hasStateTransform ? stateTransform.MultiplyPoint3x4(this.p1) : this.p1;
+			Vector3 p2 = hasStateTransform ? stateTransform.MultiplyPoint3x4(this.p2) : this.p2;
 			
 			Vector3 dir = new Vector3(
 				p2.x - p1.x,
@@ -208,28 +208,19 @@ namespace DebugDrawItems
 			
 			if(faceCamera)
 			{
-				if (autoSize && !DebugDraw.camOrthographic)
-				{
-					Vector3 d = new Vector3(
-						p1.x - camP.x,
-						p1.y - camP.y,
-						p1.z - camP.z);
-					d.Normalize();
-					n1 = Vector3.Cross(d, dir);
-					n1.Normalize();
-					d.x = p1.x - camP.x;
-					d.y = p1.y - camP.y;
-					d.z = p1.z - camP.z;
-					d.Normalize();
-					n2 = Vector3.Cross(d, dir);
-					n2.Normalize();
-				}
-				else
-				{
-					n1 = Vector3.Cross(DebugDraw.camForward, dir);
-					n1.Normalize();
-					n2 = n1;
-				}
+				Vector3 d = new Vector3(
+					p1.x - camP.x,
+					p1.y - camP.y,
+					p1.z - camP.z);
+				d.Normalize();
+				n1 = Vector3.Cross(d, dir);
+				n1.Normalize();
+				d.x = p1.x - camP.x;
+				d.y = p1.y - camP.y;
+				d.z = p1.z - camP.z;
+				d.Normalize();
+				n2 = Vector3.Cross(d, dir);
+				n2.Normalize();
 			}
 			else
 			{

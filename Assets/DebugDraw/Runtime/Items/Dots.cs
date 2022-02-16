@@ -125,8 +125,6 @@ namespace DebugDrawItems
 
 		internal override void Build(DebugDrawMesh mesh)
 		{
-			ref Vector3 camPosition = ref DebugDraw.camPosition;
-			
 			bool hasStateTransform = this.hasStateTransform;
 			ref Matrix4x4 stateTransform = ref this.stateTransform;
 			bool hasStateColor = this.hasStateColor;
