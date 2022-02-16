@@ -399,34 +399,37 @@ namespace DebugDrawUtils
 			Vector3 move = forward * input.z + right * input.x + Vector3.up * input.y;
 			bool isMoving = move != Vector3.zero;
 			
-			float scroll = Input.mouseScrollDelta.y;
-			bool alt = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
 			bool fast = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift);
 			bool slow = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
 			float currentSpeedMultiplier = CalculateSpeedMultiplier();
 
-			if (Input.GetKeyDown(KeyCode.Home))
+			if (Cursor.lockState == CursorLockMode.Locked)
 			{
-				cam.fieldOfView = baseFOV;
-				currentSpeedPercent = 0;
-			}
-			else if (alt)
-			{
-				if(scroll != 0)
+				float scroll = Input.mouseScrollDelta.y;
+				bool alt = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
+				if (Input.GetKeyDown(KeyCode.Home))
 				{
-					const float steps = 0.05f;
-					currentSpeedPercent = Mathf.Clamp(currentSpeedPercent + scroll * steps, -1, 1);
-					currentSpeedPercent = Mathf.Round(currentSpeedPercent / steps) * steps;
-					currentSpeedMultiplier = CalculateSpeedMultiplier();
-
-					int p = Mathf.FloorToInt((currentSpeedMultiplier * DebugDrawCamera.maxSpeed) / DebugDrawCamera.maxSpeed * 100);
-					Log.Show(0xffffff - 1, 1, $"Debug Camera Speed: {p}%");
+					cam.fieldOfView = baseFOV;
+					currentSpeedPercent = 0;
 				}
-			}
-			else if (scroll != 0)
-			{
-				cam.fieldOfView = Mathf.Clamp(cam.fieldOfView + scroll * -3, 2, 170);
-				Log.Show(0xffffff - 1, 1, $"Debug Camera FOV: {(int) cam.fieldOfView}");
+				else if (alt)
+				{
+					if(scroll != 0)
+					{
+						const float steps = 0.05f;
+						currentSpeedPercent = Mathf.Clamp(currentSpeedPercent + scroll * steps, -1, 1);
+						currentSpeedPercent = Mathf.Round(currentSpeedPercent / steps) * steps;
+						currentSpeedMultiplier = CalculateSpeedMultiplier();
+
+						int p = Mathf.FloorToInt((currentSpeedMultiplier * DebugDrawCamera.maxSpeed) / DebugDrawCamera.maxSpeed * 100);
+						Log.Show(0xffffff - 1, 1, $"Debug Camera Speed: {p}%");
+					}
+				}
+				else if (scroll != 0)
+				{
+					cam.fieldOfView = Mathf.Clamp(cam.fieldOfView + scroll * -3, 2, 170);
+					Log.Show(0xffffff - 1, 1, $"Debug Camera FOV: {(int) cam.fieldOfView}");
+				}
 			}
 			
 			float multiplier = currentSpeedMultiplier * (fast ? fastMultiplier : slow ? slowMultiplier : 1);
