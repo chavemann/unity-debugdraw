@@ -52,8 +52,11 @@ public static partial class DebugDraw
 	public static Vector3 positionIdentity = Vector3.zero;
 	public static Vector3 scaleIdentity = Vector3.one;
 	public static Vector3 up = Vector3.up;
+	public static Vector3 down = Vector3.down;
 	public static Vector3 right = Vector3.right;
+	public static Vector3 left = Vector3.left;
 	public static Vector3 forward = Vector3.forward;
+	public static Vector3 back = Vector3.back;
 
 	private static readonly List<BaseAttachment> Attachments = new List<BaseAttachment>();
 	private static int attachmentCount;
