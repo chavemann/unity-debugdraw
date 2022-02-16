@@ -147,6 +147,7 @@ namespace DebugDrawItems
 			Color clr1 = GetColor(ref color);
 			Color clr2 = GetColor(ref color2);
 
+			Vector3 camP = DebugDraw.camPosition;
 			Vector3 p1 = this.p1;
 			Vector3 p2 = this.p2;
 			
@@ -162,13 +163,13 @@ namespace DebugDrawItems
 			if(autoSize && !DebugDraw.camOrthographic)
 			{
 				float dist1 = Vector3.Dot(new Vector3(
-					p1.x - DebugDraw.camPosition.x,
-					p1.y - DebugDraw.camPosition.y,
-					p1.z - DebugDraw.camPosition.z), DebugDraw.camForward);
+					p1.x - camP.x,
+					p1.y - camP.y,
+					p1.z - camP.z), DebugDraw.camForward);
 				float dist2 = Vector3.Dot(new Vector3(
-					p2.x - DebugDraw.camPosition.x,
-					p2.y - DebugDraw.camPosition.y,
-					p2.z - DebugDraw.camPosition.z), DebugDraw.camForward);
+					p2.x - camP.x,
+					p2.y - camP.y,
+					p2.z - camP.z), DebugDraw.camForward);
 				
 				if (dist1 <= 0 && dist2 <= 0)
 					return;
@@ -203,34 +204,55 @@ namespace DebugDrawItems
 				}
 			}
 
-			Vector3 n;
+			Vector3 n1, n2;
 			
 			if(faceCamera)
 			{
-				n = Vector3.Cross(DebugDraw.camForward, dir);
-				n.Normalize();
+				if (autoSize && !DebugDraw.camOrthographic)
+				{
+					Vector3 d = new Vector3(
+						p1.x - camP.x,
+						p1.y - camP.y,
+						p1.z - camP.z);
+					d.Normalize();
+					n1 = Vector3.Cross(d, dir);
+					n1.Normalize();
+					d.x = p1.x - camP.x;
+					d.y = p1.y - camP.y;
+					d.z = p1.z - camP.z;
+					d.Normalize();
+					n2 = Vector3.Cross(d, dir);
+					n2.Normalize();
+				}
+				else
+				{
+					n1 = Vector3.Cross(DebugDraw.camForward, dir);
+					n1.Normalize();
+					n2 = n1;
+				}
 			}
 			else
 			{
-				DebugDraw.FindAxisVectors(ref dir, ref facing, out _, out n);
+				DebugDraw.FindAxisVectors(ref dir, ref facing, out _, out n1);
+				n2 = n1;
 			}
 
 			mesh.AddVertex(
-				p1.x + n.x * size1,
-				p1.y + n.y * size1,
-				p1.z + n.z * size1);
+				p1.x + n1.x * size1,
+				p1.y + n1.y * size1,
+				p1.z + n1.z * size1);
 			mesh.AddVertex(
-				p1.x - n.x * size1,
-				p1.y - n.y * size1,
-				p1.z - n.z * size1);
+				p1.x - n1.x * size1,
+				p1.y - n1.y * size1,
+				p1.z - n1.z * size1);
 			mesh.AddVertex(
-				p2.x - n.x * size2,
-				p2.y - n.y * size2,
-				p2.z - n.z * size2);
+				p2.x - n2.x * size2,
+				p2.y - n2.y * size2,
+				p2.z - n2.z * size2);
 			mesh.AddVertex(
-				p2.x + n.x * size2,
-				p2.y + n.y * size2,
-				p2.z + n.z * size2);
+				p2.x + n2.x * size2,
+				p2.y + n2.y * size2,
+				p2.z + n2.z * size2);
 			mesh.AddColorX2(ref clr1);
 			mesh.AddColorX2(ref clr2);
 			// Tri 1
