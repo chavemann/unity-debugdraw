@@ -951,6 +951,24 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Batch draw multiple points from a positions and colors array.
+	/// Both arrays must be non-null and of the same size.
+	/// </summary>
+	/// <param name="positions">The positions of the start and end points of each line.</param>
+	/// <param name="colors">The colors of the start and end points of each line.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Points Points(List<Vector3> positions, List<Color> colors, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return pointMeshInstance.Add(DebugDrawItems.Points.Get(positions, colors, duration));
+		#else
+		return DebugDrawItems.Points.Get(positions, colors, duration);
+		#endif
+	}
+	
+	/// <summary>
 	/// Draws a wire quad.
 	/// </summary>
 	/// <param name="p1">The first point of the quad.</param>
@@ -2000,6 +2018,20 @@ public partial class DebugDrawMesh
 	public Point Point(Vector3 position, Color color, float duration = 0)
 	{
 		return Add(DebugDrawItems.Point.Get(ref position, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Batch draw multiple points from a positions and colors array.
+	/// Both arrays must be non-null and of the same size.
+	/// </summary>
+	/// <param name="positions">The positions of the start and end points of each line.</param>
+	/// <param name="colors">The colors of the start and end points of each line.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Line object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Points Points(List<Vector3> positions, List<Color> colors, float duration = 0)
+	{
+		return Add(DebugDrawItems.Points.Get(positions, colors, duration));
 	}
 	
 	/// <summary>
