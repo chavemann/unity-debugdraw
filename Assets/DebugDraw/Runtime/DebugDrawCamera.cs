@@ -25,7 +25,7 @@ namespace DebugDrawUtils
 		/// <summary>
 		/// True if the debug camera is active.
 		/// </summary>
-		public static bool active { get; private set; }
+		public static bool isActive { get; private set; }
 		/// <summary>
 		/// The current DebugDrawCamera, may be null.
 		/// </summary>
@@ -142,12 +142,12 @@ namespace DebugDrawUtils
 			if (!Application.isPlaying)
 				return;
 			
-			if (active == on)
+			if (isActive == on)
 				return;
 			
-			active = on;
+			isActive = on;
 
-			if (active)
+			if (isActive)
 			{
 				lastCamera = Camera.main;
 
@@ -168,7 +168,7 @@ namespace DebugDrawUtils
 						{
 							Console.WriteLine("DebugCamera component returned from debugCameraFactory should not be null.");
 							Destroy(obj);
-							active = false;
+							isActive = false;
 							return;
 						}
 
@@ -215,13 +215,13 @@ namespace DebugDrawUtils
 				instance.Init();
 			}
 			
-			DebugDraw.InitCamera(active ? cam : lastCamera);
+			DebugDraw.InitCamera(isActive ? cam : lastCamera);
 		}
 
 		/// <inheritdoc cref="Toggle(bool)"/>
 		public static void Toggle()
 		{
-			Toggle(!active);
+			Toggle(!isActive);
 		}
 
 		/// <summary>
@@ -240,7 +240,7 @@ namespace DebugDrawUtils
 		/// </summary>
 		protected virtual void Init()
 		{
-			if (!active)
+			if (!isActive)
 				return;
 			
 			speed = 0;

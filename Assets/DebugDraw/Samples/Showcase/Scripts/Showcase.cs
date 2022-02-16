@@ -160,7 +160,7 @@ namespace DebugDrawSamples.Showcase.Scripts
 				DebugDrawCamera.UpdateCamera();
 			}
 
-			if (DebugDrawCamera.active && Input.GetKeyDown(KeyCode.T))
+			if (DebugDrawCamera.isActive && Input.GetKeyDown(KeyCode.T))
 			{
 				DebugDrawCamera.TrackObject(!DebugDrawCamera.isTrackingObj
 					? FindObjectOfType<PlayerMovement>()
