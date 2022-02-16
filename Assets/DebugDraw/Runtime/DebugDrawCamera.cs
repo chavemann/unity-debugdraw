@@ -510,9 +510,9 @@ namespace DebugDrawUtils
 		/// <summary>
 		/// The debug camera will attempt to keep its relative position to this object every frame.
 		/// </summary>
-		/// <param name="obj">The object to track.</param>
+		/// <param name="obj">The object to track. Null to disable</param>
 		/// <param name="lookAt">If true the object will also stay centred in the view.</param>
-		public static void TrackObject(GameObjectOrTransform obj, bool lookAt = false)
+		public static void TrackObject(GameObjectOrTransform? obj, bool lookAt = false)
 		{
 			bool prevTrackingObj = isTrackingObj;
 			
