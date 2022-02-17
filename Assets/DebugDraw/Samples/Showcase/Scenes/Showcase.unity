@@ -1693,7 +1693,7 @@ PrefabInstance:
 
 
         Enter
-        at any time in this show case map to toggle, and <b>T</b> to toggle tracking
+        at any time in this showcase map to toggle, and <b>T</b> to toggle tracking
         the player.'
       objectReference: {fileID: 0}
     - target: {fileID: 997130020043407603, guid: 79eee63188cedda4ca23ecfb85c6f145,

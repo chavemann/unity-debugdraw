@@ -18,7 +18,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			if (!cam)
 				return;
 
-			DebugDrawCamera.Toggle(true);
+			Showcase.ToggleDebugCamera();
 		}
 
 	}

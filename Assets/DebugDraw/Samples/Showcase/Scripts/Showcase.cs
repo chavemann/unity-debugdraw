@@ -36,9 +36,7 @@ namespace DebugDrawSamples.Showcase
 
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
-				DebugDrawCamera.TrackObject(null);
-				DebugDrawCamera.Toggle();
-				DebugDrawCamera.UpdateCamera();
+				ToggleDebugCamera();
 			}
 
 			if (DebugDrawCamera.isActive && Input.GetKeyDown(KeyCode.T))
@@ -47,6 +45,13 @@ namespace DebugDrawSamples.Showcase
 					? FindObjectOfType<PlayerMovement>()
 					: null, true);
 			}
+		}
+
+		public static void ToggleDebugCamera()
+		{
+			DebugDrawCamera.TrackObject(null);
+			DebugDrawCamera.Toggle();
+			DebugDrawCamera.UpdateCamera();
 		}
 
 		public static void InitRandom(Transform tr, int seed = 0)
