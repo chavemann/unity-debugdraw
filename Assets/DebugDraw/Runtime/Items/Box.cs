@@ -35,6 +35,37 @@ namespace DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Box object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Box Get(ref Vector3 position, float size, ref Color color, float duration = 0)
+		{
+			Vector3 s = new Vector3(size, size, size);
+			return Get(ref position, ref s, ref color, duration);
+		}
+		
+		/// <summary>
+		/// Draws an axis aligned box.
+		/// </summary>
+		/// <param name="position">The centre of the box.</param>
+		/// <param name="size">The half size of the box.</param>
+		/// <param name="orientation">The orientation of the box.</param>
+		/// <param name="color">The color of the box.</param>
+		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+		/// <returns>The Box object.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Box Get(ref Vector3 position, float size, ref Quaternion orientation, ref Color color, float duration = 0)
+		{
+			Vector3 s = new Vector3(size, size, size);
+			return Get(ref position, ref s, ref orientation, ref color, duration);
+		}
+		
+		/// <summary>
+		/// Draws an axis aligned box.
+		/// </summary>
+		/// <param name="position">The centre of the box.</param>
+		/// <param name="size">The half size of the box.</param>
+		/// <param name="color">The color of the box.</param>
+		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+		/// <returns>The Box object.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Box Get(ref Vector3 position, ref Vector3 size, ref Color color, float duration = 0)
 		{
 			Box item = ItemPool<Box>.Get(duration);
