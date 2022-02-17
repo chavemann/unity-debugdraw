@@ -43,9 +43,11 @@ namespace DebugDrawSamples.Showcase.Sections
 		{
 			Vector3 shellsP = shellsTr ? shellsTr.position : tr.position;
 			Vector3 wireP = wireframeTr ? wireframeTr.position : tr.position;
-			Vector3 r = DebugDraw.right * spacing;
-			Vector3 u2 = DebugDraw.up * height;
-			Vector3 u3 = DebugDraw.up * (height - radius);
+			Vector3 r = tr.right * spacing;
+			Vector3 up = tr.up;
+			Vector3 forward = tr.forward;
+			Vector3 u2 = up * height;
+			Vector3 u3 = up * (height - radius);
 
 			// Shell
 			Vector3 o = shellsP;
@@ -54,7 +56,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			p = o + r * 0;
 			DebugDraw.Capsule(p - u3, p + u3, radius, colors[1]);
 			p = o + r * 1;
-			DebugDraw.Cone(p - u2, DebugDraw.up, height * 2, coneAngle, colors[2]);
+			DebugDraw.Cone(p - u2, up, height * 2, coneAngle, colors[2]);
 			p = o + r * 2;
 			DebugDraw.Sphere(p, radius, colors[3]);
 
@@ -66,7 +68,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			p = o + r * 0;
 			DebugDraw.WireCapsule(p - u3, p + u3, radius, colors[1], segments);
 			p = o + r * 1;
-			DebugDraw.WireCone(p - u2, DebugDraw.up, height * 2, coneAngle, colors[2], segments);
+			DebugDraw.WireCone(p - u2, up, height * 2, coneAngle, colors[2], segments);
 			p = o + r * 2;
 			DebugDraw.WireSphere(p, radius, colors[3], segments);
 			
@@ -81,21 +83,21 @@ namespace DebugDrawSamples.Showcase.Sections
 			
 			// Cones
 			float a = Showcase.SmoothPingPong(conesAngleMin, conesAngleMax, conesAngleSpeed);
-			o = (conesTr ? conesTr.position : tr.position) + DebugDraw.forward * height;
+			o = (conesTr ? conesTr.position : tr.position) + forward * height;
 			p = o;
 			p.y = shellsP.y;
-			DebugDraw.Cone(p, DebugDraw.back, height * 2, a, colors[6], 32,  false, true);
+			DebugDraw.Cone(p, -forward, height * 2, a, colors[6], 32,  false, true);
 			a = Showcase.SmoothPingPong(conesAngleMin, conesAngleMax, conesAngleSpeed, 1);
 			p = o;
 			p.y = wireP.y;
-			DebugDraw.Cone(p, DebugDraw.back, height * 2, a, colors[7], 32,  true, true);
+			DebugDraw.Cone(p, -forward, height * 2, a, colors[7], 32,  true, true);
 			
 			// Boxes
 			box2Angle += box2Speed * Time.deltaTime;
 			o = boxesTr ? boxesTr.position : tr.position;
 			p = o;
 			p.y = shellsP.y;
-			DebugDraw.Box(p, boxSize, colors[8]);
+			DebugDraw.Box(p, boxSize, tr.rotation, colors[8]);
 			p = o;
 			p.y = wireP.y;
 			DebugDraw.Box(p, box2Size, Quaternion.Euler(box2Angle), colors[9]);

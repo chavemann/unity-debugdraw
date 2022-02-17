@@ -19,10 +19,12 @@ namespace DebugDrawSamples.Showcase.Sections
 		private void Update()
 		{
 			Vector3 o = tr.position;
-			Vector3 r1 = DebugDraw.right * spacing;
-			Vector3 u1 = DebugDraw.up * spacing;
-			Vector3 r2 = DebugDraw.right * size;
-			Vector3 u2 = DebugDraw.up * (size * 2);
+			Vector3 up = tr.up;
+			Vector3 right = tr.right;
+			Vector3 r1 = right * spacing;
+			Vector3 u1 = up * spacing;
+			Vector3 r2 = right * size;
+			Vector3 u2 = up * (size * 2);
 
 			Vector3 p = o - r1 * spacing + u1 - u2 * 0.5f;
 			DebugDraw.Triangle(p - r2, p + u2, p + r2, colors[0], colors[0], colors[0]);

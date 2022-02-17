@@ -39,47 +39,50 @@ namespace DebugDrawSamples.Showcase.Sections
 
 		private void Update()
 		{
+			Vector3 forward = tr.forward;
+			Vector3 right = tr.right;
+			
 			// Row 1
 			row1Angle += row1Speed * Time.deltaTime;
-			Vector3 forward = Quaternion.Euler(row1Angle) * DebugDraw.forward;
+			Vector3 facing = Quaternion.Euler(row1Angle) * forward;
 			
 			Vector3 p = row1 ? row1.position : tr.position;
-			Vector3 r = DebugDraw.right * row1Spacing;
+			Vector3 r = right * row1Spacing;
 			DebugDraw.Ellipse(
 				p - r * 1,
 				row1Radius,
-				DebugDraw.forward,
+				forward,
 				colors[0]);
 			DebugDraw.Ellipse(
 				p + r * 0,
 				new Vector2(
 					row1Radius * (Mathf.Cos(Time.time * row1SizeSpeed) * 0.5f + 0.5f),
 					row1Radius * (Mathf.Sin(Time.time * row1SizeSpeed) * 0.5f + 0.5f)),
-				DebugDraw.forward,
+				forward,
 				colors[1]);
 			DebugDraw.FillEllipse(
 				p + r * 1,
 				row1Radius,
-				DebugDraw.forward,
+				forward,
 				colors[2]);
 			
 			// Row 2
 			p = row2 ? row2.position : tr.position;
-			r = DebugDraw.right * row2Spacing;
+			r = right * row2Spacing;
 			DebugDraw.Ellipse(
 				p - r * 1,
 				row2Radius,
-				DebugDraw.forward,
+				forward,
 				colors[3], 8);
 			DebugDraw.Ellipse(
 				p + r * 0,
 				row2Radius,
-				DebugDraw.forward,
+				forward,
 				colors[4], 32, DrawEllipseAxes.Always);
 			DebugDraw.Ellipse(
 				p + r * 1,
 				row2Radius,
-				DebugDraw.forward,
+				forward,
 				colors[5])
 				.SetInnerRadius(row2InnerRadius);
 			
@@ -87,24 +90,24 @@ namespace DebugDrawSamples.Showcase.Sections
 			row3ArcAngle = Showcase.SmoothPingPong(0, 180, row3AngleSpeed);
 			
 			p = row3 ? row3.position : tr.position;
-			r = DebugDraw.right * row3Spacing;
+			r = right * row3Spacing;
 			DebugDraw.Ellipse(
 				p - r * 1,
 				row3Radius,
-				DebugDraw.forward,
+				forward,
 				colors[6])
 				.SetArcAngles(row3AngleMin, row3AngleMax);
 			DebugDraw.Ellipse(
 				p + r * 0,
 				row3Radius,
-				DebugDraw.forward,
+				forward,
 				colors[7])
 				.SetArc(-row3ArcAngle, row3ArcAngle, DrawArcSegments.OpenOnly)
 				.SetInnerRadius(row3InnerRadius);
 			DebugDraw.FillEllipse(
 				p + r * 1,
 				row3Radius,
-				forward,
+				facing,
 				colors[8])
 				.SetArc(-row3ArcAngle, row3ArcAngle, DrawArcSegments.OpenOnly)
 				.SetInnerRadius(row3InnerRadius);

@@ -84,27 +84,30 @@ namespace DebugDrawSamples.Showcase.Sections
 			DebugDraw.Points(points, pointColors);
 			DebugDraw.Dots(dotPositions, sizes, pointColors);
 
-			if (HasChanged(dotsObj) || HasChanged(facingObj))
+			if (HasChanged(dotsObj) || HasChanged(facingObj) || HasChanged(tr))
 			{
 				CreateDots();
 			}
 
+			Vector3 up = tr.up * dotSpacing;
+			Vector3 right = tr.right * dotSpacing;
+
 			if (dotsObj)
 			{
 				o = dotsObj.position;
-				DebugDraw.Dot(o + new Vector3(-dotSpacing, +dotSpacing, 0), dotSize * 0.5f, colors[0]);
-				DebugDraw.Dot(o + new Vector3(+dotSpacing, +dotSpacing, 0), dotSize, colors[1]);
-				DebugDraw.Dot(o + new Vector3(+dotSpacing, -dotSpacing, 0), dotSize, colors[2], 4);
-				DebugDraw.Dot(o + new Vector3(-dotSpacing, -dotSpacing, 0), dotSize, colors[3], 8);
+				DebugDraw.Dot(o - right + up, dotSize * 0.5f, colors[0]);
+				DebugDraw.Dot(o + right + up, dotSize, colors[1]);
+				DebugDraw.Dot(o + right - up, dotSize, colors[2], 4);
+				DebugDraw.Dot(o - right - up, dotSize, colors[3], 8);
 			}
 
 			if (facingObj)
 			{
 				o = facingObj.position;
-				DebugDraw.Dot(o + new Vector3(-dotSpacing, +dotSpacing, 0), dotSize, colors[4]);
-				DebugDraw.Dot(o + new Vector3(+dotSpacing, +dotSpacing, 0), dotSize, colors[5], new Vector3(-1, -1, 0).normalized);
-				DebugDraw.Dot(o + new Vector3(+dotSpacing, -dotSpacing, 0), dotSize, colors[6], DebugDraw.right);
-				DebugDraw.Dot(o + new Vector3(-dotSpacing, -dotSpacing, 0), dotSize * 3, colors[7])
+				DebugDraw.Dot(o - right + up, dotSize, colors[4]);
+				DebugDraw.Dot(o + right + up, dotSize, colors[5], new Vector3(-1, -1, 0).normalized);
+				DebugDraw.Dot(o + right - up, dotSize, colors[6], DebugDraw.right);
+				DebugDraw.Dot(o - right - up, dotSize * 3, colors[7])
 					.SetAutoSize();
 			}
 		}

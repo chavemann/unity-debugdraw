@@ -77,7 +77,8 @@ namespace DebugDrawSamples.Showcase
 
 		public static float SmoothPingPong(float min, float max, float speed, float offset = 0)
 		{
-			return Mathf.SmoothStep(min, max, Mathf.PingPong(Time.time * speed + offset * (max - min), 1));
+			float diff = max - min;
+			return Mathf.SmoothStep(min, max, Mathf.PingPong(Time.time * speed + offset * diff, diff) / diff);
 		}
 
 	}
