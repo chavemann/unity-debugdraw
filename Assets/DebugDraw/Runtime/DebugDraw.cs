@@ -601,17 +601,12 @@ public static partial class DebugDraw
 	/// </summary>
 	public static void PushState()
 	{
-		DebugDrawState state;
-		
 		if (stateIndex == States.Count)
 		{
-			States.Add(state = new DebugDrawState());
-		}
-		else
-		{
-			state = States[stateIndex++];
+			States.Add(new DebugDrawState());
 		}
 	
+		DebugDrawState state = States[stateIndex++];
 		state.color = _color;
 		state.transform = _transform;
 		state.hasColor = hasColor;
