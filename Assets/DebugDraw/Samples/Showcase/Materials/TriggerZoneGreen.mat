@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TriggerZone
+  m_Name: TriggerZoneGreen
   m_Shader: {fileID: -6465566751694194690, guid: 34884d1ad7c9ce34496c3e12c6027378,
     type: 3}
   m_ShaderKeywords: 
@@ -87,7 +87,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_334CFC20: {r: 0.41261292, g: 0, b: 1.4142135, a: 1}
+    - Color_334CFC20: {r: 0, g: 1.0509158, b: 0.20631135, a: 1}
     - Color_BC7DB497: {r: 0, g: 0, b: 0, a: 0}
     - Vector3_AE4FE84B: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

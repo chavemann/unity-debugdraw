@@ -34,7 +34,7 @@ namespace DebugDrawSamples.Showcase
 				Application.Quit();
 			}
 
-			if (Input.GetKeyDown(KeyCode.BackQuote))
+			if (Input.GetKeyDown(KeyCode.Return))
 			{
 				DebugDrawCamera.TrackObject(null);
 				DebugDrawCamera.Toggle();
