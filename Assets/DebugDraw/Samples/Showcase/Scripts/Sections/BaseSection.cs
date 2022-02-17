@@ -24,6 +24,11 @@ namespace DebugDrawSamples.Showcase.Sections
 			
 		}
 
+		protected Vector3 Position(Transform origin)
+		{
+			return origin ? origin.position : tr.position;
+		}
+
 		protected bool HasChanged(Transform tr)
 		{
 			if (!tr || !tr.hasChanged)
