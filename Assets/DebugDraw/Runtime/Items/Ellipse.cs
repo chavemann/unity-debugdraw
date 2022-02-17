@@ -176,6 +176,7 @@ namespace DebugDrawItems
 			item.drawArcSegments = DrawArcSegments.Never;
 			item.forward = null;
 			item.wireframe = true;
+			item.innerRadius = 0;
 
 			return item;
 		}
@@ -207,6 +208,7 @@ namespace DebugDrawItems
 			item.drawArcSegments = DrawArcSegments.Never;
 			item.forward = null;
 			item.wireframe = false;
+			item.innerRadius = 0;
 
 			return item;
 		}
@@ -246,6 +248,7 @@ namespace DebugDrawItems
 			item.drawAxes = drawAxes;
 			item.wireframe = true;
 			item.forward = null;
+			item.innerRadius = 0;
 
 			return item;
 		}
@@ -282,6 +285,7 @@ namespace DebugDrawItems
 			item.drawArcSegments = DrawArcSegments.Never;
 			item.wireframe = false;
 			item.forward = null;
+			item.innerRadius = 0;
 
 			return item;
 		}
