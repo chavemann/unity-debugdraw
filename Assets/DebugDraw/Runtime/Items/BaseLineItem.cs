@@ -31,6 +31,8 @@ namespace DebugDrawItems
 			attachment.lineItem = this;
 			attachment.start.Set(startObj);
 			attachment.end.Set(endObj);
+			attachment.startDistance = 0;
+			attachment.endDistance = 0;
 			return attachment;
 		}
 
