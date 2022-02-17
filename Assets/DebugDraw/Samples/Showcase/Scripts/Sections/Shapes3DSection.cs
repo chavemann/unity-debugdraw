@@ -76,10 +76,10 @@ namespace DebugDrawSamples.Showcase.Sections
 			o = cylinderTr ? cylinderTr.position : tr.position;
 			p = o;
 			p.y = shellsP.y;
-			DebugDraw.Cylinder(p - u2, p + u2, cylinderRadius1, cylinderRadius2, colors[4]);
+			DebugDraw.Cylinder(p - forward * height, p + forward * height, cylinderRadius1, cylinderRadius2, colors[4]);
 			p = o;
 			p.y = wireP.y;
-			DebugDraw.Cylinder(p - u2, p + u2, radius, colors[5], 32, true);
+			DebugDraw.Cylinder(p - forward * height, p + forward * height, radius, colors[5], 32, true);
 			
 			// Cones
 			float a = Showcase.SmoothPingPong(conesAngleMin, conesAngleMax, conesAngleSpeed);
