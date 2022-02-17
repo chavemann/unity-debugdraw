@@ -59,7 +59,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			DebugDraw.Sphere(p, radius, colors[3]);
 
 			// Wireframe
-			int segments = Mathf.RoundToInt(Showcase.PingPong(segmentsMin, segmentsMax, segmentsSpeed));
+			int segments = Mathf.RoundToInt(Showcase.SmoothPingPong(segmentsMin, segmentsMax, segmentsSpeed));
 			o = wireP;
 			p = o - r;
 			DebugDraw.WireCylinder(p - u2, p + u2, radius, colors[0], segments);
@@ -80,12 +80,12 @@ namespace DebugDrawSamples.Showcase.Sections
 			DebugDraw.Cylinder(p - u2, p + u2, radius, colors[5], 32, true);
 			
 			// Cones
-			float a = Showcase.PingPong(conesAngleMin, conesAngleMax, conesAngleSpeed);
+			float a = Showcase.SmoothPingPong(conesAngleMin, conesAngleMax, conesAngleSpeed);
 			o = (conesTr ? conesTr.position : tr.position) + DebugDraw.forward * height;
 			p = o;
 			p.y = shellsP.y;
 			DebugDraw.Cone(p, DebugDraw.back, height * 2, a, colors[6], 32,  false, true);
-			a = Showcase.PingPong(conesAngleMin, conesAngleMax, conesAngleSpeed, 1);
+			a = Showcase.SmoothPingPong(conesAngleMin, conesAngleMax, conesAngleSpeed, 1);
 			p = o;
 			p.y = wireP.y;
 			DebugDraw.Cone(p, DebugDraw.back, height * 2, a, colors[7], 32,  true, true);

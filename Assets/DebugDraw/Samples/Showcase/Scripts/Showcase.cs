@@ -66,7 +66,7 @@ namespace DebugDrawSamples.Showcase
 			}
 		}
 
-		public static float PingPong(float min, float max, float speed, float offset = 0)
+		public static float SmoothPingPong(float min, float max, float speed, float offset = 0)
 		{
 			return Mathf.SmoothStep(min, max, Mathf.PingPong(Time.time * speed + offset * (max - min), 1));
 		}

@@ -84,7 +84,7 @@ namespace DebugDrawSamples.Showcase.Sections
 				.SetInnerRadius(row2InnerRadius);
 			
 			// Row 3
-			row3ArcAngle = Mathf.PingPong(Time.time * row3AngleSpeed, 180);
+			row3ArcAngle = Showcase.SmoothPingPong(0, 180, row3AngleSpeed);
 			
 			p = row3 ? row3.position : tr.position;
 			r = DebugDraw.right * row3Spacing;
