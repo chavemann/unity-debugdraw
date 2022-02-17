@@ -199,6 +199,7 @@ internal class LogMessage
 			}
 			else
 			{
+				MessageGUIContent.text = message.text;
 				message.height = Log.MessageStyle.CalcHeight(MessageGUIContent, rect.width);
 				totalMessageHeight += message.height;
 				message = message.next;
