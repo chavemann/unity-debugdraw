@@ -98,6 +98,16 @@ namespace DebugDrawItems
 			{
 				item.colors = new List<Color>();
 				mesh.GetColors(item.colors);
+
+				if (item.colors.Count != item.vertices.Count)
+				{
+					item.colors.Clear();
+					
+					for (int i = item.vertices.Count - 1; i >= 0; i--)
+					{
+						item.colors.Add(DebugDraw.colorIdentity);
+					}
+				}
 			}
 			else
 			{
