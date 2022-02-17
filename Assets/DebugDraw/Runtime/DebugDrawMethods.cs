@@ -1112,6 +1112,82 @@ public static partial class DebugDraw
 	}
 	
 	/// <summary>
+	/// Draws a filled square.
+	/// </summary>
+	/// <param name="position">The centre of the square.</param>
+	/// <param name="size">The half size of the square.</param>
+	/// <param name="facing">The normal or direction the front of the square is facing.</param>
+	/// <param name="color">The colour of the square.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Rectangle Rectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration));
+		#else
+		return DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration);
+		#endif
+	}
+	
+	/// <summary>
+	/// Draws a wire square.
+	/// </summary>
+	/// <param name="position">The centre of the square.</param>
+	/// <param name="size">The half size of the square.</param>
+	/// <param name="facing">The normal or direction the front of the square is facing.</param>
+	/// <param name="color">The colour of the square.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Rectangle WireRectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.GetWire(ref position, size, ref facing, ref color, duration));
+		#else
+		return DebugDrawItems.Rectangle.GetWire(ref position, size, ref facing, ref color, duration);
+		#endif
+	}
+	
+	/// <summary>
+	/// Draws a filled square.
+	/// </summary>
+	/// <param name="position">The centre of the square.</param>
+	/// <param name="size">The half size of the square.</param>
+	/// <param name="facing">The normal or direction the front of the square is facing.</param>
+	/// <param name="color">The colour of the square.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Rectangle Rectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration));
+		#else
+		return DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration);
+		#endif
+	}
+	
+	/// <summary>
+	/// Draws a wire square.
+	/// </summary>
+	/// <param name="position">The centre of the square.</param>
+	/// <param name="size">The half size of the square.</param>
+	/// <param name="facing">The normal or direction the front of the square is facing.</param>
+	/// <param name="color">The colour of the square.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Rectangle WireRectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.GetWire(ref position, ref size, ref facing, ref color, duration));
+		#else
+		return DebugDrawItems.Rectangle.GetWire(ref position, ref size, ref facing, ref color, duration);
+		#endif
+	}
+	
+	/// <summary>
 	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
@@ -1186,44 +1262,6 @@ public static partial class DebugDraw
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref orientation, ref color, segments, duration));
 		#else
 		return DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref orientation, ref color, segments, duration);
-		#endif
-	}
-	
-	/// <summary>
-	/// Draws a filled square.
-	/// </summary>
-	/// <param name="position">The centre of the square.</param>
-	/// <param name="size">The half size of the square.</param>
-	/// <param name="facing">The normal or direction the front of the square is facing.</param>
-	/// <param name="color">The colour of the square.</param>
-	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The ellipse object.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Square Square(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
-	{
-		#if DEBUG_DRAW
-		return triangleMeshInstance.Add(DebugDrawItems.Square.Get(ref position, ref size, ref facing, ref color, duration));
-		#else
-		return DebugDrawItems.Square.Get(ref position, ref size, ref facing, ref color, duration);
-		#endif
-	}
-	
-	/// <summary>
-	/// Draws a wire square.
-	/// </summary>
-	/// <param name="position">The centre of the square.</param>
-	/// <param name="size">The half size of the square.</param>
-	/// <param name="facing">The normal or direction the front of the square is facing.</param>
-	/// <param name="color">The colour of the square.</param>
-	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The ellipse object.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Square WireSquare(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
-	{
-		#if DEBUG_DRAW
-		return triangleMeshInstance.Add(DebugDrawItems.Square.GetWire(ref position, ref size, ref facing, ref color, duration));
-		#else
-		return DebugDrawItems.Square.GetWire(ref position, ref size, ref facing, ref color, duration);
 		#endif
 	}
 	
@@ -2207,6 +2245,66 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
+	/// Draws a filled square.
+	/// </summary>
+	/// <param name="position">The centre of the square.</param>
+	/// <param name="size">The half size of the square.</param>
+	/// <param name="facing">The normal or direction the front of the square is facing.</param>
+	/// <param name="color">The colour of the square.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Rectangle Rectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire square.
+	/// </summary>
+	/// <param name="position">The centre of the square.</param>
+	/// <param name="size">The half size of the square.</param>
+	/// <param name="facing">The normal or direction the front of the square is facing.</param>
+	/// <param name="color">The colour of the square.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Rectangle WireRectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Rectangle.GetWire(ref position, size, ref facing, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a filled square.
+	/// </summary>
+	/// <param name="position">The centre of the square.</param>
+	/// <param name="size">The half size of the square.</param>
+	/// <param name="facing">The normal or direction the front of the square is facing.</param>
+	/// <param name="color">The colour of the square.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Rectangle Rectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration));
+	}
+	
+	/// <summary>
+	/// Draws a wire square.
+	/// </summary>
+	/// <param name="position">The centre of the square.</param>
+	/// <param name="size">The half size of the square.</param>
+	/// <param name="facing">The normal or direction the front of the square is facing.</param>
+	/// <param name="color">The colour of the square.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The ellipse object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Rectangle WireRectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
+	{
+		return Add(DebugDrawItems.Rectangle.GetWire(ref position, ref size, ref facing, ref color, duration));
+	}
+	
+	/// <summary>
 	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
 	/// <param name="position">The centre of the sphere.</param>
@@ -2266,36 +2364,6 @@ public partial class DebugDrawMesh
 	public Sphere WireSphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
 	{
 		return Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref orientation, ref color, segments, duration));
-	}
-	
-	/// <summary>
-	/// Draws a filled square.
-	/// </summary>
-	/// <param name="position">The centre of the square.</param>
-	/// <param name="size">The half size of the square.</param>
-	/// <param name="facing">The normal or direction the front of the square is facing.</param>
-	/// <param name="color">The colour of the square.</param>
-	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The ellipse object.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Square Square(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
-	{
-		return Add(DebugDrawItems.Square.Get(ref position, ref size, ref facing, ref color, duration));
-	}
-	
-	/// <summary>
-	/// Draws a wire square.
-	/// </summary>
-	/// <param name="position">The centre of the square.</param>
-	/// <param name="size">The half size of the square.</param>
-	/// <param name="facing">The normal or direction the front of the square is facing.</param>
-	/// <param name="color">The colour of the square.</param>
-	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
-	/// <returns>The ellipse object.</returns>
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Square WireSquare(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
-	{
-		return Add(DebugDrawItems.Square.GetWire(ref position, ref size, ref facing, ref color, duration));
 	}
 	
 	/// <summary>

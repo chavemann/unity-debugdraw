@@ -4,7 +4,7 @@ using UnityEngine;
 namespace DebugDrawItems
 {
 
-	public class Square : BasePointItem
+	public class Rectangle : BasePointItem
 	{
 		/* mesh: triangle */
 
@@ -36,9 +36,55 @@ namespace DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Square Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float duration = 0)
+		public static Rectangle Get(ref Vector3 position, float size, ref Vector3 facing, ref Color color, float duration = 0)
 		{
-			Square item = ItemPool<Square>.Get(duration);
+			Rectangle item = ItemPool<Rectangle>.Get(duration);
+			
+			item.position = position;
+			item.size = new Vector2(size, size);
+			item.facing = facing;
+			item.color = color;
+			item.filled = true;
+
+			return item;
+		}
+		
+		/// <summary>
+		/// Draws a wire square.
+		/// </summary>
+		/// <param name="position">The centre of the square.</param>
+		/// <param name="size">The half size of the square.</param>
+		/// <param name="facing">The normal or direction the front of the square is facing.</param>
+		/// <param name="color">The colour of the square.</param>
+		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+		/// <returns>The ellipse object.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Rectangle GetWire(ref Vector3 position, float size, ref Vector3 facing, ref Color color, float duration = 0)
+		{
+			Rectangle item = ItemPool<Rectangle>.Get(duration);
+			
+			item.position = position;
+			item.size = new Vector2(size, size);
+			item.facing = facing;
+			item.color = color;
+			item.filled = false;
+
+			return item;
+		}
+		
+		/// <summary>
+		/// Draws a filled square.
+		/// </summary>
+		/// <param name="position">The centre of the square.</param>
+		/// <param name="size">The half size of the square.</param>
+		/// <param name="facing">The normal or direction the front of the square is facing.</param>
+		/// <param name="color">The colour of the square.</param>
+		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+		/// <returns>The ellipse object.</returns>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Rectangle Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float duration = 0)
+		{
+			Rectangle item = ItemPool<Rectangle>.Get(duration);
 			
 			item.position = position;
 			item.size = size;
@@ -59,9 +105,9 @@ namespace DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Square GetWire(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float duration = 0)
+		public static Rectangle GetWire(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float duration = 0)
 		{
-			Square item = ItemPool<Square>.Get(duration);
+			Rectangle item = ItemPool<Rectangle>.Get(duration);
 			
 			item.position = position;
 			item.size = size;
@@ -71,7 +117,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
 
@@ -136,7 +182,7 @@ namespace DebugDrawItems
 
 		internal override void Release()
 		{
-			ItemPool<Square>.Release(this);
+			ItemPool<Rectangle>.Release(this);
 		}
 
 	}
