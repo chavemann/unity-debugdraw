@@ -7,7 +7,7 @@ namespace DebugDrawItems
 {
 
 	/// <summary>
-	/// A basic line
+	/// A basic line.
 	/// </summary>
 	public class Line : BaseLineItem, IAttachablePoint
 	{

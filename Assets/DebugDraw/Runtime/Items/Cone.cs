@@ -7,7 +7,7 @@ namespace DebugDrawItems
 {
 
 	/// <summary>
-	/// Draws a cone.
+	/// Draws a wireframe cone.
 	/// </summary>
 	public class Cone : BasePointItem, IAttachableLine
 	{

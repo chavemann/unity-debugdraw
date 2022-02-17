@@ -1,10 +1,12 @@
 using System.Runtime.CompilerServices;
-using DebugDrawUtils;
 using UnityEngine;
 
 namespace DebugDrawItems
 {
 
+	/// <summary>
+	/// Draws an arrow.
+	/// </summary>
 	public class Arrow : Line
 	{
 		/* mesh: line */

@@ -4,6 +4,9 @@ using UnityEngine;
 namespace DebugDrawItems
 {
 
+	/// <summary>
+	/// Draws a single triangle, either filled or wireframe.
+	/// </summary>
 	public class Triangle : BasePointItem
 	{
 		/* mesh: line */

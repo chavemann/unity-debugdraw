@@ -4,6 +4,9 @@ using UnityEngine;
 namespace DebugDrawItems
 {
 
+	/// <summary>
+	/// Draws a 3D line using two triangles.
+	/// </summary>
 	public class Line3D : Line
 	{
 		/* mesh: triangle */

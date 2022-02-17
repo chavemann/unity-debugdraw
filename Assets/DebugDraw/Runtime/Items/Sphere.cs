@@ -4,6 +4,9 @@ using UnityEngine;
 namespace DebugDrawItems
 {
 
+	/// <summary>
+	/// Draws a wireframe sphere.
+	/// </summary>
 	public class Sphere : BasePointItem
 	{
 		/* mesh: line */
