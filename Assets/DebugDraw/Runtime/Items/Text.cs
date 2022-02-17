@@ -52,6 +52,7 @@ namespace DebugDrawItems
 			item.color = color;
 			item.align = align;
 			item.scale = scale;
+			item.useWorldSize = false;
 
 			return item;
 		}
