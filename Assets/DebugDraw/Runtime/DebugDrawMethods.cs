@@ -1197,6 +1197,25 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Sphere Sphere(Vector3 position, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return lineMeshInstance.Add(DebugDrawItems.Sphere.Get(ref position, radius, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Sphere.Get(ref position, radius, ref color, segments, duration);
+		#endif
+	}
+	
+	/// <summary>
+	/// Draws a sphere comprised of a circle for each axis.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Sphere Sphere(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
 	{
 		#if DEBUG_DRAW
@@ -1223,6 +1242,25 @@ public static partial class DebugDraw
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration));
 		#else
 		return DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration);
+		#endif
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe sphere.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Sphere WireSphere(Vector3 position, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		#if DEBUG_DRAW
+		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetWire(ref position, radius, ref color, segments, duration));
+		#else
+		return DebugDrawItems.Sphere.GetWire(ref position, radius, ref color, segments, duration);
 		#endif
 	}
 	
@@ -2314,6 +2352,21 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Sphere Sphere(Vector3 position, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Sphere.Get(ref position, radius, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a sphere comprised of a circle for each axis.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public Sphere Sphere(Vector3 position, Vector3 radius, Color color, int segments = 32, float duration = 0)
 	{
 		return Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref color, segments, duration));
@@ -2333,6 +2386,21 @@ public partial class DebugDrawMesh
 	public Sphere Sphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, float duration = 0)
 	{
 		return Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration));
+	}
+	
+	/// <summary>
+	/// Draws a full wireframe sphere.
+	/// </summary>
+	/// <param name="position">The centre of the sphere.</param>
+	/// <param name="radius">The radius of the sphere in each axis.</param>
+	/// <param name="color">The color of the sphere.</param>
+	/// <param name="segments">The resolution of the sphere. If set to zero will be adjusted based on the distance to the camera.</param>
+	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
+	/// <returns>The Sphere object.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public Sphere WireSphere(Vector3 position, float radius, Color color, int segments = 32, float duration = 0)
+	{
+		return Add(DebugDrawItems.Sphere.GetWire(ref position, radius, ref color, segments, duration));
 	}
 	
 	/// <summary>
