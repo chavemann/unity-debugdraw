@@ -37,7 +37,7 @@ namespace DebugDrawSamples.Showcase.Sections
 		{
 			if (tr)
 			{
-				Showcase.InitRandom(tr);
+				Showcase.InitRandom(tr, seed);
 				Init();
 			}
 		}
