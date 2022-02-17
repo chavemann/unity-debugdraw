@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
 using DebugDrawUtils;
@@ -61,6 +62,14 @@ namespace DebugDrawSamples.Showcase
 		public static void NiceColors(Color[] colors)
 		{
 			for (int i = 0; i < colors.Length; i++)
+			{
+				colors[i] = NiceColor();
+			}
+		}
+
+		public static void NiceColors(List<Color> colors)
+		{
+			for (int i = 0; i < colors.Count; i++)
 			{
 				colors[i] = NiceColor();
 			}
