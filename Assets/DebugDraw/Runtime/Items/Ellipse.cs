@@ -400,7 +400,7 @@ namespace DebugDrawItems
 			}
 			else
 			{
-				DebugDraw.FindAxisVectors(ref facing, ref DebugDraw.up, out up, out right);
+				DebugDraw.FindAxisVectors(ref facing, ref DebugDraw.forward, out up, out right);
 			}
 
 			if (hasStateTransform)
