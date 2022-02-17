@@ -81,7 +81,7 @@ namespace DebugDrawItems
 			item.color = color1;
 			item.color2 = color2;
 			item.color3 = color3;
-			item.filled = true;
+			item.filled = false;
 
 			return item;
 		}
