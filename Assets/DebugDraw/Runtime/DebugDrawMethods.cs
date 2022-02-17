@@ -1121,12 +1121,12 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Rectangle Rectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
+	public static Rectangle FillRectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
 	{
 		#if DEBUG_DRAW
-		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration));
+		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.GetFill(ref position, size, ref facing, ref color, duration));
 		#else
-		return DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration);
+		return DebugDrawItems.Rectangle.GetFill(ref position, size, ref facing, ref color, duration);
 		#endif
 	}
 	
@@ -1140,12 +1140,12 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Rectangle WireRectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
+	public static Rectangle Rectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
 	{
 		#if DEBUG_DRAW
-		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.GetWire(ref position, size, ref facing, ref color, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration));
 		#else
-		return DebugDrawItems.Rectangle.GetWire(ref position, size, ref facing, ref color, duration);
+		return DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration);
 		#endif
 	}
 	
@@ -1159,12 +1159,12 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Rectangle Rectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
+	public static Rectangle FillRectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
 	{
 		#if DEBUG_DRAW
-		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration));
+		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.GetFill(ref position, ref size, ref facing, ref color, duration));
 		#else
-		return DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration);
+		return DebugDrawItems.Rectangle.GetFill(ref position, ref size, ref facing, ref color, duration);
 		#endif
 	}
 	
@@ -1178,12 +1178,12 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Rectangle WireRectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
+	public static Rectangle Rectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
 	{
 		#if DEBUG_DRAW
-		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.GetWire(ref position, ref size, ref facing, ref color, duration));
+		return lineMeshInstance.Add(DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration));
 		#else
-		return DebugDrawItems.Rectangle.GetWire(ref position, ref size, ref facing, ref color, duration);
+		return DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration);
 		#endif
 	}
 	
@@ -2254,9 +2254,9 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Rectangle Rectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
+	public Rectangle FillRectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
 	{
-		return Add(DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration));
+		return Add(DebugDrawItems.Rectangle.GetFill(ref position, size, ref facing, ref color, duration));
 	}
 	
 	/// <summary>
@@ -2269,9 +2269,9 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Rectangle WireRectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
+	public Rectangle Rectangle(Vector3 position, float size, Vector3 facing, Color color, float duration = 0)
 	{
-		return Add(DebugDrawItems.Rectangle.GetWire(ref position, size, ref facing, ref color, duration));
+		return Add(DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration));
 	}
 	
 	/// <summary>
@@ -2284,9 +2284,9 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Rectangle Rectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
+	public Rectangle FillRectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
 	{
-		return Add(DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration));
+		return Add(DebugDrawItems.Rectangle.GetFill(ref position, ref size, ref facing, ref color, duration));
 	}
 	
 	/// <summary>
@@ -2299,9 +2299,9 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Rectangle WireRectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
+	public Rectangle Rectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, float duration = 0)
 	{
-		return Add(DebugDrawItems.Rectangle.GetWire(ref position, ref size, ref facing, ref color, duration));
+		return Add(DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration));
 	}
 	
 	/// <summary>

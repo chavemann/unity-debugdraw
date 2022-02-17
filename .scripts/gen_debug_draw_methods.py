@@ -75,6 +75,8 @@ def run():
                 mesh_type = type_m.group(1)
             elif get_type.startswith('Fill'):
                 mesh_type = 'triangle'
+            elif get_type.startswith('Wire'):
+                mesh_type = 'line'
             
             if not GET_WRAPPER_REGEX.match(body):
                 body = f'return Get({", ".join(call_params)});'
