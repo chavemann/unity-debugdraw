@@ -75,7 +75,7 @@ public partial class DebugDrawMesh
 	}
 
 	/// <summary>
-	/// Creates the <see cref="UnityEngine.Mesh"/> used by this instance if it does not exist.
+	/// Creates the Unity Mesh used by this instance if it does not exist.
 	/// </summary>
 	public void CreateMesh()
 	{
@@ -236,7 +236,7 @@ public partial class DebugDrawMesh
 	}
 
 	/// <summary>
-	/// Clears the this DebugDrawMesh's <see cref="UnityEngine.Mesh"/> if it has been created.
+	/// Clears the this DebugDrawMesh's Unity Mesh if it has been created.
 	/// </summary>
 	public void ClearMesh()
 	{
@@ -250,7 +250,7 @@ public partial class DebugDrawMesh
 	}
 
 	/// <summary>
-	/// Clears all the items as well as this DebugDrawMesh's <see cref="UnityEngine.Mesh"/>
+	/// Clears all the items as well as this DebugDrawMesh's Unity Mesh.
 	/// </summary>
 	public void ClearAll()
 	{

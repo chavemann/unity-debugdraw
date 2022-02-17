@@ -25,12 +25,12 @@ using Object = UnityEngine.Object;
 /// The following  compiler directives are available:
 /// </para>
 /// <list type="bullet">
-/// 	<item><b>DEBUG_DRAW_OFF:</b> Set this flag to disable the global static DebugDraw instance.
+/// 	<item><description><b>DEBUG_DRAW_OFF:</b> Set this flag to disable the global static DebugDraw instance.
 /// 	When set, the static DebugDraw methods should not be used, but won't throw errors.
-/// 	</item>
+/// 	</description></item>
 /// </list>
 /// <seealso cref="Log">The Log class for some convenient Debug.Log wrappers.</seealso>
-/// <seealso cref="DebugDrawCamera">For a toggleable free floating debug camera.</seealso>
+/// <seealso cref="DebugDrawUtils.DebugDrawCamera">For a toggleable free floating debug camera.</seealso>
 /// <seealso cref="DebugDrawMesh"/>
 /// </summary>
 public static partial class DebugDraw

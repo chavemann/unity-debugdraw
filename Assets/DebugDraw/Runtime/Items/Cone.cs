@@ -32,7 +32,7 @@ namespace DebugDrawItems
 		public bool round;
 		/// <summary>
 		/// Should a cap be drawn on the cone.
-		/// When <see cref="round"/> is true the cap will be made up of two arcs, otherwise two perpendicular lines.
+		/// When round is true the cap will be made up of two arcs, otherwise two perpendicular lines.
 		/// </summary>
 		public bool drawCap;
 		/// <summary>
@@ -64,7 +64,7 @@ namespace DebugDrawItems
 		/// <param name="round">If true, the length is treated as the radius of the cone.
 		/// If false the length is the distance from the origin to the centre of the cones cap.</param>
 		/// <param name="drawCap">Should a cap be drawn on the cone.
-		/// When <see cref="round"/> is true the cap will be made up of two arcs, otherwise two perpendicular lines.</param>
+		/// When round is true the cap will be made up of two arcs, otherwise two perpendicular lines.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -98,7 +98,7 @@ namespace DebugDrawItems
 		/// <param name="round">If true, the length is treated as the radius of the cone.
 		/// If false the length is the distance from the origin to the centre of the cones cap.</param>
 		/// <param name="drawCap">Should a cap be drawn on the cone.
-		/// When <see cref="round"/> is true the cap will be made up of two arcs, otherwise two perpendicular lines.</param>
+		/// When round is true the cap will be made up of two arcs, otherwise two perpendicular lines.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]

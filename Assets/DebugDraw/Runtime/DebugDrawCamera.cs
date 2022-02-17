@@ -133,14 +133,14 @@ namespace DebugDrawUtils
 		/// <para>Turns the debug camera on or off.
 		/// When active, creates a new camera that can freely fly around with the WASD keys and mouse.</para>
 		/// <list type="bullet">
-		/// 	<item><b>W/A/S/D:</b> Move</item>
-		/// 	<item><b>Q/E/Space:</b> rise/fall</item>
-		/// 	<item><b>Mouse:</b> Look</item>
-		/// 	<item><b>Shift:</b> Move fast</item>
-		/// 	<item><b>Ctrl:</b> Move slow</item>
-		/// 	<item><b>Alt </b>+ wheel: Adjust speed</item>
-		/// 	<item><b>Wheel:</b> Adjust zoom</item>
-		/// 	<item><b>Home:</b> Reset speed and zoom</item>
+		/// 	<item><description><b>W/A/S/D:</b> Move</description></item>
+		/// 	<item><description><b>Q/E/Space:</b> rise/fall</description></item>
+		/// 	<item><description><b>Mouse:</b> Look</description></item>
+		/// 	<item><description><b>Shift:</b> Move fast</description></item>
+		/// 	<item><description><b>Ctrl:</b> Move slow</description></item>
+		/// 	<item><description><b>Alt </b>+ wheel: Adjust speed</description></item>
+		/// 	<item><description><b>Wheel:</b> Adjust zoom</description></item>
+		/// 	<item><description><b>Home:</b> Reset speed and zoom</description></item>
 		/// </list>
 		/// </summary>
 		/// <param name="on">On or off.</param>
