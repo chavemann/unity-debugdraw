@@ -47,10 +47,10 @@ namespace DebugDrawSamples.Showcase
 			}
 		}
 
-		public static void InitRandom(Transform tr)
+		public static void InitRandom(Transform tr, int seed = 0)
 		{
 			Vector3 p = tr.position;
-			Random.InitState(Mathf.FloorToInt(p.x * 101.2f + p.y * 312.2f + p.z + 32.65f));
+			Random.InitState(Mathf.FloorToInt(p.x * 101.2f + p.y * 312.2f + p.z + 32.65f) + seed);
 		}
 
 		public static Color NiceColor()

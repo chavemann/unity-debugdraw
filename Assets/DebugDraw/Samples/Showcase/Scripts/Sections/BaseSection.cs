@@ -7,13 +7,15 @@ namespace DebugDrawSamples.Showcase.Sections
 	public class BaseSection : MonoBehaviour
 	{
 
+		public int seed;
+		
 		protected Transform tr;
 		
 		private void OnEnable()
 		{
 			tr = transform;
 			
-			Showcase.InitRandom(tr);
+			Showcase.InitRandom(tr, seed);
 			Init();
 		}
 
