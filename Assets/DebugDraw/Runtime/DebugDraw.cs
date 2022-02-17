@@ -29,9 +29,6 @@ using Object = UnityEngine.Object;
 /// 	When set, the static DebugDraw methods should not be used, but won't throw errors.
 /// 	</description></item>
 /// </list>
-/// <seealso cref="Log">The Log class for some convenient Debug.Log wrappers.</seealso>
-/// <seealso cref="DebugDrawUtils.DebugDrawCamera">For a toggleable free floating debug camera.</seealso>
-/// <seealso cref="DebugDrawMesh"/>
 /// </summary>
 public static partial class DebugDraw
 {
