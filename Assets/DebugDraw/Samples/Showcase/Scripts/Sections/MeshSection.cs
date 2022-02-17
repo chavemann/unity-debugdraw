@@ -7,6 +7,16 @@ namespace DebugDrawSamples.Showcase.Sections
 	public class MeshSection : BaseSection
 	{
 
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+		private static void RuntimeInit()
+		{
+			#if UNITY_EDITOR
+			reset = true;
+			#endif
+		}
+
+		private static bool reset;
+
 		public Mesh mesh;
 		public float spacing = 1;
 
@@ -18,9 +28,22 @@ namespace DebugDrawSamples.Showcase.Sections
 		{
 			color = Showcase.NiceColor();
 
+			if (!mesh || reset)
+			{
+				if (mesh1)
+				{
+					mesh1.Remove();
+					mesh2.Remove();
+					mesh1 = null;
+					mesh2 = null;
+				}
+
+				reset = false;
+			}
+
 			if (mesh)
 			{
-				if (!mesh1)
+				if (mesh1 == null || mesh2 == null)
 				{
 					mesh1 = DebugDraw.Mesh(mesh, null, -1);
 					mesh2 = DebugDraw.Mesh(mesh, color, -1);
@@ -28,13 +51,6 @@ namespace DebugDrawSamples.Showcase.Sections
 				
 				Showcase.NiceColors(mesh1.colors);
 				mesh2.color = color;
-			}
-			else if (mesh1)
-			{
-				mesh1.Remove();
-				mesh2.Remove();
-				mesh1 = null;
-				mesh2 = null;
 			}
 		}
 
