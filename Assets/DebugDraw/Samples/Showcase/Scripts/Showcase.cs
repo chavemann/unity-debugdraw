@@ -24,6 +24,7 @@ namespace DebugDrawSamples.Showcase
 
 			DebugDrawCamera.onInitCamera += cam => cam.cullingMask = int.MaxValue;
 			DebugDrawCamera.crossHairSize = crossHairSize;
+			Log.MessageStyle.fontSize = 24;
 		}
 
 		private void Update()

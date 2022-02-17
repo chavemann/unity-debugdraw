@@ -120,7 +120,9 @@ namespace DebugDrawSamples.Showcase
 			Vector3 prevGroundNormal = groundNormal;
 
 			float r = controller.radius;
-			if (Physics.SphereCast(feetPos + new Vector3(0, stepOffset + r, 0), r, Vector3.down, out RaycastHit hit, stepOffset * 2))
+			if (Physics.SphereCast(
+				feetPos + new Vector3(0, stepOffset + r, 0), r, Vector3.down, out RaycastHit hit, stepOffset * 2,
+				0xffffff, QueryTriggerInteraction.Ignore))
 			{
 				if (grounded || hit.distance <= stepOffset)
 				{

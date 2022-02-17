@@ -23,7 +23,7 @@ namespace DebugDrawSamples.Showcase.Sections
 				t -= spawnGap;
 				
 				Vector3 p = tr.position;
-				Vector3 u = tr.up * length * 0.5f;
+				Vector3 u = tr.up * (length * 0.5f);
 				DebugDraw.Line(p - u, p + u, Showcase.NiceColor(), duration);
 			}
 		}
