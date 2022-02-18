@@ -282,7 +282,7 @@ public partial class DebugDrawMesh
 
 	/// <summary>
 	/// Builds all the debug items, filling the <see cref="vertices"/>, <see cref="colours"/>, and <see cref="indices"/> arrays.
-	/// Will also call <see cref="UpdateMesh"/> if this instance has an associated <see cref="Mesh"/>
+	/// Will also call <see cref="UpdateMesh"/> if this instance has an associated Mesh.
 	/// </summary>
 	public void Build()
 	{
