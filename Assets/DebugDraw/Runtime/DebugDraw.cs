@@ -180,6 +180,20 @@ public static partial class DebugDraw
 	public static float camOrthoSize;
 	public static float camFOVAngle;
 
+	/// <summary>
+	/// The number of active debug items.
+	/// </summary>
+	public static int itemCount => pointMeshInstance != null
+		? pointMeshInstance.itemCount + lineMeshInstance.itemCount + triangleMeshInstance.itemCount + textMeshInstance.itemCount
+		: 0;
+
+	/// <summary>
+	/// How many vertices where drawn on the last frame.
+	/// </summary>
+	public static int vertexCount => pointMeshInstance != null
+		? pointMeshInstance.vertexIndex + lineMeshInstance.vertexIndex + triangleMeshInstance.vertexIndex
+		: 0;
+
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Initialisation -- */
 
