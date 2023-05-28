@@ -5,9 +5,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 
 /// <summary>
@@ -16,9 +18,12 @@ using Object = UnityEngine.Object;
 /// </summary>
 public static partial class Log
 {
-	
-	private static readonly StringBuilder ArgsBuffer = new StringBuilder();
-	private static readonly StringBuilder GetStringBuffer = new StringBuilder();
+
+	private static readonly StringBuilder ArgsBuffer = new();
+	private static readonly StringBuilder GetStringBuffer = new();
+
+	private static readonly List<TimerSet> timers = new();
+	private static int timerIndex;
 
 	/// <summary>
 	/// Can be set for all log methods instead of passing individual contexts to each Log call.
@@ -294,7 +299,88 @@ public static partial class Log
 
 		return buffer.Append("]").ToString();
 	}
-	
+
+	public static object GetDictString<TK, TV>(IDictionary<TK, TV> dict)
+	{
+		StringBuilder buffer = GetStringBuffer;
+		buffer.Clear().Append("{");
+		bool addComma = false;
+
+		int i = 0;
+		bool hasMore = false;
+		foreach (KeyValuePair<TK,TV> entry in dict)
+		{
+			if (i == maxArrayItems)
+			{
+				hasMore = true;
+				break;
+			}
+
+			if(addComma)
+			{
+				buffer.Append(", ");
+			}
+			else
+			{
+				addComma = true;
+			}
+
+			buffer.Append(GetString(entry.Key));
+			buffer.Append(":");
+			buffer.Append(GetString(entry.Value));
+
+			i++;
+		}
+
+		if (hasMore)
+		{
+			buffer.Append("...");
+		}
+
+		return buffer.Append("}").ToString();
+	}
+
+	public static object GetKeyValuePairsString(params object[] args)
+	{
+		StringBuilder buffer = GetStringBuffer;
+		buffer.Clear().Append("{");
+		bool addComma = false;
+
+		int itemCount = 0;
+		bool hasMore = false;
+		int end = args.Length / 2 * 2;
+		for (int i = 0; i < end; i += 2)
+		{
+			if (itemCount == maxArrayItems)
+			{
+				hasMore = true;
+				break;
+			}
+
+			if(addComma)
+			{
+				buffer.Append(", ");
+			}
+			else
+			{
+				addComma = true;
+			}
+
+			buffer.Append(GetString(args[i]));
+			buffer.Append(":");
+			buffer.Append(GetString(args[i + 1]));
+
+			itemCount++;
+		}
+
+		if (hasMore)
+		{
+			buffer.Append("...");
+		}
+
+		return buffer.Append("}").ToString();
+	}
+
 	public static object GetString(Object message) => message ? message.ToString() : "null";
 	public static object GetString(Transform message) => message.ToString();
 	public static object GetString(IFormattable message) => message.ToString(null, CultureInfo.InvariantCulture);
@@ -573,7 +659,25 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(list), defaultLogContext);
 	}
-	
+
+	/// <summary>
+	///   <para>Logs a dictionary to the Unity Console.</para>
+	/// </summary>
+	/// <param name="dict">Dictionary for display.</param>
+	public static void Print<TK, TV>(IDictionary<TK, TV> dict)
+	{
+		Debug.unityLogger.Log(defaultLogType, GetDictString(dict), defaultLogContext);
+	}
+
+	/// <summary>
+	///   <para>Logs pairs of KEY:VALUE to the Unity Console.</para>
+	/// </summary>
+	/// <param name="args">Pairs of Key, Values to log.</param>
+	public static void PrintKeyValue(params object[] args)
+	{
+		Debug.unityLogger.Log(defaultLogType, GetKeyValuePairsString(args), defaultLogContext);
+	}
+
 	/// <summary>
 	///   <para>Logs a list of items to the Unity Console.</para>
 	/// </summary>
@@ -843,7 +947,64 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {val.ToString()}", defaultLogContext);
 	}
-	
+
+	/* ------------------------------------------------------------------------------------- */
+	#endregion
+	/* ------------------------------------------------------------------------------------- */
+
+	/* ------------------------------------------------------------------------------------- */
+	#region -- Util Methods --
+	/* ------------------------------------------------------------------------------------- */
+
+	/// <summary>
+	/// <para>
+	///		Basic method to measure the execution time of code.
+	///		Make sure to call <see cref="TimeEnd"/> or <see cref="TimeStop"/> for each call to <see cref="Time"/>
+	/// </para>
+	/// </summary>
+	/// <param name="message">An optional message. to display before the measured time.</param>
+	public static void Time(string message = "")
+	{
+		if (timerIndex >= timers.Count)
+		{
+			timers.Add(new TimerSet());
+		}
+
+		TimerSet set = timers[timerIndex++];
+		set.timer.Restart();
+		set.message = message;
+	}
+
+	/// <summary>
+	/// <para>Stops the timer and prints the optional message set with <see cref="Time"/> and elapsed milliseconds.</para>
+	/// </summary>
+	public static void TimeEnd()
+	{
+		if (timerIndex <= 0)
+			return;
+
+		TimerSet set = timers[--timerIndex];
+		set.timer.Stop();
+
+		Print(set.message != ""
+			? $"{set.message}: {set.timer.Elapsed.TotalMilliseconds}ms"
+			: $"{set.timer.Elapsed.TotalMilliseconds}ms");
+	}
+
+	/// <summary>
+	/// <para>Stops a timer without printing the message and time.</para>
+	/// </summary>
+	/// <returns>The elapsed milliseconds.</returns>
+	public static double TimeStop()
+	{
+		if (timerIndex <= 0)
+			return 0.0;
+
+		TimerSet set = timers[--timerIndex];
+		set.timer.Stop();
+		return set.timer.Elapsed.TotalMilliseconds;
+	}
+
 	/* ------------------------------------------------------------------------------------- */
 	#endregion
 	/* ------------------------------------------------------------------------------------- */
@@ -853,6 +1014,14 @@ public static partial class Log
 		#if DEBUG_DRAW
 		LogMessage.Clear();
 		#endif
+	}
+
+	//
+
+	private class TimerSet
+	{
+		public string message;
+		public readonly Stopwatch timer = new();
 	}
 
 }
