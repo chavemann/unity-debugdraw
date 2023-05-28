@@ -1,0 +1,293 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.GameObjectOrTransform
+  commentId: T:DebugDrawUtils.GameObjectOrTransform
+  id: GameObjectOrTransform
+  parent: DebugDrawUtils
+  children:
+  - DebugDrawUtils.GameObjectOrTransform.#ctor(UnityEngine.Transform)
+  - DebugDrawUtils.GameObjectOrTransform.op_Implicit(DebugDrawUtils.GameObjectOrTransform)~UnityEngine.Transform
+  - DebugDrawUtils.GameObjectOrTransform.op_Implicit(UnityEngine.GameObject)~DebugDrawUtils.GameObjectOrTransform
+  - DebugDrawUtils.GameObjectOrTransform.op_Implicit(UnityEngine.MonoBehaviour)~DebugDrawUtils.GameObjectOrTransform
+  - DebugDrawUtils.GameObjectOrTransform.op_Implicit(UnityEngine.Transform)~DebugDrawUtils.GameObjectOrTransform
+  - DebugDrawUtils.GameObjectOrTransform.transform
+  langs:
+  - csharp
+  - vb
+  name: GameObjectOrTransform
+  nameWithType: GameObjectOrTransform
+  fullName: DebugDrawUtils.GameObjectOrTransform
+  type: Struct
+  source:
+    id: GameObjectOrTransform
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Utils\GameObjectOrTransform.cs
+    startLine: 8
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils
+  summary: "\nA convenience wrapper for allowing a single method to accept a Transform or GameObject.\n"
+  example: []
+  syntax:
+    content: public readonly struct GameObjectOrTransform
+    content.vb: Public Structure GameObjectOrTransform
+  modifiers.csharp:
+  - public
+  - readonly
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: DebugDrawUtils.GameObjectOrTransform.transform
+  commentId: F:DebugDrawUtils.GameObjectOrTransform.transform
+  id: transform
+  parent: DebugDrawUtils.GameObjectOrTransform
+  langs:
+  - csharp
+  - vb
+  name: transform
+  nameWithType: GameObjectOrTransform.transform
+  fullName: DebugDrawUtils.GameObjectOrTransform.transform
+  type: Field
+  source:
+    id: transform
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Utils\GameObjectOrTransform.cs
+    startLine: 11
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils
+  syntax:
+    content: public readonly Transform transform
+    return:
+      type: UnityEngine.Transform
+    content.vb: Public ReadOnly transform As Transform
+  modifiers.csharp:
+  - public
+  - readonly
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: DebugDrawUtils.GameObjectOrTransform.#ctor(UnityEngine.Transform)
+  commentId: M:DebugDrawUtils.GameObjectOrTransform.#ctor(UnityEngine.Transform)
+  id: '#ctor(UnityEngine.Transform)'
+  parent: DebugDrawUtils.GameObjectOrTransform
+  langs:
+  - csharp
+  - vb
+  name: GameObjectOrTransform(Transform)
+  nameWithType: GameObjectOrTransform.GameObjectOrTransform(Transform)
+  fullName: DebugDrawUtils.GameObjectOrTransform.GameObjectOrTransform(UnityEngine.Transform)
+  type: Constructor
+  source:
+    id: .ctor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Utils\GameObjectOrTransform.cs
+    startLine: 13
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils
+  syntax:
+    content: public GameObjectOrTransform(Transform transform)
+    parameters:
+    - id: transform
+      type: UnityEngine.Transform
+    content.vb: Public Sub New(transform As Transform)
+  overload: DebugDrawUtils.GameObjectOrTransform.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawUtils.GameObjectOrTransform.op_Implicit(UnityEngine.GameObject)~DebugDrawUtils.GameObjectOrTransform
+  commentId: M:DebugDrawUtils.GameObjectOrTransform.op_Implicit(UnityEngine.GameObject)~DebugDrawUtils.GameObjectOrTransform
+  id: op_Implicit(UnityEngine.GameObject)~DebugDrawUtils.GameObjectOrTransform
+  parent: DebugDrawUtils.GameObjectOrTransform
+  langs:
+  - csharp
+  - vb
+  name: Implicit(GameObject to GameObjectOrTransform)
+  nameWithType: GameObjectOrTransform.Implicit(GameObject to GameObjectOrTransform)
+  fullName: DebugDrawUtils.GameObjectOrTransform.Implicit(UnityEngine.GameObject to DebugDrawUtils.GameObjectOrTransform)
+  type: Operator
+  source:
+    id: op_Implicit
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Utils\GameObjectOrTransform.cs
+    startLine: 18
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils
+  syntax:
+    content: public static implicit operator GameObjectOrTransform(GameObject gameObject)
+    parameters:
+    - id: gameObject
+      type: UnityEngine.GameObject
+    return:
+      type: DebugDrawUtils.GameObjectOrTransform
+    content.vb: Public Shared Widening Operator CType(gameObject As GameObject) As GameObjectOrTransform
+  overload: DebugDrawUtils.GameObjectOrTransform.op_Implicit*
+  nameWithType.vb: GameObjectOrTransform.Widening(GameObject to GameObjectOrTransform)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawUtils.GameObjectOrTransform.Widening(UnityEngine.GameObject to DebugDrawUtils.GameObjectOrTransform)
+  name.vb: Widening(GameObject to GameObjectOrTransform)
+- uid: DebugDrawUtils.GameObjectOrTransform.op_Implicit(UnityEngine.MonoBehaviour)~DebugDrawUtils.GameObjectOrTransform
+  commentId: M:DebugDrawUtils.GameObjectOrTransform.op_Implicit(UnityEngine.MonoBehaviour)~DebugDrawUtils.GameObjectOrTransform
+  id: op_Implicit(UnityEngine.MonoBehaviour)~DebugDrawUtils.GameObjectOrTransform
+  parent: DebugDrawUtils.GameObjectOrTransform
+  langs:
+  - csharp
+  - vb
+  name: Implicit(MonoBehaviour to GameObjectOrTransform)
+  nameWithType: GameObjectOrTransform.Implicit(MonoBehaviour to GameObjectOrTransform)
+  fullName: DebugDrawUtils.GameObjectOrTransform.Implicit(UnityEngine.MonoBehaviour to DebugDrawUtils.GameObjectOrTransform)
+  type: Operator
+  source:
+    id: op_Implicit
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Utils\GameObjectOrTransform.cs
+    startLine: 23
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils
+  syntax:
+    content: public static implicit operator GameObjectOrTransform(MonoBehaviour behaviour)
+    parameters:
+    - id: behaviour
+      type: UnityEngine.MonoBehaviour
+    return:
+      type: DebugDrawUtils.GameObjectOrTransform
+    content.vb: Public Shared Widening Operator CType(behaviour As MonoBehaviour) As GameObjectOrTransform
+  overload: DebugDrawUtils.GameObjectOrTransform.op_Implicit*
+  nameWithType.vb: GameObjectOrTransform.Widening(MonoBehaviour to GameObjectOrTransform)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawUtils.GameObjectOrTransform.Widening(UnityEngine.MonoBehaviour to DebugDrawUtils.GameObjectOrTransform)
+  name.vb: Widening(MonoBehaviour to GameObjectOrTransform)
+- uid: DebugDrawUtils.GameObjectOrTransform.op_Implicit(UnityEngine.Transform)~DebugDrawUtils.GameObjectOrTransform
+  commentId: M:DebugDrawUtils.GameObjectOrTransform.op_Implicit(UnityEngine.Transform)~DebugDrawUtils.GameObjectOrTransform
+  id: op_Implicit(UnityEngine.Transform)~DebugDrawUtils.GameObjectOrTransform
+  parent: DebugDrawUtils.GameObjectOrTransform
+  langs:
+  - csharp
+  - vb
+  name: Implicit(Transform to GameObjectOrTransform)
+  nameWithType: GameObjectOrTransform.Implicit(Transform to GameObjectOrTransform)
+  fullName: DebugDrawUtils.GameObjectOrTransform.Implicit(UnityEngine.Transform to DebugDrawUtils.GameObjectOrTransform)
+  type: Operator
+  source:
+    id: op_Implicit
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Utils\GameObjectOrTransform.cs
+    startLine: 28
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils
+  syntax:
+    content: public static implicit operator GameObjectOrTransform(Transform transform)
+    parameters:
+    - id: transform
+      type: UnityEngine.Transform
+    return:
+      type: DebugDrawUtils.GameObjectOrTransform
+    content.vb: Public Shared Widening Operator CType(transform As Transform) As GameObjectOrTransform
+  overload: DebugDrawUtils.GameObjectOrTransform.op_Implicit*
+  nameWithType.vb: GameObjectOrTransform.Widening(Transform to GameObjectOrTransform)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawUtils.GameObjectOrTransform.Widening(UnityEngine.Transform to DebugDrawUtils.GameObjectOrTransform)
+  name.vb: Widening(Transform to GameObjectOrTransform)
+- uid: DebugDrawUtils.GameObjectOrTransform.op_Implicit(DebugDrawUtils.GameObjectOrTransform)~UnityEngine.Transform
+  commentId: M:DebugDrawUtils.GameObjectOrTransform.op_Implicit(DebugDrawUtils.GameObjectOrTransform)~UnityEngine.Transform
+  id: op_Implicit(DebugDrawUtils.GameObjectOrTransform)~UnityEngine.Transform
+  parent: DebugDrawUtils.GameObjectOrTransform
+  langs:
+  - csharp
+  - vb
+  name: Implicit(GameObjectOrTransform to Transform)
+  nameWithType: GameObjectOrTransform.Implicit(GameObjectOrTransform to Transform)
+  fullName: DebugDrawUtils.GameObjectOrTransform.Implicit(DebugDrawUtils.GameObjectOrTransform to UnityEngine.Transform)
+  type: Operator
+  source:
+    id: op_Implicit
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Utils\GameObjectOrTransform.cs
+    startLine: 33
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils
+  syntax:
+    content: public static implicit operator Transform(GameObjectOrTransform obj)
+    parameters:
+    - id: obj
+      type: DebugDrawUtils.GameObjectOrTransform
+    return:
+      type: UnityEngine.Transform
+    content.vb: Public Shared Widening Operator CType(obj As GameObjectOrTransform) As Transform
+  overload: DebugDrawUtils.GameObjectOrTransform.op_Implicit*
+  nameWithType.vb: GameObjectOrTransform.Widening(GameObjectOrTransform to Transform)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawUtils.GameObjectOrTransform.Widening(DebugDrawUtils.GameObjectOrTransform to UnityEngine.Transform)
+  name.vb: Widening(GameObjectOrTransform to Transform)
+references:
+- uid: DebugDrawUtils
+  commentId: N:DebugDrawUtils
+  name: DebugDrawUtils
+  nameWithType: DebugDrawUtils
+  fullName: DebugDrawUtils
+- uid: UnityEngine.Transform
+  commentId: T:UnityEngine.Transform
+  parent: UnityEngine
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: UnityEngine.Transform
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: DebugDrawUtils.GameObjectOrTransform.#ctor*
+  commentId: Overload:DebugDrawUtils.GameObjectOrTransform.#ctor
+  name: GameObjectOrTransform
+  nameWithType: GameObjectOrTransform.GameObjectOrTransform
+  fullName: DebugDrawUtils.GameObjectOrTransform.GameObjectOrTransform
+- uid: DebugDrawUtils.GameObjectOrTransform.op_Implicit*
+  commentId: Overload:DebugDrawUtils.GameObjectOrTransform.op_Implicit
+  name: Implicit
+  nameWithType: GameObjectOrTransform.Implicit
+  fullName: DebugDrawUtils.GameObjectOrTransform.Implicit
+  nameWithType.vb: GameObjectOrTransform.Widening
+  fullName.vb: DebugDrawUtils.GameObjectOrTransform.Widening
+  name.vb: Widening
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: DebugDrawUtils.GameObjectOrTransform
+  commentId: T:DebugDrawUtils.GameObjectOrTransform
+  parent: DebugDrawUtils
+  name: GameObjectOrTransform
+  nameWithType: GameObjectOrTransform
+  fullName: DebugDrawUtils.GameObjectOrTransform
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour

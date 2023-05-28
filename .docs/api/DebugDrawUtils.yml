@@ -1,0 +1,35 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils
+  commentId: N:DebugDrawUtils
+  id: DebugDrawUtils
+  children:
+  - DebugDrawUtils.DebugDrawCamera
+  - DebugDrawUtils.GameObjectOrTransform
+  langs:
+  - csharp
+  - vb
+  name: DebugDrawUtils
+  nameWithType: DebugDrawUtils
+  fullName: DebugDrawUtils
+  type: Namespace
+  assemblies:
+  - c.DebugDraw.Runtime
+references:
+- uid: DebugDrawUtils.DebugDrawCamera
+  commentId: T:DebugDrawUtils.DebugDrawCamera
+  parent: DebugDrawUtils
+  name: DebugDrawCamera
+  nameWithType: DebugDrawCamera
+  fullName: DebugDrawUtils.DebugDrawCamera
+- uid: DebugDrawUtils.GameObjectOrTransform
+  commentId: T:DebugDrawUtils.GameObjectOrTransform
+  parent: DebugDrawUtils
+  name: GameObjectOrTransform
+  nameWithType: GameObjectOrTransform
+  fullName: DebugDrawUtils.GameObjectOrTransform
+- uid: DebugDrawUtils
+  commentId: N:DebugDrawUtils
+  name: DebugDrawUtils
+  nameWithType: DebugDrawUtils
+  fullName: DebugDrawUtils

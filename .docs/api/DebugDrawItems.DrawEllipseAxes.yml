@@ -1,0 +1,137 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawItems.DrawEllipseAxes
+  commentId: T:DebugDrawItems.DrawEllipseAxes
+  id: DrawEllipseAxes
+  parent: DebugDrawItems
+  children:
+  - DebugDrawItems.DrawEllipseAxes.Always
+  - DebugDrawItems.DrawEllipseAxes.InsideArc
+  - DebugDrawItems.DrawEllipseAxes.Never
+  langs:
+  - csharp
+  - vb
+  name: DrawEllipseAxes
+  nameWithType: DrawEllipseAxes
+  fullName: DebugDrawItems.DrawEllipseAxes
+  type: Enum
+  source:
+    id: DrawEllipseAxes
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 682
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nOptions for how to draw axes inside of an Ellipse.\n"
+  example: []
+  syntax:
+    content: public enum DrawEllipseAxes
+    content.vb: Public Enum DrawEllipseAxes
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: DebugDrawItems.DrawEllipseAxes.Never
+  commentId: F:DebugDrawItems.DrawEllipseAxes.Never
+  id: Never
+  parent: DebugDrawItems.DrawEllipseAxes
+  langs:
+  - csharp
+  - vb
+  name: Never
+  nameWithType: DrawEllipseAxes.Never
+  fullName: DebugDrawItems.DrawEllipseAxes.Never
+  type: Field
+  source:
+    id: Never
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 687
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDon&apos;t draw.\n"
+  example: []
+  syntax:
+    content: Never = 0
+    return:
+      type: DebugDrawItems.DrawEllipseAxes
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: DebugDrawItems.DrawEllipseAxes.Always
+  commentId: F:DebugDrawItems.DrawEllipseAxes.Always
+  id: Always
+  parent: DebugDrawItems.DrawEllipseAxes
+  langs:
+  - csharp
+  - vb
+  name: Always
+  nameWithType: DrawEllipseAxes.Always
+  fullName: DebugDrawItems.DrawEllipseAxes.Always
+  type: Field
+  source:
+    id: Always
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 691
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nAlways draw.\n"
+  example: []
+  syntax:
+    content: Always = 1
+    return:
+      type: DebugDrawItems.DrawEllipseAxes
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: DebugDrawItems.DrawEllipseAxes.InsideArc
+  commentId: F:DebugDrawItems.DrawEllipseAxes.InsideArc
+  id: InsideArc
+  parent: DebugDrawItems.DrawEllipseAxes
+  langs:
+  - csharp
+  - vb
+  name: InsideArc
+  nameWithType: DrawEllipseAxes.InsideArc
+  fullName: DebugDrawItems.DrawEllipseAxes.InsideArc
+  type: Field
+  source:
+    id: InsideArc
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 695
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nOnly draw an axis if it falls within the arc&apos;s range.\n"
+  example: []
+  syntax:
+    content: InsideArc = 2
+    return:
+      type: DebugDrawItems.DrawEllipseAxes
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: DebugDrawItems
+  commentId: N:DebugDrawItems
+  name: DebugDrawItems
+  nameWithType: DebugDrawItems
+  fullName: DebugDrawItems
+- uid: DebugDrawItems.DrawEllipseAxes
+  commentId: T:DebugDrawItems.DrawEllipseAxes
+  parent: DebugDrawItems
+  name: DrawEllipseAxes
+  nameWithType: DrawEllipseAxes
+  fullName: DebugDrawItems.DrawEllipseAxes

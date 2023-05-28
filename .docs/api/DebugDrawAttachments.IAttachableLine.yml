@@ -1,0 +1,279 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawAttachments.IAttachableLine
+  commentId: T:DebugDrawAttachments.IAttachableLine
+  id: IAttachableLine
+  parent: DebugDrawAttachments
+  children:
+  - DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawAttachments.IAttachableLine.GetEndPosition
+  - DebugDrawAttachments.IAttachableLine.GetStartPosition
+  - DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  - DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  langs:
+  - csharp
+  - vb
+  name: IAttachableLine
+  nameWithType: IAttachableLine
+  fullName: DebugDrawAttachments.IAttachableLine
+  type: Interface
+  source:
+    id: IAttachableLine
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\IAttachableLine.cs
+    startLine: 9
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  summary: "\nAn item with a start and end point.\n"
+  example: []
+  syntax:
+    content: public interface IAttachableLine
+    content.vb: Public Interface IAttachableLine
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  id: AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawAttachments.IAttachableLine
+  langs:
+  - csharp
+  - vb
+  name: AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  nameWithType: IAttachableLine.AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  fullName: DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform, DebugDrawUtils.GameObjectOrTransform)
+  type: Method
+  source:
+    id: AttachTo
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\IAttachableLine.cs
+    startLine: 19
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  summary: "\nAttach this item to one or more GameObjects. This item and it&apos;s attachment will automatically expire\nif any of the attached objects are destroyed.\n"
+  example: []
+  syntax:
+    content: LineAttachment AttachTo(GameObjectOrTransform startObj, GameObjectOrTransform endObj)
+    parameters:
+    - id: startObj
+      type: DebugDrawUtils.GameObjectOrTransform
+      description: The object the start of the lines is attached to.
+    - id: endObj
+      type: DebugDrawUtils.GameObjectOrTransform
+      description: The object the end of the lines is attached to.
+    return:
+      type: DebugDrawAttachments.LineAttachment
+      description: ''
+    content.vb: Function AttachTo(startObj As GameObjectOrTransform, endObj As GameObjectOrTransform) As LineAttachment
+  overload: DebugDrawAttachments.IAttachableLine.AttachTo*
+- uid: DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  id: SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: DebugDrawAttachments.IAttachableLine
+  langs:
+  - csharp
+  - vb
+  name: SetPositions(Vector3, Vector3)
+  nameWithType: IAttachableLine.SetPositions(Vector3, Vector3)
+  fullName: DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3, UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetPositions
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\IAttachableLine.cs
+    startLine: 27
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  summary: "\nSets this item&apos;s position.\n"
+  example: []
+  syntax:
+    content: void SetPositions(Vector3 start, Vector3 end)
+    parameters:
+    - id: start
+      type: UnityEngine.Vector3
+      description: The new start position
+    - id: end
+      type: UnityEngine.Vector3
+      description: The new end position
+    content.vb: Sub SetPositions(start As Vector3, end As Vector3)
+  overload: DebugDrawAttachments.IAttachableLine.SetPositions*
+- uid: DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  id: SetStartPosition(UnityEngine.Vector3)
+  parent: DebugDrawAttachments.IAttachableLine
+  langs:
+  - csharp
+  - vb
+  name: SetStartPosition(Vector3)
+  nameWithType: IAttachableLine.SetStartPosition(Vector3)
+  fullName: DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetStartPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\IAttachableLine.cs
+    startLine: 34
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  summary: "\nSets this item&apos;s start position.\n"
+  example: []
+  syntax:
+    content: void SetStartPosition(Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The new start position
+    content.vb: Sub SetStartPosition(position As Vector3)
+  overload: DebugDrawAttachments.IAttachableLine.SetStartPosition*
+- uid: DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  id: SetEndPosition(UnityEngine.Vector3)
+  parent: DebugDrawAttachments.IAttachableLine
+  langs:
+  - csharp
+  - vb
+  name: SetEndPosition(Vector3)
+  nameWithType: IAttachableLine.SetEndPosition(Vector3)
+  fullName: DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetEndPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\IAttachableLine.cs
+    startLine: 41
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  summary: "\nSets this item&apos;s end position.\n"
+  example: []
+  syntax:
+    content: void SetEndPosition(Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The new end position
+    content.vb: Sub SetEndPosition(position As Vector3)
+  overload: DebugDrawAttachments.IAttachableLine.SetEndPosition*
+- uid: DebugDrawAttachments.IAttachableLine.GetStartPosition
+  commentId: M:DebugDrawAttachments.IAttachableLine.GetStartPosition
+  id: GetStartPosition
+  parent: DebugDrawAttachments.IAttachableLine
+  langs:
+  - csharp
+  - vb
+  name: GetStartPosition()
+  nameWithType: IAttachableLine.GetStartPosition()
+  fullName: DebugDrawAttachments.IAttachableLine.GetStartPosition()
+  type: Method
+  source:
+    id: GetStartPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\IAttachableLine.cs
+    startLine: 47
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  summary: "\nGets this item&apos;s start position.\n"
+  example: []
+  syntax:
+    content: Vector3 GetStartPosition()
+    return:
+      type: UnityEngine.Vector3
+      description: ''
+    content.vb: Function GetStartPosition As Vector3
+  overload: DebugDrawAttachments.IAttachableLine.GetStartPosition*
+- uid: DebugDrawAttachments.IAttachableLine.GetEndPosition
+  commentId: M:DebugDrawAttachments.IAttachableLine.GetEndPosition
+  id: GetEndPosition
+  parent: DebugDrawAttachments.IAttachableLine
+  langs:
+  - csharp
+  - vb
+  name: GetEndPosition()
+  nameWithType: IAttachableLine.GetEndPosition()
+  fullName: DebugDrawAttachments.IAttachableLine.GetEndPosition()
+  type: Method
+  source:
+    id: GetEndPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\IAttachableLine.cs
+    startLine: 53
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  summary: "\nGets this item&apos;s end position.\n"
+  example: []
+  syntax:
+    content: Vector3 GetEndPosition()
+    return:
+      type: UnityEngine.Vector3
+      description: ''
+    content.vb: Function GetEndPosition As Vector3
+  overload: DebugDrawAttachments.IAttachableLine.GetEndPosition*
+references:
+- uid: DebugDrawAttachments
+  commentId: N:DebugDrawAttachments
+  name: DebugDrawAttachments
+  nameWithType: DebugDrawAttachments
+  fullName: DebugDrawAttachments
+- uid: DebugDrawAttachments.IAttachableLine.AttachTo*
+  commentId: Overload:DebugDrawAttachments.IAttachableLine.AttachTo
+  name: AttachTo
+  nameWithType: IAttachableLine.AttachTo
+  fullName: DebugDrawAttachments.IAttachableLine.AttachTo
+- uid: DebugDrawUtils.GameObjectOrTransform
+  commentId: T:DebugDrawUtils.GameObjectOrTransform
+  parent: DebugDrawUtils
+  name: GameObjectOrTransform
+  nameWithType: GameObjectOrTransform
+  fullName: DebugDrawUtils.GameObjectOrTransform
+- uid: DebugDrawAttachments.LineAttachment
+  commentId: T:DebugDrawAttachments.LineAttachment
+  parent: DebugDrawAttachments
+  name: LineAttachment
+  nameWithType: LineAttachment
+  fullName: DebugDrawAttachments.LineAttachment
+- uid: DebugDrawUtils
+  commentId: N:DebugDrawUtils
+  name: DebugDrawUtils
+  nameWithType: DebugDrawUtils
+  fullName: DebugDrawUtils
+- uid: DebugDrawAttachments.IAttachableLine.SetPositions*
+  commentId: Overload:DebugDrawAttachments.IAttachableLine.SetPositions
+  name: SetPositions
+  nameWithType: IAttachableLine.SetPositions
+  fullName: DebugDrawAttachments.IAttachableLine.SetPositions
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: DebugDrawAttachments.IAttachableLine.SetStartPosition*
+  commentId: Overload:DebugDrawAttachments.IAttachableLine.SetStartPosition
+  name: SetStartPosition
+  nameWithType: IAttachableLine.SetStartPosition
+  fullName: DebugDrawAttachments.IAttachableLine.SetStartPosition
+- uid: DebugDrawAttachments.IAttachableLine.SetEndPosition*
+  commentId: Overload:DebugDrawAttachments.IAttachableLine.SetEndPosition
+  name: SetEndPosition
+  nameWithType: IAttachableLine.SetEndPosition
+  fullName: DebugDrawAttachments.IAttachableLine.SetEndPosition
+- uid: DebugDrawAttachments.IAttachableLine.GetStartPosition*
+  commentId: Overload:DebugDrawAttachments.IAttachableLine.GetStartPosition
+  name: GetStartPosition
+  nameWithType: IAttachableLine.GetStartPosition
+  fullName: DebugDrawAttachments.IAttachableLine.GetStartPosition
+- uid: DebugDrawAttachments.IAttachableLine.GetEndPosition*
+  commentId: Overload:DebugDrawAttachments.IAttachableLine.GetEndPosition
+  name: GetEndPosition
+  nameWithType: IAttachableLine.GetEndPosition
+  fullName: DebugDrawAttachments.IAttachableLine.GetEndPosition

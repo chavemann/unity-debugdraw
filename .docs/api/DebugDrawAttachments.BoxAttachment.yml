@@ -1,0 +1,361 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawAttachments.BoxAttachment
+  commentId: T:DebugDrawAttachments.BoxAttachment
+  id: BoxAttachment
+  parent: DebugDrawAttachments
+  children:
+  - DebugDrawAttachments.BoxAttachment.#ctor
+  - DebugDrawAttachments.BoxAttachment.box
+  - DebugDrawAttachments.BoxAttachment.Init(DebugDrawItems.Box,UnityEngine.Transform,DebugDrawAttachments.BoxAttachmentSizeUpdate)
+  - DebugDrawAttachments.BoxAttachment.obj
+  langs:
+  - csharp
+  - vb
+  name: BoxAttachment
+  nameWithType: BoxAttachment
+  fullName: DebugDrawAttachments.BoxAttachment
+  type: Class
+  source:
+    id: BoxAttachment
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BoxAttachment.cs
+    startLine: 7
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  syntax:
+    content: 'public class BoxAttachment : BaseAttachment'
+    content.vb: >-
+      Public Class BoxAttachment
+          Inherits BaseAttachment
+  inheritance:
+  - System.Object
+  - DebugDrawAttachments.BaseAttachment
+  inheritedMembers:
+  - DebugDrawAttachments.BaseAttachment.vector3Ref
+  - DebugDrawAttachments.BaseAttachment.isAlive
+  - DebugDrawAttachments.BaseAttachment.Destroy
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: DebugDrawAttachments.BoxAttachment.obj
+  commentId: F:DebugDrawAttachments.BoxAttachment.obj
+  id: obj
+  parent: DebugDrawAttachments.BoxAttachment
+  langs:
+  - csharp
+  - vb
+  name: obj
+  nameWithType: BoxAttachment.obj
+  fullName: DebugDrawAttachments.BoxAttachment.obj
+  type: Field
+  source:
+    id: obj
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BoxAttachment.cs
+    startLine: 13
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  summary: "\nThe attached object.\n"
+  example: []
+  syntax:
+    content: public readonly AttachmentObject<BoxAttachment> obj
+    return:
+      type: DebugDrawAttachments.AttachmentObject{DebugDrawAttachments.BoxAttachment}
+    content.vb: Public ReadOnly obj As AttachmentObject(Of BoxAttachment)
+  modifiers.csharp:
+  - public
+  - readonly
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: DebugDrawAttachments.BoxAttachment.box
+  commentId: P:DebugDrawAttachments.BoxAttachment.box
+  id: box
+  parent: DebugDrawAttachments.BoxAttachment
+  langs:
+  - csharp
+  - vb
+  name: box
+  nameWithType: BoxAttachment.box
+  fullName: DebugDrawAttachments.BoxAttachment.box
+  type: Property
+  source:
+    id: box
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BoxAttachment.cs
+    startLine: 17
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  summary: "\nThe Debug Line item associated with this attachment.\n"
+  example: []
+  syntax:
+    content: public Box box { get; }
+    parameters: []
+    return:
+      type: DebugDrawItems.Box
+    content.vb: Public ReadOnly Property box As Box
+  overload: DebugDrawAttachments.BoxAttachment.box*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: DebugDrawAttachments.BoxAttachment.#ctor
+  commentId: M:DebugDrawAttachments.BoxAttachment.#ctor
+  id: '#ctor'
+  parent: DebugDrawAttachments.BoxAttachment
+  langs:
+  - csharp
+  - vb
+  name: BoxAttachment()
+  nameWithType: BoxAttachment.BoxAttachment()
+  fullName: DebugDrawAttachments.BoxAttachment.BoxAttachment()
+  type: Constructor
+  source:
+    id: .ctor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BoxAttachment.cs
+    startLine: 24
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  syntax:
+    content: public BoxAttachment()
+    content.vb: Public Sub New
+  overload: DebugDrawAttachments.BoxAttachment.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawAttachments.BoxAttachment.Init(DebugDrawItems.Box,UnityEngine.Transform,DebugDrawAttachments.BoxAttachmentSizeUpdate)
+  commentId: M:DebugDrawAttachments.BoxAttachment.Init(DebugDrawItems.Box,UnityEngine.Transform,DebugDrawAttachments.BoxAttachmentSizeUpdate)
+  id: Init(DebugDrawItems.Box,UnityEngine.Transform,DebugDrawAttachments.BoxAttachmentSizeUpdate)
+  parent: DebugDrawAttachments.BoxAttachment
+  langs:
+  - csharp
+  - vb
+  name: Init(Box, Transform, BoxAttachmentSizeUpdate)
+  nameWithType: BoxAttachment.Init(Box, Transform, BoxAttachmentSizeUpdate)
+  fullName: DebugDrawAttachments.BoxAttachment.Init(DebugDrawItems.Box, UnityEngine.Transform, DebugDrawAttachments.BoxAttachmentSizeUpdate)
+  type: Method
+  source:
+    id: Init
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BoxAttachment.cs
+    startLine: 29
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawAttachments
+  syntax:
+    content: public BoxAttachment Init(Box box, Transform obj, BoxAttachmentSizeUpdate updateSize)
+    parameters:
+    - id: box
+      type: DebugDrawItems.Box
+    - id: obj
+      type: UnityEngine.Transform
+    - id: updateSize
+      type: DebugDrawAttachments.BoxAttachmentSizeUpdate
+    return:
+      type: DebugDrawAttachments.BoxAttachment
+    content.vb: Public Function Init(box As Box, obj As Transform, updateSize As BoxAttachmentSizeUpdate) As BoxAttachment
+  overload: DebugDrawAttachments.BoxAttachment.Init*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: DebugDrawAttachments
+  commentId: N:DebugDrawAttachments
+  name: DebugDrawAttachments
+  nameWithType: DebugDrawAttachments
+  fullName: DebugDrawAttachments
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: DebugDrawAttachments.BaseAttachment
+  commentId: T:DebugDrawAttachments.BaseAttachment
+  parent: DebugDrawAttachments
+  name: BaseAttachment
+  nameWithType: BaseAttachment
+  fullName: DebugDrawAttachments.BaseAttachment
+- uid: DebugDrawAttachments.BaseAttachment.vector3Ref
+  commentId: F:DebugDrawAttachments.BaseAttachment.vector3Ref
+  parent: DebugDrawAttachments.BaseAttachment
+  name: vector3Ref
+  nameWithType: BaseAttachment.vector3Ref
+  fullName: DebugDrawAttachments.BaseAttachment.vector3Ref
+- uid: DebugDrawAttachments.BaseAttachment.isAlive
+  commentId: P:DebugDrawAttachments.BaseAttachment.isAlive
+  parent: DebugDrawAttachments.BaseAttachment
+  name: isAlive
+  nameWithType: BaseAttachment.isAlive
+  fullName: DebugDrawAttachments.BaseAttachment.isAlive
+- uid: DebugDrawAttachments.BaseAttachment.Destroy
+  commentId: M:DebugDrawAttachments.BaseAttachment.Destroy
+  parent: DebugDrawAttachments.BaseAttachment
+  name: Destroy()
+  nameWithType: BaseAttachment.Destroy()
+  fullName: DebugDrawAttachments.BaseAttachment.Destroy()
+  spec.csharp:
+  - uid: DebugDrawAttachments.BaseAttachment.Destroy
+    name: Destroy
+    nameWithType: BaseAttachment.Destroy
+    fullName: DebugDrawAttachments.BaseAttachment.Destroy
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawAttachments.BaseAttachment.Destroy
+    name: Destroy
+    nameWithType: BaseAttachment.Destroy
+    fullName: DebugDrawAttachments.BaseAttachment.Destroy
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawAttachments.AttachmentObject{DebugDrawAttachments.BoxAttachment}
+  commentId: T:DebugDrawAttachments.AttachmentObject{DebugDrawAttachments.BoxAttachment}
+  parent: DebugDrawAttachments
+  definition: DebugDrawAttachments.AttachmentObject`1
+  name: AttachmentObject<BoxAttachment>
+  nameWithType: AttachmentObject<BoxAttachment>
+  fullName: DebugDrawAttachments.AttachmentObject<DebugDrawAttachments.BoxAttachment>
+  nameWithType.vb: AttachmentObject(Of BoxAttachment)
+  fullName.vb: DebugDrawAttachments.AttachmentObject(Of DebugDrawAttachments.BoxAttachment)
+  name.vb: AttachmentObject(Of BoxAttachment)
+  spec.csharp:
+  - uid: DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    nameWithType: AttachmentObject
+    fullName: DebugDrawAttachments.AttachmentObject
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: DebugDrawAttachments.BoxAttachment
+    name: BoxAttachment
+    nameWithType: BoxAttachment
+    fullName: DebugDrawAttachments.BoxAttachment
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    nameWithType: AttachmentObject
+    fullName: DebugDrawAttachments.AttachmentObject
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: DebugDrawAttachments.BoxAttachment
+    name: BoxAttachment
+    nameWithType: BoxAttachment
+    fullName: DebugDrawAttachments.BoxAttachment
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawAttachments.AttachmentObject`1
+  commentId: T:DebugDrawAttachments.AttachmentObject`1
+  parent: DebugDrawAttachments
+  name: AttachmentObject<T>
+  nameWithType: AttachmentObject<T>
+  fullName: DebugDrawAttachments.AttachmentObject<T>
+  nameWithType.vb: AttachmentObject(Of T)
+  fullName.vb: DebugDrawAttachments.AttachmentObject(Of T)
+  name.vb: AttachmentObject(Of T)
+  spec.csharp:
+  - uid: DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    nameWithType: AttachmentObject
+    fullName: DebugDrawAttachments.AttachmentObject
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    nameWithType: AttachmentObject
+    fullName: DebugDrawAttachments.AttachmentObject
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawAttachments.BoxAttachment.box*
+  commentId: Overload:DebugDrawAttachments.BoxAttachment.box
+  name: box
+  nameWithType: BoxAttachment.box
+  fullName: DebugDrawAttachments.BoxAttachment.box
+- uid: DebugDrawItems.Box
+  commentId: T:DebugDrawItems.Box
+  parent: DebugDrawItems
+  name: Box
+  nameWithType: Box
+  fullName: DebugDrawItems.Box
+- uid: DebugDrawItems
+  commentId: N:DebugDrawItems
+  name: DebugDrawItems
+  nameWithType: DebugDrawItems
+  fullName: DebugDrawItems
+- uid: DebugDrawAttachments.BoxAttachment.#ctor*
+  commentId: Overload:DebugDrawAttachments.BoxAttachment.#ctor
+  name: BoxAttachment
+  nameWithType: BoxAttachment.BoxAttachment
+  fullName: DebugDrawAttachments.BoxAttachment.BoxAttachment
+- uid: DebugDrawAttachments.BoxAttachment.Init*
+  commentId: Overload:DebugDrawAttachments.BoxAttachment.Init
+  name: Init
+  nameWithType: BoxAttachment.Init
+  fullName: DebugDrawAttachments.BoxAttachment.Init
+- uid: UnityEngine.Transform
+  commentId: T:UnityEngine.Transform
+  parent: UnityEngine
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: UnityEngine.Transform
+- uid: DebugDrawAttachments.BoxAttachmentSizeUpdate
+  commentId: T:DebugDrawAttachments.BoxAttachmentSizeUpdate
+  parent: DebugDrawAttachments
+  name: BoxAttachmentSizeUpdate
+  nameWithType: BoxAttachmentSizeUpdate
+  fullName: DebugDrawAttachments.BoxAttachmentSizeUpdate
+- uid: DebugDrawAttachments.BoxAttachment
+  commentId: T:DebugDrawAttachments.BoxAttachment
+  parent: DebugDrawAttachments
+  name: BoxAttachment
+  nameWithType: BoxAttachment
+  fullName: DebugDrawAttachments.BoxAttachment
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine

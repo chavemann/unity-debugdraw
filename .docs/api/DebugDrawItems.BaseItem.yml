@@ -1,0 +1,571 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawItems.BaseItem
+  commentId: T:DebugDrawItems.BaseItem
+  id: BaseItem
+  parent: DebugDrawItems
+  children:
+  - DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawItems.BaseItem.color
+  - DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawItems.BaseItem.op_Implicit(DebugDrawItems.BaseItem)~System.Boolean
+  - DebugDrawItems.BaseItem.Remove
+  - DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  langs:
+  - csharp
+  - vb
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawItems.BaseItem
+  type: Class
+  source:
+    id: BaseItem
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 11
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe base for all debug visual items.\n"
+  example: []
+  syntax:
+    content: public abstract class BaseItem
+    content.vb: Public MustInherit Class BaseItem
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - DebugDrawItems.BaseLineItem
+  - DebugDrawItems.BasePointItem
+  - DebugDrawItems.Box
+  - DebugDrawItems.Dots
+  - DebugDrawItems.Lines
+  - DebugDrawItems.Lines3D
+  - DebugDrawItems.MeshItem
+  - DebugDrawItems.Points
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  id: BaseAutoSizeDistanceFactor
+  parent: DebugDrawItems.BaseItem
+  langs:
+  - csharp
+  - vb
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  type: Field
+  source:
+    id: BaseAutoSizeDistanceFactor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 14
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  syntax:
+    content: protected const float BaseAutoSizeDistanceFactor = 0.04F
+    return:
+      type: System.Single
+    content.vb: Protected Const BaseAutoSizeDistanceFactor As Single = 0.04F
+  modifiers.csharp:
+  - protected
+  - const
+  modifiers.vb:
+  - Protected
+  - Const
+- uid: DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawItems.BaseItem.color
+  id: color
+  parent: DebugDrawItems.BaseItem
+  langs:
+  - csharp
+  - vb
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawItems.BaseItem.color
+  type: Field
+  source:
+    id: color
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 19
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThis item&apos;s color.\n"
+  example: []
+  syntax:
+    content: public Color color
+    return:
+      type: UnityEngine.Color
+    content.vb: Public color As Color
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  id: SetDuration``1(System.Single)
+  parent: DebugDrawItems.BaseItem
+  langs:
+  - csharp
+  - vb
+  name: SetDuration<T>(Single)
+  nameWithType: BaseItem.SetDuration<T>(Single)
+  fullName: DebugDrawItems.BaseItem.SetDuration<T>(System.Single)
+  type: Method
+  source:
+    id: SetDuration
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 58
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nUpdates the duration of this item.\n"
+  example: []
+  syntax:
+    content: >-
+      public T SetDuration<T>(float duration)
+          where T : BaseItem
+    parameters:
+    - id: duration
+      type: System.Single
+      description: The duration starting from the current time.
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function SetDuration(Of T As BaseItem)(duration As Single) As T
+  overload: DebugDrawItems.BaseItem.SetDuration*
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: DebugDrawItems.BaseItem.SetDuration(Of T)(System.Single)
+  name.vb: SetDuration(Of T)(Single)
+- uid: DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawItems.BaseItem.SetDuration(System.Single)
+  id: SetDuration(System.Single)
+  parent: DebugDrawItems.BaseItem
+  langs:
+  - csharp
+  - vb
+  name: SetDuration(Single)
+  nameWithType: BaseItem.SetDuration(Single)
+  fullName: DebugDrawItems.BaseItem.SetDuration(System.Single)
+  type: Method
+  source:
+    id: SetDuration
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 65
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nUpdates the duration of this item.\n"
+  example: []
+  syntax:
+    content: public BaseItem SetDuration(float duration)
+    parameters:
+    - id: duration
+      type: System.Single
+      description: The duration starting from the current time.
+    return:
+      type: DebugDrawItems.BaseItem
+    content.vb: Public Function SetDuration(duration As Single) As BaseItem
+  overload: DebugDrawItems.BaseItem.SetDuration*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  id: SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawItems.BaseItem
+  langs:
+  - csharp
+  - vb
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  type: Method
+  source:
+    id: SetGlobalTransform
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 75
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nSets this item&apos;s transform. Normally this will be set by using <xref href=\"DebugDraw.transform\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public void SetGlobalTransform(Matrix4x4 transform)
+    parameters:
+    - id: transform
+      type: UnityEngine.Matrix4x4
+      description: ''
+    content.vb: Public Sub SetGlobalTransform(transform As Matrix4x4)
+  overload: DebugDrawItems.BaseItem.SetGlobalTransform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawItems.BaseItem.ClearGlobalTransform
+  id: ClearGlobalTransform
+  parent: DebugDrawItems.BaseItem
+  langs:
+  - csharp
+  - vb
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawItems.BaseItem.ClearGlobalTransform()
+  type: Method
+  source:
+    id: ClearGlobalTransform
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 88
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nClears this item&apos;s transform. Normally this will be set by using <xref href=\"DebugDraw.transform\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public void ClearGlobalTransform()
+    content.vb: Public Sub ClearGlobalTransform
+  overload: DebugDrawItems.BaseItem.ClearGlobalTransform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  id: SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawItems.BaseItem
+  langs:
+  - csharp
+  - vb
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  type: Method
+  source:
+    id: SetGlobalColor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 97
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nSets this item&apos;s color. Normally this will be set by using <xref href=\"DebugDraw.color\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public void SetGlobalColor(Color color)
+    parameters:
+    - id: color
+      type: UnityEngine.Color
+      description: ''
+    content.vb: Public Sub SetGlobalColor(color As Color)
+  overload: DebugDrawItems.BaseItem.SetGlobalColor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawItems.BaseItem.ClearGlobalColor
+  id: ClearGlobalColor
+  parent: DebugDrawItems.BaseItem
+  langs:
+  - csharp
+  - vb
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawItems.BaseItem.ClearGlobalColor()
+  type: Method
+  source:
+    id: ClearGlobalColor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 110
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nClears this item&apos;s color. Normally this will be set by using <xref href=\"DebugDraw.color\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public void ClearGlobalColor()
+    content.vb: Public Sub ClearGlobalColor
+  overload: DebugDrawItems.BaseItem.ClearGlobalColor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  id: GetColor(UnityEngine.Color@)
+  parent: DebugDrawItems.BaseItem
+  langs:
+  - csharp
+  - vb
+  name: GetColor(ref Color)
+  nameWithType: BaseItem.GetColor(ref Color)
+  fullName: DebugDrawItems.BaseItem.GetColor(ref UnityEngine.Color)
+  type: Method
+  source:
+    id: GetColor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 120
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nMultiplies the given color with this item state&apos;s color if it has one\n"
+  example: []
+  syntax:
+    content: public Color GetColor(ref Color color)
+    parameters:
+    - id: color
+      type: UnityEngine.Color
+      description: .
+    return:
+      type: UnityEngine.Color
+      description: ''
+    content.vb: Public Function GetColor(ByRef color As Color) As Color
+  overload: DebugDrawItems.BaseItem.GetColor*
+  nameWithType.vb: BaseItem.GetColor(ByRef Color)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: DebugDrawItems.BaseItem.GetColor(ByRef UnityEngine.Color)
+  name.vb: GetColor(ByRef Color)
+- uid: DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawItems.BaseItem.Remove
+  id: Remove
+  parent: DebugDrawItems.BaseItem
+  langs:
+  - csharp
+  - vb
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawItems.BaseItem.Remove()
+  type: Method
+  source:
+    id: Remove
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 126
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nRemoves this item.\n"
+  example: []
+  syntax:
+    content: public void Remove()
+    content.vb: Public Sub Remove
+  overload: DebugDrawItems.BaseItem.Remove*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.BaseItem.op_Implicit(DebugDrawItems.BaseItem)~System.Boolean
+  commentId: M:DebugDrawItems.BaseItem.op_Implicit(DebugDrawItems.BaseItem)~System.Boolean
+  id: op_Implicit(DebugDrawItems.BaseItem)~System.Boolean
+  parent: DebugDrawItems.BaseItem
+  langs:
+  - csharp
+  - vb
+  name: Implicit(BaseItem to Boolean)
+  nameWithType: BaseItem.Implicit(BaseItem to Boolean)
+  fullName: DebugDrawItems.BaseItem.Implicit(DebugDrawItems.BaseItem to System.Boolean)
+  type: Operator
+  source:
+    id: op_Implicit
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseItem.cs
+    startLine: 146
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  syntax:
+    content: public static implicit operator bool (BaseItem baseItem)
+    parameters:
+    - id: baseItem
+      type: DebugDrawItems.BaseItem
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Widening Operator CType(baseItem As BaseItem) As Boolean
+  overload: DebugDrawItems.BaseItem.op_Implicit*
+  nameWithType.vb: BaseItem.Widening(BaseItem to Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.BaseItem.Widening(DebugDrawItems.BaseItem to System.Boolean)
+  name.vb: Widening(BaseItem to Boolean)
+references:
+- uid: DebugDrawItems
+  commentId: N:DebugDrawItems
+  name: DebugDrawItems
+  nameWithType: DebugDrawItems
+  fullName: DebugDrawItems
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: DebugDrawItems.BaseItem.SetDuration*
+  commentId: Overload:DebugDrawItems.BaseItem.SetDuration
+  name: SetDuration
+  nameWithType: BaseItem.SetDuration
+  fullName: DebugDrawItems.BaseItem.SetDuration
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetDuration<T>(Single)
+  nameWithType: BaseItem.SetDuration<T>(Single)
+  fullName: DebugDrawItems.BaseItem.SetDuration<T>(System.Single)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawItems.BaseItem.SetDuration(Of T)(System.Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration<T>
+    nameWithType: BaseItem.SetDuration<T>
+    fullName: DebugDrawItems.BaseItem.SetDuration<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration(Of T)
+    nameWithType: BaseItem.SetDuration(Of T)
+    fullName: DebugDrawItems.BaseItem.SetDuration(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem
+  commentId: T:DebugDrawItems.BaseItem
+  parent: DebugDrawItems
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawItems.BaseItem
+- uid: DebugDraw.transform
+  commentId: P:DebugDraw.transform
+  isExternal: true
+- uid: DebugDrawItems.BaseItem.SetGlobalTransform*
+  commentId: Overload:DebugDrawItems.BaseItem.SetGlobalTransform
+  name: SetGlobalTransform
+  nameWithType: BaseItem.SetGlobalTransform
+  fullName: DebugDrawItems.BaseItem.SetGlobalTransform
+- uid: UnityEngine.Matrix4x4
+  commentId: T:UnityEngine.Matrix4x4
+  parent: UnityEngine
+  isExternal: true
+  name: Matrix4x4
+  nameWithType: Matrix4x4
+  fullName: UnityEngine.Matrix4x4
+- uid: DebugDrawItems.BaseItem.ClearGlobalTransform*
+  commentId: Overload:DebugDrawItems.BaseItem.ClearGlobalTransform
+  name: ClearGlobalTransform
+  nameWithType: BaseItem.ClearGlobalTransform
+  fullName: DebugDrawItems.BaseItem.ClearGlobalTransform
+- uid: DebugDraw.color
+  commentId: P:DebugDraw.color
+  isExternal: true
+- uid: DebugDrawItems.BaseItem.SetGlobalColor*
+  commentId: Overload:DebugDrawItems.BaseItem.SetGlobalColor
+  name: SetGlobalColor
+  nameWithType: BaseItem.SetGlobalColor
+  fullName: DebugDrawItems.BaseItem.SetGlobalColor
+- uid: DebugDrawItems.BaseItem.ClearGlobalColor*
+  commentId: Overload:DebugDrawItems.BaseItem.ClearGlobalColor
+  name: ClearGlobalColor
+  nameWithType: BaseItem.ClearGlobalColor
+  fullName: DebugDrawItems.BaseItem.ClearGlobalColor
+- uid: DebugDrawItems.BaseItem.GetColor*
+  commentId: Overload:DebugDrawItems.BaseItem.GetColor
+  name: GetColor
+  nameWithType: BaseItem.GetColor
+  fullName: DebugDrawItems.BaseItem.GetColor
+- uid: DebugDrawItems.BaseItem.Remove*
+  commentId: Overload:DebugDrawItems.BaseItem.Remove
+  name: Remove
+  nameWithType: BaseItem.Remove
+  fullName: DebugDrawItems.BaseItem.Remove
+- uid: DebugDrawItems.BaseItem.op_Implicit*
+  commentId: Overload:DebugDrawItems.BaseItem.op_Implicit
+  name: Implicit
+  nameWithType: BaseItem.Implicit
+  fullName: DebugDrawItems.BaseItem.Implicit
+  nameWithType.vb: BaseItem.Widening
+  fullName.vb: DebugDrawItems.BaseItem.Widening
+  name.vb: Widening
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

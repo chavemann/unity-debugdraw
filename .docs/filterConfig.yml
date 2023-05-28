@@ -1,0 +1,19 @@
+apiRules:
+- include:
+    uidRegex: ^Global
+    type: Namespace
+- include:
+    uidRegex: ^DebugDrawAttachments
+    type: Namespace
+- include:
+    uidRegex: ^DebugDrawItems
+    type: Namespace
+- include:
+    uidRegex: ^DebugDrawUtils
+    type: Namespace
+- exclude:
+    uidRegex: .* # Every other namespaces are ignored
+    type: Namespace
+- exclude:
+    uidRegex: ^System\.Object
+    type: Type

@@ -1,0 +1,826 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawItems.Text
+  commentId: T:DebugDrawItems.Text
+  id: Text
+  parent: DebugDrawItems
+  children:
+  - DebugDrawItems.Text.align
+  - DebugDrawItems.Text.Get(UnityEngine.Vector3@,System.String,UnityEngine.Color@,UnityEngine.TextAnchor,System.Single,System.Single)
+  - DebugDrawItems.Text.Get(UnityEngine.Vector3@,System.String,UnityEngine.TextAnchor,System.Single,System.Single)
+  - DebugDrawItems.Text.scale
+  - DebugDrawItems.Text.SetUseWorldSize(System.Boolean)
+  - DebugDrawItems.Text.text
+  - DebugDrawItems.Text.useWorldSize
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: Text
+  fullName: DebugDrawItems.Text
+  type: Class
+  source:
+    id: Text
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Text.cs
+    startLine: 10
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDisplays some text at the specified position. Note that this uses GUI.Label so\nit isn&apos;t true 3D text.\n"
+  example: []
+  syntax:
+    content: 'public class Text : BasePointItem, IAttachablePoint'
+    content.vb: >-
+      Public Class Text
+          Inherits BasePointItem
+          Implements IAttachablePoint
+  inheritance:
+  - System.Object
+  - DebugDrawItems.BaseItem
+  - DebugDrawItems.BasePointItem
+  implements:
+  - DebugDrawAttachments.IAttachablePoint
+  inheritedMembers:
+  - DebugDrawItems.BasePointItem.position
+  - DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - DebugDrawItems.BasePointItem.GetPosition
+  - DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawItems.BaseItem.color
+  - DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawItems.BaseItem.Remove
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: DebugDrawItems.Text.text
+  commentId: F:DebugDrawItems.Text.text
+  id: text
+  parent: DebugDrawItems.Text
+  langs:
+  - csharp
+  - vb
+  name: text
+  nameWithType: Text.text
+  fullName: DebugDrawItems.Text.text
+  type: Field
+  source:
+    id: text
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Text.cs
+    startLine: 17
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe text to display.\n"
+  example: []
+  syntax:
+    content: public string text
+    return:
+      type: System.String
+    content.vb: Public text As String
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Text.align
+  commentId: F:DebugDrawItems.Text.align
+  id: align
+  parent: DebugDrawItems.Text
+  langs:
+  - csharp
+  - vb
+  name: align
+  nameWithType: Text.align
+  fullName: DebugDrawItems.Text.align
+  type: Field
+  source:
+    id: align
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Text.cs
+    startLine: 21
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nWhere to anchor the text.\n"
+  example: []
+  syntax:
+    content: public TextAnchor align
+    return:
+      type: UnityEngine.TextAnchor
+    content.vb: Public align As TextAnchor
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Text.scale
+  commentId: F:DebugDrawItems.Text.scale
+  id: scale
+  parent: DebugDrawItems.Text
+  langs:
+  - csharp
+  - vb
+  name: scale
+  nameWithType: Text.scale
+  fullName: DebugDrawItems.Text.scale
+  type: Field
+  source:
+    id: scale
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Text.cs
+    startLine: 25
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe text scale. Set to 1 for default.\n"
+  example: []
+  syntax:
+    content: public float scale
+    return:
+      type: System.Single
+    content.vb: Public scale As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Text.useWorldSize
+  commentId: F:DebugDrawItems.Text.useWorldSize
+  id: useWorldSize
+  parent: DebugDrawItems.Text
+  langs:
+  - csharp
+  - vb
+  name: useWorldSize
+  nameWithType: Text.useWorldSize
+  fullName: DebugDrawItems.Text.useWorldSize
+  type: Field
+  source:
+    id: useWorldSize
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Text.cs
+    startLine: 29
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nIf true, the text will scale based on the distance to the camera.\n"
+  example: []
+  syntax:
+    content: public bool useWorldSize
+    return:
+      type: System.Boolean
+    content.vb: Public useWorldSize As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Text.Get(UnityEngine.Vector3@,System.String,UnityEngine.Color@,UnityEngine.TextAnchor,System.Single,System.Single)
+  commentId: M:DebugDrawItems.Text.Get(UnityEngine.Vector3@,System.String,UnityEngine.Color@,UnityEngine.TextAnchor,System.Single,System.Single)
+  id: Get(UnityEngine.Vector3@,System.String,UnityEngine.Color@,UnityEngine.TextAnchor,System.Single,System.Single)
+  parent: DebugDrawItems.Text
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, String, ref Color, TextAnchor, Single, Single)
+  nameWithType: Text.Get(ref Vector3, String, ref Color, TextAnchor, Single, Single)
+  fullName: DebugDrawItems.Text.Get(ref UnityEngine.Vector3, System.String, ref UnityEngine.Color, UnityEngine.TextAnchor, System.Single, System.Single)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Text.cs
+    startLine: 44
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a line.\n"
+  example: []
+  syntax:
+    content: public static Text Get(ref Vector3 position, string text, ref Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1F, float duration = 0F)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The world space position of the text.
+    - id: text
+      type: System.String
+      description: The text to display.
+    - id: color
+      type: UnityEngine.Color
+      description: The text color.
+    - id: align
+      type: UnityEngine.TextAnchor
+      description: Where to anchor the text.
+    - id: scale
+      type: System.Single
+      description: The text scale. Set to 1 for default.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.Text
+      description: The Text object.
+    content.vb: Public Shared Function Get(ByRef position As Vector3, text As String, ByRef color As Color, align As TextAnchor = TextAnchor.UpperLeft, scale As Single = 1F, duration As Single = 0F) As Text
+  overload: DebugDrawItems.Text.Get*
+  nameWithType.vb: Text.Get(ByRef Vector3, String, ByRef Color, TextAnchor, Single, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.Text.Get(ByRef UnityEngine.Vector3, System.String, ByRef UnityEngine.Color, UnityEngine.TextAnchor, System.Single, System.Single)
+  name.vb: Get(ByRef Vector3, String, ByRef Color, TextAnchor, Single, Single)
+- uid: DebugDrawItems.Text.Get(UnityEngine.Vector3@,System.String,UnityEngine.TextAnchor,System.Single,System.Single)
+  commentId: M:DebugDrawItems.Text.Get(UnityEngine.Vector3@,System.String,UnityEngine.TextAnchor,System.Single,System.Single)
+  id: Get(UnityEngine.Vector3@,System.String,UnityEngine.TextAnchor,System.Single,System.Single)
+  parent: DebugDrawItems.Text
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, String, TextAnchor, Single, Single)
+  nameWithType: Text.Get(ref Vector3, String, TextAnchor, Single, Single)
+  fullName: DebugDrawItems.Text.Get(ref UnityEngine.Vector3, System.String, UnityEngine.TextAnchor, System.Single, System.Single)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Text.cs
+    startLine: 68
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a line.\n"
+  example: []
+  syntax:
+    content: public static Text Get(ref Vector3 position, string text, TextAnchor align = TextAnchor.UpperLeft, float scale = 1F, float duration = 0F)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The world space position of the text.
+    - id: text
+      type: System.String
+      description: The text to display.
+    - id: align
+      type: UnityEngine.TextAnchor
+      description: Where to anchor the text.
+    - id: scale
+      type: System.Single
+      description: The text scale. Set to 1 for default.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.
+    return:
+      type: DebugDrawItems.Text
+      description: The Text object.
+    content.vb: Public Shared Function Get(ByRef position As Vector3, text As String, align As TextAnchor = TextAnchor.UpperLeft, scale As Single = 1F, duration As Single = 0F) As Text
+  overload: DebugDrawItems.Text.Get*
+  nameWithType.vb: Text.Get(ByRef Vector3, String, TextAnchor, Single, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.Text.Get(ByRef UnityEngine.Vector3, System.String, UnityEngine.TextAnchor, System.Single, System.Single)
+  name.vb: Get(ByRef Vector3, String, TextAnchor, Single, Single)
+- uid: DebugDrawItems.Text.SetUseWorldSize(System.Boolean)
+  commentId: M:DebugDrawItems.Text.SetUseWorldSize(System.Boolean)
+  id: SetUseWorldSize(System.Boolean)
+  parent: DebugDrawItems.Text
+  langs:
+  - csharp
+  - vb
+  name: SetUseWorldSize(Boolean)
+  nameWithType: Text.SetUseWorldSize(Boolean)
+  fullName: DebugDrawItems.Text.SetUseWorldSize(System.Boolean)
+  type: Method
+  source:
+    id: SetUseWorldSize
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Text.cs
+    startLine: 77
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  syntax:
+    content: public Text SetUseWorldSize(bool useWorldSize = true)
+    parameters:
+    - id: useWorldSize
+      type: System.Boolean
+    return:
+      type: DebugDrawItems.Text
+    content.vb: Public Function SetUseWorldSize(useWorldSize As Boolean = True) As Text
+  overload: DebugDrawItems.Text.SetUseWorldSize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: DebugDrawItems
+  commentId: N:DebugDrawItems
+  name: DebugDrawItems
+  nameWithType: DebugDrawItems
+  fullName: DebugDrawItems
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: DebugDrawItems.BaseItem
+  commentId: T:DebugDrawItems.BaseItem
+  parent: DebugDrawItems
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawItems.BaseItem
+- uid: DebugDrawItems.BasePointItem
+  commentId: T:DebugDrawItems.BasePointItem
+  parent: DebugDrawItems
+  name: BasePointItem
+  nameWithType: BasePointItem
+  fullName: DebugDrawItems.BasePointItem
+- uid: DebugDrawAttachments.IAttachablePoint
+  commentId: T:DebugDrawAttachments.IAttachablePoint
+  parent: DebugDrawAttachments
+  name: IAttachablePoint
+  nameWithType: IAttachablePoint
+  fullName: DebugDrawAttachments.IAttachablePoint
+- uid: DebugDrawItems.BasePointItem.position
+  commentId: F:DebugDrawItems.BasePointItem.position
+  parent: DebugDrawItems.BasePointItem
+  name: position
+  nameWithType: BasePointItem.position
+  fullName: DebugDrawItems.BasePointItem.position
+- uid: DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawItems.BasePointItem
+  name: AttachTo(GameObjectOrTransform)
+  nameWithType: BasePointItem.AttachTo(GameObjectOrTransform)
+  fullName: DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    nameWithType: BasePointItem.AttachTo
+    fullName: DebugDrawItems.BasePointItem.AttachTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    nameWithType: GameObjectOrTransform
+    fullName: DebugDrawUtils.GameObjectOrTransform
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    nameWithType: BasePointItem.AttachTo
+    fullName: DebugDrawItems.BasePointItem.AttachTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    nameWithType: GameObjectOrTransform
+    fullName: DebugDrawUtils.GameObjectOrTransform
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  parent: DebugDrawItems.BasePointItem
+  isExternal: true
+  name: SetPosition(Vector3)
+  nameWithType: BasePointItem.SetPosition(Vector3)
+  fullName: DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    nameWithType: BasePointItem.SetPosition
+    fullName: DebugDrawItems.BasePointItem.SetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    nameWithType: BasePointItem.SetPosition
+    fullName: DebugDrawItems.BasePointItem.SetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BasePointItem.GetPosition
+  commentId: M:DebugDrawItems.BasePointItem.GetPosition
+  parent: DebugDrawItems.BasePointItem
+  name: GetPosition()
+  nameWithType: BasePointItem.GetPosition()
+  fullName: DebugDrawItems.BasePointItem.GetPosition()
+  spec.csharp:
+  - uid: DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    nameWithType: BasePointItem.GetPosition
+    fullName: DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    nameWithType: BasePointItem.GetPosition
+    fullName: DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawItems.BaseItem
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawItems.BaseItem.color
+  parent: DebugDrawItems.BaseItem
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawItems.BaseItem.color
+- uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetDuration<T>(Single)
+  nameWithType: BaseItem.SetDuration<T>(Single)
+  fullName: DebugDrawItems.BaseItem.SetDuration<T>(System.Single)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawItems.BaseItem.SetDuration(Of T)(System.Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration<T>
+    nameWithType: BaseItem.SetDuration<T>
+    fullName: DebugDrawItems.BaseItem.SetDuration<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration(Of T)
+    nameWithType: BaseItem.SetDuration(Of T)
+    fullName: DebugDrawItems.BaseItem.SetDuration(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetDuration(Single)
+  nameWithType: BaseItem.SetDuration(Single)
+  fullName: DebugDrawItems.BaseItem.SetDuration(System.Single)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    nameWithType: BaseItem.SetDuration
+    fullName: DebugDrawItems.BaseItem.SetDuration
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    nameWithType: BaseItem.SetDuration
+    fullName: DebugDrawItems.BaseItem.SetDuration
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    nameWithType: BaseItem.SetGlobalTransform
+    fullName: DebugDrawItems.BaseItem.SetGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    nameWithType: Matrix4x4
+    fullName: UnityEngine.Matrix4x4
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    nameWithType: BaseItem.SetGlobalTransform
+    fullName: DebugDrawItems.BaseItem.SetGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    nameWithType: Matrix4x4
+    fullName: UnityEngine.Matrix4x4
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawItems.BaseItem
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    nameWithType: BaseItem.ClearGlobalTransform
+    fullName: DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    nameWithType: BaseItem.ClearGlobalTransform
+    fullName: DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    nameWithType: BaseItem.SetGlobalColor
+    fullName: DebugDrawItems.BaseItem.SetGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    nameWithType: BaseItem.SetGlobalColor
+    fullName: DebugDrawItems.BaseItem.SetGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawItems.BaseItem
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    nameWithType: BaseItem.ClearGlobalColor
+    fullName: DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    nameWithType: BaseItem.ClearGlobalColor
+    fullName: DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: GetColor(Color)
+  nameWithType: BaseItem.GetColor(Color)
+  fullName: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    nameWithType: BaseItem.GetColor
+    fullName: DebugDrawItems.BaseItem.GetColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    nameWithType: BaseItem.GetColor
+    fullName: DebugDrawItems.BaseItem.GetColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawItems.BaseItem
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.Remove
+    name: Remove
+    nameWithType: BaseItem.Remove
+    fullName: DebugDrawItems.BaseItem.Remove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.Remove
+    name: Remove
+    nameWithType: BaseItem.Remove
+    fullName: DebugDrawItems.BaseItem.Remove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawAttachments
+  commentId: N:DebugDrawAttachments
+  name: DebugDrawAttachments
+  nameWithType: DebugDrawAttachments
+  fullName: DebugDrawAttachments
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: UnityEngine.TextAnchor
+  commentId: T:UnityEngine.TextAnchor
+  parent: UnityEngine
+  isExternal: true
+  name: TextAnchor
+  nameWithType: TextAnchor
+  fullName: UnityEngine.TextAnchor
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: DebugDrawItems.Text.Get*
+  commentId: Overload:DebugDrawItems.Text.Get
+  name: Get
+  nameWithType: Text.Get
+  fullName: DebugDrawItems.Text.Get
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: DebugDrawItems.Text
+  commentId: T:DebugDrawItems.Text
+  parent: DebugDrawItems
+  name: Text
+  nameWithType: Text
+  fullName: DebugDrawItems.Text
+- uid: DebugDrawItems.Text.SetUseWorldSize*
+  commentId: Overload:DebugDrawItems.Text.SetUseWorldSize
+  name: SetUseWorldSize
+  nameWithType: Text.SetUseWorldSize
+  fullName: DebugDrawItems.Text.SetUseWorldSize

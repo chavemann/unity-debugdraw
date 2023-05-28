@@ -1,0 +1,1904 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawItems.Ellipse
+  commentId: T:DebugDrawItems.Ellipse
+  id: Ellipse
+  parent: DebugDrawItems
+  children:
+  - DebugDrawItems.Ellipse.BuildArc(DebugDrawMesh,UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,System.Single,System.Single,System.Single,System.Single,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,UnityEngine.Color@,System.Boolean)
+  - DebugDrawItems.Ellipse.drawArcSegments
+  - DebugDrawItems.Ellipse.drawAxes
+  - DebugDrawItems.Ellipse.endAngle
+  - DebugDrawItems.Ellipse.facing
+  - DebugDrawItems.Ellipse.forward
+  - DebugDrawItems.Ellipse.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawEllipseAxes,System.Single)
+  - DebugDrawItems.Ellipse.Get(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawEllipseAxes,System.Single)
+  - DebugDrawItems.Ellipse.GetArc(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,System.Single)
+  - DebugDrawItems.Ellipse.GetArc(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,System.Single)
+  - DebugDrawItems.Ellipse.GetFill(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,System.Single)
+  - DebugDrawItems.Ellipse.GetFill(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,System.Single)
+  - DebugDrawItems.Ellipse.GetFillArc(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  - DebugDrawItems.Ellipse.GetFillArc(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  - DebugDrawItems.Ellipse.innerRadius
+  - DebugDrawItems.Ellipse.rotation
+  - DebugDrawItems.Ellipse.segments
+  - DebugDrawItems.Ellipse.SetArc(System.Single,System.Single,DebugDrawItems.DrawArcSegments)
+  - DebugDrawItems.Ellipse.SetArcAngles(System.Single,System.Single)
+  - DebugDrawItems.Ellipse.SetAutoResolution
+  - DebugDrawItems.Ellipse.SetAxes(DebugDrawItems.DrawEllipseAxes)
+  - DebugDrawItems.Ellipse.SetDrawArcSegments(DebugDrawItems.DrawArcSegments)
+  - DebugDrawItems.Ellipse.SetForward(System.Nullable{UnityEngine.Vector3})
+  - DebugDrawItems.Ellipse.SetInnerRadius(System.Single)
+  - DebugDrawItems.Ellipse.SetRotation(System.Single)
+  - DebugDrawItems.Ellipse.size
+  - DebugDrawItems.Ellipse.startAngle
+  - DebugDrawItems.Ellipse.wireframe
+  langs:
+  - csharp
+  - vb
+  name: Ellipse
+  nameWithType: Ellipse
+  fullName: DebugDrawItems.Ellipse
+  type: Class
+  source:
+    id: Ellipse
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 9
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nRenders various types of ellipse - open, closed, arcs, filled, or wire.\n"
+  example: []
+  syntax:
+    content: 'public class Ellipse : BasePointItem, IAttachablePoint'
+    content.vb: >-
+      Public Class Ellipse
+          Inherits BasePointItem
+          Implements IAttachablePoint
+  inheritance:
+  - System.Object
+  - DebugDrawItems.BaseItem
+  - DebugDrawItems.BasePointItem
+  implements:
+  - DebugDrawAttachments.IAttachablePoint
+  inheritedMembers:
+  - DebugDrawItems.BasePointItem.position
+  - DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - DebugDrawItems.BasePointItem.GetPosition
+  - DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawItems.BaseItem.color
+  - DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawItems.BaseItem.Remove
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: DebugDrawItems.Ellipse.size
+  commentId: F:DebugDrawItems.Ellipse.size
+  id: size
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: size
+  nameWithType: Ellipse.size
+  fullName: DebugDrawItems.Ellipse.size
+  type: Field
+  source:
+    id: size
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 16
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe size/radius of the ellipse.\n"
+  example: []
+  syntax:
+    content: public Vector2 size
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public size As Vector2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.innerRadius
+  commentId: F:DebugDrawItems.Ellipse.innerRadius
+  id: innerRadius
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: innerRadius
+  nameWithType: Ellipse.innerRadius
+  fullName: DebugDrawItems.Ellipse.innerRadius
+  type: Field
+  source:
+    id: innerRadius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 20
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nIf non-zero, defines the radius of the inner ring turning this ellipse into a 2D donut.\n"
+  example: []
+  syntax:
+    content: public float innerRadius
+    return:
+      type: System.Single
+    content.vb: Public innerRadius As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.facing
+  commentId: F:DebugDrawItems.Ellipse.facing
+  id: facing
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: facing
+  nameWithType: Ellipse.facing
+  fullName: DebugDrawItems.Ellipse.facing
+  type: Field
+  source:
+    id: facing
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 24
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe normal or direction the front of the ellipse is facing.\n"
+  example: []
+  syntax:
+    content: public Vector3 facing
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public facing As Vector3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.rotation
+  commentId: F:DebugDrawItems.Ellipse.rotation
+  id: rotation
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: rotation
+  nameWithType: Ellipse.rotation
+  fullName: DebugDrawItems.Ellipse.rotation
+  type: Field
+  source:
+    id: rotation
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 28
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe rotation of the ellipse. Mostly useful for arcs.\n"
+  example: []
+  syntax:
+    content: public float rotation
+    return:
+      type: System.Single
+    content.vb: Public rotation As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.startAngle
+  commentId: F:DebugDrawItems.Ellipse.startAngle
+  id: startAngle
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: startAngle
+  nameWithType: Ellipse.startAngle
+  fullName: DebugDrawItems.Ellipse.startAngle
+  type: Field
+  source:
+    id: startAngle
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 32
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe start angle in degrees of the arc.\n"
+  example: []
+  syntax:
+    content: public float startAngle
+    return:
+      type: System.Single
+    content.vb: Public startAngle As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.endAngle
+  commentId: F:DebugDrawItems.Ellipse.endAngle
+  id: endAngle
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: endAngle
+  nameWithType: Ellipse.endAngle
+  fullName: DebugDrawItems.Ellipse.endAngle
+  type: Field
+  source:
+    id: endAngle
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 36
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe end angle in degrees of the arc.\n"
+  example: []
+  syntax:
+    content: public float endAngle
+    return:
+      type: System.Single
+    content.vb: Public endAngle As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.drawArcSegments
+  commentId: F:DebugDrawItems.Ellipse.drawArcSegments
+  id: drawArcSegments
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: drawArcSegments
+  nameWithType: Ellipse.drawArcSegments
+  fullName: DebugDrawItems.Ellipse.drawArcSegments
+  type: Field
+  source:
+    id: drawArcSegments
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 41
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nOptions for connecting the centre of the ellipse and the arc end points.\nOnly relevant when <xref href=\"DebugDrawItems.Ellipse.wireframe\" data-throw-if-not-resolved=\"false\"></xref> is false.\n"
+  example: []
+  syntax:
+    content: public DrawArcSegments drawArcSegments
+    return:
+      type: DebugDrawItems.DrawArcSegments
+    content.vb: Public drawArcSegments As DrawArcSegments
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.drawAxes
+  commentId: F:DebugDrawItems.Ellipse.drawAxes
+  id: drawAxes
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: drawAxes
+  nameWithType: Ellipse.drawAxes
+  fullName: DebugDrawItems.Ellipse.drawAxes
+  type: Field
+  source:
+    id: drawAxes
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 46
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nOptions for drawing an X and Y axis inside the ellipse.\nOnly relevant when <xref href=\"DebugDrawItems.Ellipse.wireframe\" data-throw-if-not-resolved=\"false\"></xref> is false.\n"
+  example: []
+  syntax:
+    content: public DrawEllipseAxes drawAxes
+    return:
+      type: DebugDrawItems.DrawEllipseAxes
+    content.vb: Public drawAxes As DrawEllipseAxes
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.segments
+  commentId: F:DebugDrawItems.Ellipse.segments
+  id: segments
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: segments
+  nameWithType: Ellipse.segments
+  fullName: DebugDrawItems.Ellipse.segments
+  type: Field
+  source:
+    id: segments
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 50
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe resolution of the ellipse. If set to zero will be adjusted based on the distance to the camera.\n"
+  example: []
+  syntax:
+    content: public int segments
+    return:
+      type: System.Int32
+    content.vb: Public segments As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.forward
+  commentId: F:DebugDrawItems.Ellipse.forward
+  id: forward
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: forward
+  nameWithType: Ellipse.forward
+  fullName: DebugDrawItems.Ellipse.forward
+  type: Field
+  source:
+    id: forward
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 55
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe forward vector used to orient the ellipse.\nIf null, an arbitrary axis will be chosen.\n"
+  example: []
+  syntax:
+    content: public Vector3? forward
+    return:
+      type: System.Nullable{UnityEngine.Vector3}
+    content.vb: Public forward As Vector3?
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.wireframe
+  commentId: F:DebugDrawItems.Ellipse.wireframe
+  id: wireframe
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: wireframe
+  nameWithType: Ellipse.wireframe
+  fullName: DebugDrawItems.Ellipse.wireframe
+  type: Field
+  source:
+    id: wireframe
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 61
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nTrue for a filled ellipse made up from triangles, otherwise a wire ellipse.\nIt&apos;s important that this Ellipse item is added to a mesh with the right topology, either lines or triangles,\nbased on this setting.\n"
+  example: []
+  syntax:
+    content: public bool wireframe
+    return:
+      type: System.Boolean
+    content.vb: Public wireframe As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawEllipseAxes,System.Single)
+  commentId: M:DebugDrawItems.Ellipse.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawEllipseAxes,System.Single)
+  id: Get(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawEllipseAxes,System.Single)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, Single, ref Vector3, ref Color, Int32, DrawEllipseAxes, Single)
+  nameWithType: Ellipse.Get(ref Vector3, Single, ref Vector3, ref Color, Int32, DrawEllipseAxes, Single)
+  fullName: DebugDrawItems.Ellipse.Get(ref UnityEngine.Vector3, System.Single, ref UnityEngine.Vector3, ref UnityEngine.Color, System.Int32, DebugDrawItems.DrawEllipseAxes, System.Single)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 77
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a wire ellipse.\n"
+  example: []
+  syntax:
+    content: public static Ellipse Get(ref Vector3 position, float radius, ref Vector3 facing, ref Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0F)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the ellipse.
+    - id: radius
+      type: System.Single
+      description: The radius of the ellipse.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the ellipse is facing.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the ellipse.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the ellipse.
+    - id: drawAxes
+      type: DebugDrawItems.DrawEllipseAxes
+      description: Options for drawing an X and Y axis inside the ellipse.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: The ellipse object.
+    content.vb: Public Shared Function Get(ByRef position As Vector3, radius As Single, ByRef facing As Vector3, ByRef color As Color, segments As Integer = 32, drawAxes As DrawEllipseAxes = DrawEllipseAxes.Never, duration As Single = 0F) As Ellipse
+  overload: DebugDrawItems.Ellipse.Get*
+  nameWithType.vb: Ellipse.Get(ByRef Vector3, Single, ByRef Vector3, ByRef Color, Int32, DrawEllipseAxes, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.Ellipse.Get(ByRef UnityEngine.Vector3, System.Single, ByRef UnityEngine.Vector3, ByRef UnityEngine.Color, System.Int32, DebugDrawItems.DrawEllipseAxes, System.Single)
+  name.vb: Get(ByRef Vector3, Single, ByRef Vector3, ByRef Color, Int32, DrawEllipseAxes, Single)
+- uid: DebugDrawItems.Ellipse.GetFill(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,System.Single)
+  commentId: M:DebugDrawItems.Ellipse.GetFill(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,System.Single)
+  id: GetFill(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,System.Single)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: GetFill(ref Vector3, Single, ref Vector3, ref Color, Int32, Single)
+  nameWithType: Ellipse.GetFill(ref Vector3, Single, ref Vector3, ref Color, Int32, Single)
+  fullName: DebugDrawItems.Ellipse.GetFill(ref UnityEngine.Vector3, System.Single, ref UnityEngine.Vector3, ref UnityEngine.Color, System.Int32, System.Single)
+  type: Method
+  source:
+    id: GetFill
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 94
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a filled ellipse.\n"
+  example: []
+  syntax:
+    content: public static Ellipse GetFill(ref Vector3 position, float radius, ref Vector3 facing, ref Color color, int segments = 32, float duration = 0F)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the ellipse.
+    - id: radius
+      type: System.Single
+      description: The radius of the ellipse.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the ellipse is facing.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the ellipse.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the ellipse.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: The ellipse object.
+    content.vb: Public Shared Function GetFill(ByRef position As Vector3, radius As Single, ByRef facing As Vector3, ByRef color As Color, segments As Integer = 32, duration As Single = 0F) As Ellipse
+  overload: DebugDrawItems.Ellipse.GetFill*
+  nameWithType.vb: Ellipse.GetFill(ByRef Vector3, Single, ByRef Vector3, ByRef Color, Int32, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.Ellipse.GetFill(ByRef UnityEngine.Vector3, System.Single, ByRef UnityEngine.Vector3, ByRef UnityEngine.Color, System.Int32, System.Single)
+  name.vb: GetFill(ByRef Vector3, Single, ByRef Vector3, ByRef Color, Int32, Single)
+- uid: DebugDrawItems.Ellipse.GetArc(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,System.Single)
+  commentId: M:DebugDrawItems.Ellipse.GetArc(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,System.Single)
+  id: GetArc(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,System.Single)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: GetArc(ref Vector3, Single, ref Vector3, Single, Single, ref Color, Int32, DrawArcSegments, DrawEllipseAxes, Single)
+  nameWithType: Ellipse.GetArc(ref Vector3, Single, ref Vector3, Single, Single, ref Color, Int32, DrawArcSegments, DrawEllipseAxes, Single)
+  fullName: DebugDrawItems.Ellipse.GetArc(ref UnityEngine.Vector3, System.Single, ref UnityEngine.Vector3, System.Single, System.Single, ref UnityEngine.Color, System.Int32, DebugDrawItems.DrawArcSegments, DebugDrawItems.DrawEllipseAxes, System.Single)
+  type: Method
+  source:
+    id: GetArc
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 115
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a wire arc.\n"
+  example: []
+  syntax:
+    content: public static Ellipse GetArc(ref Vector3 position, float radius, ref Vector3 facing, float startAngle, float endAngle, ref Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0F)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the ellipse.
+    - id: radius
+      type: System.Single
+      description: The radius of the ellipse.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the ellipse is facing.
+    - id: startAngle
+      type: System.Single
+      description: The start angle in degrees of the arc.
+    - id: endAngle
+      type: System.Single
+      description: The end angle in degrees of the arc.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the ellipse.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the ellipse.
+    - id: drawArcSegments
+      type: DebugDrawItems.DrawArcSegments
+      description: Options for connecting the centre of the ellipse and the arc end points.
+    - id: drawAxes
+      type: DebugDrawItems.DrawEllipseAxes
+      description: Options for drawing an X and Y axis inside the ellipse.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: The ellipse object.
+    content.vb: Public Shared Function GetArc(ByRef position As Vector3, radius As Single, ByRef facing As Vector3, startAngle As Single, endAngle As Single, ByRef color As Color, segments As Integer = 32, drawArcSegments As DrawArcSegments = DrawArcSegments.OpenOnly, drawAxes As DrawEllipseAxes = DrawEllipseAxes.Never, duration As Single = 0F) As Ellipse
+  overload: DebugDrawItems.Ellipse.GetArc*
+  nameWithType.vb: Ellipse.GetArc(ByRef Vector3, Single, ByRef Vector3, Single, Single, ByRef Color, Int32, DrawArcSegments, DrawEllipseAxes, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.Ellipse.GetArc(ByRef UnityEngine.Vector3, System.Single, ByRef UnityEngine.Vector3, System.Single, System.Single, ByRef UnityEngine.Color, System.Int32, DebugDrawItems.DrawArcSegments, DebugDrawItems.DrawEllipseAxes, System.Single)
+  name.vb: GetArc(ByRef Vector3, Single, ByRef Vector3, Single, Single, ByRef Color, Int32, DrawArcSegments, DrawEllipseAxes, Single)
+- uid: DebugDrawItems.Ellipse.GetFillArc(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  commentId: M:DebugDrawItems.Ellipse.GetFillArc(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  id: GetFillArc(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: GetFillArc(ref Vector3, Single, ref Vector3, Single, Single, ref Color, Int32, Single)
+  nameWithType: Ellipse.GetFillArc(ref Vector3, Single, ref Vector3, Single, Single, ref Color, Int32, Single)
+  fullName: DebugDrawItems.Ellipse.GetFillArc(ref UnityEngine.Vector3, System.Single, ref UnityEngine.Vector3, System.Single, System.Single, ref UnityEngine.Color, System.Int32, System.Single)
+  type: Method
+  source:
+    id: GetFillArc
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 138
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a filled arc.\n"
+  example: []
+  syntax:
+    content: public static Ellipse GetFillArc(ref Vector3 position, float radius, ref Vector3 facing, float startAngle, float endAngle, ref Color color, int segments = 32, float duration = 0F)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the ellipse.
+    - id: radius
+      type: System.Single
+      description: The radius of the ellipse.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the ellipse is facing.
+    - id: startAngle
+      type: System.Single
+      description: The start angle in degrees of the arc.
+    - id: endAngle
+      type: System.Single
+      description: The end angle in degrees of the arc.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the ellipse.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the ellipse.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: The ellipse object.
+    content.vb: Public Shared Function GetFillArc(ByRef position As Vector3, radius As Single, ByRef facing As Vector3, startAngle As Single, endAngle As Single, ByRef color As Color, segments As Integer = 32, duration As Single = 0F) As Ellipse
+  overload: DebugDrawItems.Ellipse.GetFillArc*
+  nameWithType.vb: Ellipse.GetFillArc(ByRef Vector3, Single, ByRef Vector3, Single, Single, ByRef Color, Int32, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.Ellipse.GetFillArc(ByRef UnityEngine.Vector3, System.Single, ByRef UnityEngine.Vector3, System.Single, System.Single, ByRef UnityEngine.Color, System.Int32, System.Single)
+  name.vb: GetFillArc(ByRef Vector3, Single, ByRef Vector3, Single, Single, ByRef Color, Int32, Single)
+- uid: DebugDrawItems.Ellipse.Get(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawEllipseAxes,System.Single)
+  commentId: M:DebugDrawItems.Ellipse.Get(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawEllipseAxes,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawEllipseAxes,System.Single)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector2, ref Vector3, ref Color, Int32, DrawEllipseAxes, Single)
+  nameWithType: Ellipse.Get(ref Vector3, ref Vector2, ref Vector3, ref Color, Int32, DrawEllipseAxes, Single)
+  fullName: DebugDrawItems.Ellipse.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector2, ref UnityEngine.Vector3, ref UnityEngine.Color, System.Int32, DebugDrawItems.DrawEllipseAxes, System.Single)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 161
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a wire ellipse.\n"
+  example: []
+  syntax:
+    content: public static Ellipse Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0F)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the ellipse.
+    - id: size
+      type: UnityEngine.Vector2
+      description: The size/radius of the ellipse.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the ellipse is facing.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the ellipse.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the ellipse.
+    - id: drawAxes
+      type: DebugDrawItems.DrawEllipseAxes
+      description: Options for drawing an X and Y axis inside the ellipse.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: The ellipse object.
+    content.vb: Public Shared Function Get(ByRef position As Vector3, ByRef size As Vector2, ByRef facing As Vector3, ByRef color As Color, segments As Integer = 32, drawAxes As DrawEllipseAxes = DrawEllipseAxes.Never, duration As Single = 0F) As Ellipse
+  overload: DebugDrawItems.Ellipse.Get*
+  nameWithType.vb: Ellipse.Get(ByRef Vector3, ByRef Vector2, ByRef Vector3, ByRef Color, Int32, DrawEllipseAxes, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.Ellipse.Get(ByRef UnityEngine.Vector3, ByRef UnityEngine.Vector2, ByRef UnityEngine.Vector3, ByRef UnityEngine.Color, System.Int32, DebugDrawItems.DrawEllipseAxes, System.Single)
+  name.vb: Get(ByRef Vector3, ByRef Vector2, ByRef Vector3, ByRef Color, Int32, DrawEllipseAxes, Single)
+- uid: DebugDrawItems.Ellipse.GetFill(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,System.Single)
+  commentId: M:DebugDrawItems.Ellipse.GetFill(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,System.Single)
+  id: GetFill(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Int32,System.Single)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: GetFill(ref Vector3, ref Vector2, ref Vector3, ref Color, Int32, Single)
+  nameWithType: Ellipse.GetFill(ref Vector3, ref Vector2, ref Vector3, ref Color, Int32, Single)
+  fullName: DebugDrawItems.Ellipse.GetFill(ref UnityEngine.Vector3, ref UnityEngine.Vector2, ref UnityEngine.Vector3, ref UnityEngine.Color, System.Int32, System.Single)
+  type: Method
+  source:
+    id: GetFill
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 193
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a filled ellipse.\n"
+  example: []
+  syntax:
+    content: public static Ellipse GetFill(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, float duration = 0F)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the ellipse.
+    - id: size
+      type: UnityEngine.Vector2
+      description: The size/radius of the ellipse.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the ellipse is facing.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the ellipse.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the ellipse.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: The ellipse object.
+    content.vb: Public Shared Function GetFill(ByRef position As Vector3, ByRef size As Vector2, ByRef facing As Vector3, ByRef color As Color, segments As Integer = 32, duration As Single = 0F) As Ellipse
+  overload: DebugDrawItems.Ellipse.GetFill*
+  nameWithType.vb: Ellipse.GetFill(ByRef Vector3, ByRef Vector2, ByRef Vector3, ByRef Color, Int32, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.Ellipse.GetFill(ByRef UnityEngine.Vector3, ByRef UnityEngine.Vector2, ByRef UnityEngine.Vector3, ByRef UnityEngine.Color, System.Int32, System.Single)
+  name.vb: GetFill(ByRef Vector3, ByRef Vector2, ByRef Vector3, ByRef Color, Int32, Single)
+- uid: DebugDrawItems.Ellipse.GetArc(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,System.Single)
+  commentId: M:DebugDrawItems.Ellipse.GetArc(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,System.Single)
+  id: GetArc(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,System.Single)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: GetArc(ref Vector3, ref Vector2, ref Vector3, Single, Single, ref Color, Int32, DrawArcSegments, DrawEllipseAxes, Single)
+  nameWithType: Ellipse.GetArc(ref Vector3, ref Vector2, ref Vector3, Single, Single, ref Color, Int32, DrawArcSegments, DrawEllipseAxes, Single)
+  fullName: DebugDrawItems.Ellipse.GetArc(ref UnityEngine.Vector3, ref UnityEngine.Vector2, ref UnityEngine.Vector3, System.Single, System.Single, ref UnityEngine.Color, System.Int32, DebugDrawItems.DrawArcSegments, DebugDrawItems.DrawEllipseAxes, System.Single)
+  type: Method
+  source:
+    id: GetArc
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 229
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a wire arc.\n"
+  example: []
+  syntax:
+    content: public static Ellipse GetArc(ref Vector3 position, ref Vector2 size, ref Vector3 facing, float startAngle, float endAngle, ref Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0F)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the ellipse.
+    - id: size
+      type: UnityEngine.Vector2
+      description: The size/radius of the ellipse.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the ellipse is facing.
+    - id: startAngle
+      type: System.Single
+      description: The start angle in degrees of the arc.
+    - id: endAngle
+      type: System.Single
+      description: The end angle in degrees of the arc.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the ellipse.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the ellipse.
+    - id: drawArcSegments
+      type: DebugDrawItems.DrawArcSegments
+      description: Options for connecting the centre of the ellipse and the arc end points.
+    - id: drawAxes
+      type: DebugDrawItems.DrawEllipseAxes
+      description: Options for drawing an X and Y axis inside the ellipse.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: The ellipse object.
+    content.vb: Public Shared Function GetArc(ByRef position As Vector3, ByRef size As Vector2, ByRef facing As Vector3, startAngle As Single, endAngle As Single, ByRef color As Color, segments As Integer = 32, drawArcSegments As DrawArcSegments = DrawArcSegments.OpenOnly, drawAxes As DrawEllipseAxes = DrawEllipseAxes.Never, duration As Single = 0F) As Ellipse
+  overload: DebugDrawItems.Ellipse.GetArc*
+  nameWithType.vb: Ellipse.GetArc(ByRef Vector3, ByRef Vector2, ByRef Vector3, Single, Single, ByRef Color, Int32, DrawArcSegments, DrawEllipseAxes, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.Ellipse.GetArc(ByRef UnityEngine.Vector3, ByRef UnityEngine.Vector2, ByRef UnityEngine.Vector3, System.Single, System.Single, ByRef UnityEngine.Color, System.Int32, DebugDrawItems.DrawArcSegments, DebugDrawItems.DrawEllipseAxes, System.Single)
+  name.vb: GetArc(ByRef Vector3, ByRef Vector2, ByRef Vector3, Single, Single, ByRef Color, Int32, DrawArcSegments, DrawEllipseAxes, Single)
+- uid: DebugDrawItems.Ellipse.GetFillArc(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  commentId: M:DebugDrawItems.Ellipse.GetFillArc(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  id: GetFillArc(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: GetFillArc(ref Vector3, ref Vector2, ref Vector3, Single, Single, ref Color, Int32, Single)
+  nameWithType: Ellipse.GetFillArc(ref Vector3, ref Vector2, ref Vector3, Single, Single, ref Color, Int32, Single)
+  fullName: DebugDrawItems.Ellipse.GetFillArc(ref UnityEngine.Vector3, ref UnityEngine.Vector2, ref UnityEngine.Vector3, System.Single, System.Single, ref UnityEngine.Color, System.Int32, System.Single)
+  type: Method
+  source:
+    id: GetFillArc
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 267
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a filled arc.\n"
+  example: []
+  syntax:
+    content: public static Ellipse GetFillArc(ref Vector3 position, ref Vector2 size, ref Vector3 facing, float startAngle, float endAngle, ref Color color, int segments = 32, float duration = 0F)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the ellipse.
+    - id: size
+      type: UnityEngine.Vector2
+      description: The size/radius of the ellipse.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the ellipse is facing.
+    - id: startAngle
+      type: System.Single
+      description: The start angle in degrees of the arc.
+    - id: endAngle
+      type: System.Single
+      description: The end angle in degrees of the arc.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the ellipse.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the ellipse.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: The ellipse object.
+    content.vb: Public Shared Function GetFillArc(ByRef position As Vector3, ByRef size As Vector2, ByRef facing As Vector3, startAngle As Single, endAngle As Single, ByRef color As Color, segments As Integer = 32, duration As Single = 0F) As Ellipse
+  overload: DebugDrawItems.Ellipse.GetFillArc*
+  nameWithType.vb: Ellipse.GetFillArc(ByRef Vector3, ByRef Vector2, ByRef Vector3, Single, Single, ByRef Color, Int32, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.Ellipse.GetFillArc(ByRef UnityEngine.Vector3, ByRef UnityEngine.Vector2, ByRef UnityEngine.Vector3, System.Single, System.Single, ByRef UnityEngine.Color, System.Int32, System.Single)
+  name.vb: GetFillArc(ByRef Vector3, ByRef Vector2, ByRef Vector3, Single, Single, ByRef Color, Int32, Single)
+- uid: DebugDrawItems.Ellipse.SetForward(System.Nullable{UnityEngine.Vector3})
+  commentId: M:DebugDrawItems.Ellipse.SetForward(System.Nullable{UnityEngine.Vector3})
+  id: SetForward(System.Nullable{UnityEngine.Vector3})
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: SetForward(Nullable<Vector3>)
+  nameWithType: Ellipse.SetForward(Nullable<Vector3>)
+  fullName: DebugDrawItems.Ellipse.SetForward(System.Nullable<UnityEngine.Vector3>)
+  type: Method
+  source:
+    id: SetForward
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 300
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nSets the forward vector used to orient the ellipse.\n"
+  example: []
+  syntax:
+    content: public Ellipse SetForward(Vector3? forward)
+    parameters:
+    - id: forward
+      type: System.Nullable{UnityEngine.Vector3}
+      description: ''
+    return:
+      type: DebugDrawItems.Ellipse
+      description: ''
+    content.vb: Public Function SetForward(forward As Vector3?) As Ellipse
+  overload: DebugDrawItems.Ellipse.SetForward*
+  nameWithType.vb: Ellipse.SetForward(Nullable(Of Vector3))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: DebugDrawItems.Ellipse.SetForward(System.Nullable(Of UnityEngine.Vector3))
+  name.vb: SetForward(Nullable(Of Vector3))
+- uid: DebugDrawItems.Ellipse.SetInnerRadius(System.Single)
+  commentId: M:DebugDrawItems.Ellipse.SetInnerRadius(System.Single)
+  id: SetInnerRadius(System.Single)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: SetInnerRadius(Single)
+  nameWithType: Ellipse.SetInnerRadius(Single)
+  fullName: DebugDrawItems.Ellipse.SetInnerRadius(System.Single)
+  type: Method
+  source:
+    id: SetInnerRadius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 307
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  syntax:
+    content: public Ellipse SetInnerRadius(float innerRadius)
+    parameters:
+    - id: innerRadius
+      type: System.Single
+    return:
+      type: DebugDrawItems.Ellipse
+    content.vb: Public Function SetInnerRadius(innerRadius As Single) As Ellipse
+  overload: DebugDrawItems.Ellipse.SetInnerRadius*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.SetArcAngles(System.Single,System.Single)
+  commentId: M:DebugDrawItems.Ellipse.SetArcAngles(System.Single,System.Single)
+  id: SetArcAngles(System.Single,System.Single)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: SetArcAngles(Single, Single)
+  nameWithType: Ellipse.SetArcAngles(Single, Single)
+  fullName: DebugDrawItems.Ellipse.SetArcAngles(System.Single, System.Single)
+  type: Method
+  source:
+    id: SetArcAngles
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 320
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nSets the angles for this arc.\n"
+  example: []
+  syntax:
+    content: public Ellipse SetArcAngles(float startAngle, float endAngle)
+    parameters:
+    - id: startAngle
+      type: System.Single
+      description: The start angle of the arc.
+    - id: endAngle
+      type: System.Single
+      description: The end angle of the arc.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: ''
+    content.vb: Public Function SetArcAngles(startAngle As Single, endAngle As Single) As Ellipse
+  overload: DebugDrawItems.Ellipse.SetArcAngles*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.SetArc(System.Single,System.Single,DebugDrawItems.DrawArcSegments)
+  commentId: M:DebugDrawItems.Ellipse.SetArc(System.Single,System.Single,DebugDrawItems.DrawArcSegments)
+  id: SetArc(System.Single,System.Single,DebugDrawItems.DrawArcSegments)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: SetArc(Single, Single, DrawArcSegments)
+  nameWithType: Ellipse.SetArc(Single, Single, DrawArcSegments)
+  fullName: DebugDrawItems.Ellipse.SetArc(System.Single, System.Single, DebugDrawItems.DrawArcSegments)
+  type: Method
+  source:
+    id: SetArc
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 336
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nSets the options for this arc.\n"
+  example: []
+  syntax:
+    content: public Ellipse SetArc(float startAngle, float endAngle, DrawArcSegments drawArcSegments)
+    parameters:
+    - id: startAngle
+      type: System.Single
+      description: The start angle of the arc.
+    - id: endAngle
+      type: System.Single
+      description: The end angle of the arc.
+    - id: drawArcSegments
+      type: DebugDrawItems.DrawArcSegments
+      description: >-
+        Options for connecting the centre of the ellipse and the arc end points.
+
+        Only relevant when <xref href="DebugDrawItems.Ellipse.wireframe" data-throw-if-not-resolved="false"></xref> is true.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: ''
+    content.vb: Public Function SetArc(startAngle As Single, endAngle As Single, drawArcSegments As DrawArcSegments) As Ellipse
+  overload: DebugDrawItems.Ellipse.SetArc*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.SetAxes(DebugDrawItems.DrawEllipseAxes)
+  commentId: M:DebugDrawItems.Ellipse.SetAxes(DebugDrawItems.DrawEllipseAxes)
+  id: SetAxes(DebugDrawItems.DrawEllipseAxes)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: SetAxes(DrawEllipseAxes)
+  nameWithType: Ellipse.SetAxes(DrawEllipseAxes)
+  fullName: DebugDrawItems.Ellipse.SetAxes(DebugDrawItems.DrawEllipseAxes)
+  type: Method
+  source:
+    id: SetAxes
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 351
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nSets the drawAxes option for this ellipse.\n"
+  example: []
+  syntax:
+    content: public Ellipse SetAxes(DrawEllipseAxes drawAxes = DrawEllipseAxes.InsideArc)
+    parameters:
+    - id: drawAxes
+      type: DebugDrawItems.DrawEllipseAxes
+      description: >-
+        Options for drawing an X and Y axis inside the ellipse.
+
+        Only relevant when <xref href="DebugDrawItems.Ellipse.wireframe" data-throw-if-not-resolved="false"></xref> is true.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: ''
+    content.vb: Public Function SetAxes(drawAxes As DrawEllipseAxes = DrawEllipseAxes.InsideArc) As Ellipse
+  overload: DebugDrawItems.Ellipse.SetAxes*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.SetDrawArcSegments(DebugDrawItems.DrawArcSegments)
+  commentId: M:DebugDrawItems.Ellipse.SetDrawArcSegments(DebugDrawItems.DrawArcSegments)
+  id: SetDrawArcSegments(DebugDrawItems.DrawArcSegments)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: SetDrawArcSegments(DrawArcSegments)
+  nameWithType: Ellipse.SetDrawArcSegments(DrawArcSegments)
+  fullName: DebugDrawItems.Ellipse.SetDrawArcSegments(DebugDrawItems.DrawArcSegments)
+  type: Method
+  source:
+    id: SetDrawArcSegments
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 364
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nSets the drawAxes option for this ellipse.\n"
+  example: []
+  syntax:
+    content: public Ellipse SetDrawArcSegments(DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly)
+    parameters:
+    - id: drawArcSegments
+      type: DebugDrawItems.DrawArcSegments
+      description: >-
+        Options for connecting the centre of the ellipse and the arc end points.
+
+        Only relevant when <xref href="DebugDrawItems.Ellipse.wireframe" data-throw-if-not-resolved="false"></xref> is true.
+    return:
+      type: DebugDrawItems.Ellipse
+      description: ''
+    content.vb: Public Function SetDrawArcSegments(drawArcSegments As DrawArcSegments = DrawArcSegments.OpenOnly) As Ellipse
+  overload: DebugDrawItems.Ellipse.SetDrawArcSegments*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.SetRotation(System.Single)
+  commentId: M:DebugDrawItems.Ellipse.SetRotation(System.Single)
+  id: SetRotation(System.Single)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: SetRotation(Single)
+  nameWithType: Ellipse.SetRotation(Single)
+  fullName: DebugDrawItems.Ellipse.SetRotation(System.Single)
+  type: Method
+  source:
+    id: SetRotation
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 371
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  syntax:
+    content: public Ellipse SetRotation(float rotation)
+    parameters:
+    - id: rotation
+      type: System.Single
+    return:
+      type: DebugDrawItems.Ellipse
+    content.vb: Public Function SetRotation(rotation As Single) As Ellipse
+  overload: DebugDrawItems.Ellipse.SetRotation*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.SetAutoResolution
+  commentId: M:DebugDrawItems.Ellipse.SetAutoResolution
+  id: SetAutoResolution
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: SetAutoResolution()
+  nameWithType: Ellipse.SetAutoResolution()
+  fullName: DebugDrawItems.Ellipse.SetAutoResolution()
+  type: Method
+  source:
+    id: SetAutoResolution
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 383
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nSets <xref href=\"DebugDrawItems.Ellipse.segments\" data-throw-if-not-resolved=\"false\"></xref> to zero so that it will be calculated dynamically based\non the distance to the camera.\n"
+  example: []
+  syntax:
+    content: public Ellipse SetAutoResolution()
+    return:
+      type: DebugDrawItems.Ellipse
+      description: ''
+    content.vb: Public Function SetAutoResolution As Ellipse
+  overload: DebugDrawItems.Ellipse.SetAutoResolution*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.Ellipse.BuildArc(DebugDrawMesh,UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,System.Single,System.Single,System.Single,System.Single,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,UnityEngine.Color@,System.Boolean)
+  commentId: M:DebugDrawItems.Ellipse.BuildArc(DebugDrawMesh,UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,System.Single,System.Single,System.Single,System.Single,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,UnityEngine.Color@,System.Boolean)
+  id: BuildArc(DebugDrawMesh,UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,System.Single,System.Single,System.Single,System.Single,System.Int32,DebugDrawItems.DrawArcSegments,DebugDrawItems.DrawEllipseAxes,UnityEngine.Color@,System.Boolean)
+  parent: DebugDrawItems.Ellipse
+  langs:
+  - csharp
+  - vb
+  name: BuildArc(DebugDrawMesh, ref Vector3, ref Vector3, ref Vector3, ref Vector2, Single, Single, Single, Single, Int32, DrawArcSegments, DrawEllipseAxes, ref Color, Boolean)
+  nameWithType: Ellipse.BuildArc(DebugDrawMesh, ref Vector3, ref Vector3, ref Vector3, ref Vector2, Single, Single, Single, Single, Int32, DrawArcSegments, DrawEllipseAxes, ref Color, Boolean)
+  fullName: DebugDrawItems.Ellipse.BuildArc(DebugDrawMesh, ref UnityEngine.Vector3, ref UnityEngine.Vector3, ref UnityEngine.Vector3, ref UnityEngine.Vector2, System.Single, System.Single, System.Single, System.Single, System.Int32, DebugDrawItems.DrawArcSegments, DebugDrawItems.DrawEllipseAxes, ref UnityEngine.Color, System.Boolean)
+  type: Method
+  source:
+    id: BuildArc
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 419
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  syntax:
+    content: public static void BuildArc(DebugDrawMesh mesh, ref Vector3 worldPos, ref Vector3 right, ref Vector3 up, ref Vector2 size, float innerRadius, float rotation, float startAngle, float endAngle, int segments, DrawArcSegments drawArcSegments, DrawEllipseAxes drawAxes, ref Color color, bool wireframe)
+    parameters:
+    - id: mesh
+      type: Global.DebugDrawMesh
+    - id: worldPos
+      type: UnityEngine.Vector3
+    - id: right
+      type: UnityEngine.Vector3
+    - id: up
+      type: UnityEngine.Vector3
+    - id: size
+      type: UnityEngine.Vector2
+    - id: innerRadius
+      type: System.Single
+    - id: rotation
+      type: System.Single
+    - id: startAngle
+      type: System.Single
+    - id: endAngle
+      type: System.Single
+    - id: segments
+      type: System.Int32
+    - id: drawArcSegments
+      type: DebugDrawItems.DrawArcSegments
+    - id: drawAxes
+      type: DebugDrawItems.DrawEllipseAxes
+    - id: color
+      type: UnityEngine.Color
+    - id: wireframe
+      type: System.Boolean
+    content.vb: Public Shared Sub BuildArc(mesh As DebugDrawMesh, ByRef worldPos As Vector3, ByRef right As Vector3, ByRef up As Vector3, ByRef size As Vector2, innerRadius As Single, rotation As Single, startAngle As Single, endAngle As Single, segments As Integer, drawArcSegments As DrawArcSegments, drawAxes As DrawEllipseAxes, ByRef color As Color, wireframe As Boolean)
+  overload: DebugDrawItems.Ellipse.BuildArc*
+  nameWithType.vb: Ellipse.BuildArc(DebugDrawMesh, ByRef Vector3, ByRef Vector3, ByRef Vector3, ByRef Vector2, Single, Single, Single, Single, Int32, DrawArcSegments, DrawEllipseAxes, ByRef Color, Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.Ellipse.BuildArc(DebugDrawMesh, ByRef UnityEngine.Vector3, ByRef UnityEngine.Vector3, ByRef UnityEngine.Vector3, ByRef UnityEngine.Vector2, System.Single, System.Single, System.Single, System.Single, System.Int32, DebugDrawItems.DrawArcSegments, DebugDrawItems.DrawEllipseAxes, ByRef UnityEngine.Color, System.Boolean)
+  name.vb: BuildArc(DebugDrawMesh, ByRef Vector3, ByRef Vector3, ByRef Vector3, ByRef Vector2, Single, Single, Single, Single, Int32, DrawArcSegments, DrawEllipseAxes, ByRef Color, Boolean)
+references:
+- uid: DebugDrawItems
+  commentId: N:DebugDrawItems
+  name: DebugDrawItems
+  nameWithType: DebugDrawItems
+  fullName: DebugDrawItems
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: DebugDrawItems.BaseItem
+  commentId: T:DebugDrawItems.BaseItem
+  parent: DebugDrawItems
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawItems.BaseItem
+- uid: DebugDrawItems.BasePointItem
+  commentId: T:DebugDrawItems.BasePointItem
+  parent: DebugDrawItems
+  name: BasePointItem
+  nameWithType: BasePointItem
+  fullName: DebugDrawItems.BasePointItem
+- uid: DebugDrawAttachments.IAttachablePoint
+  commentId: T:DebugDrawAttachments.IAttachablePoint
+  parent: DebugDrawAttachments
+  name: IAttachablePoint
+  nameWithType: IAttachablePoint
+  fullName: DebugDrawAttachments.IAttachablePoint
+- uid: DebugDrawItems.BasePointItem.position
+  commentId: F:DebugDrawItems.BasePointItem.position
+  parent: DebugDrawItems.BasePointItem
+  name: position
+  nameWithType: BasePointItem.position
+  fullName: DebugDrawItems.BasePointItem.position
+- uid: DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawItems.BasePointItem
+  name: AttachTo(GameObjectOrTransform)
+  nameWithType: BasePointItem.AttachTo(GameObjectOrTransform)
+  fullName: DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    nameWithType: BasePointItem.AttachTo
+    fullName: DebugDrawItems.BasePointItem.AttachTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    nameWithType: GameObjectOrTransform
+    fullName: DebugDrawUtils.GameObjectOrTransform
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    nameWithType: BasePointItem.AttachTo
+    fullName: DebugDrawItems.BasePointItem.AttachTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    nameWithType: GameObjectOrTransform
+    fullName: DebugDrawUtils.GameObjectOrTransform
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  parent: DebugDrawItems.BasePointItem
+  isExternal: true
+  name: SetPosition(Vector3)
+  nameWithType: BasePointItem.SetPosition(Vector3)
+  fullName: DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    nameWithType: BasePointItem.SetPosition
+    fullName: DebugDrawItems.BasePointItem.SetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    nameWithType: BasePointItem.SetPosition
+    fullName: DebugDrawItems.BasePointItem.SetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BasePointItem.GetPosition
+  commentId: M:DebugDrawItems.BasePointItem.GetPosition
+  parent: DebugDrawItems.BasePointItem
+  name: GetPosition()
+  nameWithType: BasePointItem.GetPosition()
+  fullName: DebugDrawItems.BasePointItem.GetPosition()
+  spec.csharp:
+  - uid: DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    nameWithType: BasePointItem.GetPosition
+    fullName: DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    nameWithType: BasePointItem.GetPosition
+    fullName: DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawItems.BaseItem
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawItems.BaseItem.color
+  parent: DebugDrawItems.BaseItem
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawItems.BaseItem.color
+- uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetDuration<T>(Single)
+  nameWithType: BaseItem.SetDuration<T>(Single)
+  fullName: DebugDrawItems.BaseItem.SetDuration<T>(System.Single)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawItems.BaseItem.SetDuration(Of T)(System.Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration<T>
+    nameWithType: BaseItem.SetDuration<T>
+    fullName: DebugDrawItems.BaseItem.SetDuration<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration(Of T)
+    nameWithType: BaseItem.SetDuration(Of T)
+    fullName: DebugDrawItems.BaseItem.SetDuration(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetDuration(Single)
+  nameWithType: BaseItem.SetDuration(Single)
+  fullName: DebugDrawItems.BaseItem.SetDuration(System.Single)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    nameWithType: BaseItem.SetDuration
+    fullName: DebugDrawItems.BaseItem.SetDuration
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    nameWithType: BaseItem.SetDuration
+    fullName: DebugDrawItems.BaseItem.SetDuration
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    nameWithType: BaseItem.SetGlobalTransform
+    fullName: DebugDrawItems.BaseItem.SetGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    nameWithType: Matrix4x4
+    fullName: UnityEngine.Matrix4x4
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    nameWithType: BaseItem.SetGlobalTransform
+    fullName: DebugDrawItems.BaseItem.SetGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    nameWithType: Matrix4x4
+    fullName: UnityEngine.Matrix4x4
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawItems.BaseItem
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    nameWithType: BaseItem.ClearGlobalTransform
+    fullName: DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    nameWithType: BaseItem.ClearGlobalTransform
+    fullName: DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    nameWithType: BaseItem.SetGlobalColor
+    fullName: DebugDrawItems.BaseItem.SetGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    nameWithType: BaseItem.SetGlobalColor
+    fullName: DebugDrawItems.BaseItem.SetGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawItems.BaseItem
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    nameWithType: BaseItem.ClearGlobalColor
+    fullName: DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    nameWithType: BaseItem.ClearGlobalColor
+    fullName: DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: GetColor(Color)
+  nameWithType: BaseItem.GetColor(Color)
+  fullName: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    nameWithType: BaseItem.GetColor
+    fullName: DebugDrawItems.BaseItem.GetColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    nameWithType: BaseItem.GetColor
+    fullName: DebugDrawItems.BaseItem.GetColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawItems.BaseItem
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.Remove
+    name: Remove
+    nameWithType: BaseItem.Remove
+    fullName: DebugDrawItems.BaseItem.Remove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.Remove
+    name: Remove
+    nameWithType: BaseItem.Remove
+    fullName: DebugDrawItems.BaseItem.Remove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawAttachments
+  commentId: N:DebugDrawAttachments
+  name: DebugDrawAttachments
+  nameWithType: DebugDrawAttachments
+  fullName: DebugDrawAttachments
+- uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: DebugDrawItems.Ellipse.wireframe
+  commentId: F:DebugDrawItems.Ellipse.wireframe
+  isExternal: true
+- uid: DebugDrawItems.DrawArcSegments
+  commentId: T:DebugDrawItems.DrawArcSegments
+  parent: DebugDrawItems
+  name: DrawArcSegments
+  nameWithType: DrawArcSegments
+  fullName: DebugDrawItems.DrawArcSegments
+- uid: DebugDrawItems.DrawEllipseAxes
+  commentId: T:DebugDrawItems.DrawEllipseAxes
+  parent: DebugDrawItems
+  name: DrawEllipseAxes
+  nameWithType: DrawEllipseAxes
+  fullName: DebugDrawItems.DrawEllipseAxes
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Nullable{UnityEngine.Vector3}
+  commentId: T:System.Nullable{UnityEngine.Vector3}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Vector3>
+  nameWithType: Nullable<Vector3>
+  fullName: System.Nullable<UnityEngine.Vector3>
+  nameWithType.vb: Nullable(Of Vector3)
+  fullName.vb: System.Nullable(Of UnityEngine.Vector3)
+  name.vb: Nullable(Of Vector3)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: DebugDrawItems.Ellipse.Get*
+  commentId: Overload:DebugDrawItems.Ellipse.Get
+  name: Get
+  nameWithType: Ellipse.Get
+  fullName: DebugDrawItems.Ellipse.Get
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: DebugDrawItems.Ellipse
+  commentId: T:DebugDrawItems.Ellipse
+  parent: DebugDrawItems
+  name: Ellipse
+  nameWithType: Ellipse
+  fullName: DebugDrawItems.Ellipse
+- uid: DebugDrawItems.Ellipse.GetFill*
+  commentId: Overload:DebugDrawItems.Ellipse.GetFill
+  name: GetFill
+  nameWithType: Ellipse.GetFill
+  fullName: DebugDrawItems.Ellipse.GetFill
+- uid: DebugDrawItems.Ellipse.GetArc*
+  commentId: Overload:DebugDrawItems.Ellipse.GetArc
+  name: GetArc
+  nameWithType: Ellipse.GetArc
+  fullName: DebugDrawItems.Ellipse.GetArc
+- uid: DebugDrawItems.Ellipse.GetFillArc*
+  commentId: Overload:DebugDrawItems.Ellipse.GetFillArc
+  name: GetFillArc
+  nameWithType: Ellipse.GetFillArc
+  fullName: DebugDrawItems.Ellipse.GetFillArc
+- uid: DebugDrawItems.Ellipse.SetForward*
+  commentId: Overload:DebugDrawItems.Ellipse.SetForward
+  name: SetForward
+  nameWithType: Ellipse.SetForward
+  fullName: DebugDrawItems.Ellipse.SetForward
+- uid: DebugDrawItems.Ellipse.SetInnerRadius*
+  commentId: Overload:DebugDrawItems.Ellipse.SetInnerRadius
+  name: SetInnerRadius
+  nameWithType: Ellipse.SetInnerRadius
+  fullName: DebugDrawItems.Ellipse.SetInnerRadius
+- uid: DebugDrawItems.Ellipse.SetArcAngles*
+  commentId: Overload:DebugDrawItems.Ellipse.SetArcAngles
+  name: SetArcAngles
+  nameWithType: Ellipse.SetArcAngles
+  fullName: DebugDrawItems.Ellipse.SetArcAngles
+- uid: DebugDrawItems.Ellipse.SetArc*
+  commentId: Overload:DebugDrawItems.Ellipse.SetArc
+  name: SetArc
+  nameWithType: Ellipse.SetArc
+  fullName: DebugDrawItems.Ellipse.SetArc
+- uid: DebugDrawItems.Ellipse.SetAxes*
+  commentId: Overload:DebugDrawItems.Ellipse.SetAxes
+  name: SetAxes
+  nameWithType: Ellipse.SetAxes
+  fullName: DebugDrawItems.Ellipse.SetAxes
+- uid: DebugDrawItems.Ellipse.SetDrawArcSegments*
+  commentId: Overload:DebugDrawItems.Ellipse.SetDrawArcSegments
+  name: SetDrawArcSegments
+  nameWithType: Ellipse.SetDrawArcSegments
+  fullName: DebugDrawItems.Ellipse.SetDrawArcSegments
+- uid: DebugDrawItems.Ellipse.SetRotation*
+  commentId: Overload:DebugDrawItems.Ellipse.SetRotation
+  name: SetRotation
+  nameWithType: Ellipse.SetRotation
+  fullName: DebugDrawItems.Ellipse.SetRotation
+- uid: DebugDrawItems.Ellipse.segments
+  commentId: F:DebugDrawItems.Ellipse.segments
+  isExternal: true
+- uid: DebugDrawItems.Ellipse.SetAutoResolution*
+  commentId: Overload:DebugDrawItems.Ellipse.SetAutoResolution
+  name: SetAutoResolution
+  nameWithType: Ellipse.SetAutoResolution
+  fullName: DebugDrawItems.Ellipse.SetAutoResolution
+- uid: DebugDrawItems.Ellipse.BuildArc*
+  commentId: Overload:DebugDrawItems.Ellipse.BuildArc
+  name: BuildArc
+  nameWithType: Ellipse.BuildArc
+  fullName: DebugDrawItems.Ellipse.BuildArc
+- uid: Global.DebugDrawMesh
+  commentId: T:Global.DebugDrawMesh
+  name: DebugDrawMesh
+  nameWithType: DebugDrawMesh
+  fullName: DebugDrawMesh

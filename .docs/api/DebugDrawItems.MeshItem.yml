@@ -1,0 +1,925 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawItems.MeshItem
+  commentId: T:DebugDrawItems.MeshItem
+  id: MeshItem
+  parent: DebugDrawItems
+  children:
+  - DebugDrawItems.MeshItem.color
+  - DebugDrawItems.MeshItem.colors
+  - DebugDrawItems.MeshItem.Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{System.Int32},UnityEngine.Color@,System.Single)
+  - DebugDrawItems.MeshItem.Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Color},System.Collections.Generic.List{System.Int32},System.Single)
+  - DebugDrawItems.MeshItem.Get(UnityEngine.Mesh,System.Nullable{UnityEngine.Color},System.Single)
+  - DebugDrawItems.MeshItem.indices
+  - DebugDrawItems.MeshItem.vertices
+  langs:
+  - csharp
+  - vb
+  name: MeshItem
+  nameWithType: MeshItem
+  fullName: DebugDrawItems.MeshItem
+  type: Class
+  source:
+    id: MeshItem
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\MeshItem.cs
+    startLine: 11
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a wireframe mesh from a list of vertices, colors, and indices.\nIt will be up to the user to ensure these are all valid.\n"
+  example: []
+  syntax:
+    content: 'public class MeshItem : BaseItem'
+    content.vb: >-
+      Public Class MeshItem
+          Inherits BaseItem
+  inheritance:
+  - System.Object
+  - DebugDrawItems.BaseItem
+  inheritedMembers:
+  - DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawItems.BaseItem.Remove
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: DebugDrawItems.MeshItem.vertices
+  commentId: F:DebugDrawItems.MeshItem.vertices
+  id: vertices
+  parent: DebugDrawItems.MeshItem
+  langs:
+  - csharp
+  - vb
+  name: vertices
+  nameWithType: MeshItem.vertices
+  fullName: DebugDrawItems.MeshItem.vertices
+  type: Field
+  source:
+    id: vertices
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\MeshItem.cs
+    startLine: 18
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe list of vertices.\n"
+  example: []
+  syntax:
+    content: public List<Vector3> vertices
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector3}
+    content.vb: Public vertices As List(Of Vector3)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.MeshItem.colors
+  commentId: F:DebugDrawItems.MeshItem.colors
+  id: colors
+  parent: DebugDrawItems.MeshItem
+  langs:
+  - csharp
+  - vb
+  name: colors
+  nameWithType: MeshItem.colors
+  fullName: DebugDrawItems.MeshItem.colors
+  type: Field
+  source:
+    id: colors
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\MeshItem.cs
+    startLine: 22
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe list of colors.\n"
+  example: []
+  syntax:
+    content: public List<Color> colors
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Color}
+    content.vb: Public colors As List(Of Color)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.MeshItem.indices
+  commentId: F:DebugDrawItems.MeshItem.indices
+  id: indices
+  parent: DebugDrawItems.MeshItem
+  langs:
+  - csharp
+  - vb
+  name: indices
+  nameWithType: MeshItem.indices
+  fullName: DebugDrawItems.MeshItem.indices
+  type: Field
+  source:
+    id: indices
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\MeshItem.cs
+    startLine: 26
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nThe list of triangle indices.\n"
+  example: []
+  syntax:
+    content: public List<int> indices
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public indices As List(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.MeshItem.color
+  commentId: F:DebugDrawItems.MeshItem.color
+  id: color
+  parent: DebugDrawItems.MeshItem
+  langs:
+  - csharp
+  - vb
+  name: color
+  nameWithType: MeshItem.color
+  fullName: DebugDrawItems.MeshItem.color
+  type: Field
+  source:
+    id: color
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\MeshItem.cs
+    startLine: 30
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nIf non-null, will be used instead of the color list.\n"
+  example: []
+  syntax:
+    content: public Color? color
+    return:
+      type: System.Nullable{UnityEngine.Color}
+    content.vb: Public color As Color?
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: DebugDrawItems.MeshItem.Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Color},System.Collections.Generic.List{System.Int32},System.Single)
+  commentId: M:DebugDrawItems.MeshItem.Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Color},System.Collections.Generic.List{System.Int32},System.Single)
+  id: Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Color},System.Collections.Generic.List{System.Int32},System.Single)
+  parent: DebugDrawItems.MeshItem
+  langs:
+  - csharp
+  - vb
+  name: Get(List<Vector3>, List<Color>, List<Int32>, Single)
+  nameWithType: MeshItem.Get(List<Vector3>, List<Color>, List<Int32>, Single)
+  fullName: DebugDrawItems.MeshItem.Get(System.Collections.Generic.List<UnityEngine.Vector3>, System.Collections.Generic.List<UnityEngine.Color>, System.Collections.Generic.List<System.Int32>, System.Single)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\MeshItem.cs
+    startLine: 43
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a wireframe mesh.\n"
+  example: []
+  syntax:
+    content: public static MeshItem Get(List<Vector3> vertices, List<Color> colors, List<int> indices, float duration = 0F)
+    parameters:
+    - id: vertices
+      type: System.Collections.Generic.List{UnityEngine.Vector3}
+      description: The list of vertices.
+    - id: colors
+      type: System.Collections.Generic.List{UnityEngine.Color}
+      description: The list of colors.
+    - id: indices
+      type: System.Collections.Generic.List{System.Int32}
+      description: The list of triangle indices.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.MeshItem
+      description: The Line object.
+    content.vb: Public Shared Function Get(vertices As List(Of Vector3), colors As List(Of Color), indices As List(Of Integer), duration As Single = 0F) As MeshItem
+  overload: DebugDrawItems.MeshItem.Get*
+  nameWithType.vb: MeshItem.Get(List(Of Vector3), List(Of Color), List(Of Int32), Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.MeshItem.Get(System.Collections.Generic.List(Of UnityEngine.Vector3), System.Collections.Generic.List(Of UnityEngine.Color), System.Collections.Generic.List(Of System.Int32), System.Single)
+  name.vb: Get(List(Of Vector3), List(Of Color), List(Of Int32), Single)
+- uid: DebugDrawItems.MeshItem.Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{System.Int32},UnityEngine.Color@,System.Single)
+  commentId: M:DebugDrawItems.MeshItem.Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{System.Int32},UnityEngine.Color@,System.Single)
+  id: Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{System.Int32},UnityEngine.Color@,System.Single)
+  parent: DebugDrawItems.MeshItem
+  langs:
+  - csharp
+  - vb
+  name: Get(List<Vector3>, List<Int32>, ref Color, Single)
+  nameWithType: MeshItem.Get(List<Vector3>, List<Int32>, ref Color, Single)
+  fullName: DebugDrawItems.MeshItem.Get(System.Collections.Generic.List<UnityEngine.Vector3>, System.Collections.Generic.List<System.Int32>, ref UnityEngine.Color, System.Single)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\MeshItem.cs
+    startLine: 64
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a wireframe mesh with a single color.\n"
+  example: []
+  syntax:
+    content: public static MeshItem Get(List<Vector3> vertices, List<int> indices, ref Color color, float duration = 0F)
+    parameters:
+    - id: vertices
+      type: System.Collections.Generic.List{UnityEngine.Vector3}
+      description: The list of vertices.
+    - id: indices
+      type: System.Collections.Generic.List{System.Int32}
+      description: The list of triangle indices.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the mesh.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.MeshItem
+      description: The Line object.
+    content.vb: Public Shared Function Get(vertices As List(Of Vector3), indices As List(Of Integer), ByRef color As Color, duration As Single = 0F) As MeshItem
+  overload: DebugDrawItems.MeshItem.Get*
+  nameWithType.vb: MeshItem.Get(List(Of Vector3), List(Of Int32), ByRef Color, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.MeshItem.Get(System.Collections.Generic.List(Of UnityEngine.Vector3), System.Collections.Generic.List(Of System.Int32), ByRef UnityEngine.Color, System.Single)
+  name.vb: Get(List(Of Vector3), List(Of Int32), ByRef Color, Single)
+- uid: DebugDrawItems.MeshItem.Get(UnityEngine.Mesh,System.Nullable{UnityEngine.Color},System.Single)
+  commentId: M:DebugDrawItems.MeshItem.Get(UnityEngine.Mesh,System.Nullable{UnityEngine.Color},System.Single)
+  id: Get(UnityEngine.Mesh,System.Nullable{UnityEngine.Color},System.Single)
+  parent: DebugDrawItems.MeshItem
+  langs:
+  - csharp
+  - vb
+  name: Get(Mesh, Nullable<Color>, Single)
+  nameWithType: MeshItem.Get(Mesh, Nullable<Color>, Single)
+  fullName: DebugDrawItems.MeshItem.Get(UnityEngine.Mesh, System.Nullable<UnityEngine.Color>, System.Single)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\MeshItem.cs
+    startLine: 85
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawItems
+  summary: "\nDraws a wireframe mesh. This will allocate new lists and fetch the mesh data so it&apos;s advisable to\nnot call this every frame and instead create it once keep a reference to it.\n"
+  example: []
+  syntax:
+    content: public static MeshItem Get(Mesh mesh, Color? color, float duration = 0F)
+    parameters:
+    - id: mesh
+      type: UnityEngine.Mesh
+      description: The mesh.
+    - id: color
+      type: System.Nullable{UnityEngine.Color}
+      description: The color of the mesh. If null the mesh must have color data associated with it
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawItems.MeshItem
+      description: The Line object.
+    content.vb: Public Shared Function Get(mesh As Mesh, color As Color?, duration As Single = 0F) As MeshItem
+  overload: DebugDrawItems.MeshItem.Get*
+  nameWithType.vb: MeshItem.Get(Mesh, Nullable(Of Color), Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: DebugDrawItems.MeshItem.Get(UnityEngine.Mesh, System.Nullable(Of UnityEngine.Color), System.Single)
+  name.vb: Get(Mesh, Nullable(Of Color), Single)
+references:
+- uid: DebugDrawItems
+  commentId: N:DebugDrawItems
+  name: DebugDrawItems
+  nameWithType: DebugDrawItems
+  fullName: DebugDrawItems
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: DebugDrawItems.BaseItem
+  commentId: T:DebugDrawItems.BaseItem
+  parent: DebugDrawItems
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawItems.BaseItem
+- uid: DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawItems.BaseItem
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetDuration<T>(Single)
+  nameWithType: BaseItem.SetDuration<T>(Single)
+  fullName: DebugDrawItems.BaseItem.SetDuration<T>(System.Single)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawItems.BaseItem.SetDuration(Of T)(System.Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration<T>
+    nameWithType: BaseItem.SetDuration<T>
+    fullName: DebugDrawItems.BaseItem.SetDuration<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration(Of T)
+    nameWithType: BaseItem.SetDuration(Of T)
+    fullName: DebugDrawItems.BaseItem.SetDuration(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetDuration(Single)
+  nameWithType: BaseItem.SetDuration(Single)
+  fullName: DebugDrawItems.BaseItem.SetDuration(System.Single)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    nameWithType: BaseItem.SetDuration
+    fullName: DebugDrawItems.BaseItem.SetDuration
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    nameWithType: BaseItem.SetDuration
+    fullName: DebugDrawItems.BaseItem.SetDuration
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    nameWithType: BaseItem.SetGlobalTransform
+    fullName: DebugDrawItems.BaseItem.SetGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    nameWithType: Matrix4x4
+    fullName: UnityEngine.Matrix4x4
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    nameWithType: BaseItem.SetGlobalTransform
+    fullName: DebugDrawItems.BaseItem.SetGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    nameWithType: Matrix4x4
+    fullName: UnityEngine.Matrix4x4
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawItems.BaseItem
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    nameWithType: BaseItem.ClearGlobalTransform
+    fullName: DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    nameWithType: BaseItem.ClearGlobalTransform
+    fullName: DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    nameWithType: BaseItem.SetGlobalColor
+    fullName: DebugDrawItems.BaseItem.SetGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    nameWithType: BaseItem.SetGlobalColor
+    fullName: DebugDrawItems.BaseItem.SetGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawItems.BaseItem
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    nameWithType: BaseItem.ClearGlobalColor
+    fullName: DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    nameWithType: BaseItem.ClearGlobalColor
+    fullName: DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawItems.BaseItem
+  isExternal: true
+  name: GetColor(Color)
+  nameWithType: BaseItem.GetColor(Color)
+  fullName: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    nameWithType: BaseItem.GetColor
+    fullName: DebugDrawItems.BaseItem.GetColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    nameWithType: BaseItem.GetColor
+    fullName: DebugDrawItems.BaseItem.GetColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawItems.BaseItem
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawItems.BaseItem.Remove
+    name: Remove
+    nameWithType: BaseItem.Remove
+    fullName: DebugDrawItems.BaseItem.Remove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: DebugDrawItems.BaseItem.Remove
+    name: Remove
+    nameWithType: BaseItem.Remove
+    fullName: DebugDrawItems.BaseItem.Remove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{UnityEngine.Vector3}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Vector3}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Vector3>
+  nameWithType: List<Vector3>
+  fullName: System.Collections.Generic.List<UnityEngine.Vector3>
+  nameWithType.vb: List(Of Vector3)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Vector3)
+  name.vb: List(Of Vector3)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Collections.Generic.List{UnityEngine.Color}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Color}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Color>
+  nameWithType: List<Color>
+  fullName: System.Collections.Generic.List<UnityEngine.Color>
+  nameWithType.vb: List(Of Color)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Color)
+  name.vb: List(Of Color)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Int32>
+  nameWithType: List<Int32>
+  fullName: System.Collections.Generic.List<System.Int32>
+  nameWithType.vb: List(Of Int32)
+  fullName.vb: System.Collections.Generic.List(Of System.Int32)
+  name.vb: List(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable{UnityEngine.Color}
+  commentId: T:System.Nullable{UnityEngine.Color}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Color>
+  nameWithType: Nullable<Color>
+  fullName: System.Nullable<UnityEngine.Color>
+  nameWithType.vb: Nullable(Of Color)
+  fullName.vb: System.Nullable(Of UnityEngine.Color)
+  name.vb: Nullable(Of Color)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: UnityEngine.Color
+    name: Color
+    nameWithType: Color
+    fullName: UnityEngine.Color
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: DebugDrawItems.MeshItem.Get*
+  commentId: Overload:DebugDrawItems.MeshItem.Get
+  name: Get
+  nameWithType: MeshItem.Get
+  fullName: DebugDrawItems.MeshItem.Get
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: DebugDrawItems.MeshItem
+  commentId: T:DebugDrawItems.MeshItem
+  parent: DebugDrawItems
+  name: MeshItem
+  nameWithType: MeshItem
+  fullName: DebugDrawItems.MeshItem
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEngine.Mesh
+  commentId: T:UnityEngine.Mesh
+  parent: UnityEngine
+  isExternal: true
+  name: Mesh
+  nameWithType: Mesh
+  fullName: UnityEngine.Mesh
