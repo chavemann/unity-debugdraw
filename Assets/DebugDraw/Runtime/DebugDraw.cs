@@ -162,7 +162,6 @@ public static partial class DebugDraw
 
 	private static bool doFixedUpdate;
 	private static bool requiresBuild = true;
-	private static bool requiresDraw = true;
 	#endif
 	
 	private static float frameTime = 0;
@@ -385,14 +384,10 @@ public static partial class DebugDraw
 			triangleMeshInstance.Build();
 			requiresBuild = false;
 		}
-		
-		if (requiresDraw)
-		{
-			DrawMesh(pointMeshInstance);
-			DrawMesh(lineMeshInstance);
-			DrawMesh(triangleMeshInstance);
-			requiresDraw = false;
-		}
+
+		DrawMesh(pointMeshInstance);
+		DrawMesh(lineMeshInstance);
+		DrawMesh(triangleMeshInstance);
 	}
 
 	#if UNITY_EDITOR
@@ -400,7 +395,6 @@ public static partial class DebugDraw
 	{
 		EditorApplication.update -= OnEditorFlushFrameDelegate;
 		pendingEditorFrameFlush = false;
-		requiresDraw = true;
 	}
 	#endif
 	

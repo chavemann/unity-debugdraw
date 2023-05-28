@@ -121,7 +121,6 @@ public static partial class DebugDraw
 			textMeshInstance.Update();
 			UpdateAttachments();
 			requiresBuild = true;
-			requiresDraw = true;
 			
 			if (LogMessage.hasMessages)
 			{
