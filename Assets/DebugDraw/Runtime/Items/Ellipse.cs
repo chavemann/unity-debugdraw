@@ -10,7 +10,7 @@ namespace DebugDrawItems
 	public class Ellipse : BasePointItem
 	{
 		/* mesh: line */
-		
+
 		/// <summary>
 		/// The size/radius of the ellipse.
 		/// </summary>
@@ -63,7 +63,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Draws a wire ellipse.
 		/// </summary>
@@ -81,7 +81,7 @@ namespace DebugDrawItems
 			Vector2 size = new Vector2(radius, radius);
 			return Get(ref position, ref size, ref facing, ref color, segments, drawAxes, duration);
 		}
-		
+
 		/// <summary>
 		/// Draws a filled ellipse.
 		/// </summary>
@@ -98,7 +98,7 @@ namespace DebugDrawItems
 			Vector2 size = new Vector2(radius, radius);
 			return GetFill(ref position, ref size, ref facing, ref color, segments, duration);
 		}
-		
+
 		/// <summary>
 		/// Draws a wire arc.
 		/// </summary>
@@ -123,7 +123,7 @@ namespace DebugDrawItems
 			Vector2 size = new Vector2(radius, radius);
 			return GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration);
 		}
-		
+
 		/// <summary>
 		/// Draws a filled arc.
 		/// </summary>
@@ -145,7 +145,7 @@ namespace DebugDrawItems
 			Vector2 size = new Vector2(radius, radius);
 			return GetFillArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration);
 		}
-		
+
 		//
 
 		/// <summary>
@@ -163,7 +163,7 @@ namespace DebugDrawItems
 		public static Ellipse Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float duration = 0)
 		{
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
-			
+
 			item.position = position;
 			item.size = size;
 			item.facing = facing;
@@ -195,7 +195,7 @@ namespace DebugDrawItems
 		public static Ellipse GetFill(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, float duration = 0)
 		{
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
-			
+
 			item.position = position;
 			item.size = size;
 			item.facing = facing;
@@ -212,7 +212,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a wire arc.
 		/// </summary>
@@ -235,7 +235,7 @@ namespace DebugDrawItems
 			float duration = 0)
 		{
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
-			
+
 			item.position = position;
 			item.size = size;
 			item.facing = facing;
@@ -272,7 +272,7 @@ namespace DebugDrawItems
 			float duration = 0)
 		{
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
-			
+
 			item.position = position;
 			item.size = size;
 			item.facing = facing;
@@ -322,7 +322,7 @@ namespace DebugDrawItems
 		{
 			this.startAngle	= startAngle;
 			this.endAngle = endAngle;
-			
+
 			return this;
 		}
 
@@ -339,10 +339,10 @@ namespace DebugDrawItems
 			this.startAngle	= startAngle;
 			this.endAngle = endAngle;
 			this.drawArcSegments = drawArcSegments;
-			
+
 			return this;
 		}
-		
+
 		/// <summary>
 		/// Sets the drawAxes option for this ellipse.
 		/// </summary>
@@ -352,7 +352,7 @@ namespace DebugDrawItems
 		public Ellipse SetAxes(DrawEllipseAxes drawAxes = DrawEllipseAxes.InsideArc)
 		{
 			this.drawAxes = drawAxes;
-			
+
 			return this;
 		}
 
@@ -365,14 +365,14 @@ namespace DebugDrawItems
 		public Ellipse SetDrawArcSegments(DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly)
 		{
 			this.drawArcSegments = drawArcSegments;
-			
+
 			return this;
 		}
 
 		public Ellipse SetRotation(float rotation)
 		{
 			this.rotation = rotation;
-			
+
 			return this;
 		}
 
@@ -392,7 +392,7 @@ namespace DebugDrawItems
 		{
 			Vector3 position = this.position;
 			Vector3 up, right;
-			
+
 			if (forward.HasValue)
 			{
 				Vector3 f = forward.GetValueOrDefault();
@@ -411,7 +411,7 @@ namespace DebugDrawItems
 			}
 
 			Color clr = GetColor(ref color);
-			
+
 			BuildArc(
 				mesh, ref position, ref right, ref up, ref size, innerRadius, rotation,
 				startAngle, endAngle, segments, drawArcSegments, drawAxes, ref clr, wireframe);
@@ -431,7 +431,7 @@ namespace DebugDrawItems
 			angle2 = angle1 + angle2;
 			angle2 = (rotation + angle2) * Mathf.Deg2Rad;
 			angle1 = (rotation + angle1) * Mathf.Deg2Rad;
-			
+
 			int finalSegments = segments <= 0
 				? DefaultAutoResolution(
 					Mathf.Max(DebugDraw.DistanceFromCamera(ref worldPos), 0),
@@ -440,7 +440,7 @@ namespace DebugDrawItems
 
 			float innerRadiusT = Mathf.Clamp01(Mathf.Abs(innerRadius) / Mathf.Max(size.x, size.y));
 			bool hasInner = innerRadiusT > 0;
-			
+
 			int centreVertexIndex = -1;
 
 			if (!wireframe && !hasInner)
@@ -449,9 +449,9 @@ namespace DebugDrawItems
 				mesh.AddColor(ref color);
 				centreVertexIndex = mesh.vertexIndex++;
 			}
-			
+
 			int arcStartVertexIndex = mesh.vertexIndex;
-			
+
 			if (angle1 < angle2)
 			{
 				float deltaAngle = (Mathf.PI * 2) / Mathf.Max(finalSegments, 3);
@@ -480,7 +480,7 @@ namespace DebugDrawItems
 					mesh.AddColor(ref color);
 					mesh.vertexIndex++;
 				}
-				
+
 				while (angle < angle2)
 				{
 					angle += deltaAngle;
@@ -509,7 +509,7 @@ namespace DebugDrawItems
 							worldPos.y + right.y * p.x + up.y * p.y,
 							worldPos.z + right.z * p.x + up.z * p.y);
 						mesh.AddColor(ref color);
-						
+
 						if (!wireframe)
 						{
 							mesh.AddIndices(
@@ -547,12 +547,12 @@ namespace DebugDrawItems
 					}
 				}
 			}
-			
+
 			if (!wireframe)
 				return;
 
 			int loopVertexCount = mesh.vertexIndex - arcStartVertexIndex;
-			
+
 			// Arc segments
 			if (drawArcSegments == DrawArcSegments.Always || isOpen && drawArcSegments == DrawArcSegments.OpenOnly)
 			{
@@ -564,7 +564,7 @@ namespace DebugDrawItems
 						mesh.AddVertex(ref worldPos);
 						mesh.AddColor(ref color);
 						mesh.vertexIndex++;
-						
+
 						mesh.AddIndices(
 							centreVertexIndex,
 							arcStartVertexIndex,
@@ -591,7 +591,7 @@ namespace DebugDrawItems
 						worldPos.y + right.y * p.x + up.y * p.y,
 						worldPos.z + right.z * p.x + up.z * p.y);
 					mesh.vertexIndex++;
-					
+
 					if (!hasInner)
 					{
 						mesh.AddVertex(ref worldPos);
@@ -605,21 +605,21 @@ namespace DebugDrawItems
 							worldPos.y + right.y * p.x + up.y * p.y,
 							worldPos.z + right.z * p.x + up.z * p.y);
 					}
-						
+
 					mesh.AddColorX2(ref color);
 					mesh.AddIndices(
 						mesh.vertexIndex - 1,
 						mesh.vertexIndex++);
 				}
 			}
-			
+
 			// Axes
 			if ((loopVertexCount > 0 || drawAxes == DrawEllipseAxes.Always) && drawAxes != DrawEllipseAxes.Never)
 			{
 				for (int i = 0; i < 4; i++)
 				{
 					float angle = rotation * Mathf.Deg2Rad + Mathf.PI * 0.5f * i;
-             		
+
 					if (!CheckAngle(angle, angle1, angle2, drawAxes))
 						continue;
 
@@ -676,7 +676,7 @@ namespace DebugDrawItems
 		}
 
 	}
-	
+
 	/// <summary>
 	/// Options for how to draw axes inside of an Ellipse.
 	/// </summary>

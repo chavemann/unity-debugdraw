@@ -37,7 +37,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getter -- */
-		
+
 		/// <summary>
 		/// Draws a 3D dot that automatically faces the camera.
 		/// </summary>
@@ -52,7 +52,7 @@ namespace DebugDrawItems
 		public static Dot Get(ref Vector3 position, float radius, ref Color color, int segments = 0, float duration = 0)
 		{
 			Dot item = ItemPool<Dot>.Get(duration);
-			
+
 			item.position = position;
 			item.radius = radius;
 			item.faceCamera = true;
@@ -62,7 +62,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a 3D dot.
 		/// </summary>
@@ -78,13 +78,13 @@ namespace DebugDrawItems
 		public static Dot Get(ref Vector3 position, float radius, ref Color color, ref Vector3 facing, int segments = 0, float duration = 0)
 		{
 			Dot item = ItemPool<Dot>.Get(duration);
-			
+
 			item.position = position;
 			item.radius = radius;
 			item.facing = facing;
 			item.faceCamera = false;
 			item.color = color;
-			item.segments = segments; 
+			item.segments = segments;
 			item.autoSize = false;
 
 			return item;
@@ -121,7 +121,7 @@ namespace DebugDrawItems
 		{
 			Vector3 position = this.position;
 			Vector3 right, up;
-			
+
 			if (faceCamera)
 			{
 				right = DebugDraw.camRight;
@@ -140,7 +140,7 @@ namespace DebugDrawItems
 						DebugDraw.positionIdentity,
 						faceCamera ? DebugDraw.rotationIdentity : stateTransform.rotation,
 						autoSize ? DebugDraw.scaleIdentity : stateTransform.lossyScale);
-					
+
 					right = m.MultiplyVector(right);
 					up = m.MultiplyVector(up);
 				}
@@ -149,12 +149,12 @@ namespace DebugDrawItems
 					right = stateTransform.MultiplyVector(right);
 					up = stateTransform.MultiplyVector(up);
 				}
-				
+
 				position = stateTransform.MultiplyPoint3x4(position);
 			}
 
 			float size = radius;
-			
+
 			float dist = autoSize || this.segments <= 0
 				? Mathf.Max(DebugDraw.DistanceFromCamera(ref position), 0)
 				: 0;
@@ -167,9 +167,9 @@ namespace DebugDrawItems
 			int segments = this.segments <= 0
 				? Ellipse.DefaultAutoResolution(dist, size)
 				: this.segments;
-			
+
 			Color clr = GetColor(ref color);
-			
+
 			if (segments < 3)
 			{
 				mesh.AddVertex(
@@ -203,7 +203,7 @@ namespace DebugDrawItems
 				mesh.AddColor(ref clr);
 				int firstVertexIndex = mesh.vertexIndex;
 				mesh.vertexIndex++;
-				
+
 				float angle = -Mathf.PI * 0.25f;
 				float angleDelta = (Mathf.PI * 2) / segments;
 
@@ -217,7 +217,7 @@ namespace DebugDrawItems
 						position.y + right.y * p.x + up.y * p.y,
 						position.z + right.z * p.x + up.z * p.y);
 					mesh.AddColor(ref clr);
-					
+
 					mesh.AddIndices(
 						firstVertexIndex,
 						firstVertexIndex + j + 1,
