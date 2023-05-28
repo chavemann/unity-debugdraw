@@ -158,13 +158,14 @@ namespace DebugDrawItems
 		/// </summary>
 		/// <param name="mesh">The mesh to build into.</param>
 		internal abstract void Build(DebugDrawMesh mesh);
-		
+
 		/// <summary>
 		/// Releases this item when it gets removed from a mesh, returning it to a pool and
 		/// resetting any values if necessary.
 		/// </summary>
 		internal abstract void Release();
 
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static implicit operator bool(BaseItem baseItem)
 		{
 			return baseItem != null;

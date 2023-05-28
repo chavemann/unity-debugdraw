@@ -33,7 +33,7 @@ public static partial class DebugDraw
 
 		private bool pendingDestroy;
 		private DebugDrawFrameStartTimer startTimer;
-		
+
 		private void OnEnable()
 		{
 			if (pendingDestroy || !Application.isPlaying && !_enableInEditMode)
@@ -46,14 +46,14 @@ public static partial class DebugDraw
 			{
 				startTimer = gameObject.AddComponent<DebugDrawFrameStartTimer>();
 			}
-			
+
 			gameObject.hideFlags = hideFlags = TimerHideFlags;
-			
+
 			if (!timerInstance)
 			{
 				UpdateInstance(this);
 			}
-			
+
 			// ReSharper disable once ConditionIsAlwaysTrueOrFalse
 			#pragma warning disable 162
 			if (UpdateInstanceScene && timerInstance == this)
@@ -112,7 +112,7 @@ public static partial class DebugDraw
 		private void DoUpdate()
 		{
 			// Log.Print("--- DebugDrawTimer.DoUpdate", gameObject.GetInstanceID());
-			
+
 			camUpdated = false;
 
 			pointMeshInstance.Update();
@@ -121,7 +121,7 @@ public static partial class DebugDraw
 			textMeshInstance.Update();
 			UpdateAttachments();
 			requiresBuild = true;
-			
+
 			nextGroup = null;
 
 			if (currentGroup != null)
@@ -140,9 +140,9 @@ public static partial class DebugDraw
 		{
 			if (Event.current.type != EventType.Repaint)
 				return;
-			
+
 			textMeshInstance.Build();
-			
+
 			if (LogMessage.hasMessages)
 			{
 				LogMessage.Draw();
@@ -175,7 +175,7 @@ public static partial class DebugDraw
 
 				startTimer = null;
 			}
-				
+
 			pendingDestroy = false;
 		}
 
@@ -215,14 +215,14 @@ public static partial class DebugDraw
 		private void DoUpdate()
 		{
 			// Log.Print("-------------------- DebugDrawFrameStartTimer.DoUpdate");
-			
+
 			UpdateCamera();
 			frameTime = beforeInitialise ? 0 : Time.time;
 		}
 
 	}
-	
+
 	#endif
-	
+
 
 }

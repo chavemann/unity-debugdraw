@@ -16,6 +16,7 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
+// ReSharper disable once CheckNamespace
 /// <summary>
 /// <para>
 /// A static class that provides various methods for drawing debug visuals.
@@ -74,12 +75,12 @@ public static partial class DebugDraw
 	#endif
 
 	internal static bool hasInstance;
-	
+
 	internal static Color _color = Color.white;
 	internal static Matrix4x4 _transform = Matrix4x4.identity;
 	internal static bool hasColor;
 	internal static bool hasTransform;
-	private static readonly List<DebugDrawState> States = new List<DebugDrawState>();
+	private static readonly List<DebugDrawState> States = new();
 	private static int stateIndex;
 	internal static string nextGroup;
 	internal static string currentGroup;
@@ -87,7 +88,7 @@ public static partial class DebugDraw
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Public -- */
-	
+
 	/// <summary>
 	/// Modify the default properties of all Text.
 	/// </summary>
@@ -104,7 +105,7 @@ public static partial class DebugDraw
 		{
 			if (_useFixedUpdate == value)
 				return;
-			
+
 			_useFixedUpdate = value;
 			UpdateFixedUpdateFlag();
 		}
@@ -152,7 +153,7 @@ public static partial class DebugDraw
 			hasTransform = value != matrixIdentity;
 		}
 	}
-	
+
 	/// <summary>
 	/// Set to null for no shadow
 	/// </summary>
@@ -171,14 +172,14 @@ public static partial class DebugDraw
 	public static DebugDrawMesh pointMesh => pointMeshInstance;
 	public static DebugDrawMesh lineMesh => lineMeshInstance;
 	public static DebugDrawMesh triangleMesh => triangleMeshInstance;
-	
+
 	#if DEBUG_DRAW
 	private static DebugDrawTimer timerInstance;
 
 	private static bool doFixedUpdate;
 	private static bool requiresBuild = true;
 	#endif
-	
+
 	private static float frameTime = 0;
 	private static bool beforeInitialise;
 	private static CameraInitState hasCamera = CameraInitState.Pending;
@@ -223,17 +224,17 @@ public static partial class DebugDraw
 	}
 
 	#if DEBUG_DRAW
-	
+
 	#if UNITY_EDITOR
 	private static readonly EditorApplication.CallbackFunction OnEditorFlushFrameDelegate = OnEditorFlushFrame;
 	private static bool pendingEditorFrameFlush;
 	#endif
-	
+
 	private static readonly Camera.CameraCallback OnCameraPreCullDelegate = OnCameraPreCull;
 	#if SRP_AVAILABLE
 	private static readonly Action<ScriptableRenderContext, Camera> OnBeginCameraRenderingDelegate = OnBeginCameraRendering;
 	#endif
-	
+
 	#if UNITY_EDITOR
 	[InitializeOnLoadMethod]
 	#else
@@ -243,13 +244,13 @@ public static partial class DebugDraw
 	{
 		// Log.Print("---- InitializeOnLoad ---------------------------------- ");
 		// Log.Print("---- ---------------- ---------------------------------- ");
-		
+
 		#if UNITY_EDITOR
 		EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
-		EditorSceneManager.activeSceneChangedInEditMode += OnactiveSceneChangedInEditMode;
+		EditorSceneManager.activeSceneChangedInEditMode += OnActiveSceneChangedInEditMode;
 		EditorSceneManager.sceneOpening += OnEditorSceneOpening;
 		#endif
-		
+
 		Clear();
 		Initialize(true);
 	}
@@ -265,10 +266,10 @@ public static partial class DebugDraw
 		}
 	}
 
-	private static void OnactiveSceneChangedInEditMode(Scene current, Scene next)
+	private static void OnActiveSceneChangedInEditMode(Scene current, Scene next)
 	{
 		// Log.Print("---- OnactiveSceneChangedInEditMode ----------------------------------", frameTime);
-		
+
 		Initialize();
 		UpdateTimerInstanceScene();
 		ClearCamera();
@@ -277,14 +278,14 @@ public static partial class DebugDraw
 	private static void OnPlayModeStateChanged(PlayModeStateChange state)
 	{
 		// Log.Print($"-- DebugDraw.OnPlayModeStateChanged ({state}) ----------------------------------");
-		
+
 		if (state == PlayModeStateChange.ExitingPlayMode || state == PlayModeStateChange.ExitingEditMode)
 		{
 			if (state == PlayModeStateChange.ExitingEditMode)
 			{
 				Initialize();
 			}
-			
+
 			Clear();
 			frameTime = 0;
 			beforeInitialise = true;
@@ -297,7 +298,7 @@ public static partial class DebugDraw
 		if (!_enableInEditMode && state == PlayModeStateChange.EnteredEditMode)
 		{
 			Clear();
-			
+
 			if (timerInstance)
 			{
 				UpdateInstance(null);
@@ -305,7 +306,7 @@ public static partial class DebugDraw
 		}
 	}
 	#endif
-	
+
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
 	private static void RuntimeInitialize()
 	{
@@ -313,22 +314,22 @@ public static partial class DebugDraw
 
 		Initialize(true);
 	}
-	
+
 	private static void Initialize(bool createTimer = false)
 	{
 		// Log.Print("---- [Initialising] ----------------------------------", isPlaying);
-		
+
 		Camera.onPreCull -= OnCameraPreCullDelegate;
 		#if SRP_AVAILABLE
 		RenderPipelineManager.beginCameraRendering -= OnBeginCameraRenderingDelegate;
 		#endif
-		
+
 		if (!_enableInEditMode && !isPlaying)
 		{
 			Destroy();
 			return;
 		}
-		
+
 		beforeInitialise = false;
 
 		if (createTimer && !timerInstance)
@@ -338,7 +339,7 @@ public static partial class DebugDraw
 			timerInstance = timerInstanceObj.AddComponent<DebugDrawTimer>();
 			UpdateInstance(timerInstance);
 		}
-		
+
 		if (pointMeshInstance == null)
 		{
 			pointMeshInstance = new DebugDrawMesh(MeshTopology.Points);
@@ -353,14 +354,14 @@ public static partial class DebugDraw
 			lineMeshInstance.CreateAll();
 			triangleMeshInstance.CreateAll();
 		}
-		
+
 		UpdateFixedUpdateFlag();
-		
+
 		Camera.onPreCull += OnCameraPreCullDelegate;
 		#if SRP_AVAILABLE
 		RenderPipelineManager.beginCameraRendering += OnBeginCameraRenderingDelegate;
 		#endif
-		
+
 		ClearCamera();
 	}
 
@@ -391,7 +392,7 @@ public static partial class DebugDraw
 			pendingEditorFrameFlush = true;
 		}
 		#endif
-		
+
 		if (!Application.isPlaying)
 		{
 			UpdateCamera();
@@ -417,7 +418,7 @@ public static partial class DebugDraw
 		pendingEditorFrameFlush = false;
 	}
 	#endif
-	
+
 	private static void DrawMesh(DebugDrawMesh mesh)
 	{
 		if (mesh.vertexIndex > 0)
@@ -449,7 +450,7 @@ public static partial class DebugDraw
 				timerInstance.DestroyTimer();
 				timerInstance = null;
 			}
-			
+
 			hasInstance = false;
 		}
 
@@ -461,12 +462,12 @@ public static partial class DebugDraw
 			textMeshInstance.ClearAll();
 		}
 	}
-	
+
 	#endif
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Methods -- */
-	
+
 	internal static void ClearCamera()
 	{
 		hasCamera = CameraInitState.Pending;
@@ -488,7 +489,7 @@ public static partial class DebugDraw
 		}
 
 		camUpdated = true;
-		
+
 		if (hasCamera == CameraInitState.Null)
 			return;
 
@@ -510,7 +511,7 @@ public static partial class DebugDraw
 	public static void InitCamera(Camera newCam = null)
 	{
 		cam = newCam ? newCam : Camera.main;
-		
+
 		#if UNITY_EDITOR
 		if (!Application.isPlaying && !cam)
 		{
@@ -521,16 +522,16 @@ public static partial class DebugDraw
 				hasCamera = CameraInitState.Pending;
 				return;
 			}
-		
+
 			cam = SceneView.lastActiveSceneView.camera;
 		}
 		#endif
-		
+
 		hasCamera = cam != null ? CameraInitState.NotNull : CameraInitState.Null;
-		
+
 		if (hasCamera == CameraInitState.NotNull)
 		{
-			// ReSharper disable once PossibleNullReferenceException 
+			// ReSharper disable once PossibleNullReferenceException
 			camTransform = cam.transform;
 
 			if (camUpdated)
@@ -558,7 +559,7 @@ public static partial class DebugDraw
 			BaseAttachment attachment = Attachments[i];
 			attachment.Release();
 		}
-		
+
 		if (pointMeshInstance != null)
 		{
 			pointMeshInstance.ClearAll();
@@ -568,7 +569,7 @@ public static partial class DebugDraw
 		}
 
 		attachmentCount = 0;
-		
+
 		Log.Clear();
 	}
 
@@ -597,12 +598,12 @@ public static partial class DebugDraw
 	{
 		if (pointMeshInstance == null)
 			return;
-		
+
 		pointMeshInstance.SetInvertColours(invert);
 		lineMeshInstance.SetInvertColours(invert);
 		triangleMeshInstance.SetInvertColours(invert);
 	}
-	
+
 	/// <summary>
 	/// Set the culling mode for all debug visuals
 	/// </summary>
@@ -611,12 +612,12 @@ public static partial class DebugDraw
 	{
 		if (pointMeshInstance == null)
 			return;
-		
+
 		pointMeshInstance.SetCulling(mode);
 		lineMeshInstance.SetCulling(mode);
 		triangleMeshInstance.SetCulling(mode);
 	}
-	
+
 	/// <summary>
 	/// Set the depth testing for all debug visuals
 	/// </summary>
@@ -625,7 +626,7 @@ public static partial class DebugDraw
 	{
 		SetDepthTesting(enabled, enabled);
 	}
-	
+
 	/// <summary>
 	/// Sets the depth testing for all debug visual
 	/// </summary>
@@ -637,7 +638,7 @@ public static partial class DebugDraw
 		lineMeshInstance.SetDepthTesting(write, test);
 		triangleMeshInstance.SetDepthTesting(write, test);
 	}
-	
+
 	/// <summary>
 	/// Stores the current state (color and transform) on the stack.
 	/// </summary>
@@ -647,14 +648,14 @@ public static partial class DebugDraw
 		{
 			States.Add(new DebugDrawState());
 		}
-	
+
 		DebugDrawState state = States[stateIndex++];
 		state.color = _color;
 		state.transform = _transform;
 		state.hasColor = hasColor;
 		state.hasTransform = hasTransform;
 	}
-	
+
 	/// <summary>
 	/// Restores the current state from the stack.
 	/// </summary>
@@ -662,7 +663,7 @@ public static partial class DebugDraw
 	{
 		if (stateIndex == 0)
 			return;
-		
+
 		DebugDrawState state = States[--stateIndex];
 		_color = state.color;
 		_transform = state.transform;
@@ -734,7 +735,7 @@ public static partial class DebugDraw
 			? float.PositiveInfinity
 			: frameTime + duration;
 	}
-	
+
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static void DestroyObj(Object obj)
 	{
@@ -752,11 +753,11 @@ public static partial class DebugDraw
 	{
 		if (attachment.index != -1)
 			return attachment;
-	
+
 		if (attachmentCount == attachmentListSize)
 		{
 			attachmentListSize = Mathf.Max(attachmentListSize * 2, 2);
-	
+
 			for (int i = attachmentCount; i < attachmentListSize; i++)
 			{
 				Attachments.Add(null);
@@ -766,7 +767,7 @@ public static partial class DebugDraw
 		Attachments[attachment.index = attachmentCount++] = attachment;
 		return attachment;
 	}
-	
+
 	private static void UpdateFixedUpdateFlag()
 	{
 		#if DEBUG_DRAW
@@ -776,16 +777,16 @@ public static partial class DebugDraw
 
 	private static void UpdateAttachments()
 	{
-		for (int i = attachmentCount - 1; i >= 0; i--) 
+		for (int i = attachmentCount - 1; i >= 0; i--)
 		{
 			BaseAttachment attachment = Attachments[i];
-			
+
 			if (attachment.destroyed || !attachment.Update())
 			{
 				BaseAttachment swap = Attachments[--attachmentCount];
 				swap.index = i;
 				Attachments[i] = swap;
-				
+
 				attachment.Release();
 			}
 		}
@@ -817,7 +818,7 @@ public static partial class DebugDraw
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Utils -- */
-	
+
 	/// <summary>
 	/// Find good arbitrary axis vectors to represent U and V axes of a plane, using this vector as the normal of the plane.
 	/// <param name="normal">The plane's normal vector.</param>
@@ -833,12 +834,12 @@ public static partial class DebugDraw
 			Mathf.Abs(normal.z));
 
 		// Find best basis vectors.
-		up = n.z > n.x && n.z > n.y 
+		up = n.z > n.x && n.z > n.y
 			? new Vector3(1, 0, 0)
 			: new Vector3(0, 0, 1);
 
 		float dot = Vector3.Dot(up, normal);
-			
+
 		up = new Vector3(
 			up.x - normal.x * dot,
 			up.y - normal.y * dot,
@@ -846,7 +847,7 @@ public static partial class DebugDraw
 
 		right = Vector3.Cross(up, normal);
 	}
-	
+
 	/// <summary>
 	/// Find good arbitrary axis vectors to represent U and V axes of a plane, using this vector as the normal of the plane.
 	/// <param name="normal">The plane's normal vector.</param>
@@ -863,15 +864,15 @@ public static partial class DebugDraw
 		}
 		else
 		{
-			up = Mathf.Abs(normal.z) > Mathf.Abs(normal.x) && Mathf.Abs(normal.z) > Mathf.Abs(normal.y) 
+			up = Mathf.Abs(normal.z) > Mathf.Abs(normal.x) && Mathf.Abs(normal.z) > Mathf.Abs(normal.y)
 				? new Vector3(1, 0, 0)
 				: new Vector3(0, 0, 1);
-		
+
 			right = Vector3.Cross(normal, up);
 			right.Normalize();
 		}
-		
-		
+
+
 		up = Vector3.Cross(right, normal);
 		up.Normalize();
 	}
@@ -931,7 +932,7 @@ public static partial class DebugDraw
 	{
 		float frustumHeight = CalculateFrustumHeight(distance);
 		float t = (radius * 2) / (frustumHeight);
-		
+
 		// Shift the lower bound up a bit
 		const float s = 0.006f;
 		t = Mathf.Max((t - s) / (1 - s), 0);
@@ -947,19 +948,19 @@ public static partial class DebugDraw
 
 		return Mathf.Clamp(Mathf.FloorToInt(Mathf.LerpUnclamped(min, max, t)), min, limit);
 	}
-	
+
 	/* ------------------------------------------------------------------------------------- */
 
 	private class DebugDrawState
 	{
-	
+
 		// ReSharper disable MemberHidesStaticFromOuterClass
 		public Color color;
 		public Matrix4x4 transform;
 		public bool hasColor;
 		public bool hasTransform;
 		// ReSharper restore MemberHidesStaticFromOuterClass
-	
+
 	}
 
 }

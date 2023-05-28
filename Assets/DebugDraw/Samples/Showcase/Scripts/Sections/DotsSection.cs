@@ -24,17 +24,17 @@ namespace DebugDrawSamples.Showcase.Sections
 		public float batchSizeMax = 0.15f;
 		public Transform batchObj;
 
-		private readonly List<Vector3> points = new List<Vector3>();
-		private readonly List<Color> pointColors = new List<Color>();
-		private readonly List<Vector3> dotPositions = new List<Vector3>();
-		private readonly List<float> sizes = new List<float>();
+		private readonly List<Vector3> points = new();
+		private readonly List<Color> pointColors = new();
+		private readonly List<Vector3> dotPositions = new();
+		private readonly List<float> sizes = new();
 
 		private readonly Color[] colors = new Color[8];
 
 		protected override void Init()
 		{
 			Showcase.NiceColors(colors);
-			
+
 			if (pointCount < 1)
 			{
 				pointCount = 1;
@@ -63,7 +63,7 @@ namespace DebugDrawSamples.Showcase.Sections
 		{
 			Vector3 o = pointsObj ? pointsObj.position : tr.position;
 			Vector3 o2 = batchObj ? batchObj.position : tr.position;
-			
+
 			for (int i = 0; i < pointCount; i++)
 			{
 				float t = i / (float) (pointCount - 1);
@@ -80,7 +80,7 @@ namespace DebugDrawSamples.Showcase.Sections
 				dotPositions[i] = o2 + p1;
 				dotPositions[i + pointCount] = o2 + p2;
 			}
-			
+
 			DebugDraw.Points(points, pointColors);
 			DebugDraw.Dots(dotPositions, sizes, pointColors);
 

@@ -8,20 +8,20 @@ namespace DebugDrawSamples.Showcase.Sections
 	{
 
 		public int seed;
-		
+
 		protected Transform tr;
-		
+
 		private void OnEnable()
 		{
 			tr = transform;
-			
+
 			Showcase.InitRandom(tr, seed);
 			Init();
 		}
 
 		protected virtual void Init()
 		{
-			
+
 		}
 
 		protected Vector3 Position(Transform origin)

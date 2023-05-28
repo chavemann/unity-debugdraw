@@ -6,6 +6,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+// ReSharper disable once CheckNamespace
 namespace DebugDrawUtils
 {
 
@@ -21,7 +22,7 @@ namespace DebugDrawUtils
 		{
 			hasCrossHairMaterial = false;
 		}
-		
+
 		/// <summary>
 		/// True if the debug camera is active.
 		/// </summary>
@@ -114,7 +115,7 @@ namespace DebugDrawUtils
 
 		protected static Transform camTr;
 		protected static Transform tr;
-		
+
 		protected static Camera lastCamera;
 		protected static float baseFOV;
 
@@ -128,7 +129,7 @@ namespace DebugDrawUtils
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Init -- */
-		
+
 		/// <summary>
 		/// <para>Turns the debug camera on or off.
 		/// When active, creates a new camera that can freely fly around with the WASD keys and mouse.</para>
@@ -148,10 +149,10 @@ namespace DebugDrawUtils
 		{
 			if (!Application.isPlaying)
 				return;
-			
+
 			if (isActive == on)
 				return;
-			
+
 			isActive = on;
 
 			if (isActive)
@@ -188,22 +189,22 @@ namespace DebugDrawUtils
 					{
 						instance = obj.AddComponent<DebugDrawCamera>();
 					}
-					
+
 					instance.hideFlags = HideFlags.NotEditable;
-					
+
 					if (lastCamera != null)
 					{
 						UpdateCamera(lastCamera, true, true);
 					}
-					
+
 					onInitCamera?.Invoke(cam);
 				}
-				
+
 				if (lastCamera != null)
 				{
 					lastCamera.gameObject.SetActive(false);
 				}
-				
+
 				instance.gameObject.SetActive(true);
 			}
 			else
@@ -223,9 +224,9 @@ namespace DebugDrawUtils
 			{
 				instance.Init();
 			}
-			
+
 			DebugDraw.InitCamera(isActive ? cam : lastCamera);
-			
+
 			onToggle?.Invoke(isActive);
 		}
 
@@ -245,7 +246,7 @@ namespace DebugDrawUtils
 		{
 			instance.CopyFrom(from, copyTransform, copyProperties);
 		}
-		
+
 		/// <summary>
 		/// Called whenever the the camera is toggled.
 		/// </summary>
@@ -253,12 +254,12 @@ namespace DebugDrawUtils
 		{
 			if (!isActive)
 				return;
-			
+
 			speed = 0;
 			baseFOV = cam ? cam.fieldOfView : 60;
 			LockCursor(true);
 		}
-		
+
 		protected virtual void Awake()
 		{
 			tr = transform;
@@ -267,13 +268,13 @@ namespace DebugDrawUtils
 			cam = camObj.AddComponent<Camera>();
 			camTr = cam.transform;
 		}
-		
+
 		protected virtual void OnDestroy()
 		{
 			Toggle(false);
 		}
 
-    
+
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Private -- */
 
@@ -293,23 +294,23 @@ namespace DebugDrawUtils
 					// Turn off depth writes
 					crossHairMaterial.SetInt(DebugDrawMesh.ZWrite, 0);
 					crossHairMaterial.SetInt(DebugDrawMesh.ZTest, (int) CompareFunction.Always);
-					
+
 					crossHairMesh = new Mesh();
 					crossHairMesh.SetVertices(new Vector3[]
 					{
 						Vector3.left, Vector3.right,
-						Vector3.up, Vector3.down, 
+						Vector3.up, Vector3.down,
 					});
 					crossHairMesh.SetIndices(new int[] { 0, 1, 2, 3 }, MeshTopology.Lines, 0);
 
 					hasCrossHairMaterial = true;
 				}
-				
+
 				float s = crossHairSize * 0.01f;
-				
+
 				crossHairMaterial.SetColor(DebugDrawMesh.Color, crossHairColor);
 				crossHairMaterial.SetPass(0);
-				
+
 				Graphics.DrawMeshNow(
 					crossHairMesh,
 					Matrix4x4.TRS(
@@ -335,14 +336,14 @@ namespace DebugDrawUtils
 
 			DoMouseLook();
 			DoMovement();
-			
+
 			if (isTrackingObj)
 			{
 				if (trackingObj)
 				{
 					Vector3 newPosition = trackingObj.position;
 					Vector3 position = tr.position;
-					
+
 					if (isLookingAtObj)
 					{
 						float dist = new Vector3(
@@ -357,7 +358,7 @@ namespace DebugDrawUtils
 						newPosition.y - trackingObjPosition.y,
 						newPosition.z - trackingObjPosition.z);
 					tr.position = position;
-					
+
 					trackingObjPosition = newPosition;
 				}
 				else
@@ -375,10 +376,10 @@ namespace DebugDrawUtils
 					Input.GetAxis("Mouse X"),
 					Input.GetAxis("Mouse Y")) * mouseSensitivity
 				: Vector2.zero;
-			
+
 			rotation.x = Mathf.Clamp(rotation.x - mouse.y, -90, 90);
 			rotation.y = Mathf.Repeat(rotation.y + mouse.x, 360);
-			
+
 			camTr.localRotation = Quaternion.Euler(rotation.x, 0, 0);
 			tr.rotation = Quaternion.Euler(0, rotation.y, 0);
 		}
@@ -399,10 +400,10 @@ namespace DebugDrawUtils
 						: 0,
 					Input.GetAxisRaw("Vertical"))
 				: Vector3.zero;
-			
+
 			Vector3 move = forward * input.z + right * input.x + Vector3.up * input.y;
 			bool isMoving = move != Vector3.zero;
-			
+
 			bool fast = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift);
 			bool slow = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
 			float currentSpeedMultiplier = CalculateSpeedMultiplier();
@@ -435,7 +436,7 @@ namespace DebugDrawUtils
 					Log.Show(0xffffff - 1, 1, $"Debug Camera FOV: {(int) cam.fieldOfView}");
 				}
 			}
-			
+
 			float multiplier = currentSpeedMultiplier * (fast ? fastMultiplier : slow ? slowMultiplier : 1);
 			float acceleration = DebugDrawCamera.acceleration * multiplier;
 			float maxSpeed = DebugDrawCamera.maxSpeed * multiplier;
@@ -476,7 +477,7 @@ namespace DebugDrawUtils
 			if (!from)
 			{
 				from = lastCamera;
-				
+
 				if (!from)
 					return;
 			}
@@ -489,7 +490,7 @@ namespace DebugDrawUtils
 
 				CalculateRotation(newTr.rotation);
 			}
-			
+
 			if (copyProperties)
 			{
 				cam.CopyFrom(from);
@@ -503,7 +504,7 @@ namespace DebugDrawUtils
 			camTr.localRotation = Quaternion.Euler(rotation.x, 0, 0);
 			tr.rotation = Quaternion.Euler(0, rotation.y, 0);
 		}
-    
+
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
 
@@ -515,7 +516,7 @@ namespace DebugDrawUtils
 		public static void TrackObject(GameObjectOrTransform? obj, bool lookAt = false)
 		{
 			bool prevTrackingObj = isTrackingObj;
-			
+
 			trackingObj = obj;
 			isTrackingObj = trackingObj != null;
 			isLookingAtObj = lookAt;
@@ -545,7 +546,7 @@ namespace DebugDrawUtils
 				Cursor.visible = true;
 			}
 		}
-		
+
 	}
 
 }

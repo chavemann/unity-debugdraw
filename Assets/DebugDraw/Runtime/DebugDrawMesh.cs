@@ -4,16 +4,17 @@ using DebugDrawItems;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+// ReSharper disable once CheckNamespace
 /// <summary>
 /// Direct access to a debug mesh.
 /// Normally this class won't be used directly - instead it will automatically be created and managed by <see cref="DebugDraw"/>.
 /// </summary>
 public partial class DebugDrawMesh
 {
-	
+
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Shader Params -- */
-		
+
 	public static readonly int Color	= Shader.PropertyToID("_Color");
 	public static readonly int SrcBlend	= Shader.PropertyToID("_SrcBlend");
 	public static readonly int DstBlend	= Shader.PropertyToID("_DstBlend");
@@ -23,19 +24,19 @@ public partial class DebugDrawMesh
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Public -- */
-	
+
 	/// <summary>
 	/// The mesh vertices populated during <see cref="Build"/>. Generally don't access directly.
 	/// </summary>
-	public readonly List<Vector3> vertices = new List<Vector3>();
+	public readonly List<Vector3> vertices = new();
 	/// <summary>
 	/// The mesh vertex colours populated during <see cref="Build"/>. Generally don't access directly.
 	/// </summary>
-	public readonly List<Color> colours = new List<Color>();
+	public readonly List<Color> colours = new();
 	/// <summary>
 	/// The mesh indices populated during <see cref="Build"/>. Generally don't access directly.
 	/// </summary>
-	public readonly List<int> indices = new List<int>();
+	public readonly List<int> indices = new();
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Private -- */
@@ -47,8 +48,8 @@ public partial class DebugDrawMesh
 	private bool hasMaterial;
 	internal Shader shader;
 	internal Material material;
-	
-	protected readonly List<BaseItem> items = new List<BaseItem>();
+
+	protected readonly List<BaseItem> items = new();
 	private int itemsSize = 1;
 	internal int itemCount;
 	protected readonly Dictionary<string, List<BaseItem>> groups = new();
@@ -68,7 +69,7 @@ public partial class DebugDrawMesh
 	public DebugDrawMesh(MeshTopology type)
 	{
 		this.type = type;
-		
+
 		for (int i = 0; i < itemsSize; i++)
 		{
 			items.Add(null);
@@ -118,7 +119,7 @@ public partial class DebugDrawMesh
 	{
 		if (!hasMaterial)
 			return this;
-		
+
 		if (invert)
 		{
 			material.SetInt(SrcBlend, (int) BlendMode.OneMinusDstColor);
@@ -141,12 +142,12 @@ public partial class DebugDrawMesh
 	{
 		if (!hasMaterial)
 			return this;
-		
+
 		material.SetInt(Cull, (int) mode);
-		
+
 		return this;
 	}
-	
+
 	/// <summary>
 	/// Sets this mesh's material (if it has one) depth testing.
 	/// </summary>
@@ -170,7 +171,7 @@ public partial class DebugDrawMesh
 	{
 		if (!hasMaterial)
 			return this;
-		
+
 		material.SetInt(ZWrite, write ? 1 : 0);
 		material.SetInt(ZTest, (int) (test
 			? CompareFunction.LessEqual
@@ -191,17 +192,17 @@ public partial class DebugDrawMesh
 	{
 		if (item.mesh != null)
 			return item;
-		
+
 		if (itemCount == itemsSize)
 		{
 			itemsSize *= 2;
-		
+
 			for (int i = itemCount; i < itemsSize; i++)
 			{
 				items.Add(null);
 			}
 		}
-			
+
 		items[item.index = itemCount++] = item;
 		item.mesh = this;
 
@@ -259,7 +260,7 @@ public partial class DebugDrawMesh
 		groupItems.Add(item);
 		return item;
 	}
-	
+
 	/// <summary>
 	/// Immediately removes the item from this mesh.
 	/// </summary>
@@ -268,7 +269,7 @@ public partial class DebugDrawMesh
 	{
 		if (item.mesh != this)
 			return;
-		
+
 		BaseItem swap = items[--itemCount];
 		swap.index = item.index;
 		items[item.index] = swap;
@@ -310,7 +311,7 @@ public partial class DebugDrawMesh
 	{
 		if (!hasMesh)
 			return;
-		
+
 		vertices.Clear();
 		colours.Clear();
 		indices.Clear();
@@ -363,7 +364,7 @@ public partial class DebugDrawMesh
 		for(int i = itemCount - 1; i >= 0; i--)
 		{
 			BaseItem item = items[i];
-			
+
 			if(item.expires < time)
 			{
 				BaseItem swap = items[--itemCount];
@@ -391,16 +392,16 @@ public partial class DebugDrawMesh
 				mesh.Clear(false);
 				vertexIndex = 0;
 			}
-			
+
 			return;
 		}
-		
+
 		vertices.Clear();
 		colours.Clear();
 		indices.Clear();
 
 		vertexIndex = 0;
-		
+
 		for(int i = itemCount - 1; i >= 0; i--)
 		{
 			items[i].Build(this);
@@ -420,7 +421,7 @@ public partial class DebugDrawMesh
 	public void UpdateMesh(Mesh mesh)
 	{
 		mesh.Clear(false);
-		
+
 		if (vertexIndex > 0)
 		{
 			mesh.SetVertices(vertices);
@@ -443,8 +444,7 @@ public partial class DebugDrawMesh
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Index -- */
-	
-	
+
 	/// <summary>
 	/// Adds an index, incrementing <see cref="vertexIndex"/>
 	/// </summary>
@@ -463,8 +463,8 @@ public partial class DebugDrawMesh
 	{
 		indices.Add(index);
 	}
-	
-	
+
+
 	/// <summary>
 	/// Adds two indices, incrementing <see cref="vertexIndex"/>
 	/// </summary>
@@ -474,7 +474,7 @@ public partial class DebugDrawMesh
 		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex++);
 	}
-	
+
 	/// <summary>
 	/// Adds three indices, incrementing <see cref="vertexIndex"/>
 	/// </summary>
@@ -485,7 +485,7 @@ public partial class DebugDrawMesh
 		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex++);
 	}
-	
+
 	/// <summary>
 	/// Adds four indices, incrementing <see cref="vertexIndex"/>
 	/// </summary>
@@ -497,7 +497,7 @@ public partial class DebugDrawMesh
 		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex++);
 	}
-	
+
 	/// <summary>
 	/// Add two indices.
 	/// </summary>
@@ -507,7 +507,7 @@ public partial class DebugDrawMesh
 		indices.Add(index1);
 		indices.Add(index2);
 	}
-	
+
 	/// <summary>
 	/// Add three indices.
 	/// </summary>
@@ -518,7 +518,7 @@ public partial class DebugDrawMesh
 		indices.Add(index2);
 		indices.Add(index3);
 	}
-	
+
 	/// <summary>
 	/// Add four indices.
 	/// </summary>
@@ -530,7 +530,7 @@ public partial class DebugDrawMesh
 		indices.Add(index3);
 		indices.Add(index4);
 	}
-	
+
 	/// <summary>
 	/// Add six indices.
 	/// </summary>
@@ -544,7 +544,7 @@ public partial class DebugDrawMesh
 		indices.Add(index5);
 		indices.Add(index6);
 	}
-	
+
 	/// <summary>
 	/// Add eight indices.
 	/// </summary>
@@ -570,7 +570,7 @@ public partial class DebugDrawMesh
 	{
 		indices.Add(vertexIndex - fromEnd);
 	}
-	
+
 	/// <summary>
 	/// Adds the indices forming a closed loop of three lines - 0,1 1,2 2,0.
 	/// </summary>
@@ -587,7 +587,7 @@ public partial class DebugDrawMesh
 		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex - 3);
 	}
-	
+
 	/// <summary>
 	/// Adds the indices forming a closed loop of four lines - 0,1 1,2 2,3 3,0.
 	/// </summary>
@@ -610,7 +610,7 @@ public partial class DebugDrawMesh
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Color -- */
-	
+
 	/// <summary>
 	/// Adds a color
 	/// </summary>
@@ -631,7 +631,7 @@ public partial class DebugDrawMesh
 		colours.Add(color);
 		colours.Add(color);
 	}
-	
+
 	/// <summary>
 	/// Adds the same color three times
 	/// </summary>
@@ -643,7 +643,7 @@ public partial class DebugDrawMesh
 		colours.Add(color);
 		colours.Add(color);
 	}
-	
+
 	/// <summary>
 	/// Adds the same for times twice
 	/// </summary>
@@ -691,7 +691,7 @@ public partial class DebugDrawMesh
 			colours.Add(color);
 		}
 	}
-	
+
 	/// <summary>
 	/// Adds the same color three times
 	/// </summary>
@@ -714,7 +714,7 @@ public partial class DebugDrawMesh
 			colours.Add(color);
 		}
 	}
-	
+
 	/// <summary>
 	/// Adds the same color times twice.
 	/// </summary>
@@ -739,7 +739,7 @@ public partial class DebugDrawMesh
 			colours.Add(color);
 		}
 	}
-	
+
 	/// <summary>
 	/// Adds two colors.
 	/// </summary>
@@ -760,7 +760,7 @@ public partial class DebugDrawMesh
 			colours.Add(color2);
 		}
 	}
-	
+
 	/// <summary>
 	/// Adds three colors.
 	/// </summary>
@@ -784,7 +784,7 @@ public partial class DebugDrawMesh
 			colours.Add(color3);
 		}
 	}
-	
+
 	/// <summary>
 	/// Adds four colors.
 	/// </summary>
@@ -836,7 +836,7 @@ public partial class DebugDrawMesh
 	{
 		vertices.Add(new Vector3(x, y, z));
 	}
-	
+
 	/// <summary>
 	/// Adds a vertex with z set to 0
 	/// </summary>
@@ -899,7 +899,7 @@ public partial class DebugDrawMesh
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Vertex * Matrix -- */
-	
+
 	/// <summary>
 	/// Transforms and adds a vertex.
 	/// </summary>
@@ -910,7 +910,7 @@ public partial class DebugDrawMesh
 	{
 		vertices.Add(m.MultiplyPoint3x4(vertex));
 	}
-	
+
 	/// <summary>
 	/// Transforms and adds a vertex.
 	/// </summary>
@@ -923,7 +923,7 @@ public partial class DebugDrawMesh
 	{
 		vertices.Add(m.MultiplyPoint3x4(new Vector3(x, y, z)));
 	}
-	
+
 	/// <summary>
 	/// Transforms and adds a vertex with z set to 0.
 	/// </summary>
@@ -935,7 +935,7 @@ public partial class DebugDrawMesh
 	{
 		vertices.Add(m.MultiplyPoint3x4(new Vector3(x, y)));
 	}
-	
+
 	/// <summary>
 	/// Adds two vertices and indices forming a line
 	/// </summary>
@@ -950,7 +950,7 @@ public partial class DebugDrawMesh
 		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex++);
 	}
-	
+
 	/// <summary>
 	/// Adds and transforms two vertices, color and indices forming a line
 	/// </summary>
@@ -968,7 +968,7 @@ public partial class DebugDrawMesh
 		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex++);
 	}
-	
+
 	/// <summary>
 	/// Adds and transforms two vertices, colors, and indices forming a line
 	/// </summary>
@@ -990,7 +990,7 @@ public partial class DebugDrawMesh
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Vertex * BaseItem.Matrix -- */
-	
+
 	/// <summary>
 	/// Transforms and adds a vertex.
 	/// </summary>
@@ -1001,7 +1001,7 @@ public partial class DebugDrawMesh
 	{
 		vertices.Add(item.hasStateTransform ? item.stateTransform.MultiplyPoint3x4(vertex) : vertex);
 	}
-	
+
 	/// <summary>
 	/// Transforms and adds three vertices.
 	/// </summary>
@@ -1014,18 +1014,18 @@ public partial class DebugDrawMesh
 	{
 		if (item.hasStateTransform)
 		{
-			vertices.Add(item.stateTransform.MultiplyPoint3x4(v1));			
-			vertices.Add(item.stateTransform.MultiplyPoint3x4(v2));			
-			vertices.Add(item.stateTransform.MultiplyPoint3x4(v3));			
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v1));
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v2));
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v3));
 		}
 		else
 		{
-			vertices.Add(v1);			
-			vertices.Add(v2);			
+			vertices.Add(v1);
+			vertices.Add(v2);
 			vertices.Add(v3);
 		}
 	}
-	
+
 	/// <summary>
 	/// Transforms and adds four vertices.
 	/// </summary>
@@ -1039,20 +1039,20 @@ public partial class DebugDrawMesh
 	{
 		if (item.hasStateTransform)
 		{
-			vertices.Add(item.stateTransform.MultiplyPoint3x4(v1));			
-			vertices.Add(item.stateTransform.MultiplyPoint3x4(v2));			
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v1));
+			vertices.Add(item.stateTransform.MultiplyPoint3x4(v2));
 			vertices.Add(item.stateTransform.MultiplyPoint3x4(v3));
 			vertices.Add(item.stateTransform.MultiplyPoint3x4(v4));
 		}
 		else
 		{
-			vertices.Add(v1);			
-			vertices.Add(v2);			
+			vertices.Add(v1);
+			vertices.Add(v2);
 			vertices.Add(v3);
 			vertices.Add(v4);
 		}
 	}
-	
+
 	/// <summary>
 	/// Transforms and adds a vertex.
 	/// </summary>
@@ -1067,7 +1067,7 @@ public partial class DebugDrawMesh
 			? item.stateTransform.MultiplyPoint3x4(new Vector3(x, y, z))
 			: new Vector3(x, y, z));
 	}
-	
+
 	/// <summary>
 	/// Transforms and adds a vertex with z set to 0.
 	/// </summary>
@@ -1081,7 +1081,7 @@ public partial class DebugDrawMesh
 			? item.stateTransform.MultiplyPoint3x4(new Vector3(x, y))
 			: new Vector3(x, y));
 	}
-	
+
 	/// <summary>
 	/// Adds two vertices and indices forming a line
 	/// </summary>
@@ -1096,7 +1096,7 @@ public partial class DebugDrawMesh
 		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex++);
 	}
-	
+
 	/// <summary>
 	/// Adds and transforms two vertices, color and indices forming a line
 	/// </summary>
@@ -1114,7 +1114,7 @@ public partial class DebugDrawMesh
 		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex++);
 	}
-	
+
 	/// <summary>
 	/// Adds and transforms two vertices, colors, and indices forming a line
 	/// </summary>
@@ -1133,7 +1133,7 @@ public partial class DebugDrawMesh
 		indices.Add(vertexIndex++);
 		indices.Add(vertexIndex++);
 	}
-	
+
 	/// <summary>
 	/// Adds and transforms a list of vertices and colors forming a series of lines.
 	/// </summary>
@@ -1159,7 +1159,7 @@ public partial class DebugDrawMesh
 		List<Color> colours = this.colours;
 		List<int> indices = this.indices;
 		int vertexIndex = this.vertexIndex;
-		
+
 		for (int i = positions.Count - 2; i >= 0; i -= 2)
 		{
 			vertices.Add(hasTransform ? transform.MultiplyPoint3x4(positions[i]) : positions[i]);
@@ -1172,7 +1172,7 @@ public partial class DebugDrawMesh
 
 		this.vertexIndex = vertexIndex;
 	}
-	
+
 	/// <summary>
 	/// Adds and transforms a list of vertices and colors forming a series of points.
 	/// </summary>
@@ -1198,7 +1198,7 @@ public partial class DebugDrawMesh
 		List<Color> colours = this.colours;
 		List<int> indices = this.indices;
 		int vertexIndex = this.vertexIndex;
-		
+
 		for (int i = positions.Count - 1; i >= 0; i--)
 		{
 			vertices.Add(hasTransform ? transform.MultiplyPoint3x4(positions[i]) : positions[i]);
@@ -1208,7 +1208,7 @@ public partial class DebugDrawMesh
 
 		this.vertexIndex = vertexIndex;
 	}
-	
+
 	/* ------------------------------------------------------------------------------------- */
 	#endregion
 	/* ------------------------------------------------------------------------------------- */
