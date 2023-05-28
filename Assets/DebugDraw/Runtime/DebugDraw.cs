@@ -295,13 +295,22 @@ public static partial class DebugDraw
 			UpdateTimerInstanceScene();
 		}
 
-		if (!_enableInEditMode && state == PlayModeStateChange.EnteredEditMode)
+		if (state == PlayModeStateChange.EnteredEditMode)
 		{
-			Clear();
-
-			if (timerInstance)
+			if (_enableInEditMode)
 			{
-				UpdateInstance(null);
+				cam = null;
+				camTransform = null;
+				hasCamera = CameraInitState.Pending;
+			}
+			else
+			{
+				Clear();
+
+				if (timerInstance)
+				{
+					UpdateInstance(null);
+				}
 			}
 		}
 	}
@@ -396,6 +405,7 @@ public static partial class DebugDraw
 		if (!Application.isPlaying)
 		{
 			UpdateCamera();
+			requiresBuild = true;
 		}
 
 		if (requiresBuild && pointMeshInstance != null)
@@ -513,7 +523,7 @@ public static partial class DebugDraw
 		cam = newCam ? newCam : Camera.main;
 
 		#if UNITY_EDITOR
-		if (!Application.isPlaying && !cam)
+		if (!Application.isPlaying)
 		{
 			if (!SceneView.lastActiveSceneView)
 			{
