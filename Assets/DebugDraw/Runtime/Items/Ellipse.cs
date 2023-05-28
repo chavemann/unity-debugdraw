@@ -667,7 +667,7 @@ namespace DebugDrawItems
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static int DefaultAutoResolution(float distance, float radius)
 		{
-			return DebugDraw.AutoResolution(distance, radius, 4, 64, 128);
+			return DebugDraw.AutoResolution(distance, radius, 4, 50, 96);
 		}
 
 		internal override void Release()
