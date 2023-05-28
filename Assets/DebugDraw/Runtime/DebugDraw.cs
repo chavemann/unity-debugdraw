@@ -124,7 +124,16 @@ public static partial class DebugDraw
 			hasColor = value != colorIdentity;
 		}
 	}
-	
+
+	/// <summary>
+	/// The origin of all debug graphics.
+	/// </summary>
+	public static Vector3 globalOrigin = Vector3.zero;
+	/// <summary>
+	/// The global rotation of all debug graphics.
+	/// </summary>
+	public static Quaternion globalRotation = Quaternion.identity;
+
 	/// <summary>
 	/// All item will be transformed by this.
 	/// </summary>
@@ -403,7 +412,7 @@ public static partial class DebugDraw
 		if (mesh.vertexIndex > 0)
 		{
 			Graphics.DrawMesh(
-				mesh.mesh, Vector3.zero, Quaternion.identity, mesh.material,
+				mesh.mesh, globalOrigin, globalRotation, mesh.material,
 				DefaultLayer);
 		}
 	}
