@@ -122,6 +122,14 @@ public static partial class DebugDraw
 			UpdateAttachments();
 			requiresBuild = true;
 			
+			nextGroup = null;
+
+			if (currentGroup != null)
+			{
+				currentGroup = null;
+				GroupStack.Clear();
+			}
+
 			if (LogMessage.hasMessages)
 			{
 				LogMessage.Update();

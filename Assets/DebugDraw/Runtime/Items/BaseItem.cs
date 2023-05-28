@@ -48,6 +48,14 @@ namespace DebugDrawItems
 		/// True if is stateColor not default.
 		/// </summary>
 		internal bool hasStateColor;
+		/// <summary>
+		/// The group this item belongs to.
+		/// </summary>
+		internal string group;
+		/// <summary>
+		/// The index into the groups list where this item is stored.
+		/// </summary>
+		internal int groupListIndex = -1;
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
@@ -130,6 +138,19 @@ namespace DebugDrawItems
 			{
 				mesh?.Remove(this);
 			}
+		}
+
+		/// <summary>
+		/// Sets the group this item belongs to.
+		/// </summary>
+		/// <param name="newGroup"></param>
+		/// <returns></returns>
+		public BaseItem Group(string newGroup)
+		{
+			if (newGroup == group)
+				return this;
+
+			return mesh?.ChangeGroup(this, newGroup) ?? this;
 		}
 
 		/// <summary>

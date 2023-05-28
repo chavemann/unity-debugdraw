@@ -51,6 +51,7 @@ public partial class DebugDrawMesh
 	protected readonly List<BaseItem> items = new List<BaseItem>();
 	private int itemsSize = 1;
 	internal int itemCount;
+	protected readonly Dictionary<string, List<BaseItem>> groups = new();
 
 	/// <summary>
 	/// Tracks the current vertex index during <see cref="Build"/>. Generally don't access directly.
@@ -203,6 +204,59 @@ public partial class DebugDrawMesh
 			
 		items[item.index = itemCount++] = item;
 		item.mesh = this;
+
+		if (DebugDraw.nextGroup != null)
+		{
+			item.group = DebugDraw.nextGroup;
+			DebugDraw.nextGroup = null;
+		}
+		else if (DebugDraw.currentGroup != null)
+		{
+			item.group = DebugDraw.currentGroup;
+		}
+
+		if (item.group != null)
+		{
+			if (!groups.TryGetValue(item.group, out List<BaseItem> groupItems))
+			{
+				groupItems = DebugDraw.GetGroupList();
+				groups.Add(item.group, groupItems);
+			}
+
+			groupItems.Add(item);
+		}
+
+		return item;
+	}
+
+	public T ChangeGroup<T>(T item, string newGroup) where T : BaseItem
+	{
+		List<BaseItem> groupItems;
+
+		if (item.group != null)
+		{
+			if (groups.TryGetValue(item.group, out groupItems))
+			{
+				groupItems[item.groupListIndex] = groupItems[^1];
+				groupItems.RemoveAt(groupItems.Count - 1);
+			}
+
+			item.groupListIndex = -1;
+		}
+
+		item.group = newGroup;
+
+		if (newGroup == null)
+			return item;
+
+		if (!groups.TryGetValue(newGroup, out groupItems))
+		{
+			groupItems = new List<BaseItem>();
+			groups.Add(newGroup, groupItems);
+		}
+
+		item.groupListIndex = groupItems.Count;
+		groupItems.Add(item);
 		return item;
 	}
 	
@@ -219,7 +273,21 @@ public partial class DebugDrawMesh
 		swap.index = item.index;
 		items[item.index] = swap;
 
-		item.Release();
+		if (item.group != null && groups.TryGetValue(item.group, out List<BaseItem> groupItems))
+		{
+			groupItems[item.groupListIndex] = groupItems[^1];
+			groupItems.RemoveAt(groupItems.Count - 1);
+
+			if (groupItems.Count == 0)
+			{
+				DebugDraw.ReleaseGroupList(groupItems);
+				groups.Remove(item.group);
+			}
+
+			item.group = null;
+		}
+
+		ReleaseItem(item);
 	}
 
 	/// <summary>
@@ -229,7 +297,7 @@ public partial class DebugDrawMesh
 	{
 		for (int i = itemCount - 1; i >= 0; i--)
 		{
-			items[i].Release();
+			ReleaseItem(items[i]);
 		}
 
 		itemCount = 0;
@@ -256,6 +324,33 @@ public partial class DebugDrawMesh
 	{
 		Clear();
 		ClearMesh();
+
+		foreach ((string _, List<BaseItem> groupItems) in groups)
+		{
+			DebugDraw.ReleaseGroupList(groupItems);
+			groupItems.Clear();
+		}
+
+		groups.Clear();
+	}
+
+	/// <summary>
+	/// Removes all the items that belong to the given group.
+	/// </summary>
+	/// <param name="group"></param>
+	public void ClearGroup(string group)
+	{
+		if (!groups.TryGetValue(group, out List<BaseItem> groupItems))
+			return;
+
+		foreach (BaseItem item in groupItems)
+		{
+			ReleaseItem(item);
+		}
+
+		groupItems.Clear();
+		DebugDraw.ReleaseGroupList(groupItems);
+		groups.Remove(group);
 	}
 
 	/// <summary>
@@ -274,8 +369,8 @@ public partial class DebugDrawMesh
 				BaseItem swap = items[--itemCount];
 				swap.index = i;
 				items[i] = swap;
-				
-				item.Release();
+
+				ReleaseItem(item);
 			}
 		}
 	}
@@ -333,7 +428,15 @@ public partial class DebugDrawMesh
 			mesh.SetIndices(indices, type, 0);
 		}
 	}
-	
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	private static void ReleaseItem(BaseItem item)
+	{
+		item.group = null;
+		item.groupListIndex = -1;
+		item.Release();
+	}
+
 	/* ------------------------------------------------------------------------------------- */
 	#region >> Utility Methods <<
 	/* ------------------------------------------------------------------------------------- */

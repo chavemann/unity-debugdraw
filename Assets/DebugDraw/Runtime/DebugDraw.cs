@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using DebugDrawAttachments;
-using DebugDrawUtils;
+using DebugDrawItems;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -55,7 +55,10 @@ public static partial class DebugDraw
 	public static Vector3 forward = Vector3.forward;
 	public static Vector3 back = Vector3.back;
 
-	private static readonly List<BaseAttachment> Attachments = new List<BaseAttachment>();
+	private static readonly List<List<BaseItem>> GroupListPool = new();
+	private static int groupListPoolSize = 2;
+
+	private static readonly List<BaseAttachment> Attachments = new();
 	private static int attachmentCount;
 	private static int attachmentListSize;
 	internal static DebugDrawMesh pointMeshInstance;
@@ -78,6 +81,9 @@ public static partial class DebugDraw
 	internal static bool hasTransform;
 	private static readonly List<DebugDrawState> States = new List<DebugDrawState>();
 	private static int stateIndex;
+	internal static string nextGroup;
+	internal static string currentGroup;
+	internal static readonly List<string> GroupStack = new();
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Public -- */
@@ -209,6 +215,11 @@ public static partial class DebugDraw
 	{
 		TextStyle.normal.textColor = Color.white;
 		TextStyle.fontSize = 14;
+
+		for (int i = 0; i < groupListPoolSize; i++)
+		{
+			GroupListPool.Add(new List<BaseItem>());
+		}
 	}
 
 	#if DEBUG_DRAW
@@ -562,6 +573,23 @@ public static partial class DebugDraw
 	}
 
 	/// <summary>
+	/// Removes al items that belong to the given group.
+	/// </summary>
+	/// <param name="group"></param>
+	public static void ClearGroup(string group)
+	{
+		if (group == null)
+			return;
+
+		if (pointMeshInstance == null)
+			return;
+
+		pointMeshInstance.ClearGroup(group);
+		lineMeshInstance.ClearGroup(group);
+		triangleMeshInstance.ClearGroup(group);
+	}
+
+	/// <summary>
 	/// Sets the blend mode to invert destination colors for all debug visuals
 	/// </summary>
 	/// <param name="invert">True to invert colours.</param>
@@ -642,6 +670,57 @@ public static partial class DebugDraw
 		hasTransform = state.hasTransform;
 	}
 
+	/// <summary>
+	/// Sets the current group all new items after this call are added to. This can be used to group and clear specific groups of items.
+	/// Be sure to call a matching <see cref="EndGroup"/> for each call to <see cref="BeginGroup"/>.<br/>
+	/// An item will only be added to the group specified by the last call to this method, but nested calls to Begin/End are supported without issues.<br/>
+	/// If <see cref="NextGroup"/> is set, that will take precedence.<br/>
+	/// Groups are cleared at the start of each frame so failing to call <see cref="EndGroup"/> will not cause a memory leak.
+	/// </summary>
+	/// <param name="group">The group name. Empty strings are ignored,
+	///		and calling this multiple times in a row with the same name will have no effect.</param>
+	public static void BeginGroup(string group)
+	{
+		if (group == null)
+			return;
+		if (GroupStack.Count > 0 && group == GroupStack[^1])
+			return;
+
+		GroupStack.Add(group);
+		currentGroup = group;
+	}
+
+	/// <summary>
+	/// Ends the previous group.
+	/// </summary>
+	public static void EndGroup()
+	{
+		if (currentGroup == null)
+			return;
+
+		if (GroupStack.Count > 1)
+		{
+			currentGroup = GroupStack[^1];
+			GroupStack.RemoveAt(GroupStack.Count - 1);
+		}
+		else
+		{
+			currentGroup = null;
+			GroupStack.Clear();
+		}
+	}
+
+	/// <summary>
+	/// If not empty, only the next item add/drawn will be added to this group.<br/>
+	/// Alternatively <see cref="BaseItem.Group"/> can be called to change individual items.<br/>
+	///   e.g. `DebugDraw.Line(...).Group("MyGroupName");`
+	/// </summary>
+	/// <param name="group"></param>
+	public static void NextGroup(string group)
+	{
+		nextGroup = group;
+	}
+
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float GetTime()
 	{
@@ -710,6 +789,30 @@ public static partial class DebugDraw
 				attachment.Release();
 			}
 		}
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	internal static List<BaseItem> GetGroupList()
+	{
+		return groupListPoolSize == 0
+			? new List<BaseItem>(64)
+			: GroupListPool[--groupListPoolSize];
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	internal static void ReleaseGroupList(List<BaseItem> groupList)
+	{
+		if (groupListPoolSize >= GroupListPool.Count)
+		{
+			int newSize = groupListPoolSize * 2;
+
+			for (int i = GroupListPool.Count; i < newSize; i++)
+			{
+				GroupListPool.Add(null);
+			}
+		}
+
+		GroupListPool[groupListPoolSize++] = groupList;
 	}
 
 	/* ------------------------------------------------------------------------------------- */
