@@ -1,0 +1,1547 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.Cone
+  commentId: T:DebugDrawUtils.DebugDrawItems.Cone
+  id: Cone
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.Cone.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawUtils.DebugDrawItems.Cone.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cone.GetEndPosition
+  - DebugDrawUtils.DebugDrawItems.Cone.GetStartPosition
+  - DebugDrawUtils.DebugDrawItems.Cone.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cone.SetAngle(System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cone.SetDirection(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.Cone.SetEndPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.Cone.SetLength(System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cone.SetOrigin(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.Cone.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.Cone.SetStartPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.Cone.SetUp(System.Nullable{UnityEngine.Vector3})
+  - DebugDrawUtils.DebugDrawItems.Cone.angle
+  - DebugDrawUtils.DebugDrawItems.Cone.direction
+  - DebugDrawUtils.DebugDrawItems.Cone.drawCap
+  - DebugDrawUtils.DebugDrawItems.Cone.length
+  - DebugDrawUtils.DebugDrawItems.Cone.round
+  - DebugDrawUtils.DebugDrawItems.Cone.segments
+  - DebugDrawUtils.DebugDrawItems.Cone.up
+  - DebugDrawUtils.DebugDrawItems.Cone.wireframe
+  langs:
+  - csharp
+  - vb
+  name: Cone
+  nameWithType: Cone
+  fullName: DebugDrawUtils.DebugDrawItems.Cone
+  type: Class
+  source:
+    id: Cone
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 11
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a wireframe cone.
+  example: []
+  syntax:
+    content: 'public class Cone : BasePointItem, IAttachablePoint, IAttachableLine'
+    content.vb: Public Class Cone Inherits BasePointItem Implements IAttachablePoint, IAttachableLine
+  inheritance:
+  - System.Object
+  - DebugDrawUtils.DebugDrawItems.BaseItem
+  - DebugDrawUtils.DebugDrawItems.BasePointItem
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  inheritedMembers:
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.color
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+- uid: DebugDrawUtils.DebugDrawItems.Cone.direction
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cone.direction
+  id: direction
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: direction
+  nameWithType: Cone.direction
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.direction
+  type: Field
+  source:
+    id: direction
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 18
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The direction the cone.
+  example: []
+  syntax:
+    content: public Vector3 direction
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public direction As Vector3
+- uid: DebugDrawUtils.DebugDrawItems.Cone.length
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cone.length
+  id: length
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: length
+  nameWithType: Cone.length
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.length
+  type: Field
+  source:
+    id: length
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 22
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The length of the cone.
+  example: []
+  syntax:
+    content: public float length
+    return:
+      type: System.Single
+    content.vb: Public length As Single
+- uid: DebugDrawUtils.DebugDrawItems.Cone.angle
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cone.angle
+  id: angle
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: angle
+  nameWithType: Cone.angle
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.angle
+  type: Field
+  source:
+    id: angle
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 26
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The angle of the cone.
+  example: []
+  syntax:
+    content: public float angle
+    return:
+      type: System.Single
+    content.vb: Public angle As Single
+- uid: DebugDrawUtils.DebugDrawItems.Cone.round
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cone.round
+  id: round
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: round
+  nameWithType: Cone.round
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.round
+  type: Field
+  source:
+    id: round
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 31
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    If true, the length is treated as the radius of the cone.
+
+    If false the length is the distance from the origin to the centre of the cones cap.
+  example: []
+  syntax:
+    content: public bool round
+    return:
+      type: System.Boolean
+    content.vb: Public round As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Cone.drawCap
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cone.drawCap
+  id: drawCap
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: drawCap
+  nameWithType: Cone.drawCap
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.drawCap
+  type: Field
+  source:
+    id: drawCap
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 36
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    Should a cap be drawn on the cone.
+
+    When round is true the cap will be made up of two arcs, otherwise two perpendicular lines.
+  example: []
+  syntax:
+    content: public bool drawCap
+    return:
+      type: System.Boolean
+    content.vb: Public drawCap As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Cone.segments
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cone.segments
+  id: segments
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: segments
+  nameWithType: Cone.segments
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.segments
+  type: Field
+  source:
+    id: segments
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 40
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The resolution of the cone. If set to zero will be adjusted based on the distance to the camera.
+  example: []
+  syntax:
+    content: public int segments
+    return:
+      type: System.Int32
+    content.vb: Public segments As Integer
+- uid: DebugDrawUtils.DebugDrawItems.Cone.up
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cone.up
+  id: up
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: up
+  nameWithType: Cone.up
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.up
+  type: Field
+  source:
+    id: up
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 45
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    The up vector used to orient the cone if <xref href="DebugDrawUtils.DebugDrawItems.Cone.direction" data-throw-if-not-resolved="false"></xref> is considered the forward vector.
+
+    If null, an arbitrary axis will be chosen.
+  example: []
+  syntax:
+    content: public Vector3? up
+    return:
+      type: System.Nullable{UnityEngine.Vector3}
+    content.vb: Public up As Vector3?
+- uid: DebugDrawUtils.DebugDrawItems.Cone.wireframe
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cone.wireframe
+  id: wireframe
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: wireframe
+  nameWithType: Cone.wireframe
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.wireframe
+  type: Field
+  source:
+    id: wireframe
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 49
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: If true draw a full wireframe cone, otherwise draw an approximation shell.
+  example: []
+  syntax:
+    content: public bool wireframe
+    return:
+      type: System.Boolean
+    content.vb: Public wireframe As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Cone.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Boolean,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector3, float, float, ref Color, int, bool, bool, float)
+  nameWithType: Cone.Get(ref Vector3, ref Vector3, float, float, ref Color, int, bool, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, float, ref UnityEngine.Color, int, bool, bool, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 69
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a cone shell.
+  example: []
+  syntax:
+    content: public static Cone Get(ref Vector3 origin, ref Vector3 direction, float length, float angle, ref Color color, int segments = 32, bool round = false, bool drawCap = false, float duration = 0)
+    parameters:
+    - id: origin
+      type: UnityEngine.Vector3
+      description: The origin point of the cone.
+    - id: direction
+      type: UnityEngine.Vector3
+      description: The direction the cone.
+    - id: length
+      type: System.Single
+      description: The length of the cone.
+    - id: angle
+      type: System.Single
+      description: The angle of the cone.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the cone.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the cone. If set to zero will be adjusted based on the distance to the camera.
+    - id: round
+      type: System.Boolean
+      description: >-
+        If true, the length is treated as the radius of the cone.
+            If false the length is the distance from the origin to the centre of the cones cap.
+    - id: drawCap
+      type: System.Boolean
+      description: >-
+        Should a cap be drawn on the cone.
+            When round is true the cap will be made up of two arcs, otherwise two perpendicular lines.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cone
+      description: The Cylinder object.
+    content.vb: Public Shared Function [Get](origin As Vector3, direction As Vector3, length As Single, angle As Single, color As Color, segments As Integer = 32, round As Boolean = False, drawCap As Boolean = False, duration As Single = 0) As Cone
+  overload: DebugDrawUtils.DebugDrawItems.Cone.Get*
+  nameWithType.vb: Cone.Get(Vector3, Vector3, Single, Single, Color, Integer, Boolean, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cone.Get(UnityEngine.Vector3, UnityEngine.Vector3, Single, Single, UnityEngine.Color, Integer, Boolean, Boolean, Single)
+  name.vb: Get(Vector3, Vector3, Single, Single, Color, Integer, Boolean, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cone.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Boolean,System.Single)
+  id: GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: GetWire(ref Vector3, ref Vector3, float, float, ref Color, int, bool, bool, float)
+  nameWithType: Cone.GetWire(ref Vector3, ref Vector3, float, float, ref Color, int, bool, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.GetWire(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, float, ref UnityEngine.Color, int, bool, bool, float)
+  type: Method
+  source:
+    id: GetWire
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 103
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a full wireframe cone.
+  example: []
+  syntax:
+    content: public static Cone GetWire(ref Vector3 origin, ref Vector3 direction, float length, float angle, ref Color color, int segments = 32, bool round = false, bool drawCap = false, float duration = 0)
+    parameters:
+    - id: origin
+      type: UnityEngine.Vector3
+      description: The origin point of the cone.
+    - id: direction
+      type: UnityEngine.Vector3
+      description: The direction the cone.
+    - id: length
+      type: System.Single
+      description: The length of the cone.
+    - id: angle
+      type: System.Single
+      description: The angle of the cone.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the cone.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the cone. If set to zero will be adjusted based on the distance to the camera.
+    - id: round
+      type: System.Boolean
+      description: >-
+        If true, the length is treated as the radius of the cone.
+            If false the length is the distance from the origin to the centre of the cones cap.
+    - id: drawCap
+      type: System.Boolean
+      description: >-
+        Should a cap be drawn on the cone.
+            When round is true the cap will be made up of two arcs, otherwise two perpendicular lines.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cone
+      description: The Cylinder object.
+    content.vb: Public Shared Function GetWire(origin As Vector3, direction As Vector3, length As Single, angle As Single, color As Color, segments As Integer = 32, round As Boolean = False, drawCap As Boolean = False, duration As Single = 0) As Cone
+  overload: DebugDrawUtils.DebugDrawItems.Cone.GetWire*
+  nameWithType.vb: Cone.GetWire(Vector3, Vector3, Single, Single, Color, Integer, Boolean, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cone.GetWire(UnityEngine.Vector3, UnityEngine.Vector3, Single, Single, UnityEngine.Color, Integer, Boolean, Boolean, Single)
+  name.vb: GetWire(Vector3, Vector3, Single, Single, Color, Integer, Boolean, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cone.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  id: AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  nameWithType: Cone.AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.AttachTo(DebugDrawUtils.GameObjectOrTransform, DebugDrawUtils.GameObjectOrTransform)
+  type: Method
+  source:
+    id: AttachTo
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 112
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    Attach this item to one or more GameObjects. This item and it's attachment will automatically expire
+
+    if any of the attached objects are destroyed.
+  example: []
+  syntax:
+    content: public LineAttachment AttachTo(GameObjectOrTransform startObj, GameObjectOrTransform endObj)
+    parameters:
+    - id: startObj
+      type: DebugDrawUtils.GameObjectOrTransform
+      description: The object the start of the lines is attached to.
+    - id: endObj
+      type: DebugDrawUtils.GameObjectOrTransform
+      description: The object the end of the lines is attached to.
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+      description: ''
+    content.vb: Public Function AttachTo(startObj As GameObjectOrTransform, endObj As GameObjectOrTransform) As LineAttachment
+  overload: DebugDrawUtils.DebugDrawItems.Cone.AttachTo*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetOrigin(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.SetOrigin(UnityEngine.Vector3)
+  id: SetOrigin(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: SetOrigin(Vector3)
+  nameWithType: Cone.SetOrigin(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetOrigin(UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetOrigin
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 130
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets the cone's origin point.
+  example: []
+  syntax:
+    content: public Cone SetOrigin(Vector3 origin)
+    parameters:
+    - id: origin
+      type: UnityEngine.Vector3
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cone
+      description: ''
+    content.vb: Public Function SetOrigin(origin As Vector3) As Cone
+  overload: DebugDrawUtils.DebugDrawItems.Cone.SetOrigin*
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetDirection(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.SetDirection(UnityEngine.Vector3)
+  id: SetDirection(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: SetDirection(Vector3)
+  nameWithType: Cone.SetDirection(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetDirection(UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetDirection
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 142
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets the cone's direction.
+  example: []
+  syntax:
+    content: public Cone SetDirection(Vector3 direction)
+    parameters:
+    - id: direction
+      type: UnityEngine.Vector3
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cone
+      description: ''
+    content.vb: Public Function SetDirection(direction As Vector3) As Cone
+  overload: DebugDrawUtils.DebugDrawItems.Cone.SetDirection*
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetAngle(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.SetAngle(System.Single)
+  id: SetAngle(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: SetAngle(float)
+  nameWithType: Cone.SetAngle(float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetAngle(float)
+  type: Method
+  source:
+    id: SetAngle
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 154
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets the cone's angle.
+  example: []
+  syntax:
+    content: public Cone SetAngle(float angle)
+    parameters:
+    - id: angle
+      type: System.Single
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cone
+      description: ''
+    content.vb: Public Function SetAngle(angle As Single) As Cone
+  overload: DebugDrawUtils.DebugDrawItems.Cone.SetAngle*
+  nameWithType.vb: Cone.SetAngle(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cone.SetAngle(Single)
+  name.vb: SetAngle(Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetLength(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.SetLength(System.Single)
+  id: SetLength(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: SetLength(float)
+  nameWithType: Cone.SetLength(float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetLength(float)
+  type: Method
+  source:
+    id: SetLength
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 166
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets the cone's length.
+  example: []
+  syntax:
+    content: public Cone SetLength(float length)
+    parameters:
+    - id: length
+      type: System.Single
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cone
+      description: ''
+    content.vb: Public Function SetLength(length As Single) As Cone
+  overload: DebugDrawUtils.DebugDrawItems.Cone.SetLength*
+  nameWithType.vb: Cone.SetLength(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cone.SetLength(Single)
+  name.vb: SetLength(Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  id: SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: SetPositions(Vector3, Vector3)
+  nameWithType: Cone.SetPositions(Vector3, Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetPositions(UnityEngine.Vector3, UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetPositions
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 173
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets this item's position.
+  example: []
+  syntax:
+    content: public void SetPositions(Vector3 start, Vector3 end)
+    parameters:
+    - id: start
+      type: UnityEngine.Vector3
+      description: The new start position
+    - id: end
+      type: UnityEngine.Vector3
+      description: The new end position
+    content.vb: Public Sub SetPositions(start As Vector3, [end] As Vector3)
+  overload: DebugDrawUtils.DebugDrawItems.Cone.SetPositions*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetStartPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.SetStartPosition(UnityEngine.Vector3)
+  id: SetStartPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: SetStartPosition(Vector3)
+  nameWithType: Cone.SetStartPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetStartPosition(UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetStartPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 184
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets this item's start position.
+  example: []
+  syntax:
+    content: public void SetStartPosition(Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The new start position
+    content.vb: Public Sub SetStartPosition(position As Vector3)
+  overload: DebugDrawUtils.DebugDrawItems.Cone.SetStartPosition*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetEndPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.SetEndPosition(UnityEngine.Vector3)
+  id: SetEndPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: SetEndPosition(Vector3)
+  nameWithType: Cone.SetEndPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetEndPosition(UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetEndPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 189
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets this item's end position.
+  example: []
+  syntax:
+    content: public void SetEndPosition(Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The new end position
+    content.vb: Public Sub SetEndPosition(position As Vector3)
+  overload: DebugDrawUtils.DebugDrawItems.Cone.SetEndPosition*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawItems.Cone.GetStartPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.GetStartPosition
+  id: GetStartPosition
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: GetStartPosition()
+  nameWithType: Cone.GetStartPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.GetStartPosition()
+  type: Method
+  source:
+    id: GetStartPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 194
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Gets this item's start position.
+  example: []
+  syntax:
+    content: public Vector3 GetStartPosition()
+    return:
+      type: UnityEngine.Vector3
+      description: ''
+    content.vb: Public Function GetStartPosition() As Vector3
+  overload: DebugDrawUtils.DebugDrawItems.Cone.GetStartPosition*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+- uid: DebugDrawUtils.DebugDrawItems.Cone.GetEndPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.GetEndPosition
+  id: GetEndPosition
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: GetEndPosition()
+  nameWithType: Cone.GetEndPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.GetEndPosition()
+  type: Method
+  source:
+    id: GetEndPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 199
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Gets this item's end position.
+  example: []
+  syntax:
+    content: public Vector3 GetEndPosition()
+    return:
+      type: UnityEngine.Vector3
+      description: ''
+    content.vb: Public Function GetEndPosition() As Vector3
+  overload: DebugDrawUtils.DebugDrawItems.Cone.GetEndPosition*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetUp(System.Nullable{UnityEngine.Vector3})
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cone.SetUp(System.Nullable{UnityEngine.Vector3})
+  id: SetUp(System.Nullable{UnityEngine.Vector3})
+  parent: DebugDrawUtils.DebugDrawItems.Cone
+  langs:
+  - csharp
+  - vb
+  name: SetUp(Vector3?)
+  nameWithType: Cone.SetUp(Vector3?)
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetUp(UnityEngine.Vector3?)
+  type: Method
+  source:
+    id: SetUp
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cone.cs
+    startLine: 212
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets the up vector used to orient the cone.
+  example: []
+  syntax:
+    content: public Cone SetUp(Vector3? up)
+    parameters:
+    - id: up
+      type: System.Nullable{UnityEngine.Vector3}
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cone
+      description: ''
+    content.vb: Public Function SetUp(up As Vector3?) As Cone
+  overload: DebugDrawUtils.DebugDrawItems.Cone.SetUp*
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BasePointItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html
+  name: BasePointItem
+  nameWithType: BasePointItem
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.html
+  name: IAttachablePoint
+  nameWithType: IAttachablePoint
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html
+  name: IAttachableLine
+  nameWithType: IAttachableLine
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  commentId: F:DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  name: position
+  nameWithType: BasePointItem.position
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.position
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo(GameObjectOrTransform)
+  nameWithType: BasePointItem.AttachTo(GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  name: SetPosition(Vector3)
+  nameWithType: BasePointItem.SetPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  name: GetPosition()
+  nameWithType: BasePointItem.GetPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.color
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.color
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.color
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  name: SetDuration<T>(float)
+  nameWithType: BaseItem.SetDuration<T>(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration<T>(float)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Of T)(Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  name: SetDuration(float)
+  nameWithType: BaseItem.SetDuration(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(float)
+  nameWithType.vb: BaseItem.SetDuration(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Single)
+  name.vb: SetDuration(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  name: GetColor(ref Color)
+  nameWithType: BaseItem.GetColor(ref Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(ref UnityEngine.Color)
+  nameWithType.vb: BaseItem.GetColor(Color)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  name.vb: GetColor(Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  name: Group(string)
+  nameWithType: BaseItem.Group(string)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Group(string)
+  nameWithType.vb: BaseItem.Group(String)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.Group(String)
+  name.vb: Group(String)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: DebugDrawUtils.DebugDrawItems.Cone.direction
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cone.direction
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.direction
+  name: direction
+  nameWithType: Cone.direction
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.direction
+- uid: System.Nullable{UnityEngine.Vector3}
+  commentId: T:System.Nullable{UnityEngine.Vector3}
+  parent: System
+  definition: System.Nullable`1
+  name: Vector3?
+  nameWithType: Vector3?
+  fullName: UnityEngine.Vector3?
+  spec.csharp:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '?'
+  spec.vb:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Cone.Get*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.Get
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Boolean,System.Single)
+  name: Get
+  nameWithType: Cone.Get
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.Get
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: DebugDrawUtils.DebugDrawItems.Cone
+  commentId: T:DebugDrawUtils.DebugDrawItems.Cone
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Cone.html
+  name: Cone
+  nameWithType: Cone
+  fullName: DebugDrawUtils.DebugDrawItems.Cone
+- uid: DebugDrawUtils.DebugDrawItems.Cone.GetWire*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.GetWire
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Boolean,System.Single)
+  name: GetWire
+  nameWithType: Cone.GetWire
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.GetWire
+- uid: DebugDrawUtils.DebugDrawItems.Cone.AttachTo*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.AttachTo
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo
+  nameWithType: Cone.AttachTo
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.AttachTo
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  nameWithType: IAttachableLine.AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform, DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: ','
+  - name: " "
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: ','
+  - name: " "
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+- uid: DebugDrawUtils.GameObjectOrTransform
+  commentId: T:DebugDrawUtils.GameObjectOrTransform
+  parent: DebugDrawUtils
+  href: DebugDrawUtils.GameObjectOrTransform.html
+  name: GameObjectOrTransform
+  nameWithType: GameObjectOrTransform
+  fullName: DebugDrawUtils.GameObjectOrTransform
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.LineAttachment.html
+  name: LineAttachment
+  nameWithType: LineAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+- uid: DebugDrawUtils
+  commentId: N:DebugDrawUtils
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils
+  nameWithType: DebugDrawUtils
+  fullName: DebugDrawUtils
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetOrigin*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.SetOrigin
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.SetOrigin(UnityEngine.Vector3)
+  name: SetOrigin
+  nameWithType: Cone.SetOrigin
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetOrigin
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetDirection*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.SetDirection
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.SetDirection(UnityEngine.Vector3)
+  name: SetDirection
+  nameWithType: Cone.SetDirection
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetDirection
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetAngle*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.SetAngle
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.SetAngle(System.Single)
+  name: SetAngle
+  nameWithType: Cone.SetAngle
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetAngle
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetLength*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.SetLength
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.SetLength(System.Single)
+  name: SetLength
+  nameWithType: Cone.SetLength
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetLength
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetPositions*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.SetPositions
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  name: SetPositions
+  nameWithType: Cone.SetPositions
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetPositions
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  name: SetPositions(Vector3, Vector3)
+  nameWithType: IAttachableLine.SetPositions(Vector3, Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3, UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+    name: SetPositions
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+    name: SetPositions
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetStartPosition*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.SetStartPosition
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.SetStartPosition(UnityEngine.Vector3)
+  name: SetStartPosition
+  nameWithType: Cone.SetStartPosition
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetStartPosition
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  name: SetStartPosition(Vector3)
+  nameWithType: IAttachableLine.SetStartPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+    name: SetStartPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+    name: SetStartPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetEndPosition*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.SetEndPosition
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.SetEndPosition(UnityEngine.Vector3)
+  name: SetEndPosition
+  nameWithType: Cone.SetEndPosition
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetEndPosition
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  name: SetEndPosition(Vector3)
+  nameWithType: IAttachableLine.SetEndPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+    name: SetEndPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+    name: SetEndPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Cone.GetStartPosition*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.GetStartPosition
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.GetStartPosition
+  name: GetStartPosition
+  nameWithType: Cone.GetStartPosition
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.GetStartPosition
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+  name: GetStartPosition()
+  nameWithType: IAttachableLine.GetStartPosition()
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+    name: GetStartPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+    name: GetStartPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Cone.GetEndPosition*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.GetEndPosition
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.GetEndPosition
+  name: GetEndPosition
+  nameWithType: Cone.GetEndPosition
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.GetEndPosition
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+  name: GetEndPosition()
+  nameWithType: IAttachableLine.GetEndPosition()
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+    name: GetEndPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+    name: GetEndPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Cone.SetUp*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cone.SetUp
+  href: DebugDrawUtils.DebugDrawItems.Cone.html#DebugDrawUtils.DebugDrawItems.Cone.SetUp(System.Nullable{UnityEngine.Vector3})
+  name: SetUp
+  nameWithType: Cone.SetUp
+  fullName: DebugDrawUtils.DebugDrawItems.Cone.SetUp

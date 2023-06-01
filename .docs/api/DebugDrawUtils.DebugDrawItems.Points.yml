@@ -1,0 +1,595 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.Points
+  commentId: T:DebugDrawUtils.DebugDrawItems.Points
+  id: Points
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.Points.Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Color},System.Single)
+  - DebugDrawUtils.DebugDrawItems.Points.colors
+  - DebugDrawUtils.DebugDrawItems.Points.positions
+  langs:
+  - csharp
+  - vb
+  name: Points
+  nameWithType: Points
+  fullName: DebugDrawUtils.DebugDrawItems.Points
+  type: Class
+  source:
+    id: Points
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Points.cs
+    startLine: 11
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Multiple points that have no size.
+  example: []
+  syntax:
+    content: 'public class Points : BaseItem'
+    content.vb: Public Class Points Inherits BaseItem
+  inheritance:
+  - System.Object
+  - DebugDrawUtils.DebugDrawItems.BaseItem
+  inheritedMembers:
+  - DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.color
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+- uid: DebugDrawUtils.DebugDrawItems.Points.positions
+  commentId: F:DebugDrawUtils.DebugDrawItems.Points.positions
+  id: positions
+  parent: DebugDrawUtils.DebugDrawItems.Points
+  langs:
+  - csharp
+  - vb
+  name: positions
+  nameWithType: Points.positions
+  fullName: DebugDrawUtils.DebugDrawItems.Points.positions
+  type: Field
+  source:
+    id: positions
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Points.cs
+    startLine: 18
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The positions of the points.
+  example: []
+  syntax:
+    content: public List<Vector3> positions
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Vector3}
+    content.vb: Public positions As List(Of Vector3)
+- uid: DebugDrawUtils.DebugDrawItems.Points.colors
+  commentId: F:DebugDrawUtils.DebugDrawItems.Points.colors
+  id: colors
+  parent: DebugDrawUtils.DebugDrawItems.Points
+  langs:
+  - csharp
+  - vb
+  name: colors
+  nameWithType: Points.colors
+  fullName: DebugDrawUtils.DebugDrawItems.Points.colors
+  type: Field
+  source:
+    id: colors
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Points.cs
+    startLine: 22
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The colors of the points.
+  example: []
+  syntax:
+    content: public List<Color> colors
+    return:
+      type: System.Collections.Generic.List{UnityEngine.Color}
+    content.vb: Public colors As List(Of Color)
+- uid: DebugDrawUtils.DebugDrawItems.Points.Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Color},System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Points.Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Color},System.Single)
+  id: Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Color},System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Points
+  langs:
+  - csharp
+  - vb
+  name: Get(List<Vector3>, List<Color>, float)
+  nameWithType: Points.Get(List<Vector3>, List<Color>, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Points.Get(System.Collections.Generic.List<UnityEngine.Vector3>, System.Collections.Generic.List<UnityEngine.Color>, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Points.cs
+    startLine: 35
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    Batch draw multiple points from a positions and colors array.
+
+    Both arrays must be non-null and of the same size.
+  example: []
+  syntax:
+    content: public static Points Get(List<Vector3> positions, List<Color> colors, float duration = 0)
+    parameters:
+    - id: positions
+      type: System.Collections.Generic.List{UnityEngine.Vector3}
+      description: The positions of the start and end points of each line.
+    - id: colors
+      type: System.Collections.Generic.List{UnityEngine.Color}
+      description: The colors of the start and end points of each line.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Points
+      description: The Line object.
+    content.vb: Public Shared Function [Get](positions As List(Of Vector3), colors As List(Of Color), duration As Single = 0) As Points
+  overload: DebugDrawUtils.DebugDrawItems.Points.Get*
+  nameWithType.vb: Points.Get(List(Of Vector3), List(Of Color), Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Points.Get(System.Collections.Generic.List(Of UnityEngine.Vector3), System.Collections.Generic.List(Of UnityEngine.Color), Single)
+  name.vb: Get(List(Of Vector3), List(Of Color), Single)
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.color
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.color
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.color
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  name: SetDuration<T>(float)
+  nameWithType: BaseItem.SetDuration<T>(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration<T>(float)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Of T)(Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  name: SetDuration(float)
+  nameWithType: BaseItem.SetDuration(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(float)
+  nameWithType.vb: BaseItem.SetDuration(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Single)
+  name.vb: SetDuration(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  name: GetColor(ref Color)
+  nameWithType: BaseItem.GetColor(ref Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(ref UnityEngine.Color)
+  nameWithType.vb: BaseItem.GetColor(Color)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  name.vb: GetColor(Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  name: Group(string)
+  nameWithType: BaseItem.Group(string)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Group(string)
+  nameWithType.vb: BaseItem.Group(String)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.Group(String)
+  name.vb: Group(String)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{UnityEngine.Vector3}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Vector3}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Vector3>
+  nameWithType: List<Vector3>
+  fullName: System.Collections.Generic.List<UnityEngine.Vector3>
+  nameWithType.vb: List(Of Vector3)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Vector3)
+  name.vb: List(Of Vector3)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{UnityEngine.Color}
+  commentId: T:System.Collections.Generic.List{UnityEngine.Color}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Color>
+  nameWithType: List<Color>
+  fullName: System.Collections.Generic.List<UnityEngine.Color>
+  nameWithType.vb: List(Of Color)
+  fullName.vb: System.Collections.Generic.List(Of UnityEngine.Color)
+  name.vb: List(Of Color)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Points.Get*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Points.Get
+  href: DebugDrawUtils.DebugDrawItems.Points.html#DebugDrawUtils.DebugDrawItems.Points.Get(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{UnityEngine.Color},System.Single)
+  name: Get
+  nameWithType: Points.Get
+  fullName: DebugDrawUtils.DebugDrawItems.Points.Get
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: DebugDrawUtils.DebugDrawItems.Points
+  commentId: T:DebugDrawUtils.DebugDrawItems.Points
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Points.html
+  name: Points
+  nameWithType: Points
+  fullName: DebugDrawUtils.DebugDrawItems.Points

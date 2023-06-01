@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+  commentId: T:DebugDrawUtils.DebugDrawItems.DrawArcSegments
+  id: DrawArcSegments
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.DrawArcSegments.Always
+  - DebugDrawUtils.DebugDrawItems.DrawArcSegments.Never
+  - DebugDrawUtils.DebugDrawItems.DrawArcSegments.OpenOnly
+  langs:
+  - csharp
+  - vb
+  name: DrawArcSegments
+  nameWithType: DrawArcSegments
+  fullName: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+  type: Enum
+  source:
+    id: DrawArcSegments
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 702
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Options for how to draw the opening and closing segments (connecting the ends of the arc and the centre) of an arc.
+  example: []
+  syntax:
+    content: public enum DrawArcSegments
+    content.vb: Public Enum DrawArcSegments
+- uid: DebugDrawUtils.DebugDrawItems.DrawArcSegments.Never
+  commentId: F:DebugDrawUtils.DebugDrawItems.DrawArcSegments.Never
+  id: Never
+  parent: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+  langs:
+  - csharp
+  - vb
+  name: Never
+  nameWithType: DrawArcSegments.Never
+  fullName: DebugDrawUtils.DebugDrawItems.DrawArcSegments.Never
+  type: Field
+  source:
+    id: Never
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 707
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Don't connect the centre and arc end points.
+  example: []
+  syntax:
+    content: Never = 0
+    return:
+      type: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+- uid: DebugDrawUtils.DebugDrawItems.DrawArcSegments.Always
+  commentId: F:DebugDrawUtils.DebugDrawItems.DrawArcSegments.Always
+  id: Always
+  parent: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+  langs:
+  - csharp
+  - vb
+  name: Always
+  nameWithType: DrawArcSegments.Always
+  fullName: DebugDrawUtils.DebugDrawItems.DrawArcSegments.Always
+  type: Field
+  source:
+    id: Always
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 711
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Always connect the centre and arc end points.
+  example: []
+  syntax:
+    content: Always = 1
+    return:
+      type: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+- uid: DebugDrawUtils.DebugDrawItems.DrawArcSegments.OpenOnly
+  commentId: F:DebugDrawUtils.DebugDrawItems.DrawArcSegments.OpenOnly
+  id: OpenOnly
+  parent: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+  langs:
+  - csharp
+  - vb
+  name: OpenOnly
+  nameWithType: DrawArcSegments.OpenOnly
+  fullName: DebugDrawUtils.DebugDrawItems.DrawArcSegments.OpenOnly
+  type: Field
+  source:
+    id: OpenOnly
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 715
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Only connect the centre and arc end points when the arc is open, i.e. when the start and end angles are not the same.
+  example: []
+  syntax:
+    content: OpenOnly = 2
+    return:
+      type: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+  commentId: T:DebugDrawUtils.DebugDrawItems.DrawArcSegments
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.DrawArcSegments.html
+  name: DrawArcSegments
+  nameWithType: DrawArcSegments
+  fullName: DebugDrawUtils.DebugDrawItems.DrawArcSegments

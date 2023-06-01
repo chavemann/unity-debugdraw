@@ -1,0 +1,860 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.Axes
+  commentId: T:DebugDrawUtils.DebugDrawItems.Axes
+  id: Axes
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.Axes.Get(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Axes.Get(UnityEngine.Vector3@,UnityEngine.Quaternion@,UnityEngine.Vector3@,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Axes.SetColours(UnityEngine.Color)
+  - DebugDrawUtils.DebugDrawItems.Axes.SetColours(UnityEngine.Color,UnityEngine.Color,UnityEngine.Color)
+  - DebugDrawUtils.DebugDrawItems.Axes.doubleSided
+  - DebugDrawUtils.DebugDrawItems.Axes.rotation
+  - DebugDrawUtils.DebugDrawItems.Axes.size
+  - DebugDrawUtils.DebugDrawItems.Axes.xColor
+  - DebugDrawUtils.DebugDrawItems.Axes.yColor
+  - DebugDrawUtils.DebugDrawItems.Axes.zColor
+  langs:
+  - csharp
+  - vb
+  name: Axes
+  nameWithType: Axes
+  fullName: DebugDrawUtils.DebugDrawItems.Axes
+  type: Class
+  source:
+    id: Axes
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Axes.cs
+    startLine: 10
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a set of axes.
+  example: []
+  syntax:
+    content: 'public class Axes : BasePointItem, IAttachablePoint'
+    content.vb: Public Class Axes Inherits BasePointItem Implements IAttachablePoint
+  inheritance:
+  - System.Object
+  - DebugDrawUtils.DebugDrawItems.BaseItem
+  - DebugDrawUtils.DebugDrawItems.BasePointItem
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  inheritedMembers:
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.color
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+- uid: DebugDrawUtils.DebugDrawItems.Axes.rotation
+  commentId: F:DebugDrawUtils.DebugDrawItems.Axes.rotation
+  id: rotation
+  parent: DebugDrawUtils.DebugDrawItems.Axes
+  langs:
+  - csharp
+  - vb
+  name: rotation
+  nameWithType: Axes.rotation
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.rotation
+  type: Field
+  source:
+    id: rotation
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Axes.cs
+    startLine: 21
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The orientation of the axes.
+  example: []
+  syntax:
+    content: public Quaternion rotation
+    return:
+      type: UnityEngine.Quaternion
+    content.vb: Public rotation As Quaternion
+- uid: DebugDrawUtils.DebugDrawItems.Axes.size
+  commentId: F:DebugDrawUtils.DebugDrawItems.Axes.size
+  id: size
+  parent: DebugDrawUtils.DebugDrawItems.Axes
+  langs:
+  - csharp
+  - vb
+  name: size
+  nameWithType: Axes.size
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.size
+  type: Field
+  source:
+    id: size
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Axes.cs
+    startLine: 25
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The size of each axis. Set to zero to not draw an axis.
+  example: []
+  syntax:
+    content: public Vector3 size
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public size As Vector3
+- uid: DebugDrawUtils.DebugDrawItems.Axes.doubleSided
+  commentId: F:DebugDrawUtils.DebugDrawItems.Axes.doubleSided
+  id: doubleSided
+  parent: DebugDrawUtils.DebugDrawItems.Axes
+  langs:
+  - csharp
+  - vb
+  name: doubleSided
+  nameWithType: Axes.doubleSided
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.doubleSided
+  type: Field
+  source:
+    id: doubleSided
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Axes.cs
+    startLine: 29
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: If true the axis line extends in both directions, other only in the positive.
+  example: []
+  syntax:
+    content: public bool doubleSided
+    return:
+      type: System.Boolean
+    content.vb: Public doubleSided As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Axes.xColor
+  commentId: P:DebugDrawUtils.DebugDrawItems.Axes.xColor
+  id: xColor
+  parent: DebugDrawUtils.DebugDrawItems.Axes
+  langs:
+  - csharp
+  - vb
+  name: xColor
+  nameWithType: Axes.xColor
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.xColor
+  type: Property
+  source:
+    id: xColor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Axes.cs
+    startLine: 33
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The color of the x axis. Defaults to red.
+  example: []
+  syntax:
+    content: public Color xColor { get; set; }
+    parameters: []
+    return:
+      type: UnityEngine.Color
+    content.vb: Public Property xColor As Color
+  overload: DebugDrawUtils.DebugDrawItems.Axes.xColor*
+- uid: DebugDrawUtils.DebugDrawItems.Axes.yColor
+  commentId: F:DebugDrawUtils.DebugDrawItems.Axes.yColor
+  id: yColor
+  parent: DebugDrawUtils.DebugDrawItems.Axes
+  langs:
+  - csharp
+  - vb
+  name: yColor
+  nameWithType: Axes.yColor
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.yColor
+  type: Field
+  source:
+    id: yColor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Axes.cs
+    startLine: 41
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The color of the y axis. Defaults to green.
+  example: []
+  syntax:
+    content: public Color yColor
+    return:
+      type: UnityEngine.Color
+    content.vb: Public yColor As Color
+- uid: DebugDrawUtils.DebugDrawItems.Axes.zColor
+  commentId: F:DebugDrawUtils.DebugDrawItems.Axes.zColor
+  id: zColor
+  parent: DebugDrawUtils.DebugDrawItems.Axes
+  langs:
+  - csharp
+  - vb
+  name: zColor
+  nameWithType: Axes.zColor
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.zColor
+  type: Field
+  source:
+    id: zColor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Axes.cs
+    startLine: 45
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The color of the z axis. Defaults to blue.
+  example: []
+  syntax:
+    content: public Color zColor
+    return:
+      type: UnityEngine.Color
+    content.vb: Public zColor As Color
+- uid: DebugDrawUtils.DebugDrawItems.Axes.Get(UnityEngine.Vector3@,UnityEngine.Quaternion@,UnityEngine.Vector3@,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Axes.Get(UnityEngine.Vector3@,UnityEngine.Quaternion@,UnityEngine.Vector3@,System.Boolean,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Quaternion@,UnityEngine.Vector3@,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Axes
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Quaternion, ref Vector3, bool, float)
+  nameWithType: Axes.Get(ref Vector3, ref Quaternion, ref Vector3, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.Get(ref UnityEngine.Vector3, ref UnityEngine.Quaternion, ref UnityEngine.Vector3, bool, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Axes.cs
+    startLine: 59
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws lines along the x, y, and z axes.
+  example: []
+  syntax:
+    content: public static Axes Get(ref Vector3 position, ref Quaternion rotation, ref Vector3 size, bool doubleSided = false, float duration = 0)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The axes origin.
+    - id: rotation
+      type: UnityEngine.Quaternion
+      description: The orientation of the axes.
+    - id: size
+      type: UnityEngine.Vector3
+      description: The size of each axis. Set to zero to not draw an axis.
+    - id: doubleSided
+      type: System.Boolean
+      description: If true the axis line extends in both directions, other only in the positive.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Axes
+      description: The Axes object.
+    content.vb: Public Shared Function [Get](position As Vector3, rotation As Quaternion, size As Vector3, doubleSided As Boolean = False, duration As Single = 0) As Axes
+  overload: DebugDrawUtils.DebugDrawItems.Axes.Get*
+  nameWithType.vb: Axes.Get(Vector3, Quaternion, Vector3, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Axes.Get(UnityEngine.Vector3, UnityEngine.Quaternion, UnityEngine.Vector3, Boolean, Single)
+  name.vb: Get(Vector3, Quaternion, Vector3, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Axes.Get(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Axes.Get(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Boolean,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Axes
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Quaternion, float, bool, float)
+  nameWithType: Axes.Get(ref Vector3, ref Quaternion, float, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.Get(ref UnityEngine.Vector3, ref UnityEngine.Quaternion, float, bool, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Axes.cs
+    startLine: 84
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws lines along the x, y, and z axes.
+  example: []
+  syntax:
+    content: public static Axes Get(ref Vector3 position, ref Quaternion rotation, float size, bool doubleSided = false, float duration = 0)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The axes origin.
+    - id: rotation
+      type: UnityEngine.Quaternion
+      description: The orientation of the axes.
+    - id: size
+      type: System.Single
+      description: The size of each the axes.
+    - id: doubleSided
+      type: System.Boolean
+      description: If true the axis line extends in both directions, other only in the positive.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Axes
+      description: The Axes object.
+    content.vb: Public Shared Function [Get](position As Vector3, rotation As Quaternion, size As Single, doubleSided As Boolean = False, duration As Single = 0) As Axes
+  overload: DebugDrawUtils.DebugDrawItems.Axes.Get*
+  nameWithType.vb: Axes.Get(Vector3, Quaternion, Single, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Axes.Get(UnityEngine.Vector3, UnityEngine.Quaternion, Single, Boolean, Single)
+  name.vb: Get(Vector3, Quaternion, Single, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Axes.SetColours(UnityEngine.Color)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Axes.SetColours(UnityEngine.Color)
+  id: SetColours(UnityEngine.Color)
+  parent: DebugDrawUtils.DebugDrawItems.Axes
+  langs:
+  - csharp
+  - vb
+  name: SetColours(Color)
+  nameWithType: Axes.SetColours(Color)
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.SetColours(UnityEngine.Color)
+  type: Method
+  source:
+    id: SetColours
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Axes.cs
+    startLine: 108
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets a custom colors for all axis.
+  example: []
+  syntax:
+    content: public Axes SetColours(Color color)
+    parameters:
+    - id: color
+      type: UnityEngine.Color
+      description: The custom color.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Axes
+      description: ''
+    content.vb: Public Function SetColours(color As Color) As Axes
+  overload: DebugDrawUtils.DebugDrawItems.Axes.SetColours*
+- uid: DebugDrawUtils.DebugDrawItems.Axes.SetColours(UnityEngine.Color,UnityEngine.Color,UnityEngine.Color)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Axes.SetColours(UnityEngine.Color,UnityEngine.Color,UnityEngine.Color)
+  id: SetColours(UnityEngine.Color,UnityEngine.Color,UnityEngine.Color)
+  parent: DebugDrawUtils.DebugDrawItems.Axes
+  langs:
+  - csharp
+  - vb
+  name: SetColours(Color, Color, Color)
+  nameWithType: Axes.SetColours(Color, Color, Color)
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.SetColours(UnityEngine.Color, UnityEngine.Color, UnityEngine.Color)
+  type: Method
+  source:
+    id: SetColours
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Axes.cs
+    startLine: 124
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets a custom colors for each axis.
+  example: []
+  syntax:
+    content: public Axes SetColours(Color xColor, Color yColor, Color zColor)
+    parameters:
+    - id: xColor
+      type: UnityEngine.Color
+      description: The custom x axis color.
+    - id: yColor
+      type: UnityEngine.Color
+      description: The custom y axis color.
+    - id: zColor
+      type: UnityEngine.Color
+      description: The custom z axis color.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Axes
+      description: ''
+    content.vb: Public Function SetColours(xColor As Color, yColor As Color, zColor As Color) As Axes
+  overload: DebugDrawUtils.DebugDrawItems.Axes.SetColours*
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BasePointItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html
+  name: BasePointItem
+  nameWithType: BasePointItem
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.html
+  name: IAttachablePoint
+  nameWithType: IAttachablePoint
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  commentId: F:DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  name: position
+  nameWithType: BasePointItem.position
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.position
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo(GameObjectOrTransform)
+  nameWithType: BasePointItem.AttachTo(GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  name: SetPosition(Vector3)
+  nameWithType: BasePointItem.SetPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  name: GetPosition()
+  nameWithType: BasePointItem.GetPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.color
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.color
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.color
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  name: SetDuration<T>(float)
+  nameWithType: BaseItem.SetDuration<T>(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration<T>(float)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Of T)(Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  name: SetDuration(float)
+  nameWithType: BaseItem.SetDuration(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(float)
+  nameWithType.vb: BaseItem.SetDuration(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Single)
+  name.vb: SetDuration(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  name: GetColor(ref Color)
+  nameWithType: BaseItem.GetColor(ref Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(ref UnityEngine.Color)
+  nameWithType.vb: BaseItem.GetColor(Color)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  name.vb: GetColor(Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  name: Group(string)
+  nameWithType: BaseItem.Group(string)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Group(string)
+  nameWithType.vb: BaseItem.Group(String)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.Group(String)
+  name.vb: Group(String)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: UnityEngine.Quaternion
+  commentId: T:UnityEngine.Quaternion
+  parent: UnityEngine
+  isExternal: true
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: UnityEngine.Quaternion
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Axes.xColor*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Axes.xColor
+  href: DebugDrawUtils.DebugDrawItems.Axes.html#DebugDrawUtils.DebugDrawItems.Axes.xColor
+  name: xColor
+  nameWithType: Axes.xColor
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.xColor
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: DebugDrawUtils.DebugDrawItems.Axes.Get*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Axes.Get
+  href: DebugDrawUtils.DebugDrawItems.Axes.html#DebugDrawUtils.DebugDrawItems.Axes.Get(UnityEngine.Vector3@,UnityEngine.Quaternion@,UnityEngine.Vector3@,System.Boolean,System.Single)
+  name: Get
+  nameWithType: Axes.Get
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.Get
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: DebugDrawUtils.DebugDrawItems.Axes
+  commentId: T:DebugDrawUtils.DebugDrawItems.Axes
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Axes.html
+  name: Axes
+  nameWithType: Axes
+  fullName: DebugDrawUtils.DebugDrawItems.Axes
+- uid: DebugDrawUtils.DebugDrawItems.Axes.SetColours*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Axes.SetColours
+  href: DebugDrawUtils.DebugDrawItems.Axes.html#DebugDrawUtils.DebugDrawItems.Axes.SetColours(UnityEngine.Color)
+  name: SetColours
+  nameWithType: Axes.SetColours
+  fullName: DebugDrawUtils.DebugDrawItems.Axes.SetColours

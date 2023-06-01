@@ -1,0 +1,156 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  id: BoxAttachmentSizeUpdate
+  parent: DebugDrawUtils.DebugDrawAttachments
+  children:
+  - DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Any
+  - DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Collider
+  - DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.None
+  - DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Renderer
+  langs:
+  - csharp
+  - vb
+  name: BoxAttachmentSizeUpdate
+  nameWithType: BoxAttachmentSizeUpdate
+  fullName: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  type: Enum
+  source:
+    id: BoxAttachmentSizeUpdate
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BoxAttachment.cs
+    startLine: 126
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: Defines how a BoxAttachment should update the box size.
+  example: []
+  syntax:
+    content: public enum BoxAttachmentSizeUpdate
+    content.vb: Public Enum BoxAttachmentSizeUpdate
+- uid: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.None
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.None
+  id: None
+  parent: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: BoxAttachmentSizeUpdate.None
+  fullName: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.None
+  type: Field
+  source:
+    id: None
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BoxAttachment.cs
+    startLine: 132
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: Don't update the box size.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+- uid: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Collider
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Collider
+  id: Collider
+  parent: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  langs:
+  - csharp
+  - vb
+  name: Collider
+  nameWithType: BoxAttachmentSizeUpdate.Collider
+  fullName: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Collider
+  type: Field
+  source:
+    id: Collider
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BoxAttachment.cs
+    startLine: 137
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: Update the box size to match the attached collider.
+  example: []
+  syntax:
+    content: Collider = 1
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+- uid: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Renderer
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Renderer
+  id: Renderer
+  parent: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  langs:
+  - csharp
+  - vb
+  name: Renderer
+  nameWithType: BoxAttachmentSizeUpdate.Renderer
+  fullName: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Renderer
+  type: Field
+  source:
+    id: Renderer
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BoxAttachment.cs
+    startLine: 142
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: Update the box size to match the attached rendered.
+  example: []
+  syntax:
+    content: Renderer = 2
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+- uid: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Any
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Any
+  id: Any
+  parent: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  langs:
+  - csharp
+  - vb
+  name: Any
+  nameWithType: BoxAttachmentSizeUpdate.Any
+  fullName: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.Any
+  type: Field
+  source:
+    id: Any
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BoxAttachment.cs
+    startLine: 147
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: Will first look for a collider component then rendered.
+  example: []
+  syntax:
+    content: Any = 3
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+references:
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.html
+  name: BoxAttachmentSizeUpdate
+  nameWithType: BoxAttachmentSizeUpdate
+  fullName: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate

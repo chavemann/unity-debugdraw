@@ -1,0 +1,336 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  id: PointAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  children:
+  - DebugDrawUtils.DebugDrawAttachments.PointAttachment.#ctor
+  - DebugDrawUtils.DebugDrawAttachments.PointAttachment.item
+  - DebugDrawUtils.DebugDrawAttachments.PointAttachment.obj
+  - DebugDrawUtils.DebugDrawAttachments.PointAttachment.pointItem
+  langs:
+  - csharp
+  - vb
+  name: PointAttachment
+  nameWithType: PointAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  type: Class
+  source:
+    id: PointAttachment
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\PointAttachment.cs
+    startLine: 11
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: Attaches a debug item to an object.
+  example: []
+  syntax:
+    content: 'public class PointAttachment : BaseAttachment'
+    content.vb: Public Class PointAttachment Inherits BaseAttachment
+  inheritance:
+  - System.Object
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  inheritedMembers:
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+- uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment.obj
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.PointAttachment.obj
+  id: obj
+  parent: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  langs:
+  - csharp
+  - vb
+  name: obj
+  nameWithType: PointAttachment.obj
+  fullName: DebugDrawUtils.DebugDrawAttachments.PointAttachment.obj
+  type: Field
+  source:
+    id: obj
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\PointAttachment.cs
+    startLine: 17
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: The attached object.
+  example: []
+  syntax:
+    content: public readonly AttachmentObject<PointAttachment> obj
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.AttachmentObject{DebugDrawUtils.DebugDrawAttachments.PointAttachment}
+    content.vb: Public ReadOnly obj As AttachmentObject(Of PointAttachment)
+- uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment.item
+  commentId: P:DebugDrawUtils.DebugDrawAttachments.PointAttachment.item
+  id: item
+  parent: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  langs:
+  - csharp
+  - vb
+  name: item
+  nameWithType: PointAttachment.item
+  fullName: DebugDrawUtils.DebugDrawAttachments.PointAttachment.item
+  type: Property
+  source:
+    id: item
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\PointAttachment.cs
+    startLine: 21
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: The Debug item associated with this attachment.
+  example: []
+  syntax:
+    content: public BaseItem item { get; }
+    parameters: []
+    return:
+      type: DebugDrawUtils.DebugDrawItems.BaseItem
+    content.vb: Public Property item As BaseItem
+  overload: DebugDrawUtils.DebugDrawAttachments.PointAttachment.item*
+- uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment.pointItem
+  commentId: P:DebugDrawUtils.DebugDrawAttachments.PointAttachment.pointItem
+  id: pointItem
+  parent: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  langs:
+  - csharp
+  - vb
+  name: pointItem
+  nameWithType: PointAttachment.pointItem
+  fullName: DebugDrawUtils.DebugDrawAttachments.PointAttachment.pointItem
+  type: Property
+  source:
+    id: pointItem
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\PointAttachment.cs
+    startLine: 25
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: The point item associated with this attachment.
+  example: []
+  syntax:
+    content: public IAttachablePoint pointItem { get; }
+    parameters: []
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+    content.vb: Public Property pointItem As IAttachablePoint
+  overload: DebugDrawUtils.DebugDrawAttachments.PointAttachment.pointItem*
+- uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment.#ctor
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.PointAttachment.#ctor
+  id: '#ctor'
+  parent: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  langs:
+  - csharp
+  - vb
+  name: PointAttachment()
+  nameWithType: PointAttachment.PointAttachment()
+  fullName: DebugDrawUtils.DebugDrawAttachments.PointAttachment.PointAttachment()
+  type: Constructor
+  source:
+    id: .ctor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\PointAttachment.cs
+    startLine: 30
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public PointAttachment()
+    content.vb: Public Sub New()
+  overload: DebugDrawUtils.DebugDrawAttachments.PointAttachment.#ctor*
+  nameWithType.vb: PointAttachment.New()
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.PointAttachment.New()
+  name.vb: New()
+references:
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html
+  name: BaseAttachment
+  nameWithType: BaseAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  parent: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  name: vector3Ref
+  nameWithType: BaseAttachment.vector3Ref
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  commentId: P:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  parent: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  name: isAlive
+  nameWithType: BaseAttachment.isAlive
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  parent: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  name: Destroy()
+  nameWithType: BaseAttachment.Destroy()
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+    name: Destroy
+    href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+    name: Destroy
+    href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject{DebugDrawUtils.DebugDrawAttachments.PointAttachment}
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.AttachmentObject{DebugDrawUtils.DebugDrawAttachments.PointAttachment}
+  parent: DebugDrawUtils.DebugDrawAttachments
+  definition: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  name: AttachmentObject<PointAttachment>
+  nameWithType: AttachmentObject<PointAttachment>
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<DebugDrawUtils.DebugDrawAttachments.PointAttachment>
+  nameWithType.vb: AttachmentObject(Of PointAttachment)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of DebugDrawUtils.DebugDrawAttachments.PointAttachment)
+  name.vb: AttachmentObject(Of PointAttachment)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: <
+  - uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+    name: PointAttachment
+    href: DebugDrawUtils.DebugDrawAttachments.PointAttachment.html
+  - name: '>'
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+    name: PointAttachment
+    href: DebugDrawUtils.DebugDrawAttachments.PointAttachment.html
+  - name: )
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  name: AttachmentObject<T>
+  nameWithType: AttachmentObject<T>
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>
+  nameWithType.vb: AttachmentObject(Of T)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T)
+  name.vb: AttachmentObject(Of T)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment.item*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.PointAttachment.item
+  href: DebugDrawUtils.DebugDrawAttachments.PointAttachment.html#DebugDrawUtils.DebugDrawAttachments.PointAttachment.item
+  name: item
+  nameWithType: PointAttachment.item
+  fullName: DebugDrawUtils.DebugDrawAttachments.PointAttachment.item
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment.pointItem*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.PointAttachment.pointItem
+  href: DebugDrawUtils.DebugDrawAttachments.PointAttachment.html#DebugDrawUtils.DebugDrawAttachments.PointAttachment.pointItem
+  name: pointItem
+  nameWithType: PointAttachment.pointItem
+  fullName: DebugDrawUtils.DebugDrawAttachments.PointAttachment.pointItem
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.html
+  name: IAttachablePoint
+  nameWithType: IAttachablePoint
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+- uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment.#ctor*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.PointAttachment.#ctor
+  href: DebugDrawUtils.DebugDrawAttachments.PointAttachment.html#DebugDrawUtils.DebugDrawAttachments.PointAttachment.#ctor
+  name: PointAttachment
+  nameWithType: PointAttachment.PointAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.PointAttachment.PointAttachment
+  nameWithType.vb: PointAttachment.New
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.PointAttachment.New
+  name.vb: New

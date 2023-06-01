@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+  commentId: T:DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+  id: DrawEllipseAxes
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.Always
+  - DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.InsideArc
+  - DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.Never
+  langs:
+  - csharp
+  - vb
+  name: DrawEllipseAxes
+  nameWithType: DrawEllipseAxes
+  fullName: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+  type: Enum
+  source:
+    id: DrawEllipseAxes
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 683
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Options for how to draw axes inside of an Ellipse.
+  example: []
+  syntax:
+    content: public enum DrawEllipseAxes
+    content.vb: Public Enum DrawEllipseAxes
+- uid: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.Never
+  commentId: F:DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.Never
+  id: Never
+  parent: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+  langs:
+  - csharp
+  - vb
+  name: Never
+  nameWithType: DrawEllipseAxes.Never
+  fullName: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.Never
+  type: Field
+  source:
+    id: Never
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 688
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Don't draw.
+  example: []
+  syntax:
+    content: Never = 0
+    return:
+      type: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+- uid: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.Always
+  commentId: F:DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.Always
+  id: Always
+  parent: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+  langs:
+  - csharp
+  - vb
+  name: Always
+  nameWithType: DrawEllipseAxes.Always
+  fullName: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.Always
+  type: Field
+  source:
+    id: Always
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 692
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Always draw.
+  example: []
+  syntax:
+    content: Always = 1
+    return:
+      type: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+- uid: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.InsideArc
+  commentId: F:DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.InsideArc
+  id: InsideArc
+  parent: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+  langs:
+  - csharp
+  - vb
+  name: InsideArc
+  nameWithType: DrawEllipseAxes.InsideArc
+  fullName: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.InsideArc
+  type: Field
+  source:
+    id: InsideArc
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Ellipse.cs
+    startLine: 696
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Only draw an axis if it falls within the arc's range.
+  example: []
+  syntax:
+    content: InsideArc = 2
+    return:
+      type: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+  commentId: T:DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.html
+  name: DrawEllipseAxes
+  nameWithType: DrawEllipseAxes
+  fullName: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes

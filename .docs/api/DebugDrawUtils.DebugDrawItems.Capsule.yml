@@ -1,0 +1,939 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.Capsule
+  commentId: T:DebugDrawUtils.DebugDrawItems.Capsule
+  id: Capsule
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.Capsule.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Capsule.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Capsule.SetForward(System.Nullable{UnityEngine.Vector3})
+  - DebugDrawUtils.DebugDrawItems.Capsule.forward
+  - DebugDrawUtils.DebugDrawItems.Capsule.radius
+  - DebugDrawUtils.DebugDrawItems.Capsule.segments
+  - DebugDrawUtils.DebugDrawItems.Capsule.wireframe
+  langs:
+  - csharp
+  - vb
+  name: Capsule
+  nameWithType: Capsule
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule
+  type: Class
+  source:
+    id: Capsule
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Capsule.cs
+    startLine: 10
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a wireframe capsule.
+  example: []
+  syntax:
+    content: 'public class Capsule : BaseLineItem, IAttachableLine'
+    content.vb: Public Class Capsule Inherits BaseLineItem Implements IAttachableLine
+  inheritance:
+  - System.Object
+  - DebugDrawUtils.DebugDrawItems.BaseItem
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  inheritedMembers:
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  - DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.color
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+- uid: DebugDrawUtils.DebugDrawItems.Capsule.radius
+  commentId: F:DebugDrawUtils.DebugDrawItems.Capsule.radius
+  id: radius
+  parent: DebugDrawUtils.DebugDrawItems.Capsule
+  langs:
+  - csharp
+  - vb
+  name: radius
+  nameWithType: Capsule.radius
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule.radius
+  type: Field
+  source:
+    id: radius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Capsule.cs
+    startLine: 17
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The capsule radius.
+  example: []
+  syntax:
+    content: public float radius
+    return:
+      type: System.Single
+    content.vb: Public radius As Single
+- uid: DebugDrawUtils.DebugDrawItems.Capsule.segments
+  commentId: F:DebugDrawUtils.DebugDrawItems.Capsule.segments
+  id: segments
+  parent: DebugDrawUtils.DebugDrawItems.Capsule
+  langs:
+  - csharp
+  - vb
+  name: segments
+  nameWithType: Capsule.segments
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule.segments
+  type: Field
+  source:
+    id: segments
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Capsule.cs
+    startLine: 21
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The resolution of the capsule. If set to zero will be adjusted based on the distance to the camera.
+  example: []
+  syntax:
+    content: public int segments
+    return:
+      type: System.Int32
+    content.vb: Public segments As Integer
+- uid: DebugDrawUtils.DebugDrawItems.Capsule.forward
+  commentId: F:DebugDrawUtils.DebugDrawItems.Capsule.forward
+  id: forward
+  parent: DebugDrawUtils.DebugDrawItems.Capsule
+  langs:
+  - csharp
+  - vb
+  name: forward
+  nameWithType: Capsule.forward
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule.forward
+  type: Field
+  source:
+    id: forward
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Capsule.cs
+    startLine: 26
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    The forward vector used to orient the capsule if p1 -&gt; p2 is considered the up vector.
+
+    If null, an arbitrary axis will be chosen.
+  example: []
+  syntax:
+    content: public Vector3? forward
+    return:
+      type: System.Nullable{UnityEngine.Vector3}
+    content.vb: Public forward As Vector3?
+- uid: DebugDrawUtils.DebugDrawItems.Capsule.wireframe
+  commentId: F:DebugDrawUtils.DebugDrawItems.Capsule.wireframe
+  id: wireframe
+  parent: DebugDrawUtils.DebugDrawItems.Capsule
+  langs:
+  - csharp
+  - vb
+  name: wireframe
+  nameWithType: Capsule.wireframe
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule.wireframe
+  type: Field
+  source:
+    id: wireframe
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Capsule.cs
+    startLine: 31
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    If true draw a full wireframe capsule, otherwise draw an approximation made
+
+    of circles along each axis.
+  example: []
+  syntax:
+    content: public bool wireframe
+    return:
+      type: System.Boolean
+    content.vb: Public wireframe As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Capsule.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Capsule.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Capsule
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector3, float, ref Color, int, float)
+  nameWithType: Capsule.Get(ref Vector3, ref Vector3, float, ref Color, int, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, ref UnityEngine.Color, int, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Capsule.cs
+    startLine: 46
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a capsule shell.
+  example: []
+  syntax:
+    content: public static Capsule Get(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The center of the capsule at the start of the capsule.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The center of the capsule at the end of the capsule.
+    - id: radius
+      type: System.Single
+      description: The radius of the capsule.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the capsule.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the capsule. If set to zero will be adjusted based on the distance to the camera.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Capsule
+      description: The Capsule object.
+    content.vb: Public Shared Function [Get](p1 As Vector3, p2 As Vector3, radius As Single, color As Color, segments As Integer = 32, duration As Single = 0) As Capsule
+  overload: DebugDrawUtils.DebugDrawItems.Capsule.Get*
+  nameWithType.vb: Capsule.Get(Vector3, Vector3, Single, Color, Integer, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Capsule.Get(UnityEngine.Vector3, UnityEngine.Vector3, Single, UnityEngine.Color, Integer, Single)
+  name.vb: Get(Vector3, Vector3, Single, Color, Integer, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Capsule.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Capsule.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  id: GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Capsule
+  langs:
+  - csharp
+  - vb
+  name: GetWire(ref Vector3, ref Vector3, float, ref Color, int, float)
+  nameWithType: Capsule.GetWire(ref Vector3, ref Vector3, float, ref Color, int, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule.GetWire(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, ref UnityEngine.Color, int, float)
+  type: Method
+  source:
+    id: GetWire
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Capsule.cs
+    startLine: 72
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a full wireframe capsule.
+  example: []
+  syntax:
+    content: public static Capsule GetWire(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The center of the capsule at the start of the capsule.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The center of the capsule at the end of the capsule.
+    - id: radius
+      type: System.Single
+      description: The radius of the capsule.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the capsule.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the capsule. If set to zero will be adjusted based on the distance to the camera.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Capsule
+      description: The Capsule object.
+    content.vb: Public Shared Function GetWire(p1 As Vector3, p2 As Vector3, radius As Single, color As Color, segments As Integer = 32, duration As Single = 0) As Capsule
+  overload: DebugDrawUtils.DebugDrawItems.Capsule.GetWire*
+  nameWithType.vb: Capsule.GetWire(Vector3, Vector3, Single, Color, Integer, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Capsule.GetWire(UnityEngine.Vector3, UnityEngine.Vector3, Single, UnityEngine.Color, Integer, Single)
+  name.vb: GetWire(Vector3, Vector3, Single, Color, Integer, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Capsule.SetForward(System.Nullable{UnityEngine.Vector3})
+  commentId: M:DebugDrawUtils.DebugDrawItems.Capsule.SetForward(System.Nullable{UnityEngine.Vector3})
+  id: SetForward(System.Nullable{UnityEngine.Vector3})
+  parent: DebugDrawUtils.DebugDrawItems.Capsule
+  langs:
+  - csharp
+  - vb
+  name: SetForward(Vector3?)
+  nameWithType: Capsule.SetForward(Vector3?)
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule.SetForward(UnityEngine.Vector3?)
+  type: Method
+  source:
+    id: SetForward
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Capsule.cs
+    startLine: 96
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets The forward vector used to orient the capsule.
+  example: []
+  syntax:
+    content: public Capsule SetForward(Vector3? forward)
+    parameters:
+    - id: forward
+      type: System.Nullable{UnityEngine.Vector3}
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Capsule
+      description: ''
+    content.vb: Public Function SetForward(forward As Vector3?) As Capsule
+  overload: DebugDrawUtils.DebugDrawItems.Capsule.SetForward*
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseLineItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html
+  name: BaseLineItem
+  nameWithType: BaseLineItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html
+  name: IAttachableLine
+  nameWithType: IAttachableLine
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  name: p1
+  nameWithType: BaseLineItem.p1
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  name: p2
+  nameWithType: BaseLineItem.p2
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  name: color2
+  nameWithType: BaseLineItem.color2
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  nameWithType: BaseLineItem.AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform, DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: ','
+  - name: " "
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: ','
+  - name: " "
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  name: SetPositions(Vector3, Vector3)
+  nameWithType: BaseLineItem.SetPositions(Vector3, Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3, UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+    name: SetPositions
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+    name: SetPositions
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  name: SetStartPosition(Vector3)
+  nameWithType: BaseLineItem.SetStartPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+    name: SetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+    name: SetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  name: SetEndPosition(Vector3)
+  nameWithType: BaseLineItem.SetEndPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+    name: SetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+    name: SetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  name: GetStartPosition()
+  nameWithType: BaseLineItem.GetStartPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+    name: GetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+    name: GetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  name: GetEndPosition()
+  nameWithType: BaseLineItem.GetEndPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+    name: GetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+    name: GetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.color
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.color
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.color
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  name: SetDuration<T>(float)
+  nameWithType: BaseItem.SetDuration<T>(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration<T>(float)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Of T)(Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  name: SetDuration(float)
+  nameWithType: BaseItem.SetDuration(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(float)
+  nameWithType.vb: BaseItem.SetDuration(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Single)
+  name.vb: SetDuration(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  name: GetColor(ref Color)
+  nameWithType: BaseItem.GetColor(ref Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(ref UnityEngine.Color)
+  nameWithType.vb: BaseItem.GetColor(Color)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  name.vb: GetColor(Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  name: Group(string)
+  nameWithType: BaseItem.Group(string)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Group(string)
+  nameWithType.vb: BaseItem.Group(String)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.Group(String)
+  name.vb: Group(String)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Nullable{UnityEngine.Vector3}
+  commentId: T:System.Nullable{UnityEngine.Vector3}
+  parent: System
+  definition: System.Nullable`1
+  name: Vector3?
+  nameWithType: Vector3?
+  fullName: UnityEngine.Vector3?
+  spec.csharp:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '?'
+  spec.vb:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Capsule.Get*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Capsule.Get
+  href: DebugDrawUtils.DebugDrawItems.Capsule.html#DebugDrawUtils.DebugDrawItems.Capsule.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  name: Get
+  nameWithType: Capsule.Get
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule.Get
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: DebugDrawUtils.DebugDrawItems.Capsule
+  commentId: T:DebugDrawUtils.DebugDrawItems.Capsule
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Capsule.html
+  name: Capsule
+  nameWithType: Capsule
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: DebugDrawUtils.DebugDrawItems.Capsule.GetWire*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Capsule.GetWire
+  href: DebugDrawUtils.DebugDrawItems.Capsule.html#DebugDrawUtils.DebugDrawItems.Capsule.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  name: GetWire
+  nameWithType: Capsule.GetWire
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule.GetWire
+- uid: DebugDrawUtils.DebugDrawItems.Capsule.SetForward*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Capsule.SetForward
+  href: DebugDrawUtils.DebugDrawItems.Capsule.html#DebugDrawUtils.DebugDrawItems.Capsule.SetForward(System.Nullable{UnityEngine.Vector3})
+  name: SetForward
+  nameWithType: Capsule.SetForward
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule.SetForward

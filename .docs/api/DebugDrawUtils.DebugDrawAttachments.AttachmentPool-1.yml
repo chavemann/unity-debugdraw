@@ -1,0 +1,185 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1
+  id: AttachmentPool`1
+  parent: DebugDrawUtils.DebugDrawAttachments
+  children:
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Get(DebugDrawUtils.DebugDrawItems.BaseItem)
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Release(`0)
+  langs:
+  - csharp
+  - vb
+  name: AttachmentPool<T>
+  nameWithType: AttachmentPool<T>
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentPool<T>
+  type: Class
+  source:
+    id: AttachmentPool
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentPool.cs
+    startLine: 7
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: 'public static class AttachmentPool<T> where T : BaseAttachment, new()'
+    typeParameters:
+    - id: T
+    content.vb: Public Module AttachmentPool(Of T As {BaseAttachment, New})
+  inheritance:
+  - System.Object
+  nameWithType.vb: AttachmentPool(Of T)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentPool(Of T)
+  name.vb: AttachmentPool(Of T)
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Get(DebugDrawUtils.DebugDrawItems.BaseItem)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Get(DebugDrawUtils.DebugDrawItems.BaseItem)
+  id: Get(DebugDrawUtils.DebugDrawItems.BaseItem)
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1
+  langs:
+  - csharp
+  - vb
+  name: Get(BaseItem)
+  nameWithType: AttachmentPool<T>.Get(BaseItem)
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentPool<T>.Get(DebugDrawUtils.DebugDrawItems.BaseItem)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentPool.cs
+    startLine: 22
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public static T Get(BaseItem debugItem)
+    parameters:
+    - id: debugItem
+      type: DebugDrawUtils.DebugDrawItems.BaseItem
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function [Get](debugItem As BaseItem) As T
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Get*
+  nameWithType.vb: AttachmentPool(Of T).Get(BaseItem)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentPool(Of T).Get(DebugDrawUtils.DebugDrawItems.BaseItem)
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Release(`0)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Release(`0)
+  id: Release(`0)
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1
+  langs:
+  - csharp
+  - vb
+  name: Release(T)
+  nameWithType: AttachmentPool<T>.Release(T)
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentPool<T>.Release(T)
+  type: Method
+  source:
+    id: Release
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentPool.cs
+    startLine: 33
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public static void Release(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+    content.vb: Public Shared Sub Release(item As T)
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Release*
+  nameWithType.vb: AttachmentPool(Of T).Release(T)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentPool(Of T).Release(T)
+references:
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Get*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Get
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentPool-1.html#DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Get(DebugDrawUtils.DebugDrawItems.BaseItem)
+  name: Get
+  nameWithType: AttachmentPool<T>.Get
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentPool<T>.Get
+  nameWithType.vb: AttachmentPool(Of T).Get
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentPool(Of T).Get
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Release*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Release
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentPool-1.html#DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1.Release(`0)
+  name: Release
+  nameWithType: AttachmentPool<T>.Release
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentPool<T>.Release
+  nameWithType.vb: AttachmentPool(Of T).Release
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentPool(Of T).Release

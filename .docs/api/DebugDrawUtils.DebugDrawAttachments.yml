@@ -1,0 +1,147 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  id: DebugDrawUtils.DebugDrawAttachments
+  children:
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  - DebugDrawUtils.DebugDrawAttachments.BoxAttachment
+  - DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  - DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  - DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  - DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  langs:
+  - csharp
+  - vb
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  type: Namespace
+  assemblies:
+  - c.DebugDraw.Runtime
+references:
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html
+  name: BaseAttachment
+  nameWithType: BaseAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.LineAttachment.html
+  name: LineAttachment
+  nameWithType: LineAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentPool-1.html
+  name: AttachmentPool<T>
+  nameWithType: AttachmentPool<T>
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentPool<T>
+  nameWithType.vb: AttachmentPool(Of T)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentPool(Of T)
+  name.vb: AttachmentPool(Of T)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1
+    name: AttachmentPool
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentPool-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1
+    name: AttachmentPool
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentPool-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.html
+  name: IAttachablePoint
+  nameWithType: IAttachablePoint
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html
+  name: IAttachableLine
+  nameWithType: IAttachableLine
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  name: AttachmentObject<T>
+  nameWithType: AttachmentObject<T>
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>
+  nameWithType.vb: AttachmentObject(Of T)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T)
+  name.vb: AttachmentObject(Of T)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: DebugDrawUtils.DebugDrawAttachments.BoxAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.BoxAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.BoxAttachment.html
+  name: BoxAttachment
+  nameWithType: BoxAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.BoxAttachment
+- uid: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate.html
+  name: BoxAttachmentSizeUpdate
+  nameWithType: BoxAttachmentSizeUpdate
+  fullName: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+- uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.PointAttachment.html
+  name: PointAttachment
+  nameWithType: PointAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html

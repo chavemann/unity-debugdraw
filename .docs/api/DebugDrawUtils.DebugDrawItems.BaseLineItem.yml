@@ -1,0 +1,888 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseLineItem
+  id: BaseLineItem
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  langs:
+  - csharp
+  - vb
+  name: BaseLineItem
+  nameWithType: BaseLineItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  type: Class
+  source:
+    id: BaseLineItem
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseLineItem.cs
+    startLine: 7
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  syntax:
+    content: 'public abstract class BaseLineItem : BaseItem, IAttachableLine'
+    content.vb: Public MustInherit Class BaseLineItem Inherits BaseItem Implements IAttachableLine
+  inheritance:
+  - System.Object
+  - DebugDrawUtils.DebugDrawItems.BaseItem
+  derivedClasses:
+  - DebugDrawUtils.DebugDrawItems.Capsule
+  - DebugDrawUtils.DebugDrawItems.Cylinder
+  - DebugDrawUtils.DebugDrawItems.Line
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  inheritedMembers:
+  - DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.color
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  id: p1
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  langs:
+  - csharp
+  - vb
+  name: p1
+  nameWithType: BaseLineItem.p1
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  type: Field
+  source:
+    id: p1
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseLineItem.cs
+    startLine: 13
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Start point.
+  example: []
+  syntax:
+    content: public Vector3 p1
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public p1 As Vector3
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  id: p2
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  langs:
+  - csharp
+  - vb
+  name: p2
+  nameWithType: BaseLineItem.p2
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  type: Field
+  source:
+    id: p2
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseLineItem.cs
+    startLine: 17
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: End point.
+  example: []
+  syntax:
+    content: public Vector3 p2
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public p2 As Vector3
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  id: color2
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  langs:
+  - csharp
+  - vb
+  name: color2
+  nameWithType: BaseLineItem.color2
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  type: Field
+  source:
+    id: color2
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseLineItem.cs
+    startLine: 21
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The end point color.
+  example: []
+  syntax:
+    content: public Color color2
+    return:
+      type: UnityEngine.Color
+    content.vb: Public color2 As Color
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  id: AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  langs:
+  - csharp
+  - vb
+  name: AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  nameWithType: BaseLineItem.AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform, DebugDrawUtils.GameObjectOrTransform)
+  type: Method
+  source:
+    id: AttachTo
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseLineItem.cs
+    startLine: 26
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    Attach this item to one or more GameObjects. This item and it's attachment will automatically expire
+
+    if any of the attached objects are destroyed.
+  example: []
+  syntax:
+    content: public LineAttachment AttachTo(GameObjectOrTransform startObj, GameObjectOrTransform endObj)
+    parameters:
+    - id: startObj
+      type: DebugDrawUtils.GameObjectOrTransform
+      description: The object the start of the lines is attached to.
+    - id: endObj
+      type: DebugDrawUtils.GameObjectOrTransform
+      description: The object the end of the lines is attached to.
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+      description: ''
+    content.vb: Public Function AttachTo(startObj As GameObjectOrTransform, endObj As GameObjectOrTransform) As LineAttachment
+  overload: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  id: SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  langs:
+  - csharp
+  - vb
+  name: SetPositions(Vector3, Vector3)
+  nameWithType: BaseLineItem.SetPositions(Vector3, Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3, UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetPositions
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseLineItem.cs
+    startLine: 41
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets this item's position.
+  example: []
+  syntax:
+    content: public void SetPositions(Vector3 start, Vector3 end)
+    parameters:
+    - id: start
+      type: UnityEngine.Vector3
+      description: The new start position
+    - id: end
+      type: UnityEngine.Vector3
+      description: The new end position
+    content.vb: Public Sub SetPositions(start As Vector3, [end] As Vector3)
+  overload: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  id: SetStartPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  langs:
+  - csharp
+  - vb
+  name: SetStartPosition(Vector3)
+  nameWithType: BaseLineItem.SetStartPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetStartPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseLineItem.cs
+    startLine: 47
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets this item's start position.
+  example: []
+  syntax:
+    content: public void SetStartPosition(Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The new start position
+    content.vb: Public Sub SetStartPosition(position As Vector3)
+  overload: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  id: SetEndPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  langs:
+  - csharp
+  - vb
+  name: SetEndPosition(Vector3)
+  nameWithType: BaseLineItem.SetEndPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetEndPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseLineItem.cs
+    startLine: 52
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets this item's end position.
+  example: []
+  syntax:
+    content: public void SetEndPosition(Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The new end position
+    content.vb: Public Sub SetEndPosition(position As Vector3)
+  overload: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  id: GetStartPosition
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  langs:
+  - csharp
+  - vb
+  name: GetStartPosition()
+  nameWithType: BaseLineItem.GetStartPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition()
+  type: Method
+  source:
+    id: GetStartPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseLineItem.cs
+    startLine: 57
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Gets this item's start position.
+  example: []
+  syntax:
+    content: public Vector3 GetStartPosition()
+    return:
+      type: UnityEngine.Vector3
+      description: ''
+    content.vb: Public Function GetStartPosition() As Vector3
+  overload: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  id: GetEndPosition
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  langs:
+  - csharp
+  - vb
+  name: GetEndPosition()
+  nameWithType: BaseLineItem.GetEndPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition()
+  type: Method
+  source:
+    id: GetEndPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\BaseLineItem.cs
+    startLine: 62
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Gets this item's end position.
+  example: []
+  syntax:
+    content: public Vector3 GetEndPosition()
+    return:
+      type: UnityEngine.Vector3
+      description: ''
+    content.vb: Public Function GetEndPosition() As Vector3
+  overload: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition*
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html
+  name: IAttachableLine
+  nameWithType: IAttachableLine
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.color
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.color
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.color
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  name: SetDuration<T>(float)
+  nameWithType: BaseItem.SetDuration<T>(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration<T>(float)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Of T)(Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  name: SetDuration(float)
+  nameWithType: BaseItem.SetDuration(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(float)
+  nameWithType.vb: BaseItem.SetDuration(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Single)
+  name.vb: SetDuration(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  name: GetColor(ref Color)
+  nameWithType: BaseItem.GetColor(ref Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(ref UnityEngine.Color)
+  nameWithType.vb: BaseItem.GetColor(Color)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  name.vb: GetColor(Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  name: Group(string)
+  nameWithType: BaseItem.Group(string)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Group(string)
+  nameWithType.vb: BaseItem.Group(String)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.Group(String)
+  name.vb: Group(String)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo
+  nameWithType: BaseLineItem.AttachTo
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  nameWithType: IAttachableLine.AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform, DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: ','
+  - name: " "
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: ','
+  - name: " "
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+- uid: DebugDrawUtils.GameObjectOrTransform
+  commentId: T:DebugDrawUtils.GameObjectOrTransform
+  parent: DebugDrawUtils
+  href: DebugDrawUtils.GameObjectOrTransform.html
+  name: GameObjectOrTransform
+  nameWithType: GameObjectOrTransform
+  fullName: DebugDrawUtils.GameObjectOrTransform
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.LineAttachment.html
+  name: LineAttachment
+  nameWithType: LineAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+- uid: DebugDrawUtils
+  commentId: N:DebugDrawUtils
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils
+  nameWithType: DebugDrawUtils
+  fullName: DebugDrawUtils
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  name: SetPositions
+  nameWithType: BaseLineItem.SetPositions
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  name: SetPositions(Vector3, Vector3)
+  nameWithType: IAttachableLine.SetPositions(Vector3, Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3, UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+    name: SetPositions
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+    name: SetPositions
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  name: SetStartPosition
+  nameWithType: BaseLineItem.SetStartPosition
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  name: SetStartPosition(Vector3)
+  nameWithType: IAttachableLine.SetStartPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+    name: SetStartPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+    name: SetStartPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetStartPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  name: SetEndPosition
+  nameWithType: BaseLineItem.SetEndPosition
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  name: SetEndPosition(Vector3)
+  nameWithType: IAttachableLine.SetEndPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+    name: SetEndPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+    name: SetEndPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.SetEndPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  name: GetStartPosition
+  nameWithType: BaseLineItem.GetStartPosition
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+  name: GetStartPosition()
+  nameWithType: IAttachableLine.GetStartPosition()
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+    name: GetStartPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+    name: GetStartPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetStartPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  name: GetEndPosition
+  nameWithType: BaseLineItem.GetEndPosition
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+  name: GetEndPosition()
+  nameWithType: IAttachableLine.GetEndPosition()
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+    name: GetEndPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+    name: GetEndPosition
+    href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html#DebugDrawUtils.DebugDrawAttachments.IAttachableLine.GetEndPosition
+  - name: (
+  - name: )

@@ -5,52 +5,52 @@ items:
   id: DebugDrawCamera
   parent: DebugDrawUtils
   children:
-  - DebugDrawUtils.DebugDrawCamera.acceleration
   - DebugDrawUtils.DebugDrawCamera.Awake
-  - DebugDrawUtils.DebugDrawCamera.baseFOV
   - DebugDrawUtils.DebugDrawCamera.CalculateRotation(UnityEngine.Quaternion)
   - DebugDrawUtils.DebugDrawCamera.CalculateSpeedMultiplier
+  - DebugDrawUtils.DebugDrawCamera.CopyFrom(UnityEngine.Camera,System.Boolean,System.Boolean)
+  - DebugDrawUtils.DebugDrawCamera.DoMouseLook
+  - DebugDrawUtils.DebugDrawCamera.DoMovement
+  - DebugDrawUtils.DebugDrawCamera.Init
+  - DebugDrawUtils.DebugDrawCamera.LateUpdate
+  - DebugDrawUtils.DebugDrawCamera.LockCursor(System.Boolean)
+  - DebugDrawUtils.DebugDrawCamera.OnDestroy
+  - DebugDrawUtils.DebugDrawCamera.OnRenderObject
+  - DebugDrawUtils.DebugDrawCamera.Toggle
+  - DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
+  - DebugDrawUtils.DebugDrawCamera.TrackObject(System.Nullable{DebugDrawUtils.GameObjectOrTransform},System.Boolean)
+  - DebugDrawUtils.DebugDrawCamera.UpdateCamera(UnityEngine.Camera,System.Boolean,System.Boolean)
+  - DebugDrawUtils.DebugDrawCamera.acceleration
+  - DebugDrawUtils.DebugDrawCamera.baseFOV
   - DebugDrawUtils.DebugDrawCamera.cam
   - DebugDrawUtils.DebugDrawCamera.camTr
-  - DebugDrawUtils.DebugDrawCamera.CopyFrom(UnityEngine.Camera,System.Boolean,System.Boolean)
   - DebugDrawUtils.DebugDrawCamera.crossHairColor
   - DebugDrawUtils.DebugDrawCamera.crossHairMaterial
   - DebugDrawUtils.DebugDrawCamera.crossHairMesh
   - DebugDrawUtils.DebugDrawCamera.crossHairSize
   - DebugDrawUtils.DebugDrawCamera.currentSpeedPercent
   - DebugDrawUtils.DebugDrawCamera.direction
-  - DebugDrawUtils.DebugDrawCamera.DoMouseLook
-  - DebugDrawUtils.DebugDrawCamera.DoMovement
   - DebugDrawUtils.DebugDrawCamera.drag
   - DebugDrawUtils.DebugDrawCamera.factory
   - DebugDrawUtils.DebugDrawCamera.fastMultiplier
   - DebugDrawUtils.DebugDrawCamera.hasCrossHairMaterial
-  - DebugDrawUtils.DebugDrawCamera.Init
   - DebugDrawUtils.DebugDrawCamera.instance
   - DebugDrawUtils.DebugDrawCamera.isActive
   - DebugDrawUtils.DebugDrawCamera.isLookingAtObj
   - DebugDrawUtils.DebugDrawCamera.isTrackingObj
   - DebugDrawUtils.DebugDrawCamera.lastCamera
-  - DebugDrawUtils.DebugDrawCamera.LateUpdate
-  - DebugDrawUtils.DebugDrawCamera.LockCursor(System.Boolean)
   - DebugDrawUtils.DebugDrawCamera.maxSpeed
   - DebugDrawUtils.DebugDrawCamera.maxSpeedMultiplier
   - DebugDrawUtils.DebugDrawCamera.minSpeedMultiplier
   - DebugDrawUtils.DebugDrawCamera.mouseSensitivity
-  - DebugDrawUtils.DebugDrawCamera.OnDestroy
   - DebugDrawUtils.DebugDrawCamera.onInitCamera
-  - DebugDrawUtils.DebugDrawCamera.OnRenderObject
   - DebugDrawUtils.DebugDrawCamera.onToggle
   - DebugDrawUtils.DebugDrawCamera.rotation
   - DebugDrawUtils.DebugDrawCamera.slowMultiplier
   - DebugDrawUtils.DebugDrawCamera.speed
-  - DebugDrawUtils.DebugDrawCamera.Toggle
-  - DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
   - DebugDrawUtils.DebugDrawCamera.tr
   - DebugDrawUtils.DebugDrawCamera.trackingObj
   - DebugDrawUtils.DebugDrawCamera.trackingObjPosition
-  - DebugDrawUtils.DebugDrawCamera.TrackObject(System.Nullable{DebugDrawUtils.GameObjectOrTransform},System.Boolean)
-  - DebugDrawUtils.DebugDrawCamera.UpdateCamera(UnityEngine.Camera,System.Boolean,System.Boolean)
   langs:
   - csharp
   - vb
@@ -61,29 +61,24 @@ items:
   source:
     id: DebugDrawCamera
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nA simple free floating debug camera.\nDon&apos;t create directly, instead use <xref href=\"DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  summary: >-
+    A simple free floating debug camera.
+
+    Don't create directly, instead use <xref href="DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)" data-throw-if-not-resolved="false"></xref>
   example: []
   syntax:
     content: 'public class DebugDrawCamera : MonoBehaviour'
-    content.vb: >-
-      Public Class DebugDrawCamera
-          Inherits MonoBehaviour
+    content.vb: Public Class DebugDrawCamera Inherits MonoBehaviour
   inheritance:
   - System.Object
   - UnityEngine.Object
   - UnityEngine.Component
   - UnityEngine.Behaviour
   - UnityEngine.MonoBehaviour
-  modifiers.csharp:
-  - public
-  - class
-  modifiers.vb:
-  - Public
-  - Class
 - uid: DebugDrawUtils.DebugDrawCamera.isActive
   commentId: P:DebugDrawUtils.DebugDrawCamera.isActive
   id: isActive
@@ -98,27 +93,19 @@ items:
   source:
     id: isActive
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 27
+    startLine: 28
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nTrue if the debug camera is active.\n"
+  summary: True if the debug camera is active.
   example: []
   syntax:
     content: public static bool isActive { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Shared ReadOnly Property isActive As Boolean
+    content.vb: Public Shared Property isActive As Boolean
   overload: DebugDrawUtils.DebugDrawCamera.isActive*
-  modifiers.csharp:
-  - public
-  - static
-  - get
-  modifiers.vb:
-  - Public
-  - Shared
-  - ReadOnly
 - uid: DebugDrawUtils.DebugDrawCamera.instance
   commentId: P:DebugDrawUtils.DebugDrawCamera.instance
   id: instance
@@ -133,11 +120,11 @@ items:
   source:
     id: instance
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 31
+    startLine: 32
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nThe current DebugDrawCamera, may be null.\n"
+  summary: The current DebugDrawCamera, may be null.
   example: []
   syntax:
     content: public static DebugDrawCamera instance { get; protected set; }
@@ -146,16 +133,6 @@ items:
       type: DebugDrawUtils.DebugDrawCamera
     content.vb: Public Shared Property instance As DebugDrawCamera
   overload: DebugDrawUtils.DebugDrawCamera.instance*
-  modifiers.csharp:
-  - public
-  - static
-  - get
-  - protected set
-  modifiers.vb:
-  - Public
-  - Shared
-  - Get
-  - Protected Set
 - uid: DebugDrawUtils.DebugDrawCamera.factory
   commentId: F:DebugDrawUtils.DebugDrawCamera.factory
   id: factory
@@ -170,23 +147,24 @@ items:
   source:
     id: factory
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 38
+    startLine: 39
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nThe method responsible for creating the debug camera.\nCan be used to extend DebugCamera with custom functionality.\nLeave null for the default.\nIf set this method should create a DebugCamera (or subclass of) on the given game object and return the result.\n"
+  summary: >-
+    The method responsible for creating the debug camera.
+
+    Can be used to extend DebugCamera with custom functionality.
+
+    Leave null for the default.
+
+    If set this method should create a DebugCamera (or subclass of) on the given game object and return the result.
   example: []
   syntax:
     content: public static Func<GameObject, DebugDrawCamera> factory
     return:
       type: System.Func{UnityEngine.GameObject,DebugDrawUtils.DebugDrawCamera}
     content.vb: Public Shared factory As Func(Of GameObject, DebugDrawCamera)
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.cam
   commentId: P:DebugDrawUtils.DebugDrawCamera.cam
   id: cam
@@ -201,11 +179,11 @@ items:
   source:
     id: cam
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 43
+    startLine: 44
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nThe attached camera.\n"
+  summary: The attached camera.
   example: []
   syntax:
     content: public static Camera cam { get; protected set; }
@@ -214,16 +192,6 @@ items:
       type: UnityEngine.Camera
     content.vb: Public Shared Property cam As Camera
   overload: DebugDrawUtils.DebugDrawCamera.cam*
-  modifiers.csharp:
-  - public
-  - static
-  - get
-  - protected set
-  modifiers.vb:
-  - Public
-  - Shared
-  - Get
-  - Protected Set
 - uid: DebugDrawUtils.DebugDrawCamera.mouseSensitivity
   commentId: F:DebugDrawUtils.DebugDrawCamera.mouseSensitivity
   id: mouseSensitivity
@@ -238,23 +206,17 @@ items:
   source:
     id: mouseSensitivity
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 47
+    startLine: 48
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nThe speed of the mouse while looking around.\n"
+  summary: The speed of the mouse while looking around.
   example: []
   syntax:
     content: public static float mouseSensitivity
     return:
       type: System.Single
     content.vb: Public Shared mouseSensitivity As Single
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.acceleration
   commentId: F:DebugDrawUtils.DebugDrawCamera.acceleration
   id: acceleration
@@ -269,23 +231,17 @@ items:
   source:
     id: acceleration
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 51
+    startLine: 52
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nThe acceleration.\n"
+  summary: The acceleration.
   example: []
   syntax:
     content: public static float acceleration
     return:
       type: System.Single
     content.vb: Public Shared acceleration As Single
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.maxSpeed
   commentId: F:DebugDrawUtils.DebugDrawCamera.maxSpeed
   id: maxSpeed
@@ -300,23 +256,17 @@ items:
   source:
     id: maxSpeed
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 55
+    startLine: 56
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nThe max speed the camera can move.\n"
+  summary: The max speed the camera can move.
   example: []
   syntax:
     content: public static float maxSpeed
     return:
       type: System.Single
     content.vb: Public Shared maxSpeed As Single
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.fastMultiplier
   commentId: F:DebugDrawUtils.DebugDrawCamera.fastMultiplier
   id: fastMultiplier
@@ -331,23 +281,17 @@ items:
   source:
     id: fastMultiplier
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 59
+    startLine: 60
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nA speed multiplier when holding the shift key.\n"
+  summary: A speed multiplier when holding the shift key.
   example: []
   syntax:
     content: public static float fastMultiplier
     return:
       type: System.Single
     content.vb: Public Shared fastMultiplier As Single
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.slowMultiplier
   commentId: F:DebugDrawUtils.DebugDrawCamera.slowMultiplier
   id: slowMultiplier
@@ -362,23 +306,17 @@ items:
   source:
     id: slowMultiplier
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 63
+    startLine: 64
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nA speed multiplier when holding the alt key.\n"
+  summary: A speed multiplier when holding the alt key.
   example: []
   syntax:
     content: public static float slowMultiplier
     return:
       type: System.Single
     content.vb: Public Shared slowMultiplier As Single
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.currentSpeedPercent
   commentId: F:DebugDrawUtils.DebugDrawCamera.currentSpeedPercent
   id: currentSpeedPercent
@@ -393,23 +331,20 @@ items:
   source:
     id: currentSpeedPercent
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 68
+    startLine: 69
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nA speed multiplier that can be adjust with ctrl + mouse wheel.\n0 = x 1, -1 = x minSpeedMultiple, 1 = x maxSpeedMultiple.\n"
+  summary: >-
+    A speed multiplier that can be adjust with ctrl + mouse wheel.
+
+    0 = x 1, -1 = x minSpeedMultiple, 1 = x maxSpeedMultiple.
   example: []
   syntax:
     content: public static float currentSpeedPercent
     return:
       type: System.Single
     content.vb: Public Shared currentSpeedPercent As Single
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.minSpeedMultiplier
   commentId: F:DebugDrawUtils.DebugDrawCamera.minSpeedMultiplier
   id: minSpeedMultiplier
@@ -424,23 +359,17 @@ items:
   source:
     id: minSpeedMultiplier
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 72
+    startLine: 73
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nThe minimum value that currentSpeedMultiplier can be.\n"
+  summary: The minimum value that currentSpeedMultiplier can be.
   example: []
   syntax:
     content: public static float minSpeedMultiplier
     return:
       type: System.Single
     content.vb: Public Shared minSpeedMultiplier As Single
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.maxSpeedMultiplier
   commentId: F:DebugDrawUtils.DebugDrawCamera.maxSpeedMultiplier
   id: maxSpeedMultiplier
@@ -455,23 +384,17 @@ items:
   source:
     id: maxSpeedMultiplier
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 76
+    startLine: 77
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nThe maximum value that currentSpeedMultiplier can be.\n"
+  summary: The maximum value that currentSpeedMultiplier can be.
   example: []
   syntax:
     content: public static float maxSpeedMultiplier
     return:
       type: System.Single
     content.vb: Public Shared maxSpeedMultiplier As Single
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.drag
   commentId: F:DebugDrawUtils.DebugDrawCamera.drag
   id: drag
@@ -486,23 +409,17 @@ items:
   source:
     id: drag
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 80
+    startLine: 81
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nAffects how fast the camera will slow down when not moving.\n"
+  summary: Affects how fast the camera will slow down when not moving.
   example: []
   syntax:
     content: public static float drag
     return:
       type: System.Single
     content.vb: Public Shared drag As Single
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.crossHairSize
   commentId: F:DebugDrawUtils.DebugDrawCamera.crossHairSize
   id: crossHairSize
@@ -517,23 +434,17 @@ items:
   source:
     id: crossHairSize
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 85
+    startLine: 86
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nIf larger than zero, draws cross hairs in the centre of the screen.\n"
+  summary: If larger than zero, draws cross hairs in the centre of the screen.
   example: []
   syntax:
     content: public static float crossHairSize
     return:
       type: System.Single
     content.vb: Public Shared crossHairSize As Single
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.crossHairColor
   commentId: F:DebugDrawUtils.DebugDrawCamera.crossHairColor
   id: crossHairColor
@@ -548,23 +459,17 @@ items:
   source:
     id: crossHairColor
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 89
+    startLine: 90
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nThe color of the cross hairs.\n"
+  summary: The color of the cross hairs.
   example: []
   syntax:
     content: public static Color crossHairColor
     return:
       type: UnityEngine.Color
     content.vb: Public Shared crossHairColor As Color
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.isTrackingObj
   commentId: P:DebugDrawUtils.DebugDrawCamera.isTrackingObj
   id: isTrackingObj
@@ -579,11 +484,11 @@ items:
   source:
     id: isTrackingObj
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 94
+    startLine: 95
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nTrue if an object is being tracked.\n"
+  summary: True if an object is being tracked.
   example: []
   syntax:
     content: public static bool isTrackingObj { get; protected set; }
@@ -592,16 +497,6 @@ items:
       type: System.Boolean
     content.vb: Public Shared Property isTrackingObj As Boolean
   overload: DebugDrawUtils.DebugDrawCamera.isTrackingObj*
-  modifiers.csharp:
-  - public
-  - static
-  - get
-  - protected set
-  modifiers.vb:
-  - Public
-  - Shared
-  - Get
-  - Protected Set
 - uid: DebugDrawUtils.DebugDrawCamera.isLookingAtObj
   commentId: F:DebugDrawUtils.DebugDrawCamera.isLookingAtObj
   id: isLookingAtObj
@@ -616,23 +511,17 @@ items:
   source:
     id: isLookingAtObj
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 98
+    startLine: 99
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nTrue if the tracked object is also locked into the centre of the view.\n"
+  summary: True if the tracked object is also locked into the centre of the view.
   example: []
   syntax:
     content: public static bool isLookingAtObj
     return:
       type: System.Boolean
     content.vb: Public Shared isLookingAtObj As Boolean
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.trackingObj
   commentId: P:DebugDrawUtils.DebugDrawCamera.trackingObj
   id: trackingObj
@@ -647,11 +536,11 @@ items:
   source:
     id: trackingObj
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 102
+    startLine: 103
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nThe object the debug camera is tracking.\n"
+  summary: The object the debug camera is tracking.
   example: []
   syntax:
     content: public static Transform trackingObj { get; protected set; }
@@ -660,16 +549,6 @@ items:
       type: UnityEngine.Transform
     content.vb: Public Shared Property trackingObj As Transform
   overload: DebugDrawUtils.DebugDrawCamera.trackingObj*
-  modifiers.csharp:
-  - public
-  - static
-  - get
-  - protected set
-  modifiers.vb:
-  - Public
-  - Shared
-  - Get
-  - Protected Set
 - uid: DebugDrawUtils.DebugDrawCamera.trackingObjPosition
   commentId: F:DebugDrawUtils.DebugDrawCamera.trackingObjPosition
   id: trackingObjPosition
@@ -684,7 +563,7 @@ items:
   source:
     id: trackingObjPosition
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 103
+    startLine: 104
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -693,12 +572,6 @@ items:
     return:
       type: UnityEngine.Vector3
     content.vb: Protected Shared trackingObjPosition As Vector3
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.onInitCamera
   commentId: F:DebugDrawUtils.DebugDrawCamera.onInitCamera
   id: onInitCamera
@@ -713,23 +586,17 @@ items:
   source:
     id: onInitCamera
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 108
+    startLine: 109
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nCalled when a new debug camera is created.\n"
+  summary: Called when a new debug camera is created.
   example: []
   syntax:
     content: public static Action<Camera> onInitCamera
     return:
       type: System.Action{UnityEngine.Camera}
     content.vb: Public Shared onInitCamera As Action(Of Camera)
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.onToggle
   commentId: F:DebugDrawUtils.DebugDrawCamera.onToggle
   id: onToggle
@@ -744,23 +611,17 @@ items:
   source:
     id: onToggle
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 112
+    startLine: 113
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nCalled whenever the debug camera is toggled.\n"
+  summary: Called whenever the debug camera is toggled.
   example: []
   syntax:
     content: public static Action<bool> onToggle
     return:
       type: System.Action{System.Boolean}
     content.vb: Public Shared onToggle As Action(Of Boolean)
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.camTr
   commentId: F:DebugDrawUtils.DebugDrawCamera.camTr
   id: camTr
@@ -775,7 +636,7 @@ items:
   source:
     id: camTr
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 114
+    startLine: 115
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -784,12 +645,6 @@ items:
     return:
       type: UnityEngine.Transform
     content.vb: Protected Shared camTr As Transform
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.tr
   commentId: F:DebugDrawUtils.DebugDrawCamera.tr
   id: tr
@@ -804,7 +659,7 @@ items:
   source:
     id: tr
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 115
+    startLine: 116
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -813,12 +668,6 @@ items:
     return:
       type: UnityEngine.Transform
     content.vb: Protected Shared tr As Transform
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.lastCamera
   commentId: F:DebugDrawUtils.DebugDrawCamera.lastCamera
   id: lastCamera
@@ -833,7 +682,7 @@ items:
   source:
     id: lastCamera
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 117
+    startLine: 118
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -842,12 +691,6 @@ items:
     return:
       type: UnityEngine.Camera
     content.vb: Protected Shared lastCamera As Camera
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.baseFOV
   commentId: F:DebugDrawUtils.DebugDrawCamera.baseFOV
   id: baseFOV
@@ -862,7 +705,7 @@ items:
   source:
     id: baseFOV
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 118
+    startLine: 119
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -871,12 +714,6 @@ items:
     return:
       type: System.Single
     content.vb: Protected Shared baseFOV As Single
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.speed
   commentId: F:DebugDrawUtils.DebugDrawCamera.speed
   id: speed
@@ -891,7 +728,7 @@ items:
   source:
     id: speed
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 120
+    startLine: 121
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -900,12 +737,6 @@ items:
     return:
       type: System.Single
     content.vb: Protected Shared speed As Single
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.direction
   commentId: F:DebugDrawUtils.DebugDrawCamera.direction
   id: direction
@@ -920,7 +751,7 @@ items:
   source:
     id: direction
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 121
+    startLine: 122
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -929,12 +760,6 @@ items:
     return:
       type: UnityEngine.Vector3
     content.vb: Protected Shared direction As Vector3
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.rotation
   commentId: F:DebugDrawUtils.DebugDrawCamera.rotation
   id: rotation
@@ -949,7 +774,7 @@ items:
   source:
     id: rotation
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 122
+    startLine: 123
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -958,12 +783,6 @@ items:
     return:
       type: UnityEngine.Vector2
     content.vb: Protected Shared rotation As Vector2
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.hasCrossHairMaterial
   commentId: F:DebugDrawUtils.DebugDrawCamera.hasCrossHairMaterial
   id: hasCrossHairMaterial
@@ -978,7 +797,7 @@ items:
   source:
     id: hasCrossHairMaterial
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 124
+    startLine: 125
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -987,12 +806,6 @@ items:
     return:
       type: System.Boolean
     content.vb: Protected Shared hasCrossHairMaterial As Boolean
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.crossHairMaterial
   commentId: F:DebugDrawUtils.DebugDrawCamera.crossHairMaterial
   id: crossHairMaterial
@@ -1007,7 +820,7 @@ items:
   source:
     id: crossHairMaterial
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 125
+    startLine: 126
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -1016,12 +829,6 @@ items:
     return:
       type: UnityEngine.Material
     content.vb: Protected Shared crossHairMaterial As Material
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.crossHairMesh
   commentId: F:DebugDrawUtils.DebugDrawCamera.crossHairMesh
   id: crossHairMesh
@@ -1036,7 +843,7 @@ items:
   source:
     id: crossHairMesh
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 126
+    startLine: 127
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -1045,12 +852,6 @@ items:
     return:
       type: UnityEngine.Mesh
     content.vb: Protected Shared crossHairMesh As Mesh
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
   commentId: M:DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
   id: Toggle(System.Boolean)
@@ -1058,18 +859,23 @@ items:
   langs:
   - csharp
   - vb
-  name: Toggle(Boolean)
-  nameWithType: DebugDrawCamera.Toggle(Boolean)
-  fullName: DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
+  name: Toggle(bool)
+  nameWithType: DebugDrawCamera.Toggle(bool)
+  fullName: DebugDrawUtils.DebugDrawCamera.Toggle(bool)
   type: Method
   source:
     id: Toggle
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 146
+    startLine: 147
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\n<p>Turns the debug camera on or off.\nWhen active, creates a new camera that can freely fly around with the WASD keys and mouse.</p>\n<ul><li><strong>W/A/S/D:</strong> Move</li><li><strong>Q/E/Space:</strong> rise/fall</li><li><strong>Mouse:</strong> Look</li><li><strong>Shift:</strong> Move fast</li><li><strong>Ctrl:</strong> Move slow</li><li><strong>Alt </strong>+ wheel: Adjust speed</li><li><strong>Wheel:</strong> Adjust zoom</li><li><strong>Home:</strong> Reset speed and zoom</li></ul>\n"
+  summary: >-
+    <p>Turns the debug camera on or off.
+
+    When active, creates a new camera that can freely fly around with the WASD keys and mouse.</p>
+
+    <ul><li><b>W/A/S/D:</b> Move</li><li><b>Q/E/Space:</b> rise/fall</li><li><b>Mouse:</b> Look</li><li><b>Shift:</b> Move fast</li><li><b>Ctrl:</b> Move slow</li><li><b>Alt </b>+ wheel: Adjust speed</li><li><b>Wheel:</b> Adjust zoom</li><li><b>Home:</b> Reset speed and zoom</li></ul>
   example: []
   syntax:
     content: public static void Toggle(bool on)
@@ -1077,14 +883,11 @@ items:
     - id: on
       type: System.Boolean
       description: On or off.
-    content.vb: Public Shared Sub Toggle(on As Boolean)
+    content.vb: Public Shared Sub Toggle([on] As Boolean)
   overload: DebugDrawUtils.DebugDrawCamera.Toggle*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
+  nameWithType.vb: DebugDrawCamera.Toggle(Boolean)
+  fullName.vb: DebugDrawUtils.DebugDrawCamera.Toggle(Boolean)
+  name.vb: Toggle(Boolean)
 - uid: DebugDrawUtils.DebugDrawCamera.Toggle
   commentId: M:DebugDrawUtils.DebugDrawCamera.Toggle
   id: Toggle
@@ -1099,22 +902,36 @@ items:
   source:
     id: Toggle
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 232
+    startLine: 233
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\n<p>Turns the debug camera on or off.\nWhen active, creates a new camera that can freely fly around with the WASD keys and mouse.</p>\n<ul><li><strong>W/A/S/D:</strong> Move</li><li><strong>Q/E/Space:</strong> rise/fall</li><li><strong>Mouse:</strong> Look</li><li><strong>Shift:</strong> Move fast</li><li><strong>Ctrl:</strong> Move slow</li><li><strong>Alt </strong>+ wheel: Adjust speed</li><li><strong>Wheel:</strong> Adjust zoom</li><li><strong>Home:</strong> Reset speed and zoom</li></ul>\n"
+  summary: >-
+    <p>Turns the debug camera on or off.
+        When active, creates a new camera that can freely fly around with the WASD keys and mouse.</p>
+    <ul>
+      <li>
+        <b>W/A/S/D:</b> Move</li>
+      <li>
+        <b>Q/E/Space:</b> rise/fall</li>
+      <li>
+        <b>Mouse:</b> Look</li>
+      <li>
+        <b>Shift:</b> Move fast</li>
+      <li>
+        <b>Ctrl:</b> Move slow</li>
+      <li>
+        <b>Alt </b>+ wheel: Adjust speed</li>
+      <li>
+        <b>Wheel:</b> Adjust zoom</li>
+      <li>
+        <b>Home:</b> Reset speed and zoom</li>
+    </ul>
   example: []
   syntax:
     content: public static void Toggle()
-    content.vb: Public Shared Sub Toggle
+    content.vb: Public Shared Sub Toggle()
   overload: DebugDrawUtils.DebugDrawCamera.Toggle*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.UpdateCamera(UnityEngine.Camera,System.Boolean,System.Boolean)
   commentId: M:DebugDrawUtils.DebugDrawCamera.UpdateCamera(UnityEngine.Camera,System.Boolean,System.Boolean)
   id: UpdateCamera(UnityEngine.Camera,System.Boolean,System.Boolean)
@@ -1122,18 +939,18 @@ items:
   langs:
   - csharp
   - vb
-  name: UpdateCamera(Camera, Boolean, Boolean)
-  nameWithType: DebugDrawCamera.UpdateCamera(Camera, Boolean, Boolean)
-  fullName: DebugDrawUtils.DebugDrawCamera.UpdateCamera(UnityEngine.Camera, System.Boolean, System.Boolean)
+  name: UpdateCamera(Camera, bool, bool)
+  nameWithType: DebugDrawCamera.UpdateCamera(Camera, bool, bool)
+  fullName: DebugDrawUtils.DebugDrawCamera.UpdateCamera(UnityEngine.Camera, bool, bool)
   type: Method
   source:
     id: UpdateCamera
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 243
+    startLine: 244
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nCopies the transform and optionally properties of the given camera.\n"
+  summary: Copies the transform and optionally properties of the given camera.
   example: []
   syntax:
     content: public static void UpdateCamera(Camera from = null, bool copyTransform = true, bool copyProperties = false)
@@ -1143,18 +960,15 @@ items:
       description: If null uses the last active camera when the debug camera was activated.
     - id: copyTransform
       type: System.Boolean
-      description: Sets the debug camera&apos;s position and rotation to match the given camera.
+      description: Sets the debug camera's position and rotation to match the given camera.
     - id: copyProperties
       type: System.Boolean
-      description: Sets the debug camera&apos;s properties to match the given camera.
+      description: Sets the debug camera's properties to match the given camera.
     content.vb: Public Shared Sub UpdateCamera(from As Camera = Nothing, copyTransform As Boolean = True, copyProperties As Boolean = False)
   overload: DebugDrawUtils.DebugDrawCamera.UpdateCamera*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
+  nameWithType.vb: DebugDrawCamera.UpdateCamera(Camera, Boolean, Boolean)
+  fullName.vb: DebugDrawUtils.DebugDrawCamera.UpdateCamera(UnityEngine.Camera, Boolean, Boolean)
+  name.vb: UpdateCamera(Camera, Boolean, Boolean)
 - uid: DebugDrawUtils.DebugDrawCamera.Init
   commentId: M:DebugDrawUtils.DebugDrawCamera.Init
   id: Init
@@ -1169,22 +983,16 @@ items:
   source:
     id: Init
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 251
+    startLine: 252
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nCalled whenever the the camera is toggled.\n"
+  summary: Called whenever the the camera is toggled.
   example: []
   syntax:
     content: protected virtual void Init()
-    content.vb: Protected Overridable Sub Init
+    content.vb: Protected Overridable Sub Init()
   overload: DebugDrawUtils.DebugDrawCamera.Init*
-  modifiers.csharp:
-  - protected
-  - virtual
-  modifiers.vb:
-  - Protected
-  - Overridable
 - uid: DebugDrawUtils.DebugDrawCamera.Awake
   commentId: M:DebugDrawUtils.DebugDrawCamera.Awake
   id: Awake
@@ -1199,20 +1007,14 @@ items:
   source:
     id: Awake
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 261
+    startLine: 262
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
   syntax:
     content: protected virtual void Awake()
-    content.vb: Protected Overridable Sub Awake
+    content.vb: Protected Overridable Sub Awake()
   overload: DebugDrawUtils.DebugDrawCamera.Awake*
-  modifiers.csharp:
-  - protected
-  - virtual
-  modifiers.vb:
-  - Protected
-  - Overridable
 - uid: DebugDrawUtils.DebugDrawCamera.OnDestroy
   commentId: M:DebugDrawUtils.DebugDrawCamera.OnDestroy
   id: OnDestroy
@@ -1227,20 +1029,14 @@ items:
   source:
     id: OnDestroy
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 270
+    startLine: 271
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
   syntax:
     content: protected virtual void OnDestroy()
-    content.vb: Protected Overridable Sub OnDestroy
+    content.vb: Protected Overridable Sub OnDestroy()
   overload: DebugDrawUtils.DebugDrawCamera.OnDestroy*
-  modifiers.csharp:
-  - protected
-  - virtual
-  modifiers.vb:
-  - Protected
-  - Overridable
 - uid: DebugDrawUtils.DebugDrawCamera.OnRenderObject
   commentId: M:DebugDrawUtils.DebugDrawCamera.OnRenderObject
   id: OnRenderObject
@@ -1255,20 +1051,14 @@ items:
   source:
     id: OnRenderObject
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 279
+    startLine: 280
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
   syntax:
     content: protected virtual void OnRenderObject()
-    content.vb: Protected Overridable Sub OnRenderObject
+    content.vb: Protected Overridable Sub OnRenderObject()
   overload: DebugDrawUtils.DebugDrawCamera.OnRenderObject*
-  modifiers.csharp:
-  - protected
-  - virtual
-  modifiers.vb:
-  - Protected
-  - Overridable
 - uid: DebugDrawUtils.DebugDrawCamera.LateUpdate
   commentId: M:DebugDrawUtils.DebugDrawCamera.LateUpdate
   id: LateUpdate
@@ -1283,20 +1073,14 @@ items:
   source:
     id: LateUpdate
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 321
+    startLine: 322
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
   syntax:
     content: protected virtual void LateUpdate()
-    content.vb: Protected Overridable Sub LateUpdate
+    content.vb: Protected Overridable Sub LateUpdate()
   overload: DebugDrawUtils.DebugDrawCamera.LateUpdate*
-  modifiers.csharp:
-  - protected
-  - virtual
-  modifiers.vb:
-  - Protected
-  - Overridable
 - uid: DebugDrawUtils.DebugDrawCamera.DoMouseLook
   commentId: M:DebugDrawUtils.DebugDrawCamera.DoMouseLook
   id: DoMouseLook
@@ -1311,20 +1095,14 @@ items:
   source:
     id: DoMouseLook
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 370
+    startLine: 371
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
   syntax:
     content: protected virtual void DoMouseLook()
-    content.vb: Protected Overridable Sub DoMouseLook
+    content.vb: Protected Overridable Sub DoMouseLook()
   overload: DebugDrawUtils.DebugDrawCamera.DoMouseLook*
-  modifiers.csharp:
-  - protected
-  - virtual
-  modifiers.vb:
-  - Protected
-  - Overridable
 - uid: DebugDrawUtils.DebugDrawCamera.DoMovement
   commentId: M:DebugDrawUtils.DebugDrawCamera.DoMovement
   id: DoMovement
@@ -1339,20 +1117,14 @@ items:
   source:
     id: DoMovement
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 385
+    startLine: 386
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
   syntax:
     content: protected virtual void DoMovement()
-    content.vb: Protected Overridable Sub DoMovement
+    content.vb: Protected Overridable Sub DoMovement()
   overload: DebugDrawUtils.DebugDrawCamera.DoMovement*
-  modifiers.csharp:
-  - protected
-  - virtual
-  modifiers.vb:
-  - Protected
-  - Overridable
 - uid: DebugDrawUtils.DebugDrawCamera.CalculateSpeedMultiplier
   commentId: M:DebugDrawUtils.DebugDrawCamera.CalculateSpeedMultiplier
   id: CalculateSpeedMultiplier
@@ -1367,7 +1139,7 @@ items:
   source:
     id: CalculateSpeedMultiplier
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 466
+    startLine: 467
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -1375,14 +1147,8 @@ items:
     content: protected virtual float CalculateSpeedMultiplier()
     return:
       type: System.Single
-    content.vb: Protected Overridable Function CalculateSpeedMultiplier As Single
+    content.vb: Protected Overridable Function CalculateSpeedMultiplier() As Single
   overload: DebugDrawUtils.DebugDrawCamera.CalculateSpeedMultiplier*
-  modifiers.csharp:
-  - protected
-  - virtual
-  modifiers.vb:
-  - Protected
-  - Overridable
 - uid: DebugDrawUtils.DebugDrawCamera.CopyFrom(UnityEngine.Camera,System.Boolean,System.Boolean)
   commentId: M:DebugDrawUtils.DebugDrawCamera.CopyFrom(UnityEngine.Camera,System.Boolean,System.Boolean)
   id: CopyFrom(UnityEngine.Camera,System.Boolean,System.Boolean)
@@ -1390,14 +1156,14 @@ items:
   langs:
   - csharp
   - vb
-  name: CopyFrom(Camera, Boolean, Boolean)
-  nameWithType: DebugDrawCamera.CopyFrom(Camera, Boolean, Boolean)
-  fullName: DebugDrawUtils.DebugDrawCamera.CopyFrom(UnityEngine.Camera, System.Boolean, System.Boolean)
+  name: CopyFrom(Camera, bool, bool)
+  nameWithType: DebugDrawCamera.CopyFrom(Camera, bool, bool)
+  fullName: DebugDrawUtils.DebugDrawCamera.CopyFrom(UnityEngine.Camera, bool, bool)
   type: Method
   source:
     id: CopyFrom
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 473
+    startLine: 474
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -1412,12 +1178,9 @@ items:
       type: System.Boolean
     content.vb: Protected Overridable Sub CopyFrom(from As Camera, copyTransform As Boolean, copyProperties As Boolean)
   overload: DebugDrawUtils.DebugDrawCamera.CopyFrom*
-  modifiers.csharp:
-  - protected
-  - virtual
-  modifiers.vb:
-  - Protected
-  - Overridable
+  nameWithType.vb: DebugDrawCamera.CopyFrom(Camera, Boolean, Boolean)
+  fullName.vb: DebugDrawUtils.DebugDrawCamera.CopyFrom(UnityEngine.Camera, Boolean, Boolean)
+  name.vb: CopyFrom(Camera, Boolean, Boolean)
 - uid: DebugDrawUtils.DebugDrawCamera.CalculateRotation(UnityEngine.Quaternion)
   commentId: M:DebugDrawUtils.DebugDrawCamera.CalculateRotation(UnityEngine.Quaternion)
   id: CalculateRotation(UnityEngine.Quaternion)
@@ -1432,7 +1195,7 @@ items:
   source:
     id: CalculateRotation
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 498
+    startLine: 499
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -1443,12 +1206,6 @@ items:
       type: UnityEngine.Quaternion
     content.vb: Protected Shared Sub CalculateRotation(rot As Quaternion)
   overload: DebugDrawUtils.DebugDrawCamera.CalculateRotation*
-  modifiers.csharp:
-  - protected
-  - static
-  modifiers.vb:
-  - Protected
-  - Shared
 - uid: DebugDrawUtils.DebugDrawCamera.TrackObject(System.Nullable{DebugDrawUtils.GameObjectOrTransform},System.Boolean)
   commentId: M:DebugDrawUtils.DebugDrawCamera.TrackObject(System.Nullable{DebugDrawUtils.GameObjectOrTransform},System.Boolean)
   id: TrackObject(System.Nullable{DebugDrawUtils.GameObjectOrTransform},System.Boolean)
@@ -1456,18 +1213,18 @@ items:
   langs:
   - csharp
   - vb
-  name: TrackObject(Nullable<GameObjectOrTransform>, Boolean)
-  nameWithType: DebugDrawCamera.TrackObject(Nullable<GameObjectOrTransform>, Boolean)
-  fullName: DebugDrawUtils.DebugDrawCamera.TrackObject(System.Nullable<DebugDrawUtils.GameObjectOrTransform>, System.Boolean)
+  name: TrackObject(GameObjectOrTransform?, bool)
+  nameWithType: DebugDrawCamera.TrackObject(GameObjectOrTransform?, bool)
+  fullName: DebugDrawUtils.DebugDrawCamera.TrackObject(DebugDrawUtils.GameObjectOrTransform?, bool)
   type: Method
   source:
     id: TrackObject
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 514
+    startLine: 515
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
-  summary: "\nThe debug camera will attempt to keep its relative position to this object every frame.\n"
+  summary: The debug camera will attempt to keep its relative position to this object every frame.
   example: []
   syntax:
     content: public static void TrackObject(GameObjectOrTransform? obj, bool lookAt = false)
@@ -1480,15 +1237,9 @@ items:
       description: If true the object will also stay centred in the view.
     content.vb: Public Shared Sub TrackObject(obj As GameObjectOrTransform?, lookAt As Boolean = False)
   overload: DebugDrawUtils.DebugDrawCamera.TrackObject*
-  nameWithType.vb: DebugDrawCamera.TrackObject(Nullable(Of GameObjectOrTransform), Boolean)
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-  fullName.vb: DebugDrawUtils.DebugDrawCamera.TrackObject(System.Nullable(Of DebugDrawUtils.GameObjectOrTransform), System.Boolean)
-  name.vb: TrackObject(Nullable(Of GameObjectOrTransform), Boolean)
+  nameWithType.vb: DebugDrawCamera.TrackObject(GameObjectOrTransform?, Boolean)
+  fullName.vb: DebugDrawUtils.DebugDrawCamera.TrackObject(DebugDrawUtils.GameObjectOrTransform?, Boolean)
+  name.vb: TrackObject(GameObjectOrTransform?, Boolean)
 - uid: DebugDrawUtils.DebugDrawCamera.LockCursor(System.Boolean)
   commentId: M:DebugDrawUtils.DebugDrawCamera.LockCursor(System.Boolean)
   id: LockCursor(System.Boolean)
@@ -1496,14 +1247,14 @@ items:
   langs:
   - csharp
   - vb
-  name: LockCursor(Boolean)
-  nameWithType: DebugDrawCamera.LockCursor(Boolean)
-  fullName: DebugDrawUtils.DebugDrawCamera.LockCursor(System.Boolean)
+  name: LockCursor(bool)
+  nameWithType: DebugDrawCamera.LockCursor(bool)
+  fullName: DebugDrawUtils.DebugDrawCamera.LockCursor(bool)
   type: Method
   source:
     id: LockCursor
     path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\DebugDrawCamera.cs
-    startLine: 534
+    startLine: 535
   assemblies:
   - c.DebugDraw.Runtime
   namespace: DebugDrawUtils
@@ -1514,18 +1265,43 @@ items:
       type: System.Boolean
     content.vb: Public Shared Sub LockCursor(locked As Boolean)
   overload: DebugDrawUtils.DebugDrawCamera.LockCursor*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
+  nameWithType.vb: DebugDrawCamera.LockCursor(Boolean)
+  fullName.vb: DebugDrawUtils.DebugDrawCamera.LockCursor(Boolean)
+  name.vb: LockCursor(Boolean)
 references:
 - uid: DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
   commentId: M:DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
   isExternal: true
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
+  name: Toggle(bool)
+  nameWithType: DebugDrawCamera.Toggle(bool)
+  fullName: DebugDrawUtils.DebugDrawCamera.Toggle(bool)
+  nameWithType.vb: DebugDrawCamera.Toggle(Boolean)
+  fullName.vb: DebugDrawUtils.DebugDrawCamera.Toggle(Boolean)
+  name.vb: Toggle(Boolean)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
+    name: Toggle
+    href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
+    name: Toggle
+    href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
 - uid: DebugDrawUtils
   commentId: N:DebugDrawUtils
+  href: DebugDrawUtils.html
   name: DebugDrawUtils
   nameWithType: DebugDrawUtils
   fullName: DebugDrawUtils
@@ -1533,9 +1309,13 @@ references:
   commentId: T:System.Object
   parent: System
   isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: System.Object
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
 - uid: UnityEngine.Object
   commentId: T:UnityEngine.Object
   parent: UnityEngine
@@ -1567,6 +1347,7 @@ references:
 - uid: System
   commentId: N:System
   isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
   name: System
   nameWithType: System
   fullName: System
@@ -1578,6 +1359,7 @@ references:
   fullName: UnityEngine
 - uid: DebugDrawUtils.DebugDrawCamera.isActive*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.isActive
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.isActive
   name: isActive
   nameWithType: DebugDrawCamera.isActive
   fullName: DebugDrawUtils.DebugDrawCamera.isActive
@@ -1585,17 +1367,23 @@ references:
   commentId: T:System.Boolean
   parent: System
   isExternal: true
-  name: Boolean
-  nameWithType: Boolean
-  fullName: System.Boolean
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: DebugDrawUtils.DebugDrawCamera.instance*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.instance
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.instance
   name: instance
   nameWithType: DebugDrawCamera.instance
   fullName: DebugDrawUtils.DebugDrawCamera.instance
 - uid: DebugDrawUtils.DebugDrawCamera
   commentId: T:DebugDrawUtils.DebugDrawCamera
   parent: DebugDrawUtils
+  href: DebugDrawUtils.DebugDrawCamera.html
   name: DebugDrawCamera
   nameWithType: DebugDrawCamera
   fullName: DebugDrawUtils.DebugDrawCamera
@@ -1603,6 +1391,7 @@ references:
   commentId: T:System.Func{UnityEngine.GameObject,DebugDrawUtils.DebugDrawCamera}
   parent: System
   definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
   name: Func<GameObject, DebugDrawCamera>
   nameWithType: Func<GameObject, DebugDrawCamera>
   fullName: System.Func<UnityEngine.GameObject, DebugDrawUtils.DebugDrawCamera>
@@ -1612,54 +1401,39 @@ references:
   spec.csharp:
   - uid: System.Func`2
     name: Func
-    nameWithType: Func
-    fullName: System.Func
     isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
   - name: <
-    nameWithType: <
-    fullName: <
   - uid: UnityEngine.GameObject
     name: GameObject
-    nameWithType: GameObject
-    fullName: UnityEngine.GameObject
     isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
+  - name: ','
+  - name: " "
   - uid: DebugDrawUtils.DebugDrawCamera
     name: DebugDrawCamera
-    nameWithType: DebugDrawCamera
-    fullName: DebugDrawUtils.DebugDrawCamera
+    href: DebugDrawUtils.DebugDrawCamera.html
   - name: '>'
-    nameWithType: '>'
-    fullName: '>'
   spec.vb:
   - uid: System.Func`2
     name: Func
-    nameWithType: Func
-    fullName: System.Func
     isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
   - uid: UnityEngine.GameObject
     name: GameObject
-    nameWithType: GameObject
-    fullName: UnityEngine.GameObject
     isExternal: true
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
+  - name: ','
+  - name: " "
   - uid: DebugDrawUtils.DebugDrawCamera
     name: DebugDrawCamera
-    nameWithType: DebugDrawCamera
-    fullName: DebugDrawUtils.DebugDrawCamera
+    href: DebugDrawUtils.DebugDrawCamera.html
   - name: )
-    nameWithType: )
-    fullName: )
 - uid: System.Func`2
   commentId: T:System.Func`2
   isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
   name: Func<T, TResult>
   nameWithType: Func<T, TResult>
   fullName: System.Func<T, TResult>
@@ -1669,47 +1443,30 @@ references:
   spec.csharp:
   - uid: System.Func`2
     name: Func
-    nameWithType: Func
-    fullName: System.Func
     isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
   - name: <
-    nameWithType: <
-    fullName: <
   - name: T
-    nameWithType: T
-    fullName: T
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
+  - name: ','
+  - name: " "
   - name: TResult
-    nameWithType: TResult
-    fullName: TResult
   - name: '>'
-    nameWithType: '>'
-    fullName: '>'
   spec.vb:
   - uid: System.Func`2
     name: Func
-    nameWithType: Func
-    fullName: System.Func
     isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
   - name: T
-    nameWithType: T
-    fullName: T
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
+  - name: ','
+  - name: " "
   - name: TResult
-    nameWithType: TResult
-    fullName: TResult
   - name: )
-    nameWithType: )
-    fullName: )
 - uid: DebugDrawUtils.DebugDrawCamera.cam*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.cam
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.cam
   name: cam
   nameWithType: DebugDrawCamera.cam
   fullName: DebugDrawUtils.DebugDrawCamera.cam
@@ -1724,9 +1481,13 @@ references:
   commentId: T:System.Single
   parent: System
   isExternal: true
-  name: Single
-  nameWithType: Single
-  fullName: System.Single
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
 - uid: UnityEngine.Color
   commentId: T:UnityEngine.Color
   parent: UnityEngine
@@ -1736,11 +1497,13 @@ references:
   fullName: UnityEngine.Color
 - uid: DebugDrawUtils.DebugDrawCamera.isTrackingObj*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.isTrackingObj
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.isTrackingObj
   name: isTrackingObj
   nameWithType: DebugDrawCamera.isTrackingObj
   fullName: DebugDrawUtils.DebugDrawCamera.isTrackingObj
 - uid: DebugDrawUtils.DebugDrawCamera.trackingObj*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.trackingObj
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.trackingObj
   name: trackingObj
   nameWithType: DebugDrawCamera.trackingObj
   fullName: DebugDrawUtils.DebugDrawCamera.trackingObj
@@ -1762,6 +1525,7 @@ references:
   commentId: T:System.Action{UnityEngine.Camera}
   parent: System
   definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
   name: Action<Camera>
   nameWithType: Action<Camera>
   fullName: System.Action<UnityEngine.Camera>
@@ -1771,40 +1535,29 @@ references:
   spec.csharp:
   - uid: System.Action`1
     name: Action
-    nameWithType: Action
-    fullName: System.Action
     isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
   - name: <
-    nameWithType: <
-    fullName: <
   - uid: UnityEngine.Camera
     name: Camera
-    nameWithType: Camera
-    fullName: UnityEngine.Camera
     isExternal: true
   - name: '>'
-    nameWithType: '>'
-    fullName: '>'
   spec.vb:
   - uid: System.Action`1
     name: Action
-    nameWithType: Action
-    fullName: System.Action
     isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
   - uid: UnityEngine.Camera
     name: Camera
-    nameWithType: Camera
-    fullName: UnityEngine.Camera
     isExternal: true
   - name: )
-    nameWithType: )
-    fullName: )
 - uid: System.Action`1
   commentId: T:System.Action`1
   isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
   name: Action<T>
   nameWithType: Action<T>
   fullName: System.Action<T>
@@ -1814,77 +1567,56 @@ references:
   spec.csharp:
   - uid: System.Action`1
     name: Action
-    nameWithType: Action
-    fullName: System.Action
     isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
   - name: <
-    nameWithType: <
-    fullName: <
   - name: T
-    nameWithType: T
-    fullName: T
   - name: '>'
-    nameWithType: '>'
-    fullName: '>'
   spec.vb:
   - uid: System.Action`1
     name: Action
-    nameWithType: Action
-    fullName: System.Action
     isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
   - name: T
-    nameWithType: T
-    fullName: T
   - name: )
-    nameWithType: )
-    fullName: )
 - uid: System.Action{System.Boolean}
   commentId: T:System.Action{System.Boolean}
   parent: System
   definition: System.Action`1
-  name: Action<Boolean>
-  nameWithType: Action<Boolean>
-  fullName: System.Action<System.Boolean>
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<bool>
+  nameWithType: Action<bool>
+  fullName: System.Action<bool>
   nameWithType.vb: Action(Of Boolean)
-  fullName.vb: System.Action(Of System.Boolean)
+  fullName.vb: System.Action(Of Boolean)
   name.vb: Action(Of Boolean)
   spec.csharp:
   - uid: System.Action`1
     name: Action
-    nameWithType: Action
-    fullName: System.Action
     isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
   - name: <
-    nameWithType: <
-    fullName: <
   - uid: System.Boolean
-    name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
+    name: bool
     isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: '>'
-    nameWithType: '>'
-    fullName: '>'
   spec.vb:
   - uid: System.Action`1
     name: Action
-    nameWithType: Action
-    fullName: System.Action
     isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
   - uid: System.Boolean
     name: Boolean
-    nameWithType: Boolean
-    fullName: System.Boolean
     isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
-    nameWithType: )
-    fullName: )
 - uid: UnityEngine.Vector2
   commentId: T:UnityEngine.Vector2
   parent: UnityEngine
@@ -1908,61 +1640,73 @@ references:
   fullName: UnityEngine.Mesh
 - uid: DebugDrawUtils.DebugDrawCamera.Toggle*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.Toggle
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.Toggle(System.Boolean)
   name: Toggle
   nameWithType: DebugDrawCamera.Toggle
   fullName: DebugDrawUtils.DebugDrawCamera.Toggle
 - uid: DebugDrawUtils.DebugDrawCamera.UpdateCamera*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.UpdateCamera
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.UpdateCamera(UnityEngine.Camera,System.Boolean,System.Boolean)
   name: UpdateCamera
   nameWithType: DebugDrawCamera.UpdateCamera
   fullName: DebugDrawUtils.DebugDrawCamera.UpdateCamera
 - uid: DebugDrawUtils.DebugDrawCamera.Init*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.Init
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.Init
   name: Init
   nameWithType: DebugDrawCamera.Init
   fullName: DebugDrawUtils.DebugDrawCamera.Init
 - uid: DebugDrawUtils.DebugDrawCamera.Awake*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.Awake
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.Awake
   name: Awake
   nameWithType: DebugDrawCamera.Awake
   fullName: DebugDrawUtils.DebugDrawCamera.Awake
 - uid: DebugDrawUtils.DebugDrawCamera.OnDestroy*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.OnDestroy
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.OnDestroy
   name: OnDestroy
   nameWithType: DebugDrawCamera.OnDestroy
   fullName: DebugDrawUtils.DebugDrawCamera.OnDestroy
 - uid: DebugDrawUtils.DebugDrawCamera.OnRenderObject*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.OnRenderObject
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.OnRenderObject
   name: OnRenderObject
   nameWithType: DebugDrawCamera.OnRenderObject
   fullName: DebugDrawUtils.DebugDrawCamera.OnRenderObject
 - uid: DebugDrawUtils.DebugDrawCamera.LateUpdate*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.LateUpdate
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.LateUpdate
   name: LateUpdate
   nameWithType: DebugDrawCamera.LateUpdate
   fullName: DebugDrawUtils.DebugDrawCamera.LateUpdate
 - uid: DebugDrawUtils.DebugDrawCamera.DoMouseLook*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.DoMouseLook
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.DoMouseLook
   name: DoMouseLook
   nameWithType: DebugDrawCamera.DoMouseLook
   fullName: DebugDrawUtils.DebugDrawCamera.DoMouseLook
 - uid: DebugDrawUtils.DebugDrawCamera.DoMovement*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.DoMovement
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.DoMovement
   name: DoMovement
   nameWithType: DebugDrawCamera.DoMovement
   fullName: DebugDrawUtils.DebugDrawCamera.DoMovement
 - uid: DebugDrawUtils.DebugDrawCamera.CalculateSpeedMultiplier*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.CalculateSpeedMultiplier
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.CalculateSpeedMultiplier
   name: CalculateSpeedMultiplier
   nameWithType: DebugDrawCamera.CalculateSpeedMultiplier
   fullName: DebugDrawUtils.DebugDrawCamera.CalculateSpeedMultiplier
 - uid: DebugDrawUtils.DebugDrawCamera.CopyFrom*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.CopyFrom
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.CopyFrom(UnityEngine.Camera,System.Boolean,System.Boolean)
   name: CopyFrom
   nameWithType: DebugDrawCamera.CopyFrom
   fullName: DebugDrawUtils.DebugDrawCamera.CopyFrom
 - uid: DebugDrawUtils.DebugDrawCamera.CalculateRotation*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.CalculateRotation
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.CalculateRotation(UnityEngine.Quaternion)
   name: CalculateRotation
   nameWithType: DebugDrawCamera.CalculateRotation
   fullName: DebugDrawUtils.DebugDrawCamera.CalculateRotation
@@ -1975,6 +1719,7 @@ references:
   fullName: UnityEngine.Quaternion
 - uid: DebugDrawUtils.DebugDrawCamera.TrackObject*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.TrackObject
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.TrackObject(System.Nullable{DebugDrawUtils.GameObjectOrTransform},System.Boolean)
   name: TrackObject
   nameWithType: DebugDrawCamera.TrackObject
   fullName: DebugDrawUtils.DebugDrawCamera.TrackObject
@@ -1982,47 +1727,24 @@ references:
   commentId: T:System.Nullable{DebugDrawUtils.GameObjectOrTransform}
   parent: System
   definition: System.Nullable`1
-  name: Nullable<GameObjectOrTransform>
-  nameWithType: Nullable<GameObjectOrTransform>
-  fullName: System.Nullable<DebugDrawUtils.GameObjectOrTransform>
-  nameWithType.vb: Nullable(Of GameObjectOrTransform)
-  fullName.vb: System.Nullable(Of DebugDrawUtils.GameObjectOrTransform)
-  name.vb: Nullable(Of GameObjectOrTransform)
+  href: DebugDrawUtils.GameObjectOrTransform.html
+  name: GameObjectOrTransform?
+  nameWithType: GameObjectOrTransform?
+  fullName: DebugDrawUtils.GameObjectOrTransform?
   spec.csharp:
-  - uid: System.Nullable`1
-    name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
   - uid: DebugDrawUtils.GameObjectOrTransform
     name: GameObjectOrTransform
-    nameWithType: GameObjectOrTransform
-    fullName: DebugDrawUtils.GameObjectOrTransform
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: '?'
   spec.vb:
-  - uid: System.Nullable`1
-    name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
   - uid: DebugDrawUtils.GameObjectOrTransform
     name: GameObjectOrTransform
-    nameWithType: GameObjectOrTransform
-    fullName: DebugDrawUtils.GameObjectOrTransform
-  - name: )
-    nameWithType: )
-    fullName: )
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: '?'
 - uid: System.Nullable`1
   commentId: T:System.Nullable`1
   isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
   name: Nullable<T>
   nameWithType: Nullable<T>
   fullName: System.Nullable<T>
@@ -2032,35 +1754,24 @@ references:
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
     isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
   - name: <
-    nameWithType: <
-    fullName: <
   - name: T
-    nameWithType: T
-    fullName: T
   - name: '>'
-    nameWithType: '>'
-    fullName: '>'
   spec.vb:
   - uid: System.Nullable`1
     name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
     isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
   - name: T
-    nameWithType: T
-    fullName: T
   - name: )
-    nameWithType: )
-    fullName: )
 - uid: DebugDrawUtils.DebugDrawCamera.LockCursor*
   commentId: Overload:DebugDrawUtils.DebugDrawCamera.LockCursor
+  href: DebugDrawUtils.DebugDrawCamera.html#DebugDrawUtils.DebugDrawCamera.LockCursor(System.Boolean)
   name: LockCursor
   nameWithType: DebugDrawCamera.LockCursor
   fullName: DebugDrawUtils.DebugDrawCamera.LockCursor

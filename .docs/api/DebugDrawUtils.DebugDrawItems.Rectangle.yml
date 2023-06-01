@@ -1,0 +1,803 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle
+  commentId: T:DebugDrawUtils.DebugDrawItems.Rectangle
+  id: Rectangle
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.Rectangle.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Rectangle.Get(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Rectangle.GetFill(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Rectangle.GetFill(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Rectangle.facing
+  - DebugDrawUtils.DebugDrawItems.Rectangle.filled
+  - DebugDrawUtils.DebugDrawItems.Rectangle.size
+  langs:
+  - csharp
+  - vb
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle
+  type: Class
+  source:
+    id: Rectangle
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Rectangle.cs
+    startLine: 10
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a 2D rectangle, either filled or wireframe.
+  example: []
+  syntax:
+    content: 'public class Rectangle : BasePointItem, IAttachablePoint'
+    content.vb: Public Class Rectangle Inherits BasePointItem Implements IAttachablePoint
+  inheritance:
+  - System.Object
+  - DebugDrawUtils.DebugDrawItems.BaseItem
+  - DebugDrawUtils.DebugDrawItems.BasePointItem
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  inheritedMembers:
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.color
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle.size
+  commentId: F:DebugDrawUtils.DebugDrawItems.Rectangle.size
+  id: size
+  parent: DebugDrawUtils.DebugDrawItems.Rectangle
+  langs:
+  - csharp
+  - vb
+  name: size
+  nameWithType: Rectangle.size
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle.size
+  type: Field
+  source:
+    id: size
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Rectangle.cs
+    startLine: 17
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The half size of the square.
+  example: []
+  syntax:
+    content: public Vector2 size
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public size As Vector2
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle.facing
+  commentId: F:DebugDrawUtils.DebugDrawItems.Rectangle.facing
+  id: facing
+  parent: DebugDrawUtils.DebugDrawItems.Rectangle
+  langs:
+  - csharp
+  - vb
+  name: facing
+  nameWithType: Rectangle.facing
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle.facing
+  type: Field
+  source:
+    id: facing
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Rectangle.cs
+    startLine: 21
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The normal or direction the front of the square is facing.
+  example: []
+  syntax:
+    content: public Vector3 facing
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public facing As Vector3
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle.filled
+  commentId: F:DebugDrawUtils.DebugDrawItems.Rectangle.filled
+  id: filled
+  parent: DebugDrawUtils.DebugDrawItems.Rectangle
+  langs:
+  - csharp
+  - vb
+  name: filled
+  nameWithType: Rectangle.filled
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle.filled
+  type: Field
+  source:
+    id: filled
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Rectangle.cs
+    startLine: 27
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    True for a filled square made up from triangles, otherwise a wire ellipse.
+
+    It's important that this Square item is added to a mesh with the right topology, either lines or triangles,
+
+    based on this setting.
+  example: []
+  syntax:
+    content: public bool filled
+    return:
+      type: System.Boolean
+    content.vb: Public filled As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle.GetFill(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Rectangle.GetFill(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  id: GetFill(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Rectangle
+  langs:
+  - csharp
+  - vb
+  name: GetFill(ref Vector3, float, ref Vector3, ref Color, float)
+  nameWithType: Rectangle.GetFill(ref Vector3, float, ref Vector3, ref Color, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle.GetFill(ref UnityEngine.Vector3, float, ref UnityEngine.Vector3, ref UnityEngine.Color, float)
+  type: Method
+  source:
+    id: GetFill
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Rectangle.cs
+    startLine: 41
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a filled square.
+  example: []
+  syntax:
+    content: public static Rectangle GetFill(ref Vector3 position, float size, ref Vector3 facing, ref Color color, float duration = 0)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the square.
+    - id: size
+      type: System.Single
+      description: The half size of the square.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the square is facing.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the square.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Rectangle
+      description: The ellipse object.
+    content.vb: Public Shared Function GetFill(position As Vector3, size As Single, facing As Vector3, color As Color, duration As Single = 0) As Rectangle
+  overload: DebugDrawUtils.DebugDrawItems.Rectangle.GetFill*
+  nameWithType.vb: Rectangle.GetFill(Vector3, Single, Vector3, Color, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Rectangle.GetFill(UnityEngine.Vector3, Single, UnityEngine.Vector3, UnityEngine.Color, Single)
+  name.vb: GetFill(Vector3, Single, Vector3, Color, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Rectangle.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  id: Get(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Rectangle
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, float, ref Vector3, ref Color, float)
+  nameWithType: Rectangle.Get(ref Vector3, float, ref Vector3, ref Color, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle.Get(ref UnityEngine.Vector3, float, ref UnityEngine.Vector3, ref UnityEngine.Color, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Rectangle.cs
+    startLine: 64
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a wire square.
+  example: []
+  syntax:
+    content: public static Rectangle Get(ref Vector3 position, float size, ref Vector3 facing, ref Color color, float duration = 0)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the square.
+    - id: size
+      type: System.Single
+      description: The half size of the square.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the square is facing.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the square.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Rectangle
+      description: The ellipse object.
+    content.vb: Public Shared Function [Get](position As Vector3, size As Single, facing As Vector3, color As Color, duration As Single = 0) As Rectangle
+  overload: DebugDrawUtils.DebugDrawItems.Rectangle.Get*
+  nameWithType.vb: Rectangle.Get(Vector3, Single, Vector3, Color, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Rectangle.Get(UnityEngine.Vector3, Single, UnityEngine.Vector3, UnityEngine.Color, Single)
+  name.vb: Get(Vector3, Single, Vector3, Color, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle.GetFill(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Rectangle.GetFill(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  id: GetFill(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Rectangle
+  langs:
+  - csharp
+  - vb
+  name: GetFill(ref Vector3, ref Vector2, ref Vector3, ref Color, float)
+  nameWithType: Rectangle.GetFill(ref Vector3, ref Vector2, ref Vector3, ref Color, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle.GetFill(ref UnityEngine.Vector3, ref UnityEngine.Vector2, ref UnityEngine.Vector3, ref UnityEngine.Color, float)
+  type: Method
+  source:
+    id: GetFill
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Rectangle.cs
+    startLine: 87
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a filled square.
+  example: []
+  syntax:
+    content: public static Rectangle GetFill(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float duration = 0)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the square.
+    - id: size
+      type: UnityEngine.Vector2
+      description: The half size of the square.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the square is facing.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the square.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Rectangle
+      description: The ellipse object.
+    content.vb: Public Shared Function GetFill(position As Vector3, size As Vector2, facing As Vector3, color As Color, duration As Single = 0) As Rectangle
+  overload: DebugDrawUtils.DebugDrawItems.Rectangle.GetFill*
+  nameWithType.vb: Rectangle.GetFill(Vector3, Vector2, Vector3, Color, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Rectangle.GetFill(UnityEngine.Vector3, UnityEngine.Vector2, UnityEngine.Vector3, UnityEngine.Color, Single)
+  name.vb: GetFill(Vector3, Vector2, Vector3, Color, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle.Get(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Rectangle.Get(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Rectangle
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector2, ref Vector3, ref Color, float)
+  nameWithType: Rectangle.Get(ref Vector3, ref Vector2, ref Vector3, ref Color, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector2, ref UnityEngine.Vector3, ref UnityEngine.Color, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Rectangle.cs
+    startLine: 110
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a wire square.
+  example: []
+  syntax:
+    content: public static Rectangle Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float duration = 0)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The centre of the square.
+    - id: size
+      type: UnityEngine.Vector2
+      description: The half size of the square.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The normal or direction the front of the square is facing.
+    - id: color
+      type: UnityEngine.Color
+      description: The colour of the square.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Rectangle
+      description: The ellipse object.
+    content.vb: Public Shared Function [Get](position As Vector3, size As Vector2, facing As Vector3, color As Color, duration As Single = 0) As Rectangle
+  overload: DebugDrawUtils.DebugDrawItems.Rectangle.Get*
+  nameWithType.vb: Rectangle.Get(Vector3, Vector2, Vector3, Color, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Rectangle.Get(UnityEngine.Vector3, UnityEngine.Vector2, UnityEngine.Vector3, UnityEngine.Color, Single)
+  name.vb: Get(Vector3, Vector2, Vector3, Color, Single)
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BasePointItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html
+  name: BasePointItem
+  nameWithType: BasePointItem
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.html
+  name: IAttachablePoint
+  nameWithType: IAttachablePoint
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  commentId: F:DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  name: position
+  nameWithType: BasePointItem.position
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.position
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo(GameObjectOrTransform)
+  nameWithType: BasePointItem.AttachTo(GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  name: SetPosition(Vector3)
+  nameWithType: BasePointItem.SetPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  name: GetPosition()
+  nameWithType: BasePointItem.GetPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.color
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.color
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.color
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  name: SetDuration<T>(float)
+  nameWithType: BaseItem.SetDuration<T>(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration<T>(float)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Of T)(Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  name: SetDuration(float)
+  nameWithType: BaseItem.SetDuration(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(float)
+  nameWithType.vb: BaseItem.SetDuration(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Single)
+  name.vb: SetDuration(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  name: GetColor(ref Color)
+  nameWithType: BaseItem.GetColor(ref Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(ref UnityEngine.Color)
+  nameWithType.vb: BaseItem.GetColor(Color)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  name.vb: GetColor(Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  name: Group(string)
+  nameWithType: BaseItem.Group(string)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Group(string)
+  nameWithType.vb: BaseItem.Group(String)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.Group(String)
+  name.vb: Group(String)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle.GetFill*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Rectangle.GetFill
+  href: DebugDrawUtils.DebugDrawItems.Rectangle.html#DebugDrawUtils.DebugDrawItems.Rectangle.GetFill(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  name: GetFill
+  nameWithType: Rectangle.GetFill
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle.GetFill
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle
+  commentId: T:DebugDrawUtils.DebugDrawItems.Rectangle
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Rectangle.html
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle.Get*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Rectangle.Get
+  href: DebugDrawUtils.DebugDrawItems.Rectangle.html#DebugDrawUtils.DebugDrawItems.Rectangle.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  name: Get
+  nameWithType: Rectangle.Get
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle.Get

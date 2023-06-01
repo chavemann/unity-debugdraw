@@ -1,0 +1,247 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  id: BaseAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  children:
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment.op_Implicit(DebugDrawUtils.DebugDrawAttachments.BaseAttachment)~System.Boolean
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  langs:
+  - csharp
+  - vb
+  name: BaseAttachment
+  nameWithType: BaseAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  type: Class
+  source:
+    id: BaseAttachment
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BaseAttachment.cs
+    startLine: 11
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: >-
+    The abstract base for all attachment types.
+
+    Attachments will also be automatically destroyed when they expire or any
+
+    game objects they are attached to are destroyed.
+  example: []
+  syntax:
+    content: public abstract class BaseAttachment
+    content.vb: Public MustInherit Class BaseAttachment
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - DebugDrawUtils.DebugDrawAttachments.BoxAttachment
+  - DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  - DebugDrawUtils.DebugDrawAttachments.PointAttachment
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  id: vector3Ref
+  parent: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  langs:
+  - csharp
+  - vb
+  name: vector3Ref
+  nameWithType: BaseAttachment.vector3Ref
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  type: Field
+  source:
+    id: vector3Ref
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BaseAttachment.cs
+    startLine: 14
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: protected static Vector3 vector3Ref
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Protected Shared vector3Ref As Vector3
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  commentId: P:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  id: isAlive
+  parent: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  langs:
+  - csharp
+  - vb
+  name: isAlive
+  nameWithType: BaseAttachment.isAlive
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  type: Property
+  source:
+    id: isAlive
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BaseAttachment.cs
+    startLine: 20
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: >-
+    Is this visual alive. Will be true when created, and false when the visual expires or is manually removed.
+
+    A visual should not be used when it is not alive.
+  example: []
+  syntax:
+    content: public bool isAlive { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property isAlive As Boolean
+  overload: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive*
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  id: Destroy
+  parent: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  langs:
+  - csharp
+  - vb
+  name: Destroy()
+  nameWithType: BaseAttachment.Destroy()
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy()
+  type: Method
+  source:
+    id: Destroy
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BaseAttachment.cs
+    startLine: 32
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: >-
+    Destroys this attachment. Attachments will also be automatically destroyed when
+
+    they expire or any game objects they are attached to are destroyed.
+  example: []
+  syntax:
+    content: public void Destroy()
+    content.vb: Public Sub Destroy()
+  overload: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy*
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.op_Implicit(DebugDrawUtils.DebugDrawAttachments.BaseAttachment)~System.Boolean
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.op_Implicit(DebugDrawUtils.DebugDrawAttachments.BaseAttachment)~System.Boolean
+  id: op_Implicit(DebugDrawUtils.DebugDrawAttachments.BaseAttachment)~System.Boolean
+  parent: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  langs:
+  - csharp
+  - vb
+  name: implicit operator bool(BaseAttachment)
+  nameWithType: BaseAttachment.implicit operator bool(BaseAttachment)
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.implicit operator bool(DebugDrawUtils.DebugDrawAttachments.BaseAttachment)
+  type: Operator
+  source:
+    id: op_Implicit
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\BaseAttachment.cs
+    startLine: 37
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public static implicit operator bool(BaseAttachment baseAttachment)
+    parameters:
+    - id: baseAttachment
+      type: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Widening Operator CType(baseAttachment As BaseAttachment) As Boolean
+  overload: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.op_Implicit*
+  nameWithType.vb: BaseAttachment.CType(BaseAttachment)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.CType(DebugDrawUtils.DebugDrawAttachments.BaseAttachment)
+  name.vb: CType(BaseAttachment)
+references:
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  name: isAlive
+  nameWithType: BaseAttachment.isAlive
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  name: Destroy
+  nameWithType: BaseAttachment.Destroy
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.op_Implicit*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.op_Implicit
+  name: implicit operator
+  nameWithType: BaseAttachment.implicit operator
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.implicit operator
+  nameWithType.vb: BaseAttachment.CType
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html
+  name: BaseAttachment
+  nameWithType: BaseAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment

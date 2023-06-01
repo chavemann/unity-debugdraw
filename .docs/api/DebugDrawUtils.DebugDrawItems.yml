@@ -1,0 +1,288 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  id: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.Arrow
+  - DebugDrawUtils.DebugDrawItems.ArrowHead
+  - DebugDrawUtils.DebugDrawItems.ArrowShape
+  - DebugDrawUtils.DebugDrawItems.Axes
+  - DebugDrawUtils.DebugDrawItems.BaseItem
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem
+  - DebugDrawUtils.DebugDrawItems.BasePointItem
+  - DebugDrawUtils.DebugDrawItems.Box
+  - DebugDrawUtils.DebugDrawItems.Capsule
+  - DebugDrawUtils.DebugDrawItems.Cone
+  - DebugDrawUtils.DebugDrawItems.Cylinder
+  - DebugDrawUtils.DebugDrawItems.Dot
+  - DebugDrawUtils.DebugDrawItems.Dots
+  - DebugDrawUtils.DebugDrawItems.DrawArcSegments
+  - DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+  - DebugDrawUtils.DebugDrawItems.Ellipse
+  - DebugDrawUtils.DebugDrawItems.ItemPool`1
+  - DebugDrawUtils.DebugDrawItems.Line
+  - DebugDrawUtils.DebugDrawItems.Line3D
+  - DebugDrawUtils.DebugDrawItems.Lines
+  - DebugDrawUtils.DebugDrawItems.Lines3D
+  - DebugDrawUtils.DebugDrawItems.MeshItem
+  - DebugDrawUtils.DebugDrawItems.Point
+  - DebugDrawUtils.DebugDrawItems.Points
+  - DebugDrawUtils.DebugDrawItems.Quad
+  - DebugDrawUtils.DebugDrawItems.Rectangle
+  - DebugDrawUtils.DebugDrawItems.Sphere
+  - DebugDrawUtils.DebugDrawItems.Text
+  - DebugDrawUtils.DebugDrawItems.Triangle
+  langs:
+  - csharp
+  - vb
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  type: Namespace
+  assemblies:
+  - c.DebugDraw.Runtime
+references:
+- uid: DebugDrawUtils.DebugDrawItems.Lines
+  commentId: T:DebugDrawUtils.DebugDrawItems.Lines
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Lines.html
+  name: Lines
+  nameWithType: Lines
+  fullName: DebugDrawUtils.DebugDrawItems.Lines
+- uid: DebugDrawUtils.DebugDrawItems.Sphere
+  commentId: T:DebugDrawUtils.DebugDrawItems.Sphere
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Sphere.html
+  name: Sphere
+  nameWithType: Sphere
+  fullName: DebugDrawUtils.DebugDrawItems.Sphere
+- uid: DebugDrawUtils.DebugDrawItems.Dot
+  commentId: T:DebugDrawUtils.DebugDrawItems.Dot
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Dot.html
+  name: Dot
+  nameWithType: Dot
+  fullName: DebugDrawUtils.DebugDrawItems.Dot
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseLineItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html
+  name: BaseLineItem
+  nameWithType: BaseLineItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem
+- uid: DebugDrawUtils.DebugDrawItems.Points
+  commentId: T:DebugDrawUtils.DebugDrawItems.Points
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Points.html
+  name: Points
+  nameWithType: Points
+  fullName: DebugDrawUtils.DebugDrawItems.Points
+- uid: DebugDrawUtils.DebugDrawItems.Triangle
+  commentId: T:DebugDrawUtils.DebugDrawItems.Triangle
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Triangle.html
+  name: Triangle
+  nameWithType: Triangle
+  fullName: DebugDrawUtils.DebugDrawItems.Triangle
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BasePointItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html
+  name: BasePointItem
+  nameWithType: BasePointItem
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem
+- uid: DebugDrawUtils.DebugDrawItems.Axes
+  commentId: T:DebugDrawUtils.DebugDrawItems.Axes
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Axes.html
+  name: Axes
+  nameWithType: Axes
+  fullName: DebugDrawUtils.DebugDrawItems.Axes
+- uid: DebugDrawUtils.DebugDrawItems.Capsule
+  commentId: T:DebugDrawUtils.DebugDrawItems.Capsule
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Capsule.html
+  name: Capsule
+  nameWithType: Capsule
+  fullName: DebugDrawUtils.DebugDrawItems.Capsule
+- uid: DebugDrawUtils.DebugDrawItems.Lines3D
+  commentId: T:DebugDrawUtils.DebugDrawItems.Lines3D
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Lines3D.html
+  name: Lines3D
+  nameWithType: Lines3D
+  fullName: DebugDrawUtils.DebugDrawItems.Lines3D
+- uid: DebugDrawUtils.DebugDrawItems.Cone
+  commentId: T:DebugDrawUtils.DebugDrawItems.Cone
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Cone.html
+  name: Cone
+  nameWithType: Cone
+  fullName: DebugDrawUtils.DebugDrawItems.Cone
+- uid: DebugDrawUtils.DebugDrawItems.MeshItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.MeshItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.MeshItem.html
+  name: MeshItem
+  nameWithType: MeshItem
+  fullName: DebugDrawUtils.DebugDrawItems.MeshItem
+- uid: DebugDrawUtils.DebugDrawItems.Line
+  commentId: T:DebugDrawUtils.DebugDrawItems.Line
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Line.html
+  name: Line
+  nameWithType: Line
+  fullName: DebugDrawUtils.DebugDrawItems.Line
+- uid: DebugDrawUtils.DebugDrawItems.Point
+  commentId: T:DebugDrawUtils.DebugDrawItems.Point
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Point.html
+  name: Point
+  nameWithType: Point
+  fullName: DebugDrawUtils.DebugDrawItems.Point
+- uid: DebugDrawUtils.DebugDrawItems.Ellipse
+  commentId: T:DebugDrawUtils.DebugDrawItems.Ellipse
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Ellipse.html
+  name: Ellipse
+  nameWithType: Ellipse
+  fullName: DebugDrawUtils.DebugDrawItems.Ellipse
+- uid: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+  commentId: T:DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes.html
+  name: DrawEllipseAxes
+  nameWithType: DrawEllipseAxes
+  fullName: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+- uid: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+  commentId: T:DebugDrawUtils.DebugDrawItems.DrawArcSegments
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.DrawArcSegments.html
+  name: DrawArcSegments
+  nameWithType: DrawArcSegments
+  fullName: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+- uid: DebugDrawUtils.DebugDrawItems.Text
+  commentId: T:DebugDrawUtils.DebugDrawItems.Text
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Text.html
+  name: Text
+  nameWithType: Text
+  fullName: DebugDrawUtils.DebugDrawItems.Text
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawItems.Quad
+  commentId: T:DebugDrawUtils.DebugDrawItems.Quad
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Quad.html
+  name: Quad
+  nameWithType: Quad
+  fullName: DebugDrawUtils.DebugDrawItems.Quad
+- uid: DebugDrawUtils.DebugDrawItems.Dots
+  commentId: T:DebugDrawUtils.DebugDrawItems.Dots
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Dots.html
+  name: Dots
+  nameWithType: Dots
+  fullName: DebugDrawUtils.DebugDrawItems.Dots
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder
+  commentId: T:DebugDrawUtils.DebugDrawItems.Cylinder
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Cylinder.html
+  name: Cylinder
+  nameWithType: Cylinder
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder
+- uid: DebugDrawUtils.DebugDrawItems.ItemPool`1
+  commentId: T:DebugDrawUtils.DebugDrawItems.ItemPool`1
+  href: DebugDrawUtils.DebugDrawItems.ItemPool-1.html
+  name: ItemPool<T>
+  nameWithType: ItemPool<T>
+  fullName: DebugDrawUtils.DebugDrawItems.ItemPool<T>
+  nameWithType.vb: ItemPool(Of T)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.ItemPool(Of T)
+  name.vb: ItemPool(Of T)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.ItemPool`1
+    name: ItemPool
+    href: DebugDrawUtils.DebugDrawItems.ItemPool-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.ItemPool`1
+    name: ItemPool
+    href: DebugDrawUtils.DebugDrawItems.ItemPool-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Box
+  commentId: T:DebugDrawUtils.DebugDrawItems.Box
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Box.html
+  name: Box
+  nameWithType: Box
+  fullName: DebugDrawUtils.DebugDrawItems.Box
+- uid: DebugDrawUtils.DebugDrawItems.Rectangle
+  commentId: T:DebugDrawUtils.DebugDrawItems.Rectangle
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Rectangle.html
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: DebugDrawUtils.DebugDrawItems.Rectangle
+- uid: DebugDrawUtils.DebugDrawItems.Arrow
+  commentId: T:DebugDrawUtils.DebugDrawItems.Arrow
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Arrow.html
+  name: Arrow
+  nameWithType: Arrow
+  fullName: DebugDrawUtils.DebugDrawItems.Arrow
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead
+  commentId: T:DebugDrawUtils.DebugDrawItems.ArrowHead
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.ArrowHead.html
+  name: ArrowHead
+  nameWithType: ArrowHead
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead
+- uid: DebugDrawUtils.DebugDrawItems.ArrowShape
+  commentId: T:DebugDrawUtils.DebugDrawItems.ArrowShape
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.ArrowShape.html
+  name: ArrowShape
+  nameWithType: ArrowShape
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowShape
+- uid: DebugDrawUtils.DebugDrawItems.Line3D
+  commentId: T:DebugDrawUtils.DebugDrawItems.Line3D
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Line3D.html
+  name: Line3D
+  nameWithType: Line3D
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html

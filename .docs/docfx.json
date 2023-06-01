@@ -11,7 +11,6 @@
       ],
       "dest": "api",
       "filter": "filterConfig.yml",
-      "globalNamespaceId": "Global",
       "disableGitFeatures": true,
       "disableDefaultFilter": false
     }
@@ -63,7 +62,9 @@
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "modern",
+      "templates/modern-mod"
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",

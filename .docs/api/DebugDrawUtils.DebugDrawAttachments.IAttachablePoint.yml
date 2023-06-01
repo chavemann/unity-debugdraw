@@ -1,0 +1,194 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  id: IAttachablePoint
+  parent: DebugDrawUtils.DebugDrawAttachments
+  children:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.GetPosition
+  - DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.SetPosition(UnityEngine.Vector3)
+  langs:
+  - csharp
+  - vb
+  name: IAttachablePoint
+  nameWithType: IAttachablePoint
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  type: Interface
+  source:
+    id: IAttachablePoint
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\IAttachablePoint.cs
+    startLine: 10
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: An item with a position.
+  example: []
+  syntax:
+    content: public interface IAttachablePoint
+    content.vb: Public Interface IAttachablePoint
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  id: AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  langs:
+  - csharp
+  - vb
+  name: AttachTo(GameObjectOrTransform)
+  nameWithType: IAttachablePoint.AttachTo(GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  type: Method
+  source:
+    id: AttachTo
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\IAttachablePoint.cs
+    startLine: 20
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: >-
+    Attach this item to a GameObjects. This item and it's attachment will automatically expire
+
+    if the attached object is destroyed.
+
+    This is only applicable to certain items and will return null otherwise.
+  example: []
+  syntax:
+    content: PointAttachment AttachTo(GameObjectOrTransform obj)
+    parameters:
+    - id: obj
+      type: DebugDrawUtils.GameObjectOrTransform
+      description: The object the start of the lines is attached to.
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+      description: ''
+    content.vb: Function AttachTo(obj As GameObjectOrTransform) As PointAttachment
+  overload: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.AttachTo*
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.SetPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.SetPosition(UnityEngine.Vector3)
+  id: SetPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  langs:
+  - csharp
+  - vb
+  name: SetPosition(Vector3)
+  nameWithType: IAttachablePoint.SetPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.SetPosition(UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\IAttachablePoint.cs
+    startLine: 27
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: Sets this item's position.
+  example: []
+  syntax:
+    content: void SetPosition(Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The new position
+    content.vb: Sub SetPosition(position As Vector3)
+  overload: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.SetPosition*
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.GetPosition
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.GetPosition
+  id: GetPosition
+  parent: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  langs:
+  - csharp
+  - vb
+  name: GetPosition()
+  nameWithType: IAttachablePoint.GetPosition()
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.GetPosition()
+  type: Method
+  source:
+    id: GetPosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\IAttachablePoint.cs
+    startLine: 33
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: Gets this item's position.
+  example: []
+  syntax:
+    content: Vector3 GetPosition()
+    return:
+      type: UnityEngine.Vector3
+      description: ''
+    content.vb: Function GetPosition() As Vector3
+  overload: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.GetPosition*
+references:
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.AttachTo*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.AttachTo
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.html#DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo
+  nameWithType: IAttachablePoint.AttachTo
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.AttachTo
+- uid: DebugDrawUtils.GameObjectOrTransform
+  commentId: T:DebugDrawUtils.GameObjectOrTransform
+  parent: DebugDrawUtils
+  href: DebugDrawUtils.GameObjectOrTransform.html
+  name: GameObjectOrTransform
+  nameWithType: GameObjectOrTransform
+  fullName: DebugDrawUtils.GameObjectOrTransform
+- uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.PointAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.PointAttachment.html
+  name: PointAttachment
+  nameWithType: PointAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+- uid: DebugDrawUtils
+  commentId: N:DebugDrawUtils
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils
+  nameWithType: DebugDrawUtils
+  fullName: DebugDrawUtils
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.SetPosition*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.SetPosition
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.html#DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.SetPosition(UnityEngine.Vector3)
+  name: SetPosition
+  nameWithType: IAttachablePoint.SetPosition
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.SetPosition
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.GetPosition*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.GetPosition
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.html#DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.GetPosition
+  name: GetPosition
+  nameWithType: IAttachablePoint.GetPosition
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.GetPosition

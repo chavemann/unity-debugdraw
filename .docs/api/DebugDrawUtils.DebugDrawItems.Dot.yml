@@ -1,0 +1,851 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.Dot
+  commentId: T:DebugDrawUtils.DebugDrawItems.Dot
+  id: Dot
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.Dot.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Dot.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Color@,UnityEngine.Vector3@,System.Int32,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Dot.SetAutoResolution
+  - DebugDrawUtils.DebugDrawItems.Dot.SetAutoSize(System.Boolean)
+  - DebugDrawUtils.DebugDrawItems.Dot.autoSize
+  - DebugDrawUtils.DebugDrawItems.Dot.faceCamera
+  - DebugDrawUtils.DebugDrawItems.Dot.facing
+  - DebugDrawUtils.DebugDrawItems.Dot.radius
+  - DebugDrawUtils.DebugDrawItems.Dot.segments
+  langs:
+  - csharp
+  - vb
+  name: Dot
+  nameWithType: Dot
+  fullName: DebugDrawUtils.DebugDrawItems.Dot
+  type: Class
+  source:
+    id: Dot
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Dot.cs
+    startLine: 12
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    A 3D "point". Can be made to always face the camera and adjust its size so it's always independent on the
+
+    distance from the camera.
+  example: []
+  syntax:
+    content: 'public class Dot : BasePointItem, IAttachablePoint'
+    content.vb: Public Class Dot Inherits BasePointItem Implements IAttachablePoint
+  inheritance:
+  - System.Object
+  - DebugDrawUtils.DebugDrawItems.BaseItem
+  - DebugDrawUtils.DebugDrawItems.BasePointItem
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  inheritedMembers:
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.color
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+- uid: DebugDrawUtils.DebugDrawItems.Dot.radius
+  commentId: F:DebugDrawUtils.DebugDrawItems.Dot.radius
+  id: radius
+  parent: DebugDrawUtils.DebugDrawItems.Dot
+  langs:
+  - csharp
+  - vb
+  name: radius
+  nameWithType: Dot.radius
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.radius
+  type: Field
+  source:
+    id: radius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Dot.cs
+    startLine: 19
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The size of the dot.
+  example: []
+  syntax:
+    content: public float radius
+    return:
+      type: System.Single
+    content.vb: Public radius As Single
+- uid: DebugDrawUtils.DebugDrawItems.Dot.autoSize
+  commentId: F:DebugDrawUtils.DebugDrawItems.Dot.autoSize
+  id: autoSize
+  parent: DebugDrawUtils.DebugDrawItems.Dot
+  langs:
+  - csharp
+  - vb
+  name: autoSize
+  nameWithType: Dot.autoSize
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.autoSize
+  type: Field
+  source:
+    id: autoSize
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Dot.cs
+    startLine: 23
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: If true adjusts the size of the dot so it approximately remains the same size on screen.
+  example: []
+  syntax:
+    content: public bool autoSize
+    return:
+      type: System.Boolean
+    content.vb: Public autoSize As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Dot.facing
+  commentId: F:DebugDrawUtils.DebugDrawItems.Dot.facing
+  id: facing
+  parent: DebugDrawUtils.DebugDrawItems.Dot
+  langs:
+  - csharp
+  - vb
+  name: facing
+  nameWithType: Dot.facing
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.facing
+  type: Field
+  source:
+    id: facing
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Dot.cs
+    startLine: 27
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The forward direction of the dot. Automatically updated if faceCamera is true.
+  example: []
+  syntax:
+    content: public Vector3 facing
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public facing As Vector3
+- uid: DebugDrawUtils.DebugDrawItems.Dot.faceCamera
+  commentId: F:DebugDrawUtils.DebugDrawItems.Dot.faceCamera
+  id: faceCamera
+  parent: DebugDrawUtils.DebugDrawItems.Dot
+  langs:
+  - csharp
+  - vb
+  name: faceCamera
+  nameWithType: Dot.faceCamera
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.faceCamera
+  type: Field
+  source:
+    id: faceCamera
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Dot.cs
+    startLine: 31
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: If true the dot will automatically rotate to face the camera.
+  example: []
+  syntax:
+    content: public bool faceCamera
+    return:
+      type: System.Boolean
+    content.vb: Public faceCamera As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Dot.segments
+  commentId: F:DebugDrawUtils.DebugDrawItems.Dot.segments
+  id: segments
+  parent: DebugDrawUtils.DebugDrawItems.Dot
+  langs:
+  - csharp
+  - vb
+  name: segments
+  nameWithType: Dot.segments
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.segments
+  type: Field
+  source:
+    id: segments
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Dot.cs
+    startLine: 36
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    The shape/resolution of the dot. 0 or 4 = square, &gt;= 3 = circle.
+
+    If set to zero will be adjusted based on the distance to the camera.
+  example: []
+  syntax:
+    content: public int segments
+    return:
+      type: System.Int32
+    content.vb: Public segments As Integer
+- uid: DebugDrawUtils.DebugDrawItems.Dot.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Dot.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  id: Get(UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Dot
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, float, ref Color, int, float)
+  nameWithType: Dot.Get(ref Vector3, float, ref Color, int, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.Get(ref UnityEngine.Vector3, float, ref UnityEngine.Color, int, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Dot.cs
+    startLine: 51
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a 3D dot that automatically faces the camera.
+  example: []
+  syntax:
+    content: public static Dot Get(ref Vector3 position, float radius, ref Color color, int segments = 0, float duration = 0)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The position of the dot.
+    - id: radius
+      type: System.Single
+      description: The size of the dot.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the dot.
+    - id: segments
+      type: System.Int32
+      description: >-
+        The shape/resolution of the dot. 0 or 4 = square, &gt;= 3 = circle.
+            If set to zero will be adjusted based on the distance to the camera.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Dot
+      description: The Dot object.
+    content.vb: Public Shared Function [Get](position As Vector3, radius As Single, color As Color, segments As Integer = 0, duration As Single = 0) As Dot
+  overload: DebugDrawUtils.DebugDrawItems.Dot.Get*
+  nameWithType.vb: Dot.Get(Vector3, Single, Color, Integer, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Dot.Get(UnityEngine.Vector3, Single, UnityEngine.Color, Integer, Single)
+  name.vb: Get(Vector3, Single, Color, Integer, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Dot.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Color@,UnityEngine.Vector3@,System.Int32,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Dot.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Color@,UnityEngine.Vector3@,System.Int32,System.Single)
+  id: Get(UnityEngine.Vector3@,System.Single,UnityEngine.Color@,UnityEngine.Vector3@,System.Int32,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Dot
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, float, ref Color, ref Vector3, int, float)
+  nameWithType: Dot.Get(ref Vector3, float, ref Color, ref Vector3, int, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.Get(ref UnityEngine.Vector3, float, ref UnityEngine.Color, ref UnityEngine.Vector3, int, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Dot.cs
+    startLine: 77
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a 3D dot.
+  example: []
+  syntax:
+    content: public static Dot Get(ref Vector3 position, float radius, ref Color color, ref Vector3 facing, int segments = 0, float duration = 0)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: The position of the dot.
+    - id: radius
+      type: System.Single
+      description: The size of the dot.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the dot.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The forward direction of the dot. Automatically update if faceCamera is true.
+    - id: segments
+      type: System.Int32
+      description: >-
+        The shape/resolution of the dot. 0 = square.
+            If set to zero will be adjusted based on the distance to the camera.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Dot
+      description: The Dot object.
+    content.vb: Public Shared Function [Get](position As Vector3, radius As Single, color As Color, facing As Vector3, segments As Integer = 0, duration As Single = 0) As Dot
+  overload: DebugDrawUtils.DebugDrawItems.Dot.Get*
+  nameWithType.vb: Dot.Get(Vector3, Single, Color, Vector3, Integer, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Dot.Get(UnityEngine.Vector3, Single, UnityEngine.Color, UnityEngine.Vector3, Integer, Single)
+  name.vb: Get(Vector3, Single, Color, Vector3, Integer, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Dot.SetAutoSize(System.Boolean)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Dot.SetAutoSize(System.Boolean)
+  id: SetAutoSize(System.Boolean)
+  parent: DebugDrawUtils.DebugDrawItems.Dot
+  langs:
+  - csharp
+  - vb
+  name: SetAutoSize(bool)
+  nameWithType: Dot.SetAutoSize(bool)
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.SetAutoSize(bool)
+  type: Method
+  source:
+    id: SetAutoSize
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Dot.cs
+    startLine: 101
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: If true adjusts the size of the dot so it approximately remains the same size on screen.
+  example: []
+  syntax:
+    content: public Dot SetAutoSize(bool autoSize = true)
+    parameters:
+    - id: autoSize
+      type: System.Boolean
+      description: .
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Dot
+      description: ''
+    content.vb: Public Function SetAutoSize(autoSize As Boolean = True) As Dot
+  overload: DebugDrawUtils.DebugDrawItems.Dot.SetAutoSize*
+  nameWithType.vb: Dot.SetAutoSize(Boolean)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Dot.SetAutoSize(Boolean)
+  name.vb: SetAutoSize(Boolean)
+- uid: DebugDrawUtils.DebugDrawItems.Dot.SetAutoResolution
+  commentId: M:DebugDrawUtils.DebugDrawItems.Dot.SetAutoResolution
+  id: SetAutoResolution
+  parent: DebugDrawUtils.DebugDrawItems.Dot
+  langs:
+  - csharp
+  - vb
+  name: SetAutoResolution()
+  nameWithType: Dot.SetAutoResolution()
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.SetAutoResolution()
+  type: Method
+  source:
+    id: SetAutoResolution
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Dot.cs
+    startLine: 113
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    Sets <xref href="DebugDrawUtils.DebugDrawItems.Dot.segments" data-throw-if-not-resolved="false"></xref> to zero so that it will be calculated dynamically based
+
+    on the distance to the camera.
+  example: []
+  syntax:
+    content: public Dot SetAutoResolution()
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Dot
+      description: ''
+    content.vb: Public Function SetAutoResolution() As Dot
+  overload: DebugDrawUtils.DebugDrawItems.Dot.SetAutoResolution*
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BasePointItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html
+  name: BasePointItem
+  nameWithType: BasePointItem
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.html
+  name: IAttachablePoint
+  nameWithType: IAttachablePoint
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  commentId: F:DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.position
+  name: position
+  nameWithType: BasePointItem.position
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.position
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo(GameObjectOrTransform)
+  nameWithType: BasePointItem.AttachTo(GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  name: SetPosition(Vector3)
+  nameWithType: BasePointItem.SetPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.SetPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  parent: DebugDrawUtils.DebugDrawItems.BasePointItem
+  href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  name: GetPosition()
+  nameWithType: BasePointItem.GetPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+    name: GetPosition
+    href: DebugDrawUtils.DebugDrawItems.BasePointItem.html#DebugDrawUtils.DebugDrawItems.BasePointItem.GetPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.color
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.color
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.color
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  name: SetDuration<T>(float)
+  nameWithType: BaseItem.SetDuration<T>(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration<T>(float)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Of T)(Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  name: SetDuration(float)
+  nameWithType: BaseItem.SetDuration(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(float)
+  nameWithType.vb: BaseItem.SetDuration(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Single)
+  name.vb: SetDuration(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  name: GetColor(ref Color)
+  nameWithType: BaseItem.GetColor(ref Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(ref UnityEngine.Color)
+  nameWithType.vb: BaseItem.GetColor(Color)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  name.vb: GetColor(Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  name: Group(string)
+  nameWithType: BaseItem.Group(string)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Group(string)
+  nameWithType.vb: BaseItem.Group(String)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.Group(String)
+  name.vb: Group(String)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: DebugDrawUtils.DebugDrawItems.Dot.Get*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Dot.Get
+  href: DebugDrawUtils.DebugDrawItems.Dot.html#DebugDrawUtils.DebugDrawItems.Dot.Get(UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Single)
+  name: Get
+  nameWithType: Dot.Get
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.Get
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: DebugDrawUtils.DebugDrawItems.Dot
+  commentId: T:DebugDrawUtils.DebugDrawItems.Dot
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Dot.html
+  name: Dot
+  nameWithType: Dot
+  fullName: DebugDrawUtils.DebugDrawItems.Dot
+- uid: DebugDrawUtils.DebugDrawItems.Dot.SetAutoSize*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Dot.SetAutoSize
+  href: DebugDrawUtils.DebugDrawItems.Dot.html#DebugDrawUtils.DebugDrawItems.Dot.SetAutoSize(System.Boolean)
+  name: SetAutoSize
+  nameWithType: Dot.SetAutoSize
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.SetAutoSize
+- uid: DebugDrawUtils.DebugDrawItems.Dot.segments
+  commentId: F:DebugDrawUtils.DebugDrawItems.Dot.segments
+  href: DebugDrawUtils.DebugDrawItems.Dot.html#DebugDrawUtils.DebugDrawItems.Dot.segments
+  name: segments
+  nameWithType: Dot.segments
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.segments
+- uid: DebugDrawUtils.DebugDrawItems.Dot.SetAutoResolution*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Dot.SetAutoResolution
+  href: DebugDrawUtils.DebugDrawItems.Dot.html#DebugDrawUtils.DebugDrawItems.Dot.SetAutoResolution
+  name: SetAutoResolution
+  nameWithType: Dot.SetAutoResolution
+  fullName: DebugDrawUtils.DebugDrawItems.Dot.SetAutoResolution

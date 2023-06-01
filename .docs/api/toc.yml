@@ -1,105 +1,100 @@
 ### YamlMime:TableOfContent
-- uid: DebugDrawAttachments
-  name: DebugDrawAttachments
-  items:
-  - uid: DebugDrawAttachments.AttachmentObject`1
-    name: AttachmentObject<T>
-    name.vb: AttachmentObject(Of T)
-  - uid: DebugDrawAttachments.AttachmentPool`1
-    name: AttachmentPool<T>
-    name.vb: AttachmentPool(Of T)
-  - uid: DebugDrawAttachments.BaseAttachment
-    name: BaseAttachment
-  - uid: DebugDrawAttachments.BoxAttachment
-    name: BoxAttachment
-  - uid: DebugDrawAttachments.BoxAttachmentSizeUpdate
-    name: BoxAttachmentSizeUpdate
-  - uid: DebugDrawAttachments.IAttachableLine
-    name: IAttachableLine
-  - uid: DebugDrawAttachments.IAttachablePoint
-    name: IAttachablePoint
-  - uid: DebugDrawAttachments.LineAttachment
-    name: LineAttachment
-  - uid: DebugDrawAttachments.PointAttachment
-    name: PointAttachment
-- uid: DebugDrawItems
-  name: DebugDrawItems
-  items:
-  - uid: DebugDrawItems.Arrow
-    name: Arrow
-  - uid: DebugDrawItems.ArrowHead
-    name: ArrowHead
-  - uid: DebugDrawItems.ArrowShape
-    name: ArrowShape
-  - uid: DebugDrawItems.Axes
-    name: Axes
-  - uid: DebugDrawItems.BaseItem
-    name: BaseItem
-  - uid: DebugDrawItems.BaseLineItem
-    name: BaseLineItem
-  - uid: DebugDrawItems.BasePointItem
-    name: BasePointItem
-  - uid: DebugDrawItems.Box
-    name: Box
-  - uid: DebugDrawItems.Capsule
-    name: Capsule
-  - uid: DebugDrawItems.Cone
-    name: Cone
-  - uid: DebugDrawItems.Cylinder
-    name: Cylinder
-  - uid: DebugDrawItems.Dot
-    name: Dot
-  - uid: DebugDrawItems.Dots
-    name: Dots
-  - uid: DebugDrawItems.DrawArcSegments
-    name: DrawArcSegments
-  - uid: DebugDrawItems.DrawEllipseAxes
-    name: DrawEllipseAxes
-  - uid: DebugDrawItems.Ellipse
-    name: Ellipse
-  - uid: DebugDrawItems.ItemPool`1
-    name: ItemPool<T>
-    name.vb: ItemPool(Of T)
-  - uid: DebugDrawItems.Line
-    name: Line
-  - uid: DebugDrawItems.Line3D
-    name: Line3D
-  - uid: DebugDrawItems.Lines
-    name: Lines
-  - uid: DebugDrawItems.Lines3D
-    name: Lines3D
-  - uid: DebugDrawItems.MeshItem
-    name: MeshItem
-  - uid: DebugDrawItems.Point
-    name: Point
-  - uid: DebugDrawItems.Points
-    name: Points
-  - uid: DebugDrawItems.Quad
-    name: Quad
-  - uid: DebugDrawItems.Rectangle
-    name: Rectangle
-  - uid: DebugDrawItems.Sphere
-    name: Sphere
-  - uid: DebugDrawItems.Text
-    name: Text
-  - uid: DebugDrawItems.Triangle
-    name: Triangle
+items:
 - uid: DebugDrawUtils
   name: DebugDrawUtils
   items:
+  - uid: DebugDrawUtils.DebugDraw
+    name: DebugDraw
   - uid: DebugDrawUtils.DebugDrawCamera
     name: DebugDrawCamera
+  - uid: DebugDrawUtils.DebugDrawMesh
+    name: DebugDrawMesh
+  - uid: DebugDrawUtils.DebugDrawTextMesh
+    name: DebugDrawTextMesh
   - uid: DebugDrawUtils.GameObjectOrTransform
     name: GameObjectOrTransform
-- uid: Global
-  name: Global
-  items:
-  - uid: Global.DebugDraw
-    name: DebugDraw
-  - uid: Global.DebugDrawMesh
-    name: DebugDrawMesh
-  - uid: Global.DebugDrawTextMesh
-    name: DebugDrawTextMesh
-  - uid: Global.Log
+  - uid: DebugDrawUtils.Log
     name: Log
-  name.vb: ''
+- uid: DebugDrawUtils.DebugDrawAttachments
+  name: DebugDrawUtils.DebugDrawAttachments
+  items:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject<T>
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentPool`1
+    name: AttachmentPool<T>
+  - uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+    name: BaseAttachment
+  - uid: DebugDrawUtils.DebugDrawAttachments.BoxAttachment
+    name: BoxAttachment
+  - uid: DebugDrawUtils.DebugDrawAttachments.BoxAttachmentSizeUpdate
+    name: BoxAttachmentSizeUpdate
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+    name: IAttachableLine
+  - uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+    name: IAttachablePoint
+  - uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+    name: LineAttachment
+  - uid: DebugDrawUtils.DebugDrawAttachments.PointAttachment
+    name: PointAttachment
+- uid: DebugDrawUtils.DebugDrawItems
+  name: DebugDrawUtils.DebugDrawItems
+  items:
+  - uid: DebugDrawUtils.DebugDrawItems.Arrow
+    name: Arrow
+  - uid: DebugDrawUtils.DebugDrawItems.ArrowHead
+    name: ArrowHead
+  - uid: DebugDrawUtils.DebugDrawItems.ArrowShape
+    name: ArrowShape
+  - uid: DebugDrawUtils.DebugDrawItems.Axes
+    name: Axes
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem
+    name: BaseItem
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem
+    name: BaseLineItem
+  - uid: DebugDrawUtils.DebugDrawItems.BasePointItem
+    name: BasePointItem
+  - uid: DebugDrawUtils.DebugDrawItems.Box
+    name: Box
+  - uid: DebugDrawUtils.DebugDrawItems.Capsule
+    name: Capsule
+  - uid: DebugDrawUtils.DebugDrawItems.Cone
+    name: Cone
+  - uid: DebugDrawUtils.DebugDrawItems.Cylinder
+    name: Cylinder
+  - uid: DebugDrawUtils.DebugDrawItems.Dot
+    name: Dot
+  - uid: DebugDrawUtils.DebugDrawItems.Dots
+    name: Dots
+  - uid: DebugDrawUtils.DebugDrawItems.DrawArcSegments
+    name: DrawArcSegments
+  - uid: DebugDrawUtils.DebugDrawItems.DrawEllipseAxes
+    name: DrawEllipseAxes
+  - uid: DebugDrawUtils.DebugDrawItems.Ellipse
+    name: Ellipse
+  - uid: DebugDrawUtils.DebugDrawItems.ItemPool`1
+    name: ItemPool<T>
+  - uid: DebugDrawUtils.DebugDrawItems.Line
+    name: Line
+  - uid: DebugDrawUtils.DebugDrawItems.Line3D
+    name: Line3D
+  - uid: DebugDrawUtils.DebugDrawItems.Lines
+    name: Lines
+  - uid: DebugDrawUtils.DebugDrawItems.Lines3D
+    name: Lines3D
+  - uid: DebugDrawUtils.DebugDrawItems.MeshItem
+    name: MeshItem
+  - uid: DebugDrawUtils.DebugDrawItems.Point
+    name: Point
+  - uid: DebugDrawUtils.DebugDrawItems.Points
+    name: Points
+  - uid: DebugDrawUtils.DebugDrawItems.Quad
+    name: Quad
+  - uid: DebugDrawUtils.DebugDrawItems.Rectangle
+    name: Rectangle
+  - uid: DebugDrawUtils.DebugDrawItems.Sphere
+    name: Sphere
+  - uid: DebugDrawUtils.DebugDrawItems.Text
+    name: Text
+  - uid: DebugDrawUtils.DebugDrawItems.Triangle
+    name: Triangle
+memberLayout: SamePage

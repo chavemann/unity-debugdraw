@@ -1,0 +1,380 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead
+  commentId: T:DebugDrawUtils.DebugDrawItems.ArrowHead
+  id: ArrowHead
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.ArrowHead.#ctor(DebugDrawUtils.DebugDrawItems.Arrow)
+  - DebugDrawUtils.DebugDrawItems.ArrowHead.Clear
+  - DebugDrawUtils.DebugDrawItems.ArrowHead.SetOffset(System.Single)
+  - DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize(System.Single)
+  - DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize(System.Single,System.Single)
+  - DebugDrawUtils.DebugDrawItems.ArrowHead.length
+  - DebugDrawUtils.DebugDrawItems.ArrowHead.offset
+  - DebugDrawUtils.DebugDrawItems.ArrowHead.shape
+  - DebugDrawUtils.DebugDrawItems.ArrowHead.width
+  langs:
+  - csharp
+  - vb
+  name: ArrowHead
+  nameWithType: ArrowHead
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead
+  type: Class
+  source:
+    id: ArrowHead
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 319
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  syntax:
+    content: public class ArrowHead
+    content.vb: Public Class ArrowHead
+  inheritance:
+  - System.Object
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.shape
+  commentId: F:DebugDrawUtils.DebugDrawItems.ArrowHead.shape
+  id: shape
+  parent: DebugDrawUtils.DebugDrawItems.ArrowHead
+  langs:
+  - csharp
+  - vb
+  name: shape
+  nameWithType: ArrowHead.shape
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.shape
+  type: Field
+  source:
+    id: shape
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 325
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The shape of the arrow head.
+  example: []
+  syntax:
+    content: public ArrowShape shape
+    return:
+      type: DebugDrawUtils.DebugDrawItems.ArrowShape
+    content.vb: Public shape As ArrowShape
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.width
+  commentId: F:DebugDrawUtils.DebugDrawItems.ArrowHead.width
+  id: width
+  parent: DebugDrawUtils.DebugDrawItems.ArrowHead
+  langs:
+  - csharp
+  - vb
+  name: width
+  nameWithType: ArrowHead.width
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.width
+  type: Field
+  source:
+    id: width
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 329
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The width (perpendicular size) of the arrow head.
+  example: []
+  syntax:
+    content: public float width
+    return:
+      type: System.Single
+    content.vb: Public width As Single
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.length
+  commentId: F:DebugDrawUtils.DebugDrawItems.ArrowHead.length
+  id: length
+  parent: DebugDrawUtils.DebugDrawItems.ArrowHead
+  langs:
+  - csharp
+  - vb
+  name: length
+  nameWithType: ArrowHead.length
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.length
+  type: Field
+  source:
+    id: length
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 333
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The length (along the arrow direction) of the arrow head.
+  example: []
+  syntax:
+    content: public float length
+    return:
+      type: System.Single
+    content.vb: Public length As Single
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.offset
+  commentId: F:DebugDrawUtils.DebugDrawItems.ArrowHead.offset
+  id: offset
+  parent: DebugDrawUtils.DebugDrawItems.ArrowHead
+  langs:
+  - csharp
+  - vb
+  name: offset
+  nameWithType: ArrowHead.offset
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.offset
+  type: Field
+  source:
+    id: offset
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 337
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Pushes the head away from the target point by this distance.
+  example: []
+  syntax:
+    content: public float offset
+    return:
+      type: System.Single
+    content.vb: Public offset As Single
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.#ctor(DebugDrawUtils.DebugDrawItems.Arrow)
+  commentId: M:DebugDrawUtils.DebugDrawItems.ArrowHead.#ctor(DebugDrawUtils.DebugDrawItems.Arrow)
+  id: '#ctor(DebugDrawUtils.DebugDrawItems.Arrow)'
+  parent: DebugDrawUtils.DebugDrawItems.ArrowHead
+  langs:
+  - csharp
+  - vb
+  name: ArrowHead(Arrow)
+  nameWithType: ArrowHead.ArrowHead(Arrow)
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.ArrowHead(DebugDrawUtils.DebugDrawItems.Arrow)
+  type: Constructor
+  source:
+    id: .ctor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 341
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  syntax:
+    content: public ArrowHead(Arrow arrow)
+    parameters:
+    - id: arrow
+      type: DebugDrawUtils.DebugDrawItems.Arrow
+    content.vb: Public Sub New(arrow As Arrow)
+  overload: DebugDrawUtils.DebugDrawItems.ArrowHead.#ctor*
+  nameWithType.vb: ArrowHead.New(Arrow)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.ArrowHead.New(DebugDrawUtils.DebugDrawItems.Arrow)
+  name.vb: New(Arrow)
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.Clear
+  commentId: M:DebugDrawUtils.DebugDrawItems.ArrowHead.Clear
+  id: Clear
+  parent: DebugDrawUtils.DebugDrawItems.ArrowHead
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ArrowHead.Clear()
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.Clear()
+  type: Method
+  source:
+    id: Clear
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 349
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  syntax:
+    content: public Arrow Clear()
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Arrow
+    content.vb: Public Function Clear() As Arrow
+  overload: DebugDrawUtils.DebugDrawItems.ArrowHead.Clear*
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize(System.Single)
+  id: SetSize(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.ArrowHead
+  langs:
+  - csharp
+  - vb
+  name: SetSize(float)
+  nameWithType: ArrowHead.SetSize(float)
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize(float)
+  type: Method
+  source:
+    id: SetSize
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 360
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets the width and length of this arrow head.
+  example: []
+  syntax:
+    content: public Arrow SetSize(float size)
+    parameters:
+    - id: size
+      type: System.Single
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Arrow
+    content.vb: Public Function SetSize(size As Single) As Arrow
+  overload: DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize*
+  nameWithType.vb: ArrowHead.SetSize(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize(Single)
+  name.vb: SetSize(Single)
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize(System.Single,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize(System.Single,System.Single)
+  id: SetSize(System.Single,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.ArrowHead
+  langs:
+  - csharp
+  - vb
+  name: SetSize(float, float)
+  nameWithType: ArrowHead.SetSize(float, float)
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize(float, float)
+  type: Method
+  source:
+    id: SetSize
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 371
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Individually sets the width and length of this arrow head.
+  example: []
+  syntax:
+    content: public Arrow SetSize(float width, float length)
+    parameters:
+    - id: width
+      type: System.Single
+    - id: length
+      type: System.Single
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Arrow
+    content.vb: Public Function SetSize(width As Single, length As Single) As Arrow
+  overload: DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize*
+  nameWithType.vb: ArrowHead.SetSize(Single, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize(Single, Single)
+  name.vb: SetSize(Single, Single)
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.SetOffset(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.ArrowHead.SetOffset(System.Single)
+  id: SetOffset(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.ArrowHead
+  langs:
+  - csharp
+  - vb
+  name: SetOffset(float)
+  nameWithType: ArrowHead.SetOffset(float)
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.SetOffset(float)
+  type: Method
+  source:
+    id: SetOffset
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 384
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets the target offset distance.
+  example: []
+  syntax:
+    content: public Arrow SetOffset(float offset)
+    parameters:
+    - id: offset
+      type: System.Single
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Arrow
+      description: ''
+    content.vb: Public Function SetOffset(offset As Single) As Arrow
+  overload: DebugDrawUtils.DebugDrawItems.ArrowHead.SetOffset*
+  nameWithType.vb: ArrowHead.SetOffset(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.ArrowHead.SetOffset(Single)
+  name.vb: SetOffset(Single)
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawItems.ArrowShape
+  commentId: T:DebugDrawUtils.DebugDrawItems.ArrowShape
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.ArrowShape.html
+  name: ArrowShape
+  nameWithType: ArrowShape
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowShape
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.#ctor*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.ArrowHead.#ctor
+  href: DebugDrawUtils.DebugDrawItems.ArrowHead.html#DebugDrawUtils.DebugDrawItems.ArrowHead.#ctor(DebugDrawUtils.DebugDrawItems.Arrow)
+  name: ArrowHead
+  nameWithType: ArrowHead.ArrowHead
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.ArrowHead
+  nameWithType.vb: ArrowHead.New
+  fullName.vb: DebugDrawUtils.DebugDrawItems.ArrowHead.New
+  name.vb: New
+- uid: DebugDrawUtils.DebugDrawItems.Arrow
+  commentId: T:DebugDrawUtils.DebugDrawItems.Arrow
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Arrow.html
+  name: Arrow
+  nameWithType: Arrow
+  fullName: DebugDrawUtils.DebugDrawItems.Arrow
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.Clear*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.ArrowHead.Clear
+  href: DebugDrawUtils.DebugDrawItems.ArrowHead.html#DebugDrawUtils.DebugDrawItems.ArrowHead.Clear
+  name: Clear
+  nameWithType: ArrowHead.Clear
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.Clear
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize
+  href: DebugDrawUtils.DebugDrawItems.ArrowHead.html#DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize(System.Single)
+  name: SetSize
+  nameWithType: ArrowHead.SetSize
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.SetSize
+- uid: DebugDrawUtils.DebugDrawItems.ArrowHead.SetOffset*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.ArrowHead.SetOffset
+  href: DebugDrawUtils.DebugDrawItems.ArrowHead.html#DebugDrawUtils.DebugDrawItems.ArrowHead.SetOffset(System.Single)
+  name: SetOffset
+  nameWithType: ArrowHead.SetOffset
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowHead.SetOffset

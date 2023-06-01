@@ -1,0 +1,523 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  id: AttachmentObject`1
+  parent: DebugDrawUtils.DebugDrawAttachments
+  children:
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.#ctor(`0)
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.CalculatePosition
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.Set(UnityEngine.Transform)
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.Set(UnityEngine.Transform,UnityEngine.Vector3,UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetLocalOffset(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetOffset(UnityEngine.Vector3,UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWorldOffset(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.op_Implicit(DebugDrawUtils.DebugDrawAttachments.AttachmentObject{`0})~System.Boolean
+  langs:
+  - csharp
+  - vb
+  name: AttachmentObject<T>
+  nameWithType: AttachmentObject<T>
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>
+  type: Class
+  source:
+    id: AttachmentObject
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentObject.cs
+    startLine: 7
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: 'public class AttachmentObject<T> where T : BaseAttachment'
+    typeParameters:
+    - id: T
+    content.vb: Public Class AttachmentObject(Of T As BaseAttachment)
+  inheritance:
+  - System.Object
+  nameWithType.vb: AttachmentObject(Of T)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T)
+  name.vb: AttachmentObject(Of T)
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.#ctor(`0)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.#ctor(`0)
+  id: '#ctor(`0)'
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  langs:
+  - csharp
+  - vb
+  name: AttachmentObject(T)
+  nameWithType: AttachmentObject<T>.AttachmentObject(T)
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.AttachmentObject(T)
+  type: Constructor
+  source:
+    id: .ctor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentObject.cs
+    startLine: 17
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public AttachmentObject(T attachment)
+    parameters:
+    - id: attachment
+      type: '{T}'
+    content.vb: Public Sub New(attachment As T)
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.#ctor*
+  nameWithType.vb: AttachmentObject(Of T).New(T)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).New(T)
+  name.vb: New(T)
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.Set(UnityEngine.Transform)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.Set(UnityEngine.Transform)
+  id: Set(UnityEngine.Transform)
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  langs:
+  - csharp
+  - vb
+  name: Set(Transform)
+  nameWithType: AttachmentObject<T>.Set(Transform)
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.Set(UnityEngine.Transform)
+  type: Method
+  source:
+    id: Set
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentObject.cs
+    startLine: 22
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public T Set(Transform tr)
+    parameters:
+    - id: tr
+      type: UnityEngine.Transform
+    return:
+      type: '{T}'
+    content.vb: Public Function [Set](tr As Transform) As T
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.Set*
+  nameWithType.vb: AttachmentObject(Of T).Set(Transform)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).Set(UnityEngine.Transform)
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.Set(UnityEngine.Transform,UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.Set(UnityEngine.Transform,UnityEngine.Vector3,UnityEngine.Vector3)
+  id: Set(UnityEngine.Transform,UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  langs:
+  - csharp
+  - vb
+  name: Set(Transform, Vector3, Vector3)
+  nameWithType: AttachmentObject<T>.Set(Transform, Vector3, Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.Set(UnityEngine.Transform, UnityEngine.Vector3, UnityEngine.Vector3)
+  type: Method
+  source:
+    id: Set
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentObject.cs
+    startLine: 31
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public T Set(Transform tr, Vector3 localOffset, Vector3 worldOffset)
+    parameters:
+    - id: tr
+      type: UnityEngine.Transform
+    - id: localOffset
+      type: UnityEngine.Vector3
+    - id: worldOffset
+      type: UnityEngine.Vector3
+    return:
+      type: '{T}'
+    content.vb: Public Function [Set](tr As Transform, localOffset As Vector3, worldOffset As Vector3) As T
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.Set*
+  nameWithType.vb: AttachmentObject(Of T).Set(Transform, Vector3, Vector3)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).Set(UnityEngine.Transform, UnityEngine.Vector3, UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  id: SetWithWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  langs:
+  - csharp
+  - vb
+  name: SetWithWorld(Transform, Vector3)
+  nameWithType: AttachmentObject<T>.SetWithWorld(Transform, Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.SetWithWorld(UnityEngine.Transform, UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetWithWorld
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentObject.cs
+    startLine: 41
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public T SetWithWorld(Transform tr, Vector3 worldOffset)
+    parameters:
+    - id: tr
+      type: UnityEngine.Transform
+    - id: worldOffset
+      type: UnityEngine.Vector3
+    return:
+      type: '{T}'
+    content.vb: Public Function SetWithWorld(tr As Transform, worldOffset As Vector3) As T
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithWorld*
+  nameWithType.vb: AttachmentObject(Of T).SetWithWorld(Transform, Vector3)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).SetWithWorld(UnityEngine.Transform, UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  id: SetWithLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  langs:
+  - csharp
+  - vb
+  name: SetWithLocal(Transform, Vector3)
+  nameWithType: AttachmentObject<T>.SetWithLocal(Transform, Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.SetWithLocal(UnityEngine.Transform, UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetWithLocal
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentObject.cs
+    startLine: 50
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public T SetWithLocal(Transform tr, Vector3 localOffset)
+    parameters:
+    - id: tr
+      type: UnityEngine.Transform
+    - id: localOffset
+      type: UnityEngine.Vector3
+    return:
+      type: '{T}'
+    content.vb: Public Function SetWithLocal(tr As Transform, localOffset As Vector3) As T
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithLocal*
+  nameWithType.vb: AttachmentObject(Of T).SetWithLocal(Transform, Vector3)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).SetWithLocal(UnityEngine.Transform, UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetOffset(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetOffset(UnityEngine.Vector3,UnityEngine.Vector3)
+  id: SetOffset(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  langs:
+  - csharp
+  - vb
+  name: SetOffset(Vector3, Vector3)
+  nameWithType: AttachmentObject<T>.SetOffset(Vector3, Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.SetOffset(UnityEngine.Vector3, UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetOffset
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentObject.cs
+    startLine: 59
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public T SetOffset(Vector3 localOffset, Vector3 worldOffset)
+    parameters:
+    - id: localOffset
+      type: UnityEngine.Vector3
+    - id: worldOffset
+      type: UnityEngine.Vector3
+    return:
+      type: '{T}'
+    content.vb: Public Function SetOffset(localOffset As Vector3, worldOffset As Vector3) As T
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetOffset*
+  nameWithType.vb: AttachmentObject(Of T).SetOffset(Vector3, Vector3)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).SetOffset(UnityEngine.Vector3, UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWorldOffset(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWorldOffset(UnityEngine.Vector3)
+  id: SetWorldOffset(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  langs:
+  - csharp
+  - vb
+  name: SetWorldOffset(Vector3)
+  nameWithType: AttachmentObject<T>.SetWorldOffset(Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.SetWorldOffset(UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetWorldOffset
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentObject.cs
+    startLine: 68
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public T SetWorldOffset(Vector3 worldOffset)
+    parameters:
+    - id: worldOffset
+      type: UnityEngine.Vector3
+    return:
+      type: '{T}'
+    content.vb: Public Function SetWorldOffset(worldOffset As Vector3) As T
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWorldOffset*
+  nameWithType.vb: AttachmentObject(Of T).SetWorldOffset(Vector3)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).SetWorldOffset(UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetLocalOffset(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetLocalOffset(UnityEngine.Vector3)
+  id: SetLocalOffset(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  langs:
+  - csharp
+  - vb
+  name: SetLocalOffset(Vector3)
+  nameWithType: AttachmentObject<T>.SetLocalOffset(Vector3)
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.SetLocalOffset(UnityEngine.Vector3)
+  type: Method
+  source:
+    id: SetLocalOffset
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentObject.cs
+    startLine: 75
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public T SetLocalOffset(Vector3 localOffset)
+    parameters:
+    - id: localOffset
+      type: UnityEngine.Vector3
+    return:
+      type: '{T}'
+    content.vb: Public Function SetLocalOffset(localOffset As Vector3) As T
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetLocalOffset*
+  nameWithType.vb: AttachmentObject(Of T).SetLocalOffset(Vector3)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).SetLocalOffset(UnityEngine.Vector3)
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.CalculatePosition
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.CalculatePosition
+  id: CalculatePosition
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  langs:
+  - csharp
+  - vb
+  name: CalculatePosition()
+  nameWithType: AttachmentObject<T>.CalculatePosition()
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.CalculatePosition()
+  type: Method
+  source:
+    id: CalculatePosition
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentObject.cs
+    startLine: 83
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public Vector3 CalculatePosition()
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Function CalculatePosition() As Vector3
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.CalculatePosition*
+  nameWithType.vb: AttachmentObject(Of T).CalculatePosition()
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).CalculatePosition()
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.op_Implicit(DebugDrawUtils.DebugDrawAttachments.AttachmentObject{`0})~System.Boolean
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.op_Implicit(DebugDrawUtils.DebugDrawAttachments.AttachmentObject{`0})~System.Boolean
+  id: op_Implicit(DebugDrawUtils.DebugDrawAttachments.AttachmentObject{`0})~System.Boolean
+  parent: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  langs:
+  - csharp
+  - vb
+  name: implicit operator bool(AttachmentObject<T>)
+  nameWithType: AttachmentObject<T>.implicit operator bool(AttachmentObject<T>)
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.implicit operator bool(DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>)
+  type: Operator
+  source:
+    id: op_Implicit
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\AttachmentObject.cs
+    startLine: 110
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public static implicit operator bool(AttachmentObject<T> obj)
+    parameters:
+    - id: obj
+      type: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Widening Operator CType(obj As AttachmentObject(Of T)) As Boolean
+  overload: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.op_Implicit*
+  nameWithType.vb: AttachmentObject(Of T).CType(AttachmentObject(Of T))
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).CType(DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T))
+  name.vb: CType(AttachmentObject(Of T))
+references:
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.#ctor*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.#ctor
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html#DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.#ctor(`0)
+  name: AttachmentObject
+  nameWithType: AttachmentObject<T>.AttachmentObject
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.AttachmentObject
+  nameWithType.vb: AttachmentObject(Of T).New
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).New
+  name.vb: New
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.Set*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.Set
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html#DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.Set(UnityEngine.Transform)
+  name: Set
+  nameWithType: AttachmentObject<T>.Set
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.Set
+  nameWithType.vb: AttachmentObject(Of T).Set
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).Set
+- uid: UnityEngine.Transform
+  commentId: T:UnityEngine.Transform
+  parent: UnityEngine
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: UnityEngine.Transform
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithWorld*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithWorld
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html#DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithWorld(UnityEngine.Transform,UnityEngine.Vector3)
+  name: SetWithWorld
+  nameWithType: AttachmentObject<T>.SetWithWorld
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.SetWithWorld
+  nameWithType.vb: AttachmentObject(Of T).SetWithWorld
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).SetWithWorld
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithLocal*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithLocal
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html#DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWithLocal(UnityEngine.Transform,UnityEngine.Vector3)
+  name: SetWithLocal
+  nameWithType: AttachmentObject<T>.SetWithLocal
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.SetWithLocal
+  nameWithType.vb: AttachmentObject(Of T).SetWithLocal
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).SetWithLocal
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetOffset*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetOffset
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html#DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetOffset(UnityEngine.Vector3,UnityEngine.Vector3)
+  name: SetOffset
+  nameWithType: AttachmentObject<T>.SetOffset
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.SetOffset
+  nameWithType.vb: AttachmentObject(Of T).SetOffset
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).SetOffset
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWorldOffset*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWorldOffset
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html#DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetWorldOffset(UnityEngine.Vector3)
+  name: SetWorldOffset
+  nameWithType: AttachmentObject<T>.SetWorldOffset
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.SetWorldOffset
+  nameWithType.vb: AttachmentObject(Of T).SetWorldOffset
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).SetWorldOffset
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetLocalOffset*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetLocalOffset
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html#DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.SetLocalOffset(UnityEngine.Vector3)
+  name: SetLocalOffset
+  nameWithType: AttachmentObject<T>.SetLocalOffset
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.SetLocalOffset
+  nameWithType.vb: AttachmentObject(Of T).SetLocalOffset
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).SetLocalOffset
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.CalculatePosition*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.CalculatePosition
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html#DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.CalculatePosition
+  name: CalculatePosition
+  nameWithType: AttachmentObject<T>.CalculatePosition
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.CalculatePosition
+  nameWithType.vb: AttachmentObject(Of T).CalculatePosition
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).CalculatePosition
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.op_Implicit*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1.op_Implicit
+  name: implicit operator
+  nameWithType: AttachmentObject<T>.implicit operator
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>.implicit operator
+  nameWithType.vb: AttachmentObject(Of T).CType
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T).CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  name: AttachmentObject<T>
+  nameWithType: AttachmentObject<T>
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>
+  nameWithType.vb: AttachmentObject(Of T)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T)
+  name.vb: AttachmentObject(Of T)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.ArrowShape
+  commentId: T:DebugDrawUtils.DebugDrawItems.ArrowShape
+  id: ArrowShape
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.ArrowShape.Arrow
+  - DebugDrawUtils.DebugDrawItems.ArrowShape.Line
+  - DebugDrawUtils.DebugDrawItems.ArrowShape.None
+  langs:
+  - csharp
+  - vb
+  name: ArrowShape
+  nameWithType: ArrowShape
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowShape
+  type: Enum
+  source:
+    id: ArrowShape
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 396
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The shape of the arrow head.
+  example: []
+  syntax:
+    content: public enum ArrowShape
+    content.vb: Public Enum ArrowShape
+- uid: DebugDrawUtils.DebugDrawItems.ArrowShape.None
+  commentId: F:DebugDrawUtils.DebugDrawItems.ArrowShape.None
+  id: None
+  parent: DebugDrawUtils.DebugDrawItems.ArrowShape
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ArrowShape.None
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowShape.None
+  type: Field
+  source:
+    id: None
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 402
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Don't draw any arrow head.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: DebugDrawUtils.DebugDrawItems.ArrowShape
+- uid: DebugDrawUtils.DebugDrawItems.ArrowShape.Arrow
+  commentId: F:DebugDrawUtils.DebugDrawItems.ArrowShape.Arrow
+  id: Arrow
+  parent: DebugDrawUtils.DebugDrawItems.ArrowShape
+  langs:
+  - csharp
+  - vb
+  name: Arrow
+  nameWithType: ArrowShape.Arrow
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowShape.Arrow
+  type: Field
+  source:
+    id: Arrow
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 406
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: A normal arrow head made up of two lines.
+  example: []
+  syntax:
+    content: Arrow = 1
+    return:
+      type: DebugDrawUtils.DebugDrawItems.ArrowShape
+- uid: DebugDrawUtils.DebugDrawItems.ArrowShape.Line
+  commentId: F:DebugDrawUtils.DebugDrawItems.ArrowShape.Line
+  id: Line
+  parent: DebugDrawUtils.DebugDrawItems.ArrowShape
+  langs:
+  - csharp
+  - vb
+  name: Line
+  nameWithType: ArrowShape.Line
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowShape.Line
+  type: Field
+  source:
+    id: Line
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Arrow.cs
+    startLine: 410
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: A single line perpendicular to the arrow's line.
+  example: []
+  syntax:
+    content: Line = 2
+    return:
+      type: DebugDrawUtils.DebugDrawItems.ArrowShape
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: DebugDrawUtils.DebugDrawItems.ArrowShape
+  commentId: T:DebugDrawUtils.DebugDrawItems.ArrowShape
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.ArrowShape.html
+  name: ArrowShape
+  nameWithType: ArrowShape
+  fullName: DebugDrawUtils.DebugDrawItems.ArrowShape

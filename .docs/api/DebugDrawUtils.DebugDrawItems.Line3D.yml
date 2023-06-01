@@ -1,0 +1,1320 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.Line3D
+  commentId: T:DebugDrawUtils.DebugDrawItems.Line3D
+  id: Line3D
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Line3D.SetAutoSize(System.Boolean)
+  - DebugDrawUtils.DebugDrawItems.Line3D.SetFaceCamera(System.Boolean)
+  - DebugDrawUtils.DebugDrawItems.Line3D.autoSize
+  - DebugDrawUtils.DebugDrawItems.Line3D.faceCamera
+  - DebugDrawUtils.DebugDrawItems.Line3D.facing
+  - DebugDrawUtils.DebugDrawItems.Line3D.size
+  langs:
+  - csharp
+  - vb
+  name: Line3D
+  nameWithType: Line3D
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D
+  type: Class
+  source:
+    id: Line3D
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Line3D.cs
+    startLine: 10
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a 3D line using two triangles.
+  example: []
+  syntax:
+    content: 'public class Line3D : Line, IAttachableLine, IAttachablePoint'
+    content.vb: Public Class Line3D Inherits Line Implements IAttachableLine, IAttachablePoint
+  inheritance:
+  - System.Object
+  - DebugDrawUtils.DebugDrawItems.BaseItem
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem
+  - DebugDrawUtils.DebugDrawItems.Line
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  - DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  inheritedMembers:
+  - DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Line.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawUtils.DebugDrawItems.Line.SetPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.Line.GetPosition
+  - DebugDrawUtils.DebugDrawItems.Line.Clamp(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  - DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.color
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.size
+  commentId: F:DebugDrawUtils.DebugDrawItems.Line3D.size
+  id: size
+  parent: DebugDrawUtils.DebugDrawItems.Line3D
+  langs:
+  - csharp
+  - vb
+  name: size
+  nameWithType: Line3D.size
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.size
+  type: Field
+  source:
+    id: size
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Line3D.cs
+    startLine: 17
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The line thickness.
+  example: []
+  syntax:
+    content: public float size
+    return:
+      type: System.Single
+    content.vb: Public size As Single
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.autoSize
+  commentId: F:DebugDrawUtils.DebugDrawItems.Line3D.autoSize
+  id: autoSize
+  parent: DebugDrawUtils.DebugDrawItems.Line3D
+  langs:
+  - csharp
+  - vb
+  name: autoSize
+  nameWithType: Line3D.autoSize
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.autoSize
+  type: Field
+  source:
+    id: autoSize
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Line3D.cs
+    startLine: 21
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: If true adjusts the size of the line so it approximately remains the same size on screen.
+  example: []
+  syntax:
+    content: public bool autoSize
+    return:
+      type: System.Boolean
+    content.vb: Public autoSize As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.facing
+  commentId: F:DebugDrawUtils.DebugDrawItems.Line3D.facing
+  id: facing
+  parent: DebugDrawUtils.DebugDrawItems.Line3D
+  langs:
+  - csharp
+  - vb
+  name: facing
+  nameWithType: Line3D.facing
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.facing
+  type: Field
+  source:
+    id: facing
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Line3D.cs
+    startLine: 25
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The forward direction of the line. Automatically updated if faceCamera is true.
+  example: []
+  syntax:
+    content: public Vector3 facing
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public facing As Vector3
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.faceCamera
+  commentId: F:DebugDrawUtils.DebugDrawItems.Line3D.faceCamera
+  id: faceCamera
+  parent: DebugDrawUtils.DebugDrawItems.Line3D
+  langs:
+  - csharp
+  - vb
+  name: faceCamera
+  nameWithType: Line3D.faceCamera
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.faceCamera
+  type: Field
+  source:
+    id: faceCamera
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Line3D.cs
+    startLine: 29
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: If true the line will automatically rotate to face the camera.
+  example: []
+  syntax:
+    content: public bool faceCamera
+    return:
+      type: System.Boolean
+    content.vb: Public faceCamera As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Line3D
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector3, float, ref Color, ref Color, float)
+  nameWithType: Line3D.Get(ref Vector3, ref Vector3, float, ref Color, ref Color, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, ref UnityEngine.Color, ref UnityEngine.Color, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Line3D.cs
+    startLine: 44
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a 3D line that orients itself towards the camera.
+  example: []
+  syntax:
+    content: public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Color color1, ref Color color2, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start of the line.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end of the line.
+    - id: size
+      type: System.Single
+      description: The line thickness.
+    - id: color1
+      type: UnityEngine.Color
+      description: The line's colour at the start.
+    - id: color2
+      type: UnityEngine.Color
+      description: The line's colour at the end.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Line3D
+      description: The Line object.
+    content.vb: Public Shared Function [Get](p1 As Vector3, p2 As Vector3, size As Single, color1 As Color, color2 As Color, duration As Single = 0) As Line3D
+  overload: DebugDrawUtils.DebugDrawItems.Line3D.Get*
+  nameWithType.vb: Line3D.Get(Vector3, Vector3, Single, Color, Color, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3, UnityEngine.Vector3, Single, UnityEngine.Color, UnityEngine.Color, Single)
+  name.vb: Get(Vector3, Vector3, Single, Color, Color, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Line3D
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector3, float, ref Color, float)
+  nameWithType: Line3D.Get(ref Vector3, ref Vector3, float, ref Color, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, ref UnityEngine.Color, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Line3D.cs
+    startLine: 69
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a 3D line that orients itself towards the camera.
+  example: []
+  syntax:
+    content: public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Color color, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start of the line.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end of the line.
+    - id: size
+      type: System.Single
+      description: The line thickness.
+    - id: color
+      type: UnityEngine.Color
+      description: The line's colour.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Line3D
+      description: The Line3D object.
+    content.vb: Public Shared Function [Get](p1 As Vector3, p2 As Vector3, size As Single, color As Color, duration As Single = 0) As Line3D
+  overload: DebugDrawUtils.DebugDrawItems.Line3D.Get*
+  nameWithType.vb: Line3D.Get(Vector3, Vector3, Single, Color, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3, UnityEngine.Vector3, Single, UnityEngine.Color, Single)
+  name.vb: Get(Vector3, Vector3, Single, Color, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Line3D
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector3, float, ref Vector3, ref Color, ref Color, float)
+  nameWithType: Line3D.Get(ref Vector3, ref Vector3, float, ref Vector3, ref Color, ref Color, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, ref UnityEngine.Vector3, ref UnityEngine.Color, ref UnityEngine.Color, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Line3D.cs
+    startLine: 86
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a 3D line facing the given direction.
+  example: []
+  syntax:
+    content: public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Vector3 facing, ref Color color1, ref Color color2, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start of the line.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end of the line.
+    - id: size
+      type: System.Single
+      description: The line thickness.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The forward direction of the line.
+    - id: color1
+      type: UnityEngine.Color
+      description: The line's colour at the start.
+    - id: color2
+      type: UnityEngine.Color
+      description: The line's colour at the end.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Line3D
+      description: The Line object.
+    content.vb: Public Shared Function [Get](p1 As Vector3, p2 As Vector3, size As Single, facing As Vector3, color1 As Color, color2 As Color, duration As Single = 0) As Line3D
+  overload: DebugDrawUtils.DebugDrawItems.Line3D.Get*
+  nameWithType.vb: Line3D.Get(Vector3, Vector3, Single, Vector3, Color, Color, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3, UnityEngine.Vector3, Single, UnityEngine.Vector3, UnityEngine.Color, UnityEngine.Color, Single)
+  name.vb: Get(Vector3, Vector3, Single, Vector3, Color, Color, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Line3D
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector3, float, ref Vector3, ref Color, float)
+  nameWithType: Line3D.Get(ref Vector3, ref Vector3, float, ref Vector3, ref Color, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, ref UnityEngine.Vector3, ref UnityEngine.Color, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Line3D.cs
+    startLine: 113
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a 3D line that orients itself towards the camera.
+  example: []
+  syntax:
+    content: public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Vector3 facing, ref Color color, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start of the line.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end of the line.
+    - id: size
+      type: System.Single
+      description: The line thickness.
+    - id: facing
+      type: UnityEngine.Vector3
+      description: The forward direction of the line.
+    - id: color
+      type: UnityEngine.Color
+      description: The line's colour.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Line3D
+      description: The Line3D object.
+    content.vb: Public Shared Function [Get](p1 As Vector3, p2 As Vector3, size As Single, facing As Vector3, color As Color, duration As Single = 0) As Line3D
+  overload: DebugDrawUtils.DebugDrawItems.Line3D.Get*
+  nameWithType.vb: Line3D.Get(Vector3, Vector3, Single, Vector3, Color, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3, UnityEngine.Vector3, Single, UnityEngine.Vector3, UnityEngine.Color, Single)
+  name.vb: Get(Vector3, Vector3, Single, Vector3, Color, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.SetAutoSize(System.Boolean)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line3D.SetAutoSize(System.Boolean)
+  id: SetAutoSize(System.Boolean)
+  parent: DebugDrawUtils.DebugDrawItems.Line3D
+  langs:
+  - csharp
+  - vb
+  name: SetAutoSize(bool)
+  nameWithType: Line3D.SetAutoSize(bool)
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.SetAutoSize(bool)
+  type: Method
+  source:
+    id: SetAutoSize
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Line3D.cs
+    startLine: 127
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: If true adjusts the size of the line so it approximately remains the same size on screen.
+  example: []
+  syntax:
+    content: public Line3D SetAutoSize(bool autoSize = true)
+    parameters:
+    - id: autoSize
+      type: System.Boolean
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Line3D
+      description: ''
+    content.vb: Public Function SetAutoSize(autoSize As Boolean = True) As Line3D
+  overload: DebugDrawUtils.DebugDrawItems.Line3D.SetAutoSize*
+  nameWithType.vb: Line3D.SetAutoSize(Boolean)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Line3D.SetAutoSize(Boolean)
+  name.vb: SetAutoSize(Boolean)
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.SetFaceCamera(System.Boolean)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line3D.SetFaceCamera(System.Boolean)
+  id: SetFaceCamera(System.Boolean)
+  parent: DebugDrawUtils.DebugDrawItems.Line3D
+  langs:
+  - csharp
+  - vb
+  name: SetFaceCamera(bool)
+  nameWithType: Line3D.SetFaceCamera(bool)
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.SetFaceCamera(bool)
+  type: Method
+  source:
+    id: SetFaceCamera
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Line3D.cs
+    startLine: 139
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: If true the line will automatically rotate to face the camera.
+  example: []
+  syntax:
+    content: public Line3D SetFaceCamera(bool faceCamera = true)
+    parameters:
+    - id: faceCamera
+      type: System.Boolean
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Line3D
+      description: ''
+    content.vb: Public Function SetFaceCamera(faceCamera As Boolean = True) As Line3D
+  overload: DebugDrawUtils.DebugDrawItems.Line3D.SetFaceCamera*
+  nameWithType.vb: Line3D.SetFaceCamera(Boolean)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Line3D.SetFaceCamera(Boolean)
+  name.vb: SetFaceCamera(Boolean)
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseLineItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html
+  name: BaseLineItem
+  nameWithType: BaseLineItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem
+- uid: DebugDrawUtils.DebugDrawItems.Line
+  commentId: T:DebugDrawUtils.DebugDrawItems.Line
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Line.html
+  name: Line
+  nameWithType: Line
+  fullName: DebugDrawUtils.DebugDrawItems.Line
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html
+  name: IAttachableLine
+  nameWithType: IAttachableLine
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint.html
+  name: IAttachablePoint
+  nameWithType: IAttachablePoint
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachablePoint
+- uid: DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Line
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  name: Get(ref Vector3, ref Vector3, ref Color, ref Color, float)
+  nameWithType: Line.Get(ref Vector3, ref Vector3, ref Color, ref Color, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Line.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, ref UnityEngine.Color, ref UnityEngine.Color, float)
+  nameWithType.vb: Line.Get(Vector3, Vector3, Color, Color, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Color, UnityEngine.Color, Single)
+  name.vb: Get(Vector3, Vector3, Color, Color, Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+    name: Get
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+    name: Get
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Line
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  name: Get(ref Vector3, ref Vector3, ref Color, float)
+  nameWithType: Line.Get(ref Vector3, ref Vector3, ref Color, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Line.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, ref UnityEngine.Color, float)
+  nameWithType.vb: Line.Get(Vector3, Vector3, Color, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Color, Single)
+  name.vb: Get(Vector3, Vector3, Color, Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+    name: Get
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+    name: Get
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Color@,System.Single)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Line.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawItems.Line
+  href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo(GameObjectOrTransform)
+  nameWithType: Line.AttachTo(GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawItems.Line.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.AttachTo(DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Line.SetPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line.SetPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.Line
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.SetPosition(UnityEngine.Vector3)
+  name: SetPosition(Vector3)
+  nameWithType: Line.SetPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.Line.SetPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.SetPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.SetPosition(UnityEngine.Vector3)
+    name: SetPosition
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.SetPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Line.GetPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line.GetPosition
+  parent: DebugDrawUtils.DebugDrawItems.Line
+  href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.GetPosition
+  name: GetPosition()
+  nameWithType: Line.GetPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.Line.GetPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.GetPosition
+    name: GetPosition
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.GetPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.GetPosition
+    name: GetPosition
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.GetPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Line.Clamp(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Line.Clamp(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Line
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.Clamp(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single)
+  name: Clamp(ref Vector3, ref Vector3, float, float)
+  nameWithType: Line.Clamp(ref Vector3, ref Vector3, float, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Line.Clamp(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, float)
+  nameWithType.vb: Line.Clamp(Vector3, Vector3, Single, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Line.Clamp(UnityEngine.Vector3, UnityEngine.Vector3, Single, Single)
+  name.vb: Clamp(Vector3, Vector3, Single, Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.Clamp(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single)
+    name: Clamp
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.Clamp(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.Line.Clamp(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single)
+    name: Clamp
+    href: DebugDrawUtils.DebugDrawItems.Line.html#DebugDrawUtils.DebugDrawItems.Line.Clamp(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  name: p1
+  nameWithType: BaseLineItem.p1
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  name: p2
+  nameWithType: BaseLineItem.p2
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  name: color2
+  nameWithType: BaseLineItem.color2
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  nameWithType: BaseLineItem.AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform, DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: ','
+  - name: " "
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: ','
+  - name: " "
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  name: SetPositions(Vector3, Vector3)
+  nameWithType: BaseLineItem.SetPositions(Vector3, Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3, UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+    name: SetPositions
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+    name: SetPositions
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  name: SetStartPosition(Vector3)
+  nameWithType: BaseLineItem.SetStartPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+    name: SetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+    name: SetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  name: SetEndPosition(Vector3)
+  nameWithType: BaseLineItem.SetEndPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+    name: SetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+    name: SetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  name: GetStartPosition()
+  nameWithType: BaseLineItem.GetStartPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+    name: GetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+    name: GetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  name: GetEndPosition()
+  nameWithType: BaseLineItem.GetEndPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+    name: GetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+    name: GetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.color
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.color
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.color
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  name: SetDuration<T>(float)
+  nameWithType: BaseItem.SetDuration<T>(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration<T>(float)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Of T)(Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  name: SetDuration(float)
+  nameWithType: BaseItem.SetDuration(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(float)
+  nameWithType.vb: BaseItem.SetDuration(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Single)
+  name.vb: SetDuration(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  name: GetColor(ref Color)
+  nameWithType: BaseItem.GetColor(ref Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(ref UnityEngine.Color)
+  nameWithType.vb: BaseItem.GetColor(Color)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  name.vb: GetColor(Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  name: Group(string)
+  nameWithType: BaseItem.Group(string)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Group(string)
+  nameWithType.vb: BaseItem.Group(String)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.Group(String)
+  name.vb: Group(String)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.Get*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Line3D.Get
+  href: DebugDrawUtils.DebugDrawItems.Line3D.html#DebugDrawUtils.DebugDrawItems.Line3D.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,UnityEngine.Color@,System.Single)
+  name: Get
+  nameWithType: Line3D.Get
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.Get
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: DebugDrawUtils.DebugDrawItems.Line3D
+  commentId: T:DebugDrawUtils.DebugDrawItems.Line3D
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Line3D.html
+  name: Line3D
+  nameWithType: Line3D
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.SetAutoSize*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Line3D.SetAutoSize
+  href: DebugDrawUtils.DebugDrawItems.Line3D.html#DebugDrawUtils.DebugDrawItems.Line3D.SetAutoSize(System.Boolean)
+  name: SetAutoSize
+  nameWithType: Line3D.SetAutoSize
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.SetAutoSize
+- uid: DebugDrawUtils.DebugDrawItems.Line3D.SetFaceCamera*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Line3D.SetFaceCamera
+  href: DebugDrawUtils.DebugDrawItems.Line3D.html#DebugDrawUtils.DebugDrawItems.Line3D.SetFaceCamera(System.Boolean)
+  name: SetFaceCamera
+  nameWithType: Line3D.SetFaceCamera
+  fullName: DebugDrawUtils.DebugDrawItems.Line3D.SetFaceCamera

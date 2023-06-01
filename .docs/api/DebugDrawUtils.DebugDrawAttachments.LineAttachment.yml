@@ -1,0 +1,478 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  id: LineAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  children:
+  - DebugDrawUtils.DebugDrawAttachments.LineAttachment.#ctor
+  - DebugDrawUtils.DebugDrawAttachments.LineAttachment.SetDistances(System.Single,System.Single)
+  - DebugDrawUtils.DebugDrawAttachments.LineAttachment.end
+  - DebugDrawUtils.DebugDrawAttachments.LineAttachment.endDistance
+  - DebugDrawUtils.DebugDrawAttachments.LineAttachment.item
+  - DebugDrawUtils.DebugDrawAttachments.LineAttachment.lineItem
+  - DebugDrawUtils.DebugDrawAttachments.LineAttachment.start
+  - DebugDrawUtils.DebugDrawAttachments.LineAttachment.startDistance
+  langs:
+  - csharp
+  - vb
+  name: LineAttachment
+  nameWithType: LineAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  type: Class
+  source:
+    id: LineAttachment
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\LineAttachment.cs
+    startLine: 10
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: Attaches a debug <xref href="DebugDrawUtils.DebugDrawItems.Line" data-throw-if-not-resolved="false"></xref> between two objects.
+  example: []
+  syntax:
+    content: 'public class LineAttachment : BaseAttachment'
+    content.vb: Public Class LineAttachment Inherits BaseAttachment
+  inheritance:
+  - System.Object
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  inheritedMembers:
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  - DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.start
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.LineAttachment.start
+  id: start
+  parent: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  langs:
+  - csharp
+  - vb
+  name: start
+  nameWithType: LineAttachment.start
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.start
+  type: Field
+  source:
+    id: start
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\LineAttachment.cs
+    startLine: 16
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: The object the start of the lines is attached to.
+  example: []
+  syntax:
+    content: public readonly AttachmentObject<LineAttachment> start
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.AttachmentObject{DebugDrawUtils.DebugDrawAttachments.LineAttachment}
+    content.vb: Public ReadOnly start As AttachmentObject(Of LineAttachment)
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.end
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.LineAttachment.end
+  id: end
+  parent: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  langs:
+  - csharp
+  - vb
+  name: end
+  nameWithType: LineAttachment.end
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.end
+  type: Field
+  source:
+    id: end
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\LineAttachment.cs
+    startLine: 20
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: The object the end of the lines is attached to.
+  example: []
+  syntax:
+    content: public readonly AttachmentObject<LineAttachment> end
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.AttachmentObject{DebugDrawUtils.DebugDrawAttachments.LineAttachment}
+    content.vb: Public ReadOnly [end] As AttachmentObject(Of LineAttachment)
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.startDistance
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.LineAttachment.startDistance
+  id: startDistance
+  parent: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  langs:
+  - csharp
+  - vb
+  name: startDistance
+  nameWithType: LineAttachment.startDistance
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.startDistance
+  type: Field
+  source:
+    id: startDistance
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\LineAttachment.cs
+    startLine: 24
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: Moves the attachment point along the line away from the start point.
+  example: []
+  syntax:
+    content: public float startDistance
+    return:
+      type: System.Single
+    content.vb: Public startDistance As Single
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.endDistance
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.LineAttachment.endDistance
+  id: endDistance
+  parent: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  langs:
+  - csharp
+  - vb
+  name: endDistance
+  nameWithType: LineAttachment.endDistance
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.endDistance
+  type: Field
+  source:
+    id: endDistance
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\LineAttachment.cs
+    startLine: 28
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: Moves the attachment point along the line away from the end point.
+  example: []
+  syntax:
+    content: public float endDistance
+    return:
+      type: System.Single
+    content.vb: Public endDistance As Single
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.item
+  commentId: P:DebugDrawUtils.DebugDrawAttachments.LineAttachment.item
+  id: item
+  parent: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  langs:
+  - csharp
+  - vb
+  name: item
+  nameWithType: LineAttachment.item
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.item
+  type: Property
+  source:
+    id: item
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\LineAttachment.cs
+    startLine: 32
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: The item associated with this attachment.
+  example: []
+  syntax:
+    content: public BaseItem item { get; }
+    parameters: []
+    return:
+      type: DebugDrawUtils.DebugDrawItems.BaseItem
+    content.vb: Public Property item As BaseItem
+  overload: DebugDrawUtils.DebugDrawAttachments.LineAttachment.item*
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.lineItem
+  commentId: P:DebugDrawUtils.DebugDrawAttachments.LineAttachment.lineItem
+  id: lineItem
+  parent: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  langs:
+  - csharp
+  - vb
+  name: lineItem
+  nameWithType: LineAttachment.lineItem
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.lineItem
+  type: Property
+  source:
+    id: lineItem
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\LineAttachment.cs
+    startLine: 36
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  summary: The line item associated with this attachment.
+  example: []
+  syntax:
+    content: public IAttachableLine lineItem { get; }
+    parameters: []
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+    content.vb: Public Property lineItem As IAttachableLine
+  overload: DebugDrawUtils.DebugDrawAttachments.LineAttachment.lineItem*
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.#ctor
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.LineAttachment.#ctor
+  id: '#ctor'
+  parent: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  langs:
+  - csharp
+  - vb
+  name: LineAttachment()
+  nameWithType: LineAttachment.LineAttachment()
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.LineAttachment()
+  type: Constructor
+  source:
+    id: .ctor
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\LineAttachment.cs
+    startLine: 41
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public LineAttachment()
+    content.vb: Public Sub New()
+  overload: DebugDrawUtils.DebugDrawAttachments.LineAttachment.#ctor*
+  nameWithType.vb: LineAttachment.New()
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.LineAttachment.New()
+  name.vb: New()
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.SetDistances(System.Single,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.LineAttachment.SetDistances(System.Single,System.Single)
+  id: SetDistances(System.Single,System.Single)
+  parent: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  langs:
+  - csharp
+  - vb
+  name: SetDistances(float, float)
+  nameWithType: LineAttachment.SetDistances(float, float)
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.SetDistances(float, float)
+  type: Method
+  source:
+    id: SetDistances
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Attachments\LineAttachment.cs
+    startLine: 47
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawAttachments
+  syntax:
+    content: public LineAttachment SetDistances(float start = 0, float end = 0)
+    parameters:
+    - id: start
+      type: System.Single
+    - id: end
+      type: System.Single
+    return:
+      type: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+    content.vb: Public Function SetDistances(start As Single = 0, [end] As Single = 0) As LineAttachment
+  overload: DebugDrawUtils.DebugDrawAttachments.LineAttachment.SetDistances*
+  nameWithType.vb: LineAttachment.SetDistances(Single, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.LineAttachment.SetDistances(Single, Single)
+  name.vb: SetDistances(Single, Single)
+references:
+- uid: DebugDrawUtils.DebugDrawItems.Line
+  commentId: T:DebugDrawUtils.DebugDrawItems.Line
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Line.html
+  name: Line
+  nameWithType: Line
+  fullName: DebugDrawUtils.DebugDrawItems.Line
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html
+  name: BaseAttachment
+  nameWithType: BaseAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  commentId: F:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  parent: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+  name: vector3Ref
+  nameWithType: BaseAttachment.vector3Ref
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.vector3Ref
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  commentId: P:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  parent: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+  name: isAlive
+  nameWithType: BaseAttachment.isAlive
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.isAlive
+- uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  commentId: M:DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  parent: DebugDrawUtils.DebugDrawAttachments.BaseAttachment
+  href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  name: Destroy()
+  nameWithType: BaseAttachment.Destroy()
+  fullName: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+    name: Destroy
+    href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+    name: Destroy
+    href: DebugDrawUtils.DebugDrawAttachments.BaseAttachment.html#DebugDrawUtils.DebugDrawAttachments.BaseAttachment.Destroy
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject{DebugDrawUtils.DebugDrawAttachments.LineAttachment}
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.AttachmentObject{DebugDrawUtils.DebugDrawAttachments.LineAttachment}
+  parent: DebugDrawUtils.DebugDrawAttachments
+  definition: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  name: AttachmentObject<LineAttachment>
+  nameWithType: AttachmentObject<LineAttachment>
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<DebugDrawUtils.DebugDrawAttachments.LineAttachment>
+  nameWithType.vb: AttachmentObject(Of LineAttachment)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of DebugDrawUtils.DebugDrawAttachments.LineAttachment)
+  name.vb: AttachmentObject(Of LineAttachment)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: <
+  - uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+    name: LineAttachment
+    href: DebugDrawUtils.DebugDrawAttachments.LineAttachment.html
+  - name: '>'
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+    name: LineAttachment
+    href: DebugDrawUtils.DebugDrawAttachments.LineAttachment.html
+  - name: )
+- uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  name: AttachmentObject<T>
+  nameWithType: AttachmentObject<T>
+  fullName: DebugDrawUtils.DebugDrawAttachments.AttachmentObject<T>
+  nameWithType.vb: AttachmentObject(Of T)
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.AttachmentObject(Of T)
+  name.vb: AttachmentObject(Of T)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawAttachments.AttachmentObject`1
+    name: AttachmentObject
+    href: DebugDrawUtils.DebugDrawAttachments.AttachmentObject-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.item*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.LineAttachment.item
+  href: DebugDrawUtils.DebugDrawAttachments.LineAttachment.html#DebugDrawUtils.DebugDrawAttachments.LineAttachment.item
+  name: item
+  nameWithType: LineAttachment.item
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.item
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.lineItem*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.LineAttachment.lineItem
+  href: DebugDrawUtils.DebugDrawAttachments.LineAttachment.html#DebugDrawUtils.DebugDrawAttachments.LineAttachment.lineItem
+  name: lineItem
+  nameWithType: LineAttachment.lineItem
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.lineItem
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html
+  name: IAttachableLine
+  nameWithType: IAttachableLine
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.#ctor*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.LineAttachment.#ctor
+  href: DebugDrawUtils.DebugDrawAttachments.LineAttachment.html#DebugDrawUtils.DebugDrawAttachments.LineAttachment.#ctor
+  name: LineAttachment
+  nameWithType: LineAttachment.LineAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.LineAttachment
+  nameWithType.vb: LineAttachment.New
+  fullName.vb: DebugDrawUtils.DebugDrawAttachments.LineAttachment.New
+  name.vb: New
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment.SetDistances*
+  commentId: Overload:DebugDrawUtils.DebugDrawAttachments.LineAttachment.SetDistances
+  href: DebugDrawUtils.DebugDrawAttachments.LineAttachment.html#DebugDrawUtils.DebugDrawAttachments.LineAttachment.SetDistances(System.Single,System.Single)
+  name: SetDistances
+  nameWithType: LineAttachment.SetDistances
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment.SetDistances
+- uid: DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.LineAttachment
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.LineAttachment.html
+  name: LineAttachment
+  nameWithType: LineAttachment
+  fullName: DebugDrawUtils.DebugDrawAttachments.LineAttachment

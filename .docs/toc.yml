@@ -1,5 +1,5 @@
 - name: Overview
   href: /
 - name: DebugDraw API
-  topicUid: Global.DebugDraw
-  homepage: Global.DebugDraw
+  topicUid: DebugDrawUtils.DebugDraw
+  homepage: DebugDrawUtils.DebugDraw

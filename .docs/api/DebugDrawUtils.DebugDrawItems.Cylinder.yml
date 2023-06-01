@@ -1,0 +1,1623 @@
+### YamlMime:ManagedReference
+items:
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder
+  commentId: T:DebugDrawUtils.DebugDrawItems.Cylinder
+  id: Cylinder
+  parent: DebugDrawUtils.DebugDrawItems
+  children:
+  - DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector2@,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius(System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius(UnityEngine.Vector2)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.SetForward(System.Nullable{UnityEngine.Vector3})
+  - DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(System.Single,System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(UnityEngine.Vector2)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(UnityEngine.Vector2,UnityEngine.Vector2)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius(System.Single)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius(UnityEngine.Vector2)
+  - DebugDrawUtils.DebugDrawItems.Cylinder.drawEndAxes
+  - DebugDrawUtils.DebugDrawItems.Cylinder.forward
+  - DebugDrawUtils.DebugDrawItems.Cylinder.radius1
+  - DebugDrawUtils.DebugDrawItems.Cylinder.radius2
+  - DebugDrawUtils.DebugDrawItems.Cylinder.segments
+  - DebugDrawUtils.DebugDrawItems.Cylinder.wireframe
+  langs:
+  - csharp
+  - vb
+  name: Cylinder
+  nameWithType: Cylinder
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder
+  type: Class
+  source:
+    id: Cylinder
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 10
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a wireframe cylinder.
+  example: []
+  syntax:
+    content: 'public class Cylinder : BaseLineItem, IAttachableLine'
+    content.vb: Public Class Cylinder Inherits BaseLineItem Implements IAttachableLine
+  inheritance:
+  - System.Object
+  - DebugDrawUtils.DebugDrawItems.BaseItem
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem
+  implements:
+  - DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  inheritedMembers:
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  - DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  - DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.color
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.radius1
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cylinder.radius1
+  id: radius1
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: radius1
+  nameWithType: Cylinder.radius1
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.radius1
+  type: Field
+  source:
+    id: radius1
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 20
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The radius at the start point of the cylinder.
+  example: []
+  syntax:
+    content: public Vector2 radius1
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public radius1 As Vector2
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.radius2
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cylinder.radius2
+  id: radius2
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: radius2
+  nameWithType: Cylinder.radius2
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.radius2
+  type: Field
+  source:
+    id: radius2
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 24
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The radius at the end point of the cylinder.
+  example: []
+  syntax:
+    content: public Vector2 radius2
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public radius2 As Vector2
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.drawEndAxes
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cylinder.drawEndAxes
+  id: drawEndAxes
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: drawEndAxes
+  nameWithType: Cylinder.drawEndAxes
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.drawEndAxes
+  type: Field
+  source:
+    id: drawEndAxes
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 28
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draw axis at each end of the cylinder.
+  example: []
+  syntax:
+    content: public bool drawEndAxes
+    return:
+      type: System.Boolean
+    content.vb: Public drawEndAxes As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.segments
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cylinder.segments
+  id: segments
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: segments
+  nameWithType: Cylinder.segments
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.segments
+  type: Field
+  source:
+    id: segments
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 32
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.
+  example: []
+  syntax:
+    content: public int segments
+    return:
+      type: System.Int32
+    content.vb: Public segments As Integer
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.forward
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cylinder.forward
+  id: forward
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: forward
+  nameWithType: Cylinder.forward
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.forward
+  type: Field
+  source:
+    id: forward
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 37
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: >-
+    The forward vector used to orient the cylinder if p1 -&gt; p2 is considered the up vector.
+
+    If null, an arbitrary axis will be chosen.
+  example: []
+  syntax:
+    content: public Vector3? forward
+    return:
+      type: System.Nullable{UnityEngine.Vector3}
+    content.vb: Public forward As Vector3?
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.wireframe
+  commentId: F:DebugDrawUtils.DebugDrawItems.Cylinder.wireframe
+  id: wireframe
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: wireframe
+  nameWithType: Cylinder.wireframe
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.wireframe
+  type: Field
+  source:
+    id: wireframe
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 41
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: If true draw a full wireframe cylinder, otherwise draw an approximation shell.
+  example: []
+  syntax:
+    content: public bool wireframe
+    return:
+      type: System.Boolean
+    content.vb: Public wireframe As Boolean
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector3, float, ref Color, int, bool, float)
+  nameWithType: Cylinder.Get(ref Vector3, ref Vector3, float, ref Color, int, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, ref UnityEngine.Color, int, bool, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 57
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a cylinder shell.
+  example: []
+  syntax:
+    content: public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start point of the cylinder.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end point of the cylinder.
+    - id: radius
+      type: System.Single
+      description: The radius of the cylinder.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the cylinder.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.
+    - id: drawEndAxes
+      type: System.Boolean
+      description: Draw axis at each end of the cylinder.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: The Cylinder object.
+    content.vb: Public Shared Function [Get](p1 As Vector3, p2 As Vector3, radius As Single, color As Color, segments As Integer = 32, drawEndAxes As Boolean = False, duration As Single = 0) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.Get*
+  nameWithType.vb: Cylinder.Get(Vector3, Vector3, Single, Color, Integer, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3, UnityEngine.Vector3, Single, UnityEngine.Color, Integer, Boolean, Single)
+  name.vb: Get(Vector3, Vector3, Single, Color, Integer, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector3, float, float, ref Color, int, bool, float)
+  nameWithType: Cylinder.Get(ref Vector3, ref Vector3, float, float, ref Color, int, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, float, ref UnityEngine.Color, int, bool, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 75
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a cylinder shell with a different start and end radius.
+  example: []
+  syntax:
+    content: public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start point of the cylinder.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end point of the cylinder.
+    - id: radius1
+      type: System.Single
+      description: The radius at the start point of the cylinder.
+    - id: radius2
+      type: System.Single
+      description: The radius at the end point of the cylinder.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the cylinder.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.
+    - id: drawEndAxes
+      type: System.Boolean
+      description: Draw axis at each end of the cylinder.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: The Cylinder object.
+    content.vb: Public Shared Function [Get](p1 As Vector3, p2 As Vector3, radius1 As Single, radius2 As Single, color As Color, segments As Integer = 32, drawEndAxes As Boolean = False, duration As Single = 0) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.Get*
+  nameWithType.vb: Cylinder.Get(Vector3, Vector3, Single, Single, Color, Integer, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3, UnityEngine.Vector3, Single, Single, UnityEngine.Color, Integer, Boolean, Single)
+  name.vb: Get(Vector3, Vector3, Single, Single, Color, Integer, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector3, ref Vector2, ref Color, int, bool, float)
+  nameWithType: Cylinder.Get(ref Vector3, ref Vector3, ref Vector2, ref Color, int, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, ref UnityEngine.Vector2, ref UnityEngine.Color, int, bool, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 106
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a cylinder shell with a different start and end radius.
+  example: []
+  syntax:
+    content: public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start point of the cylinder.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end point of the cylinder.
+    - id: radius
+      type: UnityEngine.Vector2
+      description: The radius of the cylinder.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the cylinder.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.
+    - id: drawEndAxes
+      type: System.Boolean
+      description: Draw axis at each end of the cylinder.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: The Cylinder object.
+    content.vb: Public Shared Function [Get](p1 As Vector3, p2 As Vector3, radius As Vector2, color As Color, segments As Integer = 32, drawEndAxes As Boolean = False, duration As Single = 0) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.Get*
+  nameWithType.vb: Cylinder.Get(Vector3, Vector3, Vector2, Color, Integer, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector2, UnityEngine.Color, Integer, Boolean, Single)
+  name.vb: Get(Vector3, Vector3, Vector2, Color, Integer, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector2@,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector2@,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  id: Get(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2@,UnityEngine.Vector2@,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: Get(ref Vector3, ref Vector3, ref Vector2, ref Vector2, ref Color, int, bool, float)
+  nameWithType: Cylinder.Get(ref Vector3, ref Vector3, ref Vector2, ref Vector2, ref Color, int, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.Get(ref UnityEngine.Vector3, ref UnityEngine.Vector3, ref UnityEngine.Vector2, ref UnityEngine.Vector2, ref UnityEngine.Color, int, bool, float)
+  type: Method
+  source:
+    id: Get
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 124
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a cylinder shell with a different start and end radius.
+  example: []
+  syntax:
+    content: public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius1, ref Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start point of the cylinder.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end point of the cylinder.
+    - id: radius1
+      type: UnityEngine.Vector2
+      description: The radius at the start point of the cylinder.
+    - id: radius2
+      type: UnityEngine.Vector2
+      description: The radius at the end point of the cylinder.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the cylinder.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.
+    - id: drawEndAxes
+      type: System.Boolean
+      description: Draw axis at each end of the cylinder.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: The Cylinder object.
+    content.vb: Public Shared Function [Get](p1 As Vector3, p2 As Vector3, radius1 As Vector2, radius2 As Vector2, color As Color, segments As Integer = 32, drawEndAxes As Boolean = False, duration As Single = 0) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.Get*
+  nameWithType.vb: Cylinder.Get(Vector3, Vector3, Vector2, Vector2, Color, Integer, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, Integer, Boolean, Single)
+  name.vb: Get(Vector3, Vector3, Vector2, Vector2, Color, Integer, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  id: GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: GetWire(ref Vector3, ref Vector3, float, ref Color, int, bool, float)
+  nameWithType: Cylinder.GetWire(ref Vector3, ref Vector3, float, ref Color, int, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, ref UnityEngine.Color, int, bool, float)
+  type: Method
+  source:
+    id: GetWire
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 155
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a full wireframe cylinder.
+  example: []
+  syntax:
+    content: public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start point of the cylinder.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end point of the cylinder.
+    - id: radius
+      type: System.Single
+      description: The radius of the cylinder.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the cylinder.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.
+    - id: drawEndAxes
+      type: System.Boolean
+      description: Draw axis at each end of the cylinder.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: The Cylinder object.
+    content.vb: Public Shared Function GetWire(p1 As Vector3, p2 As Vector3, radius As Single, color As Color, segments As Integer = 32, drawEndAxes As Boolean = False, duration As Single = 0) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire*
+  nameWithType.vb: Cylinder.GetWire(Vector3, Vector3, Single, Color, Integer, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3, UnityEngine.Vector3, Single, UnityEngine.Color, Integer, Boolean, Single)
+  name.vb: GetWire(Vector3, Vector3, Single, Color, Integer, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  id: GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: GetWire(ref Vector3, ref Vector3, float, float, ref Color, int, bool, float)
+  nameWithType: Cylinder.GetWire(ref Vector3, ref Vector3, float, float, ref Color, int, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(ref UnityEngine.Vector3, ref UnityEngine.Vector3, float, float, ref UnityEngine.Color, int, bool, float)
+  type: Method
+  source:
+    id: GetWire
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 176
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a full wireframe cylinder with a different start and end radius.
+  example: []
+  syntax:
+    content: public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start point of the cylinder.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end point of the cylinder.
+    - id: radius1
+      type: System.Single
+      description: The radius at the start point of the cylinder.
+    - id: radius2
+      type: System.Single
+      description: The radius at the end point of the cylinder.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the cylinder.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.
+    - id: drawEndAxes
+      type: System.Boolean
+      description: Draw axis at each end of the cylinder.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: The Cylinder object.
+    content.vb: Public Shared Function GetWire(p1 As Vector3, p2 As Vector3, radius1 As Single, radius2 As Single, color As Color, segments As Integer = 32, drawEndAxes As Boolean = False, duration As Single = 0) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire*
+  nameWithType.vb: Cylinder.GetWire(Vector3, Vector3, Single, Single, Color, Integer, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3, UnityEngine.Vector3, Single, Single, UnityEngine.Color, Integer, Boolean, Single)
+  name.vb: GetWire(Vector3, Vector3, Single, Single, Color, Integer, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  id: GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: GetWire(ref Vector3, ref Vector3, Vector2, ref Color, int, bool, float)
+  nameWithType: Cylinder.GetWire(ref Vector3, ref Vector3, Vector2, ref Color, int, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(ref UnityEngine.Vector3, ref UnityEngine.Vector3, UnityEngine.Vector2, ref UnityEngine.Color, int, bool, float)
+  type: Method
+  source:
+    id: GetWire
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 196
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a full wireframe cylinder with a different start and end radius.
+  example: []
+  syntax:
+    content: public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start point of the cylinder.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end point of the cylinder.
+    - id: radius
+      type: UnityEngine.Vector2
+      description: The radius of the cylinder.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the cylinder.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.
+    - id: drawEndAxes
+      type: System.Boolean
+      description: Draw axis at each end of the cylinder.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: The Cylinder object.
+    content.vb: Public Shared Function GetWire(p1 As Vector3, p2 As Vector3, radius As Vector2, color As Color, segments As Integer = 32, drawEndAxes As Boolean = False, duration As Single = 0) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire*
+  nameWithType.vb: Cylinder.GetWire(Vector3, Vector3, Vector2, Color, Integer, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector2, UnityEngine.Color, Integer, Boolean, Single)
+  name.vb: GetWire(Vector3, Vector3, Vector2, Color, Integer, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  id: GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,UnityEngine.Vector2,UnityEngine.Vector2,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: GetWire(ref Vector3, ref Vector3, Vector2, Vector2, ref Color, int, bool, float)
+  nameWithType: Cylinder.GetWire(ref Vector3, ref Vector3, Vector2, Vector2, ref Color, int, bool, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(ref UnityEngine.Vector3, ref UnityEngine.Vector3, UnityEngine.Vector2, UnityEngine.Vector2, ref UnityEngine.Color, int, bool, float)
+  type: Method
+  source:
+    id: GetWire
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 217
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Draws a full wireframe cylinder with a different start and end radius.
+  example: []
+  syntax:
+    content: public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius1, Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
+    parameters:
+    - id: p1
+      type: UnityEngine.Vector3
+      description: The start point of the cylinder.
+    - id: p2
+      type: UnityEngine.Vector3
+      description: The end point of the cylinder.
+    - id: radius1
+      type: UnityEngine.Vector2
+      description: The radius at the start point of the cylinder.
+    - id: radius2
+      type: UnityEngine.Vector2
+      description: The radius at the end point of the cylinder.
+    - id: color
+      type: UnityEngine.Color
+      description: The color of the cylinder.
+    - id: segments
+      type: System.Int32
+      description: The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.
+    - id: drawEndAxes
+      type: System.Boolean
+      description: Draw axis at each end of the cylinder.
+    - id: duration
+      type: System.Single
+      description: How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: The Cylinder object.
+    content.vb: Public Shared Function GetWire(p1 As Vector3, p2 As Vector3, radius1 As Vector2, radius2 As Vector2, color As Color, segments As Integer = 32, drawEndAxes As Boolean = False, duration As Single = 0) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire*
+  nameWithType.vb: Cylinder.GetWire(Vector3, Vector3, Vector2, Vector2, Color, Integer, Boolean, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector2, UnityEngine.Vector2, UnityEngine.Color, Integer, Boolean, Single)
+  name.vb: GetWire(Vector3, Vector3, Vector2, Vector2, Color, Integer, Boolean, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(System.Single)
+  id: SetRadius(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: SetRadius(float)
+  nameWithType: Cylinder.SetRadius(float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(float)
+  type: Method
+  source:
+    id: SetRadius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 234
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Set the radius.
+  example: []
+  syntax:
+    content: public Cylinder SetRadius(float radius)
+    parameters:
+    - id: radius
+      type: System.Single
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: ''
+    content.vb: Public Function SetRadius(radius As Single) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius*
+  nameWithType.vb: Cylinder.SetRadius(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(Single)
+  name.vb: SetRadius(Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(System.Single,System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(System.Single,System.Single)
+  id: SetRadius(System.Single,System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: SetRadius(float, float)
+  nameWithType: Cylinder.SetRadius(float, float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(float, float)
+  type: Method
+  source:
+    id: SetRadius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 250
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Set the radius.
+  example: []
+  syntax:
+    content: public Cylinder SetRadius(float startRadius, float endRadius)
+    parameters:
+    - id: startRadius
+      type: System.Single
+      description: ''
+    - id: endRadius
+      type: System.Single
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: ''
+    content.vb: Public Function SetRadius(startRadius As Single, endRadius As Single) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius*
+  nameWithType.vb: Cylinder.SetRadius(Single, Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(Single, Single)
+  name.vb: SetRadius(Single, Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(UnityEngine.Vector2)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(UnityEngine.Vector2)
+  id: SetRadius(UnityEngine.Vector2)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: SetRadius(Vector2)
+  nameWithType: Cylinder.SetRadius(Vector2)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(UnityEngine.Vector2)
+  type: Method
+  source:
+    id: SetRadius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 265
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Set the radius.
+  example: []
+  syntax:
+    content: public Cylinder SetRadius(Vector2 radius)
+    parameters:
+    - id: radius
+      type: UnityEngine.Vector2
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: ''
+    content.vb: Public Function SetRadius(radius As Vector2) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius*
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(UnityEngine.Vector2,UnityEngine.Vector2)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(UnityEngine.Vector2,UnityEngine.Vector2)
+  id: SetRadius(UnityEngine.Vector2,UnityEngine.Vector2)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: SetRadius(Vector2, Vector2)
+  nameWithType: Cylinder.SetRadius(Vector2, Vector2)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(UnityEngine.Vector2, UnityEngine.Vector2)
+  type: Method
+  source:
+    id: SetRadius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 279
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Set the radius.
+  example: []
+  syntax:
+    content: public Cylinder SetRadius(Vector2 startRadius, Vector2 endRadius)
+    parameters:
+    - id: startRadius
+      type: UnityEngine.Vector2
+      description: ''
+    - id: endRadius
+      type: UnityEngine.Vector2
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: ''
+    content.vb: Public Function SetRadius(startRadius As Vector2, endRadius As Vector2) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius*
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius(System.Single)
+  id: SetStartRadius(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: SetStartRadius(float)
+  nameWithType: Cylinder.SetStartRadius(float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius(float)
+  type: Method
+  source:
+    id: SetStartRadius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 292
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Set start radius.
+  example: []
+  syntax:
+    content: public Cylinder SetStartRadius(float radius)
+    parameters:
+    - id: radius
+      type: System.Single
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: ''
+    content.vb: Public Function SetStartRadius(radius As Single) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius*
+  nameWithType.vb: Cylinder.SetStartRadius(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius(Single)
+  name.vb: SetStartRadius(Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius(System.Single)
+  id: SetEndRadius(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: SetEndRadius(float)
+  nameWithType: Cylinder.SetEndRadius(float)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius(float)
+  type: Method
+  source:
+    id: SetEndRadius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 305
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Set end radius.
+  example: []
+  syntax:
+    content: public Cylinder SetEndRadius(float radius)
+    parameters:
+    - id: radius
+      type: System.Single
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: ''
+    content.vb: Public Function SetEndRadius(radius As Single) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius*
+  nameWithType.vb: Cylinder.SetEndRadius(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius(Single)
+  name.vb: SetEndRadius(Single)
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius(UnityEngine.Vector2)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius(UnityEngine.Vector2)
+  id: SetStartRadius(UnityEngine.Vector2)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: SetStartRadius(Vector2)
+  nameWithType: Cylinder.SetStartRadius(Vector2)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius(UnityEngine.Vector2)
+  type: Method
+  source:
+    id: SetStartRadius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 318
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Set start radius.
+  example: []
+  syntax:
+    content: public Cylinder SetStartRadius(Vector2 radius)
+    parameters:
+    - id: radius
+      type: UnityEngine.Vector2
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: ''
+    content.vb: Public Function SetStartRadius(radius As Vector2) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius*
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius(UnityEngine.Vector2)
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius(UnityEngine.Vector2)
+  id: SetEndRadius(UnityEngine.Vector2)
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: SetEndRadius(Vector2)
+  nameWithType: Cylinder.SetEndRadius(Vector2)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius(UnityEngine.Vector2)
+  type: Method
+  source:
+    id: SetEndRadius
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 330
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Set end radius.
+  example: []
+  syntax:
+    content: public Cylinder SetEndRadius(Vector2 radius)
+    parameters:
+    - id: radius
+      type: UnityEngine.Vector2
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: ''
+    content.vb: Public Function SetEndRadius(radius As Vector2) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius*
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetForward(System.Nullable{UnityEngine.Vector3})
+  commentId: M:DebugDrawUtils.DebugDrawItems.Cylinder.SetForward(System.Nullable{UnityEngine.Vector3})
+  id: SetForward(System.Nullable{UnityEngine.Vector3})
+  parent: DebugDrawUtils.DebugDrawItems.Cylinder
+  langs:
+  - csharp
+  - vb
+  name: SetForward(Vector3?)
+  nameWithType: Cylinder.SetForward(Vector3?)
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetForward(UnityEngine.Vector3?)
+  type: Method
+  source:
+    id: SetForward
+    path: D:\Unity\CustomPackages\DebugDraw\Assets\DebugDraw\Runtime\Items\Cylinder.cs
+    startLine: 342
+  assemblies:
+  - c.DebugDraw.Runtime
+  namespace: DebugDrawUtils.DebugDrawItems
+  summary: Sets the forward vector used to orient the cylinder.
+  example: []
+  syntax:
+    content: public Cylinder SetForward(Vector3? forward)
+    parameters:
+    - id: forward
+      type: System.Nullable{UnityEngine.Vector3}
+      description: ''
+    return:
+      type: DebugDrawUtils.DebugDrawItems.Cylinder
+      description: ''
+    content.vb: Public Function SetForward(forward As Vector3?) As Cylinder
+  overload: DebugDrawUtils.DebugDrawItems.Cylinder.SetForward*
+references:
+- uid: DebugDrawUtils.DebugDrawItems
+  commentId: N:DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawItems
+  nameWithType: DebugDrawUtils.DebugDrawItems
+  fullName: DebugDrawUtils.DebugDrawItems
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawItems
+    name: DebugDrawItems
+    href: DebugDrawUtils.DebugDrawItems.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html
+  name: BaseItem
+  nameWithType: BaseItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  commentId: T:DebugDrawUtils.DebugDrawItems.BaseLineItem
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html
+  name: BaseLineItem
+  nameWithType: BaseLineItem
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem
+- uid: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  commentId: T:DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+  parent: DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.DebugDrawAttachments.IAttachableLine.html
+  name: IAttachableLine
+  nameWithType: IAttachableLine
+  fullName: DebugDrawUtils.DebugDrawAttachments.IAttachableLine
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+  name: p1
+  nameWithType: BaseLineItem.p1
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.p1
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+  name: p2
+  nameWithType: BaseLineItem.p2
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.p2
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+  name: color2
+  nameWithType: BaseLineItem.color2
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.color2
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  name: AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  nameWithType: BaseLineItem.AttachTo(GameObjectOrTransform, GameObjectOrTransform)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform, DebugDrawUtils.GameObjectOrTransform)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: ','
+  - name: " "
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+    name: AttachTo
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.AttachTo(DebugDrawUtils.GameObjectOrTransform,DebugDrawUtils.GameObjectOrTransform)
+  - name: (
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: ','
+  - name: " "
+  - uid: DebugDrawUtils.GameObjectOrTransform
+    name: GameObjectOrTransform
+    href: DebugDrawUtils.GameObjectOrTransform.html
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  name: SetPositions(Vector3, Vector3)
+  nameWithType: BaseLineItem.SetPositions(Vector3, Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3, UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+    name: SetPositions
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+    name: SetPositions
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetPositions(UnityEngine.Vector3,UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  name: SetStartPosition(Vector3)
+  nameWithType: BaseLineItem.SetStartPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+    name: SetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+    name: SetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetStartPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  name: SetEndPosition(Vector3)
+  nameWithType: BaseLineItem.SetEndPosition(Vector3)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+    name: SetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+    name: SetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.SetEndPosition(UnityEngine.Vector3)
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  name: GetStartPosition()
+  nameWithType: BaseLineItem.GetStartPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+    name: GetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+    name: GetStartPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetStartPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  parent: DebugDrawUtils.DebugDrawItems.BaseLineItem
+  href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  name: GetEndPosition()
+  nameWithType: BaseLineItem.GetEndPosition()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+    name: GetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+    name: GetEndPosition
+    href: DebugDrawUtils.DebugDrawItems.BaseLineItem.html#DebugDrawUtils.DebugDrawItems.BaseLineItem.GetEndPosition
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+  name: BaseAutoSizeDistanceFactor
+  nameWithType: BaseItem.BaseAutoSizeDistanceFactor
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.BaseAutoSizeDistanceFactor
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.color
+  commentId: F:DebugDrawUtils.DebugDrawItems.BaseItem.color
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.color
+  name: color
+  nameWithType: BaseItem.color
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.color
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  name: SetDuration<T>(float)
+  nameWithType: BaseItem.SetDuration<T>(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration<T>(float)
+  nameWithType.vb: BaseItem.SetDuration(Of T)(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Of T)(Single)
+  name.vb: SetDuration(Of T)(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration``1(System.Single)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  name: SetDuration(float)
+  nameWithType: BaseItem.SetDuration(float)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(float)
+  nameWithType.vb: BaseItem.SetDuration(Single)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(Single)
+  name.vb: SetDuration(Single)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+    name: SetDuration
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetDuration(System.Single)
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  name: SetGlobalTransform(Matrix4x4)
+  nameWithType: BaseItem.SetGlobalTransform(Matrix4x4)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+    name: SetGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalTransform(UnityEngine.Matrix4x4)
+  - name: (
+  - uid: UnityEngine.Matrix4x4
+    name: Matrix4x4
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  name: ClearGlobalTransform()
+  nameWithType: BaseItem.ClearGlobalTransform()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+    name: ClearGlobalTransform
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalTransform
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  name: SetGlobalColor(Color)
+  nameWithType: BaseItem.SetGlobalColor(Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+    name: SetGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.SetGlobalColor(UnityEngine.Color)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  name: ClearGlobalColor()
+  nameWithType: BaseItem.ClearGlobalColor()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+    name: ClearGlobalColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.ClearGlobalColor
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  name: GetColor(ref Color)
+  nameWithType: BaseItem.GetColor(ref Color)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(ref UnityEngine.Color)
+  nameWithType.vb: BaseItem.GetColor(Color)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color)
+  name.vb: GetColor(Color)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - name: ref
+  - name: " "
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+    name: GetColor
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.GetColor(UnityEngine.Color@)
+  - name: (
+  - uid: UnityEngine.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  name: Remove()
+  nameWithType: BaseItem.Remove()
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Remove()
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+    name: Remove
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Remove
+  - name: (
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  commentId: M:DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  parent: DebugDrawUtils.DebugDrawItems.BaseItem
+  isExternal: true
+  href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  name: Group(string)
+  nameWithType: BaseItem.Group(string)
+  fullName: DebugDrawUtils.DebugDrawItems.BaseItem.Group(string)
+  nameWithType.vb: BaseItem.Group(String)
+  fullName.vb: DebugDrawUtils.DebugDrawItems.BaseItem.Group(String)
+  name.vb: Group(String)
+  spec.csharp:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+    name: Group
+    href: DebugDrawUtils.DebugDrawItems.BaseItem.html#DebugDrawUtils.DebugDrawItems.BaseItem.Group(System.String)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DebugDrawUtils.DebugDrawAttachments
+  commentId: N:DebugDrawUtils.DebugDrawAttachments
+  href: DebugDrawUtils.html
+  name: DebugDrawUtils.DebugDrawAttachments
+  nameWithType: DebugDrawUtils.DebugDrawAttachments
+  fullName: DebugDrawUtils.DebugDrawAttachments
+  spec.csharp:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+  spec.vb:
+  - uid: DebugDrawUtils
+    name: DebugDrawUtils
+    href: DebugDrawUtils.html
+  - name: .
+  - uid: DebugDrawUtils.DebugDrawAttachments
+    name: DebugDrawAttachments
+    href: DebugDrawUtils.DebugDrawAttachments.html
+- uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Nullable{UnityEngine.Vector3}
+  commentId: T:System.Nullable{UnityEngine.Vector3}
+  parent: System
+  definition: System.Nullable`1
+  name: Vector3?
+  nameWithType: Vector3?
+  fullName: UnityEngine.Vector3?
+  spec.csharp:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '?'
+  spec.vb:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.Get*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cylinder.Get
+  href: DebugDrawUtils.DebugDrawItems.Cylinder.html#DebugDrawUtils.DebugDrawItems.Cylinder.Get(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  name: Get
+  nameWithType: Cylinder.Get
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.Get
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder
+  commentId: T:DebugDrawUtils.DebugDrawItems.Cylinder
+  parent: DebugDrawUtils.DebugDrawItems
+  href: DebugDrawUtils.DebugDrawItems.Cylinder.html
+  name: Cylinder
+  nameWithType: Cylinder
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cylinder.GetWire
+  href: DebugDrawUtils.DebugDrawItems.Cylinder.html#DebugDrawUtils.DebugDrawItems.Cylinder.GetWire(UnityEngine.Vector3@,UnityEngine.Vector3@,System.Single,UnityEngine.Color@,System.Int32,System.Boolean,System.Single)
+  name: GetWire
+  nameWithType: Cylinder.GetWire
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.GetWire
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius
+  href: DebugDrawUtils.DebugDrawItems.Cylinder.html#DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius(System.Single)
+  name: SetRadius
+  nameWithType: Cylinder.SetRadius
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetRadius
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius
+  href: DebugDrawUtils.DebugDrawItems.Cylinder.html#DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius(System.Single)
+  name: SetStartRadius
+  nameWithType: Cylinder.SetStartRadius
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetStartRadius
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius
+  href: DebugDrawUtils.DebugDrawItems.Cylinder.html#DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius(System.Single)
+  name: SetEndRadius
+  nameWithType: Cylinder.SetEndRadius
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetEndRadius
+- uid: DebugDrawUtils.DebugDrawItems.Cylinder.SetForward*
+  commentId: Overload:DebugDrawUtils.DebugDrawItems.Cylinder.SetForward
+  href: DebugDrawUtils.DebugDrawItems.Cylinder.html#DebugDrawUtils.DebugDrawItems.Cylinder.SetForward(System.Nullable{UnityEngine.Vector3})
+  name: SetForward
+  nameWithType: Cylinder.SetForward
+  fullName: DebugDrawUtils.DebugDrawItems.Cylinder.SetForward

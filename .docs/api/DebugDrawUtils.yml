@@ -4,8 +4,12 @@ items:
   commentId: N:DebugDrawUtils
   id: DebugDrawUtils
   children:
+  - DebugDrawUtils.DebugDraw
   - DebugDrawUtils.DebugDrawCamera
+  - DebugDrawUtils.DebugDrawMesh
+  - DebugDrawUtils.DebugDrawTextMesh
   - DebugDrawUtils.GameObjectOrTransform
+  - DebugDrawUtils.Log
   langs:
   - csharp
   - vb
@@ -16,20 +20,48 @@ items:
   assemblies:
   - c.DebugDraw.Runtime
 references:
-- uid: DebugDrawUtils.DebugDrawCamera
-  commentId: T:DebugDrawUtils.DebugDrawCamera
+- uid: DebugDrawUtils.DebugDrawTextMesh
+  commentId: T:DebugDrawUtils.DebugDrawTextMesh
+  href: DebugDrawUtils.DebugDrawTextMesh.html
+  name: DebugDrawTextMesh
+  nameWithType: DebugDrawTextMesh
+  fullName: DebugDrawUtils.DebugDrawTextMesh
+- uid: DebugDrawUtils.DebugDraw
+  commentId: T:DebugDrawUtils.DebugDraw
+  href: DebugDrawUtils.DebugDraw.html
+  name: DebugDraw
+  nameWithType: DebugDraw
+  fullName: DebugDrawUtils.DebugDraw
+- uid: DebugDrawUtils.DebugDrawMesh
+  commentId: T:DebugDrawUtils.DebugDrawMesh
   parent: DebugDrawUtils
-  name: DebugDrawCamera
-  nameWithType: DebugDrawCamera
-  fullName: DebugDrawUtils.DebugDrawCamera
+  href: DebugDrawUtils.DebugDrawMesh.html
+  name: DebugDrawMesh
+  nameWithType: DebugDrawMesh
+  fullName: DebugDrawUtils.DebugDrawMesh
 - uid: DebugDrawUtils.GameObjectOrTransform
   commentId: T:DebugDrawUtils.GameObjectOrTransform
   parent: DebugDrawUtils
+  href: DebugDrawUtils.GameObjectOrTransform.html
   name: GameObjectOrTransform
   nameWithType: GameObjectOrTransform
   fullName: DebugDrawUtils.GameObjectOrTransform
+- uid: DebugDrawUtils.DebugDrawCamera
+  commentId: T:DebugDrawUtils.DebugDrawCamera
+  parent: DebugDrawUtils
+  href: DebugDrawUtils.DebugDrawCamera.html
+  name: DebugDrawCamera
+  nameWithType: DebugDrawCamera
+  fullName: DebugDrawUtils.DebugDrawCamera
+- uid: DebugDrawUtils.Log
+  commentId: T:DebugDrawUtils.Log
+  href: DebugDrawUtils.Log.html
+  name: Log
+  nameWithType: Log
+  fullName: DebugDrawUtils.Log
 - uid: DebugDrawUtils
   commentId: N:DebugDrawUtils
+  href: DebugDrawUtils.html
   name: DebugDrawUtils
   nameWithType: DebugDrawUtils
   fullName: DebugDrawUtils
