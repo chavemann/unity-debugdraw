@@ -1,4 +1,4 @@
-using System;
+using DebugDrawUtils;
 using UnityEngine;
 
 namespace DebugDrawSamples.Showcase.Sections
@@ -13,7 +13,7 @@ namespace DebugDrawSamples.Showcase.Sections
 		{
 			Transform tr = other.transform;
 			Camera cam = tr.GetComponentInChildren<Camera>();
-			
+
 			if (!cam)
 				return;
 

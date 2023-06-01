@@ -1,4 +1,5 @@
 using System;
+using DebugDrawUtils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,7 +14,7 @@ namespace DebugDrawSamples.Showcase.Sections
 		public float lineSize = 0.1f;
 		public float spacing;
 		public float boxSizeMax = 0.75f;
-		
+
 		private readonly Color[] colors = new Color[5];
 		private Vector3 boxSize;
 
@@ -38,7 +39,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			DebugDraw.Line3D(
 				DebugDraw.right * spacing + DebugDraw.up * length,
 				DebugDraw.right * spacing - DebugDraw.up * length, lineSize, colors[3], colors[4]);
-			
+
 			DebugDraw.PopState();
 		}
 

@@ -3,7 +3,8 @@ using System.Runtime.CompilerServices;
 using DebugDrawUtils;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -26,7 +27,7 @@ namespace DebugDrawItems
 		/// The colors each dot.
 		/// </summary>
 		public List<Color> colors;
-		
+
 		/// <summary>
 		/// If true adjusts the size of all dot so it approximately remains the same size on screen.
 		/// </summary>
@@ -47,7 +48,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Batch draws 3D dots that automatically faces the camera.
 		/// </summary>
@@ -61,7 +62,7 @@ namespace DebugDrawItems
 		public static Dots Get(List<Vector3> positions, List<float> sizes, List<Color> colors, int segments = 0, float duration = 0)
 		{
 			Dots item = ItemPool<Dots>.Get(duration);
-			
+
 			item.positions = positions;
 			item.sizes = sizes;
 			item.colors = colors;
@@ -70,7 +71,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Batch draws 3D dots.
 		/// </summary>
@@ -85,13 +86,13 @@ namespace DebugDrawItems
 		public static Dots Get(List<Vector3> positions, List<float> sizes, List<Color> colors, ref Vector3 facing, int segments = 0, float duration = 0)
 		{
 			Dots item = ItemPool<Dots>.Get(duration);
-			
+
 			item.positions = positions;
 			item.sizes = sizes;
 			item.colors = colors;
 			item.facing = facing;
 			item.faceCamera = false;
-			item.segments = segments; 
+			item.segments = segments;
 
 			return item;
 		}
@@ -131,7 +132,7 @@ namespace DebugDrawItems
 			ref Color stateColor = ref this.stateColor;
 			bool autoSize = this.autoSize && !DebugDraw.camOrthographic;
 			bool autoResolution = segments <= 0;
-			
+
 			List<Vector3> positions = this.positions;
 			List<float> sizes = this.sizes;
 			List<Color> colors = this.colors;
@@ -140,9 +141,9 @@ namespace DebugDrawItems
 			List<Vector3> meshVertices = mesh.vertices;
 			List<Color> meshColors = mesh.colours;
 			List<int> meshIndices = mesh.indices;
-			
+
 			Vector3 right, up;
-			
+
 			if (faceCamera)
 			{
 				right = DebugDraw.camRight;
@@ -152,14 +153,14 @@ namespace DebugDrawItems
 			{
 				DebugDraw.FindAxisVectors(ref facing, ref DebugDraw.forward, out up, out right);
 			}
-			
+
 			if (faceCamera || autoSize)
 			{
 				Matrix4x4 m = Matrix4x4.TRS(
 					DebugDraw.positionIdentity,
 					faceCamera || !hasStateTransform ? DebugDraw.rotationIdentity : stateTransform.rotation,
 					autoSize || !hasStateTransform ? DebugDraw.scaleIdentity : stateTransform.lossyScale);
-					
+
 				right = m.MultiplyVector(right);
 				up = m.MultiplyVector(up);
 			}
@@ -168,22 +169,22 @@ namespace DebugDrawItems
 				right = stateTransform.MultiplyVector(right);
 				up = stateTransform.MultiplyVector(up);
 			}
-			
+
 			for (int i = positions.Count - 1; i >= 0; i--)
 			{
 				Vector3 position = positions[i];
 				float size = sizes[i];
 				Color clr = hasStateColor ? colors[i] * stateColor : colors[i];
-				
+
 				if (hasStateTransform)
 				{
 					position = stateTransform.MultiplyPoint3x4(position);
 				}
-				
+
 				float dist = autoSize || autoResolution
 					? Mathf.Max(DebugDraw.DistanceFromCamera(ref position), 0)
 					: 0;
-				
+
 				if (autoSize)
 				{
 					size *= dist * BaseAutoSizeDistanceFactor;
@@ -192,7 +193,7 @@ namespace DebugDrawItems
 				int segments = autoResolution
 					? Ellipse.DefaultAutoResolution(dist, size)
 					: this.segments;
-				
+
 				if (segments < 3)
 				{
 					meshVertices.Add(new Vector3(
@@ -230,7 +231,7 @@ namespace DebugDrawItems
 					meshColors.Add(clr);
 					int firstVertexIndex = vertexIndex;
 					vertexIndex++;
-					
+
 					float angle = -Mathf.PI * 0.25f;
 					float angleDelta = (Mathf.PI * 2) / segments;
 
@@ -244,11 +245,11 @@ namespace DebugDrawItems
 							position.y + right.y * p.x + up.y * p.y,
 							position.z + right.z * p.x + up.z * p.y));
 						meshColors.Add(clr);
-					
+
 						meshIndices.Add(firstVertexIndex);
 						meshIndices.Add(firstVertexIndex + k + 1);
 						meshIndices.Add(vertexIndex++);
-						
+
 						angle += angleDelta;
 					}
 				}

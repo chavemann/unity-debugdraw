@@ -1,4 +1,5 @@
-using DebugDrawItems;
+using DebugDrawUtils;
+using DebugDrawUtils.DebugDrawItems;
 using UnityEngine;
 
 namespace DebugDrawSamples.Showcase.Sections
@@ -7,7 +8,7 @@ namespace DebugDrawSamples.Showcase.Sections
 	[ExecuteAlways]
 	public class ArrowsSection : BaseSection
 	{
-		
+
 		public float spacing = 1;
 		public float gap = 1;
 		public float height = 1;
@@ -17,7 +18,7 @@ namespace DebugDrawSamples.Showcase.Sections
 		public Icon origin;
 		public float rayDist = 1;
 		public float rayNormal = 0.1f;
-		
+
 		private readonly Color[] colors = new Color[4];
 		private float minDist, maxDist;
 

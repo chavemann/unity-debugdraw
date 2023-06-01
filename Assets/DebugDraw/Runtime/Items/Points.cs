@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -11,7 +12,7 @@ namespace DebugDrawItems
 	public class Points : BaseItem
 	{
 		/* mesh: point */
-		
+
 		/// <summary>
 		/// The positions of the points.
 		/// </summary>
@@ -23,7 +24,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Batch draw multiple points from a positions and colors array.
 		/// Both arrays must be non-null and of the same size.
@@ -36,7 +37,7 @@ namespace DebugDrawItems
 		public static Points Get(List<Vector3> positions, List<Color> colors, float duration = 0)
 		{
 			Points item = ItemPool<Points>.Get(duration);
-			
+
 			item.positions = positions;
 			item.colors = colors;
 

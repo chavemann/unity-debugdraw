@@ -1,9 +1,8 @@
 using System.Runtime.CompilerServices;
-using DebugDrawAttachments;
-using DebugDrawUtils;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -78,7 +77,7 @@ namespace DebugDrawItems
 		}
 
 		/// <summary>
-		/// Sets this item's transform. Normally this will be set by using <see cref="DebugDraw.transform"/>.
+		/// Sets this item's transform. Normally this will be set by using <see cref="DebugDrawUtils.DebugDraw.transform"/>.
 		/// </summary>
 		/// <param name="transform"></param>
 		public void SetGlobalTransform(Matrix4x4 transform)

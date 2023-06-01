@@ -1,3 +1,7 @@
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils
+{
+
 public static partial class DebugDraw
 {
 
@@ -9,5 +13,7 @@ public static partial class DebugDraw
 		NotNull,
 
 	}
+
+}
 
 }

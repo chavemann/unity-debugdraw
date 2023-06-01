@@ -1,7 +1,8 @@
 using DebugDrawUtils;
 using UnityEngine;
 
-namespace DebugDrawAttachments
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawAttachments
 {
 
 	/// <summary>
@@ -25,7 +26,7 @@ namespace DebugDrawAttachments
 		/// <param name="position">The new position</param>
 		/// <returns></returns>
 		void SetPosition(Vector3 position);
-		
+
 		/// <summary>
 		/// Gets this item's position.
 		/// </summary>

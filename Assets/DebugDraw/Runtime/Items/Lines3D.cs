@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -39,7 +40,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Draws a batch of 3D lines that orients itself towards the camera.
 		/// </summary>
@@ -52,7 +53,7 @@ namespace DebugDrawItems
 		public static Lines3D Get(List<Vector3> positions, List<float> sizes, List<Color> colors, float duration = 0)
 		{
 			Lines3D item = ItemPool<Lines3D>.Get(duration);
-			
+
 			item.positions = positions;
 			item.sizes = sizes;
 			item.colors = colors;
@@ -76,7 +77,7 @@ namespace DebugDrawItems
 		public static Lines3D Get(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3? facing, float duration = 0)
 		{
 			Lines3D item = ItemPool<Lines3D>.Get(duration);
-			
+
 			item.positions = positions;
 			item.sizes = sizes;
 			item.colors = colors;
@@ -88,7 +89,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-		
+
 		/// <summary>
 		/// If true adjusts the size of the lines so it approximately remains the same size on screen.
 		/// </summary>
@@ -100,7 +101,7 @@ namespace DebugDrawItems
 
 			return this;
 		}
-		
+
 		/// <summary>
 		/// If null the line will automatically rotate to face the camera.
 		/// </summary>
@@ -123,7 +124,7 @@ namespace DebugDrawItems
 			bool autoSize = this.autoSize && !DebugDraw.camOrthographic;
 			bool faceCamera = !this.facing.HasValue;
 			Vector3 facing = this.facing.GetValueOrDefault();
-			
+
 			List<Vector3> positions = this.positions;
 			List<float> sizes = this.sizes;
 			List<Color> colors = this.colors;
@@ -134,7 +135,7 @@ namespace DebugDrawItems
 			List<int> meshIndices = mesh.indices;
 
 			int sizeIndex = 0;
-			
+
 			for (int i = positions.Count - 2; i >= 0; i -= 2)
 			{
 				Vector3 p1 = hasStateTransform ? stateTransform.MultiplyPoint3x4(positions[i]) : positions[i];
@@ -143,7 +144,7 @@ namespace DebugDrawItems
 				float size2 = size1;
 				Color clr1 = hasStateColor ? colors[i] * stateColor : colors[i];
 				Color clr2 = hasStateColor ? colors[i + 1] * stateColor : colors[i + 1];
-				
+
 				Vector3 dir = new Vector3(
 					p2.x - p1.x,
 					p2.y - p1.y,
@@ -152,7 +153,7 @@ namespace DebugDrawItems
 				dir.x /= length;
 				dir.y /= length;
 				dir.z /= length;
-				
+
 				if(autoSize)
 				{
 					float dist1 = Vector3.Dot(new Vector3(
@@ -163,7 +164,7 @@ namespace DebugDrawItems
 						p2.x - camP.x,
 						p2.y - camP.y,
 						p2.z - camP.z), DebugDraw.camForward);
-				
+
 					if (dist1 <= 0 && dist2 <= 0)
 						return;
 
@@ -196,9 +197,9 @@ namespace DebugDrawItems
 						size2 *= Mathf.Max(dist2, 0) * BaseAutoSizeDistanceFactor;
 					}
 				}
-				
+
 				Vector3 n1, n2;
-			
+
 				if(faceCamera)
 				{
 					Vector3 d = new Vector3(
@@ -220,7 +221,7 @@ namespace DebugDrawItems
 					DebugDraw.FindAxisVectors(ref dir, ref facing, out _, out n1);
 					n2 = n1;
 				}
-				
+
 				meshVertices.Add(new Vector3(
 					p1.x + n1.x * size1,
 					p1.y + n1.y * size1,

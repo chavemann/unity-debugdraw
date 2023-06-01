@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -25,7 +26,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Batch draw multiple lines from a positions and colors array.
 		/// Both arrays must be non-null, of the same size, and multiples of two - two entries for each line.
@@ -38,7 +39,7 @@ namespace DebugDrawItems
 		public static Lines Get(List<Vector3> positions, List<Color> colors, float duration = 0)
 		{
 			Lines item = ItemPool<Lines>.Get(duration);
-			
+
 			item.positions = positions;
 			item.colors = colors;
 

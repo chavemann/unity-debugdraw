@@ -1,3 +1,4 @@
+using DebugDrawUtils;
 using UnityEngine;
 
 namespace DebugDrawSamples.Showcase.Sections
@@ -27,7 +28,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			Vector3 up = tr.up;
 			Vector3 forward = tr.forward;
 			Vector3 right = tr.right;
-			
+
 			Vector3 p = tr.position;
 			Vector3 u = up * spacing;
 			Vector3 r = right * spacing;

@@ -1,13 +1,13 @@
-using System;
-using DebugDrawItems;
+using DebugDrawUtils.DebugDrawItems;
 using UnityEngine;
 
-namespace DebugDrawAttachments
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawAttachments
 {
 
 	public class BoxAttachment : BaseAttachment
 	{
-		
+
 		/// <summary>
 		/// The attached object.
 		/// </summary>
@@ -39,7 +39,7 @@ namespace DebugDrawAttachments
 			{
 				collider = obj.transform.GetComponent<Collider>();
 				updateColliderSize = collider;
-				
+
 				if (updateColliderSize)
 				{
 					updateSize = BoxAttachmentSizeUpdate.None;
@@ -77,7 +77,7 @@ namespace DebugDrawAttachments
 				{
 					updateRendererSize = false;
 				}
-			} 
+			}
 			else if (updateColliderSize)
 			{
 				if (collider)
@@ -115,7 +115,7 @@ namespace DebugDrawAttachments
 			updateColliderSize = false;
 			renderer = null;
 			collider = null;
-			
+
 			AttachmentPool<BoxAttachment>.Release(this);
 		}
 
@@ -131,17 +131,17 @@ namespace DebugDrawAttachments
 		/// Don't update the box size.
 		/// </summary>
 		None,
-		
+
 		/// <summary>
 		/// Update the box size to match the attached collider.
 		/// </summary>
 		Collider,
-		
+
 		/// <summary>
 		/// Update the box size to match the attached rendered.
 		/// </summary>
 		Renderer,
-		
+
 		/// <summary>
 		/// Will first look for a collider component then rendered.
 		/// </summary>

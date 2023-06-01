@@ -5,13 +5,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils
+{
+
 public static partial class Log
 {
 	/*
 	 * These methods are generated automatically from the Log.Print** methods.
 	 */
 	/* <ShowGenMethods> */
-	
+
 	/// <summary>
 	///   <para>Prints a message on the screen.</para>
 	/// </summary>
@@ -28,7 +32,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message on the screen.</para>
 	/// </summary>
@@ -45,7 +49,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a formatted message on the screen.</para>
 	/// </summary>
@@ -63,7 +67,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints an Object on the screen.</para>
 	/// </summary>
@@ -80,7 +84,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a Transform on the screen.</para>
 	/// </summary>
@@ -97,7 +101,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a bool on the screen.</para>
 	/// </summary>
@@ -114,7 +118,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a char on the screen.</para>
 	/// </summary>
@@ -131,7 +135,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a sbyte on the screen.</para>
 	/// </summary>
@@ -148,7 +152,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a short on the screen.</para>
 	/// </summary>
@@ -165,7 +169,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints an int on the screen.</para>
 	/// </summary>
@@ -182,7 +186,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a long on the screen.</para>
 	/// </summary>
@@ -199,7 +203,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a byte on the screen.</para>
 	/// </summary>
@@ -216,7 +220,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a ushort on the screen.</para>
 	/// </summary>
@@ -233,7 +237,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a uint on the screen.</para>
 	/// </summary>
@@ -250,7 +254,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a ulong on the screen.</para>
 	/// </summary>
@@ -267,7 +271,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a float on the screen.</para>
 	/// </summary>
@@ -284,7 +288,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a double on the screen.</para>
 	/// </summary>
@@ -301,7 +305,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a decimal on the screen.</para>
 	/// </summary>
@@ -318,7 +322,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a Vector2 on the screen.</para>
 	/// </summary>
@@ -335,7 +339,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a Vector3 on the screen.</para>
 	/// </summary>
@@ -352,7 +356,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a Vector4 on the screen.</para>
 	/// </summary>
@@ -369,7 +373,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a Vector2Int on the screen.</para>
 	/// </summary>
@@ -386,7 +390,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a Vector3Int on the screen.</para>
 	/// </summary>
@@ -403,7 +407,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a Matrix4x4 on the screen.</para>
 	/// </summary>
@@ -420,7 +424,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a Quaternion on the screen.</para>
 	/// </summary>
@@ -437,7 +441,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a Rect on the screen.</para>
 	/// </summary>
@@ -454,7 +458,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a RectInt on the screen.</para>
 	/// </summary>
@@ -471,7 +475,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Logs a list the Unity Console.</para>
 	/// </summary>
@@ -488,7 +492,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a list of items on the screen.</para>
 	/// </summary>
@@ -505,7 +509,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a list of Objects on the screen.</para>
 	/// </summary>
@@ -522,7 +526,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a list of GameObject on the screen.</para>
 	/// </summary>
@@ -539,7 +543,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and bool on the screen.</para>
 	/// </summary>
@@ -557,7 +561,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and bool on the screen.</para>
 	/// </summary>
@@ -575,7 +579,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and string on the screen.</para>
 	/// </summary>
@@ -593,7 +597,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and char on the screen.</para>
 	/// </summary>
@@ -611,7 +615,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and sbyte on the screen.</para>
 	/// </summary>
@@ -629,7 +633,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and short on the screen.</para>
 	/// </summary>
@@ -647,7 +651,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and int on the screen.</para>
 	/// </summary>
@@ -665,7 +669,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and long on the screen.</para>
 	/// </summary>
@@ -683,7 +687,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and byte on the screen.</para>
 	/// </summary>
@@ -701,7 +705,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and ushort on the screen.</para>
 	/// </summary>
@@ -719,7 +723,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and uint on the screen.</para>
 	/// </summary>
@@ -737,7 +741,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and ulong on the screen.</para>
 	/// </summary>
@@ -755,7 +759,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and float on the screen.</para>
 	/// </summary>
@@ -773,7 +777,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and double on the screen.</para>
 	/// </summary>
@@ -791,7 +795,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and decimal on the screen.</para>
 	/// </summary>
@@ -809,7 +813,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and Vector2 on the screen.</para>
 	/// </summary>
@@ -827,7 +831,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and Vector3 on the screen.</para>
 	/// </summary>
@@ -845,7 +849,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and Vector4 on the screen.</para>
 	/// </summary>
@@ -863,7 +867,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and Vector2Int on the screen.</para>
 	/// </summary>
@@ -881,7 +885,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and Vector3Int on the screen.</para>
 	/// </summary>
@@ -899,7 +903,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and Matrix4x4 on the screen.</para>
 	/// </summary>
@@ -917,7 +921,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and Quaternion on the screen.</para>
 	/// </summary>
@@ -935,7 +939,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and Rect on the screen.</para>
 	/// </summary>
@@ -953,7 +957,7 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/// <summary>
 	///   <para>Prints a message and RectInt on the screen.</para>
 	/// </summary>
@@ -971,7 +975,9 @@ public static partial class Log
 		#endif
 
 	}
-	
+
 	/* </ShowGenMethods> */
+
+}
 
 }

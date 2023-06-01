@@ -1,9 +1,9 @@
 using System.Runtime.CompilerServices;
-using DebugDrawAttachments;
+using DebugDrawUtils.DebugDrawAttachments;
 using UnityEngine;
-using DebugDrawUtils;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -12,7 +12,7 @@ namespace DebugDrawItems
 	public class Line : BaseLineItem, IAttachablePoint
 	{
 		/* mesh: line */
-		
+
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
 
@@ -29,7 +29,7 @@ namespace DebugDrawItems
 		public static Line Get(ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2, float duration = 0)
 		{
 			Line item = ItemPool<Line>.Get(duration);
-			
+
 			item.p1 = p1;
 			item.p2 = p2;
 			item.color = color1;
@@ -51,7 +51,7 @@ namespace DebugDrawItems
 		{
 			return Get(ref p1, ref p2, ref color, ref color, duration);
 		}
-		
+
 		public PointAttachment AttachTo(GameObjectOrTransform obj)
 		{
 			PointAttachment attachment = AttachmentPool<PointAttachment>.Get(this);
@@ -68,7 +68,7 @@ namespace DebugDrawItems
 		{
 			Color clr1 = GetColor(ref color);
 			Color clr2 = GetColor(ref color2);
-			
+
 			mesh.AddLine(this, ref p1, ref p2, ref clr1, ref clr2);
 		}
 
@@ -102,7 +102,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Util -- */
-		
+
 		/// <summary>
 		/// Clamps the line from p1 to p2 to the specified lengths.
 		/// </summary>
@@ -130,7 +130,7 @@ namespace DebugDrawItems
 			{
 				return;
 			}
-			
+
 			p2.x = p1.x + delta.x * length;
 			p2.y = p1.y + delta.y * length;
 			p2.z = p1.z + delta.z * length;

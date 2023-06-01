@@ -1,7 +1,8 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -25,10 +26,10 @@ namespace DebugDrawItems
 		/// based on this setting.
 		/// </summary>
 		public bool filled;
-		
+
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Draws a filled square.
 		/// </summary>
@@ -42,7 +43,7 @@ namespace DebugDrawItems
 		public static Rectangle GetFill(ref Vector3 position, float size, ref Vector3 facing, ref Color color, float duration = 0)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
-			
+
 			item.position = position;
 			item.size = new Vector2(size, size);
 			item.facing = facing;
@@ -51,7 +52,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a wire square.
 		/// </summary>
@@ -65,7 +66,7 @@ namespace DebugDrawItems
 		public static Rectangle Get(ref Vector3 position, float size, ref Vector3 facing, ref Color color, float duration = 0)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
-			
+
 			item.position = position;
 			item.size = new Vector2(size, size);
 			item.facing = facing;
@@ -74,7 +75,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a filled square.
 		/// </summary>
@@ -88,7 +89,7 @@ namespace DebugDrawItems
 		public static Rectangle GetFill(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float duration = 0)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
-			
+
 			item.position = position;
 			item.size = size;
 			item.facing = facing;
@@ -97,7 +98,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a wire square.
 		/// </summary>
@@ -111,7 +112,7 @@ namespace DebugDrawItems
 		public static Rectangle Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float duration = 0)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
-			
+
 			item.position = position;
 			item.size = size;
 			item.facing = facing;
@@ -120,7 +121,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
 
@@ -128,15 +129,15 @@ namespace DebugDrawItems
 		{
 			Vector3 position = this.position;
 			DebugDraw.FindAxisVectors(ref facing, ref DebugDraw.up, out Vector3 up, out Vector3 right);
-			
+
 			if (hasStateTransform)
 			{
 				position = stateTransform.MultiplyPoint3x4(position);
 				right = stateTransform.MultiplyVector(right);
 				up = stateTransform.MultiplyVector(up);
 			}
-			
-			
+
+
 			mesh.AddVertex(
 				position.x + right.x * -size.x + up.x * -size.y,
 				position.y + right.y * -size.x + up.y * -size.y,
@@ -153,7 +154,7 @@ namespace DebugDrawItems
 				position.x + right.x * -size.x + up.x * +size.y,
 				position.y + right.y * -size.x + up.y * +size.y,
 				position.z + right.z * -size.x + up.z * +size.y);
-			
+
 			mesh.AddColorX4(this, ref color);
 
 			if (filled)

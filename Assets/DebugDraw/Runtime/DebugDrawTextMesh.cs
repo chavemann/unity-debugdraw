@@ -1,22 +1,24 @@
-using DebugDrawItems;
+using DebugDrawUtils.DebugDrawItems;
 using UnityEngine;
+
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils
+{
 
 public class DebugDrawTextMesh : DebugDrawMesh
 {
 
 	private const float SizeOnScreen = 1;
-	
+
 	private static readonly GUIContent TextGUIContent = new GUIContent();
-	
-	public DebugDrawTextMesh() : base(MeshTopology.Points)
-	{
-	}
+
+	public DebugDrawTextMesh() : base(MeshTopology.Points) { }
 
 	public new void Build()
 	{
 		if (itemCount == 0)
 			return;
-		
+
 		Color guiColor = GUI.color;
 		Matrix4x4 guiMatrix = GUI.matrix;
 		Vector2 screenSize = new Vector2(Screen.width, Screen.height);
@@ -24,19 +26,19 @@ public class DebugDrawTextMesh : DebugDrawMesh
 
 		float lineHeight = DebugDraw.TextStyle.lineHeight;
 
-		for(int i = itemCount - 1; i >= 0; i--)
+		for (int i = itemCount - 1; i >= 0; i--)
 		{
 			Text item = (Text) items[i];
 
 			Vector3 p = DebugDraw.cam.WorldToViewportPoint(item.position);
-			
-			// This text is behind the camera 
+
+			// This text is behind the camera
 			if (p.z < 0.25f)
 				continue;
 			// Or too far outside the screen.
 			if (p.x < -1f || p.x > 2f || p.y < -1f || p.y > 2f)
 				continue;
-			
+
 			p.y = 1 - p.y;
 			Matrix4x4 m = Matrix4x4.Translate(new Vector3(p.x * screenSize.x, p.y * screenSize.y, 0));
 
@@ -47,9 +49,9 @@ public class DebugDrawTextMesh : DebugDrawMesh
 				if (item.useWorldSize)
 				{
 					scale *= DebugDraw.textBaseWorldDistance /
-							 // Prevent the text from getting too big or risk the font not being able to
-							 // fit into a single texture.
-							 Mathf.Max(p.z, 0.5f);
+					         // Prevent the text from getting too big or risk the font not being able to
+					         // fit into a single texture.
+					         Mathf.Max(p.z, 0.5f);
 
 					if (scale * lineHeight < DebugDraw.minTextSize)
 						continue;
@@ -57,7 +59,7 @@ public class DebugDrawTextMesh : DebugDrawMesh
 
 				m *= Matrix4x4.Scale(new Vector3(scale, scale, scale));
 			}
-			
+
 			TextGUIContent.text = item.text;
 			DebugDraw.TextStyle.alignment = item.align;
 			GUI.matrix = m;
@@ -70,7 +72,7 @@ public class DebugDrawTextMesh : DebugDrawMesh
 				rect.x = 0;
 				rect.y = 0;
 			}
-			
+
 			GUI.color = item.GetColor(ref item.color);
 			GUI.Label(rect, TextGUIContent, DebugDraw.TextStyle);
 		}
@@ -78,5 +80,7 @@ public class DebugDrawTextMesh : DebugDrawMesh
 		GUI.color = guiColor;
 		GUI.matrix = guiMatrix;
 	}
+
+}
 
 }

@@ -1,7 +1,8 @@
-using DebugDrawItems;
+using DebugDrawUtils.DebugDrawItems;
 using UnityEngine;
 
-namespace DebugDrawAttachments
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawAttachments
 {
 
 	/// <summary>
@@ -9,7 +10,7 @@ namespace DebugDrawAttachments
 	/// </summary>
 	public class LineAttachment : BaseAttachment
 	{
-		
+
 		/// <summary>
 		/// The object the start of the lines is attached to.
 		/// </summary>
@@ -85,7 +86,7 @@ namespace DebugDrawAttachments
 					p2.y -= n.y * endDistance;
 					p2.z -= n.z * endDistance;
 				}
-				
+
 				lineItem.SetPositions(p1, p2);
 			}
 			else
@@ -106,7 +107,7 @@ namespace DebugDrawAttachments
 				item = null;
 				lineItem = null;
 			}
-			
+
 			AttachmentPool<LineAttachment>.Release(this);
 		}
 

@@ -1,4 +1,5 @@
-using DebugDrawItems;
+using DebugDrawUtils;
+using DebugDrawUtils.DebugDrawItems;
 using UnityEngine;
 
 namespace DebugDrawSamples.Showcase.Sections
@@ -23,7 +24,7 @@ namespace DebugDrawSamples.Showcase.Sections
 		private Color color;
 		private MeshItem mesh1;
 		private MeshItem mesh2;
-		
+
 		protected override void Init()
 		{
 			color = Showcase.NiceColor();
@@ -48,7 +49,7 @@ namespace DebugDrawSamples.Showcase.Sections
 					mesh1 = DebugDraw.Mesh(mesh, null, -1);
 					mesh2 = DebugDraw.Mesh(mesh, color, -1);
 				}
-				
+
 				Showcase.NiceColors(mesh1.colors);
 				mesh2.color = color;
 			}

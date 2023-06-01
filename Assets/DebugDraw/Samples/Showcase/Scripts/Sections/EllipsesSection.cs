@@ -1,4 +1,5 @@
-using DebugDrawItems;
+using DebugDrawUtils;
+using DebugDrawUtils.DebugDrawItems;
 using UnityEngine;
 
 namespace DebugDrawSamples.Showcase.Sections
@@ -12,12 +13,12 @@ namespace DebugDrawSamples.Showcase.Sections
 		public float row1Radius = 1;
 		public float row1SizeSpeed = 1;
 		public Vector3 row1Speed = new Vector3(-30, 44, -50);
-		
+
 		public Transform row2;
 		public float row2Spacing = 1;
 		public float row2Radius = 1;
 		public float row2InnerRadius = 0.5f;
-		
+
 		public Transform row3;
 		public float row3Spacing = 1;
 		public float row3Radius = 1;
@@ -29,7 +30,7 @@ namespace DebugDrawSamples.Showcase.Sections
 		private Vector3 row1Angle;
 		private Vector3 row3Angle;
 		private float row3ArcAngle;
-		
+
 		private readonly Color[] colors = new Color[9];
 
 		protected override void Init()
@@ -41,11 +42,11 @@ namespace DebugDrawSamples.Showcase.Sections
 		{
 			Vector3 forward = tr.forward;
 			Vector3 right = tr.right;
-			
+
 			// Row 1
 			row1Angle += row1Speed * Time.deltaTime;
 			Vector3 facing = Quaternion.Euler(row1Angle) * forward;
-			
+
 			Vector3 p = row1 ? row1.position : tr.position;
 			Vector3 r = right * row1Spacing;
 			DebugDraw.Ellipse(
@@ -65,7 +66,7 @@ namespace DebugDrawSamples.Showcase.Sections
 				row1Radius,
 				forward,
 				colors[2]);
-			
+
 			// Row 2
 			p = row2 ? row2.position : tr.position;
 			r = right * row2Spacing;
@@ -85,10 +86,10 @@ namespace DebugDrawSamples.Showcase.Sections
 				forward,
 				colors[5])
 				.SetInnerRadius(row2InnerRadius);
-			
+
 			// Row 3
 			row3ArcAngle = Showcase.SmoothPingPong(0, 180, row3AngleSpeed);
-			
+
 			p = row3 ? row3.position : tr.position;
 			r = right * row3Spacing;
 			DebugDraw.Ellipse(

@@ -1,7 +1,8 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -29,10 +30,10 @@ namespace DebugDrawItems
 		/// of circles along each axis.
 		/// </summary>
 		public bool wireframe;
-		
+
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Draws a capsule shell.
 		/// </summary>
@@ -47,7 +48,7 @@ namespace DebugDrawItems
 		public static Capsule Get(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, float duration = 0)
 		{
 			Capsule item = ItemPool<Capsule>.Get(duration);
-			
+
 			item.p1 = p1;
 			item.p2 = p2;
 			item.radius = radius;
@@ -58,7 +59,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a full wireframe capsule.
 		/// </summary>
@@ -73,7 +74,7 @@ namespace DebugDrawItems
 		public static Capsule GetWire(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, float duration = 0)
 		{
 			Capsule item = ItemPool<Capsule>.Get(duration);
-			
+
 			item.p1 = p1;
 			item.p2 = p2;
 			item.radius = radius;
@@ -108,7 +109,7 @@ namespace DebugDrawItems
 			float length = delta.magnitude;
 			Vector3 up = delta / length;
 			Vector3 forward, right;
-			
+
 			if (this.forward.HasValue)
 			{
 				forward = this.forward.GetValueOrDefault();
@@ -127,9 +128,9 @@ namespace DebugDrawItems
 				right = stateTransform.MultiplyVector(right);
 				up = stateTransform.MultiplyVector(up);
 			}
-			
+
 			int segments;
-			
+
 			if (this.segments <= 0)
 			{
 				float d1 = DebugDraw.DistanceFromCamera(ref p1) + radius;
@@ -144,10 +145,10 @@ namespace DebugDrawItems
 			{
 				segments = Mathf.Max(this.segments, 4);
 			}
-			
+
 			Vector2 size = new Vector2(radius, radius);
 			Color clr = GetColor(ref color);
-			
+
 			Ellipse.BuildArc(
 				mesh, ref p1, ref right, ref forward, ref size, 0, 0,
 				0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
@@ -168,7 +169,7 @@ namespace DebugDrawItems
 					c * right.z + s * forward.z);
 
 				int startIndex = mesh.vertexIndex;
-				
+
 				Ellipse.BuildArc(
 					mesh, ref p1, ref r, ref up, ref size, 0, 0,
 					0, 180, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
@@ -176,11 +177,11 @@ namespace DebugDrawItems
 				mesh.AddIndices(
 					mesh.vertexIndex - 1,
 					mesh.vertexIndex);
-				
+
 				Ellipse.BuildArc(
 					mesh, ref p2, ref r, ref up, ref size, 0, 0,
 					180, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
-				
+
 				mesh.AddIndices(
 					mesh.vertexIndex - 1,
 					startIndex);

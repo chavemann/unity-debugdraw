@@ -1,4 +1,5 @@
 using System;
+using DebugDrawUtils;
 using UnityEngine;
 
 namespace DebugDrawSamples.Showcase.Sections
@@ -20,17 +21,17 @@ namespace DebugDrawSamples.Showcase.Sections
 		public Transform cylinderTr;
 		public Vector2 cylinderRadius1 = new Vector2(0.15f, 0.15f);
 		public Vector2 cylinderRadius2 = new Vector2(0.15f, 0.35f);
-		
+
 		public Transform conesTr;
 		public float conesAngleMin = 25;
 		public float conesAngleMax = 55;
 		public float conesAngleSpeed = 1;
-		
+
 		public Transform boxesTr;
 		public float boxSize = 0.5f;
 		public Vector3 box2Size = new Vector3(0.25f, 0.5f, 0.6f);
 		public Vector3 box2Speed = new Vector3(15, 25, -30);
-		
+
 		private readonly Color[] colors = new Color[10];
 		private Vector3 box2Angle;
 
@@ -71,7 +72,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			DebugDraw.WireCone(p - u2, up, height * 2, coneAngle, colors[2], segments);
 			p = o + r * 2;
 			DebugDraw.WireSphere(p, radius, colors[3], segments);
-			
+
 			// Cylinders
 			o = cylinderTr ? cylinderTr.position : tr.position;
 			p = o;
@@ -80,7 +81,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			p = o;
 			p.y = wireP.y;
 			DebugDraw.Cylinder(p - forward * height, p + forward * height, radius, colors[5], 32, true);
-			
+
 			// Cones
 			float a = Showcase.SmoothPingPong(conesAngleMin, conesAngleMax, conesAngleSpeed);
 			o = (conesTr ? conesTr.position : tr.position) + forward * height;
@@ -91,7 +92,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			p = o;
 			p.y = wireP.y;
 			DebugDraw.Cone(p, -forward, height * 2, a, colors[7], 32,  true, true);
-			
+
 			// Boxes
 			box2Angle += box2Speed * Time.deltaTime;
 			o = boxesTr ? boxesTr.position : tr.position;

@@ -1,7 +1,8 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -44,7 +45,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Draws a wire quad.
 		/// </summary>
@@ -59,7 +60,7 @@ namespace DebugDrawItems
 		public static Quad Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4, ref Color color, float duration = 0)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
-			
+
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -72,7 +73,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a wire quad.
 		/// </summary>
@@ -92,7 +93,7 @@ namespace DebugDrawItems
 			ref Color color1, ref Color color2, ref Color color3, ref Color color4, float duration = 0)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
-			
+
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -105,7 +106,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a filled quad.
 		/// </summary>
@@ -120,7 +121,7 @@ namespace DebugDrawItems
 		public static Quad GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4, ref Color color, float duration = 0)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
-			
+
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -133,7 +134,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a filled quad.
 		/// </summary>
@@ -153,7 +154,7 @@ namespace DebugDrawItems
 			ref Color color1, ref Color color2, ref Color color3, ref Color color4, float duration = 0)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
-			
+
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -169,7 +170,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-		
+
 		public override void SetPosition(Vector3 position)
 		{
 			Vector3 delta = new Vector3(

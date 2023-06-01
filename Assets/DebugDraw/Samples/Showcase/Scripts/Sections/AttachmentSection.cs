@@ -1,4 +1,5 @@
-using DebugDrawAttachments;
+using DebugDrawUtils;
+using DebugDrawUtils.DebugDrawAttachments;
 using UnityEngine;
 
 namespace DebugDrawSamples.Showcase.Sections
@@ -13,7 +14,7 @@ namespace DebugDrawSamples.Showcase.Sections
 
 		public Icon line1, line2, line3, line4;
 		public Vector2 line2Dist;
-		
+
 		public Transform bounds;
 
 		private PointAttachment pointAttachment;
@@ -31,7 +32,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			line1Attachment = null;
 			line2Attachment = null;
 			boundsAttachment = null;
-			
+
 			if (point)
 			{
 				pointAttachment = DebugDraw.Text(default, "Hello", Showcase.NiceColor(), TextAnchor.LowerCenter, pointSize, -1)
@@ -74,7 +75,7 @@ namespace DebugDrawSamples.Showcase.Sections
 				attachment.Destroy();
 			}
 		}
-		
+
 	}
 
 }

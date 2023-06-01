@@ -6,6 +6,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils
+{
+
 public static partial class DebugDraw
 {
 
@@ -160,12 +164,14 @@ public static partial class DebugDraw
 						DestroyObj(this);
 				}
 				catch (MissingReferenceException) { }
+
 				try
 				{
 					if (startTimer)
 						DestroyObj(startTimer);
 				}
 				catch (MissingReferenceException) { }
+
 				try
 				{
 					if (gameObject)
@@ -224,5 +230,7 @@ public static partial class DebugDraw
 
 	#endif
 
+
+}
 
 }

@@ -1,7 +1,8 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -10,7 +11,7 @@ namespace DebugDrawItems
 	public class Arrow : Line
 	{
 		/* mesh: line */
-		
+
 		/// <summary>
 		/// The properties of the head at the start of this arrow.
 		/// </summary>
@@ -35,7 +36,7 @@ namespace DebugDrawItems
 		/// The line will not be able to get longer than this.
 		/// </summary>
 		public float maxLength;
-		
+
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
 
@@ -62,7 +63,7 @@ namespace DebugDrawItems
 			bool faceCamera = false, bool autoSize = false, float duration = 0)
 		{
 			Arrow item = ItemPool<Arrow>.Get(duration);
-			
+
 			item.p1 = p1;
 			item.p2 = p2;
 			item.color = color1;
@@ -80,7 +81,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws an arrow.
 		/// </summary>
@@ -105,7 +106,7 @@ namespace DebugDrawItems
 				endSize > 0 ? ArrowShape.Arrow : ArrowShape.None,
 				faceCamera, autoSize, duration);
 		}
-		
+
 		/// <summary>
 		/// Draws an arrow.
 		/// </summary>
@@ -125,7 +126,7 @@ namespace DebugDrawItems
 				ref p1, ref p2, ref color1, ref color2, size, size,
 				ArrowShape.None, ArrowShape.Arrow, faceCamera, autoSize, duration);
 		}
-		
+
 		/// <summary>
 		/// Draws an arrow.
 		/// </summary>
@@ -149,7 +150,7 @@ namespace DebugDrawItems
 				endSize > 0 ? ArrowShape.Arrow : ArrowShape.None,
 				faceCamera, autoSize, duration);
 		}
-		
+
 		/// <summary>
 		/// Draws an arrow.
 		/// </summary>
@@ -188,7 +189,7 @@ namespace DebugDrawItems
 		{
 			this.minLength = minLength;
 			this.maxLength = maxLength;
-			
+
 			return this;
 		}
 
@@ -198,7 +199,7 @@ namespace DebugDrawItems
 			Color clr2 = GetColor(ref color2);
 			Vector3 p1 = this.p1;
 			Vector3 p2 = this.p2;
-			
+
 			Vector3 dir = new Vector3(
 				p2.x - p1.x,
 				p2.y - p1.y,
@@ -234,11 +235,11 @@ namespace DebugDrawItems
 				{
 					length = maxLength;
 				}
-				
+
 				p2.x = p1.x + dir.x * length;
 				p2.y = p1.y + dir.y * length;
 				p2.z = p1.z + dir.z * length;
-				
+
 				mesh.AddLine(this, ref p1, ref p2, ref clr1, ref clr2);
 			}
 			else
@@ -251,7 +252,7 @@ namespace DebugDrawItems
 			int index = mesh.vertexIndex - 1;
 			ref Color clr = ref color2;
 			float flip = -1;
-			
+
 			for (int i = 0; i < 2; i++)
 			{
 				if (head.shape != ArrowShape.None)
@@ -271,7 +272,7 @@ namespace DebugDrawItems
 					if (head.shape == ArrowShape.Arrow || head.shape == ArrowShape.Line)
 					{
 						float headLength = head.shape == ArrowShape.Arrow ? head.length : 0;
-						
+
 						float size = autoSize && !DebugDraw.camOrthographic
 							? Mathf.Max(Vector3.Dot(new Vector3(
 								p1.x - DebugDraw.camPosition.x,
@@ -287,7 +288,7 @@ namespace DebugDrawItems
 							p2.x + dir.x * flip * headLength * size - n.x * head.width * size,
 							p2.y + dir.y * flip * headLength * size - n.y * head.width * size,
 							p2.z + dir.z * flip * headLength * size - n.z * head.width * size);
-						
+
 						if (head.shape == ArrowShape.Arrow)
 						{
 							mesh.AddIndices(
@@ -350,7 +351,7 @@ namespace DebugDrawItems
 		{
 			shape = ArrowShape.None;
 			width = length = 0;
-			
+
 			return arrow;
 		}
 
@@ -361,7 +362,7 @@ namespace DebugDrawItems
 		{
 			width = size;
 			length = size;
-			
+
 			return arrow;
 		}
 
@@ -372,7 +373,7 @@ namespace DebugDrawItems
 		{
 			this.width = width;
 			this.length = length;
-			
+
 			return arrow;
 		}
 

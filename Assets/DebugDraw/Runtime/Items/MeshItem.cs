@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -74,7 +75,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a wireframe mesh. This will allocate new lists and fetch the mesh data so it's advisable to
 		/// not call this every frame and instead create it once keep a reference to it.
@@ -90,7 +91,7 @@ namespace DebugDrawItems
 
 			item.vertices = new List<Vector3>();
 			item.indices = new List<int>();
-			
+
 			mesh.GetVertices(item.vertices);
 			mesh.GetIndices(item.indices, 0);
 
@@ -102,7 +103,7 @@ namespace DebugDrawItems
 				if (item.colors.Count != item.vertices.Count)
 				{
 					item.colors.Clear();
-					
+
 					for (int i = item.vertices.Count - 1; i >= 0; i--)
 					{
 						item.colors.Add(DebugDraw.colorIdentity);
@@ -113,7 +114,7 @@ namespace DebugDrawItems
 			{
 				item.colors = null;
 			}
-			
+
 			item.color = color;
 
 			return item;
@@ -125,12 +126,12 @@ namespace DebugDrawItems
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			int vertexIndex = mesh.vertexIndex;
-			
+
 			if (color.HasValue)
 			{
 				Color clr = color.GetValueOrDefault();
 				clr = GetColor(ref clr);
-				
+
 				List<Color> meshColors = mesh.colours;
 
 				for (int i = vertices.Count - 1; i >= 0; i--)
@@ -142,7 +143,7 @@ namespace DebugDrawItems
 			{
 				mesh.colours.AddRange(colors);
 			}
-			
+
 			if (hasStateTransform)
 			{
 				List<Vector3> meshVertices = mesh.vertices;
@@ -157,9 +158,9 @@ namespace DebugDrawItems
 			}
 			else
 			{
-				mesh.vertices.AddRange(vertices);				
+				mesh.vertices.AddRange(vertices);
 			}
-			
+
 			List<int> meshIndices = mesh.indices;
 			List<int> indices = this.indices;
 
@@ -168,7 +169,7 @@ namespace DebugDrawItems
 				int i1 = vertexIndex + indices[i];
 				int i2 = vertexIndex + indices[i + 1];
 				int i3 = vertexIndex + indices[i + 2];
-				
+
 				meshIndices.Add(i1);
 				meshIndices.Add(i2);
 				meshIndices.Add(i2);
@@ -176,7 +177,7 @@ namespace DebugDrawItems
 				meshIndices.Add(i3);
 				meshIndices.Add(i1);
 			}
-			
+
 			mesh.vertexIndex += vertices.Count;
 		}
 

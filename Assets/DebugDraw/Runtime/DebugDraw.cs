@@ -5,8 +5,8 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using DebugDrawAttachments;
-using DebugDrawItems;
+using DebugDrawUtils.DebugDrawAttachments;
+using DebugDrawUtils.DebugDrawItems;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -17,6 +17,9 @@ using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
 // ReSharper disable once CheckNamespace
+namespace DebugDrawUtils
+{
+
 /// <summary>
 /// <para>
 /// A static class that provides various methods for drawing debug visuals.
@@ -136,6 +139,7 @@ public static partial class DebugDraw
 	/// The origin of all debug graphics.
 	/// </summary>
 	public static Vector3 globalOrigin = Vector3.zero;
+
 	/// <summary>
 	/// The global rotation of all debug graphics.
 	/// </summary>
@@ -158,11 +162,13 @@ public static partial class DebugDraw
 	/// Set to null for no shadow
 	/// </summary>
 	public static Color? textShadowColor = new Color(0, 0, 0, 0.5f);
+
 	/// <summary>
 	/// Text smaller than this size on screen won't be rendered.
 	/// Only applicable if <see cref="DebugDrawItems.Text.SetUseWorldSize"/> is set.
 	/// </summary>
 	public static float minTextSize = 5;
+
 	/// <summary>
 	/// At what distance from the camera will text on screen approximately be it's original size.
 	/// Only applicable if <see cref="DebugDrawItems.Text.SetUseWorldSize"/> is set.
@@ -642,7 +648,7 @@ public static partial class DebugDraw
 	/// </summary>
 	/// <param name="write">Enable depth writes.</param>
 	/// <param name="test">Enable depth tests.</param>
-	public static void  SetDepthTesting(bool write, bool test)
+	public static void SetDepthTesting(bool write, bool test)
 	{
 		pointMeshInstance.SetDepthTesting(write, test);
 		lineMeshInstance.SetDepthTesting(write, test);
@@ -968,9 +974,12 @@ public static partial class DebugDraw
 		public Color color;
 		public Matrix4x4 transform;
 		public bool hasColor;
+
 		public bool hasTransform;
 		// ReSharper restore MemberHidesStaticFromOuterClass
 
 	}
+
+}
 
 }

@@ -1,7 +1,8 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -31,7 +32,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Draws a sphere comprised of a circle for each axis.
 		/// </summary>
@@ -45,7 +46,7 @@ namespace DebugDrawItems
 		public static Sphere Get(ref Vector3 position, float radius, ref Color color, int segments = 32, float duration = 0)
 		{
 			Sphere item = ItemPool<Sphere>.Get(duration);
-			
+
 			item.position = position;
 			item.radius = new Vector3(radius, radius, radius);
 			item.color = color;
@@ -55,7 +56,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a sphere comprised of a circle for each axis.
 		/// </summary>
@@ -69,7 +70,7 @@ namespace DebugDrawItems
 		public static Sphere Get(ref Vector3 position, ref Vector3 radius, ref Color color, int segments = 32, float duration = 0)
 		{
 			Sphere item = ItemPool<Sphere>.Get(duration);
-			
+
 			item.position = position;
 			item.radius = radius;
 			item.color = color;
@@ -79,7 +80,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a sphere comprised of a circle for each axis.
 		/// </summary>
@@ -94,7 +95,7 @@ namespace DebugDrawItems
 		public static Sphere Get(ref Vector3 position, ref Vector3 radius, ref Quaternion orientation, ref Color color, int segments = 32, float duration = 0)
 		{
 			Sphere item = ItemPool<Sphere>.Get(duration);
-			
+
 			item.position = position;
 			item.radius = radius;
 			item.color = color;
@@ -104,7 +105,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a full wireframe sphere.
 		/// </summary>
@@ -123,7 +124,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a full wireframe sphere.
 		/// </summary>
@@ -141,7 +142,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a full wireframe sphere.
 		/// </summary>
@@ -170,7 +171,7 @@ namespace DebugDrawItems
 			Vector3 forward = orientation * DebugDraw.forward;
 			Vector3 right = orientation * DebugDraw.right;
 			Vector3 up = orientation * DebugDraw.up;
-			
+
 			if (hasStateTransform)
 			{
 				position = stateTransform.MultiplyPoint3x4(position);
@@ -178,7 +179,7 @@ namespace DebugDrawItems
 				right = stateTransform.MultiplyVector(right);
 				up = stateTransform.MultiplyVector(up);
 			}
-			
+
 			Color clr = GetColor(ref color);
 
 			if (wireframe)
@@ -204,7 +205,7 @@ namespace DebugDrawItems
 						mesh, ref p, ref right, ref forward, ref size, 0, 0,
 						0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				}
-				
+
 				// Y rings
 				float aspect = radius.z / radius.x;
 				size = new Vector2(radius.x, radius.y);

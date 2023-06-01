@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DebugDrawUtils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,29 +26,29 @@ namespace DebugDrawSamples.Showcase.Sections
 		public float lines3DSizeMin = 0.025f;
 		public float lines3DSizeMax = 0.05f;
 		public float lines3DRadius = 1;
-		
+
 		private readonly List<Vector3> linePositions = new List<Vector3>();
 		private readonly List<Color> lineColors = new List<Color>();
 		private readonly List<Vector3> line3DPositions = new List<Vector3>();
 		private readonly List<float> line3DSizes = new List<float>();
 		private readonly List<Color> line3DColors = new List<Color>();
-		
+
 		private readonly Color[] colors = new Color[7];
 
 		protected override void Init()
 		{
 			Showcase.NiceColors(colors);
-			
+
 			CreateLines();
 		}
 
 		private void CreateLines()
 		{
 			Vector3 p = linesOrigin ? linesOrigin.position : tr.position;
-			
+
 			linePositions.Clear();
 			lineColors.Clear();
-			
+
 			for (int i = 0; i < lineCount; i++)
 			{
 				linePositions.Add(p + Random.insideUnitSphere * linesRadius);
@@ -55,13 +56,13 @@ namespace DebugDrawSamples.Showcase.Sections
 				lineColors.Add(Showcase.NiceColor());
 				lineColors.Add(Showcase.NiceColor());
 			}
-			
+
 			p = lines3DOrigin ? lines3DOrigin.position : tr.position;
-			
+
 			line3DPositions.Clear();
 			line3DSizes.Clear();
 			line3DColors.Clear();
-			
+
 			for (int i = 0; i < numLines3D; i++)
 			{
 				line3DPositions.Add(p + Random.insideUnitSphere * lines3DRadius);
@@ -89,7 +90,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			{
 				CreateLines();
 			}
-			
+
 			DebugDraw.Lines(linePositions, lineColors);
 			DebugDraw.Lines3D(line3DPositions, line3DSizes, line3DColors);
 
@@ -108,5 +109,5 @@ namespace DebugDrawSamples.Showcase.Sections
 		}
 
 	}
-	
+
 }

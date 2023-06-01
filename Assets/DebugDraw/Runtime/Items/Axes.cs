@@ -1,8 +1,8 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.Animations;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -11,7 +11,7 @@ namespace DebugDrawItems
 	public class Axes : BasePointItem
 	{
 		/* mesh: line */
-		
+
 		private static readonly Color XAxisColor = Color.red;
 		private static readonly Color YAxisColor = Color.green;
 		private static readonly Color ZAxisColor = Color.blue;
@@ -47,7 +47,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Draws lines along the x, y, and z axes.
 		/// </summary>
@@ -61,7 +61,7 @@ namespace DebugDrawItems
 		public static Axes Get(ref Vector3 position, ref Quaternion rotation, ref Vector3 size, bool doubleSided = false, float duration = 0)
 		{
 			Axes item = ItemPool<Axes>.Get(duration);
-			
+
 			item.position = position;
 			item.rotation = rotation;
 			item.doubleSided = doubleSided;
@@ -72,7 +72,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws lines along the x, y, and z axes.
 		/// </summary>
@@ -86,7 +86,7 @@ namespace DebugDrawItems
 		public static Axes Get(ref Vector3 position, ref Quaternion rotation, float size, bool doubleSided = false, float duration = 0)
 		{
 			Axes item = ItemPool<Axes>.Get(duration);
-			
+
 			item.position = position;
 			item.rotation = rotation;
 			item.doubleSided = doubleSided;
@@ -111,7 +111,7 @@ namespace DebugDrawItems
 			xColor = color;
 			yColor = color;
 			zColor = color;
-			
+
 			return this;
 		}
 
@@ -127,14 +127,14 @@ namespace DebugDrawItems
 			this.xColor = xColor;
 			this.yColor = yColor;
 			this.zColor = zColor;
-			
+
 			return this;
 		}
 
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			Matrix4x4 m = Matrix4x4.TRS(position, rotation, Vector3.one);
-			
+
 			if (size.x > 0)
 			{
 				Color clr = GetColor(ref color);
@@ -142,7 +142,7 @@ namespace DebugDrawItems
 				Vector3 p2 = new Vector3(size.x, 0, 0);
 				mesh.AddLine(ref m, ref p1, ref p2, ref clr, ref clr);
 			}
-			
+
 			if (size.y > 0)
 			{
 				Color clr = GetColor(ref yColor);
@@ -150,7 +150,7 @@ namespace DebugDrawItems
 				Vector3 p2 = new Vector3(0, size.y, 0);
 				mesh.AddLine(ref m, ref p1, ref p2, ref clr, ref clr);
 			}
-			
+
 			if (size.z > 0)
 			{
 				Color clr = GetColor(ref zColor);

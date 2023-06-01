@@ -1,7 +1,9 @@
-using DebugDrawItems;
-using UnityEngine;
+// ReSharper disable once CheckNamespace
 
-namespace DebugDrawAttachments
+using DebugDrawUtils.DebugDrawItems;
+
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawAttachments
 {
 
 	/// <summary>
@@ -9,7 +11,7 @@ namespace DebugDrawAttachments
 	/// </summary>
 	public class PointAttachment : BaseAttachment
 	{
-		
+
 		/// <summary>
 		/// The attached object.
 		/// </summary>
@@ -42,7 +44,7 @@ namespace DebugDrawAttachments
 				return false;
 
 			pointItem.SetPosition(obj.CalculatePosition());
-			
+
 			return true;
 		}
 
@@ -54,7 +56,7 @@ namespace DebugDrawAttachments
 				item = null;
 				pointItem = null;
 			}
-			
+
 			AttachmentPool<PointAttachment>.Release(this);
 		}
 

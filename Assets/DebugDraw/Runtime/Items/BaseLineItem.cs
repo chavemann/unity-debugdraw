@@ -1,13 +1,13 @@
-using DebugDrawAttachments;
-using DebugDrawUtils;
+using DebugDrawUtils.DebugDrawAttachments;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	public abstract class BaseLineItem : BaseItem, IAttachableLine
 	{
-		
+
 		/// <summary>
 		/// Start point.
 		/// </summary>
@@ -23,7 +23,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		public LineAttachment AttachTo(GameObjectOrTransform startObj, GameObjectOrTransform endObj)
 		{
 			LineAttachment attachment = AttachmentPool<LineAttachment>.Get(this);

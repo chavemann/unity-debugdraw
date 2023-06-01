@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	public static class ItemPool<T> where T : BaseItem, new()
 	{
-		
+
 		private static int poolSize = 1;
 		private static int poolIndex = poolSize;
 		private static readonly List<T> Pool = new List<T>(poolSize);
-		
+
 		static ItemPool()
 		{
 			for (int i = 0; i < poolSize; i++)
@@ -24,17 +25,17 @@ namespace DebugDrawItems
 			item.expires = DebugDraw.GetTime(duration);
 			item.hasStateColor = DebugDraw.hasColor;
 			item.hasStateTransform = DebugDraw.hasTransform;
-			
+
 			if (DebugDraw.hasColor)
 			{
 				item.stateColor = DebugDraw._color;
 			}
-			
+
 			if (DebugDraw.hasTransform)
 			{
 				item.stateTransform = DebugDraw._transform;
 			}
-			
+
 			return item;
 		}
 
@@ -43,13 +44,13 @@ namespace DebugDrawItems
 			if (poolIndex == poolSize)
 			{
 				poolSize *= 2;
-				
+
 				for (int i = poolIndex; i < poolSize; i++)
 				{
 					Pool.Add(null);
 				}
 			}
-		
+
 			item.index = -1;
 			item.mesh = null;
 			Pool[poolIndex++] = item;

@@ -12,8 +12,12 @@ using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils
+{
+
 /// <summary>
-/// Provides some extended logging overloads, e.g. <see cref="Print(object[])"/>.
+/// Provides some extended logging overloads, e.g. <see cref="Print(GameObject[])"/>.
 /// Also supports all the same Debug.Log** methods so it can be a drop-in replacement.
 /// </summary>
 public static partial class Log
@@ -29,10 +33,12 @@ public static partial class Log
 	/// Can be set for all log methods instead of passing individual contexts to each Log call.
 	/// </summary>
 	public static Object defaultLogContext;
+
 	/// <summary>
 	/// The log type used when using the extended log override methods.
 	/// </summary>
 	public static LogType defaultLogType = LogType.Log;
+
 	/// <summary>
 	/// When logging arrays, this controls the maximum number of items that will be displayed
 	/// </summary>
@@ -42,11 +48,13 @@ public static partial class Log
 	/// The max number of on screen messages in the queue - once the queue fills up old messages will be removed.
 	/// </summary>
 	public static int maxMessages = 100;
+
 	/// <summary>
 	/// Adds a subtle drop shadow to on screen messages to make them easier to read.
 	/// Set to null to disable.
 	/// </summary>
 	public static Color? messageShadowColor = new Color(0, 0, 0, 0.5f);
+
 	/// <summary>
 	/// Sets the color of only the next on screen message. Will be reset during the next call to Show**.
 	/// Set to null to reset.
@@ -65,7 +73,9 @@ public static partial class Log
 	}
 
 	/* ------------------------------------------------------------------------------------- */
+
 	#region >> Basic Unity log methods <<
+
 	/* ------------------------------------------------------------------------------------- */
 
 	/* ------------------------------------------------------------------------------------- */
@@ -228,11 +238,15 @@ public static partial class Log
 	}
 
 	/* ------------------------------------------------------------------------------------- */
+
 	#endregion
+
 	/* ------------------------------------------------------------------------------------- */
 
 	/* ------------------------------------------------------------------------------------- */
+
 	#region >> Extended Log Overrides <<
+
 	/* ------------------------------------------------------------------------------------- */
 
 	public static object GetString(object message)
@@ -270,7 +284,7 @@ public static partial class Log
 
 		int i = 0;
 		bool hasMore = false;
-		foreach(object item in list)
+		foreach (object item in list)
 		{
 			if (i == maxArrayItems)
 			{
@@ -278,7 +292,7 @@ public static partial class Log
 				break;
 			}
 
-			if(addComma)
+			if (addComma)
 			{
 				buffer.Append(", ");
 			}
@@ -308,7 +322,7 @@ public static partial class Log
 
 		int i = 0;
 		bool hasMore = false;
-		foreach (KeyValuePair<TK,TV> entry in dict)
+		foreach (KeyValuePair<TK, TV> entry in dict)
 		{
 			if (i == maxArrayItems)
 			{
@@ -316,7 +330,7 @@ public static partial class Log
 				break;
 			}
 
-			if(addComma)
+			if (addComma)
 			{
 				buffer.Append(", ");
 			}
@@ -357,7 +371,7 @@ public static partial class Log
 				break;
 			}
 
-			if(addComma)
+			if (addComma)
 			{
 				buffer.Append(", ");
 			}
@@ -398,14 +412,18 @@ public static partial class Log
 	public static object GetString(float message) => message.ToString(null, CultureInfo.InvariantCulture);
 	public static object GetString(double message) => message.ToString(null, CultureInfo.InvariantCulture);
 	public static object GetString(decimal message) => message.ToString(null, CultureInfo.InvariantCulture);
+
 	public static object GetString(ref Vector2 v)
 	{
 		return $"<{v.x.ToString("0.0###", CultureInfo.InvariantCulture)}, {v.y.ToString("0.0###", CultureInfo.InvariantCulture)}>";
 	}
+
 	public static object GetString(ref Vector3 v)
 	{
-		return $"<{v.x.ToString("0.0###", CultureInfo.InvariantCulture)}, {v.y.ToString("0.0###", CultureInfo.InvariantCulture)}, {v.z.ToString("0.0###", CultureInfo.InvariantCulture)}>";
+		return
+			$"<{v.x.ToString("0.0###", CultureInfo.InvariantCulture)}, {v.y.ToString("0.0###", CultureInfo.InvariantCulture)}, {v.z.ToString("0.0###", CultureInfo.InvariantCulture)}>";
 	}
+
 	public static object GetString(ref Vector4 v)
 	{
 		return
@@ -418,7 +436,7 @@ public static partial class Log
 		buffer.Clear();
 
 		bool first = true;
-		foreach(object arg in args)
+		foreach (object arg in args)
 		{
 			if (first)
 			{
@@ -949,11 +967,15 @@ public static partial class Log
 	}
 
 	/* ------------------------------------------------------------------------------------- */
+
 	#endregion
+
 	/* ------------------------------------------------------------------------------------- */
 
 	/* ------------------------------------------------------------------------------------- */
+
 	#region -- Util Methods --
+
 	/* ------------------------------------------------------------------------------------- */
 
 	/// <summary>
@@ -1006,7 +1028,9 @@ public static partial class Log
 	}
 
 	/* ------------------------------------------------------------------------------------- */
+
 	#endregion
+
 	/* ------------------------------------------------------------------------------------- */
 
 	public static void Clear()
@@ -1023,5 +1047,7 @@ public static partial class Log
 		public string message;
 		public readonly Stopwatch timer = new();
 	}
+
+}
 
 }

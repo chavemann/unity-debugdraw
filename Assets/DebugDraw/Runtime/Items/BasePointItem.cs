@@ -1,8 +1,8 @@
-using DebugDrawAttachments;
-using DebugDrawUtils;
+using DebugDrawUtils.DebugDrawAttachments;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -17,7 +17,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-		
+
 		public PointAttachment AttachTo(GameObjectOrTransform obj)
 		{
 			PointAttachment attachment = AttachmentPool<PointAttachment>.Get(this);

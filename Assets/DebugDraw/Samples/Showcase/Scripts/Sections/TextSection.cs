@@ -1,3 +1,4 @@
+using DebugDrawUtils;
 using UnityEngine;
 
 namespace DebugDrawSamples.Showcase.Sections
@@ -14,7 +15,7 @@ namespace DebugDrawSamples.Showcase.Sections
 		public Transform autoTr;
 		public float scale = 2;
 		public float autoScale = 2;
-		
+
 		private readonly Color[] colors = new Color[4];
 
 		protected override void Init()
@@ -28,7 +29,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			Vector3 p = Position(autoTr);
 			DebugDraw.Text(p, "Hello World", colors[3], TextAnchor.LowerCenter, autoScale)
 				.SetUseWorldSize();
-			
+
 			if (player)
 			{
 				float dist = (player.position - tr.position).magnitude;
@@ -36,7 +37,7 @@ namespace DebugDrawSamples.Showcase.Sections
 				if (dist > playerDistance)
 					return;
 			}
-			
+
 			p = Position(tr1);
 			DebugDraw.Text(p, "Lorem ipsum dolor sit amet.\nLorem ipsum dolor sit amet.", colors[0], TextAnchor.MiddleCenter);
 			p = Position(tr2);

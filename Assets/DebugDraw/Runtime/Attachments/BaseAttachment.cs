@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace DebugDrawAttachments
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawAttachments
 {
 
 	/// <summary>
@@ -38,12 +39,12 @@ namespace DebugDrawAttachments
 		{
 			return baseAttachment != null;
 		}
-		
+
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Private -- */
 
 		internal abstract bool Update();
-		
+
 		internal abstract void Release();
 
 	}

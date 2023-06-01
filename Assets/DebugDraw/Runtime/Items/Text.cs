@@ -1,7 +1,8 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -28,7 +29,7 @@ namespace DebugDrawItems
 		/// If true, the text will scale based on the distance to the camera.
 		/// </summary>
 		public bool useWorldSize;
-		
+
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
 
@@ -46,7 +47,7 @@ namespace DebugDrawItems
 		public static Text Get(ref Vector3 position, string text, ref Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float duration = 0)
 		{
 			Text item = ItemPool<Text>.Get(duration);
-			
+
 			item.position = position;
 			item.text = text;
 			item.color = color;
@@ -71,7 +72,7 @@ namespace DebugDrawItems
 		{
 			return Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration);
 		}
-		
+
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
 

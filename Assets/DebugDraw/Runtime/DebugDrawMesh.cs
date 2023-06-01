@@ -1,8 +1,12 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using DebugDrawItems;
+using DebugDrawUtils.DebugDrawItems;
 using UnityEngine;
 using UnityEngine.Rendering;
+
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils
+{
 
 // ReSharper disable once CheckNamespace
 /// <summary>
@@ -1212,5 +1216,7 @@ public partial class DebugDrawMesh
 	/* ------------------------------------------------------------------------------------- */
 	#endregion
 	/* ------------------------------------------------------------------------------------- */
+
+}
 
 }

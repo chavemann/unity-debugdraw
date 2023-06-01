@@ -1,9 +1,9 @@
 using System.Runtime.CompilerServices;
-using DebugDrawAttachments;
-using DebugDrawUtils;
+using DebugDrawUtils.DebugDrawAttachments;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -71,7 +71,7 @@ namespace DebugDrawItems
 		public static Cone Get(ref Vector3 origin, ref Vector3 direction, float length, float angle, ref Color color, int segments = 32, bool round = false, bool drawCap = false, float duration = 0)
 		{
 			Cone item = ItemPool<Cone>.Get(duration);
-			
+
 			item.position = origin;
 			item.direction = direction;
 			item.length = length;
@@ -109,7 +109,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		public LineAttachment AttachTo(GameObjectOrTransform startObj, GameObjectOrTransform endObj)
 		{
 			LineAttachment attachment = AttachmentPool<LineAttachment>.Get(this);
@@ -122,7 +122,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-		
+
 		/// <summary>
 		/// Sets the cone's origin point.
 		/// </summary>
@@ -131,10 +131,10 @@ namespace DebugDrawItems
 		public Cone SetOrigin(Vector3 origin)
 		{
 			position = origin;
-		
+
 			return this;
 		}
-		
+
 		/// <summary>
 		/// Sets the cone's direction.
 		/// </summary>
@@ -143,10 +143,10 @@ namespace DebugDrawItems
 		public Cone SetDirection(Vector3 direction)
 		{
 			this.direction = direction;
-		
+
 			return this;
 		}
-		
+
 		/// <summary>
 		/// Sets the cone's angle.
 		/// </summary>
@@ -155,10 +155,10 @@ namespace DebugDrawItems
 		public Cone SetAngle(float angle)
 		{
 			this.angle = angle;
-		
+
 			return this;
 		}
-		
+
 		/// <summary>
 		/// Sets the cone's length.
 		/// </summary>
@@ -167,7 +167,7 @@ namespace DebugDrawItems
 		public Cone SetLength(float length)
 		{
 			this.length = length;
-		
+
 			return this;
 		}
 
@@ -226,7 +226,7 @@ namespace DebugDrawItems
 				p1.y + up.y * length,
 				p1.z + up.z * length);
 			Vector3 forward, right;
-			
+
 			if (this.up.HasValue)
 			{
 				forward = this.up.GetValueOrDefault();
@@ -247,12 +247,12 @@ namespace DebugDrawItems
 			}
 
 			Color clr = GetColor(ref color);
-			
+
 			int segments;
 
 			float angle = Mathf.Clamp(this.angle * 0.5f, 0, 90) * Mathf.Deg2Rad;
 			float sx = Mathf.Sin(angle);
-			
+
 			if (this.segments <= 0)
 			{
 				float d1 = DebugDraw.DistanceFromCamera(ref p1) + length;
@@ -267,7 +267,7 @@ namespace DebugDrawItems
 			{
 				segments = Mathf.Max(this.segments, 4);
 			}
-			
+
 			mesh.AddVertex(ref p1);
 			mesh.AddColor(ref clr);
 			mesh.vertexIndex++;
@@ -283,7 +283,7 @@ namespace DebugDrawItems
 				p2.y = p1.y + up.y * sy;
 				p2.z = p1.z + up.z * sy;
 			}
-			
+
 			mesh.AddVertex(ref p1);
 			mesh.AddColor(ref clr);
 			mesh.vertexIndex++;
@@ -297,11 +297,11 @@ namespace DebugDrawItems
 				0, 360, segments, DrawArcSegments.Never,
 				drawCap && !round ? DrawEllipseAxes.Always : DrawEllipseAxes.Never,
 				ref clr, true);
-			
+
 			int endIndex = drawCap && !round
 				? mesh.vertexIndex - 8
 				: mesh.vertexIndex - 1;
-			
+
 			// Ribs
 			if (wireframe)
 			{
@@ -317,7 +317,7 @@ namespace DebugDrawItems
 					float a = Mathf.PI * (i / 2.0f);
 					float x = Mathf.Cos(a);
 					float y = Mathf.Sin(a);
-					
+
 					mesh.AddVertex(
 						p2.x + right.x * x * radius + forward.x * y * radius,
 						p2.y + right.y * x * radius + forward.y * y * radius,
@@ -334,7 +334,7 @@ namespace DebugDrawItems
 				size.x = length;
 				size.y = length;
 				angle = Mathf.Clamp(this.angle * 0.5f, 0, 90);
-				
+
 				int rings = wireframe ? (segments - 1) / 2 + 2 : 3;
 
 				for (int i = rings - 1; i > 0; i--)
@@ -351,7 +351,7 @@ namespace DebugDrawItems
 						mesh, ref p1, ref up, ref r, ref size, 0, 0,
 						-angle, angle, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);
 				}
-				
+
 				// Ellipse.BuildArc(
 				// 	mesh, ref p1, ref up, ref right, ref size, 0,
 				// 	-angle, angle, segments,

@@ -1,7 +1,8 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -13,7 +14,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Draws a point that has no size.
 		/// </summary>
@@ -25,7 +26,7 @@ namespace DebugDrawItems
 		public static Point Get(ref Vector3 position, ref Color color, float duration = 0)
 		{
 			Point item = ItemPool<Point>.Get(duration);
-			
+
 			item.position = position;
 			item.color = color;
 

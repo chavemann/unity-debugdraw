@@ -1,7 +1,8 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -42,7 +43,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Draws a cylinder shell.
 		/// </summary>
@@ -59,7 +60,7 @@ namespace DebugDrawItems
 		{
 			return Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration);
 		}
-		
+
 		/// <summary>
 		/// Draws a cylinder shell with a different start and end radius.
 		/// </summary>
@@ -76,7 +77,7 @@ namespace DebugDrawItems
 		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 		{
 			Cylinder item = ItemPool<Cylinder>.Get(duration);
-			
+
 			item.p1 = p1;
 			item.p2 = p2;
 			item.radius1.x = radius1;
@@ -91,7 +92,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a cylinder shell with a different start and end radius.
 		/// </summary>
@@ -108,7 +109,7 @@ namespace DebugDrawItems
 		{
 			return Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration);
 		}
-		
+
 		/// <summary>
 		/// Draws a cylinder shell with a different start and end radius.
 		/// </summary>
@@ -125,7 +126,7 @@ namespace DebugDrawItems
 		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius1, ref Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false, float duration = 0)
 		{
 			Cylinder item = ItemPool<Cylinder>.Get(duration);
-			
+
 			item.p1 = p1;
 			item.p2 = p2;
 			item.radius1 = radius1;
@@ -138,9 +139,9 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		//
-		
+
 		/// <summary>
 		/// Draws a full wireframe cylinder.
 		/// </summary>
@@ -160,7 +161,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a full wireframe cylinder with a different start and end radius.
 		/// </summary>
@@ -181,7 +182,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a full wireframe cylinder with a different start and end radius.
 		/// </summary>
@@ -201,7 +202,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a full wireframe cylinder with a different start and end radius.
 		/// </summary>
@@ -354,7 +355,7 @@ namespace DebugDrawItems
 			float length = delta.magnitude;
 			Vector3 up = delta / length;
 			Vector3 forward, right;
-			
+
 			if (this.forward.HasValue)
 			{
 				forward = this.forward.GetValueOrDefault();
@@ -372,9 +373,9 @@ namespace DebugDrawItems
 				forward = stateTransform.MultiplyVector(forward);
 				right = stateTransform.MultiplyVector(right);
 			}
-			
+
 			int segments;
-			
+
 			if (this.segments <= 0)
 			{
 				float d1 = DebugDraw.DistanceFromCamera(ref p1) + Mathf.Max(radius1.x, radius1.y);
@@ -389,7 +390,7 @@ namespace DebugDrawItems
 			{
 				segments = Mathf.Max(this.segments, 4);
 			}
-			
+
 			Color clr = GetColor(ref color);
 
 			int p1StartIndex = mesh.vertexIndex;
@@ -408,7 +409,7 @@ namespace DebugDrawItems
 				mesh.AddColor(ref clr);
 				mesh.vertexIndex++;
 			}
-			
+
 			int p1EndIndex = mesh.vertexIndex - 1;
 			int p2StartIndex = mesh.vertexIndex;
 
@@ -426,9 +427,9 @@ namespace DebugDrawItems
 				mesh.AddColor(ref clr);
 				mesh.vertexIndex++;
 			}
-			
+
 			int p2EndIndex = mesh.vertexIndex - 1;
-			
+
 			if (drawEndAxes)
 			{
 				p1EndIndex -= 8;
@@ -455,7 +456,7 @@ namespace DebugDrawItems
 					float a = Mathf.PI * (i / 2.0f);
 					float x = Mathf.Cos(a);
 					float y = Mathf.Sin(a);
-					
+
 					mesh.AddVertex(
 						p1.x + right.x * x * radius1.x + forward.x * y * radius1.y,
 						p1.y + right.y * x * radius1.x + forward.y * y * radius1.y,

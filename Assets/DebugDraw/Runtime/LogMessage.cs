@@ -7,6 +7,10 @@ using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils
+{
+
 #if DEBUG_DRAW
 internal class LogMessage
 {
@@ -15,7 +19,7 @@ internal class LogMessage
 
 	private static readonly GUIContent MessageGUIContent = new GUIContent();
 	private static readonly Regex ColorTagRichTextRegex = new Regex(@"<color\s*=\s*.+?\s*>|<\/color>", RegexOptions.Compiled | RegexOptions.Singleline);
-	
+
 	private static LogMessage messages;
 	private static readonly Dictionary<int, LogMessage> MessageIds = new Dictionary<int, LogMessage>();
 	private static readonly List<LogMessage> MessagePool = new List<LogMessage>();
@@ -42,7 +46,7 @@ internal class LogMessage
 		{
 			prev.next = message;
 		}
-		
+
 		message.prev = prev;
 		prev = message;
 		return message;
@@ -61,20 +65,20 @@ internal class LogMessage
 			next.prev = prev;
 		}
 	}
-	
+
 	internal static void Clear()
 	{
 		LogMessage message = messages;
 
-		while (message!= null)
+		while (message != null)
 		{
 			Release(message);
 			message = message.prev;
 		}
-		
+
 		messages = null;
 		hasMessages = false;
-		
+
 		MessageIds.Clear();
 	}
 
@@ -94,11 +98,12 @@ internal class LogMessage
 		{
 			message = messagePoolIndex > 0 ? MessagePool[--messagePoolIndex] : new LogMessage();
 		}
-		
+
 		message.id = id;
 		message.expires = DebugDraw.GetTime(duration);
 		message.shadowText = Log.messageShadowColor.HasValue
-			? ColorTagRichTextRegex.Replace(text, "") : text;
+			? ColorTagRichTextRegex.Replace(text, "")
+			: text;
 
 		if (Log.nextMessageColor.HasValue)
 		{
@@ -118,7 +123,7 @@ internal class LogMessage
 				messages = messages.InsertBefore(message);
 			}
 		}
-		else if(messages != null)
+		else if (messages != null)
 		{
 			messages = messages.InsertBefore(message);
 		}
@@ -153,21 +158,21 @@ internal class LogMessage
 		float time = DebugDraw.GetTime();
 		LogMessage message = messages;
 		int i = 1;
-		
+
 		Rect rect = GetScreenRect();
 		totalMessageHeight = 0;
 
-		while (message!= null)
+		while (message != null)
 		{
 			if (i++ > Log.maxMessages)
 			{
 				LogMessage lastMessage = message;
-				
+
 				if (message.prev != null)
 				{
 					message.prev.next = null;
 				}
-				
+
 				while (message != null)
 				{
 					Release(message);
@@ -179,22 +184,22 @@ internal class LogMessage
 					messages = null;
 					hasMessages = false;
 				}
-				
+
 				break;
 			}
-			
+
 			if (message.expires < time)
 			{
 				LogMessage next = message.next;
-				
+
 				if (message == messages)
 				{
 					messages = message.next;
 				}
-				
+
 				message.Slice();
 				Release(message);
-				
+
 				message = next;
 			}
 			else
@@ -212,13 +217,13 @@ internal class LogMessage
 	internal static void Draw()
 	{
 		Color guiColor = GUI.color;
-		
+
 		for (int i = 0; i < 2; i++)
 		{
 			Rect rect = GetScreenRect();
 			rect.y = Screen.height - ScreenPadding;
 			LogMessage message = messages;
-			
+
 			if (Log.messageShadowColor.HasValue)
 			{
 				if (i == 0)
@@ -233,21 +238,22 @@ internal class LogMessage
 				}
 			}
 
-			while (message!= null)
+			while (message != null)
 			{
 				MessageGUIContent.text = Log.messageShadowColor.HasValue && i == 0
-					? message.shadowText : message.text;
+					? message.shadowText
+					: message.text;
 
 				rect.y -= message.height;
 				rect.height -= message.height;
 
 				if (rect.height <= 0)
 					break;
-				
+
 				GUI.Label(rect, MessageGUIContent, Log.MessageStyle);
 				message = message.next;
 			}
-			
+
 			if (!Log.messageShadowColor.HasValue)
 				break;
 		}
@@ -262,3 +268,5 @@ internal class LogMessage
 
 }
 #endif
+
+}

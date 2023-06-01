@@ -1,7 +1,8 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace DebugDrawItems
+// ReSharper disable once CheckNamespace
+namespace DebugDrawUtils.DebugDrawItems
 {
 
 	/// <summary>
@@ -36,7 +37,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-		
+
 		/// <summary>
 		/// Draws a wire triangle.
 		/// </summary>
@@ -50,7 +51,7 @@ namespace DebugDrawItems
 		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, float duration = 0)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
-			
+
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -61,7 +62,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a wire triangle.
 		/// </summary>
@@ -77,7 +78,7 @@ namespace DebugDrawItems
 		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, float duration = 0)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
-			
+
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -88,7 +89,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a filled triangle.
 		/// </summary>
@@ -102,7 +103,7 @@ namespace DebugDrawItems
 		public static Triangle GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, float duration = 0)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
-			
+
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -113,7 +114,7 @@ namespace DebugDrawItems
 
 			return item;
 		}
-		
+
 		/// <summary>
 		/// Draws a filled triangle.
 		/// </summary>
@@ -129,7 +130,7 @@ namespace DebugDrawItems
 		public static Triangle GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, float duration = 0)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
-			
+
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -143,7 +144,7 @@ namespace DebugDrawItems
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-		
+
 		public override void SetPosition(Vector3 position)
 		{
 			Vector3 delta = new Vector3(

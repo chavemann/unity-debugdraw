@@ -1,4 +1,5 @@
-using DebugDrawItems;
+using DebugDrawUtils;
+using DebugDrawUtils.DebugDrawItems;
 using UnityEngine;
 
 namespace DebugDrawSamples.Showcase
@@ -25,7 +26,7 @@ namespace DebugDrawSamples.Showcase
 			ClearIcon();
 			CreateIcon();
 			UpdateIcon();
-			
+
 			ClearAxes();
 			CreateAxes();
 			UpdateAxes();
@@ -75,7 +76,7 @@ namespace DebugDrawSamples.Showcase
 				ClearAxes();
 				return;
 			}
-			
+
 			if (!axes)
 			{
 				axes = DebugDraw.Axes(tr.position, tr.rotation, 0, false, -1);
@@ -86,7 +87,7 @@ namespace DebugDrawSamples.Showcase
 		{
 			if (!axes)
 				return;
-			
+
 			float size = Mathf.Abs(axesSize);
 			axes.size = new Vector3(size, size, size);
 			axes.doubleSided = axesSize < 0;
