@@ -36,6 +36,7 @@ internal class LogMessage
 	private string text;
 	private string shadowText;
 	private float expires;
+	private bool invalidateHeight;
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private LogMessage InsertBefore(LogMessage message)
@@ -58,11 +59,13 @@ internal class LogMessage
 		if (prev != null)
 		{
 			prev.next = next;
+			prev = null;
 		}
 
 		if (next != null)
 		{
 			next.prev = prev;
+			next = null;
 		}
 	}
 
@@ -91,6 +94,8 @@ internal class LogMessage
 			if (!MessageIds.TryGetValue(id, out message))
 			{
 				message = messagePoolIndex > 0 ? MessagePool[--messagePoolIndex] : new LogMessage();
+				message.next = null;
+				message.prev = null;
 				MessageIds.Add(id, message);
 			}
 		}
@@ -99,6 +104,7 @@ internal class LogMessage
 			message = messagePoolIndex > 0 ? MessagePool[--messagePoolIndex] : new LogMessage();
 		}
 
+		string previousText = message.text;
 		message.id = id;
 		message.expires = DebugDraw.GetTime(duration);
 		message.shadowText = Log.messageShadowColor.HasValue
@@ -114,6 +120,8 @@ internal class LogMessage
 		{
 			message.text = text;
 		}
+
+		message.invalidateHeight = message.text != previousText;
 
 		if (message.active)
 		{
@@ -148,6 +156,7 @@ internal class LogMessage
 			}
 		}
 
+		message.Slice();
 		message.active = false;
 		message.prev = message.next = null;
 		MessagePool[messagePoolIndex++] = message;
@@ -188,6 +197,13 @@ internal class LogMessage
 				break;
 			}
 
+			if (message.invalidateHeight)
+			{
+				MessageGUIContent.text = message.text;
+				message.height = Log.MessageStyle.CalcHeight(MessageGUIContent, rect.width);
+				message.invalidateHeight = false;
+			}
+
 			if (message.expires < time)
 			{
 				LogMessage next = message.next;
@@ -204,8 +220,6 @@ internal class LogMessage
 			}
 			else
 			{
-				MessageGUIContent.text = message.text;
-				message.height = Log.MessageStyle.CalcHeight(MessageGUIContent, rect.width);
 				totalMessageHeight += message.height;
 				message = message.next;
 			}

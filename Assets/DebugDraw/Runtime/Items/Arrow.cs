@@ -195,8 +195,6 @@ namespace DebugDrawUtils.DebugDrawItems
 
 		internal override void Build(DebugDrawMesh mesh)
 		{
-			Color clr1 = GetColor(ref color);
-			Color clr2 = GetColor(ref color2);
 			Vector3 p1 = this.p1;
 			Vector3 p2 = this.p2;
 
@@ -205,6 +203,10 @@ namespace DebugDrawUtils.DebugDrawItems
 				p2.y - p1.y,
 				p2.z - p1.z);
 			float length = dir.magnitude;
+
+			if (length <= 0)
+				return;
+
 			dir.x /= length;
 			dir.y /= length;
 			dir.z /= length;
@@ -224,6 +226,9 @@ namespace DebugDrawUtils.DebugDrawItems
 				p2.z -= dir.z * endHead.offset;
 				length -= endHead.offset;
 			}
+
+			Color clr1 = GetColor(ref color);
+			Color clr2 = GetColor(ref color2);
 
 			if (minLength > 0 || !float.IsPositiveInfinity(maxLength))
 			{

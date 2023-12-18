@@ -145,6 +145,8 @@ public static partial class DebugDraw
 			if (Event.current.type != EventType.Repaint)
 				return;
 
+			textMeshInstance.globalOrigin = globalOrigin;
+			textMeshInstance.globalRotation = globalRotation;
 			textMeshInstance.Build();
 
 			if (LogMessage.hasMessages)
