@@ -114,6 +114,11 @@ public static partial class DebugDraw
 		}
 	}
 
+	/// <summary>
+	/// If true, will rebuild meshes for each camera that is rendered.
+	/// </summary>
+	public static bool updatePerCamera = true;
+
 	#if UNITY_EDITOR
 	public static bool isActive => pointMeshInstance != null && (EditorApplication.isPlayingOrWillChangePlaymode || _enableInEditMode);
 	public static bool isPlaying => EditorApplication.isPlayingOrWillChangePlaymode;
@@ -400,6 +405,16 @@ public static partial class DebugDraw
 
 	private static void DoBeforeRender(Camera camera)
 	{
+		if (cam != camera)
+		{
+			if (!updatePerCamera)
+				return;
+
+			InitCamera(camera);
+			UpdateCamera();
+			requiresBuild = true;
+		}
+
 		#if UNITY_EDITOR
 		if (EditorApplication.isPaused && !pendingEditorFrameFlush)
 		{
@@ -422,9 +437,10 @@ public static partial class DebugDraw
 			requiresBuild = false;
 		}
 
-		DrawMesh(pointMeshInstance);
-		DrawMesh(lineMeshInstance);
-		DrawMesh(triangleMeshInstance);
+		Camera renderCam = updatePerCamera ? cam : null;
+		DrawMesh(pointMeshInstance, renderCam);
+		DrawMesh(lineMeshInstance, renderCam);
+		DrawMesh(triangleMeshInstance, renderCam);
 	}
 
 	#if UNITY_EDITOR
@@ -435,14 +451,14 @@ public static partial class DebugDraw
 	}
 	#endif
 
-	private static void DrawMesh(DebugDrawMesh mesh)
+	private static void DrawMesh(DebugDrawMesh mesh, Camera camera)
 	{
-		if (mesh.vertexIndex > 0)
-		{
-			Graphics.DrawMesh(
-				mesh.mesh, globalOrigin, globalRotation, mesh.material,
-				DefaultLayer);
-		}
+		if (mesh.vertexIndex == 0)
+			return;
+
+		Graphics.DrawMesh(
+			mesh.mesh, globalOrigin, globalRotation, mesh.material,
+			DefaultLayer, camera);
 	}
 
 	private static void UpdateTimerInstanceScene()

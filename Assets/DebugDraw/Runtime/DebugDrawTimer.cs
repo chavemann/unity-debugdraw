@@ -26,7 +26,7 @@ public static partial class DebugDraw
 	/// A component automatically added to the scene with HideFlags.DontSave set that
 	/// handles updating all debug items at the end of every frame.
 	/// </summary>
-	[DefaultExecutionOrder(10000)]
+	[DefaultExecutionOrder(0xffffff)]
 	[ExecuteAlways]
 	[AddComponentMenu("")]
 	private class DebugDrawTimer : MonoBehaviour
@@ -193,7 +193,7 @@ public static partial class DebugDraw
 	/// Complementary to DebugDrawTimer, this has the execution order set to execute before anything
 	/// to initialise certain DebugDraw values needed every frame.
 	/// </summary>
-	[DefaultExecutionOrder(-10000)]
+	[DefaultExecutionOrder(-0xffffff)]
 	[ExecuteAlways]
 	[AddComponentMenu("")]
 	private class DebugDrawFrameStartTimer : MonoBehaviour
