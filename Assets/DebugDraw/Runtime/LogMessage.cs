@@ -59,14 +59,15 @@ internal class LogMessage
 		if (prev != null)
 		{
 			prev.next = next;
-			prev = null;
 		}
 
 		if (next != null)
 		{
 			next.prev = prev;
-			next = null;
 		}
+
+		prev = null;
+		next = null;
 	}
 
 	internal static void Clear()
@@ -166,6 +167,7 @@ internal class LogMessage
 	{
 		float time = DebugDraw.GetTime();
 		LogMessage message = messages;
+		LogMessage previousMessage = messages;
 		int i = 1;
 
 		Rect rect = GetScreenRect();
@@ -173,29 +175,8 @@ internal class LogMessage
 
 		while (message != null)
 		{
-			if (i++ > Log.maxMessages)
-			{
-				LogMessage lastMessage = message;
-
-				if (message.prev != null)
-				{
-					message.prev.next = null;
-				}
-
-				while (message != null)
-				{
-					Release(message);
-					message = message.prev;
-				}
-
-				if (lastMessage == messages)
-				{
-					messages = null;
-					hasMessages = false;
-				}
-
-				break;
-			}
+			i++;
+			previousMessage = message;
 
 			if (message.invalidateHeight)
 			{
@@ -222,6 +203,25 @@ internal class LogMessage
 			{
 				totalMessageHeight += message.height;
 				message = message.next;
+			}
+		}
+
+		if (--i > Log.maxMessages)
+		{
+			message = previousMessage;
+
+			while (message != null && i-- > Log.maxMessages)
+			{
+				previousMessage = message;
+				LogMessage prev = message.prev;
+				Release(message);
+				message = prev;
+			}
+
+			if (previousMessage == messages)
+			{
+				messages = null;
+				hasMessages = false;
 			}
 		}
 
