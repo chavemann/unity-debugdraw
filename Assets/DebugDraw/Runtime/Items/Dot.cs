@@ -50,7 +50,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Dot object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Dot Get(ref Vector3 position, float radius, ref Color color, int segments = 0, float duration = 0)
+		public static Dot Get(ref Vector3 position, float radius, ref Color color, int segments = 0, float? duration = null)
 		{
 			Dot item = ItemPool<Dot>.Get(duration);
 
@@ -76,7 +76,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Dot object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Dot Get(ref Vector3 position, float radius, ref Color color, ref Vector3 facing, int segments = 0, float duration = 0)
+		public static Dot Get(ref Vector3 position, float radius, ref Color color, ref Vector3 facing, int segments = 0, float? duration = null)
 		{
 			Dot item = ItemPool<Dot>.Get(duration);
 

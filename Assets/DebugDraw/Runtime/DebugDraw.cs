@@ -185,6 +185,11 @@ public static partial class DebugDraw
 	/// </summary>
 	public static bool useUnscaledTime = false;
 
+	/// <summary>
+	/// The default duration for all items when one is not provided.
+	/// </summary>
+	public static float defaultDuration = 0;
+
 	public static DebugDrawMesh pointMesh => pointMeshInstance;
 	public static DebugDrawMesh lineMesh => lineMeshInstance;
 	public static DebugDrawMesh triangleMesh => triangleMeshInstance;
@@ -766,11 +771,11 @@ public static partial class DebugDraw
 	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static float GetTime(float duration)
+	public static float GetTime(float? duration)
 	{
-		return duration < 0
+		return (duration ?? defaultDuration) < 0
 			? float.PositiveInfinity
-			: frameTime + duration;
+			: frameTime + (duration ?? defaultDuration);
 	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]

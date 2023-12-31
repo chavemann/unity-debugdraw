@@ -40,7 +40,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Rectangle GetFill(ref Vector3 position, float size, ref Vector3 facing, ref Color color, float duration = 0)
+		public static Rectangle GetFill(ref Vector3 position, float size, ref Vector3 facing, ref Color color, float? duration = null)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
 
@@ -63,7 +63,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Rectangle Get(ref Vector3 position, float size, ref Vector3 facing, ref Color color, float duration = 0)
+		public static Rectangle Get(ref Vector3 position, float size, ref Vector3 facing, ref Color color, float? duration = null)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
 
@@ -86,7 +86,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Rectangle GetFill(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float duration = 0)
+		public static Rectangle GetFill(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float? duration = null)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
 
@@ -109,7 +109,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Rectangle Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float duration = 0)
+		public static Rectangle Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, float? duration = null)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
 

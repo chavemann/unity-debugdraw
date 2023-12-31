@@ -59,7 +59,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Dot object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Dots Get(List<Vector3> positions, List<float> sizes, List<Color> colors, int segments = 0, float duration = 0)
+		public static Dots Get(List<Vector3> positions, List<float> sizes, List<Color> colors, int segments = 0, float? duration = null)
 		{
 			Dots item = ItemPool<Dots>.Get(duration);
 
@@ -83,7 +83,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Dots object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Dots Get(List<Vector3> positions, List<float> sizes, List<Color> colors, ref Vector3 facing, int segments = 0, float duration = 0)
+		public static Dots Get(List<Vector3> positions, List<float> sizes, List<Color> colors, ref Vector3 facing, int segments = 0, float? duration = null)
 		{
 			Dots item = ItemPool<Dots>.Get(duration);
 

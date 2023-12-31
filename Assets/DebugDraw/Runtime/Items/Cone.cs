@@ -68,7 +68,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cone Get(ref Vector3 origin, ref Vector3 direction, float length, float angle, ref Color color, int segments = 32, bool round = false, bool drawCap = false, float duration = 0)
+		public static Cone Get(ref Vector3 origin, ref Vector3 direction, float length, float angle, ref Color color, int segments = 32, bool round = false, bool drawCap = false, float? duration = null)
 		{
 			Cone item = ItemPool<Cone>.Get(duration);
 
@@ -102,7 +102,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cone GetWire(ref Vector3 origin, ref Vector3 direction, float length, float angle, ref Color color, int segments = 32, bool round = false, bool drawCap = false, float duration = 0)
+		public static Cone GetWire(ref Vector3 origin, ref Vector3 direction, float length, float angle, ref Color color, int segments = 32, bool round = false, bool drawCap = false, float? duration = null)
 		{
 			Cone item = Get(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration);
 			item.wireframe = true;

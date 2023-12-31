@@ -85,7 +85,7 @@ internal class LogMessage
 		MessageIds.Clear();
 	}
 
-	internal static void Add(int id, float duration, string text)
+	internal static void Add(int id, float? duration, string text)
 	{
 		LogMessage message;
 

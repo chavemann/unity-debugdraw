@@ -43,7 +43,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Sphere object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Sphere Get(ref Vector3 position, float radius, ref Color color, int segments = 32, float duration = 0)
+		public static Sphere Get(ref Vector3 position, float radius, ref Color color, int segments = 32, float? duration = null)
 		{
 			Sphere item = ItemPool<Sphere>.Get(duration);
 
@@ -67,7 +67,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Sphere object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Sphere Get(ref Vector3 position, ref Vector3 radius, ref Color color, int segments = 32, float duration = 0)
+		public static Sphere Get(ref Vector3 position, ref Vector3 radius, ref Color color, int segments = 32, float? duration = null)
 		{
 			Sphere item = ItemPool<Sphere>.Get(duration);
 
@@ -92,7 +92,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Sphere object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Sphere Get(ref Vector3 position, ref Vector3 radius, ref Quaternion orientation, ref Color color, int segments = 32, float duration = 0)
+		public static Sphere Get(ref Vector3 position, ref Vector3 radius, ref Quaternion orientation, ref Color color, int segments = 32, float? duration = null)
 		{
 			Sphere item = ItemPool<Sphere>.Get(duration);
 
@@ -116,7 +116,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Sphere object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Sphere GetWire(ref Vector3 position, float radius, ref Color color, int segments = 32, float duration = 0)
+		public static Sphere GetWire(ref Vector3 position, float radius, ref Color color, int segments = 32, float? duration = null)
 		{
 			Vector3 r = new Vector3(radius, radius, radius);
 			Sphere item = Get(ref position, ref r, ref color, segments, duration);
@@ -135,7 +135,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Sphere object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Sphere GetWire(ref Vector3 position, ref Vector3 radius, ref Color color, int segments = 32, float duration = 0)
+		public static Sphere GetWire(ref Vector3 position, ref Vector3 radius, ref Color color, int segments = 32, float? duration = null)
 		{
 			Sphere item = Get(ref position, ref radius, ref color, segments, duration);
 			item.wireframe = true;
@@ -154,7 +154,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Sphere object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Sphere GetWire(ref Vector3 position, ref Vector3 radius, ref Quaternion orientation, ref Color color, int segments = 32, float duration = 0)
+		public static Sphere GetWire(ref Vector3 position, ref Vector3 radius, ref Quaternion orientation, ref Color color, int segments = 32, float? duration = null)
 		{
 			Sphere item = Get(ref position, ref radius, ref orientation, ref color, segments, duration);
 			item.wireframe = true;

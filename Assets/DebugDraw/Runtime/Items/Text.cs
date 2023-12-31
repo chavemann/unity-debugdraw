@@ -44,7 +44,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Text object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Text Get(ref Vector3 position, string text, ref Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float duration = 0)
+		public static Text Get(ref Vector3 position, string text, ref Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float? duration = null)
 		{
 			Text item = ItemPool<Text>.Get(duration);
 
@@ -68,7 +68,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 		/// <returns>The Text object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Text Get(ref Vector3 position, string text, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float duration = 0)
+		public static Text Get(ref Vector3 position, string text, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, float? duration = null)
 		{
 			return Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration);
 		}

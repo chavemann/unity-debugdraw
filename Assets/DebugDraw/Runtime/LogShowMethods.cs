@@ -22,7 +22,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">String for display.</param>
-	public static void Show(int id, float duration, string message)
+	public static void Show(int id, float? duration, string message)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -39,7 +39,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">String or object to be converted to string representation for display.</param>
-	public static void Show(int id, float duration, object message)
+	public static void Show(int id, float? duration, object message)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -57,7 +57,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="format">A composite format string.</param>
 	/// <param name="args">Format arguments.</param>
-	public static void ShowFormat(int id, float duration, string format, params object[] args)
+	public static void ShowFormat(int id, float? duration, string format, params object[] args)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -74,7 +74,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">Object for display.</param>
-	public static void Show(int id, float duration, Object val)
+	public static void Show(int id, float? duration, Object val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -91,7 +91,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">Transform for display.</param>
-	public static void Show(int id, float duration, Transform val)
+	public static void Show(int id, float? duration, Transform val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -108,7 +108,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">bool for display.</param>
-	public static void Show(int id, float duration, bool val)
+	public static void Show(int id, float? duration, bool val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -125,7 +125,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">char for display.</param>
-	public static void Show(int id, float duration, char val)
+	public static void Show(int id, float? duration, char val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -142,7 +142,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">sbyte for display.</param>
-	public static void Show(int id, float duration, sbyte val)
+	public static void Show(int id, float? duration, sbyte val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -159,7 +159,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">short for display.</param>
-	public static void Show(int id, float duration, short val)
+	public static void Show(int id, float? duration, short val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -176,7 +176,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">int for display.</param>
-	public static void Show(int id, float duration, int val)
+	public static void Show(int id, float? duration, int val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -193,7 +193,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">long for display.</param>
-	public static void Show(int id, float duration, long val)
+	public static void Show(int id, float? duration, long val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -210,7 +210,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">byte for display.</param>
-	public static void Show(int id, float duration, byte val)
+	public static void Show(int id, float? duration, byte val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -227,7 +227,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">ushort for display.</param>
-	public static void Show(int id, float duration, ushort val)
+	public static void Show(int id, float? duration, ushort val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -244,7 +244,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">uint for display.</param>
-	public static void Show(int id, float duration, uint val)
+	public static void Show(int id, float? duration, uint val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -261,7 +261,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">ulong for display.</param>
-	public static void Show(int id, float duration, ulong val)
+	public static void Show(int id, float? duration, ulong val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -278,7 +278,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">float for display.</param>
-	public static void Show(int id, float duration, float val)
+	public static void Show(int id, float? duration, float val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -295,7 +295,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">double for display.</param>
-	public static void Show(int id, float duration, double val)
+	public static void Show(int id, float? duration, double val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -312,7 +312,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">decimal for display.</param>
-	public static void Show(int id, float duration, decimal val)
+	public static void Show(int id, float? duration, decimal val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -329,7 +329,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">Vector2 for display.</param>
-	public static void Show(int id, float duration, Vector2 val)
+	public static void Show(int id, float? duration, Vector2 val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -346,7 +346,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">Vector3 for display.</param>
-	public static void Show(int id, float duration, Vector3 val)
+	public static void Show(int id, float? duration, Vector3 val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -363,7 +363,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">Vector4 for display.</param>
-	public static void Show(int id, float duration, Vector4 val)
+	public static void Show(int id, float? duration, Vector4 val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -380,7 +380,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">Vector2Int for display.</param>
-	public static void Show(int id, float duration, Vector2Int val)
+	public static void Show(int id, float? duration, Vector2Int val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -397,7 +397,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">Vector3Int for display.</param>
-	public static void Show(int id, float duration, Vector3Int val)
+	public static void Show(int id, float? duration, Vector3Int val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -414,7 +414,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">Matrix4x4 for display.</param>
-	public static void Show(int id, float duration, Matrix4x4 val)
+	public static void Show(int id, float? duration, Matrix4x4 val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -431,7 +431,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">Quaternion for display.</param>
-	public static void Show(int id, float duration, Quaternion val)
+	public static void Show(int id, float? duration, Quaternion val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -448,7 +448,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">Rect for display.</param>
-	public static void Show(int id, float duration, Rect val)
+	public static void Show(int id, float? duration, Rect val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -465,7 +465,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="val">RectInt for display.</param>
-	public static void Show(int id, float duration, RectInt val)
+	public static void Show(int id, float? duration, RectInt val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -482,7 +482,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="list">List for display.</param>
-	public static void Show<T>(int id, float duration, IEnumerable<T> list)
+	public static void Show<T>(int id, float? duration, IEnumerable<T> list)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -499,7 +499,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="args">Items for display.</param>
-	public static void Show(int id, float duration, params object[] args)
+	public static void Show(int id, float? duration, params object[] args)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -516,7 +516,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="args">Items for display.</param>
-	public static void Show(int id, float duration, Object[] args)
+	public static void Show(int id, float? duration, Object[] args)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -533,7 +533,7 @@ public static partial class Log
 	/// <param name="id">If non-zero, a unique key to prevent the same message from being added multiple times.</param>
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="args">Items for display.</param>
-	public static void Show(int id, float duration, GameObject[] args)
+	public static void Show(int id, float? duration, GameObject[] args)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -551,7 +551,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">bool for display.</param>
-	public static void Show(int id, float duration, string message, Object val)
+	public static void Show(int id, float? duration, string message, Object val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -569,7 +569,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">bool for display.</param>
-	public static void Show(int id, float duration, string message, bool val)
+	public static void Show(int id, float? duration, string message, bool val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -587,7 +587,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">bool for display.</param>
-	public static void Show(int id, float duration, string message, string val)
+	public static void Show(int id, float? duration, string message, string val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -605,7 +605,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">char for display.</param>
-	public static void Show(int id, float duration, string message, char val)
+	public static void Show(int id, float? duration, string message, char val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -623,7 +623,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">sbyte for display.</param>
-	public static void Show(int id, float duration, string message, sbyte val)
+	public static void Show(int id, float? duration, string message, sbyte val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -641,7 +641,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">short for display.</param>
-	public static void Show(int id, float duration, string message, short val)
+	public static void Show(int id, float? duration, string message, short val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -659,7 +659,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">int for display.</param>
-	public static void Show(int id, float duration, string message, int val)
+	public static void Show(int id, float? duration, string message, int val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -677,7 +677,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">long for display.</param>
-	public static void Show(int id, float duration, string message, long val)
+	public static void Show(int id, float? duration, string message, long val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -695,7 +695,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">byte for display.</param>
-	public static void Show(int id, float duration, string message, byte val)
+	public static void Show(int id, float? duration, string message, byte val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -713,7 +713,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">ushort for display.</param>
-	public static void Show(int id, float duration, string message, ushort val)
+	public static void Show(int id, float? duration, string message, ushort val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -731,7 +731,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">uint for display.</param>
-	public static void Show(int id, float duration, string message, uint val)
+	public static void Show(int id, float? duration, string message, uint val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -749,7 +749,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">ulong for display.</param>
-	public static void Show(int id, float duration, string message, ulong val)
+	public static void Show(int id, float? duration, string message, ulong val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -767,7 +767,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">float for display.</param>
-	public static void Show(int id, float duration, string message, float val)
+	public static void Show(int id, float? duration, string message, float val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -785,7 +785,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">double for display.</param>
-	public static void Show(int id, float duration, string message, double val)
+	public static void Show(int id, float? duration, string message, double val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -803,7 +803,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">decimal for display.</param>
-	public static void Show(int id, float duration, string message, decimal val)
+	public static void Show(int id, float? duration, string message, decimal val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -821,7 +821,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">Vector2 for display.</param>
-	public static void Show(int id, float duration, string message, Vector2 val)
+	public static void Show(int id, float? duration, string message, Vector2 val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -839,7 +839,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">Vector3 for display.</param>
-	public static void Show(int id, float duration, string message, Vector3 val)
+	public static void Show(int id, float? duration, string message, Vector3 val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -857,7 +857,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">Vector4 for display.</param>
-	public static void Show(int id, float duration, string message, Vector4 val)
+	public static void Show(int id, float? duration, string message, Vector4 val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -875,7 +875,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">Vector2Int for display.</param>
-	public static void Show(int id, float duration, string message, Vector2Int val)
+	public static void Show(int id, float? duration, string message, Vector2Int val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -893,7 +893,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">Vector3Int for display.</param>
-	public static void Show(int id, float duration, string message, Vector3Int val)
+	public static void Show(int id, float? duration, string message, Vector3Int val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -911,7 +911,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">Matrix4x4 for display.</param>
-	public static void Show(int id, float duration, string message, Matrix4x4 val)
+	public static void Show(int id, float? duration, string message, Matrix4x4 val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -929,7 +929,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">Quaternion for display.</param>
-	public static void Show(int id, float duration, string message, Quaternion val)
+	public static void Show(int id, float? duration, string message, Quaternion val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -947,7 +947,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">Rect for display.</param>
-	public static void Show(int id, float duration, string message, Rect val)
+	public static void Show(int id, float? duration, string message, Rect val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)
@@ -965,7 +965,7 @@ public static partial class Log
 	/// <param name="duration">How long to display the message, in seconds. Pass 0 to only display for the next frame.</param>
 	/// <param name="message">Message for display.</param>
 	/// <param name="val">RectInt for display.</param>
-	public static void Show(int id, float duration, string message, RectInt val)
+	public static void Show(int id, float? duration, string message, RectInt val)
 	{
 		#if DEBUG_DRAW
 		if (DebugDraw.hasInstance)

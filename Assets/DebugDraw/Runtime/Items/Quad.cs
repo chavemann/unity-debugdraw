@@ -57,7 +57,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Quad Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4, ref Color color, float duration = 0)
+		public static Quad Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4, ref Color color, float? duration = null)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
 
@@ -90,7 +90,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Quad Get(
 			ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4,
-			ref Color color1, ref Color color2, ref Color color3, ref Color color4, float duration = 0)
+			ref Color color1, ref Color color2, ref Color color3, ref Color color4, float? duration = null)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
 
@@ -118,7 +118,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Quad GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4, ref Color color, float duration = 0)
+		public static Quad GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4, ref Color color, float? duration = null)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
 
@@ -151,7 +151,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Quad GetFill(
 			ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4,
-			ref Color color1, ref Color color2, ref Color color3, ref Color color4, float duration = 0)
+			ref Color color1, ref Color color2, ref Color color3, ref Color color4, float? duration = null)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
 
