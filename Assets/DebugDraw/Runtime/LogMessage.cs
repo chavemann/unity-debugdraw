@@ -12,17 +12,17 @@ namespace DebugDrawUtils
 {
 
 #if DEBUG_DRAW
-internal class LogMessage
+public partial class LogMessage
 {
 
 	private const float ScreenPadding = 10;
 
-	private static readonly GUIContent MessageGUIContent = new GUIContent();
-	private static readonly Regex ColorTagRichTextRegex = new Regex(@"<color\s*=\s*.+?\s*>|<\/color>", RegexOptions.Compiled | RegexOptions.Singleline);
+	private static readonly GUIContent MessageGUIContent = new();
+	private static readonly Regex ColorTagRichTextRegex = new(@"<color\s*=\s*.+?\s*>|<\/color>", RegexOptions.Compiled | RegexOptions.Singleline);
 
 	private static LogMessage messages;
-	private static readonly Dictionary<int, LogMessage> MessageIds = new Dictionary<int, LogMessage>();
-	private static readonly List<LogMessage> MessagePool = new List<LogMessage>();
+	private static readonly Dictionary<string, LogMessage> MessageIds = new();
+	private static readonly List<LogMessage> MessagePool = new();
 	private static int messagePoolIndex;
 	internal static bool hasMessages;
 
@@ -32,7 +32,6 @@ internal class LogMessage
 	private LogMessage prev;
 	private LogMessage next;
 	private float height;
-	private int id;
 	private string text;
 	private string shadowText;
 	private float expires;
@@ -54,7 +53,7 @@ internal class LogMessage
 	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public void Slice()
+	internal void Slice()
 	{
 		if (prev != null)
 		{
@@ -86,11 +85,11 @@ internal class LogMessage
 		MessageIds.Clear();
 	}
 
-	internal static void Add(int id, float? duration, string text)
+	internal static LogMessage Add(string id, float? duration, string text = null)
 	{
 		LogMessage message;
 
-		if (id != 0)
+		if (id != "")
 		{
 			if (!MessageIds.TryGetValue(id, out message))
 			{
@@ -105,24 +104,19 @@ internal class LogMessage
 			message = messagePoolIndex > 0 ? MessagePool[--messagePoolIndex] : new LogMessage();
 		}
 
-		string previousText = message.text;
-		message.id = id;
-		message.expires = DebugDraw.GetTime(duration);
-		message.shadowText = Log.messageShadowColor.HasValue
-			? ColorTagRichTextRegex.Replace(text, "")
-			: text;
+		message
+			.Duration(duration)
+			.SetText(text);
 
-		if (Log.nextMessageColor.HasValue)
+		if (text != null)
 		{
-			message.text = $"<color=#{ColorUtility.ToHtmlStringRGBA(Log.nextMessageColor.GetValueOrDefault())}>{text}</color>";
-			Log.nextMessageColor = null;
+
 		}
 		else
 		{
-			message.text = text;
+			message.shadowText = "";
+			message.text = "";
 		}
-
-		message.invalidateHeight = message.text != previousText;
 
 		if (message.active)
 		{
@@ -143,6 +137,8 @@ internal class LogMessage
 
 		message.active = true;
 		hasMessages = true;
+
+		return message;
 	}
 
 	private static void Release(LogMessage message)
@@ -278,6 +274,49 @@ internal class LogMessage
 		return new Rect(
 			ScreenPadding, ScreenPadding,
 			Screen.width - ScreenPadding * 2, Screen.height - ScreenPadding * 2);
+	}
+
+	/// <summary>
+	/// Set the text for this message.
+	/// </summary>
+	private LogMessage SetText(string newText)
+	{
+		string previousText = text;
+
+		if (string.IsNullOrEmpty(newText))
+		{
+			shadowText = "";
+			text = "";
+			invalidateHeight = text != previousText;
+			return this;
+		}
+
+		shadowText = Log.messageShadowColor.HasValue
+			? ColorTagRichTextRegex.Replace(newText, "")
+			: newText;
+
+		if (Log.nextMessageColor.HasValue)
+		{
+			text = $"<color=#{ColorUtility.ToHtmlStringRGBA(Log.nextMessageColor.GetValueOrDefault())}>{newText}</color>";
+			Log.nextMessageColor = null;
+		}
+		else
+		{
+			text = newText;
+		}
+
+		invalidateHeight = text != previousText;
+		return this;
+	}
+
+	/// <summary>
+	/// Set the duration for this message.
+	/// </summary>
+	/// <param name="duration">If left to default/null will use <see cref="DebugDraw.defaultDuration"/></param>
+	public LogMessage Duration(float? duration = null)
+	{
+		expires = DebugDraw.GetTime(duration);
+		return this;
 	}
 
 }

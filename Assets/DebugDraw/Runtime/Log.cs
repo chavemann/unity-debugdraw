@@ -72,6 +72,28 @@ public static partial class Log
 		MessageStyle.fontSize = 14;
 	}
 
+	/// <summary>
+	/// Chain with <see cref="Text()"/> to display a string on screen with the specific id and optionally duration.
+	/// Displaying text with the same id will update the existing text instead of creating a entry.
+	/// </summary>
+	/// <param name="id">The text id. An empty string always creates a new message, in which case <see cref="Log.Text"/> can instead be called directly.</param>
+	/// <param name="duration">How long the text will stay on screen before disappearing.
+	///   Will default to <see cref="DebugDraw.defaultDuration"/> if not specified.</param>
+	/// <returns>The displayed message. Chain with the <see cref="LogMessage.Text"/> method to set the message's text.</returns>
+	public static LogMessage Display(string id, float? duration = null)
+	{
+		return LogMessage.Add(id, duration);
+	}
+
+	/// <summary>
+	/// See <see cref="Display(string,System.Nullable{float})"/>.
+	/// Convenience to provide an integer id by automatically converting it to a string.
+	/// </summary>
+	public static LogMessage Display(int id, float? duration = null)
+	{
+		return LogMessage.Add(id.ToString(), duration);
+	}
+
 	/* ------------------------------------------------------------------------------------- */
 	#region -- Basic Unity log methods --
 

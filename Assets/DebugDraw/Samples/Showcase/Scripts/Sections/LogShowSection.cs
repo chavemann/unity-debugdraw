@@ -22,7 +22,7 @@ namespace DebugDrawSamples.Showcase.Sections
 				tr = cam.transform;
 				Vector3 p = tr.position;
 				Vector3 f = tr.forward;
-				Log.Show(99, 2,
+				Log.Display("SampleLog", 2).Text(
 					$"<color=#bba0ffff><b>Position</b></color>: {p.x:f2}, {p.y:f2}, {p.z:f2}\n" +
 					$"<color=#bba0ffff><b>Looking</b></color>: {f.x:f2}, {f.y:f2}, {f.z:f2}\n" +
 					$"<color=#bba0ffff><b>Debug Items</b></color>: {DebugDraw.itemCount}\n" +
@@ -30,7 +30,7 @@ namespace DebugDrawSamples.Showcase.Sections
 			}
 			else
 			{
-				Log.Show(0, 1, $"Current Game Time: <color=#FF9571FF>{Time.time:f2}</color>");
+				Log.Text($"Current Game Time: <color=#FF9571FF>{Time.time:f2}</color>").Duration(1);
 			}
 		}
 

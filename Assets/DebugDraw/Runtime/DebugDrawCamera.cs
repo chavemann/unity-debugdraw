@@ -421,19 +421,19 @@ namespace DebugDrawUtils
 				{
 					if(scroll != 0)
 					{
-						const float steps = 0.05f;
-						currentSpeedPercent = Mathf.Clamp(currentSpeedPercent + scroll * steps, -1, 1);
-						currentSpeedPercent = Mathf.Round(currentSpeedPercent / steps) * steps;
+						const float Steps = 0.05f;
+						currentSpeedPercent = Mathf.Clamp(currentSpeedPercent + scroll * Steps, -1, 1);
+						currentSpeedPercent = Mathf.Round(currentSpeedPercent / Steps) * Steps;
 						currentSpeedMultiplier = CalculateSpeedMultiplier();
 
 						int p = Mathf.FloorToInt((currentSpeedMultiplier * DebugDrawCamera.maxSpeed) / DebugDrawCamera.maxSpeed * 100);
-						Log.Show(0xffffff - 1, 1, $"Debug Camera Speed: {p}%");
+						Log.Display("__dbg_cam_speed", 1).Text($"Debug Camera Speed: {p}%");
 					}
 				}
 				else if (scroll != 0)
 				{
 					cam.fieldOfView = Mathf.Clamp(cam.fieldOfView + scroll * -3, 2, 170);
-					Log.Show(0xffffff - 1, 1, $"Debug Camera FOV: {(int) cam.fieldOfView}");
+					Log.Display("__dbg_cam_fov", 1).Text($"Debug Camera FOV: {(int) cam.fieldOfView}");
 				}
 			}
 
