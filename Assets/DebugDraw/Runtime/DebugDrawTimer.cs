@@ -225,7 +225,7 @@ public static partial class DebugDraw
 			// Log.Print("-------------------- DebugDrawFrameStartTimer.DoUpdate");
 
 			UpdateCamera();
-			frameTime = beforeInitialise ? 0 : Time.time;
+			frameTime = beforeInitialise ? 0 : useUnscaledTime ? Time.unscaledTime : Time.time;
 		}
 
 	}

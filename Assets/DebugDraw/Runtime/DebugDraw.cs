@@ -180,6 +180,11 @@ public static partial class DebugDraw
 	/// </summary>
 	public static float textBaseWorldDistance = 10;
 
+	/// <summary>
+	/// If true uses `Time.unscaledTime` instead of `Time.time` for durations.
+	/// </summary>
+	public static bool useUnscaledTime = false;
+
 	public static DebugDrawMesh pointMesh => pointMeshInstance;
 	public static DebugDrawMesh lineMesh => lineMeshInstance;
 	public static DebugDrawMesh triangleMesh => triangleMeshInstance;
