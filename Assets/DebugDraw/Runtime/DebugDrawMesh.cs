@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using DebugDrawUtils.DebugDrawItems;
@@ -53,10 +54,8 @@ public partial class DebugDrawMesh
 	internal Shader shader;
 	internal Material material;
 
-	protected readonly List<BaseItem> items = new();
-	private int itemsSize = 1;
+	protected BaseItem[] items = new BaseItem[4];
 	internal int itemCount;
-	protected readonly Dictionary<string, List<BaseItem>> groups = new();
 
 	/// <summary>
 	/// Tracks the current vertex index during <see cref="Build"/>. Generally don't access directly.
@@ -73,11 +72,6 @@ public partial class DebugDrawMesh
 	public DebugDrawMesh(MeshTopology type)
 	{
 		this.type = type;
-
-		for (int i = 0; i < itemsSize; i++)
-		{
-			items.Add(null);
-		}
 	}
 
 	/// <summary>
@@ -197,71 +191,16 @@ public partial class DebugDrawMesh
 		if (item.mesh != null)
 			return item;
 
-		if (itemCount == itemsSize)
+		if (itemCount == items.Length)
 		{
-			itemsSize *= 2;
-
-			for (int i = itemCount; i < itemsSize; i++)
-			{
-				items.Add(null);
-			}
+			Array.Resize(ref items, items.Length * 2);
 		}
 
 		items[item.index = itemCount++] = item;
 		item.mesh = this;
 
-		if (DebugDraw.nextGroup != null)
-		{
-			item.group = DebugDraw.nextGroup;
-			DebugDraw.nextGroup = null;
-		}
-		else if (DebugDraw.currentGroup != null)
-		{
-			item.group = DebugDraw.currentGroup;
-		}
+		DebugDraw.Groups.GetCurrent()?.Add(item);
 
-		if (item.group != null)
-		{
-			if (!groups.TryGetValue(item.group, out List<BaseItem> groupItems))
-			{
-				groupItems = DebugDraw.GetGroupList();
-				groups.Add(item.group, groupItems);
-			}
-
-			groupItems.Add(item);
-		}
-
-		return item;
-	}
-
-	public T ChangeGroup<T>(T item, string newGroup) where T : BaseItem
-	{
-		List<BaseItem> groupItems;
-
-		if (item.group != null)
-		{
-			if (groups.TryGetValue(item.group, out groupItems))
-			{
-				groupItems[item.groupListIndex] = groupItems[^1];
-				groupItems.RemoveAt(groupItems.Count - 1);
-			}
-
-			item.groupListIndex = -1;
-		}
-
-		item.group = newGroup;
-
-		if (newGroup == null)
-			return item;
-
-		if (!groups.TryGetValue(newGroup, out groupItems))
-		{
-			groupItems = new List<BaseItem>();
-			groups.Add(newGroup, groupItems);
-		}
-
-		item.groupListIndex = groupItems.Count;
-		groupItems.Add(item);
 		return item;
 	}
 
@@ -278,21 +217,7 @@ public partial class DebugDrawMesh
 		swap.index = item.index;
 		items[item.index] = swap;
 
-		if (item.group != null && groups.TryGetValue(item.group, out List<BaseItem> groupItems))
-		{
-			groupItems[item.groupListIndex] = groupItems[^1];
-			groupItems.RemoveAt(groupItems.Count - 1);
-
-			if (groupItems.Count == 0)
-			{
-				DebugDraw.ReleaseGroupList(groupItems);
-				groups.Remove(item.group);
-			}
-
-			item.group = null;
-		}
-
-		ReleaseItem(item);
+		Release(item);
 	}
 
 	/// <summary>
@@ -302,7 +227,7 @@ public partial class DebugDrawMesh
 	{
 		for (int i = itemCount - 1; i >= 0; i--)
 		{
-			ReleaseItem(items[i]);
+			Release(items[i]);
 		}
 
 		itemCount = 0;
@@ -329,33 +254,6 @@ public partial class DebugDrawMesh
 	{
 		Clear();
 		ClearMesh();
-
-		foreach ((string _, List<BaseItem> groupItems) in groups)
-		{
-			DebugDraw.ReleaseGroupList(groupItems);
-			groupItems.Clear();
-		}
-
-		groups.Clear();
-	}
-
-	/// <summary>
-	/// Removes all the items that belong to the given group.
-	/// </summary>
-	/// <param name="group"></param>
-	public void ClearGroup(string group)
-	{
-		if (!groups.TryGetValue(group, out List<BaseItem> groupItems))
-			return;
-
-		foreach (BaseItem item in groupItems)
-		{
-			ReleaseItem(item);
-		}
-
-		groupItems.Clear();
-		DebugDraw.ReleaseGroupList(groupItems);
-		groups.Remove(group);
 	}
 
 	/// <summary>
@@ -363,21 +261,32 @@ public partial class DebugDrawMesh
 	/// </summary>
 	public void Update()
 	{
-		float time = DebugDraw.GetTime();
+		float time = DebugDraw.frameTime;
 
 		for(int i = itemCount - 1; i >= 0; i--)
 		{
 			BaseItem item = items[i];
 
-			if(item.expires < time)
-			{
-				BaseItem swap = items[--itemCount];
-				swap.index = i;
-				items[i] = swap;
+			if (!item.expires.Expired(time))
+				continue;
 
-				ReleaseItem(item);
-			}
+			RemoveItem(item, i);
 		}
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	private void RemoveItem(BaseItem item, int i)
+	{
+		items[item.index] = items[--itemCount];
+		items[item.index].index = item.index;
+		Release(item);
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	private void Release(BaseItem item)
+	{
+		item.Release();
+		item.ReleaseFromGroup();
 	}
 
 	/// <summary>
@@ -432,14 +341,6 @@ public partial class DebugDrawMesh
 			mesh.SetColors(colours);
 			mesh.SetIndices(indices, type, 0);
 		}
-	}
-
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	private static void ReleaseItem(BaseItem item)
-	{
-		item.group = null;
-		item.groupListIndex = -1;
-		item.Release();
 	}
 
 	/* ------------------------------------------------------------------------------------- */

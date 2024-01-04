@@ -45,7 +45,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Capsule object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Capsule Get(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, float? duration = null)
+		public static Capsule Get(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, EndTime duration = default)
 		{
 			Capsule item = ItemPool<Capsule>.Get(duration);
 
@@ -71,7 +71,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Capsule object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Capsule GetWire(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, float? duration = null)
+		public static Capsule GetWire(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, EndTime duration = default)
 		{
 			Capsule item = ItemPool<Capsule>.Get(duration);
 

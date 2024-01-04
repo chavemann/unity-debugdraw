@@ -25,23 +25,23 @@ def run():
     if not ITEMS_PATH.is_dir():
         print('Items folder does not exist.')
         return
-    
+
     static_methods = []
     instance_methods = []
-    
+
     # Collect item get methods
     for item_path in ITEMS_PATH.glob('*.cs'):
         if not item_path.is_file():
             continue
         if item_path.stem in ('BaseItem', 'BasePointItem', 'BaseLineItem', 'IPointItem', 'ItemPool'):
             continue
-        
+
         text = INDENT_REGEX.sub('\t', item_path.read_text('utf-8'))
         m = MESH_TYPE_REGEX.search(text)
         if not m:
             print(f'!! Missing "mesh: TYPE" definition for {item_path.stem}')
             continue
-        
+
         default_mesh_type = m.group(1)
 
         for m in GET_METHODS_REGEX.finditer(text):
@@ -53,7 +53,7 @@ def run():
             mesh_type = default_mesh_type
             func_name = return_type
             get_type = get_type or ''
-            
+
             if get_type:
                 if get_type in ('Fill', 'Wire'):
                     func_name = get_type + func_name
@@ -62,7 +62,7 @@ def run():
 
             if func_name.endswith('Item'):
                 func_name = func_name.replace('Item', '')
-            
+
             call_params = []
             refless_params = []
             for param_m in PARAM_REGEX.finditer(params):
@@ -77,7 +77,7 @@ def run():
                 mesh_type = 'triangle'
             elif get_type.startswith('Wire'):
                 mesh_type = 'line'
-            
+
             if not GET_WRAPPER_REGEX.match(body):
                 body = f'return Get({", ".join(call_params)});'
 
@@ -86,24 +86,24 @@ def run():
             static_body = GET_WRAPPER_REGEX.sub(fr'DebugDrawItems.{return_type}.Get{get_type}(\g<1>)', body)
 
             static_body = GET_WRAPPER_REGEX.sub(
-                fr'#if DEBUG_DRAW\n\t\t'
-                fr'return {mesh_type}MeshInstance.Add({static_body});\n\t\t'
-                fr'#else\n\t\t'
-                fr'return {static_body};\n\t\t'
+                fr'#if DEBUG_DRAW\n'
+                fr'\t\treturn {mesh_type}MeshInstance.Add({static_body});\n\t\t'
+                fr'#else\n'
+                fr'\t\treturn {static_body};\n\t\t'
                 fr'#endif', body)
 
 
             instance_body = GET_WRAPPER_REGEX.sub(
                 fr'return Add(DebugDrawItems.{return_type}.Get{get_type}(\g<1>));', body)
-            
+
             method_groups = [
                 (' static', static_methods, static_body),
                 ('', instance_methods, instance_body),
             ]
-            
+
             if attribs:
                 attribs += '\n\t'
-            
+
             meta = ''.join(filter(None, [docs, attribs]))
             for static, method_list, body in method_groups:
                 method_out = [
@@ -115,14 +115,14 @@ def run():
 
     # Generate output
     output_text = OUTPUT_FILE.read_text()
-    
+
     for group, methods in (('Static', static_methods), ('Instance', instance_methods)):
         group_re = re.compile(
             fr'(/\* <{group}GenMethods> \*/)\s+(?:.+)\s+(/\* </{group}GenMethods> \*/)',
             re.DOTALL)
-        method_text = '\n\t\n\t'.join(methods)
-        output_text = group_re.sub(fr'\1\n\t\n\t{method_text}\n\t\n\t\2', output_text)
-    
+        method_text = '\n\n\t'.join(methods)
+        output_text = group_re.sub(fr'\1\n\t\n\t{method_text}\n\n\t\2', output_text)
+
     OUTPUT_FILE.write_text(output_text)
     pass
 

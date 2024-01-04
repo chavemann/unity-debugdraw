@@ -2,6 +2,8 @@
 #define DEBUG_DRAW
 #endif
 
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -22,6 +24,8 @@ public static partial class DebugDraw
 	private const HideFlags TimerHideFlags = HideFlags.DontSave | HideFlags.NotEditable;
 	// private const HideFlags TimerHideFlags = HideFlags.HideAndDontSave;
 
+	private static readonly WaitForFixedUpdate WaitForFixedUpdate = new();
+
 	/// <summary>
 	/// A component automatically added to the scene with HideFlags.DontSave set that
 	/// handles updating all debug items at the end of every frame.
@@ -37,6 +41,11 @@ public static partial class DebugDraw
 
 		private bool pendingDestroy;
 		private DebugDrawFrameStartTimer startTimer;
+
+		private void Awake()
+		{
+			StartCoroutine(OnPostFixedUpdate());
+		}
 
 		private void OnEnable()
 		{
@@ -97,12 +106,18 @@ public static partial class DebugDraw
 			}
 		}
 
-		private void FixedUpdate()
+		private IEnumerator OnPostFixedUpdate()
 		{
-			if (!doFixedUpdate)
-				return;
+			while (true)
+			{
+				yield return WaitForFixedUpdate;
 
-			DoUpdate();
+				if (doFixedUpdate)
+				{
+					DoUpdate();
+				}
+			}
+			// ReSharper disable once IteratorNeverReturns
 		}
 
 		private void LateUpdate()
@@ -126,13 +141,8 @@ public static partial class DebugDraw
 			UpdateAttachments();
 			requiresBuild = true;
 
-			nextGroup = null;
-
-			if (currentGroup != null)
-			{
-				currentGroup = null;
-				GroupStack.Clear();
-			}
+			Groups.ResetStack();
+			LogMessage.Groups.ResetStack();
 
 			if (LogMessage.hasMessages)
 			{

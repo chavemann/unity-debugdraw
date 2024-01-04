@@ -59,9 +59,6 @@ public static partial class DebugDraw
 	public static Vector3 forward = Vector3.forward;
 	public static Vector3 back = Vector3.back;
 
-	private static readonly List<List<BaseItem>> GroupListPool = new();
-	private static int groupListPoolSize = 2;
-
 	private static readonly List<BaseAttachment> Attachments = new();
 	private static int attachmentCount;
 	private static int attachmentListSize;
@@ -85,9 +82,8 @@ public static partial class DebugDraw
 	internal static bool hasTransform;
 	private static readonly List<DebugDrawState> States = new();
 	private static int stateIndex;
-	internal static string nextGroup;
-	internal static string currentGroup;
-	internal static readonly List<string> GroupStack = new();
+
+	internal static readonly GroupList Groups = new();
 
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Public -- */
@@ -95,7 +91,7 @@ public static partial class DebugDraw
 	/// <summary>
 	/// Modify the default properties of all Text.
 	/// </summary>
-	public static readonly GUIStyle TextStyle = new GUIStyle();
+	public static readonly GUIStyle TextStyle = new();
 
 	/// <summary>
 	/// Should DebugDraw update itself during FixedUpdate instead of Update.
@@ -188,7 +184,7 @@ public static partial class DebugDraw
 	/// <summary>
 	/// The default duration for all items when one is not provided.
 	/// </summary>
-	public static float defaultDuration = 0;
+	public static EndTime defaultDuration = Duration.Once;
 
 	public static DebugDrawMesh pointMesh => pointMeshInstance;
 	public static DebugDrawMesh lineMesh => lineMeshInstance;
@@ -201,7 +197,7 @@ public static partial class DebugDraw
 	private static bool requiresBuild = true;
 	#endif
 
-	private static float frameTime = 0;
+	internal static float frameTime;
 	private static bool beforeInitialise;
 	private static CameraInitState hasCamera = CameraInitState.Pending;
 	private static bool camUpdated;
@@ -237,11 +233,6 @@ public static partial class DebugDraw
 	{
 		TextStyle.normal.textColor = Color.white;
 		TextStyle.fontSize = 14;
-
-		for (int i = 0; i < groupListPoolSize; i++)
-		{
-			GroupListPool.Add(new List<BaseItem>());
-		}
 	}
 
 	#if DEBUG_DRAW
@@ -272,6 +263,7 @@ public static partial class DebugDraw
 		EditorSceneManager.sceneOpening += OnEditorSceneOpening;
 		#endif
 
+		Groups.Reset();
 		Clear();
 		Initialize(true);
 	}
@@ -289,7 +281,7 @@ public static partial class DebugDraw
 
 	private static void OnActiveSceneChangedInEditMode(Scene current, Scene next)
 	{
-		// Log.Print("---- OnactiveSceneChangedInEditMode ----------------------------------", frameTime);
+		// Log.Print("---- OnActiveSceneChangedInEditMode ----------------------------------", frameTime);
 
 		Initialize();
 		UpdateTimerInstanceScene();
@@ -612,24 +604,39 @@ public static partial class DebugDraw
 
 		attachmentCount = 0;
 
-		Log.Clear();
+		Log.Reset();
 	}
 
 	/// <summary>
-	/// Removes al items that belong to the given group.
+	/// Removes all items that belong to the given group.
 	/// </summary>
-	/// <param name="group"></param>
-	public static void ClearGroup(string group)
+	/// <param name="groupName"></param>
+	public static void Clear(string groupName)
 	{
-		if (group == null)
-			return;
-
 		if (pointMeshInstance == null)
 			return;
 
-		pointMeshInstance.ClearGroup(group);
-		lineMeshInstance.ClearGroup(group);
-		triangleMeshInstance.ClearGroup(group);
+		if (!Groups.TryGet(groupName, out Group group))
+			return;
+
+		Clear(group);
+	}
+
+	/// <inheritdoc cref="Clear(string)"/>
+	public static void Clear(Group group)
+	{
+		if (group == null)
+			return;
+		if (!group.isActive)
+			return;
+
+		for (int i = group.itemCount - 1; i >= 0; i--)
+		{
+			BaseItem item = (BaseItem) group.items[i];
+			item.mesh.Remove(item);
+		}
+
+		group.Clear();
 	}
 
 	/// <summary>
@@ -714,43 +721,67 @@ public static partial class DebugDraw
 	}
 
 	/// <summary>
-	/// Sets the current group all new items after this call are added to. This can be used to group and clear specific groups of items.
-	/// Be sure to call a matching <see cref="EndGroup"/> for each call to <see cref="BeginGroup"/>.<br/>
-	/// An item will only be added to the group specified by the last call to this method, but nested calls to Begin/End are supported without issues.<br/>
-	/// If <see cref="NextGroup"/> is set, that will take precedence.<br/>
-	/// Groups are cleared at the start of each frame so failing to call <see cref="EndGroup"/> will not cause a memory leak.
+	/// Creates a group with the specified name, and default duration.
 	/// </summary>
-	/// <param name="group">The group name. Empty strings are ignored,
-	///		and calling this multiple times in a row with the same name will have no effect.</param>
-	public static void BeginGroup(string group)
+	/// <param name="name"></param>
+	/// <param name="defaultDuration"></param>
+	/// <returns></returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Group CreateGroup(string name, EndTime? defaultDuration = null)
+	{
+		return Groups.GetOrCreate(name, defaultDuration);
+	}
+
+	/// <summary>
+	/// Use to release a created group when it is no longer needed.
+	/// This will not clear items added to the group.
+	/// </summary>
+	/// <param name="group"></param>
+	public static void ReleaseGroup(Group group)
 	{
 		if (group == null)
 			return;
-		if (GroupStack.Count > 0 && group == GroupStack[^1])
+		if (!group.isActive)
 			return;
 
-		GroupStack.Add(group);
-		currentGroup = group;
+		for (int i = 0; i < group.itemCount; i++)
+		{
+			group.items[i].group = null;
+		}
+
+		Groups.Release(group);
+	}
+
+	///  <summary>
+	///  Sets the current group all new items after this call are added to. This can be used to group and clear specific groups of items.
+	///  Be sure to call a matching <see cref="EndGroup"/> for each call to <see cref="BeginGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>.<br/>
+	///  An item will only be added to the group specified by the last call to this method, but nested calls to Begin/End are supported.<br/>
+	///  If <see cref="NextGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/> is set, that will take precedence.<br/>
+	///  Groups are cleared at the start of each frame so failing to call <see cref="EndGroup"/> will not cause a memory leak.
+	///  </summary>
+	///  <param name="name">The group name. Empty strings are ignored,
+	/// 		and calling this multiple times in a row with the same name will have no effect.</param>
+	///  <param name="defaultDuration"></param>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Group BeginGroup(string name, EndTime? defaultDuration = null)
+	{
+		return Groups.Push(name, defaultDuration);
+	}
+
+	/// <inheritdoc cref="BeginGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Group BeginGroup(Group group)
+	{
+		return Groups.Push(group);
 	}
 
 	/// <summary>
 	/// Ends the previous group.
 	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void EndGroup()
 	{
-		if (currentGroup == null)
-			return;
-
-		if (GroupStack.Count > 1)
-		{
-			currentGroup = GroupStack[^1];
-			GroupStack.RemoveAt(GroupStack.Count - 1);
-		}
-		else
-		{
-			currentGroup = null;
-			GroupStack.Clear();
-		}
+		Groups.Pop();
 	}
 
 	/// <summary>
@@ -758,24 +789,47 @@ public static partial class DebugDraw
 	/// Alternatively <see cref="BaseItem.Group"/> can be called to change individual items.<br/>
 	///   e.g. `DebugDraw.Line(...).Group("MyGroupName");`
 	/// </summary>
-	/// <param name="group"></param>
-	public static void NextGroup(string group)
+	/// <param name="name"></param>
+	/// <param name="defaultDuration"></param>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static void NextGroup(string name, EndTime? defaultDuration = null)
 	{
-		nextGroup = group;
+		Groups.SetNext(name, defaultDuration);
+	}
+
+	/// <inheritdoc cref="NextGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static void NextGroup(Group group)
+	{
+		Groups.SetNext(group);
 	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static float GetTime()
+	public static float GetCurrentTime()
 	{
 		return frameTime;
 	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static float GetTime(float? duration)
+	internal static EndTime GetTime(EndTime duration)
 	{
-		return (duration ?? defaultDuration) < 0
-			? float.PositiveInfinity
-			: frameTime + (duration ?? defaultDuration);
+		if (duration.type != Duration.Default)
+			return duration;
+
+		EndTime time = Groups.GetDefaultDuration() ?? defaultDuration;
+
+		switch (time.type)
+		{
+			case Duration.Default:
+				return Duration.Once;
+			case Duration.Infinite:
+			case Duration.Once:
+				return time.type;
+			case Duration.Time:
+				return frameTime + time.time;
+		}
+
+		return Duration.Once;
 	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -832,30 +886,6 @@ public static partial class DebugDraw
 				attachment.Release();
 			}
 		}
-	}
-
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	internal static List<BaseItem> GetGroupList()
-	{
-		return groupListPoolSize == 0
-			? new List<BaseItem>(64)
-			: GroupListPool[--groupListPoolSize];
-	}
-
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	internal static void ReleaseGroupList(List<BaseItem> groupList)
-	{
-		if (groupListPoolSize >= GroupListPool.Count)
-		{
-			int newSize = groupListPoolSize * 2;
-
-			for (int i = GroupListPool.Count; i < newSize; i++)
-			{
-				GroupListPool.Add(null);
-			}
-		}
-
-		GroupListPool[groupListPoolSize++] = groupList;
 	}
 
 	/* ------------------------------------------------------------------------------------- */
@@ -976,16 +1006,16 @@ public static partial class DebugDraw
 		float t = (radius * 2) / (frustumHeight);
 
 		// Shift the lower bound up a bit
-		const float s = 0.006f;
-		t = Mathf.Max((t - s) / (1 - s), 0);
+		const float S = 0.006f;
+		t = Mathf.Max((t - S) / (1 - S), 0);
 
 		// As the size gets smaller the resolution gets too low so at lower values
 		// adjust t so it climbs faster the lower it is.
-		const float ss = 0.5f;
-		if (t < ss)
+		const float Ss = 0.5f;
+		if (t < Ss)
 		{
-			t /= ss;
-			t = (1 - Mathf.Pow(1 - t, 10f)) * ss;
+			t /= Ss;
+			t = (1 - Mathf.Pow(1 - t, 10f)) * Ss;
 		}
 
 		return Mathf.Clamp(Mathf.FloorToInt(Mathf.LerpUnclamped(min, max, t)), min, limit);

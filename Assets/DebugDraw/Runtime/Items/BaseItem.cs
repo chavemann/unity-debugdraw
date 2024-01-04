@@ -8,7 +8,7 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// <summary>
 	/// The base for all debug visual items.
 	/// </summary>
-	public abstract class BaseItem
+	public abstract class BaseItem : Groupable
 	{
 
 		protected const float BaseAutoSizeDistanceFactor = 1 / 25f;
@@ -29,7 +29,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <summary>
 		/// When this item expires. Calculated when created based on a duration.
 		/// </summary>
-		internal float expires;
+		internal EndTime expires;
 
 		/// <summary>
 		/// Stores the global <see cref="DebugDraw"/> transform state when this item was created.
@@ -47,14 +47,6 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// True if is stateColor not default.
 		/// </summary>
 		internal bool hasStateColor;
-		/// <summary>
-		/// The group this item belongs to.
-		/// </summary>
-		internal string group;
-		/// <summary>
-		/// The index into the groups list where this item is stored.
-		/// </summary>
-		internal int groupListIndex = -1;
 
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
@@ -63,14 +55,14 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// Updates the duration of this item.
 		/// </summary>
 		/// <param name="duration">The duration starting from the current time.</param>
-		public T SetDuration<T>(float duration) where T : BaseItem
+		public T SetDuration<T>(EndTime duration) where T : BaseItem
 		{
 			expires = DebugDraw.GetTime(duration);
 			return (T) this;
 		}
 
-		/// <inheritdoc cref="SetDuration{T}(float)"/>
-		public BaseItem SetDuration(float duration)
+		/// <inheritdoc cref="SetDuration{T}"/>
+		public BaseItem SetDuration(EndTime duration)
 		{
 			expires = DebugDraw.GetTime(duration);
 			return this;
@@ -144,12 +136,16 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// </summary>
 		/// <param name="newGroup"></param>
 		/// <returns></returns>
-		public BaseItem Group(string newGroup)
+		public BaseItem Group(Group newGroup)
 		{
 			if (newGroup == group)
 				return this;
 
-			return mesh?.ChangeGroup(this, newGroup) ?? this;
+			group?.Remove(this);
+			group = newGroup;
+			group?.Add(this);
+
+			return this;
 		}
 
 		/// <summary>

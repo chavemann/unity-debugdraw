@@ -43,7 +43,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Color color1, ref Color color2, float? duration = null)
+		public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Color color1, ref Color color2, EndTime duration = default)
 		{
 			Line3D item = ItemPool<Line3D>.Get(duration);
 
@@ -68,7 +68,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 		/// <returns>The Line3D object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Color color, float? duration = null)
+		public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Color color, EndTime duration = default)
 		{
 			return Get(ref p1, ref p2, size, ref color, ref color, duration);
 		}
@@ -85,7 +85,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Vector3 facing, ref Color color1, ref Color color2, float? duration = null)
+		public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Vector3 facing, ref Color color1, ref Color color2, EndTime duration = default)
 		{
 			Line3D item = ItemPool<Line3D>.Get(duration);
 
@@ -112,7 +112,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 		/// <returns>The Line3D object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Vector3 facing, ref Color color, float? duration = null)
+		public static Line3D Get(ref Vector3 p1, ref Vector3 p2, float size, ref Vector3 facing, ref Color color, EndTime duration = default)
 		{
 			return Get(ref p1, ref p2, size, ref facing, ref color, ref color, duration);
 		}

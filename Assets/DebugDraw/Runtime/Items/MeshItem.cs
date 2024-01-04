@@ -43,7 +43,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static MeshItem Get(List<Vector3> vertices, List<Color> colors, List<int> indices, float? duration = null)
+		public static MeshItem Get(List<Vector3> vertices, List<Color> colors, List<int> indices, EndTime duration = default)
 		{
 			MeshItem item = ItemPool<MeshItem>.Get(duration);
 
@@ -64,7 +64,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static MeshItem Get(List<Vector3> vertices, List<int> indices, ref Color color, float? duration = null)
+		public static MeshItem Get(List<Vector3> vertices, List<int> indices, ref Color color, EndTime duration = default)
 		{
 			MeshItem item = ItemPool<MeshItem>.Get(duration);
 
@@ -85,7 +85,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static MeshItem Get(Mesh mesh, Color? color, float? duration = null)
+		public static MeshItem Get(Mesh mesh, Color? color, EndTime duration = default)
 		{
 			MeshItem item = ItemPool<MeshItem>.Get(duration);
 

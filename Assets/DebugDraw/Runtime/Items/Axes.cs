@@ -58,7 +58,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Axes object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Axes Get(ref Vector3 position, ref Quaternion rotation, ref Vector3 size, bool doubleSided = false, float? duration = null)
+		public static Axes Get(ref Vector3 position, ref Quaternion rotation, ref Vector3 size, bool doubleSided = false, EndTime duration = default)
 		{
 			Axes item = ItemPool<Axes>.Get(duration);
 
@@ -83,7 +83,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Axes object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Axes Get(ref Vector3 position, ref Quaternion rotation, float size, bool doubleSided = false, float? duration = null)
+		public static Axes Get(ref Vector3 position, ref Quaternion rotation, float size, bool doubleSided = false, EndTime duration = default)
 		{
 			Axes item = ItemPool<Axes>.Get(duration);
 

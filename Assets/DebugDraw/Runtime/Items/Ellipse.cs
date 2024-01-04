@@ -77,7 +77,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Ellipse Get(ref Vector3 position, float radius, ref Vector3 facing, ref Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float? duration = null)
+		public static Ellipse Get(ref Vector3 position, float radius, ref Vector3 facing, ref Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime duration = default)
 		{
 			Vector2 size = new Vector2(radius, radius);
 			return Get(ref position, ref size, ref facing, ref color, segments, drawAxes, duration);
@@ -94,7 +94,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Ellipse GetFill(ref Vector3 position, float radius, ref Vector3 facing, ref Color color, int segments = 32, float? duration = null)
+		public static Ellipse GetFill(ref Vector3 position, float radius, ref Vector3 facing, ref Color color, int segments = 32, EndTime duration = default)
 		{
 			Vector2 size = new Vector2(radius, radius);
 			return GetFill(ref position, ref size, ref facing, ref color, segments, duration);
@@ -119,7 +119,7 @@ namespace DebugDrawUtils.DebugDrawItems
 			ref Vector3 position, float radius, ref Vector3 facing,
 			float startAngle, float endAngle, ref Color color, int segments = 32,
 			DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never,
-			float? duration = null)
+			EndTime duration = default)
 		{
 			Vector2 size = new Vector2(radius, radius);
 			return GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration);
@@ -141,7 +141,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Ellipse GetFillArc(
 			ref Vector3 position, float radius, ref Vector3 facing,
 			float startAngle, float endAngle, ref Color color, int segments = 32,
-			float? duration = null)
+			EndTime duration = default)
 		{
 			Vector2 size = new Vector2(radius, radius);
 			return GetFillArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration);
@@ -161,7 +161,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Ellipse Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, float? duration = null)
+		public static Ellipse Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime duration = default)
 		{
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
 
@@ -193,7 +193,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Ellipse GetFill(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, float? duration = null)
+		public static Ellipse GetFill(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, int segments = 32, EndTime duration = default)
 		{
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
 
@@ -233,7 +233,7 @@ namespace DebugDrawUtils.DebugDrawItems
 			ref Vector3 position, ref Vector2 size, ref Vector3 facing,
 			float startAngle, float endAngle, ref Color color, int segments = 32,
 			DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never,
-			float? duration = null)
+			EndTime duration = default)
 		{
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
 
@@ -270,7 +270,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Ellipse GetFillArc(
 			ref Vector3 position, ref Vector2 size, ref Vector3 facing,
 			float startAngle, float endAngle, ref Color color, int segments = 32,
-			float? duration = null)
+			EndTime duration = default)
 		{
 			Ellipse item = ItemPool<Ellipse>.Get(duration);
 

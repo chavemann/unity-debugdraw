@@ -48,7 +48,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, float? duration = null)
+		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, EndTime duration = default)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
 
@@ -75,7 +75,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, float? duration = null)
+		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, EndTime duration = default)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
 
@@ -100,7 +100,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Triangle GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, float? duration = null)
+		public static Triangle GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, EndTime duration = default)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
 
@@ -127,7 +127,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The ellipse object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Triangle GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, float? duration = null)
+		public static Triangle GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, EndTime duration = default)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
 

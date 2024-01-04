@@ -2,6 +2,7 @@
 #define DEBUG_DRAW
 #endif
 
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
@@ -12,7 +13,7 @@ namespace DebugDrawUtils
 {
 
 #if DEBUG_DRAW
-public partial class LogMessage
+public partial class LogMessage : Groupable
 {
 
 	private const float ScreenPadding = 10;
@@ -22,19 +23,20 @@ public partial class LogMessage
 
 	private static LogMessage messages;
 	private static readonly Dictionary<string, LogMessage> MessageIds = new();
-	private static readonly List<LogMessage> MessagePool = new();
-	private static int messagePoolIndex;
+	private static LogMessage[] messagePool = new LogMessage[4];
+	private static int messagePoolSize;
 	internal static bool hasMessages;
 
-	private static float totalMessageHeight;
+	internal static readonly GroupList Groups = new();
 
+	private string id;
 	private bool active;
 	private LogMessage prev;
 	private LogMessage next;
 	private float height;
 	private string text;
 	private string shadowText;
-	private float expires;
+	private EndTime expires;
 	private bool invalidateHeight;
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -69,13 +71,19 @@ public partial class LogMessage
 		next = null;
 	}
 
+	internal static void Reset()
+	{
+		Groups.Reset();
+		Clear();
+	}
+
 	internal static void Clear()
 	{
 		LogMessage message = messages;
 
 		while (message != null)
 		{
-			Release(message);
+			message.Release();
 			message = message.prev;
 		}
 
@@ -85,38 +93,104 @@ public partial class LogMessage
 		MessageIds.Clear();
 	}
 
-	internal static LogMessage Add(string id, float? duration, string text = null)
+	internal static void Clear(string groupName)
+	{
+		if (!Groups.TryGet(groupName, out Group group))
+			return;
+
+		Clear(group);
+	}
+
+	internal static void Clear(Group group)
+	{
+		if (group == null)
+			return;
+		if (!group.isActive)
+			return;
+
+		for (int i = 0; i < group.itemCount; i++)
+		{
+			LogMessage message = (LogMessage) group.items[i];
+			Remove(message);
+		}
+
+		group.Clear();
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	internal static Group CreateGroup(string name, EndTime? defaultDuration = null)
+	{
+		return Groups.GetOrCreate(name, defaultDuration);
+	}
+
+	internal static void ReleaseGroup(Group group)
+	{
+		if (group == null)
+			return;
+		if (!group.isActive)
+			return;
+
+		for (int i = 0; i < group.itemCount; i++)
+		{
+			group.items[i].group = null;
+		}
+
+		Groups.Release(group);
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	internal static Group BeginGroup(string name, EndTime? defaultDuration = null)
+	{
+		return Groups.Push(name, defaultDuration);
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	internal static Group BeginGroup(Group group)
+	{
+		return Groups.Push(group);
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	internal static void EndGroup()
+	{
+		Groups.Pop();
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	internal static void NextGroup(string name, EndTime? defaultDuration = null)
+	{
+		Groups.SetNext(name, defaultDuration);
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	internal static void NextGroup(Group group)
+	{
+		Groups.SetNext(group);
+	}
+
+	internal static LogMessage Add(string id, EndTime? duration = null, string text = null)
 	{
 		LogMessage message;
+		Group currentGroup = Groups.GetCurrent();
 
 		if (id != "")
 		{
 			if (!MessageIds.TryGetValue(id, out message))
 			{
-				message = messagePoolIndex > 0 ? MessagePool[--messagePoolIndex] : new LogMessage();
-				message.next = null;
-				message.prev = null;
+				message = messagePoolSize > 0 ? messagePool[--messagePoolSize] : new LogMessage();
 				MessageIds.Add(id, message);
+				currentGroup?.Add(message);
 			}
 		}
 		else
 		{
-			message = messagePoolIndex > 0 ? MessagePool[--messagePoolIndex] : new LogMessage();
+			message = messagePoolSize > 0 ? messagePool[--messagePoolSize] : new LogMessage();
+			currentGroup?.Add(message);
 		}
 
 		message
-			.Duration(duration)
+			.Duration(duration ?? DebugDraw.defaultDuration)
 			.SetText(text);
-
-		if (text != null)
-		{
-
-		}
-		else
-		{
-			message.shadowText = "";
-			message.text = "";
-		}
 
 		if (message.active)
 		{
@@ -141,38 +215,35 @@ public partial class LogMessage
 		return message;
 	}
 
-	private static void Release(LogMessage message)
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	private static void Remove(LogMessage message)
 	{
-		if (messagePoolIndex == MessagePool.Count)
+		if (message == messages)
 		{
-			int newSize = Mathf.Max(MessagePool.Count * 2, 2);
-
-			for (int i = messagePoolIndex; i < newSize; i++)
-			{
-				MessagePool.Add(null);
-			}
+			messages = message.next;
+			hasMessages = messages != null;
 		}
 
 		message.Slice();
-		message.active = false;
-		message.prev = message.next = null;
-		MessagePool[messagePoolIndex++] = message;
+		message.Release();
 	}
 
 	internal static void Update()
 	{
-		float time = DebugDraw.GetTime();
-		LogMessage message = messages;
+		float time = DebugDraw.frameTime;
+		LogMessage nextMessage = messages;
 		LogMessage previousMessage = messages;
 		int i = 1;
 
 		Rect rect = GetScreenRect();
-		totalMessageHeight = 0;
 
-		while (message != null)
+		while (nextMessage != null)
 		{
 			i++;
+			LogMessage message = nextMessage;
 			previousMessage = message;
+
+			nextMessage = nextMessage.next;
 
 			if (message.invalidateHeight)
 			{
@@ -181,47 +252,23 @@ public partial class LogMessage
 				message.invalidateHeight = false;
 			}
 
-			if (message.expires < time)
+			if (message.expires.Expired(time))
 			{
-				LogMessage next = message.next;
-
-				if (message == messages)
-				{
-					messages = message.next;
-				}
-
-				message.Slice();
-				Release(message);
-
-				message = next;
-			}
-			else
-			{
-				totalMessageHeight += message.height;
-				message = message.next;
+				Remove(message);
 			}
 		}
 
 		if (--i > Log.maxMessages)
 		{
-			message = previousMessage;
+			LogMessage message = previousMessage;
 
 			while (message != null && i-- > Log.maxMessages)
 			{
-				previousMessage = message;
 				LogMessage prev = message.prev;
-				Release(message);
+				Remove(message);
 				message = prev;
 			}
-
-			if (previousMessage == messages)
-			{
-				messages = null;
-				hasMessages = false;
-			}
 		}
-
-		hasMessages = messages != null;
 	}
 
 	internal static void Draw()
@@ -313,10 +360,46 @@ public partial class LogMessage
 	/// Set the duration for this message.
 	/// </summary>
 	/// <param name="duration">If left to default/null will use <see cref="DebugDraw.defaultDuration"/></param>
-	public LogMessage Duration(float? duration = null)
+	public LogMessage Duration(EndTime duration = default)
 	{
 		expires = DebugDraw.GetTime(duration);
 		return this;
+	}
+
+	/// <summary>
+	/// Sets the group this item belongs to.
+	/// </summary>
+	/// <param name="newGroup"></param>
+	/// <returns></returns>
+	public LogMessage Group(Group newGroup)
+	{
+		if (newGroup == group)
+			return this;
+
+		group?.Remove(this);
+		group = newGroup;
+		group?.Add(this);
+
+		return this;
+	}
+
+	private void Release()
+	{
+		if (messagePoolSize == messagePool.Length)
+		{
+			Array.Resize(ref messagePool, messagePool.Length);
+		}
+
+		active = false;
+		prev = next = null;
+		if (id != null)
+		{
+			MessageIds.Remove(id);
+			id = null;
+		}
+		messagePool[messagePoolSize++] = this;
+
+		ReleaseFromGroup();
 	}
 
 }

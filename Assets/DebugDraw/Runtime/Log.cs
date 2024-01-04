@@ -7,7 +7,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Text;
+using DebugDrawUtils.DebugDrawItems;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
@@ -64,7 +66,7 @@ public static partial class Log
 	/// <summary>
 	/// Use to adjust the default style of on screen messages.
 	/// </summary>
-	public static readonly GUIStyle MessageStyle = new GUIStyle();
+	public static readonly GUIStyle MessageStyle = new();
 
 	static Log()
 	{
@@ -73,23 +75,23 @@ public static partial class Log
 	}
 
 	/// <summary>
-	/// Chain with <see cref="Text()"/> to display a string on screen with the specific id and optionally duration.
+	/// Chain with <see cref="Text(string)"/> to display a string on screen with the specific id and optionally duration.
 	/// Displaying text with the same id will update the existing text instead of creating a entry.
 	/// </summary>
-	/// <param name="id">The text id. An empty string always creates a new message, in which case <see cref="Log.Text"/> can instead be called directly.</param>
+	/// <param name="id">The text id. An empty string always creates a new message, in which case <see cref="Text(string)"/> can instead be called directly.</param>
 	/// <param name="duration">How long the text will stay on screen before disappearing.
 	///   Will default to <see cref="DebugDraw.defaultDuration"/> if not specified.</param>
-	/// <returns>The displayed message. Chain with the <see cref="LogMessage.Text"/> method to set the message's text.</returns>
-	public static LogMessage Display(string id, float? duration = null)
+	/// <returns>The displayed message. Chain with the <see cref="LogMessage.Text(string)"/> method to set the message's text.</returns>
+	public static LogMessage Display(string id, EndTime duration = default)
 	{
 		return LogMessage.Add(id, duration);
 	}
 
 	/// <summary>
-	/// See <see cref="Display(string,System.Nullable{float})"/>.
+	/// See <see cref="Display(string,DebugDrawUtils.EndTime)"/>.
 	/// Convenience to provide an integer id by automatically converting it to a string.
 	/// </summary>
-	public static LogMessage Display(int id, float? duration = null)
+	public static LogMessage Display(int id, EndTime duration = default)
 	{
 		return LogMessage.Add(id.ToString(), duration);
 	}
@@ -1036,11 +1038,106 @@ public static partial class Log
 	#endregion
 	/* ------------------------------------------------------------------------------------- */
 
+	public static void Reset()
+	{
+		#if DEBUG_DRAW
+		LogMessage.Reset();
+		#endif
+	}
+
 	public static void Clear()
 	{
 		#if DEBUG_DRAW
 		LogMessage.Clear();
 		#endif
+	}
+
+	public static void Clear(string groupName)
+	{
+		#if DEBUG_DRAW
+		LogMessage.Clear(groupName);
+		#endif
+	}
+
+	public static void Clear(Group group)
+	{
+		#if DEBUG_DRAW
+		LogMessage.Clear(group);
+		#endif
+	}
+
+	/// <summary>
+	/// Creates a group with the specified name, and default duration.
+	/// </summary>
+	/// <param name="name"></param>
+	/// <param name="defaultDuration"></param>
+	/// <returns></returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Group CreateGroup(string name, EndTime? defaultDuration = null)
+	{
+		return LogMessage.CreateGroup(name, defaultDuration);
+	}
+
+	/// <summary>
+	/// Use to release a created group when it is no longer needed.
+	/// This will not clear items added to the group.
+	/// </summary>
+	/// <param name="group"></param>
+	public static void ReleaseGroup(Group group)
+	{
+		LogMessage.ReleaseGroup(group);
+	}
+
+	///  <summary>
+	///  Sets the current group all new items after this call are added to. This can be used to group and clear specific groups of items.
+	///  Be sure to call a matching <see cref="EndGroup"/> for each call to <see cref="BeginGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>.<br/>
+	///  An item will only be added to the group specified by the last call to this method, but nested calls to Begin/End are supported.<br/>
+	///  If <see cref="NextGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/> is set, that will take precedence.<br/>
+	///  Groups are cleared at the start of each frame so failing to call <see cref="EndGroup"/> will not cause a memory leak.
+	///  </summary>
+	///  <param name="name">The group name. Empty strings are ignored,
+	/// 		and calling this multiple times in a row with the same name will have no effect.</param>
+	///  <param name="defaultDuration"></param>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Group BeginGroup(string name, EndTime? defaultDuration = null)
+	{
+		return LogMessage.BeginGroup(name, defaultDuration);
+	}
+
+	/// <inheritdoc cref="BeginGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static Group BeginGroup(Group group)
+	{
+		return LogMessage.BeginGroup(group);
+	}
+
+	/// <summary>
+	/// Ends the previous group.
+	/// </summary>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static void EndGroup()
+	{
+		LogMessage.EndGroup();
+	}
+
+	/// <summary>
+	/// If not empty, only the next item add/drawn will be added to this group.<br/>
+	/// Alternatively <see cref="BaseItem.Group"/> can be called to change individual items.<br/>
+	///   e.g. `DebugDraw.Line(...).Group("MyGroupName");`
+	/// </summary>
+	/// <param name="name"></param>
+	/// <param name="defaultDuration"></param>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static void NextGroup(string name, EndTime? defaultDuration = null)
+	{
+		LogMessage.NextGroup(name, defaultDuration);
+	}
+
+	/// <inheritdoc cref="NextGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static void NextGroup(Group group)
+	{
+		LogMessage.NextGroup(group);
 	}
 
 	//

@@ -36,7 +36,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Lines Get(List<Vector3> positions, List<Color> colors, float? duration = null)
+		public static Lines Get(List<Vector3> positions, List<Color> colors, EndTime duration = default)
 		{
 			Lines item = ItemPool<Lines>.Get(duration);
 
