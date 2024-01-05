@@ -83,8 +83,9 @@ public partial class LogMessage : Groupable
 
 		while (message != null)
 		{
+			LogMessage next = message.next;
 			message.Release();
-			message = message.prev;
+			message = next;
 		}
 
 		messages = null;
@@ -178,6 +179,7 @@ public partial class LogMessage : Groupable
 			if (!MessageIds.TryGetValue(id, out message))
 			{
 				message = messagePoolSize > 0 ? messagePool[--messagePoolSize] : new LogMessage();
+				message.id = id;
 				MessageIds.Add(id, message);
 				currentGroup?.Add(message);
 			}
@@ -189,7 +191,7 @@ public partial class LogMessage : Groupable
 		}
 
 		message
-			.Duration(duration ?? DebugDraw.defaultDuration)
+			.Duration(duration)
 			.SetText(text);
 
 		if (message.active)
@@ -360,9 +362,9 @@ public partial class LogMessage : Groupable
 	/// Set the duration for this message.
 	/// </summary>
 	/// <param name="duration">If left to default/null will use <see cref="DebugDraw.defaultDuration"/></param>
-	public LogMessage Duration(EndTime duration = default)
+	public LogMessage Duration(EndTime? duration = null)
 	{
-		expires = DebugDraw.GetTime(duration);
+		expires = DebugDraw.GetTime(duration, Groups);
 		return this;
 	}
 
@@ -387,7 +389,7 @@ public partial class LogMessage : Groupable
 	{
 		if (messagePoolSize == messagePool.Length)
 		{
-			Array.Resize(ref messagePool, messagePool.Length);
+			Array.Resize(ref messagePool, messagePool.Length * 2);
 		}
 
 		active = false;

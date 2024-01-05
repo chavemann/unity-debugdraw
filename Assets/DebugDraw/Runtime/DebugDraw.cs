@@ -811,12 +811,12 @@ public static partial class DebugDraw
 	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	internal static EndTime GetTime(EndTime duration)
+	internal static EndTime GetTime(EndTime? duration, GroupList groups = null)
 	{
-		if (duration.type != Duration.Default)
-			return duration;
+		EndTime time = (duration ?? (groups ?? Groups).GetDefaultDuration()) ?? defaultDuration;
 
-		EndTime time = Groups.GetDefaultDuration() ?? defaultDuration;
+		if (time.type != Duration.Default)
+			return time;
 
 		switch (time.type)
 		{

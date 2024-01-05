@@ -82,16 +82,16 @@ public static partial class Log
 	/// <param name="duration">How long the text will stay on screen before disappearing.
 	///   Will default to <see cref="DebugDraw.defaultDuration"/> if not specified.</param>
 	/// <returns>The displayed message. Chain with the <see cref="LogMessage.Text(string)"/> method to set the message's text.</returns>
-	public static LogMessage Display(string id, EndTime duration = default)
+	public static LogMessage Display(string id, EndTime? duration = null)
 	{
 		return LogMessage.Add(id, duration);
 	}
 
 	/// <summary>
-	/// See <see cref="Display(string,DebugDrawUtils.EndTime)"/>.
+	/// See <see cref="Display(string,System.Nullable{DebugDrawUtils.EndTime})"/>.
 	/// Convenience to provide an integer id by automatically converting it to a string.
 	/// </summary>
-	public static LogMessage Display(int id, EndTime duration = default)
+	public static LogMessage Display(int id, EndTime? duration = null)
 	{
 		return LogMessage.Add(id.ToString(), duration);
 	}

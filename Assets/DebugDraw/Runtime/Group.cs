@@ -64,8 +64,15 @@ public class Group : IDisposable
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal void Remove(Groupable item)
 	{
-		items[item.groupIndex] = items[--itemCount];
-		items[item.groupIndex].groupIndex = item.groupIndex;
+		if (!isActive)
+			return;
+
+		Log.Print("REMOVING", item.groupIndex, items.Length);
+		if (itemCount > 1)
+		{
+			items[item.groupIndex] = items[--itemCount];
+			items[item.groupIndex].groupIndex = item.groupIndex;
+		}
 		item.group = null;
 		item.groupIndex = -1;
 	}

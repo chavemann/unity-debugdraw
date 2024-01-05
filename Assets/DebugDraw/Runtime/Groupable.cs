@@ -19,6 +19,7 @@ public class Groupable
 		if (groupIndex != -1)
 		{
 			group.Remove(this);
+			groupIndex = -1;
 		}
 	}
 
