@@ -67,7 +67,6 @@ public class Group : IDisposable
 		if (!isActive)
 			return;
 
-		Log.Print("REMOVING", item.groupIndex, items.Length);
 		if (itemCount > 1)
 		{
 			items[item.groupIndex] = items[--itemCount];

@@ -263,7 +263,6 @@ public static partial class DebugDraw
 		EditorSceneManager.sceneOpening += OnEditorSceneOpening;
 		#endif
 
-		Groups.Reset();
 		Clear();
 		Initialize(true);
 	}
@@ -604,6 +603,7 @@ public static partial class DebugDraw
 
 		attachmentCount = 0;
 
+		Groups.Reset();
 		Log.Reset();
 	}
 
@@ -633,7 +633,7 @@ public static partial class DebugDraw
 		for (int i = group.itemCount - 1; i >= 0; i--)
 		{
 			BaseItem item = (BaseItem) group.items[i];
-			item.mesh.Remove(item);
+			item.mesh?.Remove(item);
 		}
 
 		group.Clear();
