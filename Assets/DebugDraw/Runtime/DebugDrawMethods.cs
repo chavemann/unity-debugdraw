@@ -30,7 +30,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static void Ray(Vector3 origin, Vector3 direction, float maxDistance, RaycastHit hitResult, float normalSize = 0, float arrowSize = 0, EndTime duration = default)
+	public static void Ray(Vector3 origin, Vector3 direction, float maxDistance, RaycastHit hitResult, float normalSize = 0, float arrowSize = 0, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		bool hit = hitResult.collider;
@@ -79,7 +79,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, ArrowShape startShape = ArrowShape.Arrow, ArrowShape endShape = ArrowShape.Arrow, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, ArrowShape startShape = ArrowShape.Arrow, ArrowShape endShape = ArrowShape.Arrow, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, startShape, endShape, faceCamera, autoSize, duration));
@@ -102,7 +102,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, faceCamera, autoSize, duration));
@@ -124,7 +124,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float size, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float size, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, size, faceCamera, autoSize, duration));
@@ -146,7 +146,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, startSize, endSize, faceCamera, autoSize, duration));
@@ -167,7 +167,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float size, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float size, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, size, faceCamera, autoSize, duration));
@@ -186,7 +186,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Axes object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Axes Axes(Vector3 position, Quaternion rotation, Vector3 size, bool doubleSided = false, EndTime duration = default)
+	public static Axes Axes(Vector3 position, Quaternion rotation, Vector3 size, bool doubleSided = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Axes.Get(ref position, ref rotation, ref size, doubleSided, duration));
@@ -205,7 +205,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Axes object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Axes Axes(Vector3 position, Quaternion rotation, float size, bool doubleSided = false, EndTime duration = default)
+	public static Axes Axes(Vector3 position, Quaternion rotation, float size, bool doubleSided = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Axes.Get(ref position, ref rotation, size, doubleSided, duration));
@@ -223,7 +223,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Box object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Box Box(Vector3 position, float size, Color color, EndTime duration = default)
+	public static Box Box(Vector3 position, float size, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Box.Get(ref position, size, ref color, duration));
@@ -242,7 +242,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Box object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Box Box(Vector3 position, float size, Quaternion orientation, Color color, EndTime duration = default)
+	public static Box Box(Vector3 position, float size, Quaternion orientation, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Box.Get(ref position, size, ref orientation, ref color, duration));
@@ -260,7 +260,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Box object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Box Box(Vector3 position, Vector3 size, Color color, EndTime duration = default)
+	public static Box Box(Vector3 position, Vector3 size, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Box.Get(ref position, ref size, ref color, duration));
@@ -279,7 +279,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Box object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Box Box(Vector3 position, Vector3 size, Quaternion orientation, Color color, EndTime duration = default)
+	public static Box Box(Vector3 position, Vector3 size, Quaternion orientation, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Box.Get(ref position, ref size, ref orientation, ref color, duration));
@@ -299,7 +299,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Capsule object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Capsule Capsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, EndTime duration = default)
+	public static Capsule Capsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Capsule.Get(ref p1, ref p2, radius, ref color, segments, duration));
@@ -319,7 +319,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Capsule object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Capsule WireCapsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, EndTime duration = default)
+	public static Capsule WireCapsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Capsule.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
@@ -344,7 +344,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cone Cone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, EndTime duration = default)
+	public static Cone Cone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cone.Get(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
@@ -369,7 +369,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cone WireCone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, EndTime duration = default)
+	public static Cone WireCone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cone.GetWire(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
@@ -390,7 +390,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration));
@@ -412,7 +412,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
@@ -433,7 +433,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration));
@@ -455,7 +455,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public static Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, drawEndAxes, duration));
@@ -476,7 +476,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
@@ -498,7 +498,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
@@ -519,7 +519,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
@@ -541,7 +541,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public static Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
@@ -561,7 +561,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Dot Dot(Vector3 position, float radius, Color color, int segments = 0, EndTime duration = default)
+	public static Dot Dot(Vector3 position, float radius, Color color, int segments = 0, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, segments, duration));
@@ -582,7 +582,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Dot Dot(Vector3 position, float radius, Color color, Vector3 facing, int segments = 0, EndTime duration = default)
+	public static Dot Dot(Vector3 position, float radius, Color color, Vector3 facing, int segments = 0, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, ref facing, segments, duration));
@@ -601,7 +601,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, int segments = 0, EndTime duration = default)
+	public static Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, int segments = 0, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Dots.Get(positions, sizes, colors, segments, duration));
@@ -621,7 +621,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dots object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3 facing, int segments = 0, EndTime duration = default)
+	public static Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3 facing, int segments = 0, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Dots.Get(positions, sizes, colors, ref facing, segments, duration));
@@ -642,7 +642,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse Ellipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime duration = default)
+	public static Ellipse Ellipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Ellipse.Get(ref position, radius, ref facing, ref color, segments, drawAxes, duration));
@@ -662,7 +662,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse FillEllipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, EndTime duration = default)
+	public static Ellipse FillEllipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFill(ref position, radius, ref facing, ref color, segments, duration));
@@ -686,7 +686,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse Arc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime duration = default)
+	public static Ellipse Arc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Ellipse.GetArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
@@ -708,7 +708,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse FillArc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, EndTime duration = default)
+	public static Ellipse FillArc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFillArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, duration));
@@ -729,7 +729,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse Ellipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime duration = default)
+	public static Ellipse Ellipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, drawAxes, duration));
@@ -749,7 +749,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse FillEllipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, EndTime duration = default)
+	public static Ellipse FillEllipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFill(ref position, ref size, ref facing, ref color, segments, duration));
@@ -773,7 +773,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse Arc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime duration = default)
+	public static Ellipse Arc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Ellipse.GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
@@ -795,7 +795,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Ellipse FillArc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, EndTime duration = default)
+	public static Ellipse FillArc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Ellipse.GetFillArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration));
@@ -814,7 +814,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Line Line(Vector3 p1, Vector3 p2, Color color1, Color color2, EndTime duration = default)
+	public static Line Line(Vector3 p1, Vector3 p2, Color color1, Color color2, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color1, ref color2, duration));
@@ -832,7 +832,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Line Line(Vector3 p1, Vector3 p2, Color color, EndTime duration = default)
+	public static Line Line(Vector3 p1, Vector3 p2, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color, ref color, duration));
@@ -852,7 +852,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color1, Color color2, EndTime duration = default)
+	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color1, Color color2, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color1, ref color2, duration));
@@ -871,7 +871,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Line3D object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color, EndTime duration = default)
+	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color, ref color, duration));
@@ -892,7 +892,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color1, Color color2, EndTime duration = default)
+	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color1, Color color2, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color1, ref color2, duration));
@@ -912,7 +912,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Line3D object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color, EndTime duration = default)
+	public static Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color, ref color, duration));
@@ -930,7 +930,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Lines Lines(List<Vector3> positions, List<Color> colors, EndTime duration = default)
+	public static Lines Lines(List<Vector3> positions, List<Color> colors, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Lines.Get(positions, colors, duration));
@@ -948,7 +948,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, EndTime duration = default)
+	public static Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Lines3D.Get(positions, sizes, colors, duration));
@@ -968,7 +968,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3? facing, EndTime duration = default)
+	public static Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3? facing, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Lines3D.Get(positions, sizes, colors, facing, duration));
@@ -986,7 +986,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static MeshItem Mesh(List<Vector3> vertices, List<Color> colors, List<int> indices, EndTime duration = default)
+	public static MeshItem Mesh(List<Vector3> vertices, List<Color> colors, List<int> indices, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.MeshItem.Get(vertices, colors, indices, duration));
@@ -1004,7 +1004,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static MeshItem Mesh(List<Vector3> vertices, List<int> indices, Color color, EndTime duration = default)
+	public static MeshItem Mesh(List<Vector3> vertices, List<int> indices, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.MeshItem.Get(vertices, indices, ref color, duration));
@@ -1022,7 +1022,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static MeshItem Mesh(Mesh mesh, Color? color, EndTime duration = default)
+	public static MeshItem Mesh(Mesh mesh, Color? color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.MeshItem.Get(mesh, color, duration));
@@ -1039,7 +1039,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Point Point(Vector3 position, Color color, EndTime duration = default)
+	public static Point Point(Vector3 position, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return pointMeshInstance.Add(DebugDrawItems.Point.Get(ref position, ref color, duration));
@@ -1057,7 +1057,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Points Points(List<Vector3> positions, List<Color> colors, EndTime duration = default)
+	public static Points Points(List<Vector3> positions, List<Color> colors, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return pointMeshInstance.Add(DebugDrawItems.Points.Get(positions, colors, duration));
@@ -1077,7 +1077,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, EndTime duration = default)
+	public static Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color, duration));
@@ -1100,7 +1100,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, EndTime duration = default)
+	public static Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
@@ -1120,7 +1120,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, EndTime duration = default)
+	public static Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color, duration));
@@ -1143,7 +1143,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, EndTime duration = default)
+	public static Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
@@ -1162,7 +1162,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Rectangle FillRectangle(Vector3 position, float size, Vector3 facing, Color color, EndTime duration = default)
+	public static Rectangle FillRectangle(Vector3 position, float size, Vector3 facing, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.GetFill(ref position, size, ref facing, ref color, duration));
@@ -1181,7 +1181,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Rectangle Rectangle(Vector3 position, float size, Vector3 facing, Color color, EndTime duration = default)
+	public static Rectangle Rectangle(Vector3 position, float size, Vector3 facing, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration));
@@ -1200,7 +1200,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Rectangle FillRectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, EndTime duration = default)
+	public static Rectangle FillRectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Rectangle.GetFill(ref position, ref size, ref facing, ref color, duration));
@@ -1219,7 +1219,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Rectangle Rectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, EndTime duration = default)
+	public static Rectangle Rectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration));
@@ -1238,7 +1238,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Sphere Sphere(Vector3 position, float radius, Color color, int segments = 32, EndTime duration = default)
+	public static Sphere Sphere(Vector3 position, float radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.Get(ref position, radius, ref color, segments, duration));
@@ -1257,7 +1257,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Sphere Sphere(Vector3 position, Vector3 radius, Color color, int segments = 32, EndTime duration = default)
+	public static Sphere Sphere(Vector3 position, Vector3 radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref color, segments, duration));
@@ -1277,7 +1277,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Sphere Sphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, EndTime duration = default)
+	public static Sphere Sphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration));
@@ -1296,7 +1296,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Sphere WireSphere(Vector3 position, float radius, Color color, int segments = 32, EndTime duration = default)
+	public static Sphere WireSphere(Vector3 position, float radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetWire(ref position, radius, ref color, segments, duration));
@@ -1315,7 +1315,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Sphere WireSphere(Vector3 position, Vector3 radius, Color color, int segments = 32, EndTime duration = default)
+	public static Sphere WireSphere(Vector3 position, Vector3 radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref color, segments, duration));
@@ -1335,7 +1335,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Sphere WireSphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, EndTime duration = default)
+	public static Sphere WireSphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref orientation, ref color, segments, duration));
@@ -1355,7 +1355,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Text object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Text Text(Vector3 position, string text, Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, EndTime duration = default)
+	public static Text Text(Vector3 position, string text, Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return textMeshInstance.Add(DebugDrawItems.Text.Get(ref position, text, ref color, align, scale, duration));
@@ -1374,7 +1374,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Text object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Text Text(Vector3 position, string text, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, EndTime duration = default)
+	public static Text Text(Vector3 position, string text, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return textMeshInstance.Add(DebugDrawItems.Text.Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration));
@@ -1393,7 +1393,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, EndTime duration = default)
+	public static Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color, duration));
@@ -1414,7 +1414,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, EndTime duration = default)
+	public static Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
@@ -1433,7 +1433,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, EndTime duration = default)
+	public static Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color, duration));
@@ -1454,7 +1454,7 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, EndTime duration = default)
+	public static Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return triangleMeshInstance.Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
@@ -1491,7 +1491,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, ArrowShape startShape = ArrowShape.Arrow, ArrowShape endShape = ArrowShape.Arrow, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, ArrowShape startShape = ArrowShape.Arrow, ArrowShape endShape = ArrowShape.Arrow, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, startShape, endShape, faceCamera, autoSize, duration));
 	}
@@ -1510,7 +1510,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, faceCamera, autoSize, duration));
 	}
@@ -1528,7 +1528,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float size, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float size, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, size, faceCamera, autoSize, duration));
 	}
@@ -1546,7 +1546,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, startSize, endSize, faceCamera, autoSize, duration));
 	}
@@ -1563,7 +1563,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float size, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+	public Arrow Arrow(Vector3 p1, Vector3 p2, Color color, float size, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, size, faceCamera, autoSize, duration));
 	}
@@ -1578,7 +1578,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Axes object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Axes Axes(Vector3 position, Quaternion rotation, Vector3 size, bool doubleSided = false, EndTime duration = default)
+	public Axes Axes(Vector3 position, Quaternion rotation, Vector3 size, bool doubleSided = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Axes.Get(ref position, ref rotation, ref size, doubleSided, duration));
 	}
@@ -1593,7 +1593,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Axes object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Axes Axes(Vector3 position, Quaternion rotation, float size, bool doubleSided = false, EndTime duration = default)
+	public Axes Axes(Vector3 position, Quaternion rotation, float size, bool doubleSided = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Axes.Get(ref position, ref rotation, size, doubleSided, duration));
 	}
@@ -1607,7 +1607,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Box object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Box Box(Vector3 position, float size, Color color, EndTime duration = default)
+	public Box Box(Vector3 position, float size, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Box.Get(ref position, size, ref color, duration));
 	}
@@ -1622,7 +1622,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Box object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Box Box(Vector3 position, float size, Quaternion orientation, Color color, EndTime duration = default)
+	public Box Box(Vector3 position, float size, Quaternion orientation, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Box.Get(ref position, size, ref orientation, ref color, duration));
 	}
@@ -1636,7 +1636,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Box object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Box Box(Vector3 position, Vector3 size, Color color, EndTime duration = default)
+	public Box Box(Vector3 position, Vector3 size, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Box.Get(ref position, ref size, ref color, duration));
 	}
@@ -1651,7 +1651,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Box object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Box Box(Vector3 position, Vector3 size, Quaternion orientation, Color color, EndTime duration = default)
+	public Box Box(Vector3 position, Vector3 size, Quaternion orientation, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Box.Get(ref position, ref size, ref orientation, ref color, duration));
 	}
@@ -1667,7 +1667,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Capsule object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Capsule Capsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, EndTime duration = default)
+	public Capsule Capsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Capsule.Get(ref p1, ref p2, radius, ref color, segments, duration));
 	}
@@ -1683,7 +1683,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Capsule object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Capsule WireCapsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, EndTime duration = default)
+	public Capsule WireCapsule(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Capsule.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
 	}
@@ -1704,7 +1704,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cone Cone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, EndTime duration = default)
+	public Cone Cone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Cone.Get(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
 	}
@@ -1725,7 +1725,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cone WireCone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, EndTime duration = default)
+	public Cone WireCone(Vector3 origin, Vector3 direction, float length, float angle, Color color, int segments = 32, bool round = false, bool drawCap = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Cone.GetWire(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
 	}
@@ -1742,7 +1742,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration));
 	}
@@ -1760,7 +1760,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
@@ -1777,7 +1777,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration));
 	}
@@ -1795,7 +1795,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public Cylinder Cylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, drawEndAxes, duration));
 	}
@@ -1812,7 +1812,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
 	}
@@ -1830,7 +1830,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, float radius1, float radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
@@ -1847,7 +1847,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
 	}
@@ -1865,7 +1865,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Cylinder object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+	public Cylinder WireCylinder(Vector3 p1, Vector3 p2, Vector2 radius1, Vector2 radius2, Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
@@ -1881,7 +1881,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Dot Dot(Vector3 position, float radius, Color color, int segments = 0, EndTime duration = default)
+	public Dot Dot(Vector3 position, float radius, Color color, int segments = 0, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, segments, duration));
 	}
@@ -1898,7 +1898,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Dot Dot(Vector3 position, float radius, Color color, Vector3 facing, int segments = 0, EndTime duration = default)
+	public Dot Dot(Vector3 position, float radius, Color color, Vector3 facing, int segments = 0, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, ref facing, segments, duration));
 	}
@@ -1913,7 +1913,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dot object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, int segments = 0, EndTime duration = default)
+	public Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, int segments = 0, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Dots.Get(positions, sizes, colors, segments, duration));
 	}
@@ -1929,7 +1929,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Dots object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3 facing, int segments = 0, EndTime duration = default)
+	public Dots Dots(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3 facing, int segments = 0, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Dots.Get(positions, sizes, colors, ref facing, segments, duration));
 	}
@@ -1946,7 +1946,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse Ellipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime duration = default)
+	public Ellipse Ellipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Ellipse.Get(ref position, radius, ref facing, ref color, segments, drawAxes, duration));
 	}
@@ -1962,7 +1962,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse FillEllipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, EndTime duration = default)
+	public Ellipse FillEllipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Ellipse.GetFill(ref position, radius, ref facing, ref color, segments, duration));
 	}
@@ -1982,7 +1982,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse Arc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime duration = default)
+	public Ellipse Arc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Ellipse.GetArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
 	}
@@ -2000,7 +2000,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse FillArc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, EndTime duration = default)
+	public Ellipse FillArc(Vector3 position, float radius, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Ellipse.GetFillArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, duration));
 	}
@@ -2017,7 +2017,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse Ellipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime duration = default)
+	public Ellipse Ellipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, drawAxes, duration));
 	}
@@ -2033,7 +2033,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse FillEllipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, EndTime duration = default)
+	public Ellipse FillEllipse(Vector3 position, Vector2 size, Vector3 facing, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Ellipse.GetFill(ref position, ref size, ref facing, ref color, segments, duration));
 	}
@@ -2053,7 +2053,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse Arc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime duration = default)
+	public Ellipse Arc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Ellipse.GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
 	}
@@ -2071,7 +2071,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse FillArc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, EndTime duration = default)
+	public Ellipse FillArc(Vector3 position, Vector2 size, Vector3 facing, float startAngle, float endAngle, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Ellipse.GetFillArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration));
 	}
@@ -2086,7 +2086,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Line Line(Vector3 p1, Vector3 p2, Color color1, Color color2, EndTime duration = default)
+	public Line Line(Vector3 p1, Vector3 p2, Color color1, Color color2, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color1, ref color2, duration));
 	}
@@ -2100,7 +2100,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Line Line(Vector3 p1, Vector3 p2, Color color, EndTime duration = default)
+	public Line Line(Vector3 p1, Vector3 p2, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color, ref color, duration));
 	}
@@ -2116,7 +2116,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color1, Color color2, EndTime duration = default)
+	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color1, Color color2, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color1, ref color2, duration));
 	}
@@ -2131,7 +2131,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Line3D object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color, EndTime duration = default)
+	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color, ref color, duration));
 	}
@@ -2148,7 +2148,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color1, Color color2, EndTime duration = default)
+	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color1, Color color2, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color1, ref color2, duration));
 	}
@@ -2164,7 +2164,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Line3D object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color, EndTime duration = default)
+	public Line3D Line3D(Vector3 p1, Vector3 p2, float size, Vector3 facing, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color, ref color, duration));
 	}
@@ -2178,7 +2178,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Lines Lines(List<Vector3> positions, List<Color> colors, EndTime duration = default)
+	public Lines Lines(List<Vector3> positions, List<Color> colors, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Lines.Get(positions, colors, duration));
 	}
@@ -2192,7 +2192,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, EndTime duration = default)
+	public Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Lines3D.Get(positions, sizes, colors, duration));
 	}
@@ -2208,7 +2208,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3? facing, EndTime duration = default)
+	public Lines3D Lines3D(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3? facing, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Lines3D.Get(positions, sizes, colors, facing, duration));
 	}
@@ -2222,7 +2222,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public MeshItem Mesh(List<Vector3> vertices, List<Color> colors, List<int> indices, EndTime duration = default)
+	public MeshItem Mesh(List<Vector3> vertices, List<Color> colors, List<int> indices, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.MeshItem.Get(vertices, colors, indices, duration));
 	}
@@ -2236,7 +2236,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public MeshItem Mesh(List<Vector3> vertices, List<int> indices, Color color, EndTime duration = default)
+	public MeshItem Mesh(List<Vector3> vertices, List<int> indices, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.MeshItem.Get(vertices, indices, ref color, duration));
 	}
@@ -2250,7 +2250,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public MeshItem Mesh(Mesh mesh, Color? color, EndTime duration = default)
+	public MeshItem Mesh(Mesh mesh, Color? color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.MeshItem.Get(mesh, color, duration));
 	}
@@ -2263,7 +2263,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Point Point(Vector3 position, Color color, EndTime duration = default)
+	public Point Point(Vector3 position, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Point.Get(ref position, ref color, duration));
 	}
@@ -2277,7 +2277,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Line object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Points Points(List<Vector3> positions, List<Color> colors, EndTime duration = default)
+	public Points Points(List<Vector3> positions, List<Color> colors, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Points.Get(positions, colors, duration));
 	}
@@ -2293,7 +2293,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, EndTime duration = default)
+	public Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color, duration));
 	}
@@ -2312,7 +2312,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, EndTime duration = default)
+	public Quad Quad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
 	}
@@ -2328,7 +2328,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, EndTime duration = default)
+	public Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color, duration));
 	}
@@ -2347,7 +2347,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, EndTime duration = default)
+	public Quad FillQuad(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, Color color1, Color color2, Color color3, Color color4, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
 	}
@@ -2362,7 +2362,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Rectangle FillRectangle(Vector3 position, float size, Vector3 facing, Color color, EndTime duration = default)
+	public Rectangle FillRectangle(Vector3 position, float size, Vector3 facing, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Rectangle.GetFill(ref position, size, ref facing, ref color, duration));
 	}
@@ -2377,7 +2377,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Rectangle Rectangle(Vector3 position, float size, Vector3 facing, Color color, EndTime duration = default)
+	public Rectangle Rectangle(Vector3 position, float size, Vector3 facing, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration));
 	}
@@ -2392,7 +2392,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Rectangle FillRectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, EndTime duration = default)
+	public Rectangle FillRectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Rectangle.GetFill(ref position, ref size, ref facing, ref color, duration));
 	}
@@ -2407,7 +2407,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Rectangle Rectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, EndTime duration = default)
+	public Rectangle Rectangle(Vector3 position, Vector2 size, Vector3 facing, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration));
 	}
@@ -2422,7 +2422,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Sphere Sphere(Vector3 position, float radius, Color color, int segments = 32, EndTime duration = default)
+	public Sphere Sphere(Vector3 position, float radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Sphere.Get(ref position, radius, ref color, segments, duration));
 	}
@@ -2437,7 +2437,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Sphere Sphere(Vector3 position, Vector3 radius, Color color, int segments = 32, EndTime duration = default)
+	public Sphere Sphere(Vector3 position, Vector3 radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref color, segments, duration));
 	}
@@ -2453,7 +2453,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Sphere Sphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, EndTime duration = default)
+	public Sphere Sphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration));
 	}
@@ -2468,7 +2468,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Sphere WireSphere(Vector3 position, float radius, Color color, int segments = 32, EndTime duration = default)
+	public Sphere WireSphere(Vector3 position, float radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Sphere.GetWire(ref position, radius, ref color, segments, duration));
 	}
@@ -2483,7 +2483,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Sphere WireSphere(Vector3 position, Vector3 radius, Color color, int segments = 32, EndTime duration = default)
+	public Sphere WireSphere(Vector3 position, Vector3 radius, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref color, segments, duration));
 	}
@@ -2499,7 +2499,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Sphere object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Sphere WireSphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, EndTime duration = default)
+	public Sphere WireSphere(Vector3 position, Vector3 radius, Quaternion orientation, Color color, int segments = 32, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref orientation, ref color, segments, duration));
 	}
@@ -2515,7 +2515,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Text object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Text Text(Vector3 position, string text, Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, EndTime duration = default)
+	public Text Text(Vector3 position, string text, Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Text.Get(ref position, text, ref color, align, scale, duration));
 	}
@@ -2530,7 +2530,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 	/// <returns>The Text object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Text Text(Vector3 position, string text, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, EndTime duration = default)
+	public Text Text(Vector3 position, string text, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Text.Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration));
 	}
@@ -2545,7 +2545,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, EndTime duration = default)
+	public Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color, duration));
 	}
@@ -2562,7 +2562,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, EndTime duration = default)
+	public Triangle Triangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
 	}
@@ -2577,7 +2577,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, EndTime duration = default)
+	public Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color, duration));
 	}
@@ -2594,7 +2594,7 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, EndTime duration = default)
+	public Triangle FillTriangle(Vector3 p1, Vector3 p2, Vector3 p3, Color color1, Color color2, Color color3, EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
 	}

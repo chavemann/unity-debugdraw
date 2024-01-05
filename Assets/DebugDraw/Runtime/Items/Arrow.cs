@@ -60,7 +60,7 @@ namespace DebugDrawUtils.DebugDrawItems
 			ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2,
 			float startSize, float endSize,
 			ArrowShape startShape = ArrowShape.Arrow, ArrowShape endShape = ArrowShape.Arrow,
-			bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+			bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 		{
 			Arrow item = ItemPool<Arrow>.Get(duration);
 
@@ -98,7 +98,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Arrow Get(
 			ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2,
-			float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+			float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 		{
 			return Get(
 				ref p1, ref p2, ref color1, ref color2, startSize, endSize,
@@ -120,7 +120,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Arrow object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Arrow Get(ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2, float size, bool faceCamera = false,bool autoSize = false, EndTime duration = default)
+		public static Arrow Get(ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2, float size, bool faceCamera = false,bool autoSize = false, EndTime? duration = null)
 		{
 			return Get(
 				ref p1, ref p2, ref color1, ref color2, size, size,
@@ -142,7 +142,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Arrow Get(
 			ref Vector3 p1, ref Vector3 p2, ref Color color,
-			float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime duration = default)
+			float startSize, float endSize, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 		{
 			return Get(
 				ref p1, ref p2, ref color, ref color, startSize, endSize,
@@ -163,7 +163,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Arrow object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Arrow Get(ref Vector3 p1, ref Vector3 p2, ref Color color, float size, bool faceCamera = false,bool autoSize = false, EndTime duration = default)
+		public static Arrow Get(ref Vector3 p1, ref Vector3 p2, ref Color color, float size, bool faceCamera = false,bool autoSize = false, EndTime? duration = null)
 		{
 			return Get(
 				ref p1, ref p2, ref color, ref color, size, size,

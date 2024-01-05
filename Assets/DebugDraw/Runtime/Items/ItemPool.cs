@@ -19,7 +19,7 @@ namespace DebugDrawUtils.DebugDrawItems
 			}
 		}
 
-		public static T Get(EndTime duration)
+		public static T Get(EndTime? duration)
 		{
 			T item = poolIndex > 0 ? Pool[--poolIndex] : new T();
 			item.expires = DebugDraw.GetTime(duration);

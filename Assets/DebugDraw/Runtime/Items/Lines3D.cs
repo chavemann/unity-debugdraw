@@ -50,7 +50,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Lines3D Get(List<Vector3> positions, List<float> sizes, List<Color> colors, EndTime duration = default)
+		public static Lines3D Get(List<Vector3> positions, List<float> sizes, List<Color> colors, EndTime? duration = null)
 		{
 			Lines3D item = ItemPool<Lines3D>.Get(duration);
 
@@ -74,7 +74,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Lines3D Get(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3? facing, EndTime duration = default)
+		public static Lines3D Get(List<Vector3> positions, List<float> sizes, List<Color> colors, Vector3? facing, EndTime? duration = null)
 		{
 			Lines3D item = ItemPool<Lines3D>.Get(duration);
 

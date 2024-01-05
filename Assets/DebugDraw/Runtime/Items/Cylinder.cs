@@ -56,7 +56,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 		{
 			return Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration);
 		}
@@ -74,7 +74,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 		{
 			Cylinder item = ItemPool<Cylinder>.Get(duration);
 
@@ -105,7 +105,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 		{
 			return Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration);
 		}
@@ -123,7 +123,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius1, ref Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius1, ref Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 		{
 			Cylinder item = ItemPool<Cylinder>.Get(duration);
 
@@ -154,7 +154,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 		{
 			Cylinder item = Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;
@@ -175,7 +175,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 		{
 			Cylinder item = Get(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;
@@ -195,7 +195,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 		{
 			Cylinder item = Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;
@@ -216,7 +216,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius1, Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime duration = default)
+		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius1, Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 		{
 			Cylinder item = Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;

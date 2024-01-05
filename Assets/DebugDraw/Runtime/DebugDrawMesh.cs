@@ -270,12 +270,12 @@ public partial class DebugDrawMesh
 			if (!item.expires.Expired(time))
 				continue;
 
-			RemoveItem(item, i);
+			RemoveItem(item);
 		}
 	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	private void RemoveItem(BaseItem item, int i)
+	private void RemoveItem(BaseItem item)
 	{
 		items[item.index] = items[--itemCount];
 		items[item.index].index = item.index;

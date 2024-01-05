@@ -26,7 +26,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Line Get(ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2, EndTime duration = default)
+		public static Line Get(ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2, EndTime? duration = null)
 		{
 			Line item = ItemPool<Line>.Get(duration);
 
@@ -47,7 +47,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist.</param>
 		/// <returns>The Line object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Line Get(ref Vector3 p1, ref Vector3 p2, ref Color color, EndTime duration = default)
+		public static Line Get(ref Vector3 p1, ref Vector3 p2, ref Color color, EndTime? duration = null)
 		{
 			return Get(ref p1, ref p2, ref color, ref color, duration);
 		}
