@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 namespace DebugDrawUtils
 {
 
-public class Group : IDisposable
+public class Group
 {
 
 	public string name { get; internal set; }
@@ -74,14 +74,6 @@ public class Group : IDisposable
 		}
 		item.group = null;
 		item.groupIndex = -1;
-	}
-
-	public void Dispose()
-	{
-		if (!isCurrent)
-			return;
-
-		isCurrent = false;
 	}
 
 }
