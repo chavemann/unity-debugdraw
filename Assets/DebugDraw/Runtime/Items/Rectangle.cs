@@ -137,7 +137,6 @@ namespace DebugDrawUtils.DebugDrawItems
 				up = stateTransform.MultiplyVector(up);
 			}
 
-
 			mesh.AddVertex(
 				position.x + right.x * -size.x + up.x * -size.y,
 				position.y + right.y * -size.x + up.y * -size.y,

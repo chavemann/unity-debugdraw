@@ -99,6 +99,7 @@ internal class GroupList
 			return group;
 
 		group.isCurrent = true;
+		group.groupList = this;
 		currentGroup = group;
 
 		if (groupStackIndex == groupStack.Length)
@@ -126,6 +127,7 @@ internal class GroupList
 			return;
 
 		currentGroup.isCurrent = false;
+		currentGroup.groupList = null;
 		currentGroup = groupStack[--groupStackIndex];
 	}
 

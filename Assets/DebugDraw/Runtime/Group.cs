@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 namespace DebugDrawUtils
 {
 
-public class Group
+public class Group : IDisposable
 {
 
 	public string name { get; internal set; }
@@ -12,6 +12,8 @@ public class Group
 
 	internal Groupable[] items = new Groupable[4];
 	public int itemCount;
+
+	internal GroupList groupList;
 
 	/// <summary>
 	/// False when this group has been released.
@@ -74,6 +76,15 @@ public class Group
 		}
 		item.group = null;
 		item.groupIndex = -1;
+	}
+
+	public void Dispose()
+	{
+		if (!isCurrent)
+			return;
+
+		Log.Print("Group.Dispose");
+		groupList.Pop();
 	}
 
 }
