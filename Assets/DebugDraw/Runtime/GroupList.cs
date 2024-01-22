@@ -123,7 +123,7 @@ internal class GroupList
 
 	public void Pop()
 	{
-		if (currentGroup == null)
+		if (currentGroup == null || groupStackIndex <= 0)
 			return;
 
 		currentGroup.isCurrent = false;
