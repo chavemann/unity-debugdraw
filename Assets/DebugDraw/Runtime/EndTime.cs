@@ -12,8 +12,8 @@ public struct EndTime
 
 	public EndTime(float time)
 	{
-		type = Duration.Time;
-		this.time = DebugDraw.frameTime + time;
+		type = time >= 0 ? Duration.Time : Duration.Infinite;
+		this.time = time >= 0 ? DebugDraw.frameTime + time : 0;
 	}
 
 	public EndTime(Duration type)
