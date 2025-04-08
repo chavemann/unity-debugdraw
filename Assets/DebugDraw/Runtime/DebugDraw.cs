@@ -526,19 +526,22 @@ public static partial class DebugDraw
 		if (hasCamera == CameraInitState.Null)
 			return;
 
-		camPosition = camTransform.position;
-		camForward = camTransform.forward;
-		camRight = camTransform.right;
-		camUp = camTransform.up;
-		camFOV = cam.fieldOfView;
-		camOrthographic = cam.orthographic;
-		camOrthoSize = cam.orthographicSize * 2;
-		camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
+		if (camTransform)
+		{
+			camPosition = camTransform.position;
+			camForward = camTransform.forward;
+			camRight = camTransform.right;
+			camUp = camTransform.up;
+			camFOV = cam.fieldOfView;
+			camOrthographic = cam.orthographic;
+			camOrthoSize = cam.orthographicSize * 2;
+			camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
+		}
 	}
 
 	/// <summary>
 	/// DebugDraw caches a reference to Camera.main - call this to update that reference.
-	/// Though this happens automatically when when changing scenes etc.
+	/// Though this happens automatically when changing scenes etc.
 	/// </summary>
 	/// <param name="newCam">Leave as null to use Camera.main</param>
 	public static void InitCamera(Camera newCam = null)

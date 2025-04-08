@@ -41,7 +41,10 @@ public class DebugDrawTextMesh : DebugDrawMesh
 			{
 				p = globalRotation * p;
 			}
-			p = DebugDraw.cam.WorldToViewportPoint(globalOrigin + p);
+			if (DebugDraw.cam)
+			{
+				p = DebugDraw.cam.WorldToViewportPoint(globalOrigin + p);
+			}
 
 			// This text is behind the camera
 			if (p.z < 0.25f)
