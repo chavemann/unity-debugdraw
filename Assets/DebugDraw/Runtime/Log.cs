@@ -47,12 +47,12 @@ public static partial class Log
 	public static int maxArrayItems = 100;
 
 	/// <summary>
-	/// The max number of on screen messages in the queue - once the queue fills up old messages will be removed.
+	/// The max number of on-screen messages in the queue - once the queue fills up old messages will be removed.
 	/// </summary>
 	public static int maxMessages = 100;
 
 	/// <summary>
-	/// Adds a subtle drop shadow to on screen messages to make them easier to read.
+	/// Adds a subtle drop shadow to on-screen messages to make them easier to read.
 	/// Set to null to disable.
 	/// </summary>
 	public static Color? messageShadowColor = new Color(0, 0, 0, 0.5f);
@@ -64,7 +64,7 @@ public static partial class Log
 	public static Color? nextMessageColor;
 
 	/// <summary>
-	/// Use to adjust the default style of on screen messages.
+	/// Use to adjust the default style of on-screen messages.
 	/// </summary>
 	public static readonly GUIStyle MessageStyle = new();
 
@@ -75,8 +75,8 @@ public static partial class Log
 	}
 
 	/// <summary>
-	/// Chain with <see cref="Text(string)"/> to display a string on screen with the specific id and optionally duration.
-	/// Displaying text with the same id will update the existing text instead of creating a entry.
+	/// Chain with <see cref="LogMessage.Text(string)"/> to display a string on screen with the specific id and optionally duration.
+	/// Displaying text with the same id will update the existing text instead of creating a new entry.
 	/// </summary>
 	/// <param name="id">The text id. An empty string always creates a new message, in which case <see cref="Text(string)"/> can instead be called directly.</param>
 	/// <param name="duration">How long the text will stay on screen before disappearing.
