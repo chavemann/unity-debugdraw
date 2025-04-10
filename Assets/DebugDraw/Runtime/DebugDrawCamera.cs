@@ -64,7 +64,7 @@ namespace DebugDrawUtils
 		/// </summary>
 		public static float slowMultiplier = 0.5f;
 		/// <summary>
-		/// A speed multiplier that can be adjust with ctrl + mouse wheel.
+		/// A speed multiplier that can be adjusted with ctrl + mouse wheel.
 		/// 0 = x 1, -1 = x minSpeedMultiple, 1 = x maxSpeedMultiple.
 		/// </summary>
 		public static float currentSpeedPercent = 0;
@@ -82,13 +82,13 @@ namespace DebugDrawUtils
 		public static float drag = 15f;
 
 		/// <summary>
-		/// If larger than zero, draws cross hairs in the centre of the screen.
+		/// If larger than zero, draws cross-hairs in the centre of the screen.
 		/// </summary>
 		public static float crossHairSize;
 		/// <summary>
-		/// The color of the cross hairs.
+		/// The color of the cross-hairs.
 		/// </summary>
-		public static Color crossHairColor = new Color(0.75f, 0.75f, 0.75f, 1);
+		public static Color crossHairColor = new(0.75f, 0.75f, 0.75f, 1);
 
 		/// <summary>
 		/// True if an object is being tracked.
@@ -166,7 +166,7 @@ namespace DebugDrawUtils
 
 				if (!instance)
 				{
-					GameObject obj = new GameObject("__DebugDrawCam__") { hideFlags = HideFlags.NotEditable };
+					GameObject obj = new("__DebugDrawCam__") { hideFlags = HideFlags.NotEditable };
 
 					if (factory != null)
 					{
@@ -248,7 +248,7 @@ namespace DebugDrawUtils
 		}
 
 		/// <summary>
-		/// Called whenever the the camera is toggled.
+		/// Called whenever the camera is toggled.
 		/// </summary>
 		protected virtual void Init()
 		{
