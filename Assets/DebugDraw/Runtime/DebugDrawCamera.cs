@@ -91,6 +91,10 @@ namespace DebugDrawUtils
 		public static Color crossHairColor = new(0.75f, 0.75f, 0.75f, 1);
 
 		/// <summary>
+		/// If false, the debug camera will remain active, but will ignore all user input.
+		/// </summary>
+		public static bool inputActive = true;
+		/// <summary>
 		/// True if an object is being tracked.
 		/// </summary>
 		public static bool isTrackingObj { get; protected set; }
@@ -322,20 +326,26 @@ namespace DebugDrawUtils
 
 		protected virtual void LateUpdate()
 		{
-			if (Input.GetKeyDown(KeyCode.Escape))
+			if (inputActive)
 			{
-				LockCursor(false);
-			}
-			else if (Cursor.lockState != CursorLockMode.Locked)
-			{
-				if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+				if (Input.GetKeyDown(KeyCode.Escape))
 				{
-					LockCursor(true);
+					LockCursor(false);
+				}
+				else if (Cursor.lockState != CursorLockMode.Locked)
+				{
+					if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+					{
+						LockCursor(true);
+					}
 				}
 			}
 
-			DoMouseLook();
-			DoMovement();
+			if (inputActive)
+			{
+				DoMouseLook();
+				DoMovement();
+			}
 
 			if (isTrackingObj)
 			{
