@@ -333,6 +333,12 @@ public static partial class DebugDraw
 	{
 		// Log.Print("---- RuntimeInitialize ----------------------------------");
 
+		if (timerInstance)
+		{
+			Object.Destroy(timerInstance);
+			timerInstance = null;
+		}
+		
 		Initialize(true);
 	}
 
@@ -355,7 +361,7 @@ public static partial class DebugDraw
 
 		if (createTimer && !timerInstance)
 		{
-			GameObject timerInstanceObj = new GameObject();
+			GameObject timerInstanceObj = new();
 			timerInstanceObj.name = $"__DebugDraw[{Mathf.Abs(timerInstanceObj.GetInstanceID())}]__";
 			timerInstance = timerInstanceObj.AddComponent<DebugDrawTimer>();
 			UpdateInstance(timerInstance);
@@ -394,12 +400,14 @@ public static partial class DebugDraw
 
 	private static void OnCameraPreCull(Camera camera)
 	{
+		// Log.Print("-- OnCameraPreCull --------------------");
 		DoBeforeRender(camera);
 	}
 
 	#if SRP_AVAILABLE
 	private static void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
 	{
+		// Log.Print("-- OnBeginCameraRendering --------------------");
 		DoBeforeRender(camera);
 	}
 	#endif

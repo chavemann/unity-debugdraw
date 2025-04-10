@@ -42,7 +42,7 @@ public static partial class DebugDraw
 		private bool pendingDestroy;
 		private DebugDrawFrameStartTimer startTimer;
 
-		private void Awake()
+		private void Start()
 		{
 			StartCoroutine(OnPostFixedUpdate());
 		}
