@@ -455,12 +455,12 @@ namespace DebugDrawUtils
 			if (isMoving)
 			{
 				move.Normalize();
-				speed += acceleration * Time.deltaTime;
+				speed += acceleration * Time.unscaledDeltaTime;
 				direction = move;
 			}
 			else
 			{
-				float frictionF = 1 / (1 + (drag + speed * 0.01f) * Time.deltaTime);
+				float frictionF = 1 / (1 + (drag + speed * 0.01f) * Time.unscaledDeltaTime);
 				speed *= frictionF;
 			}
 
@@ -472,7 +472,7 @@ namespace DebugDrawUtils
 			}
 
 			Vector3 velocity = direction * speed;
-			tr.position += velocity * Time.deltaTime;
+			tr.position += velocity * Time.unscaledDeltaTime;
 		}
 
 		protected virtual float CalculateSpeedMultiplier()
