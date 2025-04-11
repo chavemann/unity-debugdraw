@@ -5,6 +5,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 // ReSharper disable once CheckNamespace
 namespace DebugDrawUtils
@@ -504,6 +505,29 @@ namespace DebugDrawUtils
 			if (copyProperties)
 			{
 				cam.CopyFrom(from);
+				
+				#if SRP_AVAILABLE
+				UniversalAdditionalCameraData uacFrom = from.GetComponent<UniversalAdditionalCameraData>();
+				UniversalAdditionalCameraData uacTo = cam.GetComponent<UniversalAdditionalCameraData>();
+				if (!uacTo)
+				{
+					uacTo = cam.gameObject.AddComponent<UniversalAdditionalCameraData>();
+				}
+				
+				if (uacFrom && uacTo)
+				{
+					uacTo.renderType = uacFrom.renderType;
+					uacTo.renderPostProcessing = uacFrom.renderPostProcessing;
+					uacTo.antialiasing = uacFrom.antialiasing;
+					uacTo.antialiasingQuality = uacFrom.antialiasingQuality;
+					uacTo.stopNaN = uacFrom.stopNaN;
+					uacTo.dithering = uacFrom.dithering;
+					uacTo.requiresColorOption = uacFrom.requiresColorOption;
+					uacTo.requiresColorTexture = uacFrom.requiresColorTexture;
+					uacTo.requiresDepthOption = uacFrom.requiresDepthOption;
+					uacTo.requiresDepthTexture = uacFrom.requiresDepthTexture;
+				}
+				#endif
 			}
 		}
 
