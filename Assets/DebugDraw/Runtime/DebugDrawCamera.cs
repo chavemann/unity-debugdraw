@@ -22,6 +22,7 @@ namespace DebugDrawUtils
 		private static void RuntimeInit()
 		{
 			hasCrossHairMaterial = false;
+			inputActive = false;
 		}
 
 		/// <summary>
