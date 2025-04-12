@@ -56,7 +56,7 @@ namespace DebugDrawUtils
 		/// <summary>
 		/// The max speed the camera can move.
 		/// </summary>
-		public static float maxSpeed = 18;
+		public static float maxSpeed = 12;
 		/// <summary>
 		/// A speed multiplier when holding the shift key.
 		/// </summary>
