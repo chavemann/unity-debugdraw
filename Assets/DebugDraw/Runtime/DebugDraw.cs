@@ -363,6 +363,7 @@ public static partial class DebugDraw
 		{
 			GameObject timerInstanceObj = new();
 			timerInstanceObj.name = $"__DebugDraw[{Mathf.Abs(timerInstanceObj.GetInstanceID())}]__";
+			Object.DontDestroyOnLoad(timerInstanceObj);
 			timerInstance = timerInstanceObj.AddComponent<DebugDrawTimer>();
 			UpdateInstance(timerInstance);
 		}
