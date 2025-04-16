@@ -193,6 +193,19 @@ namespace DebugDrawUtils.DebugDrawItems
 			return this;
 		}
 
+		/// <summary>
+		/// Set shape of both start and end arrow heads.
+		/// </summary>
+		/// <param name="shape"></param>
+		/// <returns></returns>
+		public Arrow SetHeadShape(ArrowShape shape)
+		{
+			startHead.shape = shape;
+			endHead.shape = shape;
+
+			return this;
+		}
+
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			Vector3 p1 = this.p1;
@@ -390,6 +403,18 @@ namespace DebugDrawUtils.DebugDrawItems
 		public Arrow SetOffset(float offset)
 		{
 			this.offset = offset;
+
+			return arrow;
+		}
+
+		/// <summary>
+		/// Sets the arrow head shape.
+		/// </summary>
+		/// <param name="shape"></param>
+		/// <returns></returns>
+		public Arrow SetShape(ArrowShape shape)
+		{
+			this.shape = shape;
 
 			return arrow;
 		}
