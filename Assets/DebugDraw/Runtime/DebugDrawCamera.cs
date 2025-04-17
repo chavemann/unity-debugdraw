@@ -173,6 +173,10 @@ namespace DebugDrawUtils
 				if (!instance)
 				{
 					GameObject obj = new("__DebugDrawCam__") { hideFlags = HideFlags.NotEditable };
+					if (Application.isPlaying)
+					{
+						DontDestroyOnLoad(obj);
+					}
 
 					if (factory != null)
 					{
