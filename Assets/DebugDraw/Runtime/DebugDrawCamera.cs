@@ -73,7 +73,7 @@ namespace DebugDrawUtils
 		/// <summary>
 		/// The minimum value that currentSpeedMultiplier can be.
 		/// </summary>
-		public static float minSpeedMultiplier = 0.25f;
+		public static float minSpeedMultiplier = 0.05f;
 		/// <summary>
 		/// The maximum value that currentSpeedMultiplier can be.
 		/// </summary>
@@ -306,17 +306,17 @@ namespace DebugDrawUtils
 					crossHairMaterial.SetInt(DebugDrawMesh.ZTest, (int) CompareFunction.Always);
 
 					crossHairMesh = new Mesh();
-					crossHairMesh.SetVertices(new Vector3[]
+					crossHairMesh.SetVertices(new[]
 					{
 						Vector3.left, Vector3.right,
 						Vector3.up, Vector3.down,
 					});
-					crossHairMesh.SetIndices(new int[] { 0, 1, 2, 3 }, MeshTopology.Lines, 0);
+					crossHairMesh.SetIndices(new[] { 0, 1, 2, 3 }, MeshTopology.Lines, 0);
 
 					hasCrossHairMaterial = true;
 				}
 
-				float s = crossHairSize * 0.01f;
+				float s = crossHairSize * 0.01f * (cam.fieldOfView / 60);
 
 				crossHairMaterial.SetColor(DebugDrawMesh.Color, crossHairColor);
 				crossHairMaterial.SetPass(0);
@@ -390,7 +390,7 @@ namespace DebugDrawUtils
 			Vector2 mouse = Cursor.lockState == CursorLockMode.Locked
 				? new Vector2(
 					Input.GetAxis("Mouse X"),
-					Input.GetAxis("Mouse Y")) * mouseSensitivity
+					Input.GetAxis("Mouse Y")) * (mouseSensitivity * (cam.fieldOfView / 60))
 				: Vector2.zero;
 
 			rotation.x = Mathf.Clamp(rotation.x - mouse.y, -90, 90);
@@ -453,10 +453,11 @@ namespace DebugDrawUtils
 				}
 			}
 
-			float multiplier = currentSpeedMultiplier * (fast ? fastMultiplier : slow ? slowMultiplier : 1);
+			float baseMultiplier = fast ? fastMultiplier : slow ? slowMultiplier : 1;
+			float multiplier = currentSpeedMultiplier * baseMultiplier;
 			float acceleration = DebugDrawCamera.acceleration * multiplier;
 			float maxSpeed = DebugDrawCamera.maxSpeed * multiplier;
-			float drag = DebugDrawCamera.drag * multiplier;
+			float drag = DebugDrawCamera.drag * baseMultiplier;
 
 			if (isMoving)
 			{
