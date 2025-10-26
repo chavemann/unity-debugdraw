@@ -6,10 +6,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Draws a wireframe axis aligned box.
-	/// </summary>
-	public class Box : BaseItem
+/// <summary>
+/// Draws a wireframe axis aligned box.
+/// </summary>
+public class Box : BaseItem
 	{
 		
 		/* mesh: line */

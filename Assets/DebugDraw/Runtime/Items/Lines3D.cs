@@ -6,13 +6,13 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Batch draw multiple 3d lines.
-	/// Both the positions, and colors list must be non null and the same size.
-	/// Each line must have two entries, one for the the start point and one for the end.
-	/// The sizes list must have item for each two in the positions list.
-	/// </summary>
-	public class Lines3D : BaseItem
+/// <summary>
+/// Batch draw multiple 3d lines.
+/// Both the positions, and colors list must be non null and the same size.
+/// Each line must have two entries, one for the the start point and one for the end.
+/// The sizes list must have item for each two in the positions list.
+/// </summary>
+public class Lines3D : BaseItem
 	{
 		
 		/* mesh: triangle */

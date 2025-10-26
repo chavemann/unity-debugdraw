@@ -5,10 +5,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Draws a 3D line using two triangles.
-	/// </summary>
-	public class Line3D : Line
+/// <summary>
+/// Draws a 3D line using two triangles.
+/// </summary>
+public class Line3D : Line
 	{
 		
 		/* mesh: triangle */

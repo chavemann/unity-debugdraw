@@ -5,10 +5,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Draws a wireframe cylinder.
-	/// </summary>
-	public class Cylinder : BaseLineItem
+/// <summary>
+/// Draws a wireframe cylinder.
+/// </summary>
+public class Cylinder : BaseLineItem
 	{
 		
 		/* mesh: line */

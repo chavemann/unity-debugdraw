@@ -7,11 +7,11 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Batch draw multiple lines.
-	/// Each of the positions, sizes,s and colors list must be non null and the same size.
-	/// </summary>
-	public class Dots : BaseItem
+/// <summary>
+/// Batch draw multiple lines.
+/// Each of the positions, sizes,s and colors list must be non null and the same size.
+/// </summary>
+public class Dots : BaseItem
 	{
 		
 		/* mesh: triangle */

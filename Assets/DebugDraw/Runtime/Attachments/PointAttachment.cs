@@ -6,10 +6,10 @@ using DebugDrawUtils.DebugDrawItems;
 namespace DebugDrawUtils.DebugDrawAttachments
 {
 
-	/// <summary>
-	/// Attaches a debug item to an object.
-	/// </summary>
-	public class PointAttachment : BaseAttachment
+/// <summary>
+/// Attaches a debug item to an object.
+/// </summary>
+public class PointAttachment : BaseAttachment
 	{
 		
 		/// <summary>

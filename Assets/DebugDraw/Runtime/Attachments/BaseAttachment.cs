@@ -4,12 +4,12 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawAttachments
 {
 	
-	/// <summary>
-	/// The abstract base for all attachment types.
-	/// Attachments will also be automatically destroyed when they expire or any
-	/// game objects they are attached to are destroyed.
-	/// </summary>
-	public abstract class BaseAttachment
+/// <summary>
+/// The abstract base for all attachment types.
+/// Attachments will also be automatically destroyed when they expire or any
+/// game objects they are attached to are destroyed.
+/// </summary>
+public abstract class BaseAttachment
 	{
 		
 		protected static Vector3 vector3Ref;

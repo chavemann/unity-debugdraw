@@ -5,11 +5,11 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// A 3D "point". Can be made to always face the camera and adjust its size so it's always independent on the
-	/// distance from the camera.
-	/// </summary>
-	public class Dot : BasePointItem
+/// <summary>
+/// A 3D "point". Can be made to always face the camera and adjust its size so it's always independent on the
+/// distance from the camera.
+/// </summary>
+public class Dot : BasePointItem
 	{
 		
 		/* mesh: triangle */

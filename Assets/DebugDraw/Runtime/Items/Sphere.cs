@@ -5,10 +5,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Draws a wireframe sphere.
-	/// </summary>
-	public class Sphere : BasePointItem
+/// <summary>
+/// Draws a wireframe sphere.
+/// </summary>
+public class Sphere : BasePointItem
 	{
 		
 		/* mesh: line */

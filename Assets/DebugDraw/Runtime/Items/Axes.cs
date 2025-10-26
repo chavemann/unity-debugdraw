@@ -5,10 +5,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Draws a set of axes.
-	/// </summary>
-	public class Axes : BasePointItem
+/// <summary>
+/// Draws a set of axes.
+/// </summary>
+public class Axes : BasePointItem
 	{
 		
 		/* mesh: line */

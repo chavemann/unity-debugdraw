@@ -11,11 +11,11 @@ using UnityEngine.Rendering.Universal;
 namespace DebugDrawUtils
 {
 
-	/// <summary>
-	/// A simple free floating debug camera.
-	/// Don't create directly, instead use <see cref="DebugDrawCamera.Toggle(bool)"/>
-	/// </summary>
-	public class DebugDrawCamera : MonoBehaviour
+/// <summary>
+/// A simple free floating debug camera.
+/// Don't create directly, instead use <see cref="DebugDrawCamera.Toggle(bool)"/>
+/// </summary>
+public class DebugDrawCamera : MonoBehaviour
 	{
 		
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]

@@ -5,10 +5,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// A point that has no size.
-	/// </summary>
-	public class Point : BasePointItem
+/// <summary>
+/// A point that has no size.
+/// </summary>
+public class Point : BasePointItem
 	{
 		
 		/* mesh: point */

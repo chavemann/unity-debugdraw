@@ -5,127 +5,127 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawAttachments
 {
 	
-	public class BoxAttachment : BaseAttachment
+public class BoxAttachment : BaseAttachment
+{
+	
+	/// <summary>
+	/// The attached object.
+	/// </summary>
+	public readonly AttachmentObject<BoxAttachment> obj;
+	
+	/// <summary>
+	/// The Debug Line item associated with this attachment.
+	/// </summary>
+	public Box box { get; internal set; }
+	
+	private bool updateColliderSize;
+	private bool updateRendererSize;
+	private Collider collider;
+	private Renderer renderer;
+	
+	public BoxAttachment()
 	{
+		obj = new AttachmentObject<BoxAttachment>(this);
+	}
+	
+	public BoxAttachment Init(Box box, Transform obj, BoxAttachmentSizeUpdate updateSize)
+	{
+		this.box = box;
+		this.obj.Set(obj);
 		
-		/// <summary>
-		/// The attached object.
-		/// </summary>
-		public readonly AttachmentObject<BoxAttachment> obj;
-		
-		/// <summary>
-		/// The Debug Line item associated with this attachment.
-		/// </summary>
-		public Box box { get; internal set; }
-		
-		private bool updateColliderSize;
-		private bool updateRendererSize;
-		private Collider collider;
-		private Renderer renderer;
-		
-		public BoxAttachment()
-		{
-			obj = new AttachmentObject<BoxAttachment>(this);
-		}
-		
-		public BoxAttachment Init(Box box, Transform obj, BoxAttachmentSizeUpdate updateSize)
-		{
-			this.box = box;
-			this.obj.Set(obj);
-			
-			if (!this.obj.hasTransform)
-				return this;
-			
-			if (updateSize == BoxAttachmentSizeUpdate.Collider || updateSize == BoxAttachmentSizeUpdate.Any)
-			{
-				collider = obj.transform.GetComponent<Collider>();
-				updateColliderSize = collider;
-				
-				if (updateColliderSize)
-				{
-					updateSize = BoxAttachmentSizeUpdate.None;
-				}
-			}
-			
-			if (updateSize == BoxAttachmentSizeUpdate.Collider || updateSize == BoxAttachmentSizeUpdate.Any)
-			{
-				renderer = obj.transform.GetComponent<Renderer>();
-				updateRendererSize = renderer;
-			}
-			
+		if (!this.obj.hasTransform)
 			return this;
+		
+		if (updateSize == BoxAttachmentSizeUpdate.Collider || updateSize == BoxAttachmentSizeUpdate.Any)
+		{
+			collider = obj.transform.GetComponent<Collider>();
+			updateColliderSize = collider;
+			
+			if (updateColliderSize)
+			{
+				updateSize = BoxAttachmentSizeUpdate.None;
+			}
 		}
 		
-		/* ------------------------------------------------------------------------------------- */
-		/* -- Methods -- */
-		
-		internal override bool Update()
+		if (updateSize == BoxAttachmentSizeUpdate.Collider || updateSize == BoxAttachmentSizeUpdate.Any)
 		{
-			if (box.index == -1)
-				return false;
-			if (!obj)
-				return false;
-			
-			Bounds bounds = default;
-			
-			if (updateRendererSize)
+			renderer = obj.transform.GetComponent<Renderer>();
+			updateRendererSize = renderer;
+		}
+		
+		return this;
+	}
+	
+	/* ------------------------------------------------------------------------------------- */
+	/* -- Methods -- */
+	
+	internal override bool Update()
+	{
+		if (box.index == -1)
+			return false;
+		if (!obj)
+			return false;
+		
+		Bounds bounds = default;
+		
+		if (updateRendererSize)
+		{
+			if (renderer)
 			{
-				if (renderer)
-				{
-					bounds = renderer.bounds;
-				}
-				else
-				{
-					updateRendererSize = false;
-				}
-			}
-			else if (updateColliderSize)
-			{
-				if (collider)
-				{
-					bounds = collider.bounds;
-				}
-				else
-				{
-					updateColliderSize = false;
-				}
-			}
-			
-			if (updateRendererSize || updateColliderSize)
-			{
-				box.position = bounds.center;
-				box.size = bounds.extents;
+				bounds = renderer.bounds;
 			}
 			else
 			{
-				box.position = obj.CalculatePosition();
+				updateRendererSize = false;
 			}
-			
-			return true;
 		}
-		
-		internal override void Release()
+		else if (updateColliderSize)
 		{
-			if (box != null)
+			if (collider)
 			{
-				box.Remove();
-				box = null;
+				bounds = collider.bounds;
 			}
-			
-			updateRendererSize = false;
-			updateColliderSize = false;
-			renderer = null;
-			collider = null;
-			
-			AttachmentPool<BoxAttachment>.Release(this);
+			else
+			{
+				updateColliderSize = false;
+			}
 		}
 		
+		if (updateRendererSize || updateColliderSize)
+		{
+			box.position = bounds.center;
+			box.size = bounds.extents;
+		}
+		else
+		{
+			box.position = obj.CalculatePosition();
+		}
+		
+		return true;
 	}
+	
+	internal override void Release()
+	{
+		if (box != null)
+		{
+			box.Remove();
+			box = null;
+		}
+		
+		updateRendererSize = false;
+		updateColliderSize = false;
+		renderer = null;
+		collider = null;
+		
+		AttachmentPool<BoxAttachment>.Release(this);
+	}
+	
+}
 
-	/// <summary>
-	/// Defines how a BoxAttachment should update the box size.
-	/// </summary>
-	public enum BoxAttachmentSizeUpdate
+/// <summary>
+/// Defines how a BoxAttachment should update the box size.
+/// </summary>
+public enum BoxAttachmentSizeUpdate
 	{
 		
 		/// <summary>

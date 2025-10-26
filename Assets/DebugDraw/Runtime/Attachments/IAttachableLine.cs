@@ -5,10 +5,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawAttachments
 {
 	
-	/// <summary>
-	/// An item with a start and end point.
-	/// </summary>
-	public interface IAttachableLine
+/// <summary>
+/// An item with a start and end point.
+/// </summary>
+public interface IAttachableLine
 	{
 		
 		/// <summary>

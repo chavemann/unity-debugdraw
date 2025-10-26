@@ -6,11 +6,11 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Draws a wireframe mesh from a list of vertices, colors, and indices.
-	/// It will be up to the user to ensure these are all valid.
-	/// </summary>
-	public class MeshItem : BaseItem
+/// <summary>
+/// Draws a wireframe mesh from a list of vertices, colors, and indices.
+/// It will be up to the user to ensure these are all valid.
+/// </summary>
+public class MeshItem : BaseItem
 	{
 		
 		/* mesh: line */

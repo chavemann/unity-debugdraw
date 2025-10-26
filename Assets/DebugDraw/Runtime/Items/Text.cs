@@ -5,11 +5,11 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Displays some text at the specified position. Note that this uses GUI.Label so
-	/// it isn't true 3D text.
-	/// </summary>
-	public class Text : BasePointItem
+/// <summary>
+/// Displays some text at the specified position. Note that this uses GUI.Label so
+/// it isn't true 3D text.
+/// </summary>
+public class Text : BasePointItem
 	{
 		
 		/* mesh: text */

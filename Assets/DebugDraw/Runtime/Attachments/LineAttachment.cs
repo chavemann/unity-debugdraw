@@ -5,10 +5,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawAttachments
 {
 
-	/// <summary>
-	/// Attaches a debug <see cref="DebugDrawItems.Line"/> between two objects.
-	/// </summary>
-	public class LineAttachment : BaseAttachment
+/// <summary>
+/// Attaches a debug <see cref="DebugDrawItems.Line"/> between two objects.
+/// </summary>
+public class LineAttachment : BaseAttachment
 	{
 		
 		/// <summary>

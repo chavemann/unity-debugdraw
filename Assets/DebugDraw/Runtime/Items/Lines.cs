@@ -6,12 +6,12 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Batch draw multiple lines.
-	/// Both the positions and colors list must be non null and the same size.
-	/// Each line must have two entries, one for the the start point and one for the end.
-	/// </summary>
-	public class Lines : BaseItem
+/// <summary>
+/// Batch draw multiple lines.
+/// Both the positions and colors list must be non null and the same size.
+/// Each line must have two entries, one for the the start point and one for the end.
+/// </summary>
+public class Lines : BaseItem
 	{
 		
 		/* mesh: line */

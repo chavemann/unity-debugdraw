@@ -5,10 +5,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Draws a quad, either filled or wireframe.
-	/// </summary>
-	public class Quad : BasePointItem
+/// <summary>
+/// Draws a quad, either filled or wireframe.
+/// </summary>
+public class Quad : BasePointItem
 	{
 		
 		/* mesh: line */

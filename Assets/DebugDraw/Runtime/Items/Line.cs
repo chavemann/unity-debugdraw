@@ -6,10 +6,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// A basic line.
-	/// </summary>
-	public class Line : BaseLineItem, IAttachablePoint
+/// <summary>
+/// A basic line.
+/// </summary>
+public class Line : BaseLineItem, IAttachablePoint
 	{
 		
 		/* mesh: line */

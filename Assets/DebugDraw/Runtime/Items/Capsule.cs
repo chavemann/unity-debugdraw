@@ -5,10 +5,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Draws a wireframe capsule.
-	/// </summary>
-	public class Capsule : BaseLineItem
+/// <summary>
+/// Draws a wireframe capsule.
+/// </summary>
+public class Capsule : BaseLineItem
 	{
 		
 		/* mesh: line */

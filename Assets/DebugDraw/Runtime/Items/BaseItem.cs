@@ -5,10 +5,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// The base for all debug visual items.
-	/// </summary>
-	public abstract class BaseItem : Groupable
+/// <summary>
+/// The base for all debug visual items.
+/// </summary>
+public abstract class BaseItem : Groupable
 	{
 		
 		protected const float BaseAutoSizeDistanceFactor = 1 / 25f;

@@ -5,10 +5,10 @@ using UnityEngine;
 namespace DebugDrawUtils.DebugDrawItems
 {
 
-	/// <summary>
-	/// Draws a 2D rectangle, either filled or wireframe.
-	/// </summary>
-	public class Rectangle : BasePointItem
+/// <summary>
+/// Draws a 2D rectangle, either filled or wireframe.
+/// </summary>
+public class Rectangle : BasePointItem
 	{
 		
 		/* mesh: line */
