@@ -10,11 +10,12 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// </summary>
 	public class Point : BasePointItem
 	{
+		
 		/* mesh: point */
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// Draws a point that has no size.
 		/// </summary>
@@ -26,28 +27,28 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Point Get(ref Vector3 position, ref Color color, EndTime? duration = null)
 		{
 			Point item = ItemPool<Point>.Get(duration);
-
+			
 			item.position = position;
 			item.color = color;
-
+			
 			return item;
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-
+		
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			mesh.AddColor(this, ref color);
 			mesh.AddVertex(this, ref position);
 			mesh.AddIndex();
 		}
-
+		
 		internal override void Release()
 		{
 			ItemPool<Point>.Release(this);
 		}
-
+		
 	}
 
 }

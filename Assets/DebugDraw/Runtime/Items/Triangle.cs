@@ -10,34 +10,39 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// </summary>
 	public class Triangle : BasePointItem
 	{
+		
 		/* mesh: line */
-
+		
 		/// <summary>
 		/// The second point of the triangle.
 		/// </summary>
 		public Vector3 p2;
+		
 		/// <summary>
 		/// The third point of the triangle.
 		/// </summary>
 		public Vector3 p3;
+		
 		/// <summary>
 		/// The color of the triangle's second point.
 		/// </summary>
 		public Color color2;
+		
 		/// <summary>
 		/// The color of the triangle's third point.
 		/// </summary>
 		public Color color3;
+		
 		/// <summary>
 		/// True for a filled triangle, otherwise a wire triangle.
 		/// It's important that this Triangle item is added to a mesh with the right topology, either lines or triangles,
 		/// based on this setting.
 		/// </summary>
 		public bool filled;
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// Draws a wire triangle.
 		/// </summary>
@@ -51,7 +56,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, EndTime? duration = null)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
-
+			
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -59,10 +64,10 @@ namespace DebugDrawUtils.DebugDrawItems
 			item.color2 = color;
 			item.color3 = color;
 			item.filled = false;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a wire triangle.
 		/// </summary>
@@ -78,7 +83,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Triangle Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, EndTime? duration = null)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
-
+			
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -86,10 +91,10 @@ namespace DebugDrawUtils.DebugDrawItems
 			item.color2 = color2;
 			item.color3 = color3;
 			item.filled = false;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a filled triangle.
 		/// </summary>
@@ -103,7 +108,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Triangle GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color, EndTime? duration = null)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
-
+			
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -111,10 +116,10 @@ namespace DebugDrawUtils.DebugDrawItems
 			item.color2 = color;
 			item.color3 = color;
 			item.filled = true;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a filled triangle.
 		/// </summary>
@@ -130,7 +135,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Triangle GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Color color1, ref Color color2, ref Color color3, EndTime? duration = null)
 		{
 			Triangle item = ItemPool<Triangle>.Get(duration);
-
+			
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -138,20 +143,20 @@ namespace DebugDrawUtils.DebugDrawItems
 			item.color2 = color2;
 			item.color3 = color3;
 			item.filled = true;
-
+			
 			return item;
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-
+		
 		public override void SetPosition(Vector3 position)
 		{
 			Vector3 delta = new Vector3(
 				position.x - (this.position.x + p2.x + p3.x) / 3,
 				position.y - (this.position.y + p2.y + p3.y) / 3,
 				position.z - (this.position.z + p2.z + p3.z) / 3);
-
+			
 			this.position.x += delta.x;
 			this.position.y += delta.y;
 			this.position.z += delta.z;
@@ -162,7 +167,7 @@ namespace DebugDrawUtils.DebugDrawItems
 			p3.y += delta.y;
 			p3.z += delta.z;
 		}
-
+		
 		public override Vector3 GetPosition()
 		{
 			return new Vector3(
@@ -170,12 +175,12 @@ namespace DebugDrawUtils.DebugDrawItems
 				(position.y + p2.y + p3.y) * 0.5f,
 				(position.z + p2.z + p3.z) * 0.5f);
 		}
-
+		
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			mesh.AddVertices(this, ref position, ref p2, ref p3);
 			mesh.AddColors(this, ref color, ref color2, ref color3);
-
+			
 			if (filled)
 			{
 				mesh.AddIndexX3();
@@ -185,12 +190,12 @@ namespace DebugDrawUtils.DebugDrawItems
 				mesh.AddTriangleLineIndices();
 			}
 		}
-
+		
 		internal override void Release()
 		{
 			ItemPool<Triangle>.Release(this);
 		}
-
+		
 	}
 
 }

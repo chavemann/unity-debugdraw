@@ -10,42 +10,49 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// </summary>
 	public class Quad : BasePointItem
 	{
+		
 		/* mesh: line */
-
+		
 		/// <summary>
 		/// The second point of the quad.
 		/// </summary>
 		public Vector3 p2;
+		
 		/// <summary>
 		/// The third point of the quad.
 		/// </summary>
 		public Vector3 p3;
+		
 		/// <summary>
 		/// The fourth point of the quad.
 		/// </summary>
 		public Vector3 p4;
+		
 		/// <summary>
 		/// The color of the quad's second point.
 		/// </summary>
 		public Color color2;
+		
 		/// <summary>
 		/// The color of the quad's third point.
 		/// </summary>
 		public Color color3;
+		
 		/// <summary>
 		/// The color of the quad's fourth point.
 		/// </summary>
 		public Color color4;
+		
 		/// <summary>
 		/// True for a filled quad, otherwise a wire quad.
 		/// It's important that this Quad item is added to a mesh with the right topology, either lines or quads,
 		/// based on this setting.
 		/// </summary>
 		public bool filled;
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// Draws a wire quad.
 		/// </summary>
@@ -60,7 +67,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Quad Get(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4, ref Color color, EndTime? duration = null)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
-
+			
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -70,10 +77,10 @@ namespace DebugDrawUtils.DebugDrawItems
 			item.color3 = color;
 			item.color4 = color;
 			item.filled = false;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a wire quad.
 		/// </summary>
@@ -93,7 +100,7 @@ namespace DebugDrawUtils.DebugDrawItems
 			ref Color color1, ref Color color2, ref Color color3, ref Color color4, EndTime? duration = null)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
-
+			
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -103,10 +110,10 @@ namespace DebugDrawUtils.DebugDrawItems
 			item.color3 = color3;
 			item.color4 = color4;
 			item.filled = false;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a filled quad.
 		/// </summary>
@@ -121,7 +128,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Quad GetFill(ref Vector3 p1, ref Vector3 p2, ref Vector3 p3, ref Vector3 p4, ref Color color, EndTime? duration = null)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
-
+			
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -131,10 +138,10 @@ namespace DebugDrawUtils.DebugDrawItems
 			item.color3 = color;
 			item.color4 = color;
 			item.filled = true;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a filled quad.
 		/// </summary>
@@ -154,7 +161,7 @@ namespace DebugDrawUtils.DebugDrawItems
 			ref Color color1, ref Color color2, ref Color color3, ref Color color4, EndTime? duration = null)
 		{
 			Quad item = ItemPool<Quad>.Get(duration);
-
+			
 			item.position = p1;
 			item.p2 = p2;
 			item.p3 = p3;
@@ -164,20 +171,20 @@ namespace DebugDrawUtils.DebugDrawItems
 			item.color3 = color3;
 			item.color4 = color4;
 			item.filled = true;
-
+			
 			return item;
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-
+		
 		public override void SetPosition(Vector3 position)
 		{
 			Vector3 delta = new Vector3(
 				position.x - (this.position.x + p2.x + p3.x + p4.x) * 0.25f,
 				position.y - (this.position.y + p2.y + p3.y + p4.y) * 0.25f,
 				position.z - (this.position.z + p2.z + p3.z + p4.z) * 0.25f);
-
+			
 			this.position.x += delta.x;
 			this.position.y += delta.y;
 			this.position.z += delta.z;
@@ -191,7 +198,7 @@ namespace DebugDrawUtils.DebugDrawItems
 			p4.y += delta.y;
 			p4.z += delta.z;
 		}
-
+		
 		public override Vector3 GetPosition()
 		{
 			return new Vector3(
@@ -199,12 +206,12 @@ namespace DebugDrawUtils.DebugDrawItems
 				(position.y + p2.y + p3.y + p4.y) * 0.5f,
 				(position.z + p2.z + p3.z + p4.z) * 0.5f);
 		}
-
+		
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			mesh.AddVertices(this, ref position, ref p2, ref p3, ref p4);
 			mesh.AddColors(this, ref color, ref color2, ref color3, ref color4);
-
+			
 			if (filled)
 			{
 				mesh.AddIndexX3();
@@ -218,12 +225,12 @@ namespace DebugDrawUtils.DebugDrawItems
 				mesh.AddQuadLineIndices();
 			}
 		}
-
+		
 		internal override void Release()
 		{
 			ItemPool<Quad>.Release(this);
 		}
-
+		
 	}
 
 }

@@ -12,28 +12,32 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// </summary>
 	public class MeshItem : BaseItem
 	{
+		
 		/* mesh: line */
-
+		
 		/// <summary>
 		/// The list of vertices.
 		/// </summary>
 		public List<Vector3> vertices;
+		
 		/// <summary>
 		/// The list of colors.
 		/// </summary>
 		public List<Color> colors;
+		
 		/// <summary>
 		/// The list of triangle indices.
 		/// </summary>
 		public List<int> indices;
+		
 		/// <summary>
 		/// If non-null, will be used instead of the color list.
 		/// </summary>
 		public new Color? color;
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// Draws a wireframe mesh.
 		/// </summary>
@@ -46,15 +50,15 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static MeshItem Get(List<Vector3> vertices, List<Color> colors, List<int> indices, EndTime? duration = null)
 		{
 			MeshItem item = ItemPool<MeshItem>.Get(duration);
-
+			
 			item.vertices = vertices;
 			item.colors = colors;
 			item.indices = indices;
 			item.color = null;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a wireframe mesh with a single color.
 		/// </summary>
@@ -67,15 +71,15 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static MeshItem Get(List<Vector3> vertices, List<int> indices, ref Color color, EndTime? duration = null)
 		{
 			MeshItem item = ItemPool<MeshItem>.Get(duration);
-
+			
 			item.vertices = vertices;
 			item.colors = null;
 			item.indices = indices;
 			item.color = color;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a wireframe mesh. This will allocate new lists and fetch the mesh data so it's advisable to
 		/// not call this every frame and instead create it once keep a reference to it.
@@ -88,22 +92,22 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static MeshItem Get(Mesh mesh, Color? color, EndTime? duration = null)
 		{
 			MeshItem item = ItemPool<MeshItem>.Get(duration);
-
+			
 			item.vertices = new List<Vector3>();
 			item.indices = new List<int>();
-
+			
 			mesh.GetVertices(item.vertices);
 			mesh.GetIndices(item.indices, 0);
-
+			
 			if (!color.HasValue)
 			{
 				item.colors = new List<Color>();
 				mesh.GetColors(item.colors);
-
+				
 				if (item.colors.Count != item.vertices.Count)
 				{
 					item.colors.Clear();
-
+					
 					for (int i = item.vertices.Count - 1; i >= 0; i--)
 					{
 						item.colors.Add(DebugDraw.colorIdentity);
@@ -114,26 +118,26 @@ namespace DebugDrawUtils.DebugDrawItems
 			{
 				item.colors = null;
 			}
-
+			
 			item.color = color;
-
+			
 			return item;
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-
+		
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			int vertexIndex = mesh.vertexIndex;
-
+			
 			if (color.HasValue)
 			{
 				Color clr = color.GetValueOrDefault();
 				clr = GetColor(ref clr);
-
+				
 				List<Color> meshColors = mesh.colours;
-
+				
 				for (int i = vertices.Count - 1; i >= 0; i--)
 				{
 					meshColors.Add(clr);
@@ -143,14 +147,14 @@ namespace DebugDrawUtils.DebugDrawItems
 			{
 				mesh.colours.AddRange(colors);
 			}
-
+			
 			if (hasStateTransform)
 			{
 				List<Vector3> meshVertices = mesh.vertices;
 				List<Vector3> vertices = this.vertices;
-
+				
 				ref Matrix4x4 m = ref stateTransform;
-
+				
 				foreach (Vector3 vertex in vertices)
 				{
 					meshVertices.Add(m.MultiplyPoint3x4(vertex));
@@ -160,16 +164,16 @@ namespace DebugDrawUtils.DebugDrawItems
 			{
 				mesh.vertices.AddRange(vertices);
 			}
-
+			
 			List<int> meshIndices = mesh.indices;
 			List<int> indices = this.indices;
-
+			
 			for (int i = indices.Count - 3; i >= 0; i -= 3)
 			{
 				int i1 = vertexIndex + indices[i];
 				int i2 = vertexIndex + indices[i + 1];
 				int i3 = vertexIndex + indices[i + 2];
-
+				
 				meshIndices.Add(i1);
 				meshIndices.Add(i2);
 				meshIndices.Add(i2);
@@ -177,15 +181,15 @@ namespace DebugDrawUtils.DebugDrawItems
 				meshIndices.Add(i3);
 				meshIndices.Add(i1);
 			}
-
+			
 			mesh.vertexIndex += vertices.Count;
 		}
-
+		
 		internal override void Release()
 		{
 			ItemPool<MeshItem>.Release(this);
 		}
-
+		
 	}
 
 }

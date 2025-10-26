@@ -12,7 +12,7 @@ namespace DebugDrawUtils
 
 public partial class LogMessage
 {
-
+	
 	/*
 	 * These methods are generated automatically from the Log.Print** methods.
 	 */
@@ -557,7 +557,7 @@ public partial class LogMessage
 	}
 	
 	/* </TextGenMethods> */
-
+	
 }
 
 }

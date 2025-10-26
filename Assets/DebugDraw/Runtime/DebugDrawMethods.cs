@@ -13,11 +13,11 @@ namespace DebugDrawUtils
 
 public static partial class DebugDraw
 {
-
+	
 	public static Color rayHitColor = Color.green;
 	public static Color rayMissColor = Color.red;
 	public static Color rayNormalColor = Color.cyan;
-
+	
 	/// <summary>
 	/// Draws a ray.
 	/// </summary>
@@ -39,12 +39,12 @@ public static partial class DebugDraw
 			origin.y + direction.y * maxDistance,
 			origin.z + direction.z * maxDistance);
 		Color clr = hit ? rayHitColor : rayMissColor;
-
+		
 		lineMeshInstance.Add(DebugDrawItems.Arrow.Get(
 			ref origin, ref p2, ref clr, ref clr, arrowSize, arrowSize,
 			ArrowShape.None, arrowSize > 0 ? ArrowShape.Arrow : ArrowShape.None,
 			true, false, duration));
-
+		
 		if (hit && normalSize > 0)
 		{
 			Vector3 p1 = hitResult.point;
@@ -57,12 +57,12 @@ public static partial class DebugDraw
 		}
 		#endif
 	}
-
+	
 	/*
 	 * These methods are generated automatically from the Item Get methods.
 	 */
 	/* <StaticGenMethods> */
-
+	
 	/// <summary>
 	/// Draws an arrow.
 	/// </summary>
@@ -79,7 +79,8 @@ public static partial class DebugDraw
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The Arrow object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, ArrowShape startShape = ArrowShape.Arrow, ArrowShape endShape = ArrowShape.Arrow, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
+	public static Arrow Arrow(Vector3 p1, Vector3 p2, Color color1, Color color2, float startSize, float endSize, ArrowShape startShape = ArrowShape.Arrow,
+		ArrowShape endShape = ArrowShape.Arrow, bool faceCamera = false, bool autoSize = false, EndTime? duration = null)
 	{
 		#if DEBUG_DRAW
 		return lineMeshInstance.Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, startShape, endShape, faceCamera, autoSize, duration));
@@ -87,7 +88,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, startShape, endShape, faceCamera, autoSize, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws an arrow.
 	/// </summary>
@@ -110,7 +111,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, faceCamera, autoSize, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws an arrow.
 	/// </summary>
@@ -132,7 +133,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, size, faceCamera, autoSize, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws an arrow.
 	/// </summary>
@@ -154,7 +155,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, startSize, endSize, faceCamera, autoSize, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws an arrow.
 	/// </summary>
@@ -175,7 +176,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, size, faceCamera, autoSize, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws lines along the x, y, and z axes.
 	/// </summary>
@@ -194,7 +195,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Axes.Get(ref position, ref rotation, ref size, doubleSided, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws lines along the x, y, and z axes.
 	/// </summary>
@@ -213,7 +214,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Axes.Get(ref position, ref rotation, size, doubleSided, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws an axis aligned box.
 	/// </summary>
@@ -231,7 +232,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Box.Get(ref position, size, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws an axis aligned box.
 	/// </summary>
@@ -250,7 +251,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Box.Get(ref position, size, ref orientation, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws an axis aligned box.
 	/// </summary>
@@ -268,7 +269,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Box.Get(ref position, ref size, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws an axis aligned box.
 	/// </summary>
@@ -287,7 +288,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Box.Get(ref position, ref size, ref orientation, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a capsule shell.
 	/// </summary>
@@ -307,7 +308,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Capsule.Get(ref p1, ref p2, radius, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe capsule.
 	/// </summary>
@@ -327,7 +328,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Capsule.GetWire(ref p1, ref p2, radius, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a cone shell.
 	/// </summary>
@@ -352,7 +353,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Cone.Get(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe cone.
 	/// </summary>
@@ -377,7 +378,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Cone.GetWire(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a cylinder shell.
 	/// </summary>
@@ -398,7 +399,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a cylinder shell with a different start and end radius.
 	/// </summary>
@@ -420,7 +421,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a cylinder shell with a different start and end radius.
 	/// </summary>
@@ -441,7 +442,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a cylinder shell with a different start and end radius.
 	/// </summary>
@@ -463,7 +464,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, drawEndAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe cylinder.
 	/// </summary>
@@ -484,7 +485,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe cylinder with a different start and end radius.
 	/// </summary>
@@ -506,7 +507,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe cylinder with a different start and end radius.
 	/// </summary>
@@ -527,7 +528,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe cylinder with a different start and end radius.
 	/// </summary>
@@ -549,7 +550,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D dot that automatically faces the camera.
 	/// </summary>
@@ -569,7 +570,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Dot.Get(ref position, radius, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D dot.
 	/// </summary>
@@ -590,7 +591,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Dot.Get(ref position, radius, ref color, ref facing, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Batch draws 3D dots that automatically faces the camera.
 	/// </summary>
@@ -609,7 +610,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Dots.Get(positions, sizes, colors, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Batch draws 3D dots.
 	/// </summary>
@@ -629,7 +630,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Dots.Get(positions, sizes, colors, ref facing, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wire ellipse.
 	/// </summary>
@@ -650,7 +651,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Ellipse.Get(ref position, radius, ref facing, ref color, segments, drawAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a filled ellipse.
 	/// </summary>
@@ -670,7 +671,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Ellipse.GetFill(ref position, radius, ref facing, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wire arc.
 	/// </summary>
@@ -694,7 +695,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Ellipse.GetArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a filled arc.
 	/// </summary>
@@ -716,7 +717,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Ellipse.GetFillArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wire ellipse.
 	/// </summary>
@@ -737,7 +738,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, drawAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a filled ellipse.
 	/// </summary>
@@ -757,7 +758,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Ellipse.GetFill(ref position, ref size, ref facing, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wire arc.
 	/// </summary>
@@ -781,7 +782,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Ellipse.GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a filled arc.
 	/// </summary>
@@ -803,7 +804,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Ellipse.GetFillArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
@@ -822,7 +823,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Line.Get(ref p1, ref p2, ref color1, ref color2, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
@@ -840,7 +841,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Line.Get(ref p1, ref p2, ref color, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D line that orients itself towards the camera.
 	/// </summary>
@@ -860,7 +861,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color1, ref color2, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D line that orients itself towards the camera.
 	/// </summary>
@@ -879,7 +880,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D line facing the given direction.
 	/// </summary>
@@ -900,7 +901,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color1, ref color2, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D line that orients itself towards the camera.
 	/// </summary>
@@ -920,7 +921,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Batch draw multiple lines from a positions and colors array.
 	/// Both arrays must be non-null, of the same size, and multiples of two - two entries for each line.
@@ -938,7 +939,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Lines.Get(positions, colors, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a batch of 3D lines that orients itself towards the camera.
 	/// </summary>
@@ -956,7 +957,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Lines3D.Get(positions, sizes, colors, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D line facing the given direction.
 	/// </summary>
@@ -976,7 +977,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Lines3D.Get(positions, sizes, colors, facing, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wireframe mesh.
 	/// </summary>
@@ -994,7 +995,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.MeshItem.Get(vertices, colors, indices, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wireframe mesh with a single color.
 	/// </summary>
@@ -1012,7 +1013,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.MeshItem.Get(vertices, indices, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wireframe mesh. This will allocate new lists and fetch the mesh data so it's advisable to
 	/// not call this every frame and instead create it once keep a reference to it.
@@ -1030,7 +1031,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.MeshItem.Get(mesh, color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a point that has no size.
 	/// </summary>
@@ -1047,7 +1048,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Point.Get(ref position, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Batch draw multiple points from a positions and colors array.
 	/// Both arrays must be non-null and of the same size.
@@ -1065,7 +1066,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Points.Get(positions, colors, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wire quad.
 	/// </summary>
@@ -1085,7 +1086,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wire quad.
 	/// </summary>
@@ -1108,7 +1109,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a filled quad.
 	/// </summary>
@@ -1128,7 +1129,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a filled quad.
 	/// </summary>
@@ -1151,7 +1152,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a filled square.
 	/// </summary>
@@ -1170,7 +1171,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Rectangle.GetFill(ref position, size, ref facing, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wire square.
 	/// </summary>
@@ -1189,7 +1190,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a filled square.
 	/// </summary>
@@ -1208,7 +1209,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Rectangle.GetFill(ref position, ref size, ref facing, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wire square.
 	/// </summary>
@@ -1227,7 +1228,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
@@ -1246,7 +1247,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Sphere.Get(ref position, radius, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
@@ -1265,7 +1266,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Sphere.Get(ref position, ref radius, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
@@ -1285,7 +1286,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe sphere.
 	/// </summary>
@@ -1304,7 +1305,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Sphere.GetWire(ref position, radius, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe sphere.
 	/// </summary>
@@ -1323,7 +1324,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe sphere.
 	/// </summary>
@@ -1343,7 +1344,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref orientation, ref color, segments, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
@@ -1363,7 +1364,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Text.Get(ref position, text, ref color, align, scale, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
@@ -1382,7 +1383,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Text.Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wire triangle.
 	/// </summary>
@@ -1401,7 +1402,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a wire triangle.
 	/// </summary>
@@ -1422,7 +1423,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a filled triangle.
 	/// </summary>
@@ -1441,7 +1442,7 @@ public static partial class DebugDraw
 		return DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color, duration);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Draws a filled triangle.
 	/// </summary>
@@ -1462,19 +1463,19 @@ public static partial class DebugDraw
 		return DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration);
 		#endif
 	}
-
+	
 	/* </StaticGenMethods> */
-
+	
 }
 
 public partial class DebugDrawMesh
 {
-
+	
 	/*
 	 * These methods are generated automatically from the Item Get methods.
 	 */
 	/* <InstanceGenMethods> */
-
+	
 	/// <summary>
 	/// Draws an arrow.
 	/// </summary>
@@ -1514,7 +1515,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, startSize, endSize, faceCamera, autoSize, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws an arrow.
 	/// </summary>
@@ -1532,7 +1533,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color1, ref color2, size, faceCamera, autoSize, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws an arrow.
 	/// </summary>
@@ -1550,7 +1551,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, startSize, endSize, faceCamera, autoSize, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws an arrow.
 	/// </summary>
@@ -1567,7 +1568,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Arrow.Get(ref p1, ref p2, ref color, size, faceCamera, autoSize, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws lines along the x, y, and z axes.
 	/// </summary>
@@ -1582,7 +1583,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Axes.Get(ref position, ref rotation, ref size, doubleSided, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws lines along the x, y, and z axes.
 	/// </summary>
@@ -1597,7 +1598,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Axes.Get(ref position, ref rotation, size, doubleSided, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws an axis aligned box.
 	/// </summary>
@@ -1611,7 +1612,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Box.Get(ref position, size, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws an axis aligned box.
 	/// </summary>
@@ -1626,7 +1627,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Box.Get(ref position, size, ref orientation, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws an axis aligned box.
 	/// </summary>
@@ -1640,7 +1641,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Box.Get(ref position, ref size, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws an axis aligned box.
 	/// </summary>
@@ -1655,7 +1656,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Box.Get(ref position, ref size, ref orientation, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a capsule shell.
 	/// </summary>
@@ -1671,7 +1672,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Capsule.Get(ref p1, ref p2, radius, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe capsule.
 	/// </summary>
@@ -1687,7 +1688,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Capsule.GetWire(ref p1, ref p2, radius, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a cone shell.
 	/// </summary>
@@ -1708,7 +1709,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Cone.Get(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe cone.
 	/// </summary>
@@ -1729,7 +1730,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Cone.GetWire(ref origin, ref direction, length, angle, ref color, segments, round, drawCap, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a cylinder shell.
 	/// </summary>
@@ -1746,7 +1747,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a cylinder shell with a different start and end radius.
 	/// </summary>
@@ -1764,7 +1765,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a cylinder shell with a different start and end radius.
 	/// </summary>
@@ -1781,7 +1782,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a cylinder shell with a different start and end radius.
 	/// </summary>
@@ -1799,7 +1800,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Cylinder.Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, drawEndAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe cylinder.
 	/// </summary>
@@ -1816,7 +1817,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe cylinder with a different start and end radius.
 	/// </summary>
@@ -1834,7 +1835,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe cylinder with a different start and end radius.
 	/// </summary>
@@ -1851,7 +1852,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius, ref color, segments, drawEndAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe cylinder with a different start and end radius.
 	/// </summary>
@@ -1869,7 +1870,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Cylinder.GetWire(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D dot that automatically faces the camera.
 	/// </summary>
@@ -1885,7 +1886,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D dot.
 	/// </summary>
@@ -1902,7 +1903,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Dot.Get(ref position, radius, ref color, ref facing, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Batch draws 3D dots that automatically faces the camera.
 	/// </summary>
@@ -1917,7 +1918,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Dots.Get(positions, sizes, colors, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Batch draws 3D dots.
 	/// </summary>
@@ -1933,7 +1934,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Dots.Get(positions, sizes, colors, ref facing, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wire ellipse.
 	/// </summary>
@@ -1946,11 +1947,12 @@ public partial class DebugDrawMesh
 	/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 	/// <returns>The ellipse object.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public Ellipse Ellipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never, EndTime? duration = null)
+	public Ellipse Ellipse(Vector3 position, float radius, Vector3 facing, Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never,
+		EndTime? duration = null)
 	{
 		return Add(DebugDrawItems.Ellipse.Get(ref position, radius, ref facing, ref color, segments, drawAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a filled ellipse.
 	/// </summary>
@@ -1966,7 +1968,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Ellipse.GetFill(ref position, radius, ref facing, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wire arc.
 	/// </summary>
@@ -1986,7 +1988,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Ellipse.GetArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a filled arc.
 	/// </summary>
@@ -2004,7 +2006,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Ellipse.GetFillArc(ref position, radius, ref facing, startAngle, endAngle, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wire ellipse.
 	/// </summary>
@@ -2021,7 +2023,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Ellipse.Get(ref position, ref size, ref facing, ref color, segments, drawAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a filled ellipse.
 	/// </summary>
@@ -2037,7 +2039,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Ellipse.GetFill(ref position, ref size, ref facing, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wire arc.
 	/// </summary>
@@ -2057,7 +2059,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Ellipse.GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a filled arc.
 	/// </summary>
@@ -2075,7 +2077,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Ellipse.GetFillArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
@@ -2090,7 +2092,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color1, ref color2, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
@@ -2104,7 +2106,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Line.Get(ref p1, ref p2, ref color, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D line that orients itself towards the camera.
 	/// </summary>
@@ -2120,7 +2122,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color1, ref color2, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D line that orients itself towards the camera.
 	/// </summary>
@@ -2135,7 +2137,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref color, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D line facing the given direction.
 	/// </summary>
@@ -2152,7 +2154,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color1, ref color2, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D line that orients itself towards the camera.
 	/// </summary>
@@ -2168,7 +2170,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Line3D.Get(ref p1, ref p2, size, ref facing, ref color, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Batch draw multiple lines from a positions and colors array.
 	/// Both arrays must be non-null, of the same size, and multiples of two - two entries for each line.
@@ -2182,7 +2184,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Lines.Get(positions, colors, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a batch of 3D lines that orients itself towards the camera.
 	/// </summary>
@@ -2196,7 +2198,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Lines3D.Get(positions, sizes, colors, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a 3D line facing the given direction.
 	/// </summary>
@@ -2212,7 +2214,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Lines3D.Get(positions, sizes, colors, facing, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wireframe mesh.
 	/// </summary>
@@ -2226,7 +2228,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.MeshItem.Get(vertices, colors, indices, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wireframe mesh with a single color.
 	/// </summary>
@@ -2240,7 +2242,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.MeshItem.Get(vertices, indices, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wireframe mesh. This will allocate new lists and fetch the mesh data so it's advisable to
 	/// not call this every frame and instead create it once keep a reference to it.
@@ -2254,7 +2256,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.MeshItem.Get(mesh, color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a point that has no size.
 	/// </summary>
@@ -2267,7 +2269,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Point.Get(ref position, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Batch draw multiple points from a positions and colors array.
 	/// Both arrays must be non-null and of the same size.
@@ -2281,7 +2283,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Points.Get(positions, colors, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wire quad.
 	/// </summary>
@@ -2297,7 +2299,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wire quad.
 	/// </summary>
@@ -2316,7 +2318,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Quad.Get(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a filled quad.
 	/// </summary>
@@ -2332,7 +2334,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a filled quad.
 	/// </summary>
@@ -2351,7 +2353,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Quad.GetFill(ref p1, ref p2, ref p3, ref p4, ref color1, ref color2, ref color3, ref color4, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a filled square.
 	/// </summary>
@@ -2366,7 +2368,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Rectangle.GetFill(ref position, size, ref facing, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wire square.
 	/// </summary>
@@ -2381,7 +2383,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Rectangle.Get(ref position, size, ref facing, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a filled square.
 	/// </summary>
@@ -2396,7 +2398,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Rectangle.GetFill(ref position, ref size, ref facing, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wire square.
 	/// </summary>
@@ -2411,7 +2413,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Rectangle.Get(ref position, ref size, ref facing, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
@@ -2426,7 +2428,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Sphere.Get(ref position, radius, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
@@ -2441,7 +2443,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a sphere comprised of a circle for each axis.
 	/// </summary>
@@ -2457,7 +2459,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Sphere.Get(ref position, ref radius, ref orientation, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe sphere.
 	/// </summary>
@@ -2472,7 +2474,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Sphere.GetWire(ref position, radius, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe sphere.
 	/// </summary>
@@ -2487,7 +2489,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a full wireframe sphere.
 	/// </summary>
@@ -2503,7 +2505,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Sphere.GetWire(ref position, ref radius, ref orientation, ref color, segments, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
@@ -2519,7 +2521,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Text.Get(ref position, text, ref color, align, scale, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a line.
 	/// </summary>
@@ -2534,7 +2536,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Text.Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wire triangle.
 	/// </summary>
@@ -2549,7 +2551,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a wire triangle.
 	/// </summary>
@@ -2566,7 +2568,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Triangle.Get(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a filled triangle.
 	/// </summary>
@@ -2581,7 +2583,7 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color, duration));
 	}
-
+	
 	/// <summary>
 	/// Draws a filled triangle.
 	/// </summary>
@@ -2598,9 +2600,9 @@ public partial class DebugDrawMesh
 	{
 		return Add(DebugDrawItems.Triangle.GetFill(ref p1, ref p2, ref p3, ref color1, ref color2, ref color3, duration));
 	}
-
+	
 	/* </InstanceGenMethods> */
-
+	
 }
 
 }

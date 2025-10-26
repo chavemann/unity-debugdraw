@@ -11,28 +11,32 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// </summary>
 	public class Text : BasePointItem
 	{
+		
 		/* mesh: text */
-
+		
 		/// <summary>
 		/// The text to display.
 		/// </summary>
 		public string text;
+		
 		/// <summary>
 		/// Where to anchor the text.
 		/// </summary>
 		public TextAnchor align;
+		
 		/// <summary>
 		/// The text scale. Set to 1 for default.
 		/// </summary>
 		public float scale;
+		
 		/// <summary>
 		/// If true, the text will scale based on the distance to the camera.
 		/// </summary>
 		public bool useWorldSize;
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// Draws a line.
 		/// </summary>
@@ -47,17 +51,17 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Text Get(ref Vector3 position, string text, ref Color color, TextAnchor align = TextAnchor.UpperLeft, float scale = 1, EndTime? duration = null)
 		{
 			Text item = ItemPool<Text>.Get(duration);
-
+			
 			item.position = position;
 			item.text = text;
 			item.color = color;
 			item.align = align;
 			item.scale = scale;
 			item.useWorldSize = false;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a line.
 		/// </summary>
@@ -72,27 +76,27 @@ namespace DebugDrawUtils.DebugDrawItems
 		{
 			return Get(ref position, text, ref DebugDraw.colorIdentity, align, scale, duration);
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-
+		
 		public Text SetUseWorldSize(bool useWorldSize = true)
 		{
 			this.useWorldSize = useWorldSize;
-
+			
 			return this;
 		}
-
+		
 		internal override void Release()
 		{
 			ItemPool<Text>.Release(this);
 		}
-
+		
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			throw new System.NotImplementedException();
 		}
-
+		
 	}
 
 }

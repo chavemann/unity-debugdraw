@@ -12,6 +12,7 @@ namespace DebugDrawUtils
 
 public static partial class Log
 {
+	
 	/*
 	 * These methods are generated automatically from the Log.Print** methods.
 	 */
@@ -24,7 +25,7 @@ public static partial class Log
 	public static LogMessage Text(string message)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, message) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, message) : null;
 		#else
 		return null;
 		#endif
@@ -37,7 +38,7 @@ public static partial class Log
 	public static LogMessage Text(object message)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) message) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) message) : null;
 		#else
 		return null;
 		#endif
@@ -51,7 +52,7 @@ public static partial class Log
 	public static LogMessage TextFormat(string format, params object[] args)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, string.Format(format, args)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, string.Format(format, args)) : null;
 		#else
 		return null;
 		#endif
@@ -64,7 +65,7 @@ public static partial class Log
 	public static LogMessage Text(Object val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -77,7 +78,7 @@ public static partial class Log
 	public static LogMessage Text(Transform val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -90,7 +91,7 @@ public static partial class Log
 	public static LogMessage Text(bool val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -103,7 +104,7 @@ public static partial class Log
 	public static LogMessage Text(char val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -116,7 +117,7 @@ public static partial class Log
 	public static LogMessage Text(sbyte val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -129,7 +130,7 @@ public static partial class Log
 	public static LogMessage Text(short val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -142,7 +143,7 @@ public static partial class Log
 	public static LogMessage Text(int val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -155,7 +156,7 @@ public static partial class Log
 	public static LogMessage Text(long val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -168,7 +169,7 @@ public static partial class Log
 	public static LogMessage Text(byte val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -181,7 +182,7 @@ public static partial class Log
 	public static LogMessage Text(ushort val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -194,7 +195,7 @@ public static partial class Log
 	public static LogMessage Text(uint val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -207,7 +208,7 @@ public static partial class Log
 	public static LogMessage Text(ulong val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -220,7 +221,7 @@ public static partial class Log
 	public static LogMessage Text(float val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -233,7 +234,7 @@ public static partial class Log
 	public static LogMessage Text(double val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -246,7 +247,7 @@ public static partial class Log
 	public static LogMessage Text(decimal val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(val)) : null;
 		#else
 		return null;
 		#endif
@@ -259,7 +260,7 @@ public static partial class Log
 	public static LogMessage Text(Vector2 val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(ref val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(ref val)) : null;
 		#else
 		return null;
 		#endif
@@ -272,7 +273,7 @@ public static partial class Log
 	public static LogMessage Text(Vector3 val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(ref val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(ref val)) : null;
 		#else
 		return null;
 		#endif
@@ -285,7 +286,7 @@ public static partial class Log
 	public static LogMessage Text(Vector4 val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(ref val)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(ref val)) : null;
 		#else
 		return null;
 		#endif
@@ -298,7 +299,7 @@ public static partial class Log
 	public static LogMessage Text(Vector2Int val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
 		#else
 		return null;
 		#endif
@@ -311,7 +312,7 @@ public static partial class Log
 	public static LogMessage Text(Vector3Int val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
 		#else
 		return null;
 		#endif
@@ -324,7 +325,7 @@ public static partial class Log
 	public static LogMessage Text(Matrix4x4 val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
 		#else
 		return null;
 		#endif
@@ -337,7 +338,7 @@ public static partial class Log
 	public static LogMessage Text(Quaternion val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
 		#else
 		return null;
 		#endif
@@ -350,7 +351,7 @@ public static partial class Log
 	public static LogMessage Text(Rect val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
 		#else
 		return null;
 		#endif
@@ -363,7 +364,7 @@ public static partial class Log
 	public static LogMessage Text(RectInt val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, val.ToString()) : null;
 		#else
 		return null;
 		#endif
@@ -376,7 +377,7 @@ public static partial class Log
 	public static LogMessage Text<T>(IEnumerable<T> list)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(list)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(list)) : null;
 		#else
 		return null;
 		#endif
@@ -389,7 +390,7 @@ public static partial class Log
 	public static LogMessage Text<TK, TV>(IDictionary<TK, TV> dict)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetDictString(dict)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetDictString(dict)) : null;
 		#else
 		return null;
 		#endif
@@ -402,7 +403,7 @@ public static partial class Log
 	public static LogMessage TextKeyValue(params object[] args)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetKeyValuePairsString(args)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetKeyValuePairsString(args)) : null;
 		#else
 		return null;
 		#endif
@@ -415,7 +416,7 @@ public static partial class Log
 	public static LogMessage Text(params object[] args)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetArgString(args)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetArgString(args)) : null;
 		#else
 		return null;
 		#endif
@@ -428,7 +429,7 @@ public static partial class Log
 	public static LogMessage Text(Object[] args)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(args)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(args)) : null;
 		#else
 		return null;
 		#endif
@@ -441,7 +442,7 @@ public static partial class Log
 	public static LogMessage Text(GameObject[] args)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(args)) : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, (string) GetString(args)) : null;
 		#else
 		return null;
 		#endif
@@ -455,7 +456,7 @@ public static partial class Log
 	public static LogMessage Text(string message, Object val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -469,7 +470,7 @@ public static partial class Log
 	public static LogMessage Text(string message, bool val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -483,7 +484,7 @@ public static partial class Log
 	public static LogMessage Text(string message, string val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -497,7 +498,7 @@ public static partial class Log
 	public static LogMessage Text(string message, char val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -511,7 +512,7 @@ public static partial class Log
 	public static LogMessage Text(string message, sbyte val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -525,7 +526,7 @@ public static partial class Log
 	public static LogMessage Text(string message, short val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -539,7 +540,7 @@ public static partial class Log
 	public static LogMessage Text(string message, int val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -553,7 +554,7 @@ public static partial class Log
 	public static LogMessage Text(string message, long val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -567,7 +568,7 @@ public static partial class Log
 	public static LogMessage Text(string message, byte val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -581,7 +582,7 @@ public static partial class Log
 	public static LogMessage Text(string message, ushort val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -595,7 +596,7 @@ public static partial class Log
 	public static LogMessage Text(string message, uint val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -609,7 +610,7 @@ public static partial class Log
 	public static LogMessage Text(string message, ulong val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -623,7 +624,7 @@ public static partial class Log
 	public static LogMessage Text(string message, float val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -637,7 +638,7 @@ public static partial class Log
 	public static LogMessage Text(string message, double val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -651,7 +652,7 @@ public static partial class Log
 	public static LogMessage Text(string message, decimal val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(val)}") : null;
 		#else
 		return null;
 		#endif
@@ -665,7 +666,7 @@ public static partial class Log
 	public static LogMessage Text(string message, Vector2 val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(ref val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(ref val)}") : null;
 		#else
 		return null;
 		#endif
@@ -679,7 +680,7 @@ public static partial class Log
 	public static LogMessage Text(string message, Vector3 val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(ref val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(ref val)}") : null;
 		#else
 		return null;
 		#endif
@@ -693,7 +694,7 @@ public static partial class Log
 	public static LogMessage Text(string message, Vector4 val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(ref val)}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {GetString(ref val)}") : null;
 		#else
 		return null;
 		#endif
@@ -707,7 +708,7 @@ public static partial class Log
 	public static LogMessage Text(string message, Vector2Int val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
 		#else
 		return null;
 		#endif
@@ -721,7 +722,7 @@ public static partial class Log
 	public static LogMessage Text(string message, Vector3Int val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
 		#else
 		return null;
 		#endif
@@ -735,7 +736,7 @@ public static partial class Log
 	public static LogMessage Text(string message, Matrix4x4 val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
 		#else
 		return null;
 		#endif
@@ -749,7 +750,7 @@ public static partial class Log
 	public static LogMessage Text(string message, Quaternion val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
 		#else
 		return null;
 		#endif
@@ -763,7 +764,7 @@ public static partial class Log
 	public static LogMessage Text(string message, Rect val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
 		#else
 		return null;
 		#endif
@@ -777,14 +778,14 @@ public static partial class Log
 	public static LogMessage Text(string message, RectInt val)
 	{
 		#if DEBUG_DRAW
-			return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
+		return DebugDraw.hasInstance ? LogMessage.Add("", null, $"{message} {val.ToString()}") : null;
 		#else
 		return null;
 		#endif
 	}
 	
 	/* </TextGenMethods> */
-
+	
 }
 
 }

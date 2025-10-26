@@ -4,22 +4,22 @@ using UnityEngine;
 // ReSharper disable once CheckNamespace
 namespace DebugDrawUtils.DebugDrawAttachments
 {
-
+	
 	public class AttachmentObject<T> where T : BaseAttachment
 	{
-
+		
 		internal readonly T attachment;
 		internal bool hasTransform;
 		internal Transform transform;
 		internal Vector3 localOffset;
 		internal Vector3 worldOffset;
 		internal bool hasLocalOffset;
-
+		
 		public AttachmentObject(T attachment)
 		{
 			this.attachment = attachment;
 		}
-
+		
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T Set(Transform tr)
 		{
@@ -28,7 +28,7 @@ namespace DebugDrawUtils.DebugDrawAttachments
 			hasLocalOffset = false;
 			return attachment;
 		}
-
+		
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T Set(Transform tr, Vector3 localOffset, Vector3 worldOffset)
 		{
@@ -38,7 +38,7 @@ namespace DebugDrawUtils.DebugDrawAttachments
 			hasLocalOffset = localOffset != Vector3.zero;
 			return attachment;
 		}
-
+		
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T SetWithWorld(Transform tr, Vector3 worldOffset)
 		{
@@ -47,7 +47,7 @@ namespace DebugDrawUtils.DebugDrawAttachments
 			hasLocalOffset = false;
 			return attachment;
 		}
-
+		
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T SetWithLocal(Transform tr, Vector3 localOffset)
 		{
@@ -56,7 +56,7 @@ namespace DebugDrawUtils.DebugDrawAttachments
 			hasLocalOffset = localOffset != default;
 			return attachment;
 		}
-
+		
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T SetOffset(Vector3 localOffset, Vector3 worldOffset)
 		{
@@ -65,14 +65,14 @@ namespace DebugDrawUtils.DebugDrawAttachments
 			hasLocalOffset = localOffset != Vector3.zero;
 			return attachment;
 		}
-
+		
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T SetWorldOffset(Vector3 worldOffset)
 		{
 			this.worldOffset = worldOffset;
 			return attachment;
 		}
-
+		
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public T SetLocalOffset(Vector3 localOffset)
 		{
@@ -80,7 +80,7 @@ namespace DebugDrawUtils.DebugDrawAttachments
 			hasLocalOffset = localOffset != default;
 			return attachment;
 		}
-
+		
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public Vector3 CalculatePosition()
 		{
@@ -92,7 +92,7 @@ namespace DebugDrawUtils.DebugDrawAttachments
 					? localOffset + worldOffset
 					: worldOffset;
 		}
-
+		
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private void SetTransform(Transform tr)
 		{
@@ -107,13 +107,13 @@ namespace DebugDrawUtils.DebugDrawAttachments
 				transform = null;
 			}
 		}
-
+		
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static implicit operator bool(AttachmentObject<T> obj)
 		{
 			return obj.hasTransform && obj.transform;
 		}
-
+		
 	}
-
+	
 }

@@ -15,20 +15,20 @@ namespace DebugDrawUtils
 #if DEBUG_DRAW
 public partial class LogMessage : Groupable
 {
-
+	
 	private const float ScreenPadding = 10;
-
+	
 	private static readonly GUIContent MessageGUIContent = new();
 	private static readonly Regex ColorTagRichTextRegex = new(@"<color\s*=\s*.+?\s*>|<\/color>", RegexOptions.Compiled | RegexOptions.Singleline);
-
+	
 	private static LogMessage messages;
 	private static readonly Dictionary<string, LogMessage> MessageIds = new();
 	private static LogMessage[] messagePool = new LogMessage[4];
 	private static int messagePoolSize;
 	internal static bool hasMessages;
-
+	
 	internal static readonly GroupList Groups = new();
-
+	
 	private string id;
 	private bool active;
 	private LogMessage prev;
@@ -38,22 +38,22 @@ public partial class LogMessage : Groupable
 	private string shadowText;
 	private EndTime expires;
 	private bool invalidateHeight;
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private LogMessage InsertBefore(LogMessage message)
 	{
 		message.next = this;
-
+		
 		if (prev != null)
 		{
 			prev.next = message;
 		}
-
+		
 		message.prev = prev;
 		prev = message;
 		return message;
 	}
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal void Slice()
 	{
@@ -61,119 +61,119 @@ public partial class LogMessage : Groupable
 		{
 			prev.next = next;
 		}
-
+		
 		if (next != null)
 		{
 			next.prev = prev;
 		}
-
+		
 		prev = null;
 		next = null;
 	}
-
+	
 	internal static void Reset()
 	{
 		Groups.Reset();
 		Clear();
 	}
-
+	
 	internal static void Clear()
 	{
 		LogMessage message = messages;
-
+		
 		while (message != null)
 		{
 			LogMessage next = message.next;
 			message.Release();
 			message = next;
 		}
-
+		
 		messages = null;
 		hasMessages = false;
-
+		
 		MessageIds.Clear();
 	}
-
+	
 	internal static void Clear(string groupName)
 	{
 		if (!Groups.TryGet(groupName, out Group group))
 			return;
-
+		
 		Clear(group);
 	}
-
+	
 	internal static void Clear(Group group)
 	{
 		if (group == null)
 			return;
 		if (!group.isActive)
 			return;
-
+		
 		for (int i = 0; i < group.itemCount; i++)
 		{
 			LogMessage message = (LogMessage) group.items[i];
 			Remove(message);
 		}
-
+		
 		group.Clear();
 	}
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static Group CreateGroup(string name, EndTime? defaultDuration = null)
 	{
 		return Groups.GetOrCreate(name, defaultDuration);
 	}
-
+	
 	internal static void ReleaseGroup(Group group)
 	{
 		if (group == null)
 			return;
 		if (!group.isActive)
 			return;
-
+		
 		for (int i = 0; i < group.itemCount; i++)
 		{
 			group.items[i].group = null;
 		}
-
+		
 		Groups.Release(group);
 	}
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static Group BeginGroup(string name, EndTime? defaultDuration = null)
 	{
 		return Groups.Push(name, defaultDuration);
 	}
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static Group BeginGroup(Group group)
 	{
 		return Groups.Push(group);
 	}
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static void EndGroup()
 	{
 		Groups.Pop();
 	}
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static void NextGroup(string name, EndTime? defaultDuration = null)
 	{
 		Groups.SetNext(name, defaultDuration);
 	}
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static void NextGroup(Group group)
 	{
 		Groups.SetNext(group);
 	}
-
+	
 	internal static LogMessage Add(string id, EndTime? duration = null, string text = null)
 	{
 		LogMessage message;
 		Group currentGroup = Groups.GetCurrent();
-
+		
 		if (id != "")
 		{
 			if (!MessageIds.TryGetValue(id, out message))
@@ -189,11 +189,11 @@ public partial class LogMessage : Groupable
 			message = messagePoolSize > 0 ? messagePool[--messagePoolSize] : new LogMessage();
 			currentGroup?.Add(message);
 		}
-
+		
 		message
 			.Duration(duration)
 			.SetText(text);
-
+		
 		if (message.active)
 		{
 			if (message != messages)
@@ -210,13 +210,13 @@ public partial class LogMessage : Groupable
 		{
 			messages = message;
 		}
-
+		
 		message.active = true;
 		hasMessages = true;
-
+		
 		return message;
 	}
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private static void Remove(LogMessage message)
 	{
@@ -225,45 +225,45 @@ public partial class LogMessage : Groupable
 			messages = message.next;
 			hasMessages = messages != null;
 		}
-
+		
 		message.Slice();
 		message.Release();
 	}
-
+	
 	internal static void Update()
 	{
 		float time = DebugDraw.frameTime;
 		LogMessage nextMessage = messages;
 		LogMessage previousMessage = messages;
 		int i = 1;
-
+		
 		Rect rect = GetScreenRect();
-
+		
 		while (nextMessage != null)
 		{
 			i++;
 			LogMessage message = nextMessage;
 			previousMessage = message;
-
+			
 			nextMessage = nextMessage.next;
-
+			
 			if (message.invalidateHeight)
 			{
 				MessageGUIContent.text = message.text;
 				message.height = Log.MessageStyle.CalcHeight(MessageGUIContent, rect.width);
 				message.invalidateHeight = false;
 			}
-
+			
 			if (message.expires.Expired(time))
 			{
 				Remove(message);
 			}
 		}
-
+		
 		if (--i > Log.maxMessages)
 		{
 			LogMessage message = previousMessage;
-
+			
 			while (message != null && i-- > Log.maxMessages)
 			{
 				LogMessage prev = message.prev;
@@ -272,17 +272,17 @@ public partial class LogMessage : Groupable
 			}
 		}
 	}
-
+	
 	internal static void Draw()
 	{
 		Color guiColor = GUI.color;
-
+		
 		for (int i = 0; i < 2; i++)
 		{
 			Rect rect = GetScreenRect();
 			rect.y = Screen.height - ScreenPadding;
 			LogMessage message = messages;
-
+			
 			if (Log.messageShadowColor.HasValue)
 			{
 				if (i == 0)
@@ -296,42 +296,42 @@ public partial class LogMessage : Groupable
 					GUI.color = guiColor;
 				}
 			}
-
+			
 			while (message != null)
 			{
 				MessageGUIContent.text = Log.messageShadowColor.HasValue && i == 0
 					? message.shadowText
 					: message.text;
-
+				
 				rect.y -= message.height;
 				rect.height -= message.height;
-
+				
 				if (rect.height <= 0)
 					break;
-
+				
 				GUI.Label(rect, MessageGUIContent, Log.MessageStyle);
 				message = message.next;
 			}
-
+			
 			if (!Log.messageShadowColor.HasValue)
 				break;
 		}
 	}
-
+	
 	private static Rect GetScreenRect()
 	{
 		return new Rect(
 			ScreenPadding, ScreenPadding,
 			Screen.width - ScreenPadding * 2, Screen.height - ScreenPadding * 2);
 	}
-
+	
 	/// <summary>
 	/// Set the text for this message.
 	/// </summary>
 	private LogMessage SetText(string newText)
 	{
 		string previousText = text;
-
+		
 		if (string.IsNullOrEmpty(newText))
 		{
 			shadowText = "";
@@ -339,11 +339,11 @@ public partial class LogMessage : Groupable
 			invalidateHeight = text != previousText;
 			return this;
 		}
-
+		
 		shadowText = Log.messageShadowColor.HasValue
 			? ColorTagRichTextRegex.Replace(newText, "")
 			: newText;
-
+		
 		if (Log.nextMessageColor.HasValue)
 		{
 			text = $"<color=#{ColorUtility.ToHtmlStringRGBA(Log.nextMessageColor.GetValueOrDefault())}>{newText}</color>";
@@ -353,11 +353,11 @@ public partial class LogMessage : Groupable
 		{
 			text = newText;
 		}
-
+		
 		invalidateHeight = text != previousText;
 		return this;
 	}
-
+	
 	/// <summary>
 	/// Set the duration for this message.
 	/// </summary>
@@ -367,7 +367,7 @@ public partial class LogMessage : Groupable
 		expires = DebugDraw.GetTime(duration, Groups);
 		return this;
 	}
-
+	
 	/// <summary>
 	/// Sets the group this item belongs to.
 	/// </summary>
@@ -377,21 +377,21 @@ public partial class LogMessage : Groupable
 	{
 		if (newGroup == group)
 			return this;
-
+		
 		group?.Remove(this);
 		group = newGroup;
 		group?.Add(this);
-
+		
 		return this;
 	}
-
+	
 	private void Release()
 	{
 		if (messagePoolSize == messagePool.Length)
 		{
 			Array.Resize(ref messagePool, messagePool.Length * 2);
 		}
-
+		
 		active = false;
 		prev = next = null;
 		if (id != null)
@@ -399,11 +399,12 @@ public partial class LogMessage : Groupable
 			MessageIds.Remove(id);
 			id = null;
 		}
+		
 		messagePool[messagePoolSize++] = this;
-
+		
 		ReleaseFromGroup();
 	}
-
+	
 }
 #endif
 

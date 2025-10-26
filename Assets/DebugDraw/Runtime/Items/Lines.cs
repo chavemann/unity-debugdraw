@@ -13,20 +13,22 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// </summary>
 	public class Lines : BaseItem
 	{
+		
 		/* mesh: line */
-
+		
 		/// <summary>
 		/// The positions of the start and end points of each line.
 		/// </summary>
 		public List<Vector3> positions;
+		
 		/// <summary>
 		/// The colors of the start and end points of each line.
 		/// </summary>
 		public List<Color> colors;
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// Batch draw multiple lines from a positions and colors array.
 		/// Both arrays must be non-null, of the same size, and multiples of two - two entries for each line.
@@ -39,27 +41,27 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Lines Get(List<Vector3> positions, List<Color> colors, EndTime? duration = null)
 		{
 			Lines item = ItemPool<Lines>.Get(duration);
-
+			
 			item.positions = positions;
 			item.colors = colors;
-
+			
 			return item;
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-
+		
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			mesh.AddLines(this, positions, colors);
 		}
-
+		
 		internal override void Release()
 		{
 			positions = null;
 			colors = null;
 		}
-
+		
 	}
 
 }

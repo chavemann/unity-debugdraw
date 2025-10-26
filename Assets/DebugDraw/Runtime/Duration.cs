@@ -3,12 +3,12 @@
 
 public enum Duration
 {
-
+	
 	Default,
 	Infinite,
 	Once,
 	Time,
-
+	
 }
 
 }

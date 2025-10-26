@@ -10,26 +10,29 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// </summary>
 	public class Rectangle : BasePointItem
 	{
+		
 		/* mesh: line */
-
+		
 		/// <summary>
 		/// The half size of the square.
 		/// </summary>
 		public Vector2 size;
+		
 		/// <summary>
 		/// The normal or direction the front of the square is facing.
 		/// </summary>
 		public Vector3 facing;
+		
 		/// <summary>
 		/// True for a filled square made up from triangles, otherwise a wire ellipse.
 		/// It's important that this Square item is added to a mesh with the right topology, either lines or triangles,
 		/// based on this setting.
 		/// </summary>
 		public bool filled;
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// Draws a filled square.
 		/// </summary>
@@ -43,16 +46,16 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Rectangle GetFill(ref Vector3 position, float size, ref Vector3 facing, ref Color color, EndTime? duration = null)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
-
+			
 			item.position = position;
 			item.size = new Vector2(size, size);
 			item.facing = facing;
 			item.color = color;
 			item.filled = true;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a wire square.
 		/// </summary>
@@ -66,16 +69,16 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Rectangle Get(ref Vector3 position, float size, ref Vector3 facing, ref Color color, EndTime? duration = null)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
-
+			
 			item.position = position;
 			item.size = new Vector2(size, size);
 			item.facing = facing;
 			item.color = color;
 			item.filled = false;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a filled square.
 		/// </summary>
@@ -89,16 +92,16 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Rectangle GetFill(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, EndTime? duration = null)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
-
+			
 			item.position = position;
 			item.size = size;
 			item.facing = facing;
 			item.color = color;
 			item.filled = true;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a wire square.
 		/// </summary>
@@ -112,31 +115,31 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Rectangle Get(ref Vector3 position, ref Vector2 size, ref Vector3 facing, ref Color color, EndTime? duration = null)
 		{
 			Rectangle item = ItemPool<Rectangle>.Get(duration);
-
+			
 			item.position = position;
 			item.size = size;
 			item.facing = facing;
 			item.color = color;
 			item.filled = false;
-
+			
 			return item;
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-
+		
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			Vector3 position = this.position;
 			DebugDraw.FindAxisVectors(ref facing, ref DebugDraw.up, out Vector3 up, out Vector3 right);
-
+			
 			if (hasStateTransform)
 			{
 				position = stateTransform.MultiplyPoint3x4(position);
 				right = stateTransform.MultiplyVector(right);
 				up = stateTransform.MultiplyVector(up);
 			}
-
+			
 			mesh.AddVertex(
 				position.x + right.x * -size.x + up.x * -size.y,
 				position.y + right.y * -size.x + up.y * -size.y,
@@ -153,9 +156,9 @@ namespace DebugDrawUtils.DebugDrawItems
 				position.x + right.x * -size.x + up.x * +size.y,
 				position.y + right.y * -size.x + up.y * +size.y,
 				position.z + right.z * -size.x + up.z * +size.y);
-
+			
 			mesh.AddColorX4(this, ref color);
-
+			
 			if (filled)
 			{
 				mesh.AddIndexX3();
@@ -182,12 +185,12 @@ namespace DebugDrawUtils.DebugDrawItems
 					mesh.vertexIndex - 4);
 			}
 		}
-
+		
 		internal override void Release()
 		{
 			ItemPool<Rectangle>.Release(this);
 		}
-
+		
 	}
 
 }

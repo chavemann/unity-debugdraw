@@ -13,42 +13,48 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// </summary>
 	public class Dots : BaseItem
 	{
+		
 		/* mesh: triangle */
-
+		
 		/// <summary>
 		/// The positions of each dot.
 		/// </summary>
 		public List<Vector3> positions;
+		
 		/// <summary>
 		/// The sizes each dot.
 		/// </summary>
 		public List<float> sizes;
+		
 		/// <summary>
 		/// The colors each dot.
 		/// </summary>
 		public List<Color> colors;
-
+		
 		/// <summary>
 		/// If true adjusts the size of all dot so it approximately remains the same size on screen.
 		/// </summary>
 		public bool autoSize;
+		
 		/// <summary>
 		/// The forward direction of all dots. Automatically updated if faceCamera is true.
 		/// </summary>
 		public Vector3 facing;
+		
 		/// <summary>
 		/// If true all dots will automatically rotate to face the camera.
 		/// </summary>
 		public bool faceCamera;
+		
 		/// <summary>
 		/// The shape/resolution of all dots. 0 or 4 = square, >= 3 = circle.
 		/// If set to zero will be adjusted based on the distance to the camera.
 		/// </summary>
 		public int segments;
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// Batch draws 3D dots that automatically faces the camera.
 		/// </summary>
@@ -62,16 +68,16 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Dots Get(List<Vector3> positions, List<float> sizes, List<Color> colors, int segments = 0, EndTime? duration = null)
 		{
 			Dots item = ItemPool<Dots>.Get(duration);
-
+			
 			item.positions = positions;
 			item.sizes = sizes;
 			item.colors = colors;
 			item.faceCamera = true;
 			item.segments = segments;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Batch draws 3D dots.
 		/// </summary>
@@ -86,20 +92,20 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Dots Get(List<Vector3> positions, List<float> sizes, List<Color> colors, ref Vector3 facing, int segments = 0, EndTime? duration = null)
 		{
 			Dots item = ItemPool<Dots>.Get(duration);
-
+			
 			item.positions = positions;
 			item.sizes = sizes;
 			item.colors = colors;
 			item.facing = facing;
 			item.faceCamera = false;
 			item.segments = segments;
-
+			
 			return item;
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-
+		
 		/// <summary>
 		/// If true adjusts the size of the dot so it approximately remains the same size on screen.
 		/// </summary>
@@ -108,10 +114,10 @@ namespace DebugDrawUtils.DebugDrawItems
 		public Dots SetAutoSize(bool autoSize = true)
 		{
 			this.autoSize = autoSize;
-
+			
 			return this;
 		}
-
+		
 		/// <summary>
 		/// Sets <see cref="segments"/> to zero so that it will be calculated dynamically based
 		/// on the distance to the camera.
@@ -120,10 +126,10 @@ namespace DebugDrawUtils.DebugDrawItems
 		public Dots SetAutoResolution()
 		{
 			segments = 0;
-
+			
 			return this;
 		}
-
+		
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			bool hasStateTransform = this.hasStateTransform;
@@ -132,18 +138,18 @@ namespace DebugDrawUtils.DebugDrawItems
 			ref Color stateColor = ref this.stateColor;
 			bool autoSize = this.autoSize && !DebugDraw.camOrthographic;
 			bool autoResolution = segments <= 0;
-
+			
 			List<Vector3> positions = this.positions;
 			List<float> sizes = this.sizes;
 			List<Color> colors = this.colors;
-
+			
 			int vertexIndex = mesh.vertexIndex;
 			List<Vector3> meshVertices = mesh.vertices;
 			List<Color> meshColors = mesh.colours;
 			List<int> meshIndices = mesh.indices;
-
+			
 			Vector3 right, up;
-
+			
 			if (faceCamera)
 			{
 				right = DebugDraw.camRight;
@@ -153,14 +159,14 @@ namespace DebugDrawUtils.DebugDrawItems
 			{
 				DebugDraw.FindAxisVectors(ref facing, ref DebugDraw.forward, out up, out right);
 			}
-
+			
 			if (faceCamera || autoSize)
 			{
 				Matrix4x4 m = Matrix4x4.TRS(
 					DebugDraw.positionIdentity,
 					faceCamera || !hasStateTransform ? DebugDraw.rotationIdentity : stateTransform.rotation,
 					autoSize || !hasStateTransform ? DebugDraw.scaleIdentity : stateTransform.lossyScale);
-
+				
 				right = m.MultiplyVector(right);
 				up = m.MultiplyVector(up);
 			}
@@ -169,31 +175,31 @@ namespace DebugDrawUtils.DebugDrawItems
 				right = stateTransform.MultiplyVector(right);
 				up = stateTransform.MultiplyVector(up);
 			}
-
+			
 			for (int i = positions.Count - 1; i >= 0; i--)
 			{
 				Vector3 position = positions[i];
 				float size = sizes[i];
 				Color clr = hasStateColor ? colors[i] * stateColor : colors[i];
-
+				
 				if (hasStateTransform)
 				{
 					position = stateTransform.MultiplyPoint3x4(position);
 				}
-
+				
 				float dist = autoSize || autoResolution
 					? Mathf.Max(DebugDraw.DistanceFromCamera(ref position), 0)
 					: 0;
-
+				
 				if (autoSize)
 				{
 					size *= dist * BaseAutoSizeDistanceFactor;
 				}
-
+				
 				int segments = autoResolution
 					? Ellipse.DefaultAutoResolution(dist, size)
 					: this.segments;
-
+				
 				if (segments < 3)
 				{
 					meshVertices.Add(new Vector3(
@@ -231,10 +237,10 @@ namespace DebugDrawUtils.DebugDrawItems
 					meshColors.Add(clr);
 					int firstVertexIndex = vertexIndex;
 					vertexIndex++;
-
+					
 					float angle = -Mathf.PI * 0.25f;
 					float angleDelta = (Mathf.PI * 2) / segments;
-
+					
 					for (int j = 0, k = segments - 1; j < segments; k = j++)
 					{
 						Vector2 p = new Vector2(
@@ -245,24 +251,24 @@ namespace DebugDrawUtils.DebugDrawItems
 							position.y + right.y * p.x + up.y * p.y,
 							position.z + right.z * p.x + up.z * p.y));
 						meshColors.Add(clr);
-
+						
 						meshIndices.Add(firstVertexIndex);
 						meshIndices.Add(firstVertexIndex + k + 1);
 						meshIndices.Add(vertexIndex++);
-
+						
 						angle += angleDelta;
 					}
 				}
 			}
-
+			
 			mesh.vertexIndex = vertexIndex;
 		}
-
+		
 		internal override void Release()
 		{
 			ItemPool<Dots>.Release(this);
 		}
-
+		
 	}
 
 }

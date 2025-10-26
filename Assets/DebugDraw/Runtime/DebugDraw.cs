@@ -36,16 +36,16 @@ namespace DebugDrawUtils
 /// </summary>
 public static partial class DebugDraw
 {
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Private -- */
-
+	
 	/// <summary>
 	/// Just for testing, set this to true so that the instance is visible in the hierarchy
 	/// after a scene change.
 	/// </summary>
 	private const bool UpdateInstanceScene = false;
-
+	
 	public static readonly int DefaultLayer = LayerMask.NameToLayer("Default");
 	public static Color colorIdentity = Color.white;
 	public static Matrix4x4 matrixIdentity = Matrix4x4.identity;
@@ -58,7 +58,7 @@ public static partial class DebugDraw
 	public static Vector3 left = Vector3.left;
 	public static Vector3 forward = Vector3.forward;
 	public static Vector3 back = Vector3.back;
-
+	
 	private static readonly List<BaseAttachment> Attachments = new();
 	private static int attachmentCount;
 	private static int attachmentListSize;
@@ -66,33 +66,33 @@ public static partial class DebugDraw
 	internal static DebugDrawMesh lineMeshInstance;
 	internal static DebugDrawMesh triangleMeshInstance;
 	internal static DebugDrawTextMesh textMeshInstance;
-
+	
 	private static bool _useFixedUpdate;
 	#if DEBUG_DRAW_EDITOR
 	private static bool _enableInEditMode = true;
 	#else
 	private static bool _enableInEditMode = false;
 	#endif
-
+	
 	internal static bool hasInstance;
-
+	
 	internal static Color _color = Color.white;
 	internal static Matrix4x4 _transform = Matrix4x4.identity;
 	internal static bool hasColor;
 	internal static bool hasTransform;
 	private static readonly List<DebugDrawState> States = new();
 	private static int stateIndex;
-
+	
 	internal static readonly GroupList Groups = new();
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Public -- */
-
+	
 	/// <summary>
 	/// Modify the default properties of all Text.
 	/// </summary>
 	public static readonly GUIStyle TextStyle = new();
-
+	
 	/// <summary>
 	/// Should DebugDraw update itself during FixedUpdate instead of Update.
 	/// Should be set to true if you are running your game logic and using DebugDraw from FixedUpdate.
@@ -104,17 +104,17 @@ public static partial class DebugDraw
 		{
 			if (_useFixedUpdate == value)
 				return;
-
+			
 			_useFixedUpdate = value;
 			UpdateFixedUpdateFlag();
 		}
 	}
-
+	
 	/// <summary>
 	/// If true, will rebuild meshes for each camera that is rendered.
 	/// </summary>
 	public static bool updatePerCamera = true;
-
+	
 	#if UNITY_EDITOR
 	public static bool isActive => pointMeshInstance != null && (EditorApplication.isPlayingOrWillChangePlaymode || _enableInEditMode);
 	public static bool isPlaying => EditorApplication.isPlayingOrWillChangePlaymode;
@@ -122,7 +122,7 @@ public static partial class DebugDraw
 	public static bool isActive => pointMeshInstance != null && (Application.isPlaying || _enableInEditMode);
 	public static bool isPlaying => Application.isPlaying;
 	#endif
-
+	
 	/// <summary>
 	/// All item colors will be multiplied by this.
 	/// </summary>
@@ -135,17 +135,17 @@ public static partial class DebugDraw
 			hasColor = value != colorIdentity;
 		}
 	}
-
+	
 	/// <summary>
 	/// The origin of all debug graphics.
 	/// </summary>
 	public static Vector3 globalOrigin = Vector3.zero;
-
+	
 	/// <summary>
 	/// The global rotation of all debug graphics.
 	/// </summary>
 	public static Quaternion globalRotation = Quaternion.identity;
-
+	
 	/// <summary>
 	/// All item will be transformed by this.
 	/// </summary>
@@ -158,45 +158,45 @@ public static partial class DebugDraw
 			hasTransform = value != matrixIdentity;
 		}
 	}
-
+	
 	/// <summary>
 	/// Set to null for no shadow
 	/// </summary>
 	public static Color? textShadowColor = new Color(0, 0, 0, 0.5f);
-
+	
 	/// <summary>
 	/// Text smaller than this size on screen won't be rendered.
 	/// Only applicable if <see cref="DebugDrawItems.Text.SetUseWorldSize"/> is set.
 	/// </summary>
 	public static float minTextSize = 5;
-
+	
 	/// <summary>
 	/// At what distance from the camera will text on screen approximately be it's original size.
 	/// Only applicable if <see cref="DebugDrawItems.Text.SetUseWorldSize"/> is set.
 	/// </summary>
 	public static float textBaseWorldDistance = 10;
-
+	
 	/// <summary>
 	/// If true uses `Time.unscaledTime` instead of `Time.time` for durations.
 	/// </summary>
 	public static bool useUnscaledTime = false;
-
+	
 	/// <summary>
 	/// The default duration for all items when one is not provided.
 	/// </summary>
 	public static EndTime defaultDuration = Duration.Once;
-
+	
 	public static DebugDrawMesh pointMesh => pointMeshInstance;
 	public static DebugDrawMesh lineMesh => lineMeshInstance;
 	public static DebugDrawMesh triangleMesh => triangleMeshInstance;
-
+	
 	#if DEBUG_DRAW
 	private static DebugDrawTimer timerInstance;
-
+	
 	private static bool doFixedUpdate;
 	private static bool requiresBuild = true;
 	#endif
-
+	
 	internal static float frameTime;
 	private static bool beforeInitialise;
 	private static CameraInitState hasCamera = CameraInitState.Pending;
@@ -211,42 +211,42 @@ public static partial class DebugDraw
 	public static bool camOrthographic;
 	public static float camOrthoSize;
 	public static float camFOVAngle;
-
+	
 	/// <summary>
 	/// The number of active debug items.
 	/// </summary>
 	public static int itemCount => pointMeshInstance != null
 		? pointMeshInstance.itemCount + lineMeshInstance.itemCount + triangleMeshInstance.itemCount + textMeshInstance.itemCount
 		: 0;
-
+	
 	/// <summary>
 	/// How many vertices where drawn on the last frame.
 	/// </summary>
 	public static int vertexCount => pointMeshInstance != null
 		? pointMeshInstance.vertexIndex + lineMeshInstance.vertexIndex + triangleMeshInstance.vertexIndex
 		: 0;
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Initialisation -- */
-
+	
 	static DebugDraw()
 	{
 		TextStyle.normal.textColor = Color.white;
 		TextStyle.fontSize = 14;
 	}
-
+	
 	#if DEBUG_DRAW
-
+	
 	#if UNITY_EDITOR
 	private static readonly EditorApplication.CallbackFunction OnEditorFlushFrameDelegate = OnEditorFlushFrame;
 	private static bool pendingEditorFrameFlush;
 	#endif
-
+	
 	private static readonly Camera.CameraCallback OnCameraPreCullDelegate = OnCameraPreCull;
 	#if SRP_AVAILABLE
 	private static readonly Action<ScriptableRenderContext, Camera> OnBeginCameraRenderingDelegate = OnBeginCameraRendering;
 	#endif
-
+	
 	#if UNITY_EDITOR
 	[InitializeOnLoadMethod]
 	#else
@@ -256,17 +256,17 @@ public static partial class DebugDraw
 	{
 		// Log.Print("---- InitializeOnLoad ---------------------------------- ");
 		// Log.Print("---- ---------------- ---------------------------------- ");
-
+		
 		#if UNITY_EDITOR
 		EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
 		EditorSceneManager.activeSceneChangedInEditMode += OnActiveSceneChangedInEditMode;
 		EditorSceneManager.sceneOpening += OnEditorSceneOpening;
 		#endif
-
+		
 		Clear();
 		Initialize(true);
 	}
-
+	
 	#if UNITY_EDITOR
 	private static void OnEditorSceneOpening(string path, OpenSceneMode mode)
 	{
@@ -277,27 +277,27 @@ public static partial class DebugDraw
 			Clear();
 		}
 	}
-
+	
 	private static void OnActiveSceneChangedInEditMode(Scene current, Scene next)
 	{
 		// Log.Print("---- OnActiveSceneChangedInEditMode ----------------------------------", frameTime);
-
+		
 		Initialize();
 		UpdateTimerInstanceScene();
 		ClearCamera();
 	}
-
+	
 	private static void OnPlayModeStateChanged(PlayModeStateChange state)
 	{
 		// Log.Print($"-- DebugDraw.OnPlayModeStateChanged ({state}) ----------------------------------");
-
+		
 		if (state == PlayModeStateChange.ExitingPlayMode || state == PlayModeStateChange.ExitingEditMode)
 		{
 			if (state == PlayModeStateChange.ExitingEditMode)
 			{
 				Initialize();
 			}
-
+			
 			Clear();
 			frameTime = 0;
 			beforeInitialise = true;
@@ -306,7 +306,7 @@ public static partial class DebugDraw
 		{
 			UpdateTimerInstanceScene();
 		}
-
+		
 		if (state == PlayModeStateChange.EnteredEditMode)
 		{
 			if (_enableInEditMode)
@@ -318,7 +318,7 @@ public static partial class DebugDraw
 			else
 			{
 				Clear();
-
+				
 				if (timerInstance)
 				{
 					UpdateInstance(null);
@@ -327,12 +327,12 @@ public static partial class DebugDraw
 		}
 	}
 	#endif
-
+	
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
 	private static void RuntimeInitialize()
 	{
 		// Log.Print("---- RuntimeInitialize ----------------------------------");
-
+		
 		if (timerInstance)
 		{
 			Object.Destroy(timerInstance);
@@ -341,24 +341,24 @@ public static partial class DebugDraw
 		
 		Initialize(true);
 	}
-
+	
 	private static void Initialize(bool createTimer = false)
 	{
 		// Log.Print("---- [Initialising] ----------------------------------", isPlaying);
-
+		
 		Camera.onPreCull -= OnCameraPreCullDelegate;
 		#if SRP_AVAILABLE
 		RenderPipelineManager.beginCameraRendering -= OnBeginCameraRenderingDelegate;
 		#endif
-
+		
 		if (!_enableInEditMode && !isPlaying)
 		{
 			Destroy();
 			return;
 		}
-
+		
 		beforeInitialise = false;
-
+		
 		if (createTimer && !timerInstance)
 		{
 			GameObject timerInstanceObj = new();
@@ -367,10 +367,11 @@ public static partial class DebugDraw
 			{
 				Object.DontDestroyOnLoad(timerInstanceObj);
 			}
+			
 			timerInstance = timerInstanceObj.AddComponent<DebugDrawTimer>();
 			UpdateInstance(timerInstance);
 		}
-
+		
 		if (pointMeshInstance == null)
 		{
 			pointMeshInstance = new DebugDrawMesh(MeshTopology.Points);
@@ -378,36 +379,36 @@ public static partial class DebugDraw
 			triangleMeshInstance = new DebugDrawMesh(MeshTopology.Triangles);
 			textMeshInstance = new DebugDrawTextMesh();
 		}
-
+		
 		if (_enableInEditMode || isPlaying)
 		{
 			pointMeshInstance.CreateAll();
 			lineMeshInstance.CreateAll();
 			triangleMeshInstance.CreateAll();
 		}
-
+		
 		UpdateFixedUpdateFlag();
-
+		
 		Camera.onPreCull += OnCameraPreCullDelegate;
 		#if SRP_AVAILABLE
 		RenderPipelineManager.beginCameraRendering += OnBeginCameraRenderingDelegate;
 		#endif
-
+		
 		ClearCamera();
 	}
-
+	
 	private static void UpdateInstance(DebugDrawTimer instance)
 	{
 		timerInstance = instance;
 		hasInstance = instance;
 	}
-
+	
 	private static void OnCameraPreCull(Camera camera)
 	{
 		// Log.Print("-- OnCameraPreCull --------------------");
 		DoBeforeRender(camera);
 	}
-
+	
 	#if SRP_AVAILABLE
 	private static void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
 	{
@@ -415,19 +416,19 @@ public static partial class DebugDraw
 		DoBeforeRender(camera);
 	}
 	#endif
-
+	
 	private static void DoBeforeRender(Camera camera)
 	{
 		if (cam != camera)
 		{
 			if (!updatePerCamera)
 				return;
-
+			
 			InitCamera(camera);
 			UpdateCamera();
 			requiresBuild = true;
 		}
-
+		
 		#if UNITY_EDITOR
 		if (EditorApplication.isPaused && !pendingEditorFrameFlush)
 		{
@@ -435,13 +436,13 @@ public static partial class DebugDraw
 			pendingEditorFrameFlush = true;
 		}
 		#endif
-
+		
 		if (!Application.isPlaying)
 		{
 			UpdateCamera();
 			requiresBuild = true;
 		}
-
+		
 		if (requiresBuild && pointMeshInstance != null)
 		{
 			pointMeshInstance.Build();
@@ -449,13 +450,13 @@ public static partial class DebugDraw
 			triangleMeshInstance.Build();
 			requiresBuild = false;
 		}
-
+		
 		Camera renderCam = updatePerCamera ? cam : null;
 		DrawMesh(pointMeshInstance, renderCam);
 		DrawMesh(lineMeshInstance, renderCam);
 		DrawMesh(triangleMeshInstance, renderCam);
 	}
-
+	
 	#if UNITY_EDITOR
 	private static void OnEditorFlushFrame()
 	{
@@ -463,17 +464,17 @@ public static partial class DebugDraw
 		pendingEditorFrameFlush = false;
 	}
 	#endif
-
+	
 	private static void DrawMesh(DebugDrawMesh mesh, Camera camera)
 	{
 		if (mesh.vertexIndex == 0)
 			return;
-
+		
 		Graphics.DrawMesh(
 			mesh.mesh, globalOrigin, globalRotation, mesh.material,
 			DefaultLayer, camera);
 	}
-
+	
 	private static void UpdateTimerInstanceScene()
 	{
 		#pragma warning disable 162
@@ -485,7 +486,7 @@ public static partial class DebugDraw
 		}
 		#pragma warning restore 162
 	}
-
+	
 	private static void Destroy()
 	{
 		if (hasInstance)
@@ -495,10 +496,10 @@ public static partial class DebugDraw
 				timerInstance.DestroyTimer();
 				timerInstance = null;
 			}
-
+			
 			hasInstance = false;
 		}
-
+		
 		if (pointMeshInstance != null)
 		{
 			pointMeshInstance.ClearAll();
@@ -507,12 +508,12 @@ public static partial class DebugDraw
 			textMeshInstance.ClearAll();
 		}
 	}
-
+	
 	#endif
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Methods -- */
-
+	
 	internal static void ClearCamera()
 	{
 		hasCamera = CameraInitState.Pending;
@@ -525,19 +526,19 @@ public static partial class DebugDraw
 		camOrthographic = false;
 		camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
 	}
-
+	
 	internal static void UpdateCamera()
 	{
 		if (hasCamera == CameraInitState.Pending || hasCamera == CameraInitState.NotNull && !cam)
 		{
 			InitCamera();
 		}
-
+		
 		camUpdated = true;
-
+		
 		if (hasCamera == CameraInitState.Null)
 			return;
-
+		
 		if (camTransform)
 		{
 			camPosition = camTransform.position;
@@ -550,7 +551,7 @@ public static partial class DebugDraw
 			camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
 		}
 	}
-
+	
 	/// <summary>
 	/// DebugDraw caches a reference to Camera.main - call this to update that reference.
 	/// Though this happens automatically when changing scenes etc.
@@ -559,7 +560,7 @@ public static partial class DebugDraw
 	public static void InitCamera(Camera newCam = null)
 	{
 		cam = newCam ? newCam : Camera.main;
-
+		
 		#if UNITY_EDITOR
 		if (!Application.isPlaying)
 		{
@@ -570,18 +571,18 @@ public static partial class DebugDraw
 				hasCamera = CameraInitState.Pending;
 				return;
 			}
-
+			
 			cam = SceneView.lastActiveSceneView.camera;
 		}
 		#endif
-
+		
 		hasCamera = cam != null ? CameraInitState.NotNull : CameraInitState.Null;
-
+		
 		if (hasCamera == CameraInitState.NotNull)
 		{
 			// ReSharper disable once PossibleNullReferenceException
 			camTransform = cam.transform;
-
+			
 			if (camUpdated)
 			{
 				UpdateCamera();
@@ -596,7 +597,7 @@ public static partial class DebugDraw
 			camUp = Vector3.up;
 		}
 	}
-
+	
 	/// <summary>
 	/// Clears all debug draw items.
 	/// </summary>
@@ -607,7 +608,7 @@ public static partial class DebugDraw
 			BaseAttachment attachment = Attachments[i];
 			attachment.Release();
 		}
-
+		
 		if (pointMeshInstance != null)
 		{
 			pointMeshInstance.ClearAll();
@@ -615,13 +616,13 @@ public static partial class DebugDraw
 			triangleMeshInstance.ClearAll();
 			textMeshInstance.Clear();
 		}
-
+		
 		attachmentCount = 0;
-
+		
 		Groups.Reset();
 		Log.Reset();
 	}
-
+	
 	/// <summary>
 	/// Removes all items that belong to the given group.
 	/// </summary>
@@ -630,13 +631,13 @@ public static partial class DebugDraw
 	{
 		if (pointMeshInstance == null)
 			return;
-
+		
 		if (!Groups.TryGet(groupName, out Group group))
 			return;
-
+		
 		Clear(group);
 	}
-
+	
 	/// <inheritdoc cref="Clear(string)"/>
 	public static void Clear(Group group)
 	{
@@ -644,16 +645,16 @@ public static partial class DebugDraw
 			return;
 		if (!group.isActive)
 			return;
-
+		
 		for (int i = group.itemCount - 1; i >= 0; i--)
 		{
 			BaseItem item = (BaseItem) group.items[i];
 			item.mesh?.Remove(item);
 		}
-
+		
 		group.Clear();
 	}
-
+	
 	/// <summary>
 	/// Sets the blend mode to invert destination colors for all debug visuals
 	/// </summary>
@@ -662,12 +663,12 @@ public static partial class DebugDraw
 	{
 		if (pointMeshInstance == null)
 			return;
-
+		
 		pointMeshInstance.SetInvertColours(invert);
 		lineMeshInstance.SetInvertColours(invert);
 		triangleMeshInstance.SetInvertColours(invert);
 	}
-
+	
 	/// <summary>
 	/// Set the culling mode for all debug visuals
 	/// </summary>
@@ -676,12 +677,12 @@ public static partial class DebugDraw
 	{
 		if (pointMeshInstance == null)
 			return;
-
+		
 		pointMeshInstance.SetCulling(mode);
 		lineMeshInstance.SetCulling(mode);
 		triangleMeshInstance.SetCulling(mode);
 	}
-
+	
 	/// <summary>
 	/// Set the depth testing for all debug visuals
 	/// </summary>
@@ -690,7 +691,7 @@ public static partial class DebugDraw
 	{
 		SetDepthTesting(enabled, enabled);
 	}
-
+	
 	/// <summary>
 	/// Sets the depth testing for all debug visual
 	/// </summary>
@@ -702,7 +703,7 @@ public static partial class DebugDraw
 		lineMeshInstance.SetDepthTesting(write, test);
 		triangleMeshInstance.SetDepthTesting(write, test);
 	}
-
+	
 	/// <summary>
 	/// Stores the current state (color and transform) on the stack.
 	/// </summary>
@@ -712,14 +713,14 @@ public static partial class DebugDraw
 		{
 			States.Add(new DebugDrawState());
 		}
-
+		
 		DebugDrawState state = States[stateIndex++];
 		state.color = _color;
 		state.transform = _transform;
 		state.hasColor = hasColor;
 		state.hasTransform = hasTransform;
 	}
-
+	
 	/// <summary>
 	/// Restores the current state from the stack.
 	/// </summary>
@@ -727,14 +728,14 @@ public static partial class DebugDraw
 	{
 		if (stateIndex == 0)
 			return;
-
+		
 		DebugDrawState state = States[--stateIndex];
 		_color = state.color;
 		_transform = state.transform;
 		hasColor = state.hasColor;
 		hasTransform = state.hasTransform;
 	}
-
+	
 	/// <summary>
 	/// Creates a group with the specified name, and default duration.
 	/// </summary>
@@ -746,7 +747,7 @@ public static partial class DebugDraw
 	{
 		return Groups.GetOrCreate(name, defaultDuration);
 	}
-
+	
 	/// <summary>
 	/// Use to release a created group when it is no longer needed.
 	/// This will not clear items added to the group.
@@ -758,15 +759,15 @@ public static partial class DebugDraw
 			return;
 		if (!group.isActive)
 			return;
-
+		
 		for (int i = 0; i < group.itemCount; i++)
 		{
 			group.items[i].group = null;
 		}
-
+		
 		Groups.Release(group);
 	}
-
+	
 	///  <summary>
 	///  Sets the current group all new items after this call are added to. This can be used to group and clear specific groups of items.
 	///  Be sure to call a matching <see cref="EndGroup"/> for each call to <see cref="BeginGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>.<br/>
@@ -782,14 +783,14 @@ public static partial class DebugDraw
 	{
 		return Groups.Push(name, defaultDuration);
 	}
-
+	
 	/// <inheritdoc cref="BeginGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Group BeginGroup(Group group)
 	{
 		return Groups.Push(group);
 	}
-
+	
 	/// <summary>
 	/// Ends the previous group.
 	/// </summary>
@@ -798,7 +799,7 @@ public static partial class DebugDraw
 	{
 		Groups.Pop();
 	}
-
+	
 	/// <summary>
 	/// If not empty, only the next item add/drawn will be added to this group.<br/>
 	/// Alternatively <see cref="BaseItem.Group"/> can be called to change individual items.<br/>
@@ -811,28 +812,28 @@ public static partial class DebugDraw
 	{
 		Groups.SetNext(name, defaultDuration);
 	}
-
+	
 	/// <inheritdoc cref="NextGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void NextGroup(Group group)
 	{
 		Groups.SetNext(group);
 	}
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float GetCurrentTime()
 	{
 		return frameTime;
 	}
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static EndTime GetTime(EndTime? duration, GroupList groups = null)
 	{
 		EndTime time = (duration ?? (groups ?? Groups).GetDefaultDuration()) ?? defaultDuration;
-
+		
 		if (time.type != Duration.Default)
 			return time;
-
+		
 		switch (time.type)
 		{
 			case Duration.Default:
@@ -843,10 +844,10 @@ public static partial class DebugDraw
 			case Duration.Time:
 				return frameTime + time.time;
 		}
-
+		
 		return Duration.Once;
 	}
-
+	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	internal static void DestroyObj(Object obj)
 	{
@@ -859,53 +860,53 @@ public static partial class DebugDraw
 			Object.DestroyImmediate(obj);
 		}
 	}
-
+	
 	internal static T AddAttachment<T>(T attachment) where T : BaseAttachment
 	{
 		if (attachment.index != -1)
 			return attachment;
-
+		
 		if (attachmentCount == attachmentListSize)
 		{
 			attachmentListSize = Mathf.Max(attachmentListSize * 2, 2);
-
+			
 			for (int i = attachmentCount; i < attachmentListSize; i++)
 			{
 				Attachments.Add(null);
 			}
 		}
-
+		
 		Attachments[attachment.index = attachmentCount++] = attachment;
 		return attachment;
 	}
-
+	
 	private static void UpdateFixedUpdateFlag()
 	{
 		#if DEBUG_DRAW
 		doFixedUpdate = _useFixedUpdate && Application.isPlaying;
 		#endif
 	}
-
+	
 	private static void UpdateAttachments()
 	{
 		for (int i = attachmentCount - 1; i >= 0; i--)
 		{
 			BaseAttachment attachment = Attachments[i];
-
+			
 			if (attachment.destroyed || !attachment.Update())
 			{
 				BaseAttachment swap = Attachments[--attachmentCount];
 				swap.index = i;
 				Attachments[i] = swap;
-
+				
 				attachment.Release();
 			}
 		}
 	}
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Utils -- */
-
+	
 	/// <summary>
 	/// Find good arbitrary axis vectors to represent U and V axes of a plane, using this vector as the normal of the plane.
 	/// <param name="normal">The plane's normal vector.</param>
@@ -919,22 +920,22 @@ public static partial class DebugDraw
 			Mathf.Abs(normal.x),
 			Mathf.Abs(normal.y),
 			Mathf.Abs(normal.z));
-
+		
 		// Find best basis vectors.
 		up = n.z > n.x && n.z > n.y
 			? new Vector3(1, 0, 0)
 			: new Vector3(0, 0, 1);
-
+		
 		float dot = Vector3.Dot(up, normal);
-
+		
 		up = new Vector3(
 			up.x - normal.x * dot,
 			up.y - normal.y * dot,
 			up.z - normal.z * dot).normalized;
-
+		
 		right = Vector3.Cross(up, normal);
 	}
-
+	
 	/// <summary>
 	/// Find good arbitrary axis vectors to represent U and V axes of a plane, using this vector as the normal of the plane.
 	/// <param name="normal">The plane's normal vector.</param>
@@ -954,16 +955,16 @@ public static partial class DebugDraw
 			up = Mathf.Abs(normal.z) > Mathf.Abs(normal.x) && Mathf.Abs(normal.z) > Mathf.Abs(normal.y)
 				? new Vector3(1, 0, 0)
 				: new Vector3(0, 0, 1);
-
+			
 			right = Vector3.Cross(normal, up);
 			right.Normalize();
 		}
-
-
+		
+		
 		up = Vector3.Cross(right, normal);
 		up.Normalize();
 	}
-
+	
 	/// <summary>
 	/// Returns a vector perpendicular to axis.
 	/// </summary>
@@ -977,7 +978,7 @@ public static partial class DebugDraw
 		n.Normalize();
 		return n;
 	}
-
+	
 	/// <summary>
 	/// Returns the distance from the given point to the camera plane.
 	/// </summary>
@@ -991,7 +992,7 @@ public static partial class DebugDraw
 			position.y - camPosition.y,
 			position.z - camPosition.z), camForward);
 	}
-
+	
 	/// <summary>
 	/// Returns the camera frustum height at the given distance.
 	/// </summary>
@@ -1004,7 +1005,7 @@ public static partial class DebugDraw
 			? 2.0f * distance * camFOVAngle
 			: camOrthoSize;
 	}
-
+	
 	/// <summary>
 	/// Calculates a number/resolution based on a size and a distance from the camera.
 	/// </summary>
@@ -1019,11 +1020,11 @@ public static partial class DebugDraw
 	{
 		float frustumHeight = CalculateFrustumHeight(distance);
 		float t = (radius * 2) / (frustumHeight);
-
+		
 		// Shift the lower bound up a bit
 		const float S = 0.006f;
 		t = Mathf.Max((t - S) / (1 - S), 0);
-
+		
 		// As the size gets smaller the resolution gets too low so at lower values
 		// adjust t so it climbs faster the lower it is.
 		const float Ss = 0.5f;
@@ -1032,25 +1033,25 @@ public static partial class DebugDraw
 			t /= Ss;
 			t = (1 - Mathf.Pow(1 - t, 10f)) * Ss;
 		}
-
+		
 		return Mathf.Clamp(Mathf.FloorToInt(Mathf.LerpUnclamped(min, max, t)), min, limit);
 	}
-
+	
 	/* ------------------------------------------------------------------------------------- */
-
+	
 	private class DebugDrawState
 	{
-
+		
 		// ReSharper disable MemberHidesStaticFromOuterClass
 		public Color color;
 		public Matrix4x4 transform;
 		public bool hasColor;
-
+		
 		public bool hasTransform;
 		// ReSharper restore MemberHidesStaticFromOuterClass
-
+		
 	}
-
+	
 }
 
 }

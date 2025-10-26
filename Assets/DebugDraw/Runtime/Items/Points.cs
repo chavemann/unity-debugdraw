@@ -11,20 +11,22 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// </summary>
 	public class Points : BaseItem
 	{
+		
 		/* mesh: point */
-
+		
 		/// <summary>
 		/// The positions of the points.
 		/// </summary>
 		public List<Vector3> positions;
+		
 		/// <summary>
 		/// The colors of the points.
 		/// </summary>
 		public List<Color> colors;
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// Batch draw multiple points from a positions and colors array.
 		/// Both arrays must be non-null and of the same size.
@@ -37,26 +39,26 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Points Get(List<Vector3> positions, List<Color> colors, EndTime? duration = null)
 		{
 			Points item = ItemPool<Points>.Get(duration);
-
+			
 			item.positions = positions;
 			item.colors = colors;
-
+			
 			return item;
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-
+		
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			mesh.AddPoints(this, positions, colors);
 		}
-
+		
 		internal override void Release()
 		{
 			ItemPool<Points>.Release(this);
 		}
-
+		
 	}
 
 }

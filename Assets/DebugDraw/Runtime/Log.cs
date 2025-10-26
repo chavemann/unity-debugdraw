@@ -24,56 +24,56 @@ namespace DebugDrawUtils
 /// </summary>
 public static partial class Log
 {
-
+	
 	private static readonly StringBuilder ArgsBuffer = new();
 	private static readonly StringBuilder GetStringBuffer = new();
-
+	
 	private static readonly List<TimerSet> timers = new();
 	private static int timerIndex;
-
+	
 	/// <summary>
 	/// Can be set for all log methods instead of passing individual contexts to each Log call.
 	/// </summary>
 	public static Object defaultLogContext;
-
+	
 	/// <summary>
 	/// The log type used when using the extended log override methods.
 	/// </summary>
 	public static LogType defaultLogType = LogType.Log;
-
+	
 	/// <summary>
 	/// When logging arrays, this controls the maximum number of items that will be displayed
 	/// </summary>
 	public static int maxArrayItems = 100;
-
+	
 	/// <summary>
 	/// The max number of on-screen messages in the queue - once the queue fills up old messages will be removed.
 	/// </summary>
 	public static int maxMessages = 100;
-
+	
 	/// <summary>
 	/// Adds a subtle drop shadow to on-screen messages to make them easier to read.
 	/// Set to null to disable.
 	/// </summary>
 	public static Color? messageShadowColor = new Color(0, 0, 0, 0.5f);
-
+	
 	/// <summary>
 	/// Sets the color of only the next on screen message. Will be reset during the next call to Show**.
 	/// Set to null to reset.
 	/// </summary>
 	public static Color? nextMessageColor;
-
+	
 	/// <summary>
 	/// Use to adjust the default style of on-screen messages.
 	/// </summary>
 	public static readonly GUIStyle MessageStyle = new();
-
+	
 	static Log()
 	{
 		MessageStyle.normal.textColor = Color.white;
 		MessageStyle.fontSize = 14;
 	}
-
+	
 	/// <summary>
 	/// Chain with <see cref="LogMessage.Text(string)"/> to display a string on screen with the specific id and optionally duration.
 	/// Displaying text with the same id will update the existing text instead of creating a new entry.
@@ -86,7 +86,7 @@ public static partial class Log
 	{
 		return LogMessage.Add(id, duration);
 	}
-
+	
 	/// <summary>
 	/// See <see cref="Display(string,System.Nullable{DebugDrawUtils.EndTime})"/>.
 	/// Convenience to provide an integer id by automatically converting it to a string.
@@ -95,13 +95,13 @@ public static partial class Log
 	{
 		return LogMessage.Add(id.ToString(), duration);
 	}
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	#region -- Basic Unity log methods --
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Log -- */
-
+	
 	/// <summary>
 	///   <para>Logs a message to the Unity Console.</para>
 	/// </summary>
@@ -110,7 +110,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(LogType.Log, (object) message, defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message to the Unity Console.</para>
 	/// </summary>
@@ -119,7 +119,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(LogType.Log, message, defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a formatted message to the Unity Console.</para>
 	/// </summary>
@@ -129,7 +129,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.LogFormat(LogType.Log, defaultLogContext, format, args);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a formatted message to the Unity Console.</para>
 	/// </summary>
@@ -140,7 +140,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.LogFormat(LogType.Log, context, format, args);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a formatted message to the Unity Console.</para>
 	/// </summary>
@@ -153,7 +153,7 @@ public static partial class Log
 	{
 		Debug.LogFormat(logType, logOptions, context, format, args);
 	}
-
+	
 	/// <summary>
 	///   <para>A variant of Debug.unityLogger.Log that logs an error message to the console.</para>
 	/// </summary>
@@ -162,7 +162,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.LogException(exception, defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>A variant of Debug.unityLogger.Log that logs an error message to the console.</para>
 	/// </summary>
@@ -172,10 +172,10 @@ public static partial class Log
 	{
 		Debug.unityLogger.LogException(exception, context);
 	}
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Warn -- */
-
+	
 	/// <summary>
 	///   <para>A variant of Debug.Log that logs a warning message to the console.</para>
 	/// </summary>
@@ -184,7 +184,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(LogType.Warning, (object) message, defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>A variant of Debug.Log that logs a warning message to the console.</para>
 	/// </summary>
@@ -193,7 +193,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(LogType.Warning, GetString(message), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a formatted warning message to the Unity Console.</para>
 	/// </summary>
@@ -203,7 +203,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.LogFormat(LogType.Warning, defaultLogContext, format, args);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a formatted warning message to the Unity Console.</para>
 	/// </summary>
@@ -214,10 +214,10 @@ public static partial class Log
 	{
 		Debug.unityLogger.LogFormat(LogType.Warning, context, format, args);
 	}
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	/* -- Error -- */
-
+	
 	/// <summary>
 	///   <para>A variant of Debug.Log that logs an error message to the console.</para>
 	/// </summary>
@@ -226,7 +226,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(LogType.Error, (object) message, defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>A variant of Debug.Log that logs an error message to the console.</para>
 	/// </summary>
@@ -235,7 +235,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(LogType.Error, GetString(message), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>>Logs a formatted error message to the Unity console.</para>
 	/// </summary>
@@ -245,7 +245,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.LogFormat(LogType.Error, defaultLogContext, format, args);
 	}
-
+	
 	/// <summary>
 	///   <para>>Logs a formatted error message to the Unity console.</para>
 	/// </summary>
@@ -256,13 +256,13 @@ public static partial class Log
 	{
 		Debug.unityLogger.LogFormat(LogType.Error, context, format, args);
 	}
-
+	
 	#endregion
 	/* ------------------------------------------------------------------------------------- */
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	#region -- Extended Log Overrides --
-
+	
 	public static object GetString(object message)
 	{
 		switch (message)
@@ -289,13 +289,13 @@ public static partial class Log
 				return message.ToString();
 		}
 	}
-
+	
 	public static object GetString(IEnumerable list)
 	{
 		StringBuilder buffer = GetStringBuffer;
 		buffer.Clear().Append("[");
 		bool addComma = false;
-
+		
 		int i = 0;
 		bool hasMore = false;
 		foreach (object item in list)
@@ -305,7 +305,7 @@ public static partial class Log
 				hasMore = true;
 				break;
 			}
-
+			
 			if (addComma)
 			{
 				buffer.Append(", ");
@@ -314,26 +314,26 @@ public static partial class Log
 			{
 				addComma = true;
 			}
-
+			
 			buffer.Append(GetString(item));
-
+			
 			i++;
 		}
-
+		
 		if (hasMore)
 		{
 			buffer.Append("...");
 		}
-
+		
 		return buffer.Append("]").ToString();
 	}
-
+	
 	public static object GetDictString<TK, TV>(IDictionary<TK, TV> dict)
 	{
 		StringBuilder buffer = GetStringBuffer;
 		buffer.Clear().Append("{");
 		bool addComma = false;
-
+		
 		int i = 0;
 		bool hasMore = false;
 		foreach (KeyValuePair<TK, TV> entry in dict)
@@ -343,7 +343,7 @@ public static partial class Log
 				hasMore = true;
 				break;
 			}
-
+			
 			if (addComma)
 			{
 				buffer.Append(", ");
@@ -352,28 +352,28 @@ public static partial class Log
 			{
 				addComma = true;
 			}
-
+			
 			buffer.Append(GetString(entry.Key));
 			buffer.Append(":");
 			buffer.Append(GetString(entry.Value));
-
+			
 			i++;
 		}
-
+		
 		if (hasMore)
 		{
 			buffer.Append("...");
 		}
-
+		
 		return buffer.Append("}").ToString();
 	}
-
+	
 	public static object GetKeyValuePairsString(params object[] args)
 	{
 		StringBuilder buffer = GetStringBuffer;
 		buffer.Clear().Append("{");
 		bool addComma = false;
-
+		
 		int itemCount = 0;
 		bool hasMore = false;
 		int end = args.Length / 2 * 2;
@@ -384,7 +384,7 @@ public static partial class Log
 				hasMore = true;
 				break;
 			}
-
+			
 			if (addComma)
 			{
 				buffer.Append(", ");
@@ -393,22 +393,22 @@ public static partial class Log
 			{
 				addComma = true;
 			}
-
+			
 			buffer.Append(GetString(args[i]));
 			buffer.Append(":");
 			buffer.Append(GetString(args[i + 1]));
-
+			
 			itemCount++;
 		}
-
+		
 		if (hasMore)
 		{
 			buffer.Append("...");
 		}
-
+		
 		return buffer.Append("}").ToString();
 	}
-
+	
 	public static object GetString(Object message) => message ? message.ToString() : "null";
 	public static object GetString(Transform message) => message.ToString();
 	public static object GetString(IFormattable message) => message.ToString(null, CultureInfo.InvariantCulture);
@@ -426,29 +426,29 @@ public static partial class Log
 	public static object GetString(float message) => message.ToString(null, CultureInfo.InvariantCulture);
 	public static object GetString(double message) => message.ToString(null, CultureInfo.InvariantCulture);
 	public static object GetString(decimal message) => message.ToString(null, CultureInfo.InvariantCulture);
-
+	
 	public static object GetString(ref Vector2 v)
 	{
 		return $"<{v.x.ToString("0.0###", CultureInfo.InvariantCulture)}, {v.y.ToString("0.0###", CultureInfo.InvariantCulture)}>";
 	}
-
+	
 	public static object GetString(ref Vector3 v)
 	{
 		return
 			$"<{v.x.ToString("0.0###", CultureInfo.InvariantCulture)}, {v.y.ToString("0.0###", CultureInfo.InvariantCulture)}, {v.z.ToString("0.0###", CultureInfo.InvariantCulture)}>";
 	}
-
+	
 	public static object GetString(ref Vector4 v)
 	{
 		return
 			$"<{v.x.ToString("0.0###", CultureInfo.InvariantCulture)}, {v.y.ToString("0.0###", CultureInfo.InvariantCulture)}, {v.z.ToString("0.0###", CultureInfo.InvariantCulture)}, {v.w.ToString("0.0###", CultureInfo.InvariantCulture)}>";
 	}
-
+	
 	public static object GetArgString(object[] args)
 	{
 		StringBuilder buffer = ArgsBuffer;
 		buffer.Clear();
-
+		
 		bool first = true;
 		foreach (object arg in args)
 		{
@@ -460,13 +460,13 @@ public static partial class Log
 			{
 				buffer.Append(" ");
 			}
-
+			
 			buffer.Append(GetString(arg));
 		}
-
+		
 		return buffer.ToString();
 	}
-
+	
 	/// <summary>
 	///   <para>Logs an Object to the Unity Console.</para>
 	/// </summary>
@@ -475,7 +475,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a Transform to the Unity Console.</para>
 	/// </summary>
@@ -484,7 +484,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a bool to the Unity Console.</para>
 	/// </summary>
@@ -493,7 +493,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a char to the Unity Console.</para>
 	/// </summary>
@@ -502,7 +502,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a sbyte to the Unity Console.</para>
 	/// </summary>
@@ -511,7 +511,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a short to the Unity Console.</para>
 	/// </summary>
@@ -520,7 +520,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs an int to the Unity Console.</para>
 	/// </summary>
@@ -529,7 +529,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a long to the Unity Console.</para>
 	/// </summary>
@@ -538,7 +538,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a byte to the Unity Console.</para>
 	/// </summary>
@@ -547,7 +547,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a ushort to the Unity Console.</para>
 	/// </summary>
@@ -556,7 +556,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a uint to the Unity Console.</para>
 	/// </summary>
@@ -565,7 +565,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a ulong to the Unity Console.</para>
 	/// </summary>
@@ -574,7 +574,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a float to the Unity Console.</para>
 	/// </summary>
@@ -583,7 +583,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a double to the Unity Console.</para>
 	/// </summary>
@@ -592,7 +592,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a decimal to the Unity Console.</para>
 	/// </summary>
@@ -601,7 +601,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a Vector2 to the Unity Console.</para>
 	/// </summary>
@@ -610,7 +610,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(ref val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a Vector3 to the Unity Console.</para>
 	/// </summary>
@@ -619,7 +619,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(ref val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a Vector4 to the Unity Console.</para>
 	/// </summary>
@@ -628,7 +628,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(ref val), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a Vector2Int to the Unity Console.</para>
 	/// </summary>
@@ -637,7 +637,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) val.ToString(), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a Vector3Int to the Unity Console.</para>
 	/// </summary>
@@ -646,7 +646,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) val.ToString(), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a Matrix4x4 to the Unity Console.</para>
 	/// </summary>
@@ -655,7 +655,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) val.ToString(), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a Quaternion to the Unity Console.</para>
 	/// </summary>
@@ -664,7 +664,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) val.ToString(), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a Rect to the Unity Console.</para>
 	/// </summary>
@@ -673,7 +673,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) val.ToString(), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a RectInt to the Unity Console.</para>
 	/// </summary>
@@ -682,7 +682,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) val.ToString(), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a list the Unity Console.</para>
 	/// </summary>
@@ -691,7 +691,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(list), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a dictionary to the Unity Console.</para>
 	/// </summary>
@@ -700,7 +700,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetDictString(dict), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs pairs of KEY:VALUE to the Unity Console.</para>
 	/// </summary>
@@ -709,7 +709,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetKeyValuePairsString(args), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a list of items to the Unity Console.</para>
 	/// </summary>
@@ -718,7 +718,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetArgString(args), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a list of Objects to the Unity Console.</para>
 	/// </summary>
@@ -727,7 +727,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(args), defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a list of GameObject to the Unity Console.</para>
 	/// </summary>
@@ -736,10 +736,10 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, GetString(args), defaultLogContext);
 	}
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	/* -- String, Value variants -- */
-
+	
 	/// <summary>
 	///   <para>Logs a message and bool to the Unity Console.</para>
 	/// </summary>
@@ -749,7 +749,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and bool to the Unity Console.</para>
 	/// </summary>
@@ -759,7 +759,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and string to the Unity Console.</para>
 	/// </summary>
@@ -769,7 +769,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and char to the Unity Console.</para>
 	/// </summary>
@@ -779,7 +779,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and sbyte to the Unity Console.</para>
 	/// </summary>
@@ -789,7 +789,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and short to the Unity Console.</para>
 	/// </summary>
@@ -799,7 +799,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and int to the Unity Console.</para>
 	/// </summary>
@@ -809,7 +809,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and long to the Unity Console.</para>
 	/// </summary>
@@ -819,7 +819,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and byte to the Unity Console.</para>
 	/// </summary>
@@ -829,7 +829,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and ushort to the Unity Console.</para>
 	/// </summary>
@@ -839,7 +839,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and uint to the Unity Console.</para>
 	/// </summary>
@@ -849,7 +849,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and ulong to the Unity Console.</para>
 	/// </summary>
@@ -859,7 +859,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and float to the Unity Console.</para>
 	/// </summary>
@@ -869,7 +869,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and double to the Unity Console.</para>
 	/// </summary>
@@ -879,7 +879,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and decimal to the Unity Console.</para>
 	/// </summary>
@@ -889,7 +889,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and Vector2 to the Unity Console.</para>
 	/// </summary>
@@ -899,7 +899,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(ref val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and Vector3 to the Unity Console.</para>
 	/// </summary>
@@ -909,7 +909,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(ref val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and Vector4 to the Unity Console.</para>
 	/// </summary>
@@ -919,7 +919,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {GetString(ref val)}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and Vector2Int to the Unity Console.</para>
 	/// </summary>
@@ -929,7 +929,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {val.ToString()}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and Vector3Int to the Unity Console.</para>
 	/// </summary>
@@ -939,7 +939,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {val.ToString()}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and Matrix4x4 to the Unity Console.</para>
 	/// </summary>
@@ -949,7 +949,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {val.ToString()}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and Quaternion to the Unity Console.</para>
 	/// </summary>
@@ -959,7 +959,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {val.ToString()}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and Rect to the Unity Console.</para>
 	/// </summary>
@@ -969,7 +969,7 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {val.ToString()}", defaultLogContext);
 	}
-
+	
 	/// <summary>
 	///   <para>Logs a message and RectInt to the Unity Console.</para>
 	/// </summary>
@@ -979,13 +979,13 @@ public static partial class Log
 	{
 		Debug.unityLogger.Log(defaultLogType, (object) $"{message} {val.ToString()}", defaultLogContext);
 	}
-
+	
 	#endregion
 	/* ------------------------------------------------------------------------------------- */
-
+	
 	/* ------------------------------------------------------------------------------------- */
 	#region -- Util Methods --
-
+	
 	/// <summary>
 	/// <para>
 	///		Basic method to measure the execution time of code.
@@ -999,12 +999,12 @@ public static partial class Log
 		{
 			timers.Add(new TimerSet());
 		}
-
+		
 		TimerSet set = timers[timerIndex++];
 		set.timer.Restart();
 		set.message = message;
 	}
-
+	
 	/// <summary>
 	/// <para>Stops the timer and prints the optional message set with <see cref="Time"/> and elapsed milliseconds.</para>
 	/// </summary>
@@ -1012,15 +1012,15 @@ public static partial class Log
 	{
 		if (timerIndex <= 0)
 			return;
-
+		
 		TimerSet set = timers[--timerIndex];
 		set.timer.Stop();
-
+		
 		Print(set.message != ""
 			? $"{set.message}: {set.timer.Elapsed.TotalMilliseconds}ms"
 			: $"{set.timer.Elapsed.TotalMilliseconds}ms");
 	}
-
+	
 	/// <summary>
 	/// <para>Stops a timer without printing the message and time.</para>
 	/// </summary>
@@ -1029,43 +1029,43 @@ public static partial class Log
 	{
 		if (timerIndex <= 0)
 			return 0.0;
-
+		
 		TimerSet set = timers[--timerIndex];
 		set.timer.Stop();
 		return set.timer.Elapsed.TotalMilliseconds;
 	}
-
+	
 	#endregion
 	/* ------------------------------------------------------------------------------------- */
-
+	
 	public static void Reset()
 	{
 		#if DEBUG_DRAW
 		LogMessage.Reset();
 		#endif
 	}
-
+	
 	public static void Clear()
 	{
 		#if DEBUG_DRAW
 		LogMessage.Clear();
 		#endif
 	}
-
+	
 	public static void Clear(string groupName)
 	{
 		#if DEBUG_DRAW
 		LogMessage.Clear(groupName);
 		#endif
 	}
-
+	
 	public static void Clear(Group group)
 	{
 		#if DEBUG_DRAW
 		LogMessage.Clear(group);
 		#endif
 	}
-
+	
 	/// <summary>
 	/// Creates a group with the specified name, and default duration.
 	/// </summary>
@@ -1077,7 +1077,7 @@ public static partial class Log
 	{
 		return LogMessage.CreateGroup(name, defaultDuration);
 	}
-
+	
 	/// <summary>
 	/// Use to release a created group when it is no longer needed.
 	/// This will not clear items added to the group.
@@ -1087,7 +1087,7 @@ public static partial class Log
 	{
 		LogMessage.ReleaseGroup(group);
 	}
-
+	
 	///  <summary>
 	///  Sets the current group all new items after this call are added to. This can be used to group and clear specific groups of items.
 	///  Be sure to call a matching <see cref="EndGroup"/> for each call to <see cref="BeginGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>.<br/>
@@ -1103,14 +1103,14 @@ public static partial class Log
 	{
 		return LogMessage.BeginGroup(name, defaultDuration);
 	}
-
+	
 	/// <inheritdoc cref="BeginGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Group BeginGroup(Group group)
 	{
 		return LogMessage.BeginGroup(group);
 	}
-
+	
 	/// <summary>
 	/// Ends the previous group.
 	/// </summary>
@@ -1119,7 +1119,7 @@ public static partial class Log
 	{
 		LogMessage.EndGroup();
 	}
-
+	
 	/// <summary>
 	/// If not empty, only the next item add/drawn will be added to this group.<br/>
 	/// Alternatively <see cref="BaseItem.Group"/> can be called to change individual items.<br/>
@@ -1132,22 +1132,24 @@ public static partial class Log
 	{
 		LogMessage.NextGroup(name, defaultDuration);
 	}
-
+	
 	/// <inheritdoc cref="NextGroup(string,System.Nullable{DebugDrawUtils.EndTime})"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void NextGroup(Group group)
 	{
 		LogMessage.NextGroup(group);
 	}
-
+	
 	//
-
+	
 	private class TimerSet
 	{
+		
 		public string message;
 		public readonly Stopwatch timer = new();
+		
 	}
-
+	
 }
 
 }

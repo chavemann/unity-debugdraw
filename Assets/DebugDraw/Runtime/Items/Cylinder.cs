@@ -10,40 +10,46 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// </summary>
 	public class Cylinder : BaseLineItem
 	{
+		
 		/* mesh: line */
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// The radius at the start point of the cylinder.
 		/// </summary>
 		public Vector2 radius1;
+		
 		/// <summary>
 		/// The radius at the end point of the cylinder.
 		/// </summary>
 		public Vector2 radius2;
+		
 		/// <summary>
 		/// Draw axis at each end of the cylinder.
 		/// </summary>
 		public bool drawEndAxes;
+		
 		/// <summary>
 		/// The resolution of the cylinder. If set to zero will be adjusted based on the distance to the camera.
 		/// </summary>
 		public int segments;
+		
 		/// <summary>
 		/// The forward vector used to orient the cylinder if p1 -> p2 is considered the up vector.
 		/// If null, an arbitrary axis will be chosen.
 		/// </summary>
 		public Vector3? forward;
+		
 		/// <summary>
 		/// If true draw a full wireframe cylinder, otherwise draw an approximation shell.
 		/// </summary>
 		public bool wireframe;
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// Draws a cylinder shell.
 		/// </summary>
@@ -60,7 +66,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		{
 			return Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration);
 		}
-
+		
 		/// <summary>
 		/// Draws a cylinder shell with a different start and end radius.
 		/// </summary>
@@ -77,7 +83,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
 		{
 			Cylinder item = ItemPool<Cylinder>.Get(duration);
-
+			
 			item.p1 = p1;
 			item.p2 = p2;
 			item.radius1.x = radius1;
@@ -89,10 +95,10 @@ namespace DebugDrawUtils.DebugDrawItems
 			item.drawEndAxes = drawEndAxes;
 			item.forward = null;
 			item.wireframe = false;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a cylinder shell with a different start and end radius.
 		/// </summary>
@@ -109,7 +115,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		{
 			return Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration);
 		}
-
+		
 		/// <summary>
 		/// Draws a cylinder shell with a different start and end radius.
 		/// </summary>
@@ -123,10 +129,11 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius1, ref Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
+		public static Cylinder Get(ref Vector3 p1, ref Vector3 p2, ref Vector2 radius1, ref Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false,
+			EndTime? duration = null)
 		{
 			Cylinder item = ItemPool<Cylinder>.Get(duration);
-
+			
 			item.p1 = p1;
 			item.p2 = p2;
 			item.radius1 = radius1;
@@ -136,12 +143,12 @@ namespace DebugDrawUtils.DebugDrawItems
 			item.drawEndAxes = drawEndAxes;
 			item.forward = null;
 			item.wireframe = false;
-
+			
 			return item;
 		}
-
+		
 		//
-
+		
 		/// <summary>
 		/// Draws a full wireframe cylinder.
 		/// </summary>
@@ -158,10 +165,10 @@ namespace DebugDrawUtils.DebugDrawItems
 		{
 			Cylinder item = Get(ref p1, ref p2, radius, radius, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a full wireframe cylinder with a different start and end radius.
 		/// </summary>
@@ -175,14 +182,15 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
+		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, float radius1, float radius2, ref Color color, int segments = 32, bool drawEndAxes = false,
+			EndTime? duration = null)
 		{
 			Cylinder item = Get(ref p1, ref p2, radius1, radius2, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a full wireframe cylinder with a different start and end radius.
 		/// </summary>
@@ -199,10 +207,10 @@ namespace DebugDrawUtils.DebugDrawItems
 		{
 			Cylinder item = Get(ref p1, ref p2, ref radius, ref radius, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a full wireframe cylinder with a different start and end radius.
 		/// </summary>
@@ -216,17 +224,18 @@ namespace DebugDrawUtils.DebugDrawItems
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
 		/// <returns>The Cylinder object.</returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius1, Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false, EndTime? duration = null)
+		public static Cylinder GetWire(ref Vector3 p1, ref Vector3 p2, Vector2 radius1, Vector2 radius2, ref Color color, int segments = 32, bool drawEndAxes = false,
+			EndTime? duration = null)
 		{
 			Cylinder item = Get(ref p1, ref p2, ref radius1, ref radius2, ref color, segments, drawEndAxes, duration);
 			item.wireframe = true;
-
+			
 			return item;
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-
+		
 		/// <summary>
 		/// Set the radius.
 		/// </summary>
@@ -238,10 +247,10 @@ namespace DebugDrawUtils.DebugDrawItems
 			radius1.y = radius;
 			radius2.x = radius;
 			radius2.y = radius;
-
+			
 			return this;
 		}
-
+		
 		/// <summary>
 		/// Set the radius.
 		/// </summary>
@@ -254,10 +263,10 @@ namespace DebugDrawUtils.DebugDrawItems
 			radius1.y = startRadius;
 			radius2.x = endRadius;
 			radius2.y = endRadius;
-
+			
 			return this;
 		}
-
+		
 		/// <summary>
 		/// Set the radius.
 		/// </summary>
@@ -267,10 +276,10 @@ namespace DebugDrawUtils.DebugDrawItems
 		{
 			radius1 = radius;
 			radius2 = radius;
-
+			
 			return this;
 		}
-
+		
 		/// <summary>
 		/// Set the radius.
 		/// </summary>
@@ -281,10 +290,10 @@ namespace DebugDrawUtils.DebugDrawItems
 		{
 			radius1 = startRadius;
 			radius2 = endRadius;
-
+			
 			return this;
 		}
-
+		
 		/// <summary>
 		/// Set start radius.
 		/// </summary>
@@ -294,10 +303,10 @@ namespace DebugDrawUtils.DebugDrawItems
 		{
 			radius1.x = radius;
 			radius1.y = radius;
-
+			
 			return this;
 		}
-
+		
 		/// <summary>
 		/// Set end radius.
 		/// </summary>
@@ -307,10 +316,10 @@ namespace DebugDrawUtils.DebugDrawItems
 		{
 			radius2.x = radius;
 			radius2.y = radius;
-
+			
 			return this;
 		}
-
+		
 		/// <summary>
 		/// Set start radius.
 		/// </summary>
@@ -319,10 +328,10 @@ namespace DebugDrawUtils.DebugDrawItems
 		public Cylinder SetStartRadius(Vector2 radius)
 		{
 			radius1 = radius;
-
+			
 			return this;
 		}
-
+		
 		/// <summary>
 		/// Set end radius.
 		/// </summary>
@@ -331,10 +340,10 @@ namespace DebugDrawUtils.DebugDrawItems
 		public Cylinder SetEndRadius(Vector2 radius)
 		{
 			radius2 = radius;
-
+			
 			return this;
 		}
-
+		
 		/// <summary>
 		/// Sets the forward vector used to orient the cylinder.
 		/// </summary>
@@ -343,10 +352,10 @@ namespace DebugDrawUtils.DebugDrawItems
 		public Cylinder SetForward(Vector3? forward)
 		{
 			this.forward = forward;
-
+			
 			return this;
 		}
-
+		
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			Vector3 p1 = this.p1;
@@ -355,7 +364,7 @@ namespace DebugDrawUtils.DebugDrawItems
 			float length = delta.magnitude;
 			Vector3 up = delta / length;
 			Vector3 forward, right;
-
+			
 			if (this.forward.HasValue)
 			{
 				forward = this.forward.GetValueOrDefault();
@@ -365,7 +374,7 @@ namespace DebugDrawUtils.DebugDrawItems
 			{
 				DebugDraw.FindAxisVectors(ref up, ref DebugDraw.forward, out forward, out right);
 			}
-
+			
 			if (hasStateTransform)
 			{
 				p1 = stateTransform.MultiplyPoint3x4(p1);
@@ -373,9 +382,9 @@ namespace DebugDrawUtils.DebugDrawItems
 				forward = stateTransform.MultiplyVector(forward);
 				right = stateTransform.MultiplyVector(right);
 			}
-
+			
 			int segments;
-
+			
 			if (this.segments <= 0)
 			{
 				float d1 = DebugDraw.DistanceFromCamera(ref p1) + Mathf.Max(radius1.x, radius1.y);
@@ -390,11 +399,11 @@ namespace DebugDrawUtils.DebugDrawItems
 			{
 				segments = Mathf.Max(this.segments, 4);
 			}
-
+			
 			Color clr = GetColor(ref color);
-
+			
 			int p1StartIndex = mesh.vertexIndex;
-
+			
 			if (radius1.x != 0 || radius1.y != 0)
 			{
 				Ellipse.BuildArc(
@@ -409,10 +418,10 @@ namespace DebugDrawUtils.DebugDrawItems
 				mesh.AddColor(ref clr);
 				mesh.vertexIndex++;
 			}
-
+			
 			int p1EndIndex = mesh.vertexIndex - 1;
 			int p2StartIndex = mesh.vertexIndex;
-
+			
 			if (radius2.x != 0 || radius2.y != 0)
 			{
 				Ellipse.BuildArc(
@@ -427,21 +436,21 @@ namespace DebugDrawUtils.DebugDrawItems
 				mesh.AddColor(ref clr);
 				mesh.vertexIndex++;
 			}
-
+			
 			int p2EndIndex = mesh.vertexIndex - 1;
-
+			
 			if (drawEndAxes)
 			{
 				p1EndIndex -= 8;
 				p2EndIndex -= 8;
 			}
-
+			
 			if (wireframe)
 			{
 				int ribs = Mathf.Max(
 					p1EndIndex - p1StartIndex,
 					p2EndIndex - p2StartIndex);
-
+				
 				for (int i = 0; i < ribs; i++)
 				{
 					mesh.AddIndices(
@@ -456,7 +465,7 @@ namespace DebugDrawUtils.DebugDrawItems
 					float a = Mathf.PI * (i / 2.0f);
 					float x = Mathf.Cos(a);
 					float y = Mathf.Sin(a);
-
+					
 					mesh.AddVertex(
 						p1.x + right.x * x * radius1.x + forward.x * y * radius1.y,
 						p1.y + right.y * x * radius1.x + forward.y * y * radius1.y,
@@ -470,12 +479,12 @@ namespace DebugDrawUtils.DebugDrawItems
 				}
 			}
 		}
-
+		
 		internal override void Release()
 		{
 			ItemPool<Cylinder>.Release(this);
 		}
-
+		
 	}
 
 }

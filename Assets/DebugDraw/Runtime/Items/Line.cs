@@ -11,11 +11,12 @@ namespace DebugDrawUtils.DebugDrawItems
 	/// </summary>
 	public class Line : BaseLineItem, IAttachablePoint
 	{
+		
 		/* mesh: line */
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Getters -- */
-
+		
 		/// <summary>
 		/// Draws a line.
 		/// </summary>
@@ -29,15 +30,15 @@ namespace DebugDrawUtils.DebugDrawItems
 		public static Line Get(ref Vector3 p1, ref Vector3 p2, ref Color color1, ref Color color2, EndTime? duration = null)
 		{
 			Line item = ItemPool<Line>.Get(duration);
-
+			
 			item.p1 = p1;
 			item.p2 = p2;
 			item.color = color1;
 			item.color2 = color2;
-
+			
 			return item;
 		}
-
+		
 		/// <summary>
 		/// Draws a line.
 		/// </summary>
@@ -51,7 +52,7 @@ namespace DebugDrawUtils.DebugDrawItems
 		{
 			return Get(ref p1, ref p2, ref color, ref color, duration);
 		}
-
+		
 		public PointAttachment AttachTo(GameObjectOrTransform obj)
 		{
 			PointAttachment attachment = AttachmentPool<PointAttachment>.Get(this);
@@ -60,30 +61,30 @@ namespace DebugDrawUtils.DebugDrawItems
 			attachment.obj.Set(obj);
 			return attachment;
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Methods -- */
-
+		
 		internal override void Build(DebugDrawMesh mesh)
 		{
 			Color clr1 = GetColor(ref color);
 			Color clr2 = GetColor(ref color2);
-
+			
 			mesh.AddLine(this, ref p1, ref p2, ref clr1, ref clr2);
 		}
-
+		
 		internal override void Release()
 		{
 			ItemPool<Line>.Release(this);
 		}
-
+		
 		public void SetPosition(Vector3 position)
 		{
 			Vector3 delta = new Vector3(
 				position.x - (p1.x + p2.x) * 0.5f,
 				position.y - (p1.y + p2.y) * 0.5f,
 				position.z - (p1.z + p2.z) * 0.5f);
-
+			
 			p1.x += delta.x;
 			p1.y += delta.y;
 			p1.z += delta.z;
@@ -91,7 +92,7 @@ namespace DebugDrawUtils.DebugDrawItems
 			p2.y += delta.y;
 			p2.z += delta.z;
 		}
-
+		
 		public Vector3 GetPosition()
 		{
 			return new Vector3(
@@ -99,10 +100,10 @@ namespace DebugDrawUtils.DebugDrawItems
 				(p1.y + p2.y) * 0.5f,
 				(p1.z + p2.z) * 0.5f);
 		}
-
+		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Util -- */
-
+		
 		/// <summary>
 		/// Clamps the line from p1 to p2 to the specified lengths.
 		/// </summary>
@@ -117,12 +118,12 @@ namespace DebugDrawUtils.DebugDrawItems
 				p2.y - p1.y,
 				p2.z - p1.z);
 			float length = delta.sqrMagnitude;
-
-			if(minLength > 0 && length < minLength * minLength)
+			
+			if (minLength > 0 && length < minLength * minLength)
 			{
 				length = 1 / Mathf.Sqrt(length) * minLength;
 			}
-			else if(float.IsPositiveInfinity(maxLength) && length > maxLength * maxLength)
+			else if (float.IsPositiveInfinity(maxLength) && length > maxLength * maxLength)
 			{
 				length = 1 / Mathf.Sqrt(length) * maxLength;
 			}
@@ -130,12 +131,12 @@ namespace DebugDrawUtils.DebugDrawItems
 			{
 				return;
 			}
-
+			
 			p2.x = p1.x + delta.x * length;
 			p2.y = p1.y + delta.y * length;
 			p2.z = p1.z + delta.z * length;
 		}
-
+		
 	}
 
 }
