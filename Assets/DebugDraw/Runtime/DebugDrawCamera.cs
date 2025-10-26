@@ -203,6 +203,8 @@ namespace DebugDrawUtils
 					}
 
 					instance.hideFlags = HideFlags.NotEditable;
+					
+					obj.AddComponent<AudioListener>();
 
 					if (lastCamera != null)
 					{
