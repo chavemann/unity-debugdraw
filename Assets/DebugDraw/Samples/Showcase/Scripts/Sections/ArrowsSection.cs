@@ -1,8 +1,8 @@
 using DebugDrawUtils;
-using DebugDrawUtils.DebugDrawItems;
+using DebugDrawUtils.Items;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase.Sections
+namespace DebugDrawShowcase.Sections
 {
 
 [ExecuteAlways]
@@ -28,7 +28,7 @@ public class ArrowsSection : BaseSection
 		
 		if (b && c)
 		{
-			float dist = (c.tr.position - b.tr.position).magnitude;
+			float dist = (c.Transform.position - b.Transform.position).magnitude;
 			minDist = dist * 0.75f;
 			maxDist = dist * 1.25f;
 		}
@@ -62,20 +62,20 @@ public class ArrowsSection : BaseSection
 		
 		if (a && b)
 		{
-			DebugDraw.Arrow(a.tr.position, b.tr.position, a.iconColor, a.iconColor, size, size, ArrowShape.Line, ArrowShape.Line, true)
+			DebugDraw.Arrow(a.Transform.position, b.Transform.position, a.iconColor, a.iconColor, size, size, ArrowShape.Line, ArrowShape.Line, true)
 				.startHead.SetOffset(offset)
 				.endHead.SetOffset(offset);
 		}
 		
 		if (b && c)
 		{
-			DebugDraw.Arrow(c.tr.position, b.tr.position, c.iconColor, size, true)
+			DebugDraw.Arrow(c.Transform.position, b.Transform.position, c.iconColor, size, true)
 				.SetLimits(minDist, maxDist);
 		}
 		
 		if (origin)
 		{
-			p = origin.tr.position;
+			p = origin.Transform.position;
 			Vector3 dir = DebugDraw.down;
 			Physics.Raycast(p, dir, out RaycastHit hit, rayDist);
 			DebugDraw.Ray(p, dir, rayDist, hit, rayNormal, size * 0.5f);

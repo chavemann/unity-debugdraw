@@ -2,13 +2,11 @@
 #define DEBUG_DRAW
 #endif
 
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-// ReSharper disable once CheckNamespace
 namespace DebugDrawUtils
 {
 
@@ -49,7 +47,7 @@ public static partial class DebugDraw
 		
 		private void OnEnable()
 		{
-			if (pendingDestroy || !Application.isPlaying && !_enableInEditMode)
+			if (pendingDestroy || !Application.isPlaying && !enableInEditMode)
 			{
 				DestroyTimer();
 				return;

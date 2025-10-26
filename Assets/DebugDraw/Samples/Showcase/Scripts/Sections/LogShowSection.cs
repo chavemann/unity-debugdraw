@@ -1,7 +1,7 @@
 using DebugDrawUtils;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase.Sections
+namespace DebugDrawShowcase.Sections
 {
 
 public class LogShowSection : BaseSection
@@ -25,8 +25,8 @@ public class LogShowSection : BaseSection
 			Log.Display("SampleLog", 2).Text(
 				$"<color=#bba0ffff><b>Position</b></color>: {p.x:f2}, {p.y:f2}, {p.z:f2}\n" +
 				$"<color=#bba0ffff><b>Looking</b></color>: {f.x:f2}, {f.y:f2}, {f.z:f2}\n" +
-				$"<color=#bba0ffff><b>Debug Items</b></color>: {DebugDraw.itemCount}\n" +
-				$"<color=#bba0ffff><b>Debug Vertices</b></color>: {DebugDraw.vertexCount}");
+				$"<color=#bba0ffff><b>Debug Items</b></color>: {DebugDraw.ItemCount}\n" +
+				$"<color=#bba0ffff><b>Debug Vertices</b></color>: {DebugDraw.VertexCount}");
 		}
 		else
 		{

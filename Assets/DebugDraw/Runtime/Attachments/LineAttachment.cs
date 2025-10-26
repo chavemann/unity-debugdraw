@@ -1,12 +1,11 @@
-using DebugDrawUtils.DebugDrawItems;
+using DebugDrawUtils.Items;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawAttachments
+namespace DebugDrawUtils.Attachments
 {
 
 /// <summary>
-/// Attaches a debug <see cref="DebugDrawItems.Line"/> between two objects.
+/// Attaches a debug <see cref="Line"/> between two objects.
 /// </summary>
 public class LineAttachment : BaseAttachment
 	{
@@ -34,12 +33,12 @@ public class LineAttachment : BaseAttachment
 		/// <summary>
 		/// The item associated with this attachment.
 		/// </summary>
-		public BaseItem item { get; internal set; }
+		public BaseItem Item { get; internal set; }
 		
 		/// <summary>
 		/// The line item associated with this attachment.
 		/// </summary>
-		public IAttachableLine lineItem { get; internal set; }
+		public IAttachableLine LineItem { get; internal set; }
 		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Init -- */
@@ -63,7 +62,7 @@ public class LineAttachment : BaseAttachment
 		
 		internal override bool Update()
 		{
-			if (item.index == -1)
+			if (Item.index == -1)
 				return false;
 			if (!start || !end)
 				return false;
@@ -92,11 +91,11 @@ public class LineAttachment : BaseAttachment
 					p2.z -= n.z * endDistance;
 				}
 				
-				lineItem.SetPositions(p1, p2);
+				LineItem.SetPositions(p1, p2);
 			}
 			else
 			{
-				lineItem.SetPositions(
+				LineItem.SetPositions(
 					start.CalculatePosition(),
 					end.CalculatePosition());
 			}
@@ -106,11 +105,11 @@ public class LineAttachment : BaseAttachment
 		
 		internal override void Release()
 		{
-			if (item != null)
+			if (Item != null)
 			{
-				item.Remove();
-				item = null;
-				lineItem = null;
+				Item.Remove();
+				Item = null;
+				LineItem = null;
 			}
 			
 			AttachmentPool<LineAttachment>.Release(this);

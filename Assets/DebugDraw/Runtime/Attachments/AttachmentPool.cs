@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using DebugDrawUtils.DebugDrawItems;
+using DebugDrawUtils.Items;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawAttachments
+namespace DebugDrawUtils.Attachments
 {
 	
 public static class AttachmentPool<T> where T : BaseAttachment, new()
@@ -10,7 +9,7 @@ public static class AttachmentPool<T> where T : BaseAttachment, new()
 	
 	private static int poolSize = 1;
 	private static int poolIndex = 0;
-	private static readonly List<T> Pool = new List<T>(poolSize);
+	private static readonly List<T> Pool = new(poolSize);
 	
 	static AttachmentPool()
 	{

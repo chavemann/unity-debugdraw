@@ -80,8 +80,6 @@ public struct EndTime
 	{
 		switch (type)
 		{
-			case Duration.Default:
-				return true;
 			case Duration.Infinite:
 				return false;
 			case Duration.Once:

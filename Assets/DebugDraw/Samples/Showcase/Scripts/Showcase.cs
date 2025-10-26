@@ -4,7 +4,7 @@ using System.Threading;
 using DebugDrawUtils;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase
+namespace DebugDrawShowcase
 {
 
 [AddComponentMenu("DebugDraw/Samples/Showcase")]
@@ -39,10 +39,10 @@ public class Showcase : MonoBehaviour
 			ToggleDebugCamera();
 		}
 		
-		if (DebugDrawCamera.isActive && Input.GetKeyDown(KeyCode.T))
+		if (DebugDrawCamera.IsActive && Input.GetKeyDown(KeyCode.T))
 		{
-			DebugDrawCamera.TrackObject(!DebugDrawCamera.isTrackingObj
-				? FindObjectOfType<PlayerMovement>()
+			DebugDrawCamera.TrackObject(!DebugDrawCamera.IsTrackingObj
+				? FindFirstObjectByType<PlayerMovement>()
 				: null, true);
 		}
 	}

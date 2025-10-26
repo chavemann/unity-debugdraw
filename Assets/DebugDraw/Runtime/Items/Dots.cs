@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using DebugDrawUtils;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 /// <summary>

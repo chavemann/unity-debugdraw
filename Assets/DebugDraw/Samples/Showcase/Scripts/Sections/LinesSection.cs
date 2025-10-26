@@ -3,7 +3,7 @@ using DebugDrawUtils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace DebugDrawSamples.Showcase.Sections
+namespace DebugDrawShowcase.Sections
 {
 
 public class LinesSection : BaseSection

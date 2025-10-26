@@ -1,8 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 /// <summary>
@@ -33,21 +32,21 @@ public class Axes : BasePointItem
 		public bool doubleSided;
 		
 		/// <summary>
-		/// The color of the x axis. Defaults to red.
+		/// The color of the x-axis. Defaults to red.
 		/// </summary>
-		public Color xColor
+		public Color XColor
 		{
 			get => color;
 			set => color = value;
 		}
 		
 		/// <summary>
-		/// The color of the y axis. Defaults to green.
+		/// The color of the y-axis. Defaults to green.
 		/// </summary>
 		public Color yColor;
 		
 		/// <summary>
-		/// The color of the z axis. Defaults to blue.
+		/// The color of the z-axis. Defaults to blue.
 		/// </summary>
 		public Color zColor;
 		
@@ -57,7 +56,7 @@ public class Axes : BasePointItem
 		/// <summary>
 		/// Draws lines along the x, y, and z axes.
 		/// </summary>
-		/// <param name="position">The axes origin.</param>
+		/// <param name="position">The axes' origin.</param>
 		/// <param name="rotation">The orientation of the axes.</param>
 		/// <param name="size">The size of each axis. Set to zero to not draw an axis.</param>
 		/// <param name="doubleSided">If true the axis line extends in both directions, other only in the positive.</param>
@@ -82,7 +81,7 @@ public class Axes : BasePointItem
 		/// <summary>
 		/// Draws lines along the x, y, and z axes.
 		/// </summary>
-		/// <param name="position">The axes origin.</param>
+		/// <param name="position">The axes' origin.</param>
 		/// <param name="rotation">The orientation of the axes.</param>
 		/// <param name="size">The size of each the axes.</param>
 		/// <param name="doubleSided">If true the axis line extends in both directions, other only in the positive.</param>
@@ -114,7 +113,7 @@ public class Axes : BasePointItem
 		/// <returns></returns>
 		public Axes SetColours(Color color)
 		{
-			xColor = color;
+			XColor = color;
 			yColor = color;
 			zColor = color;
 			
@@ -124,13 +123,13 @@ public class Axes : BasePointItem
 		/// <summary>
 		/// Sets a custom colors for each axis.
 		/// </summary>
-		/// <param name="xColor">The custom x axis color.</param>
-		/// <param name="yColor">The custom y axis color.</param>
-		/// <param name="zColor">The custom z axis color.</param>
+		/// <param name="xColor">The custom x-axis color.</param>
+		/// <param name="yColor">The custom y-axis color.</param>
+		/// <param name="zColor">The custom z-axis color.</param>
 		/// <returns></returns>
 		public Axes SetColours(Color xColor, Color yColor, Color zColor)
 		{
-			this.xColor = xColor;
+			this.XColor = xColor;
 			this.yColor = yColor;
 			this.zColor = zColor;
 			

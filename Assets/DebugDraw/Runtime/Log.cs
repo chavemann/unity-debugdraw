@@ -9,12 +9,11 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text;
-using DebugDrawUtils.DebugDrawItems;
+using DebugDrawUtils.Items;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 
-// ReSharper disable once CheckNamespace
 namespace DebugDrawUtils
 {
 

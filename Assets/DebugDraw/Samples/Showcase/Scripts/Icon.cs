@@ -1,8 +1,8 @@
 using DebugDrawUtils;
-using DebugDrawUtils.DebugDrawItems;
+using DebugDrawUtils.Items;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase
+namespace DebugDrawShowcase
 {
 
 [ExecuteAlways]
@@ -17,8 +17,8 @@ public class Icon : BaseComponent
 	public bool iconAutoSize;
 	public float axesSize;
 	
-	public Dot icon { get; protected set; }
-	public Axes axes { get; protected set; }
+	public Dot Dot { get; protected set; }
+	public Axes Axes { get; protected set; }
 	
 	protected override void OnEnable()
 	{
@@ -35,63 +35,63 @@ public class Icon : BaseComponent
 	
 	private void ClearIcon()
 	{
-		icon?.Remove();
-		icon = null;
+		Dot?.Remove();
+		Dot = null;
 	}
 	
 	private void CreateIcon()
 	{
-		if (!DebugDraw.isActive || iconSize <= 0 || !tr)
+		if (!DebugDraw.IsActive || iconSize <= 0 || !Transform)
 		{
 			ClearIcon();
 			return;
 		}
 		
-		if (!icon)
+		if (!Dot)
 		{
-			icon = DebugDraw.Dot(tr.position, iconSize, iconColor, 0, -1);
+			Dot = DebugDraw.Dot(Transform.position, iconSize, iconColor, 0, -1);
 		}
 	}
 	
 	private void UpdateIcon()
 	{
-		if (!icon)
+		if (!Dot)
 			return;
 		
-		icon.color = iconColor;
-		icon.radius = Mathf.Max(iconSize, 0);
-		icon.segments = iconCircle ? (iconAutoSize ? 24 : 0) : 1;
-		icon.autoSize = iconAutoSize;
+		Dot.color = iconColor;
+		Dot.radius = Mathf.Max(iconSize, 0);
+		Dot.segments = iconCircle ? (iconAutoSize ? 24 : 0) : 1;
+		Dot.autoSize = iconAutoSize;
 	}
 	
 	private void ClearAxes()
 	{
-		axes?.Remove();
-		axes = null;
+		Axes?.Remove();
+		Axes = null;
 	}
 	
 	private void CreateAxes()
 	{
-		if (!DebugDraw.isActive || axesSize == 0 || !tr)
+		if (!DebugDraw.IsActive || axesSize == 0 || !Transform)
 		{
 			ClearAxes();
 			return;
 		}
 		
-		if (!axes)
+		if (!Axes)
 		{
-			axes = DebugDraw.Axes(tr.position, tr.rotation, 0, false, -1);
+			Axes = DebugDraw.Axes(Transform.position, Transform.rotation, 0, false, -1);
 		}
 	}
 	
 	private void UpdateAxes()
 	{
-		if (!axes)
+		if (!Axes)
 			return;
 		
 		float size = Mathf.Abs(axesSize);
-		axes.size = new Vector3(size, size, size);
-		axes.doubleSided = axesSize < 0;
+		Axes.size = new Vector3(size, size, size);
+		Axes.doubleSided = axesSize < 0;
 	}
 	
 	private void OnDisable()
@@ -100,21 +100,21 @@ public class Icon : BaseComponent
 		ClearAxes();
 	}
 	
-	protected virtual void LateUpdate()
+	protected void LateUpdate()
 	{
-		if (icon)
+		if (Dot)
 		{
-			icon.position = tr.position;
+			Dot.position = Transform.position;
 		}
 		
-		if (axes)
+		if (Axes)
 		{
-			axes.position = tr.position;
-			axes.rotation = tr.rotation;
+			Axes.position = Transform.position;
+			Axes.rotation = Transform.rotation;
 		}
 	}
 	
-	protected virtual void OnValidate()
+	protected void OnValidate()
 	{
 		OnEnable();
 	}

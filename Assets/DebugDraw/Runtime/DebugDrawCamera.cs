@@ -3,11 +3,12 @@
 #endif
 
 using System;
+using DebugDrawUtils.Utils;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-// ReSharper disable once CheckNamespace
 namespace DebugDrawUtils
 {
 
@@ -28,12 +29,12 @@ public class DebugDrawCamera : MonoBehaviour
 		/// <summary>
 		/// True if the debug camera is active.
 		/// </summary>
-		public static bool isActive { get; private set; }
+		public static bool IsActive { get; private set; }
 		
 		/// <summary>
 		/// The current DebugDrawCamera, may be null.
 		/// </summary>
-		public static DebugDrawCamera instance { get; protected set; }
+		public static DebugDrawCamera Instance { get; protected set; }
 		
 		/// <summary>
 		/// The method responsible for creating the debug camera.
@@ -41,12 +42,13 @@ public class DebugDrawCamera : MonoBehaviour
 		/// Leave null for the default.
 		/// If set this method should create a DebugCamera (or subclass of) on the given game object and return the result.
 		/// </summary>
+		[UsedImplicitly]
 		public static Func<GameObject, DebugDrawCamera> factory;
 		
 		/// <summary>
 		/// The attached camera.
 		/// </summary>
-		public static Camera cam { get; protected set; }
+		public static Camera Cam { get; protected set; }
 		
 		/// <summary>
 		/// The speed of the mouse while looking around.
@@ -77,7 +79,7 @@ public class DebugDrawCamera : MonoBehaviour
 		/// A speed multiplier that can be adjusted with ctrl + mouse wheel.
 		/// 0 = x 1, -1 = x minSpeedMultiple, 1 = x maxSpeedMultiple.
 		/// </summary>
-		public static float currentSpeedPercent = 0;
+		public static float currentSpeedPercent;
 		
 		/// <summary>
 		/// The minimum value that currentSpeedMultiplier can be.
@@ -112,7 +114,7 @@ public class DebugDrawCamera : MonoBehaviour
 		/// <summary>
 		/// True if an object is being tracked.
 		/// </summary>
-		public static bool isTrackingObj { get; protected set; }
+		public static bool IsTrackingObj { get; protected set; }
 		
 		/// <summary>
 		/// True if the tracked object is also locked into the centre of the view.
@@ -122,7 +124,7 @@ public class DebugDrawCamera : MonoBehaviour
 		/// <summary>
 		/// The object the debug camera is tracking.
 		/// </summary>
-		public static Transform trackingObj { get; protected set; }
+		public static Transform TrackingObj { get; protected set; }
 		
 		protected static Vector3 trackingObjPosition;
 		
@@ -134,6 +136,7 @@ public class DebugDrawCamera : MonoBehaviour
 		/// <summary>
 		/// Called whenever the debug camera is toggled.
 		/// </summary>
+		[UsedImplicitly]
 		public static Action<bool> onToggle;
 		
 		protected static Transform camTr;
@@ -175,12 +178,12 @@ public class DebugDrawCamera : MonoBehaviour
 			if (!Application.isPlaying)
 				return;
 			
-			if (isActive == on)
+			if (IsActive == on)
 				return;
 			
-			isActive = on;
+			IsActive = on;
 			
-			if (isActive)
+			if (IsActive)
 			{
 				lastCamera = Camera.main;
 				
@@ -189,7 +192,7 @@ public class DebugDrawCamera : MonoBehaviour
 					lastCamera.gameObject.SetActive(false);
 				}
 				
-				if (!instance)
+				if (!Instance)
 				{
 					GameObject obj = new("__DebugDrawCam__") { hideFlags = HideFlags.NotEditable };
 					if (Application.isPlaying)
@@ -199,27 +202,27 @@ public class DebugDrawCamera : MonoBehaviour
 					
 					if (factory != null)
 					{
-						instance = factory(obj);
+						Instance = factory(obj);
 						
-						if (!instance)
+						if (!Instance)
 						{
 							Console.WriteLine("DebugCamera component returned from debugCameraFactory should not be null.");
 							Destroy(obj);
-							isActive = false;
+							IsActive = false;
 							return;
 						}
 						
-						if (instance.gameObject != obj)
+						if (Instance.gameObject != obj)
 						{
 							Console.WriteLine("DebugCamera was not added to the provided game object.");
 						}
 					}
 					else
 					{
-						instance = obj.AddComponent<DebugDrawCamera>();
+						Instance = obj.AddComponent<DebugDrawCamera>();
 					}
 					
-					instance.hideFlags = HideFlags.NotEditable;
+					Instance.hideFlags = HideFlags.NotEditable;
 					
 					obj.AddComponent<AudioListener>();
 					
@@ -228,7 +231,7 @@ public class DebugDrawCamera : MonoBehaviour
 						UpdateCamera(lastCamera, true, true);
 					}
 					
-					onInitCamera?.Invoke(cam);
+					onInitCamera?.Invoke(Cam);
 				}
 				
 				if (lastCamera != null)
@@ -236,13 +239,13 @@ public class DebugDrawCamera : MonoBehaviour
 					lastCamera.gameObject.SetActive(false);
 				}
 				
-				instance.gameObject.SetActive(true);
+				Instance.gameObject.SetActive(true);
 			}
 			else
 			{
-				if (instance)
+				if (Instance)
 				{
-					instance.gameObject.SetActive(false);
+					Instance.gameObject.SetActive(false);
 				}
 				
 				if (lastCamera)
@@ -254,20 +257,20 @@ public class DebugDrawCamera : MonoBehaviour
 				Cursor.visible = prevCursorVisible;
 			}
 			
-			if (instance)
+			if (Instance)
 			{
-				instance.Init();
+				Instance.Init();
 			}
 			
-			DebugDraw.InitCamera(isActive ? cam : lastCamera);
+			DebugDraw.InitCamera(IsActive ? Cam : lastCamera);
 			
-			onToggle?.Invoke(isActive);
+			onToggle?.Invoke(IsActive);
 		}
 		
 		/// <inheritdoc cref="Toggle(bool)"/>
 		public static void Toggle()
 		{
-			Toggle(!isActive);
+			Toggle(!IsActive);
 		}
 		
 		/// <summary>
@@ -278,7 +281,7 @@ public class DebugDrawCamera : MonoBehaviour
 		/// <param name="copyProperties">Sets the debug camera's properties to match the given camera.</param>
 		public static void UpdateCamera(Camera from = null, bool copyTransform = true, bool copyProperties = false)
 		{
-			instance.CopyFrom(from, copyTransform, copyProperties);
+			Instance.CopyFrom(from, copyTransform, copyProperties);
 		}
 		
 		/// <summary>
@@ -286,11 +289,11 @@ public class DebugDrawCamera : MonoBehaviour
 		/// </summary>
 		protected virtual void Init()
 		{
-			if (!isActive)
+			if (!IsActive)
 				return;
 			
 			speed = 0;
-			baseFOV = cam ? cam.fieldOfView : 60;
+			baseFOV = Cam ? Cam.fieldOfView : 60;
 			prevCursorLockMode = Cursor.lockState;
 			prevCursorVisible = Cursor.visible;
 			LockCursor(true);
@@ -301,8 +304,8 @@ public class DebugDrawCamera : MonoBehaviour
 			tr = transform;
 			GameObject camObj = new GameObject("Cam");
 			camObj.transform.SetParent(tr, false);
-			cam = camObj.AddComponent<Camera>();
-			camTr = cam.transform;
+			Cam = camObj.AddComponent<Camera>();
+			camTr = Cam.transform;
 		}
 		
 		protected virtual void OnDestroy()
@@ -341,7 +344,7 @@ public class DebugDrawCamera : MonoBehaviour
 					hasCrossHairMaterial = true;
 				}
 				
-				float s = crossHairSize * 0.01f * (cam.fieldOfView / 60);
+				float s = crossHairSize * 0.01f * (Cam.fieldOfView / 60);
 				
 				crossHairMaterial.SetColor(DebugDrawMesh.Color, crossHairColor);
 				crossHairMaterial.SetPass(0);
@@ -349,7 +352,7 @@ public class DebugDrawCamera : MonoBehaviour
 				Graphics.DrawMeshNow(
 					crossHairMesh,
 					Matrix4x4.TRS(
-						tr.position + camTr.forward * (cam.nearClipPlane + 0.001f),
+						tr.position + camTr.forward * (Cam.nearClipPlane + 0.001f),
 						camTr.rotation,
 						new Vector3(s, s, s)));
 			}
@@ -378,11 +381,11 @@ public class DebugDrawCamera : MonoBehaviour
 				DoMovement();
 			}
 			
-			if (isTrackingObj)
+			if (IsTrackingObj)
 			{
-				if (trackingObj)
+				if (TrackingObj)
 				{
-					Vector3 newPosition = trackingObj.position;
+					Vector3 newPosition = TrackingObj.position;
 					Vector3 position = tr.position;
 					
 					if (isLookingAtObj)
@@ -404,8 +407,8 @@ public class DebugDrawCamera : MonoBehaviour
 				}
 				else
 				{
-					isTrackingObj = false;
-					trackingObj = null;
+					IsTrackingObj = false;
+					TrackingObj = null;
 				}
 			}
 		}
@@ -415,7 +418,7 @@ public class DebugDrawCamera : MonoBehaviour
 			Vector2 mouse = Cursor.lockState == CursorLockMode.Locked
 				? new Vector2(
 					Input.GetAxis("Mouse X"),
-					Input.GetAxis("Mouse Y")) * (mouseSensitivity * (cam.fieldOfView / 60))
+					Input.GetAxis("Mouse Y")) * (mouseSensitivity * (Cam.fieldOfView / 60))
 				: Vector2.zero;
 			
 			rotation.x = Mathf.Clamp(rotation.x - mouse.y, -90, 90);
@@ -427,7 +430,7 @@ public class DebugDrawCamera : MonoBehaviour
 		
 		protected virtual void DoMovement()
 		{
-			bool allowLateralMovement = !isLookingAtObj || !isTrackingObj;
+			bool allowLateralMovement = !isLookingAtObj || !IsTrackingObj;
 			Vector3 forward = camTr.forward;
 			Vector3 right = camTr.right;
 			Vector3 input = Cursor.lockState == CursorLockMode.Locked
@@ -458,7 +461,7 @@ public class DebugDrawCamera : MonoBehaviour
 				bool alt = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
 				if (Input.GetKeyDown(KeyCode.Home))
 				{
-					cam.fieldOfView = baseFOV;
+					Cam.fieldOfView = baseFOV;
 					currentSpeedPercent = 0;
 				}
 				else if (alt)
@@ -476,8 +479,8 @@ public class DebugDrawCamera : MonoBehaviour
 				}
 				else if (scroll != 0)
 				{
-					cam.fieldOfView = Mathf.Clamp(cam.fieldOfView + scroll * -3, 2, 170);
-					Log.Display("__dbg_cam_fov", 1).Text($"Debug Camera FOV: {(int) cam.fieldOfView}");
+					Cam.fieldOfView = Mathf.Clamp(Cam.fieldOfView + scroll * -3, 2, 170);
+					Log.Display("__dbg_cam_fov", 1).Text($"Debug Camera FOV: {(int) Cam.fieldOfView}");
 				}
 			}
 			
@@ -538,14 +541,14 @@ public class DebugDrawCamera : MonoBehaviour
 			
 			if (copyProperties)
 			{
-				cam.CopyFrom(from);
+				Cam.CopyFrom(from);
 				
 				#if SRP_AVAILABLE
 				UniversalAdditionalCameraData uacFrom = from.GetComponent<UniversalAdditionalCameraData>();
-				UniversalAdditionalCameraData uacTo = cam.GetComponent<UniversalAdditionalCameraData>();
+				UniversalAdditionalCameraData uacTo = Cam.GetComponent<UniversalAdditionalCameraData>();
 				if (!uacTo)
 				{
-					uacTo = cam.gameObject.AddComponent<UniversalAdditionalCameraData>();
+					uacTo = Cam.gameObject.AddComponent<UniversalAdditionalCameraData>();
 				}
 				
 				if (uacFrom && uacTo)
@@ -583,15 +586,15 @@ public class DebugDrawCamera : MonoBehaviour
 		/// <param name="lookAt">If true the object will also stay centred in the view.</param>
 		public static void TrackObject(GameObjectOrTransform? obj, bool lookAt = false)
 		{
-			bool prevTrackingObj = isTrackingObj;
+			bool prevTrackingObj = IsTrackingObj;
 			
-			trackingObj = obj;
-			isTrackingObj = trackingObj != null;
+			TrackingObj = obj;
+			IsTrackingObj = TrackingObj != null;
 			isLookingAtObj = lookAt;
 			
-			if (isTrackingObj)
+			if (IsTrackingObj)
 			{
-				trackingObjPosition = trackingObj.position;
+				trackingObjPosition = TrackingObj.position;
 				
 				if (lookAt && !prevTrackingObj)
 				{

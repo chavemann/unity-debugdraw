@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase
+namespace DebugDrawShowcase
 {
 
 public class Spinner : BaseComponent
@@ -14,13 +14,13 @@ public class Spinner : BaseComponent
 	{
 		base.OnEnable();
 		
-		angles = tr.rotation.eulerAngles;
+		angles = Transform.rotation.eulerAngles;
 	}
 	
 	private void Update()
 	{
 		angles += spin * Time.deltaTime;
-		tr.rotation = Quaternion.Euler(angles);
+		Transform.rotation = Quaternion.Euler(angles);
 	}
 	
 }

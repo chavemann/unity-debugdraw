@@ -1,7 +1,7 @@
 using DebugDrawUtils;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase.Sections
+namespace DebugDrawShowcase.Sections
 {
 
 public class RectanglesSection : BaseSection
@@ -9,8 +9,8 @@ public class RectanglesSection : BaseSection
 	
 	public float spacing = 1;
 	public float rectSize = 0.5f;
-	public Vector2 rect2Size = new Vector2(0.65f, 0.3f);
-	public Vector3 speed = new Vector3(34, 29, 54);
+	public Vector2 rect2Size = new(0.65f, 0.3f);
+	public Vector3 speed = new(34, 29, 54);
 	
 	public readonly Color[] colors = new Color[4];
 	

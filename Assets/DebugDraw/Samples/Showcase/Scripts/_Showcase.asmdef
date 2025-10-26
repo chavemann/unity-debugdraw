@@ -1,0 +1,16 @@
+{
+    "name": "_Showcase",
+    "rootNamespace": "DebugDrawShowcase",
+    "references": [
+        "GUID:aa15480dcf1f38945a3c5544c14debc5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

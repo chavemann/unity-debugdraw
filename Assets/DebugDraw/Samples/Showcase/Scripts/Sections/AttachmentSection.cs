@@ -1,8 +1,8 @@
 using DebugDrawUtils;
-using DebugDrawUtils.DebugDrawAttachments;
+using DebugDrawUtils.Attachments;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase.Sections
+namespace DebugDrawShowcase.Sections
 {
 
 public class AttachmentSection : BaseSection
@@ -70,7 +70,7 @@ public class AttachmentSection : BaseSection
 	
 	private void DestroyAttachment(BaseAttachment attachment)
 	{
-		if (attachment && attachment.isAlive)
+		if (attachment && attachment.IsAlive)
 		{
 			attachment.Destroy();
 		}

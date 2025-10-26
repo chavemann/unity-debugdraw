@@ -1,16 +1,16 @@
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase
+namespace DebugDrawShowcase
 {
 
 public class BaseComponent : MonoBehaviour
 {
 	
-	public Transform tr { get; protected set; }
+	public Transform Transform { get; protected set; }
 	
 	protected virtual void OnEnable()
 	{
-		tr = transform;
+		Transform = transform;
 	}
 	
 }

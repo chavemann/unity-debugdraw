@@ -1,15 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using DebugDrawUtils.DebugDrawItems;
+using DebugDrawUtils.Items;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-// ReSharper disable once CheckNamespace
 namespace DebugDrawUtils
 {
 
-// ReSharper disable once CheckNamespace
 /// <summary>
 /// Direct access to a debug mesh.
 /// Normally this class won't be used directly - instead it will automatically be created and managed by <see cref="DebugDraw"/>.
@@ -182,7 +180,7 @@ public partial class DebugDrawMesh
 	
 	/// <summary>
 	/// Add an item to this mesh. Items are only "rendered" when <see cref="Build"/> is called.
-	/// Normally this method won't be used directly - instead use the specific debug methods (e.g. <see cref="DebugDrawItems.Line"/>)
+	/// Normally this method won't be used directly - instead use the specific debug methods (e.g. <see cref="Items.Line"/>)
 	/// or the similar static methods in <see cref="DebugDraw"/>
 	/// </summary>
 	/// <param name="item">.</param>
@@ -236,7 +234,7 @@ public partial class DebugDrawMesh
 	}
 	
 	/// <summary>
-	/// Clears the this DebugDrawMesh's Unity Mesh if it has been created.
+	/// Clears this DebugDrawMesh's Unity Mesh if it has been created.
 	/// </summary>
 	public void ClearMesh()
 	{
@@ -902,7 +900,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Transforms and adds a vertex.
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="item">The item whose state will be used to transform the vertex.</param>
 	/// <param name="vertex">The vertex to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void AddVertex(BaseItem item, ref Vector3 vertex)
@@ -913,7 +911,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Transforms and adds three vertices.
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="item">The item whose state will be used to transform the vertex.</param>
 	/// <param name="v1"></param>
 	/// <param name="v2"></param>
 	/// <param name="v3"></param>
@@ -937,7 +935,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Transforms and adds four vertices.
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="item">The item whose state will be used to transform the vertex.</param>
 	/// <param name="v1"></param>
 	/// <param name="v2"></param>
 	/// <param name="v3"></param>
@@ -964,7 +962,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Transforms and adds a vertex.
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="item">The item whose state will be used to transform the vertex.</param>
 	/// <param name="x">The x value of the vertex to add.</param>
 	/// <param name="y">The y value of the vertex to add.</param>
 	/// <param name="z">The z value of the vertex to add.</param>
@@ -979,7 +977,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Transforms and adds a vertex with z set to 0.
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="item">The item whose state will be used to transform the vertex.</param>
 	/// <param name="x">The x value of the vertex to add.</param>
 	/// <param name="y">The y value of the vertex to add.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -993,7 +991,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds two vertices and indices forming a line
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="item">The item whose state will be used to transform the vertex.</param>
 	/// <param name="v1">The line start point.</param>
 	/// <param name="v2">The line end point.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1008,7 +1006,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds and transforms two vertices, color and indices forming a line
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="item">The item whose state will be used to transform the vertex.</param>
 	/// <param name="v1">The line start point.</param>
 	/// <param name="v2">The line end point.</param>
 	/// <param name="clr">The line color.</param>
@@ -1026,7 +1024,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds and transforms two vertices, colors, and indices forming a line
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="item">The item whose state will be used to transform the vertex.</param>
 	/// <param name="v1">The line start point.</param>
 	/// <param name="v2">The line end point.</param>
 	/// <param name="clr1">The line color at the start point.</param>
@@ -1045,7 +1043,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds and transforms a list of vertices and colors forming a series of lines.
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="item">The item whose state will be used to transform the vertex.</param>
 	/// <param name="positions">The positions of the start and end points of each line.</param>
 	/// <param name="colors">The colors of the start and end points of each line.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1084,7 +1082,7 @@ public partial class DebugDrawMesh
 	/// <summary>
 	/// Adds and transforms a list of vertices and colors forming a series of points.
 	/// </summary>
-	/// <param name="item">The item whose whose state will be used to transform the vertex.</param>
+	/// <param name="item">The item whose state will be used to transform the vertex.</param>
 	/// <param name="positions">The positions of the start and end points of each line.</param>
 	/// <param name="colors">The colors of the start and end points of each line.</param>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -1,7 +1,4 @@
-using UnityEngine;
-
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawAttachments
+namespace DebugDrawUtils.Attachments
 {
 	
 /// <summary>
@@ -12,13 +9,11 @@ namespace DebugDrawUtils.DebugDrawAttachments
 public abstract class BaseAttachment
 	{
 		
-		protected static Vector3 vector3Ref;
-		
 		/// <summary>
 		/// Is this visual alive. Will be true when created, and false when the visual expires or is manually removed.
 		/// A visual should not be used when it is not alive.
 		/// </summary>
-		public bool isAlive => !destroyed && index != -1;
+		public bool IsAlive => !destroyed && index != -1;
 		
 		internal int index = -1;
 		internal bool destroyed;

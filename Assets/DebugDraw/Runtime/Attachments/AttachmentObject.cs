@@ -1,8 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawAttachments
+namespace DebugDrawUtils.Attachments
 {
 	
 public class AttachmentObject<T> where T : BaseAttachment

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DebugDrawUtils
+namespace DebugDrawUtils.Utils
 {
 
 /// <summary>

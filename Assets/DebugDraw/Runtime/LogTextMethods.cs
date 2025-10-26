@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // ReSharper disable UnusedMember.Global
-// ReSharper disable once CheckNamespace
 namespace DebugDrawUtils
 {
 

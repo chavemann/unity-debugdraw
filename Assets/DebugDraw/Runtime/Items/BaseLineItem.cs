@@ -1,8 +1,9 @@
-using DebugDrawUtils.DebugDrawAttachments;
+using DebugDrawUtils.Attachments;
+using DebugDrawUtils.Utils;
+using JetBrains.Annotations;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 public abstract class BaseLineItem : BaseItem, IAttachableLine
@@ -11,16 +12,19 @@ public abstract class BaseLineItem : BaseItem, IAttachableLine
 	/// <summary>
 	/// Start point.
 	/// </summary>
+	[UsedImplicitly]
 	public Vector3 p1;
 	
 	/// <summary>
 	/// End point.
 	/// </summary>
+	[UsedImplicitly]
 	public Vector3 p2;
 	
 	/// <summary>
 	/// The end point color.
 	/// </summary>
+	[UsedImplicitly]
 	public Color color2;
 	
 	/* ------------------------------------------------------------------------------------- */
@@ -29,8 +33,8 @@ public abstract class BaseLineItem : BaseItem, IAttachableLine
 	public LineAttachment AttachTo(GameObjectOrTransform startObj, GameObjectOrTransform endObj)
 	{
 		LineAttachment attachment = AttachmentPool<LineAttachment>.Get(this);
-		attachment.item = this;
-		attachment.lineItem = this;
+		attachment.Item = this;
+		attachment.LineItem = this;
 		attachment.start.Set(startObj);
 		attachment.end.Set(endObj);
 		attachment.startDistance = 0;

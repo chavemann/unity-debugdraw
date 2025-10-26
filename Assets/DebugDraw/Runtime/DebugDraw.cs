@@ -5,8 +5,8 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using DebugDrawUtils.DebugDrawAttachments;
-using DebugDrawUtils.DebugDrawItems;
+using DebugDrawUtils.Attachments;
+using DebugDrawUtils.Items;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -16,7 +16,6 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
-// ReSharper disable once CheckNamespace
 namespace DebugDrawUtils
 {
 
@@ -44,7 +43,7 @@ public static partial class DebugDraw
 	/// Just for testing, set this to true so that the instance is visible in the hierarchy
 	/// after a scene change.
 	/// </summary>
-	private const bool UpdateInstanceScene = false;
+	private static readonly bool UpdateInstanceScene = false;
 	
 	public static readonly int DefaultLayer = LayerMask.NameToLayer("Default");
 	public static Color colorIdentity = Color.white;
@@ -67,17 +66,17 @@ public static partial class DebugDraw
 	internal static DebugDrawMesh triangleMeshInstance;
 	internal static DebugDrawTextMesh textMeshInstance;
 	
-	private static bool _useFixedUpdate;
+	private static bool useFixedUpdate;
 	#if DEBUG_DRAW_EDITOR
-	private static bool _enableInEditMode = true;
+	private static bool enableInEditMode = true;
 	#else
-	private static bool _enableInEditMode = false;
+	private static bool enableInEditMode = false;
 	#endif
 	
 	internal static bool hasInstance;
 	
-	internal static Color _color = Color.white;
-	internal static Matrix4x4 _transform = Matrix4x4.identity;
+	internal static Color color = Color.white;
+	internal static Matrix4x4 transform = Matrix4x4.identity;
 	internal static bool hasColor;
 	internal static bool hasTransform;
 	private static readonly List<DebugDrawState> States = new();
@@ -97,15 +96,15 @@ public static partial class DebugDraw
 	/// Should DebugDraw update itself during FixedUpdate instead of Update.
 	/// Should be set to true if you are running your game logic and using DebugDraw from FixedUpdate.
 	/// </summary>
-	public static bool useFixedUpdate
+	public static bool UseFixedUpdate
 	{
-		get => _useFixedUpdate;
+		get => useFixedUpdate;
 		set
 		{
-			if (_useFixedUpdate == value)
+			if (useFixedUpdate == value)
 				return;
 			
-			_useFixedUpdate = value;
+			useFixedUpdate = value;
 			UpdateFixedUpdateFlag();
 		}
 	}
@@ -116,8 +115,8 @@ public static partial class DebugDraw
 	public static bool updatePerCamera = true;
 	
 	#if UNITY_EDITOR
-	public static bool isActive => pointMeshInstance != null && (EditorApplication.isPlayingOrWillChangePlaymode || _enableInEditMode);
-	public static bool isPlaying => EditorApplication.isPlayingOrWillChangePlaymode;
+	public static bool IsActive => pointMeshInstance != null && (EditorApplication.isPlayingOrWillChangePlaymode || enableInEditMode);
+	public static bool IsPlaying => EditorApplication.isPlayingOrWillChangePlaymode;
 	#else
 	public static bool isActive => pointMeshInstance != null && (Application.isPlaying || _enableInEditMode);
 	public static bool isPlaying => Application.isPlaying;
@@ -126,12 +125,12 @@ public static partial class DebugDraw
 	/// <summary>
 	/// All item colors will be multiplied by this.
 	/// </summary>
-	public static Color color
+	public static Color Color
 	{
-		get => _color;
+		get => color;
 		set
 		{
-			_color = value;
+			color = value;
 			hasColor = value != colorIdentity;
 		}
 	}
@@ -149,12 +148,12 @@ public static partial class DebugDraw
 	/// <summary>
 	/// All item will be transformed by this.
 	/// </summary>
-	public static Matrix4x4 transform
+	public static Matrix4x4 Transform
 	{
-		get => _transform;
+		get => transform;
 		set
 		{
-			_transform = value;
+			transform = value;
 			hasTransform = value != matrixIdentity;
 		}
 	}
@@ -166,13 +165,13 @@ public static partial class DebugDraw
 	
 	/// <summary>
 	/// Text smaller than this size on screen won't be rendered.
-	/// Only applicable if <see cref="DebugDrawItems.Text.SetUseWorldSize"/> is set.
+	/// Only applicable if <see cref="Items.Text.SetUseWorldSize"/> is set.
 	/// </summary>
 	public static float minTextSize = 5;
 	
 	/// <summary>
-	/// At what distance from the camera will text on screen approximately be it's original size.
-	/// Only applicable if <see cref="DebugDrawItems.Text.SetUseWorldSize"/> is set.
+	/// At what distance from the camera will text on screen approximately be its original size.
+	/// Only applicable if <see cref="Items.Text.SetUseWorldSize"/> is set.
 	/// </summary>
 	public static float textBaseWorldDistance = 10;
 	
@@ -186,9 +185,9 @@ public static partial class DebugDraw
 	/// </summary>
 	public static EndTime defaultDuration = Duration.Once;
 	
-	public static DebugDrawMesh pointMesh => pointMeshInstance;
-	public static DebugDrawMesh lineMesh => lineMeshInstance;
-	public static DebugDrawMesh triangleMesh => triangleMeshInstance;
+	public static DebugDrawMesh PointMesh => pointMeshInstance;
+	public static DebugDrawMesh LineMesh => lineMeshInstance;
+	public static DebugDrawMesh TriangleMesh => triangleMeshInstance;
 	
 	#if DEBUG_DRAW
 	private static DebugDrawTimer timerInstance;
@@ -201,8 +200,8 @@ public static partial class DebugDraw
 	private static bool beforeInitialise;
 	private static CameraInitState hasCamera = CameraInitState.Pending;
 	private static bool camUpdated;
-	public static Camera cam { get; internal set; }
-	public static Transform camTransform { get; internal set; }
+	public static Camera Cam { get; internal set; }
+	public static Transform CamTransform { get; internal set; }
 	public static Vector3 camPosition = Vector3.zero;
 	public static Vector3 camForward = Vector3.forward;
 	public static Vector3 camRight = Vector3.right;
@@ -215,14 +214,14 @@ public static partial class DebugDraw
 	/// <summary>
 	/// The number of active debug items.
 	/// </summary>
-	public static int itemCount => pointMeshInstance != null
+	public static int ItemCount => pointMeshInstance != null
 		? pointMeshInstance.itemCount + lineMeshInstance.itemCount + triangleMeshInstance.itemCount + textMeshInstance.itemCount
 		: 0;
 	
 	/// <summary>
 	/// How many vertices where drawn on the last frame.
 	/// </summary>
-	public static int vertexCount => pointMeshInstance != null
+	public static int VertexCount => pointMeshInstance != null
 		? pointMeshInstance.vertexIndex + lineMeshInstance.vertexIndex + triangleMeshInstance.vertexIndex
 		: 0;
 	
@@ -309,10 +308,10 @@ public static partial class DebugDraw
 		
 		if (state == PlayModeStateChange.EnteredEditMode)
 		{
-			if (_enableInEditMode)
+			if (enableInEditMode)
 			{
-				cam = null;
-				camTransform = null;
+				Cam = null;
+				CamTransform = null;
 				hasCamera = CameraInitState.Pending;
 			}
 			else
@@ -351,7 +350,7 @@ public static partial class DebugDraw
 		RenderPipelineManager.beginCameraRendering -= OnBeginCameraRenderingDelegate;
 		#endif
 		
-		if (!_enableInEditMode && !isPlaying)
+		if (!enableInEditMode && !IsPlaying)
 		{
 			Destroy();
 			return;
@@ -380,7 +379,7 @@ public static partial class DebugDraw
 			textMeshInstance = new DebugDrawTextMesh();
 		}
 		
-		if (_enableInEditMode || isPlaying)
+		if (enableInEditMode || IsPlaying)
 		{
 			pointMeshInstance.CreateAll();
 			lineMeshInstance.CreateAll();
@@ -419,7 +418,7 @@ public static partial class DebugDraw
 	
 	private static void DoBeforeRender(Camera camera)
 	{
-		if (cam != camera)
+		if (Cam != camera)
 		{
 			if (!updatePerCamera)
 				return;
@@ -451,7 +450,7 @@ public static partial class DebugDraw
 			requiresBuild = false;
 		}
 		
-		Camera renderCam = updatePerCamera ? cam : null;
+		Camera renderCam = updatePerCamera ? Cam : null;
 		DrawMesh(pointMeshInstance, renderCam);
 		DrawMesh(lineMeshInstance, renderCam);
 		DrawMesh(triangleMeshInstance, renderCam);
@@ -478,7 +477,6 @@ public static partial class DebugDraw
 	private static void UpdateTimerInstanceScene()
 	{
 		#pragma warning disable 162
-		// ReSharper disable once ConditionIsAlwaysTrueOrFalse
 		if (UpdateInstanceScene && hasInstance && timerInstance && timerInstance.gameObject)
 		{
 			SceneManager.MoveGameObjectToScene(timerInstance.gameObject, SceneManager.GetActiveScene());
@@ -517,8 +515,8 @@ public static partial class DebugDraw
 	internal static void ClearCamera()
 	{
 		hasCamera = CameraInitState.Pending;
-		cam = null;
-		camTransform = null;
+		Cam = null;
+		CamTransform = null;
 		camPosition = default;
 		camForward = Vector3.forward;
 		camUp = Vector3.up;
@@ -529,7 +527,7 @@ public static partial class DebugDraw
 	
 	internal static void UpdateCamera()
 	{
-		if (hasCamera == CameraInitState.Pending || hasCamera == CameraInitState.NotNull && !cam)
+		if (hasCamera == CameraInitState.Pending || hasCamera == CameraInitState.NotNull && !Cam)
 		{
 			InitCamera();
 		}
@@ -539,49 +537,49 @@ public static partial class DebugDraw
 		if (hasCamera == CameraInitState.Null)
 			return;
 		
-		if (camTransform)
+		if (CamTransform)
 		{
-			camPosition = camTransform.position;
-			camForward = camTransform.forward;
-			camRight = camTransform.right;
-			camUp = camTransform.up;
-			camFOV = cam.fieldOfView;
-			camOrthographic = cam.orthographic;
-			camOrthoSize = cam.orthographicSize * 2;
+			camPosition = CamTransform.position;
+			camForward = CamTransform.forward;
+			camRight = CamTransform.right;
+			camUp = CamTransform.up;
+			camFOV = Cam.fieldOfView;
+			camOrthographic = Cam.orthographic;
+			camOrthoSize = Cam.orthographicSize * 2;
 			camFOVAngle = Mathf.Tan(camFOV * 0.5f * Mathf.Deg2Rad);
 		}
 	}
 	
 	/// <summary>
-	/// DebugDraw caches a reference to Camera.main - call this to update that reference.
+	/// DebugDraw caches a reference to `Camera.main` - call this to update that reference.
 	/// Though this happens automatically when changing scenes etc.
 	/// </summary>
-	/// <param name="newCam">Leave as null to use Camera.main</param>
+	/// <param name="newCam">Leave as null to use `Camera.main`</param>
 	public static void InitCamera(Camera newCam = null)
 	{
-		cam = newCam ? newCam : Camera.main;
+		Cam = newCam ? newCam : Camera.main;
 		
 		#if UNITY_EDITOR
 		if (!Application.isPlaying)
 		{
 			if (!SceneView.lastActiveSceneView)
 			{
-				cam = null;
-				camTransform = null;
+				Cam = null;
+				CamTransform = null;
 				hasCamera = CameraInitState.Pending;
 				return;
 			}
 			
-			cam = SceneView.lastActiveSceneView.camera;
+			Cam = SceneView.lastActiveSceneView.camera;
 		}
 		#endif
 		
-		hasCamera = cam != null ? CameraInitState.NotNull : CameraInitState.Null;
+		hasCamera = Cam != null ? CameraInitState.NotNull : CameraInitState.Null;
 		
 		if (hasCamera == CameraInitState.NotNull)
 		{
 			// ReSharper disable once PossibleNullReferenceException
-			camTransform = cam.transform;
+			CamTransform = Cam.transform;
 			
 			if (camUpdated)
 			{
@@ -590,7 +588,7 @@ public static partial class DebugDraw
 		}
 		else
 		{
-			camTransform = null;
+			CamTransform = null;
 			camPosition = Vector3.zero;
 			camForward = Vector3.forward;
 			camRight = Vector3.right;
@@ -715,8 +713,8 @@ public static partial class DebugDraw
 		}
 		
 		DebugDrawState state = States[stateIndex++];
-		state.color = _color;
-		state.transform = _transform;
+		state.color = color;
+		state.transform = transform;
 		state.hasColor = hasColor;
 		state.hasTransform = hasTransform;
 	}
@@ -730,8 +728,8 @@ public static partial class DebugDraw
 			return;
 		
 		DebugDrawState state = States[--stateIndex];
-		_color = state.color;
-		_transform = state.transform;
+		color = state.color;
+		transform = state.transform;
 		hasColor = state.hasColor;
 		hasTransform = state.hasTransform;
 	}
@@ -836,8 +834,6 @@ public static partial class DebugDraw
 		
 		switch (time.type)
 		{
-			case Duration.Default:
-				return Duration.Once;
 			case Duration.Infinite:
 			case Duration.Once:
 				return time.type;
@@ -883,7 +879,7 @@ public static partial class DebugDraw
 	private static void UpdateFixedUpdateFlag()
 	{
 		#if DEBUG_DRAW
-		doFixedUpdate = _useFixedUpdate && Application.isPlaying;
+		doFixedUpdate = useFixedUpdate && Application.isPlaying;
 		#endif
 	}
 	
@@ -921,7 +917,7 @@ public static partial class DebugDraw
 			Mathf.Abs(normal.y),
 			Mathf.Abs(normal.z));
 		
-		// Find best basis vectors.
+		// Find the best basis vectors.
 		up = n.z > n.x && n.z > n.y
 			? new Vector3(1, 0, 0)
 			: new Vector3(0, 0, 1);

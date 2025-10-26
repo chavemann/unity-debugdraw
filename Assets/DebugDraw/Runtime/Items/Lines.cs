@@ -2,14 +2,13 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 /// <summary>
 /// Batch draw multiple lines.
-/// Both the positions and colors list must be non null and the same size.
-/// Each line must have two entries, one for the the start point and one for the end.
+/// Both the positions and colors list must be non-null and the same size.
+/// Each line must have two entries, one for the start point and one for the end.
 /// </summary>
 public class Lines : BaseItem
 	{

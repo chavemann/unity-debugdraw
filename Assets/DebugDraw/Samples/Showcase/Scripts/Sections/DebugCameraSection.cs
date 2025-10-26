@@ -1,7 +1,7 @@
 using DebugDrawUtils;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase.Sections
+namespace DebugDrawShowcase.Sections
 {
 
 public class DebugCameraSection : BaseSection
@@ -9,7 +9,7 @@ public class DebugCameraSection : BaseSection
 	
 	private void OnTriggerEnter(Collider other)
 	{
-		if (DebugDrawCamera.isActive)
+		if (DebugDrawCamera.IsActive)
 			return;
 		
 		Transform tr = other.transform;

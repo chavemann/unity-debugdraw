@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase.Sections
+namespace DebugDrawShowcase.Sections
 {
 
 [ExecuteAlways]

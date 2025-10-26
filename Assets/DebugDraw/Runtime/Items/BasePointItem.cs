@@ -1,12 +1,12 @@
-using DebugDrawUtils.DebugDrawAttachments;
+using DebugDrawUtils.Attachments;
+using DebugDrawUtils.Utils;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 /// <summary>
-/// An base item that has a position.
+/// A base item that has a position.
 /// </summary>
 public abstract class BasePointItem : BaseItem, IAttachablePoint
 {
@@ -22,8 +22,8 @@ public abstract class BasePointItem : BaseItem, IAttachablePoint
 	public PointAttachment AttachTo(GameObjectOrTransform obj)
 	{
 		PointAttachment attachment = AttachmentPool<PointAttachment>.Get(this);
-		attachment.item = this;
-		attachment.pointItem = this;
+		attachment.Item = this;
+		attachment.PointItem = this;
 		attachment.obj.Set(obj);
 		return attachment;
 	}

@@ -1,8 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 /// <summary>
@@ -74,7 +73,7 @@ public class Triangle : BasePointItem
 		/// <param name="p1">The first point of the triangle.</param>
 		/// <param name="p2">The second point of the triangle.</param>
 		/// <param name="p3">The third point of the triangle.</param>
-		/// <param name="color1">The color of the triangle's first point..</param>
+		/// <param name="color1">The color of the triangle's first point.</param>
 		/// <param name="color2">The color of the triangle's second point.</param>
 		/// <param name="color3">The color of the triangle's third point.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>
@@ -126,7 +125,7 @@ public class Triangle : BasePointItem
 		/// <param name="p1">The first point of the triangle.</param>
 		/// <param name="p2">The second point of the triangle.</param>
 		/// <param name="p3">The third point of the triangle.</param>
-		/// <param name="color1">The color of the triangle's first point..</param>
+		/// <param name="color1">The color of the triangle's first point.</param>
 		/// <param name="color2">The color of the triangle's second point.</param>
 		/// <param name="color3">The color of the triangle's third point.</param>
 		/// <param name="duration">How long the item will last in seconds. Set to 0 for only the next frame, and negative to persist forever.</param>

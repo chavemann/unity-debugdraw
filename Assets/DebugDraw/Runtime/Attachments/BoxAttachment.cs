@@ -1,8 +1,7 @@
-using DebugDrawUtils.DebugDrawItems;
+using DebugDrawUtils.Items;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawAttachments
+namespace DebugDrawUtils.Attachments
 {
 	
 public class BoxAttachment : BaseAttachment
@@ -16,7 +15,7 @@ public class BoxAttachment : BaseAttachment
 	/// <summary>
 	/// The Debug Line item associated with this attachment.
 	/// </summary>
-	public Box box { get; internal set; }
+	public Box Box { get; internal set; }
 	
 	private bool updateColliderSize;
 	private bool updateRendererSize;
@@ -30,7 +29,7 @@ public class BoxAttachment : BaseAttachment
 	
 	public BoxAttachment Init(Box box, Transform obj, BoxAttachmentSizeUpdate updateSize)
 	{
-		this.box = box;
+		this.Box = box;
 		this.obj.Set(obj);
 		
 		if (!this.obj.hasTransform)
@@ -61,7 +60,7 @@ public class BoxAttachment : BaseAttachment
 	
 	internal override bool Update()
 	{
-		if (box.index == -1)
+		if (Box.index == -1)
 			return false;
 		if (!obj)
 			return false;
@@ -93,12 +92,12 @@ public class BoxAttachment : BaseAttachment
 		
 		if (updateRendererSize || updateColliderSize)
 		{
-			box.position = bounds.center;
-			box.size = bounds.extents;
+			Box.position = bounds.center;
+			Box.size = bounds.extents;
 		}
 		else
 		{
-			box.position = obj.CalculatePosition();
+			Box.position = obj.CalculatePosition();
 		}
 		
 		return true;
@@ -106,10 +105,10 @@ public class BoxAttachment : BaseAttachment
 	
 	internal override void Release()
 	{
-		if (box != null)
+		if (Box != null)
 		{
-			box.Remove();
-			box = null;
+			Box.Remove();
+			Box = null;
 		}
 		
 		updateRendererSize = false;

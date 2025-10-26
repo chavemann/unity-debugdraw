@@ -1,8 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 /// <summary>
@@ -88,7 +87,7 @@ public class Quad : BasePointItem
 		/// <param name="p2">The second point of the quad.</param>
 		/// <param name="p3">The third point of the quad.</param>
 		/// <param name="p4">The fourth point of the quad.</param>
-		/// <param name="color1">The color of the quad's first point..</param>
+		/// <param name="color1">The color of the quad's first point.</param>
 		/// <param name="color2">The color of the quad's second point.</param>
 		/// <param name="color3">The color of the quad's third point.</param>
 		/// <param name="color4">The color of the quad's fourth point.</param>
@@ -149,7 +148,7 @@ public class Quad : BasePointItem
 		/// <param name="p2">The second point of the quad.</param>
 		/// <param name="p3">The third point of the quad.</param>
 		/// <param name="p4">The fourth point of the quad.</param>
-		/// <param name="color1">The color of the quad's first point..</param>
+		/// <param name="color1">The color of the quad's first point.</param>
 		/// <param name="color2">The color of the quad's second point.</param>
 		/// <param name="color3">The color of the quad's third point.</param>
 		/// <param name="color4">The color of the quad's fourth point.</param>

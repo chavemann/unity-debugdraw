@@ -1,9 +1,9 @@
 using System.Runtime.CompilerServices;
-using DebugDrawUtils.DebugDrawAttachments;
+using DebugDrawUtils.Attachments;
+using DebugDrawUtils.Utils;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 /// <summary>
@@ -123,8 +123,8 @@ public class Cone : BasePointItem, IAttachableLine
 	public LineAttachment AttachTo(GameObjectOrTransform startObj, GameObjectOrTransform endObj)
 	{
 		LineAttachment attachment = AttachmentPool<LineAttachment>.Get(this);
-		attachment.item = this;
-		attachment.lineItem = this;
+		attachment.Item = this;
+		attachment.LineItem = this;
 		attachment.start.Set(startObj);
 		attachment.end.Set(endObj);
 		return attachment;

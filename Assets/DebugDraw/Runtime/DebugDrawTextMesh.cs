@@ -1,7 +1,6 @@
-using DebugDrawUtils.DebugDrawItems;
+using DebugDrawUtils.Items;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
 namespace DebugDrawUtils
 {
 
@@ -42,9 +41,9 @@ public class DebugDrawTextMesh : DebugDrawMesh
 				p = globalRotation * p;
 			}
 			
-			if (DebugDraw.cam)
+			if (DebugDraw.Cam)
 			{
-				p = DebugDraw.cam.WorldToViewportPoint(globalOrigin + p);
+				p = DebugDraw.Cam.WorldToViewportPoint(globalOrigin + p);
 			}
 			
 			// This text is behind the camera

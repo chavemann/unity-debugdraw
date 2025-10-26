@@ -1,8 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 /// <summary>
@@ -672,10 +671,10 @@ public class Ellipse : BasePointItem
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private static bool CheckAngle(float angle, float min, float max, DrawEllipseAxes drawAxes)
 	{
-		const float epsilon = 0.001f;
+		const float Epsilon = 0.001f;
 		angle = Mathf.Repeat(angle - min, Mathf.PI * 2);
 		
-		return drawAxes == DrawEllipseAxes.Always || angle >= -epsilon && angle <= max - min + epsilon;
+		return drawAxes == DrawEllipseAxes.Always || angle >= -Epsilon && angle <= max - min + Epsilon;
 	}
 	
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -692,7 +691,7 @@ public class Ellipse : BasePointItem
 }
 
 /// <summary>
-/// Options for how to draw axes inside of an Ellipse.
+/// Options for how to draw axes inside an Ellipse.
 /// </summary>
 public enum DrawEllipseAxes
 {

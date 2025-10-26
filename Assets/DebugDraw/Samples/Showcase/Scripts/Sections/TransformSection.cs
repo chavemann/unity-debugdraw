@@ -1,9 +1,8 @@
-using System;
 using DebugDrawUtils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace DebugDrawSamples.Showcase.Sections
+namespace DebugDrawShowcase.Sections
 {
 
 public class TransformSection : BaseSection
@@ -32,8 +31,8 @@ public class TransformSection : BaseSection
 	{
 		float t = Showcase.SmoothPingPong(0, 1, colorSpeed);
 		DebugDraw.PushState();
-		DebugDraw.transform = tr.localToWorldMatrix;
-		DebugDraw.color = Color.Lerp(colors[0], colors[1], t);
+		DebugDraw.Transform = tr.localToWorldMatrix;
+		DebugDraw.Color = Color.Lerp(colors[0], colors[1], t);
 		
 		DebugDraw.Box(DebugDraw.left * spacing, boxSize, colors[2]);
 		DebugDraw.Line3D(

@@ -1,14 +1,13 @@
-using System;
 using DebugDrawUtils;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase
+namespace DebugDrawShowcase
 {
 
 public class ShowcaseDebugCamera : DebugDrawCamera
 {
 	
-	private static readonly GUIStyle MessageStyle = new GUIStyle();
+	private static readonly GUIStyle MessageStyle = new();
 	
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
 	private static void RuntimeInit()

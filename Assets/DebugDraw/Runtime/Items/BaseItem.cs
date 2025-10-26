@@ -1,8 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 /// <summary>
@@ -74,7 +73,7 @@ public abstract class BaseItem : Groupable
 		}
 		
 		/// <summary>
-		/// Sets this item's transform. Normally this will be set by using <see cref="DebugDrawUtils.DebugDraw.transform"/>.
+		/// Sets this item's transform. Normally this will be set by using <see cref="DebugDraw.Transform"/>.
 		/// </summary>
 		/// <param name="transform"></param>
 		public void SetGlobalTransform(Matrix4x4 transform)
@@ -88,7 +87,7 @@ public abstract class BaseItem : Groupable
 		}
 		
 		/// <summary>
-		/// Clears this item's transform. Normally this will be set by using <see cref="DebugDraw.transform"/>.
+		/// Clears this item's transform. Normally this will be set by using <see cref="DebugDraw.Transform"/>.
 		/// </summary>
 		public void ClearGlobalTransform()
 		{
@@ -96,7 +95,7 @@ public abstract class BaseItem : Groupable
 		}
 		
 		/// <summary>
-		/// Sets this item's color. Normally this will be set by using <see cref="DebugDraw.color"/>.
+		/// Sets this item's color. Normally this will be set by using <see cref="DebugDraw.Color"/>.
 		/// </summary>
 		/// <param name="color"></param>
 		public void SetGlobalColor(Color color)
@@ -110,7 +109,7 @@ public abstract class BaseItem : Groupable
 		}
 		
 		/// <summary>
-		/// Clears this item's color. Normally this will be set by using <see cref="DebugDraw.color"/>.
+		/// Clears this item's color. Normally this will be set by using <see cref="DebugDraw.Color"/>.
 		/// </summary>
 		public void ClearGlobalColor()
 		{

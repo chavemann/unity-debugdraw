@@ -1,9 +1,9 @@
 using System.Runtime.CompilerServices;
-using DebugDrawUtils.DebugDrawAttachments;
+using DebugDrawUtils.Attachments;
+using DebugDrawUtils.Utils;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 /// <summary>
@@ -56,8 +56,8 @@ public class Line : BaseLineItem, IAttachablePoint
 		public PointAttachment AttachTo(GameObjectOrTransform obj)
 		{
 			PointAttachment attachment = AttachmentPool<PointAttachment>.Get(this);
-			attachment.item = this;
-			attachment.pointItem = this;
+			attachment.Item = this;
+			attachment.PointItem = this;
 			attachment.obj.Set(obj);
 			return attachment;
 		}

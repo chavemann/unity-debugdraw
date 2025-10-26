@@ -8,7 +8,6 @@ using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
 namespace DebugDrawUtils
 {
 

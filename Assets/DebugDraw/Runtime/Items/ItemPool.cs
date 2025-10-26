@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawItems
+namespace DebugDrawUtils.Items
 {
 
 public static class ItemPool<T> where T : BaseItem, new()
@@ -28,12 +27,12 @@ public static class ItemPool<T> where T : BaseItem, new()
 		
 		if (DebugDraw.hasColor)
 		{
-			item.stateColor = DebugDraw._color;
+			item.stateColor = DebugDraw.color;
 		}
 		
 		if (DebugDraw.hasTransform)
 		{
-			item.stateTransform = DebugDraw._transform;
+			item.stateTransform = DebugDraw.transform;
 		}
 		
 		return item;

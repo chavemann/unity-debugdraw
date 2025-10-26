@@ -1,7 +1,7 @@
 ﻿using DebugDrawUtils;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase
+namespace DebugDrawShowcase
 {
 
 [RequireComponent(typeof(CharacterController))]
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 	
 	private void DoMouseLook()
 	{
-		if (DebugDrawCamera.isActive)
+		if (DebugDrawCamera.IsActive)
 			return;
 		
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -172,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
 		
 		Vector3 forward = tr.forward;
 		Vector3 right = tr.right;
-		Vector3 input = !DebugDrawCamera.isActive
+		Vector3 input = !DebugDrawCamera.IsActive
 			? new Vector3(
 				Input.GetAxisRaw("Horizontal"),
 				0,
@@ -221,7 +221,7 @@ public class PlayerMovement : MonoBehaviour
 		
 		velocity.y += gravity * Time.deltaTime;
 		
-		if (Input.GetButtonDown("Jump") && grounded && !DebugDrawCamera.isActive)
+		if (Input.GetButtonDown("Jump") && grounded && !DebugDrawCamera.IsActive)
 		{
 			velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
 			grounded = false;

@@ -1,9 +1,6 @@
-// ReSharper disable once CheckNamespace
+using DebugDrawUtils.Items;
 
-using DebugDrawUtils.DebugDrawItems;
-
-// ReSharper disable once CheckNamespace
-namespace DebugDrawUtils.DebugDrawAttachments
+namespace DebugDrawUtils.Attachments
 {
 
 /// <summary>
@@ -20,12 +17,12 @@ public class PointAttachment : BaseAttachment
 		/// <summary>
 		/// The Debug item associated with this attachment.
 		/// </summary>
-		public BaseItem item { get; internal set; }
+		public BaseItem Item { get; internal set; }
 		
 		/// <summary>
 		/// The point item associated with this attachment.
 		/// </summary>
-		public IAttachablePoint pointItem { get; internal set; }
+		public IAttachablePoint PointItem { get; internal set; }
 		
 		/* ------------------------------------------------------------------------------------- */
 		/* -- Init -- */
@@ -40,23 +37,23 @@ public class PointAttachment : BaseAttachment
 		
 		internal override bool Update()
 		{
-			if (item.index == -1)
+			if (Item.index == -1)
 				return false;
 			if (!obj)
 				return false;
 			
-			pointItem.SetPosition(obj.CalculatePosition());
+			PointItem.SetPosition(obj.CalculatePosition());
 			
 			return true;
 		}
 		
 		internal override void Release()
 		{
-			if (item != null)
+			if (Item != null)
 			{
-				item.Remove();
-				item = null;
-				pointItem = null;
+				Item.Remove();
+				Item = null;
+				PointItem = null;
 			}
 			
 			AttachmentPool<PointAttachment>.Release(this);

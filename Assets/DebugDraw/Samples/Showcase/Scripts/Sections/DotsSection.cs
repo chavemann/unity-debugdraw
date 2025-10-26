@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using DebugDrawUtils;
 using UnityEngine;
 
-namespace DebugDrawSamples.Showcase.Sections
+namespace DebugDrawShowcase.Sections
 {
 
 public class DotsSection : BaseSection
