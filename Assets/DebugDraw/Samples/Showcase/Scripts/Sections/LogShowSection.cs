@@ -6,17 +6,17 @@ namespace DebugDrawSamples.Showcase.Sections
 
 	public class LogShowSection : BaseSection
 	{
-
+		
 		public bool isPersistent;
-
+		
 		private void OnTriggerStay(Collider other)
 		{
 			Transform tr = other.transform;
 			Camera cam = tr.GetComponentInChildren<Camera>();
-
+			
 			if (!cam)
 				return;
-
+			
 			if (isPersistent)
 			{
 				tr = cam.transform;
@@ -33,7 +33,7 @@ namespace DebugDrawSamples.Showcase.Sections
 				Log.Text($"Current Game Time: <color=#FF9571FF>{Time.time:f2}</color>").Duration(1);
 			}
 		}
-
+		
 	}
 
 }

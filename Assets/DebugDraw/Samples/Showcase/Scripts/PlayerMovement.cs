@@ -8,7 +8,7 @@ namespace DebugDrawSamples.Showcase
 	[SelectionBase]
 	public class PlayerMovement : MonoBehaviour
 	{
-
+		
 		public Camera cam;
 		public float groundAcceleration = 65;
 		public float sprintAcceleration = 100;
@@ -20,35 +20,35 @@ namespace DebugDrawSamples.Showcase
 		public float gravity = -20;
 		public float jumpHeight = 3;
 		public float mouseSensitivity = 1.6f;
-
+		
 		private Transform tr;
 		private Transform camTransform;
 		private CharacterController controller;
-	
+		
 		private float xRotation;
 		private float stepOffset;
-	
+		
 		private Vector3 velocity;
 		private bool grounded;
 		private Vector3 groundNormal = Vector3.up;
 		private Vector3 feetPos;
-
+		
 		private void Start()
 		{
 			tr = transform;
 			camTransform = cam.transform;
 			LockCursor(true);
-
+			
 			controller = GetComponent<CharacterController>();
 			stepOffset = controller.stepOffset;
 		}
-
+		
 		private void Update()
 		{
 			DoMouseLook();
 			DoMovement();
 		}
-
+		
 		private void DoMouseLook()
 		{
 			if (DebugDrawCamera.isActive)
@@ -66,7 +66,7 @@ namespace DebugDrawSamples.Showcase
 				LockCursor(false);
 				return;
 			}
-		
+			
 			if (Cursor.lockState != CursorLockMode.Locked)
 			{
 				if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
@@ -78,13 +78,13 @@ namespace DebugDrawSamples.Showcase
 					return;
 				}
 			}
-		
+			
 			Vector2 mouse = new Vector2(
 				Input.GetAxis("Mouse X"),
 				Input.GetAxis("Mouse Y")) * mouseSensitivity;
-
+			
 			xRotation = Mathf.Clamp(xRotation - mouse.y, -90, 90);
-
+			
 			camTransform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 			tr.Rotate(Vector3.up * mouse.x);
 		}
@@ -102,12 +102,12 @@ namespace DebugDrawSamples.Showcase
 				Cursor.visible = true;
 			}
 		}
-
+		
 		private void UpdateFeetPos()
 		{
 			feetPos = tr.localPosition + new Vector3(0, -controller.height * 0.5f - controller.skinWidth, 0);
 		}
-
+		
 		private void DoMovement()
 		{
 			bool sprinting = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftShift);
@@ -115,10 +115,10 @@ namespace DebugDrawSamples.Showcase
 			float maxSpeed = sprinting ? maxSprintSpeed : this.maxSpeed;
 			
 			UpdateFeetPos();
-
+			
 			bool prevGrounded = grounded;
 			Vector3 prevGroundNormal = groundNormal;
-
+			
 			float r = controller.radius;
 			if (Physics.SphereCast(
 				feetPos + new Vector3(0, stepOffset + r, 0), r, Vector3.down, out RaycastHit hit, stepOffset * 2,
@@ -128,7 +128,7 @@ namespace DebugDrawSamples.Showcase
 				{
 					grounded = true;
 					groundNormal = hit.normal;
-
+					
 					if (!controller.isGrounded && hit.distance > stepOffset)
 					{
 						Vector3 p = tr.position;
@@ -153,9 +153,9 @@ namespace DebugDrawSamples.Showcase
 			{
 				groundNormal = Vector3.up;
 			}
-
+			
 			controller.stepOffset = grounded ? stepOffset : 0;
-
+			
 			if (grounded)
 			{
 				if (prevGrounded && prevGroundNormal != groundNormal)
@@ -169,28 +169,30 @@ namespace DebugDrawSamples.Showcase
 					velocity.y = 0;
 				}
 			}
-
+			
 			Vector3 forward = tr.forward;
 			Vector3 right = tr.right;
-			Vector3 input = !DebugDrawCamera.isActive ? new Vector3(
-				Input.GetAxisRaw("Horizontal"),
-				0,
-				Input.GetAxisRaw("Vertical")) : Vector3.zero;
+			Vector3 input = !DebugDrawCamera.isActive
+				? new Vector3(
+					Input.GetAxisRaw("Horizontal"),
+					0,
+					Input.GetAxisRaw("Vertical"))
+				: Vector3.zero;
 			
-			if (input.magnitude  > 1)
+			if (input.magnitude > 1)
 			{
 				input.Normalize();
 			}
 			
 			Vector3 moveDir = right * input.x + forward * input.z;
 			bool isWalking = input != Vector3.zero;
-
+			
 			moveDir = Vector3.ProjectOnPlane(moveDir, groundNormal);
 			moveDir.Normalize();
 			float accFactor = 1 - Vector3.Dot(moveDir, velocity.normalized);
-
+			
 			float speed = new Vector2(velocity.x, velocity.z).magnitude;
-
+			
 			if (grounded && !isWalking)
 			{
 				velocity.x *= CalcFriction(groundFriction);
@@ -218,22 +220,22 @@ namespace DebugDrawSamples.Showcase
 			}
 			
 			velocity.y += gravity * Time.deltaTime;
-
+			
 			if (Input.GetButtonDown("Jump") && grounded && !DebugDrawCamera.isActive)
 			{
 				velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
 				grounded = false;
 				groundNormal = Vector3.up;
 			}
-
+			
 			controller.Move(velocity * Time.deltaTime);
 		}
-
+		
 		private float CalcFriction(float friction)
 		{
 			return 1 / (1 + friction * Time.deltaTime);
 		}
-
+		
 		private void OnControllerColliderHit(ControllerColliderHit hit)
 		{
 			// Ignore ground
@@ -244,15 +246,15 @@ namespace DebugDrawSamples.Showcase
 				groundNormal = hit.normal;
 				return;
 			}
-
+			
 			velocity = Vector3.ProjectOnPlane(velocity, new Vector3(hit.normal.x, 0, hit.normal.z).normalized);
 		}
-
+		
 		private bool CheckGroundNormal(Vector3 normal)
 		{
 			return Mathf.Acos(Vector3.Dot(normal, Vector3.up)) * Mathf.Rad2Deg <= controller.slopeLimit;
 		}
-
+		
 	}
 
 }

@@ -6,7 +6,7 @@ namespace DebugDrawSamples.Showcase.Sections
 
 	public class DebugCameraSection : BaseSection
 	{
-
+		
 		private void OnTriggerEnter(Collider other)
 		{
 			if (DebugDrawCamera.isActive)
@@ -17,10 +17,10 @@ namespace DebugDrawSamples.Showcase.Sections
 			
 			if (!cam)
 				return;
-
+			
 			Showcase.ToggleDebugCamera();
 		}
-
+		
 	}
 
 }
