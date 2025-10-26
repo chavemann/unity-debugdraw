@@ -209,11 +209,11 @@ public class Dot : BasePointItem
 				mesh.vertexIndex++;
 				
 				float angle = -Mathf.PI * 0.25f;
-				float angleDelta = (Mathf.PI * 2) / segments;
+				float angleDelta = Mathf.PI * 2 / segments;
 				
 				for (int i = 0, j = segments - 1; i < segments; j = i++)
 				{
-					Vector2 p = new Vector2(
+					Vector2 p = new(
 						Mathf.Cos(angle) * size,
 						Mathf.Sin(angle) * size);
 					mesh.AddVertex(

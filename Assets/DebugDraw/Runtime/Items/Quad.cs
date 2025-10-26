@@ -179,7 +179,7 @@ public class Quad : BasePointItem
 		
 		public override void SetPosition(Vector3 position)
 		{
-			Vector3 delta = new Vector3(
+			Vector3 delta = new(
 				position.x - (this.position.x + p2.x + p3.x + p4.x) * 0.25f,
 				position.y - (this.position.y + p2.y + p3.y + p4.y) * 0.25f,
 				position.z - (this.position.z + p2.z + p3.z + p4.z) * 0.25f);

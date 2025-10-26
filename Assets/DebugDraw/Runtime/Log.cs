@@ -27,7 +27,7 @@ public static partial class Log
 	private static readonly StringBuilder ArgsBuffer = new();
 	private static readonly StringBuilder GetStringBuffer = new();
 	
-	private static readonly List<TimerSet> timers = new();
+	private static readonly List<TimerSet> Timers = new();
 	private static int timerIndex;
 	
 	/// <summary>
@@ -994,12 +994,12 @@ public static partial class Log
 	/// <param name="message">An optional message. to display before the measured time.</param>
 	public static void Time(string message = "")
 	{
-		if (timerIndex >= timers.Count)
+		if (timerIndex >= Timers.Count)
 		{
-			timers.Add(new TimerSet());
+			Timers.Add(new TimerSet());
 		}
 		
-		TimerSet set = timers[timerIndex++];
+		TimerSet set = Timers[timerIndex++];
 		set.timer.Restart();
 		set.message = message;
 	}
@@ -1012,7 +1012,7 @@ public static partial class Log
 		if (timerIndex <= 0)
 			return;
 		
-		TimerSet set = timers[--timerIndex];
+		TimerSet set = Timers[--timerIndex];
 		set.timer.Stop();
 		
 		Print(set.message != ""
@@ -1029,7 +1029,7 @@ public static partial class Log
 		if (timerIndex <= 0)
 			return 0.0;
 		
-		TimerSet set = timers[--timerIndex];
+		TimerSet set = Timers[--timerIndex];
 		set.timer.Stop();
 		return set.timer.Elapsed.TotalMilliseconds;
 	}

@@ -158,7 +158,7 @@ public class Line3D : Line
 			Vector3 p1 = hasStateTransform ? stateTransform.MultiplyPoint3x4(this.p1) : this.p1;
 			Vector3 p2 = hasStateTransform ? stateTransform.MultiplyPoint3x4(this.p2) : this.p2;
 			
-			Vector3 dir = new Vector3(
+			Vector3 dir = new(
 				p2.x - p1.x,
 				p2.y - p1.y,
 				p2.z - p1.z);
@@ -215,7 +215,7 @@ public class Line3D : Line
 			
 			if (faceCamera)
 			{
-				Vector3 d = new Vector3(
+				Vector3 d = new(
 					p1.x - camP.x,
 					p1.y - camP.y,
 					p1.z - camP.z);

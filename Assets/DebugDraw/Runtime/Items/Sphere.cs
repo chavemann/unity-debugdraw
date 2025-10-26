@@ -121,7 +121,7 @@ public class Sphere : BasePointItem
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Sphere GetWire(ref Vector3 position, float radius, ref Color color, int segments = 32, EndTime? duration = null)
 		{
-			Vector3 r = new Vector3(radius, radius, radius);
+			Vector3 r = new(radius, radius, radius);
 			Sphere item = Get(ref position, ref r, ref color, segments, duration);
 			item.wireframe = true;
 			
@@ -218,7 +218,7 @@ public class Sphere : BasePointItem
 					float a = i / (float) (rings - 1) * Mathf.PI;
 					float c = Mathf.Cos(a);
 					float s = Mathf.Sin(a);
-					Vector3 r = new Vector3(
+					Vector3 r = new(
 						c * right.x + s * forward.x * aspect,
 						c * right.y + s * forward.y * aspect,
 						c * right.z + s * forward.z * aspect);
@@ -235,7 +235,7 @@ public class Sphere : BasePointItem
 					: 0;
 				
 				// XY
-				Vector2 size = new Vector2(radius.x, radius.y);
+				Vector2 size = new(radius.x, radius.y);
 				Ellipse.BuildArc(
 					mesh, ref position, ref right, ref up, ref size, 0, 0,
 					0, 360, segments, DrawArcSegments.Never, DrawEllipseAxes.Never, ref clr, true);

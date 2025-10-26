@@ -27,11 +27,11 @@ public class LinesSection : BaseSection
 	public float lines3DSizeMax = 0.05f;
 	public float lines3DRadius = 1;
 	
-	private readonly List<Vector3> linePositions = new List<Vector3>();
-	private readonly List<Color> lineColors = new List<Color>();
-	private readonly List<Vector3> line3DPositions = new List<Vector3>();
-	private readonly List<float> line3DSizes = new List<float>();
-	private readonly List<Color> line3DColors = new List<Color>();
+	private readonly List<Vector3> linePositions = new();
+	private readonly List<Color> lineColors = new();
+	private readonly List<Vector3> line3DPositions = new();
+	private readonly List<float> line3DSizes = new();
+	private readonly List<Color> line3DColors = new();
 	
 	private readonly Color[] colors = new Color[7];
 	

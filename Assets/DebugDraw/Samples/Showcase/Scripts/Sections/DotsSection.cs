@@ -70,10 +70,10 @@ public class DotsSection : BaseSection
 			float t = i / (float) (pointCount - 1);
 			float y = pointsHeight * (t * 2 - 1);
 			float a = y * pointsFrequency + Time.time * pointsSpeed;
-			Vector3 p1 = new Vector3(
+			Vector3 p1 = new(
 				Mathf.Cos(a) * pointsWidth, y,
 				Mathf.Sin(a) * pointsWidth);
-			Vector3 p2 = new Vector3(
+			Vector3 p2 = new(
 				Mathf.Cos(a + Mathf.PI) * pointsWidth, y,
 				Mathf.Sin(a + Mathf.PI) * pointsWidth);
 			points[i] = o + p1;

@@ -149,7 +149,7 @@ public class Lines3D : BaseItem
 				Color clr1 = hasStateColor ? colors[i] * stateColor : colors[i];
 				Color clr2 = hasStateColor ? colors[i + 1] * stateColor : colors[i + 1];
 				
-				Vector3 dir = new Vector3(
+				Vector3 dir = new(
 					p2.x - p1.x,
 					p2.y - p1.y,
 					p2.z - p1.z);
@@ -206,7 +206,7 @@ public class Lines3D : BaseItem
 				
 				if (faceCamera)
 				{
-					Vector3 d = new Vector3(
+					Vector3 d = new(
 						p1.x - camP.x,
 						p1.y - camP.y,
 						p1.z - camP.z);

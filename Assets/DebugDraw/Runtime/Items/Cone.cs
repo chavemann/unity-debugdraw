@@ -231,7 +231,7 @@ public class Cone : BasePointItem, IAttachableLine
 	{
 		Vector3 up = direction.normalized;
 		Vector3 p1 = position;
-		Vector3 p2 = new Vector3(
+		Vector3 p2 = new(
 			p1.x + up.x * length,
 			p1.y + up.y * length,
 			p1.z + up.z * length);
@@ -301,7 +301,7 @@ public class Cone : BasePointItem, IAttachableLine
 		int startIndex = mesh.vertexIndex;
 		
 		// End
-		Vector2 size = new Vector2(radius, radius);
+		Vector2 size = new(radius, radius);
 		Ellipse.BuildArc(
 			mesh, ref p2, ref right, ref forward, ref size, 0, 0,
 			0, 360, segments, DrawArcSegments.Never,
@@ -352,7 +352,7 @@ public class Cone : BasePointItem, IAttachableLine
 				float a = i / (float) (rings - 1) * Mathf.PI;
 				float c = Mathf.Cos(a);
 				float s = Mathf.Sin(a);
-				Vector3 r = new Vector3(
+				Vector3 r = new(
 					c * right.x + s * forward.x,
 					c * right.y + s * forward.y,
 					c * right.z + s * forward.z);

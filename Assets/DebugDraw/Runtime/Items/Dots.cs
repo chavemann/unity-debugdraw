@@ -241,7 +241,7 @@ public class Dots : BaseItem
 					
 					for (int j = 0, k = segments - 1; j < segments; k = j++)
 					{
-						Vector2 p = new Vector2(
+						Vector2 p = new(
 							Mathf.Cos(angle) * size,
 							Mathf.Sin(angle) * size);
 						meshVertices.Add(new Vector3(

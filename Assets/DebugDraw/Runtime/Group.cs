@@ -7,7 +7,7 @@ namespace DebugDrawUtils
 public class Group : IDisposable
 {
 	
-	public string name { get; internal set; }
+	public string Name { get; internal set; }
 	public EndTime? defaultDuration;
 	
 	internal Groupable[] items = new Groupable[4];

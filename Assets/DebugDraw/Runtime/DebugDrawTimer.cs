@@ -69,10 +69,7 @@ public static partial class DebugDraw
 			#pragma warning disable 162
 			if (UpdateInstanceScene && timerInstance == this)
 			{
-				if (onActiveSceneChangedDelegate == null)
-				{
-					onActiveSceneChangedDelegate = OnActiveSceneChanged;
-				}
+				onActiveSceneChangedDelegate ??= OnActiveSceneChanged;
 				
 				SceneManager.activeSceneChanged -= onActiveSceneChangedDelegate;
 				SceneManager.activeSceneChanged += onActiveSceneChangedDelegate;

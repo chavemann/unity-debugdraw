@@ -43,7 +43,7 @@ public class Box : BaseItem
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Box Get(ref Vector3 position, float size, ref Color color, EndTime? duration = null)
 		{
-			Vector3 s = new Vector3(size, size, size);
+			Vector3 s = new(size, size, size);
 			return Get(ref position, ref s, ref color, duration);
 		}
 		
@@ -59,7 +59,7 @@ public class Box : BaseItem
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static Box Get(ref Vector3 position, float size, ref Quaternion orientation, ref Color color, EndTime? duration = null)
 		{
-			Vector3 s = new Vector3(size, size, size);
+			Vector3 s = new(size, size, size);
 			return Get(ref position, ref s, ref orientation, ref color, duration);
 		}
 		

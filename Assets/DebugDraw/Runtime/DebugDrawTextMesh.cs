@@ -7,10 +7,7 @@ namespace DebugDrawUtils
 public class DebugDrawTextMesh : DebugDrawMesh
 {
 	
-	private const float SizeOnScreen = 1;
-	
-	private static readonly GUIContent TextGUIContent = new GUIContent();
-	private static readonly Vector3 NoOrigin = Vector3.zero;
+	private static readonly GUIContent TextGUIContent = new();
 	private static readonly Quaternion NoRotation = Quaternion.identity;
 	
 	public Vector3 globalOrigin = Vector3.zero;

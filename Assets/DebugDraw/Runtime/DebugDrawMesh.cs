@@ -5,6 +5,7 @@ using DebugDrawUtils.Items;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+// ReSharper disable UnusedMember.Global
 namespace DebugDrawUtils
 {
 
@@ -1100,9 +1101,6 @@ public partial class DebugDrawMesh
 		bool hasColor = item.hasStateColor;
 		ref Color color = ref item.stateColor;
 		
-		List<Vector3> vertices = this.vertices;
-		List<Color> colours = this.colours;
-		List<int> indices = this.indices;
 		int vertexIndex = this.vertexIndex;
 		
 		for (int i = positions.Count - 1; i >= 0; i--)

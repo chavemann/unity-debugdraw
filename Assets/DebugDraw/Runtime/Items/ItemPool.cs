@@ -8,7 +8,7 @@ public static class ItemPool<T> where T : BaseItem, new()
 	
 	private static int poolSize = 1;
 	private static int poolIndex = poolSize;
-	private static readonly List<T> Pool = new List<T>(poolSize);
+	private static readonly List<T> Pool = new(poolSize);
 	
 	static ItemPool()
 	{

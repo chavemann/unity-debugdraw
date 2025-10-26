@@ -151,7 +151,7 @@ public class Triangle : BasePointItem
 		
 		public override void SetPosition(Vector3 position)
 		{
-			Vector3 delta = new Vector3(
+			Vector3 delta = new(
 				position.x - (this.position.x + p2.x + p3.x) / 3,
 				position.y - (this.position.y + p2.y + p3.y) / 3,
 				position.z - (this.position.z + p2.z + p3.z) / 3);

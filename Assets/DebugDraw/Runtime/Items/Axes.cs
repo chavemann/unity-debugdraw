@@ -34,11 +34,7 @@ public class Axes : BasePointItem
 		/// <summary>
 		/// The color of the x-axis. Defaults to red.
 		/// </summary>
-		public Color XColor
-		{
-			get => color;
-			set => color = value;
-		}
+		public Color xColor;
 		
 		/// <summary>
 		/// The color of the y-axis. Defaults to green.
@@ -113,7 +109,7 @@ public class Axes : BasePointItem
 		/// <returns></returns>
 		public Axes SetColours(Color color)
 		{
-			XColor = color;
+			xColor = color;
 			yColor = color;
 			zColor = color;
 			
@@ -129,7 +125,7 @@ public class Axes : BasePointItem
 		/// <returns></returns>
 		public Axes SetColours(Color xColor, Color yColor, Color zColor)
 		{
-			this.XColor = xColor;
+			this.xColor = xColor;
 			this.yColor = yColor;
 			this.zColor = zColor;
 			
@@ -143,24 +139,24 @@ public class Axes : BasePointItem
 			if (size.x > 0)
 			{
 				Color clr = GetColor(ref color);
-				Vector3 p1 = new Vector3(doubleSided ? -size.x : 0, 0, 0);
-				Vector3 p2 = new Vector3(size.x, 0, 0);
+				Vector3 p1 = new(doubleSided ? -size.x : 0, 0, 0);
+				Vector3 p2 = new(size.x, 0, 0);
 				mesh.AddLine(ref m, ref p1, ref p2, ref clr, ref clr);
 			}
 			
 			if (size.y > 0)
 			{
 				Color clr = GetColor(ref yColor);
-				Vector3 p1 = new Vector3(0, doubleSided ? -size.y : 0, 0);
-				Vector3 p2 = new Vector3(0, size.y, 0);
+				Vector3 p1 = new(0, doubleSided ? -size.y : 0, 0);
+				Vector3 p2 = new(0, size.y, 0);
 				mesh.AddLine(ref m, ref p1, ref p2, ref clr, ref clr);
 			}
 			
 			if (size.z > 0)
 			{
 				Color clr = GetColor(ref zColor);
-				Vector3 p1 = new Vector3(0, 0, doubleSided ? -size.z : 0);
-				Vector3 p2 = new Vector3(0, 0, size.z);
+				Vector3 p1 = new(0, 0, doubleSided ? -size.z : 0);
+				Vector3 p2 = new(0, 0, size.z);
 				mesh.AddLine(ref m, ref p1, ref p2, ref clr, ref clr);
 			}
 		}

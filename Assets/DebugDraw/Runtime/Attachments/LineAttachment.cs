@@ -71,7 +71,7 @@ public class LineAttachment : BaseAttachment
 			{
 				Vector3 p1 = start.CalculatePosition();
 				Vector3 p2 = end.CalculatePosition();
-				Vector3 n = new Vector3(
+				Vector3 n = new(
 					p2.x - p1.x,
 					p2.y - p1.y,
 					p2.z - p1.z);

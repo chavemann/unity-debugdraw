@@ -80,7 +80,7 @@ public class Line : BaseLineItem, IAttachablePoint
 		
 		public void SetPosition(Vector3 position)
 		{
-			Vector3 delta = new Vector3(
+			Vector3 delta = new(
 				position.x - (p1.x + p2.x) * 0.5f,
 				position.y - (p1.y + p2.y) * 0.5f,
 				position.z - (p1.z + p2.z) * 0.5f);
@@ -113,8 +113,8 @@ public class Line : BaseLineItem, IAttachablePoint
 		/// <param name="maxLength">The min length. Set to a negative value for no upper limit.</param>
 		public static void Clamp(ref Vector3 p1, ref Vector3 p2, float minLength, float maxLength)
 		{
-			Vector3 delta = new Vector3(
-				p2.x - p1.x,
+			Vector3 delta = new(
+				x: p2.x - p1.x,
 				p2.y - p1.y,
 				p2.z - p1.z);
 			float length = delta.sqrMagnitude;

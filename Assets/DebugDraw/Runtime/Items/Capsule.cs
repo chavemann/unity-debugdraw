@@ -149,7 +149,7 @@ public class Capsule : BaseLineItem
 				segments = Mathf.Max(this.segments, 4);
 			}
 			
-			Vector2 size = new Vector2(radius, radius);
+			Vector2 size = new(radius, radius);
 			Color clr = GetColor(ref color);
 			
 			Ellipse.BuildArc(
@@ -166,7 +166,7 @@ public class Capsule : BaseLineItem
 				float a = i / (float) (rings - 1) * Mathf.PI;
 				float c = Mathf.Cos(a);
 				float s = Mathf.Sin(a);
-				Vector3 r = new Vector3(
+				Vector3 r = new(
 					c * right.x + s * forward.x,
 					c * right.y + s * forward.y,
 					c * right.z + s * forward.z);

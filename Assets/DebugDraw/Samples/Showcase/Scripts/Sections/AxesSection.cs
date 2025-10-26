@@ -16,7 +16,7 @@ public class AxesSection : BaseSection
 	public Transform axes4;
 	public float axes1Size = -1;
 	public float axes2Size = -1;
-	public Vector3 axes3Size = new Vector3(0.4f, 0.1f, 0.5f);
+	public Vector3 axes3Size = new(0.4f, 0.1f, 0.5f);
 	public float axes4Size = -1;
 	
 	protected override void Init()

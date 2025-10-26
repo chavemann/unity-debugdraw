@@ -56,14 +56,14 @@ internal class GroupList
 				? groupPool[--groupPoolSize]
 				: new Group();
 			
-			group.name = name;
+			group.Name = name;
 			group.isActive = true;
 			group.itemCount = 0;
 			groups.Add(name, group);
 			
 			if (!defaultDuration.HasValue)
 			{
-				group.defaultDuration = default;
+				group.defaultDuration = null;
 			}
 		}
 		
@@ -84,7 +84,7 @@ internal class GroupList
 		}
 		
 		groupPool[groupPoolSize++] = group;
-		groups.Remove(group.name);
+		groups.Remove(group.Name);
 		
 		group.Release();
 	}

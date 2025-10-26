@@ -16,6 +16,7 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
+// ReSharper disable UnusedMember.Global
 namespace DebugDrawUtils
 {
 
@@ -912,7 +913,7 @@ public static partial class DebugDraw
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void FindBestAxisVectors(ref Vector3 normal, out Vector3 up, out Vector3 right)
 	{
-		Vector3 n = new Vector3(
+		Vector3 n = new(
 			Mathf.Abs(normal.x),
 			Mathf.Abs(normal.y),
 			Mathf.Abs(normal.z));
@@ -1015,7 +1016,7 @@ public static partial class DebugDraw
 	public static int AutoResolution(float distance, float radius, int min, int max, int limit)
 	{
 		float frustumHeight = CalculateFrustumHeight(distance);
-		float t = (radius * 2) / (frustumHeight);
+		float t = radius * 2 / frustumHeight;
 		
 		// Shift the lower bound up a bit
 		const float S = 0.006f;

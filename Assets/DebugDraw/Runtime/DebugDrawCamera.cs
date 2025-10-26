@@ -302,7 +302,7 @@ public class DebugDrawCamera : MonoBehaviour
 		protected virtual void Awake()
 		{
 			tr = transform;
-			GameObject camObj = new GameObject("Cam");
+			GameObject camObj = new("Cam");
 			camObj.transform.SetParent(tr, false);
 			Cam = camObj.AddComponent<Camera>();
 			camTr = Cam.transform;

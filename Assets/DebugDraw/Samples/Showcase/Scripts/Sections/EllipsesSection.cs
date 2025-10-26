@@ -12,7 +12,7 @@ public class EllipsesSection : BaseSection
 	public float row1Spacing = 1;
 	public float row1Radius = 1;
 	public float row1SizeSpeed = 1;
-	public Vector3 row1Speed = new Vector3(-30, 44, -50);
+	public Vector3 row1Speed = new(-30, 44, -50);
 	
 	public Transform row2;
 	public float row2Spacing = 1;

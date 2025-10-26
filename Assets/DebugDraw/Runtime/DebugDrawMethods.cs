@@ -7,6 +7,8 @@ using System.Runtime.CompilerServices;
 using DebugDrawUtils.Items;
 using UnityEngine;
 
+// ReSharper disable UnusedMethodReturnValue.Global
+// ReSharper disable UnusedMember.Global
 namespace DebugDrawUtils
 {
 

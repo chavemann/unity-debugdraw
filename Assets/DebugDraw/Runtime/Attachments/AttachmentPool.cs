@@ -8,7 +8,7 @@ public static class AttachmentPool<T> where T : BaseAttachment, new()
 {
 	
 	private static int poolSize = 1;
-	private static int poolIndex = 0;
+	private static int poolIndex;
 	private static readonly List<T> Pool = new(poolSize);
 	
 	static AttachmentPool()

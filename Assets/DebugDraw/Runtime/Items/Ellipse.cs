@@ -90,7 +90,7 @@ public class Ellipse : BasePointItem
 	public static Ellipse Get(ref Vector3 position, float radius, ref Vector3 facing, ref Color color, int segments = 32, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never,
 		EndTime? duration = null)
 	{
-		Vector2 size = new Vector2(radius, radius);
+		Vector2 size = new(radius, radius);
 		return Get(ref position, ref size, ref facing, ref color, segments, drawAxes, duration);
 	}
 	
@@ -107,7 +107,7 @@ public class Ellipse : BasePointItem
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Ellipse GetFill(ref Vector3 position, float radius, ref Vector3 facing, ref Color color, int segments = 32, EndTime? duration = null)
 	{
-		Vector2 size = new Vector2(radius, radius);
+		Vector2 size = new(radius, radius);
 		return GetFill(ref position, ref size, ref facing, ref color, segments, duration);
 	}
 	
@@ -132,7 +132,7 @@ public class Ellipse : BasePointItem
 		DrawArcSegments drawArcSegments = DrawArcSegments.OpenOnly, DrawEllipseAxes drawAxes = DrawEllipseAxes.Never,
 		EndTime? duration = null)
 	{
-		Vector2 size = new Vector2(radius, radius);
+		Vector2 size = new(radius, radius);
 		return GetArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, drawArcSegments, drawAxes, duration);
 	}
 	
@@ -154,7 +154,7 @@ public class Ellipse : BasePointItem
 		float startAngle, float endAngle, ref Color color, int segments = 32,
 		EndTime? duration = null)
 	{
-		Vector2 size = new Vector2(radius, radius);
+		Vector2 size = new(radius, radius);
 		return GetFillArc(ref position, ref size, ref facing, startAngle, endAngle, ref color, segments, duration);
 	}
 	
@@ -472,7 +472,7 @@ public class Ellipse : BasePointItem
 			
 			float c = Mathf.Cos(angle);
 			float s = Mathf.Sin(angle);
-			Vector2 p = new Vector2(
+			Vector2 p = new(
 				c * size.x,
 				s * size.y);
 			mesh.AddVertex(
@@ -596,7 +596,7 @@ public class Ellipse : BasePointItem
 			// The start and end angles are the same so no vertices were added.
 			else
 			{
-				Vector2 p = new Vector2(
+				Vector2 p = new(
 					Mathf.Cos(angle1) * size.x,
 					Mathf.Sin(angle1) * size.y);
 				mesh.AddVertex(
