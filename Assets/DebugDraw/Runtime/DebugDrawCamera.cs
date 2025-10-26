@@ -121,6 +121,8 @@ namespace DebugDrawUtils
 
 		protected static Transform camTr;
 		protected static Transform tr;
+		protected static CursorLockMode prevCursorLockMode;
+		protected static bool prevCursorVisible;
 
 		protected static Camera lastCamera;
 		protected static float baseFOV;
@@ -228,6 +230,9 @@ namespace DebugDrawUtils
 				{
 					lastCamera.gameObject.SetActive(true);
 				}
+				
+				Cursor.lockState = prevCursorLockMode;
+				Cursor.visible = prevCursorVisible;
 			}
 
 			if (instance)
@@ -267,6 +272,8 @@ namespace DebugDrawUtils
 
 			speed = 0;
 			baseFOV = cam ? cam.fieldOfView : 60;
+			prevCursorLockMode = Cursor.lockState;
+			prevCursorVisible = Cursor.visible;
 			LockCursor(true);
 		}
 
