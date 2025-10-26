@@ -474,13 +474,13 @@ public class DebugDrawCamera : MonoBehaviour
 						currentSpeedMultiplier = CalculateSpeedMultiplier();
 						
 						int p = Mathf.FloorToInt((currentSpeedMultiplier * DebugDrawCamera.maxSpeed) / DebugDrawCamera.maxSpeed * 100);
-						Log.Display("__dbg_cam_speed", 1).Text($"Debug Camera Speed: {p}%");
+						Log.Id("__dbg_cam_speed", 1).Text($"Debug Camera Speed: {p}%");
 					}
 				}
 				else if (scroll != 0)
 				{
 					Cam.fieldOfView = Mathf.Clamp(Cam.fieldOfView + scroll * -3, 2, 170);
-					Log.Display("__dbg_cam_fov", 1).Text($"Debug Camera FOV: {(int) Cam.fieldOfView}");
+					Log.Id("__dbg_cam_fov", 1).Text($"Debug Camera FOV: {(int) Cam.fieldOfView}");
 				}
 			}
 			
